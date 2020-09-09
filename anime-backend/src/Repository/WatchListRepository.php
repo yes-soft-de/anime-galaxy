@@ -47,4 +47,22 @@ class WatchListRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function getAllWatchListsByAnimeID($id)
+    {
+        return  $res= $this->createQueryBuilder('WatchList')
+        ->andWhere('WatchList.animeId = :id')
+        ->setParameter('id', $id)
+        ->getQuery()
+        ->getResult();
+    }
+
+    public function getAllWatchListsByUserID($id)
+    {
+        return  $res= $this->createQueryBuilder('WatchList')
+        ->andWhere('WatchList.userId = :id')
+        ->setParameter('id', $id)
+        ->getQuery()
+        ->getResult();
+    }
 }
