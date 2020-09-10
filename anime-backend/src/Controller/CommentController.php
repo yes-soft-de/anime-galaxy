@@ -45,17 +45,14 @@ class CommentController extends BaseController
 
 
     /**
-     * @Route("/comment/{id}/{userId}/{animeId}", name="updateComment",methods={"PUT"})
+     * @Route("/comment/{userId}/{animeId}", name="updateComment",methods={"PUT"})
      * @param Request $request
      * @return JsonResponse|Response
      */
     public function update(Request $request, $userId, $animeId)
     {
-      
         $data = json_decode($request->getContent(), true);
-        $id = $request->get('id');
         $request = $this->autoMapping->map(\stdClass::class, UpdateCommentRequest::class, (object) $data);
-        $request->setId($id);
         $request->setUserId($userId);
         $request->setAnimeId($animeId);
         $result = $this->commentService->update($request);

@@ -2,7 +2,7 @@
 
 namespace App\Request;
 
-class UpdateInterActionResponse
+class UpdateInterActionRequest 
 {
     private $id;
     private $userId;

@@ -39,17 +39,18 @@ class InterActionManager
 
 
 
-    public function update(UpdateCommentRequest $request)
+    public function update(InterActionRepository $request)
     {
-        $commentEntity = $this->commentRepository->find($request->getId());
+        $interActionEntity = $this->interActionRepository->find($request->getId());
         
-        if (!$commentEntity) {
+        if (!$interAction) {
 
-        } else {
-            $commentEntity = $this->autoMapping->mapToObject(UpdateCommentRequest::class, Comment::class, $request, $commentEntity);
+        }
+        else {
+            $interAction = $this->autoMapping->mapToObject(UpdateInterActionRequest::class, InterAction::class, $request, $interActionEntity);
             $this->entityManager->flush();
         }
-        return $commentEntity;
+        return $interAction;
     }
 
 

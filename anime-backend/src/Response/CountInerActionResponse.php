@@ -7,9 +7,6 @@ class CountInerActionResponse
 
     public $countIneraction;
    
-
-    
-
     /**
      * Set the value of countInerAction
      *

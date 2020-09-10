@@ -12,6 +12,7 @@ use App\Response\UpdateInterActionResponse;
 use Symfony\Component\HttpFoundation\Request;
 use App\Response\GetInterActionsResponse;
 use App\Response\CountInerActionResponse;
+
 class InterActionService
 
 {
@@ -41,9 +42,9 @@ class InterActionService
 
     public function update($request)
     {
-        $commentResult = $this->commentManager->update($request);
+        $interactionResult = $this->interActionManager->update($request);
      
-        $response = $this->autoMapping->map(Comment::class, UpdateCommentResponse::class, $commentResult);
+        $response = $this->autoMapping->map(InterAction::class, UpdateInterActionResponse::class, $interactionResult);
         
         return $response;   
     }

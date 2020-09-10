@@ -47,4 +47,36 @@ class RatingRepository extends ServiceEntityRepository
         ;
     }
     */
+
+
+
+    public function getRating($animeID, $userID)
+    {
+        //avg Rating
+         $res= $this->createQueryBuilder('Rating')
+        ->andWhere('Rating.animeId = :animeID')
+        ->andWhere('Rating.userId = :userID')
+        ->select('sum(Rating.rateValue) / count(Rating.rateValue) as rating')
+        ->setParameter('animeID', $animeID)
+        ->setParameter('userID', $userID)
+        ->getQuery()
+        ->getResult();
+        
+        return $res;
+    }
+
+
+
+    public function getAllRatings($id)
+    {
+        //avg Rating
+         $res= $this->createQueryBuilder('Rating')
+        ->andWhere('Rating.animeId = :id')
+        ->select('sum(Rating.rateValue) / count(Rating.rateValue) as rating')
+        ->setParameter('id', $id)
+        ->getQuery()
+        ->getOneOrNullResult();
+        
+        return $res;
+    }
 }
