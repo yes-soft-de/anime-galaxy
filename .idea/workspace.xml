@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4ace56ba-071b-4ce7-9483-9f30266c6a6d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-backend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/anime-backend/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +147,7 @@
       <workItem from="1599658867832" duration="5371000" />
       <workItem from="1599670137568" duration="4100000" />
       <workItem from="1599760468151" duration="11267000" />
-      <workItem from="1599776708931" duration="1228000" />
+      <workItem from="1599776708931" duration="1335000" />
     </task>
     <servers />
   </component>
