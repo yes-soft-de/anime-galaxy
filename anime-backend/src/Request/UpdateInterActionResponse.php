@@ -2,12 +2,12 @@
 
 namespace App\Request;
 
-class UpdateCommentRequest
+class UpdateInterActionResponse
 {
     private $id;
     private $userId;
     private $animeId;
-    private $comment;
+    private $type;
 
      /**
      * @return mixed
@@ -66,17 +66,17 @@ class UpdateCommentRequest
     /**
      * @return mixed
      */ 
-    public function getComment()
+    public function getType()
     {
-        return $this->comment;
+        return $this->type;
     }
 
    /**
-     * @param mixed $comment
+     * @param mixed $type
      */
-    public function setComment($comment)
+    public function setType($type)
     {
-        $this->comment = $comment;
+        $this->type = $type;
 
         return $this;
     }
