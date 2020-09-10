@@ -20,7 +20,7 @@ class RatingController extends BaseController
 
     /**
      * RatingController constructor.
-     * @param RatingService $interActionService
+     * @param RatingService $ratingService
      */
     public function __construct(RatingService $ratingService,AutoMapping $autoMapping)
     {
