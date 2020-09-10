@@ -1,6 +1,6 @@
 # anime-galaxy
 
-##Anime APIs
+### Anime APIs
 ##### Create new anime.
 `Method: POST. Path: /anime`
 ##### Update existing anime by ID. 
@@ -12,7 +12,7 @@
 ##### Delete existing anime by ID. 
 `Method: DELET. Path: /anime`
 
-##Category APIs
+### Category APIs
 ##### Create a new category. 
 `Method: POST. Path: /category`
 ##### Get all categories. 
@@ -24,7 +24,7 @@
 ##### Delete specific category. 
 `Method: DELETE. Path: / category`
 
-##Image APIs
+### Image APIs
 ##### Insert new image. 
 `Method: POST. Path: /image`
 ##### Get all images. 
@@ -35,7 +35,7 @@
 `Method: DELETE. Path: / image`
 
 
-##Follow APIs
+### Follow APIs
 ##### Add new following. 
 `Method: POST. Path: /following`
 ##### Get a following by ID. 
