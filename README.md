@@ -2,108 +2,89 @@
 
 ## API Guide
 
-### Comment
+### Comment APIs
 #### Create Comment
 ```
-/comment/{userID}/{animeID}
-methods={"POST"}
+Method: POST. Path: /comment/userID/animeID
 ```
 #### Update Comment
 ```
-/comment/{userID}/{animeID}
-methods={"PUT"}
+Method: PUT. Path: /comment/userID/animeID
 ```
 #### Delete Comment
 ```
-/comment/{ID}
-methods={"DELETE"}
+Method: DELET. Path: /comment/ID
 ```
 #### Get Comment By ID
 ```
-/comment/{ID}
-methods={"GET"}
+Method:GET. Path: /comment/ID
 ```
 #### Get All Comments For Anime
 ```
-/comments/{animeID}
-methods={"GET"}
+Method:GET. Path: /comments/animeID
 ```
 
 
-### Interaction
+### Interaction APIs
 
 #### Create Interaction
 ```
-/interaction/{userID}/{animeID}/{type}
-methods={"POST"}
+Method:POST. Path: /Interaction/userID/animeID/type
 ```
 #### Update interaction
 ```
-/interaction/{userID}/{animeID}/{type}
-methods={"PUT"}
+Method: PUT. Path: /Interaction/userID/animeID/type
 ```
 #### Get All Interaction With All Users By AnimeID
 ```
-/interaction/{animeID}
-methods={"GET"}
+Method: GET. Path: /Interaction/animeID
 ```
 
 #### Get All InterAction With User By AnimeID And UserID
 ```
-/interaction/{animeID}/{userID}
-methods={"GET"}
+Method: GET. Path/Interaction/animeID/userID
 ```
 #### Count Interactions By AnimeID
 ```
-/countInteractions/{animeID}
-methods={"GET"}
+GET. Path/countInteractions/animeID
 ```
 
 
-### Rating
+### Rating APIs
 
 #### Create Rating
 ```
-/rating/{userID}/{animeID}/{rateValue}
-methods={"POST"}
+Path: /rating/userID/animeID/rateValue
 ```
 #### Update Rating
 ```
-/rating/{userID}/{animeID}/{rateValue}
-methods={"PUT"}
+Method: PUT. Path: /rating/userID/animeID/rateValue
 ```
 #### Get Rating By AnimeID And UserID
 ```
-/rating/{animeID}/{userID}
-methods={"GET"}
+Method: GET. Path: /rating/animeID/ userID
 ```
-
 #### Get All Ratings By AnimeID
 ```
-/ratings/{animeID}
-methods={"GET"}
+Method: GET. Path: /ratings/animeID
 ```
 
 
-### Watch List
+### Watch List APIs
 
 #### Create Watch List
 ```
-/watchList/{userID}/{animeID}
-methods={"POST"}
+Method: POST. Path: /watchList/userID/animeID
 ```
 #### Get Watch List By Id
 ```
-/watchList/{ID}
-methods={"GET"}
+Get a watchList  by ID. Method: GET. Path: /watchList/ID
 ```
 #### Get All Watch Lists By Anime ID
 ```
-/watchListsAnime/{animeID}
-methods={"GET"}
+Method: GET. Path: /watchListsAnime/animeID
 ```
 #### Get All Watch Lists By User ID
 ```
-/watchListsUser/{userID}
-methods={"GET"}
+Method: GET. Path: /watchListsUser/userID
 ```
