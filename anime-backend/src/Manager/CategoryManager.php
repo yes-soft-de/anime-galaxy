@@ -58,8 +58,8 @@ class CategoryManager
         $category = $this->categoryRepository->getCategoryById($request->getId());
         if (!$category )
         {
-          
-        } 
+            return json(['res'=>false]);
+        }
          else
              {
 

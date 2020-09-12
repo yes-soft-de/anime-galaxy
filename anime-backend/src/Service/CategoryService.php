@@ -60,18 +60,12 @@ class CategoryService
     public function delete($request)
     {
         $result = $this->categoryManager->delete($request);
+        if(!($result instanceof Category))
+            return $result;
         $response = $this->autoMapping->map(Category::class, GetCategoryByIdResponse::class, $result);
-
-        if(!$response){
-           $error=['error'=>"this category not found!!!"];
-           return $error;
-        }
-        else{
         return $response;
     }
-       
-          
-    }
+
     public function update($request)
     {
         $categoryResult = $this->categoryManager->update($request);
