@@ -29,7 +29,7 @@
 `Method: POST. Path: /image`
 ##### Update specific image. 
 `Method: PUT. Path: /image`
-##### Get specific image by animeID. 
+##### Get specific images by animeID. 
 `Method: GET. Path: /image/animeID`
 ##### Delete an existing image by ID. 
 `Method: DELETE. Path: / image`

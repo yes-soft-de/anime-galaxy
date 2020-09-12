@@ -2,24 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4ace56ba-071b-4ce7-9483-9f30266c6a6d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-backend/src/Controller/AnimeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/anime-backend/src/Controller/AnimeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-backend/src/Controller/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/anime-backend/src/Controller/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-backend/src/Controller/FollowController.php" beforeDir="false" afterPath="$PROJECT_DIR$/anime-backend/src/Controller/FollowController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-backend/src/Entity/Anime.php" beforeDir="false" afterPath="$PROJECT_DIR$/anime-backend/src/Entity/Anime.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-backend/src/Manager/AnimeManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/anime-backend/src/Manager/AnimeManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-backend/src/Manager/FollowManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/anime-backend/src/Manager/FollowManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-backend/src/Repository/AnimeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/anime-backend/src/Repository/AnimeRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-backend/src/Repository/FollowRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/anime-backend/src/Repository/FollowRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-backend/src/Request/CreateAnimeRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/anime-backend/src/Request/CreateAnimeRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-backend/src/Request/UpdateAnimeRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/anime-backend/src/Request/UpdateAnimeRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-backend/src/Response/CreateAnimeResponse.php" beforeDir="false" afterPath="$PROJECT_DIR$/anime-backend/src/Response/CreateAnimeResponse.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-backend/src/Response/GetAnimeByIdResponse.php" beforeDir="false" afterPath="$PROJECT_DIR$/anime-backend/src/Response/GetAnimeByIdResponse.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-backend/src/Response/GetAnimeResponse.php" beforeDir="false" afterPath="$PROJECT_DIR$/anime-backend/src/Response/GetAnimeResponse.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-backend/src/Response/UpdateAnimeResponse.php" beforeDir="false" afterPath="$PROJECT_DIR$/anime-backend/src/Response/UpdateAnimeResponse.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-backend/src/Service/AnimeService.php" beforeDir="false" afterPath="$PROJECT_DIR$/anime-backend/src/Service/AnimeService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-backend/src/Service/FollowService.php" beforeDir="false" afterPath="$PROJECT_DIR$/anime-backend/src/Service/FollowService.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +152,7 @@
       <workItem from="1599928711363" duration="2240000" />
       <workItem from="1599935319142" duration="6615000" />
       <workItem from="1599943970561" duration="3573000" />
-      <workItem from="1599950100167" duration="246000" />
+      <workItem from="1599950100167" duration="443000" />
     </task>
     <servers />
   </component>
