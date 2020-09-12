@@ -45,29 +45,29 @@ class CommentController extends BaseController
 
 
     /**
-     * @Route("/comment/{userId}/{animeId}", name="updateComment",methods={"PUT"})
+     * @Route("/comment/{userID}/{animeID}", name="updateComment",methods={"PUT"})
      * @param Request $request
      * @return JsonResponse|Response
      */
-    public function update(Request $request, $userId, $animeId)
+    public function update(Request $request, $userID, $animeID)
     {
         $data = json_decode($request->getContent(), true);
         $request = $this->autoMapping->map(\stdClass::class, UpdateCommentRequest::class, (object) $data);
-        $request->setUserId($userId);
-        $request->setAnimeId($animeId);
+        $request->setUserId($userID);
+        $request->setAnimeId($animeID);
         $result = $this->commentService->update($request);
         return $this->response($result, self::UPDATE);
     }
 
 
      /**
-     * @Route("/comment/{id}", name="deleteComment",methods={"DELETE"})
+     * @Route("/comment/{ID}", name="deleteComment",methods={"DELETE"})
      * @param Request $request
      * @return JsonResponse
      */
     public function delete(Request $request)
     {
-        $request = new DeleteRequest($request->get('id'));
+        $request = new DeleteRequest($request->get('ID'));
         $result = $this->commentService->delete($request);
 
         return $this->response("Deleted Success", self::DELETE);
@@ -76,26 +76,26 @@ class CommentController extends BaseController
 
 
     /**
-     * @Route("/comment/{id}", name="getCommentById",methods={"GET"})
+     * @Route("/comment/{ID}", name="getCommentById",methods={"GET"})
      * @param Request $request
      * @return JsonResponse
      */
     public function getCommentById(Request $request)
     {
-        $request=new GetByIdRequest($request->get('id'));
-        $result = $this->commentService->getCommentById($request);
+        $request = new GetByIdRequest($request->get('ID'));
+        $result  = $this->commentService->getCommentById($request);
         
         return $this->response($result, self::FETCH);
     }
 
 
      /**
-     * @Route("/comments/{animeId}", name="getAllcommentsForAnime",methods={"GET"})
+     * @Route("/comments/{animeID}", name="getAllcommentsForAnime",methods={"GET"})
      * @return JsonResponse
      */
-    public function getAll($animeId)
+    public function getAll($animeID)
     {
-        $result = $this->commentService->getAll($animeId);
+        $result = $this->commentService->getAll($animeID);
         return $this->response($result, self::FETCH);
     }
 }

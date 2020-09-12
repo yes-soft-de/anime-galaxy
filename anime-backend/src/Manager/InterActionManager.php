@@ -10,7 +10,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Flex\Response;
 use App\Request\UpdateInterActionRequest;
-use App\Response\UpdateInterActionResponse;
 use App\Request\GetByIdRequest;
 
 class InterActionManager
@@ -39,15 +38,15 @@ class InterActionManager
 
 
 
-    public function update(InterActionRepository $request)
+    public function update(UpdateInterActionRequest $request)
     {
-        $interActionEntity = $this->interActionRepository->find($request->getId());
+        $interAction = $this->interActionRepository->find($request->getId());
         
         if (!$interAction) {
 
         }
         else {
-            $interAction = $this->autoMapping->mapToObject(UpdateInterActionRequest::class, InterAction::class, $request, $interActionEntity);
+            $interAction = $this->autoMapping->mapToObject(UpdateInterActionRequest::class, InterAction::class, $request, $interAction);
             $this->entityManager->flush();
         }
         return $interAction;

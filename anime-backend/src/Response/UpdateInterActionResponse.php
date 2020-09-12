@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Request;
+namespace App\Response;
 
-class UpdateInterActionRequest 
+class UpdateInterActionResponse
 {
     private $id;
     private $userId;
@@ -71,9 +71,9 @@ class UpdateInterActionRequest
         return $this->type;
     }
 
-   /**
+    /**
      * @param mixed $type
-     */
+     */ 
     public function setType($type)
     {
         $this->type = $type;

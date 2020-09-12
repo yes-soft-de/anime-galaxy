@@ -30,53 +30,20 @@ class WatchListController extends BaseController
 
 
     /**
-     * @Route("/watchList/{userId}/{animeId}", name="watchList", name="createWatchList",methods={"POST"})
+     * @Route("/watchList/{userID}/{animeID}", name="watchList", name="createWatchList",methods={"POST"})
      */
-    public function create(Request $request, $userId , $animeId)
+    public function create(Request $request, $userID , $animeID)
     {
          $data = json_decode($request->getContent(), true);
          $request=$this->autoMapping->map(\stdClass::class,CreateWatchListRequest::class,(object)$data);
-         $request->setUserId($userId);
-         $request->setAnimeId($animeId);
-         $result = $this->watchListService->create($request, $userId , $animeId);
+         $request->setUserId($userID);
+         $request->setAnimeId($animeID);
+         $result = $this->watchListService->create($request, $userID , $animeID);
          return $this->response($result, self::CREATE);
     }
 
 
-    /**
-     * @Route("/watchList/{id}/{userId}/{animeId}", name="updateWatchList",methods={"PUT"})
-     * @param Request $request
-     * @return JsonResponse|Response
-     */
-    public function update(Request $request, $userId, $animeId)
-    {
-      
-        $data = json_decode($request->getContent(), true);
-        $id = $request->get('id');
-        $request = $this->autoMapping->map(\stdClass::class, UpdateWatchListRequest::class, (object) $data);
-        $request->setId($id);
-        $request->setUserId($userId);
-        $request->setAnimeId($animeId);
-        $result = $this->watchListService->update($request);
-        return $this->response($result, self::UPDATE);
-    }
-
-
-     /**
-     * @Route("/watchList/{id}", name="deleteWatchList",methods={"DELETE"})
-     * @param Request $request
-     * @return JsonResponse
-     */
-    public function delete(Request $request)
-    {
-        $request = new DeleteRequest($request->get('id'));
-        $result = $this->watchListService->delete($request);
-
-        return $this->response("Deleted Success", self::DELETE);
-
-    }
-
-
+    
     /**
      * @Route("/watchList/{id}", name="getWatchListById",methods={"GET"})
      * @param Request $request

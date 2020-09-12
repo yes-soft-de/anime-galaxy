@@ -9,8 +9,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Flex\Response;
-// use App\Request\UpdateRatingRequest;
-// use App\Response\UpdateRatingResponse;
+use App\Request\UpdateRatingRequest;
 use App\Request\GetByIdRequest;
 
 class RatingManager
@@ -40,17 +39,17 @@ class RatingManager
 
 
 
-    public function update(UpdateCommentRequest $request)
+    public function update(UpdateRatingRequest $request)
     {
-        $commentEntity = $this->commentRepository->find($request->getId());
+        $ratingEntity = $this->ratingRepository->find($request->getId());
         
-        if (!$commentEntity) {
+        if (!$ratingEntity) {
 
         } else {
-            $commentEntity = $this->autoMapping->mapToObject(UpdateCommentRequest::class, Comment::class, $request, $commentEntity);
+            $ratingEntity = $this->autoMapping->mapToObject(UpdateRatingRequest::class, Rating::class, $request, $ratingEntity);
             $this->entityManager->flush();
         }
-        return $commentEntity;
+        return $ratingEntity;
     }
 
 

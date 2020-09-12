@@ -47,20 +47,8 @@ class WatchListService
         return $response;   
     }
 
-    public function delete($request)
-    {
-        $result = $this->watchListManager->delete($request);
-        $response = $this->autoMapping->map(WatchList::class, GetWatchListByIdResponse::class, $result);
-    
-        if(!$response){
-           $error=['error'=>" not found!!!"];
-           return $error;
-        }
-        else{
-        return $response;}
-          
-    }
 
+    
     public function getWatchListById($request)
     {
         $result = $this->watchListManager->getWatchListById($request);

@@ -91,7 +91,7 @@ class InterActionRepository extends ServiceEntityRepository
          $res= $this->createQueryBuilder('InterAction')
         ->andWhere('InterAction.animeId = :id')
         ->andWhere('InterAction.type = 2')
-        ->select('count(InterAction.type) as disLike')
+        ->select('count(InterAction.type) as DisLike')
         ->setParameter('id', $id)
         ->getQuery()
         ->getResult();
@@ -105,7 +105,22 @@ class InterActionRepository extends ServiceEntityRepository
          $res= $this->createQueryBuilder('InterAction')
         ->andWhere('InterAction.animeId = :id')
         ->andWhere('InterAction.type = 3')
-        ->select('count(InterAction.type) as love')
+        ->select('count(InterAction.type) as Love')
+        ->setParameter('id', $id)
+        ->getQuery()
+        ->getResult();
+       
+        return $res;
+    }
+
+
+    public function getAllFavorite($id)
+    {
+        // Favorite = 4
+         $res= $this->createQueryBuilder('InterAction')
+        ->andWhere('InterAction.animeId = :id')
+        ->andWhere('InterAction.type = 4')
+        ->select('count(InterAction.type) as Favorite')
         ->setParameter('id', $id)
         ->getQuery()
         ->getResult();
@@ -136,7 +151,9 @@ class InterActionRepository extends ServiceEntityRepository
           $this->getAllLikes($id),
           $this->getAllDisLikes($id),
           $this->getAllLove($id),
+          $this->getAllFavorite($id),
           $this->getAllInerAction($id)
+          
       ]; 
      
       return $arr;

@@ -43,6 +43,23 @@ class RatingController extends BaseController
          $result = $this->ratingService->create($request, $userID , $animeID, $rateValue);
          return $this->response($result, self::CREATE);
     }
+
+
+    /**
+     * @Route("/rating/{userID}/{animeID}/{rateValue}", name="updateRating",methods={"PUT"})
+     * @param Request $request
+     * @return JsonResponse|Response
+     */
+    public function update(Request $request, $userID, $animeID, $rateValue)
+    {
+        $data = json_decode($request->getContent(), true);
+        $request = $this->autoMapping->map(\stdClass::class, UpdateRatingRequest::class, (object) $data);
+        $request->setUserId($userID);
+        $request->setAnimeId($animeID);
+        $request->setRateValue($rateValue);
+        $result = $this->ratingService->update($request);
+        return $this->response($result, self::UPDATE);
+    }
     
     
 

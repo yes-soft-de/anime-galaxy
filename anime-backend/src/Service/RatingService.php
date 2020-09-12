@@ -8,10 +8,12 @@ use App\AutoMapping;
 use App\Entity\Rating;
 use App\Manager\RatingManager;
 use App\Response\CreateRatingResponse;
-// use App\Response\UpdateRatingResponse;
+use App\Response\UpdateRatingResponse;
 use Symfony\Component\HttpFoundation\Request;
 use App\Response\GetRatingsResponse;
 use App\Response\CountRatingResponse;
+
+
 
 class RatingService
 
@@ -38,6 +40,16 @@ class RatingService
         $response = $this->autoMapping->map(Rating::class, CreateRatingResponse::class, $ratingManager);
         
         return $response;
+    }
+
+
+    public function update($request)
+    {
+        $ratingResult = $this->ratingManager->update($request);
+     
+        $response = $this->autoMapping->map(Rating::class, UpdateRatingResponse::class, $ratingResult);
+        
+        return $response;   
     }
 
 

@@ -53,20 +53,6 @@ class WatchListManager
         return $watchListEntity;
     }
 
-
-    public function delete(DeleteRequest $request)
-    {
-        $WatchListManager = $this->watchListRepository->find($request->getId());
-        if (!$WatchListManager ) {
-                  
-        } 
-         else{   
-
-            $this->entityManager->remove($WatchListManager);
-            $this->entityManager->flush();
-         }
-         return $WatchListManager;
-    }
     
 
     public function getWatchListById(GetByIdRequest $request)

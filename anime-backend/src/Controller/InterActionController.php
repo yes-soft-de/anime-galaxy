@@ -8,10 +8,9 @@ use Symfony\Component\HttpFoundation\Request;
 use App\AutoMapping;
 use App\Service\InterActionService;
 use App\Request\CreateInterActionRequest;
-use App\Request\UpdateInterActionRequest;
 use App\Request\GetByIdRequest;
 use Symfony\Component\HttpFoundation\Response;
-
+use App\Request\UpdateInterActionRequest;
 class InterActionController extends BaseController
 {
     private $interActionService;
@@ -45,11 +44,11 @@ class InterActionController extends BaseController
 
 
     /**
-     * @Route("/interaction/{userId}/{animeId}/{type}", name="updateInteraction",methods={"PUT"})
+     * @Route("/interaction/{userID}/{animeID}/{type}", name="updateInteraction",methods={"PUT"})
      * @param Request $request
      * @return JsonResponse|Response
      */
-    public function update(Request $request, $userId, $animeId, $type)
+    public function update(Request $request, $userID, $animeID, $type)
     {
       
         $data = json_decode($request->getContent(), true);
