@@ -66,16 +66,16 @@ class CategoryController extends BaseController
     }
 
     /**
-     * @Route("/category/{id}", name="updateCategory", methods={"PUT"})
+     * @Route("/category", name="updateCategory", methods={"PUT"})
      * @param Request $request
      * @return JsonResponse|Response
      */
     public function update(Request $request)
     {
         $data = json_decode($request->getContent(), true);
-        $id = $request->get('id');
+        //$id = $request->get('id');
         $request = $this->autoMapping->map(\stdClass::class, UpdateCategoryRequest::class, (object) $data);
-        $request->setId($id);
+        //$request->setId($id);
         $result = $this->categoryService->update($request);
         return $this->response($result, self::UPDATE);
     }

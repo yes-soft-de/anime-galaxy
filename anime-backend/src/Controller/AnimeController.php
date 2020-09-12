@@ -69,16 +69,16 @@ class AnimeController extends BaseController
     }
 
     /**
-     * @Route("/anime/{id}", name="updateAnime", methods={"PUT"})
+     * @Route("/anime", name="updateAnime", methods={"PUT"})
      * @param Request $request
      * @return JsonResponse|Response
      */
     public function update(Request $request)
     {
         $data = json_decode($request->getContent(), true);
-        $id = $request->get('id');
+        //$id = $request->get('id');
         $request = $this->autoMapping->map(\stdClass::class, UpdateAnimeRequest::class, (object)$data);
-        $request->setId($id);
+        //$request->setId($id);
         $result = $this->animeService->update($request);
         return $this->response($result, self::UPDATE);
     }

@@ -77,16 +77,16 @@ class ImageController extends BaseController
     }
 
     /**
-     * @Route("/image/{id}", name="updateImage", methods={"PUT"})
+     * @Route("/image", name="updateImage", methods={"PUT"})
      * @param Request $request
      * @return JsonResponse
      */
     public function update(Request $request)
     {
         $data = json_decode($request->getContent(), true);
-        $id = $request->get('id');
+        //$id = $request->get('id');
         $request = $this->autoMapping->map(\stdClass::class, UpdateImageRequest::class, (object) $data);
-        $request->setId($id);
+        //$request->setId($id);
         $result = $this->imageService->update($request);
         return $this->response($result, self::UPDATE);
     }
