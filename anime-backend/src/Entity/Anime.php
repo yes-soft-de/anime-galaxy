@@ -27,6 +27,11 @@ class Anime
      */
     private $mainImage;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $categoryID;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -52,6 +57,18 @@ class Anime
     public function setMainImage(int $mainImage): self
     {
         $this->mainImage = $mainImage;
+
+        return $this;
+    }
+
+    public function getCategoryID(): ?int
+    {
+        return $this->categoryID;
+    }
+
+    public function setCategoryID(int $categoryID): self
+    {
+        $this->categoryID = $categoryID;
 
         return $this;
     }

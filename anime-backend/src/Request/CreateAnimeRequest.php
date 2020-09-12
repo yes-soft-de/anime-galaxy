@@ -9,6 +9,7 @@ class CreateAnimeRequest
     private $id;
     private $name;
     private $mainImage;
+    private $categoryID;
 
     /**
      * @return mixed
@@ -58,5 +59,20 @@ class CreateAnimeRequest
         $this->mainImage = $mainImage;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getCategoryID()
+    {
+        return $this->categoryID;
+    }
+
+    /**
+     * @param mixed $categoryID
+     */
+    public function setCategoryID($categoryID): void
+    {
+        $this->categoryID = $categoryID;
+    }
 
 }

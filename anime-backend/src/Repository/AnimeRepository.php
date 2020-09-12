@@ -67,4 +67,15 @@ class AnimeRepository extends ServiceEntityRepository
 
         return $res;
     }
+    
+    public function getAnimeByCategoryId($catId)
+    {
+        $res = $this->createQueryBuilder('anime')
+            ->andWhere('anime.categoryID=:catId')
+            ->setParameter('catId', $catId)
+            ->getQuery()
+            ->getResult();
+        
+        return $res;
+    }
 }

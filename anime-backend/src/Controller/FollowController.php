@@ -52,14 +52,13 @@ class FollowController extends BaseController
     }
 
     /**
-     * @Route("/following/{id}", name="getFollowingById", methods={"GET"})
+     * @Route("/following/{userID}", name="getFollowingById", methods={"GET"})
      * @param Request $request
      * @return JsonResponse
      */
-    public function getById(Request $request)
+    public function getByUserId(Request $request)
     {
-        $request=new GetByIdRequest($request->get('id'));
-        $result = $this->followService->getFollowById($request);
+        $result = $this->followService->getFollowByUserId($request);
         return $this->response($result, self::FETCH);
     }
 
@@ -77,8 +76,14 @@ class FollowController extends BaseController
     }
 
     /**
-     * @Route("/following/{userID}/{friendID}")
+     * @Route("/following/{userID}/{friendID}", name="deleteFollow", methods={"DELETE"})
+     * @param Request $request
+     * @return JsonResponse
      */
-    public function deleteByUserIdAndFriendId()
-    {}
+    public function deleteByUserIdAndFriendId(Request $request)
+    {
+        $result = $this->followService->deleteByUserIdAndFriendID($request);
+
+        return $this->response(" ", self::DELETE);
+    }
 }

@@ -8,6 +8,7 @@ class CreateAnimeResponse
 {
     private $name;
     private $mainImage;
+    private $categoryID;
 
     /**
      * CreateAnimeResponse constructor.
@@ -46,5 +47,21 @@ class CreateAnimeResponse
     public function setMainImage($mainImage): void
     {
         $this->mainImage = $mainImage;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCategoryID()
+    {
+        return $this->categoryID;
+    }
+
+    /**
+     * @param mixed $categoryID
+     */
+    public function setCategoryID($categoryID): void
+    {
+        $this->categoryID = $categoryID;
     }
 }

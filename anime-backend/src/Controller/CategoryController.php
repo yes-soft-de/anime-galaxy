@@ -54,18 +54,6 @@ class CategoryController extends BaseController
     }
 
     /**
-     * @Route("/category/{id}", name="getCategory", methods={"GET"})
-     * @param Request $request
-     * @return JsonResponse
-     */
-    public function getById(Request $request)
-    {
-        $request=new GetByIdRequest($request->get('id'));
-        $result = $this->categoryService->getCategoryById($request);
-        return $this->response($result, self::FETCH);
-    }
-
-    /**
      * @Route("/category", name="updateCategory", methods={"PUT"})
      * @param Request $request
      * @return JsonResponse|Response

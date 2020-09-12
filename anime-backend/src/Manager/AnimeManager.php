@@ -43,6 +43,13 @@ class AnimeManager
         return $result;
     }
 
+    public function getByCategoryId(GetByIdRequest $request)
+    {
+        $result = $this->animeRepository->getAnimeByCategoryId($request->getId());
+
+        return $result;
+    }
+
     public function getAllAnime()
     {
         $data = $this->animeRepository->getAll();

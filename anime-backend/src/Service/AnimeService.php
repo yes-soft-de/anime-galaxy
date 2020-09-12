@@ -60,6 +60,15 @@ class AnimeService
         return $response;
     }
 
+    public function getAnimeByCategoryId($request)
+    {
+        $result = $this->animeManager->getByCategoryId($request);
+        $response=[];
+        foreach ($result as $row)
+            $response[] = $this->autoMapping->map(Anime::class, GetAnimeResponse::class, $row);
+        return $response;
+    }
+
     public function update($request)
     {
         $animeResult = $this->animeManager->update($request);

@@ -49,9 +49,9 @@ class FollowManager
         return $data;
     }
 
-    public function getFollowById(GetByIdRequest $request)
+    public function getFollowByUserId($request)
     {
-        return $result = $this->followRepository->getFollowById($request->getId());
+        return $result = $this->followRepository->getFollowsByUserId($request->get('userID'));
     }
 
 
@@ -71,8 +71,20 @@ class FollowManager
         return $follow;
     }
 
-    public function deleteByUserIdAndFriendId(DeleteRequest $request)
+    public function deleteByUserIdAndFriendId($request)
     {
+        $follow = $this->followRepository->getFollowByUserIdAndFriendId($request->get('userID'),
+            $request->get('friendID'));
+        if (!$follow )
+        {
 
+        }
+        else
+        {
+
+            $this->entityManager->remove($follow);
+            $this->entityManager->flush();
+        }
+        return $follow;
     }
 }

@@ -69,6 +69,18 @@ class AnimeController extends BaseController
     }
 
     /**
+     * @Route("/category/{id}", name="getAllAnimeByCategory", methods={"GET"})
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function getByCategoryId(Request $request)
+    {
+        $request = new GetByIdRequest($request->get('id'));
+        $result = $this->animeService->getAnimeByCategoryId($request);
+        return $this->response($result, self::FETCH);
+    }
+
+    /**
      * @Route("/anime", name="updateAnime", methods={"PUT"})
      * @param Request $request
      * @return JsonResponse|Response

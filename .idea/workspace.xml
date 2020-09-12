@@ -2,7 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4ace56ba-071b-4ce7-9483-9f30266c6a6d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/anime-backend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/anime-backend/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-backend/src/Controller/AnimeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/anime-backend/src/Controller/AnimeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-backend/src/Controller/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/anime-backend/src/Controller/CategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-backend/src/Controller/FollowController.php" beforeDir="false" afterPath="$PROJECT_DIR$/anime-backend/src/Controller/FollowController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-backend/src/Entity/Anime.php" beforeDir="false" afterPath="$PROJECT_DIR$/anime-backend/src/Entity/Anime.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-backend/src/Manager/AnimeManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/anime-backend/src/Manager/AnimeManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-backend/src/Manager/FollowManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/anime-backend/src/Manager/FollowManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-backend/src/Repository/AnimeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/anime-backend/src/Repository/AnimeRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-backend/src/Repository/FollowRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/anime-backend/src/Repository/FollowRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-backend/src/Request/CreateAnimeRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/anime-backend/src/Request/CreateAnimeRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-backend/src/Request/UpdateAnimeRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/anime-backend/src/Request/UpdateAnimeRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-backend/src/Response/CreateAnimeResponse.php" beforeDir="false" afterPath="$PROJECT_DIR$/anime-backend/src/Response/CreateAnimeResponse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-backend/src/Response/GetAnimeByIdResponse.php" beforeDir="false" afterPath="$PROJECT_DIR$/anime-backend/src/Response/GetAnimeByIdResponse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-backend/src/Response/GetAnimeResponse.php" beforeDir="false" afterPath="$PROJECT_DIR$/anime-backend/src/Response/GetAnimeResponse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-backend/src/Response/UpdateAnimeResponse.php" beforeDir="false" afterPath="$PROJECT_DIR$/anime-backend/src/Response/UpdateAnimeResponse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-backend/src/Service/AnimeService.php" beforeDir="false" afterPath="$PROJECT_DIR$/anime-backend/src/Service/AnimeService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-backend/src/Service/FollowService.php" beforeDir="false" afterPath="$PROJECT_DIR$/anime-backend/src/Service/FollowService.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +164,12 @@
       <workItem from="1599658867832" duration="5371000" />
       <workItem from="1599670137568" duration="4100000" />
       <workItem from="1599760468151" duration="11267000" />
-      <workItem from="1599776708931" duration="1335000" />
+      <workItem from="1599776708931" duration="1499000" />
+      <workItem from="1599908045778" duration="5926000" />
+      <workItem from="1599928711363" duration="2240000" />
+      <workItem from="1599935319142" duration="6615000" />
+      <workItem from="1599943970561" duration="3573000" />
+      <workItem from="1599950100167" duration="246000" />
     </task>
     <servers />
   </component>
@@ -155,14 +177,14 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="488" y="79" key="#com.intellij.ide.util.MemberChooser" timestamp="1599770314789">
+    <state x="488" y="79" key="#com.intellij.ide.util.MemberChooser" timestamp="1599944706430">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="488" y="79" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1599770314789" />
-    <state x="413" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1599771293855">
+    <state x="488" y="79" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1599944706430" />
+    <state x="413" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1599942443911">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1599771293855" />
+    <state x="413" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1599942443911" />
     <state x="446" y="70" key="NewPhpClassDialog" timestamp="1599770293430">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -171,5 +193,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="157" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1599606290926" />
+    <state x="346" y="49" key="search.everywhere.popup" timestamp="1599939144257">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1599939144257" />
   </component>
 </project>

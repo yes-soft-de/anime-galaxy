@@ -9,6 +9,7 @@ class UpdateAnimeResponse
     private $id;
     private $name;
     private $mainImage;
+    private $categoryID;
 
     /**
      * @return mixed
@@ -58,5 +59,19 @@ class UpdateAnimeResponse
         $this->mainImage = $mainImage;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getCategoryID()
+    {
+        return $this->categoryID;
+    }
 
+    /**
+     * @param mixed $categoryID
+     */
+    public function setCategoryID($categoryID): void
+    {
+        $this->categoryID = $categoryID;
+    }
 }
