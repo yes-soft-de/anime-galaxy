@@ -45,13 +45,13 @@ class WatchListController extends BaseController
 
     
     /**
-     * @Route("/watchList/{id}", name="getWatchListById",methods={"GET"})
+     * @Route("/watchList/{ID}", name="getWatchListByID",methods={"GET"})
      * @param Request $request
      * @return JsonResponse
      */
     public function getWatchListById(Request $request)
     {
-        $request=new GetByIdRequest($request->get('id'));
+        $request=new GetByIdRequest($request->get('ID'));
         $result = $this->watchListService->getWatchListById($request);
         
         return $this->response($result, self::FETCH);

@@ -31,15 +31,15 @@ class CommentController extends BaseController
 
 
     /**
-     * @Route("/comment/{userId}/{animeId}", name="comment", name="createComment",methods={"POST"})
+     * @Route("/comment/{userID}/{animeID}", name="comment", name="createComment",methods={"POST"})
      */
-    public function create(Request $request, $userId , $animeId)
+    public function create(Request $request, $userID , $animeID)
     {
          $data = json_decode($request->getContent(), true);
          $request=$this->autoMapping->map(\stdClass::class,CreateCommentRequest::class,(object)$data);
-         $request->setUserId($userId);
-         $request->setAnimeId($animeId);
-         $result = $this->commentService->create($request, $userId , $animeId);
+         $request->setUserId($userID);
+         $request->setAnimeId($animeID);
+         $result = $this->commentService->create($request, $userID , $animeID);
          return $this->response($result, self::CREATE);
     }
 
@@ -76,7 +76,7 @@ class CommentController extends BaseController
 
 
     /**
-     * @Route("/comment/{ID}", name="getCommentById",methods={"GET"})
+     * @Route("/comment/{ID}", name="getCommentByID",methods={"GET"})
      * @param Request $request
      * @return JsonResponse
      */
