@@ -44,3 +44,5 @@
 `Method: GET. Path: /following`
 ##### Delete an existing following by ID.
 `Method: DELETE. Path: /following/ID`
+##### Delete an existing following by userID and friendID.
+`Method: DELETE. Path: /following/userID/friendID`
