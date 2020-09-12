@@ -46,7 +46,7 @@ Method: GET. Path/Interaction/animeID/userID
 ```
 #### Count Interactions By AnimeID
 ```
-GET. Path/countInteractions/animeID
+Method: GET. Path/countInteractions/animeID
 ```
 
 
@@ -54,7 +54,7 @@ GET. Path/countInteractions/animeID
 
 #### Create Rating
 ```
-Path: /rating/userID/animeID/rateValue
+Method:POST. Path: /rating/userID/animeID/rateValue
 ```
 #### Update Rating
 ```
@@ -78,7 +78,7 @@ Method: POST. Path: /watchList/userID/animeID
 ```
 #### Get Watch List By Id
 ```
-Get a watchList  by ID. Method: GET. Path: /watchList/ID
+Method: Get a watchList  by ID. Method: GET. Path: /watchList/ID
 ```
 #### Get All Watch Lists By Anime ID
 ```
