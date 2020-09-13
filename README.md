@@ -46,3 +46,47 @@
 `Method: DELETE. Path: /following/ID`
 ##### Delete an existing following by userID and friendID.
 `Method: DELETE. Path: /following/userID/friendID`
+
+### Comment APIs
+##### Create new comment. 
+`Method: POST. Path: /comment/userID/animeID`
+##### Update existing comment by ID. 
+`Method: PUT. Path: /comment/userID/animeID`
+##### Delete existing comment by ID. 
+`Method: DELETE. Path: /comment/ID`
+##### Get specific comment by ID. 
+`Method: GET. Path: /comment/ID`
+##### Get all comments by animeID. 
+`Method: GET. Path: /comments/animeID`
+
+
+### Interaction APIs
+##### Create new Interaction. 
+`Method: POST. Path: /Interaction/userID/animeID/type`
+##### Update existing interaction. 
+`Method: PUT. Path: /Interaction/userID/animeID/type`
+##### Get all interaction by animeID. 
+`Method: GET. Path: /Interaction/animeID`
+##### Get all interaction by animeID and userID. 
+`Method: GET. Path: /Interaction/animeID/userID`
+##### Get count interaction by animeID. Method: GET. Path/ countInteractions/animeID
+
+### Rating APIs
+##### Create new rating. 
+`Method: POST. Path: /rating/userID/animeID/rateValue`
+##### Update existing rating. 
+`Method: PUT. Path: /rating/userID/animeID/rateValue`
+##### Get rating by animeID and userID. 
+`Method: GET. Path: /rating/animeID/userID`
+##### Get rating by animeID . 
+`Method: GET. Path: /ratings/animeID`
+
+### Watch List APIs
+##### Create watchList. 
+`Method: POST. Path: /watchList/userID/animeID`
+##### Get a watchList  by ID. 
+`Method: GET. Path: /watchList/ID`
+##### Get a watchList  by animeID. 
+`Method: GET. Path: /watchListsAnime/animeID`
+##### Get a watchList  by userID. 
+`Method: GET. Path: /watchListsUser/userID`
