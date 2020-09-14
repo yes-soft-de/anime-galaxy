@@ -15,6 +15,8 @@ use Symfony\Component\Serializer\SerializerInterface;
 class BaseController extends AbstractController
 {
     private $serializer;
+    private $statusCode;
+
     public function __construct(SerializerInterface $serializer)
     {
         $this->serializer = $serializer;
@@ -24,6 +26,24 @@ class BaseController extends AbstractController
     const UPDATE=["updated","204"];
     const DELETE=["deleted","401"];
     const FETCH=["fetched","200"];
+    //const NOTFOUND=["Not found", "404"];
+
+    /**
+     * @return mixed
+     */
+    public function getStatusCode()
+    {
+        return $this->statusCode;
+    }
+
+    /**
+     * @param mixed $statusCode
+     */
+    public function setStatusCode($statusCode): void
+    {
+        $this->statusCode = $statusCode;
+    }
+
 
     /**
      * Returns a JSON response
@@ -63,24 +83,48 @@ class BaseController extends AbstractController
      */
     public function respondUnauthorized($message = 'Not authorized!')
     {
-        return $this->setStatusCode(401)->respondWithErrors($message);
+        $this->setStatusCode(401)->respondWithErrors($message);
     }
 
+    /**
+     * @param string $message
+     * @return JsonResponse
+     */
+    public function respondNotFound($message = 'Not found!')
+    {
+        $data = [
+            'Error' => $message,
+        ];
+
+        $this->setStatusCode(404);
+
+        return new JsonResponse($data, $this->getStatusCode());
+    }
     public function response($result, $status) :jsonResponse
     {
-        $encoders = [ new JsonEncoder()];
-        $normalizers = [new ObjectNormalizer()];
-        $this->serializer=new Serializer($normalizers, $encoders);
-                $result = $this->serializer->serialize($result, "json", [
-                    'enable_max_depth' => true]);
-        $response = new jsonResponse(["status_code" => $status[1],
-            "msg" => $status[0]. " "."Successfully.",
-            "Data" => json_decode($result)
-            ]
-        , Response::HTTP_OK);
-        $response->headers->set('Access-Control-Allow-Headers', 'X-Header-One,X-Header-Two');
-        $response->headers->set('Access-Control-Allow-Origin', '*');
-        $response->headers->set('Access-Control-Allow-Methods', 'PUT');
-        return $response;
+        if($result!=null) {
+            $encoders = [new JsonEncoder()];
+            $normalizers = [new ObjectNormalizer()];
+            $this->serializer = new Serializer($normalizers, $encoders);
+            $result = $this->serializer->serialize($result, "json", [
+                'enable_max_depth' => true]);
+            $response = new jsonResponse(["status_code" => $status[1],
+                    "msg" => $status[0] . " " . "Successfully.",
+                    "Data" => json_decode($result)
+                ]
+                , Response::HTTP_OK);
+            $response->headers->set('Access-Control-Allow-Headers', 'X-Header-One,X-Header-Two');
+            $response->headers->set('Access-Control-Allow-Origin', '*');
+            $response->headers->set('Access-Control-Allow-Methods', 'PUT');
+            return $response;
+        }
+        else
+        {
+            $response = new JsonResponse(["status_code"=>"404",
+                 "msg"=>"Data not found!"],
+             Response::HTTP_NOT_FOUND);
+
+            return $response;
+        }
     }
 }
