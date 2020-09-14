@@ -72,7 +72,7 @@ class RatingRepository extends ServiceEntityRepository
         //avg Rating
          $res= $this->createQueryBuilder('Rating')
         ->andWhere('Rating.animeId = :id')
-        ->select('sum(Rating.rateValue) / count(Rating.rateValue) as rating')
+        ->select('avg(Rating.rateValue) as rating')
         ->setParameter('id', $id)
         ->getQuery()
         ->getOneOrNullResult();
