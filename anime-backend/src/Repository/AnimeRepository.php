@@ -7,6 +7,7 @@ use App\Entity\InterAction;
 use App\Entity\Rating;
 use App\Entity\Image;
 use App\Entity\Category;
+use App\Entity\Comment;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\ORM\Query\Expr\Join;
@@ -103,10 +104,31 @@ class AnimeRepository extends ServiceEntityRepository
     {
         $res = $this->createQueryBuilder('anime')
             ->andWhere('anime.categoryID=:catId')
+            ->select('anime.id','anime.name', 'count(DISTINCT C.comment) as comment','count(DISTINCT I.type) as countInteraction', 'avg( R.rateValue) as rating')
+            ->leftJoin(
+                Comment::class,            // Entity
+                'C',                   // Alias
+                Join::WITH,          // Join type
+                'C.animeId = anime.id ' // Join columns   
+            )
+            ->leftJoin(
+                InterAction::class,            // Entity
+                'I',                   // Alias
+                Join::WITH,           // Join type
+                'I.animeId = anime.id ' // Join columns
+            )
+            ->leftJoin(
+                Rating::class,            // Entity
+                'R',                   // Alias
+                Join::WITH,           // Join type
+                'R.animeId = anime.id' // Join columns
+            )
+            ->groupBy('anime.id')
             ->setParameter('catId', $catId)
             ->getQuery()
             ->getResult();
         
         return $res;
     }
+    
 }

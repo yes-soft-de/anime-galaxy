@@ -13,6 +13,7 @@ use App\Request\UpdateImageRequest;
 use App\Response\CreateAnimeResponse;
 use App\Response\GetAnimeByIdResponse;
 use App\Response\GetAnimeResponse;
+use App\Response\GetAnimeByCategoryResponse;
 use App\Response\UpdateAnimeResponse;
 
 class AnimeService
@@ -65,7 +66,7 @@ class AnimeService
         $result = $this->animeManager->getByCategoryId($request);
         $response=[];
         foreach ($result as $row)
-            $response[] = $this->autoMapping->map(Anime::class, GetAnimeByIdResponse::class, $row);
+            $response[] = $this->autoMapping->map('array'::class, GetAnimeByCategoryResponse::class, $row);
         return $response;
     }
 

@@ -9,8 +9,8 @@ class GetAnimeByIdResponse
     public $name;
     public $mainImage;
     public $categoryName;
-    public  $countInteraction;
-    public  $rating;
+    public $countInteraction;
+    public $rating;
 
     /**
      * @return mixed
