@@ -18,14 +18,14 @@ class WatchList
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string")
      */
-    private $userId;
+    private $userID;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $animeId;
+    private $animeID;
 
     public function getId(): ?int
     {
@@ -34,24 +34,24 @@ class WatchList
 
     public function getUserId(): ?int
     {
-        return $this->userId;
+        return $this->userID;
     }
 
-    public function setUserId(int $userId): self
+    public function setUserId(int $userID): self
     {
-        $this->userId = $userId;
+        $this->userID = $userID;
 
         return $this;
     }
 
     public function getAnimeId(): ?int
     {
-        return $this->animeId;
+        return $this->animeID;
     }
 
-    public function setAnimeId(int $animeId): self
+    public function setAnimeId(int $animeID): self
     {
-        $this->animeId = $animeId;
+        $this->animeID = $animeID;
 
         return $this;
     }
