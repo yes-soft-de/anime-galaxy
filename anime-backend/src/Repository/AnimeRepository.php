@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Anime;
+use App\Entity\Category;
 use App\Entity\Comment;
 use App\Entity\Image;
 use App\Entity\InterAction;
@@ -56,33 +57,34 @@ class AnimeRepository extends ServiceEntityRepository
     public function getAll()
     {
         $res = $this->createQueryBuilder('anime')
-            ->select('anime.id', 'anime.name', 'anime.categoryID','img.image as mainImage',
-                'count(DISTINCT I.type) as countInteraction','avg(R.rateValue) as rating',
-                'count(c.comment) as comments')
+            ->select('anime.id', 'anime.name', 'img.image as mainImage',
+                'count(DISTINCT inter.type) as countInteraction','avg(rate.rateValue) as rating',
+                'count(DISTINCT c.comment) as comments')
             ->leftJoin(
-                Image::class,
-                'img',
-                Join::WITH,
-                'img.animeID = anime.id'
+                Image::class,                    //Entity
+                'img',                          //Alias
+                Join::WITH,              //Join Type
+                'img.animeID = anime.id'    //Join Column
             )
             ->leftJoin(
-                InterAction::class,
-                'I',
-                Join::WITH,
-                'I.animeId = anime.id'
-            )->where('I.type = 1')
-            ->leftJoin(
-                Rating::class,
-                'R',
-                Join::WITH,
-                'R.animeId = anime.id'
+                InterAction::class,              //Entity
+                'inter',                        //Alias
+                Join::WITH,              //Join Type
+                'inter.animeId = anime.id'  //Join Column
             )
             ->leftJoin(
-                Comment::class,
-                'c',
-                Join::WITH,
-                'c.animeId = anime.id'
+                Rating::class,                   //Entity
+                'rate',                         //Alias
+                Join::WITH,              //Join Type
+                'rate.animeId = anime.id'   //Join Column
             )
+            ->leftJoin(
+                Comment::class,                  //Entity
+                'c',                            //Alias
+                Join::WITH,              //Join Type
+                'c.animeId = anime.id'      //Join Column
+            )
+            ->groupBy('anime.id')
             ->getQuery()
             ->getResult();
 
