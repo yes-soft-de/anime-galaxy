@@ -48,7 +48,7 @@ class AnimeService
         $response = [];
         foreach ($result as $row)
         {
-            $response[] = $this->autoMapping->map(Anime::class, GetAnimeResponse::class, $row);
+            $response[] = $this->autoMapping->map('array'::class, GetAnimeResponse::class, $row);
         }
         return $response;
     }
@@ -56,7 +56,7 @@ class AnimeService
     public function getAnimeById($request)
     {
         $result = $this->animeManager->getAnimeById($request);
-        $response = $this->autoMapping->map(Anime::class, GetAnimeByIdResponse::class, $result);
+        $response = $this->autoMapping->map('array'::class, GetAnimeByIdResponse::class, $result);
         return $response;
     }
 
@@ -65,7 +65,7 @@ class AnimeService
         $result = $this->animeManager->getByCategoryId($request);
         $response=[];
         foreach ($result as $row)
-            $response[] = $this->autoMapping->map(Anime::class, GetAnimeResponse::class, $row);
+            $response[] = $this->autoMapping->map(Anime::class, GetAnimeByIdResponse::class, $row);
         return $response;
     }
 

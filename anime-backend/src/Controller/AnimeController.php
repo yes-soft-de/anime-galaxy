@@ -50,7 +50,7 @@ class AnimeController extends BaseController
      * @param Request $request
      * @return JsonResponse
      */
-    public function getById(Request $request)
+    public function getAnimeById(Request $request)
     {
         $request = new GetByIdRequest($request->get('id'));
         $result = $this->animeService->getAnimeById($request);
