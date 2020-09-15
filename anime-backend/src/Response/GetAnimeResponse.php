@@ -8,7 +8,7 @@ class GetAnimeResponse
 {
     private $name;
     private $mainImage;
-    private $categoryID;
+    private $categoryName;
     private $countInteraction;
     private $rating;
     private $comments;
@@ -48,17 +48,17 @@ class GetAnimeResponse
     /**
      * @return mixed
      */
-    public function getCategoryID()
+    public function getCategoryName()
     {
-        return $this->categoryID;
+        return $this->categoryName;
     }
 
     /**
-     * @param mixed $categoryID
+     * @param mixed $categoryName
      */
-    public function setCategoryID($categoryID): void
+    public function setCategoryName($categoryName): void
     {
-        $this->categoryID = $categoryID;
+        $this->categoryName = $categoryName;
     }
 
     /**
