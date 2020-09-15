@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Anime;
+use App\Entity\Comment;
 use App\Entity\Image;
 use App\Entity\InterAction;
 use App\Entity\Rating;
@@ -56,7 +57,8 @@ class AnimeRepository extends ServiceEntityRepository
     {
         $res = $this->createQueryBuilder('anime')
             ->select('anime.id', 'anime.name', 'anime.categoryID','img.image as mainImage',
-                'count(DISTINCT I.type) as countInteraction','avg(R.rateValue) as rating')
+                'count(DISTINCT I.type) as countInteraction','avg(R.rateValue) as rating',
+                'count(c.comment) as comments')
             ->leftJoin(
                 Image::class,
                 'img',
@@ -68,15 +70,19 @@ class AnimeRepository extends ServiceEntityRepository
                 'I',
                 Join::WITH,
                 'I.animeId = anime.id'
-            )
+            )->where('I.type = 1')
             ->leftJoin(
                 Rating::class,
                 'R',
                 Join::WITH,
                 'R.animeId = anime.id'
             )
-            ->andWhere('I.type=:t')
-            ->setParameter('t', 1)
+            ->leftJoin(
+                Comment::class,
+                'c',
+                Join::WITH,
+                'c.animeId = anime.id'
+            )
             ->getQuery()
             ->getResult();
 

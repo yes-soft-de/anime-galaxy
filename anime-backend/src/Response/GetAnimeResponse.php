@@ -6,26 +6,27 @@ namespace App\Response;
 
 class GetAnimeResponse
 {
-    private $Name;
-    private $MainImage;
+    private $name;
+    private $mainImage;
     private $categoryID;
     private $countInteraction;
     private $rating;
+    private $comments;
 
     /**
      * @return mixed
      */
     public function getName()
     {
-        return $this->Name;
+        return $this->name;
     }
 
     /**
-     * @param mixed $Name
+     * @param mixed $name
      */
-    public function setName($Name): void
+    public function setName($name): void
     {
-        $this->Name = $Name;
+        $this->name = $name;
     }
 
     /**
@@ -33,15 +34,15 @@ class GetAnimeResponse
      */
     public function getMainImage()
     {
-        return $this->MainImage;
+        return $this->mainImage;
     }
 
     /**
-     * @param mixed $MainImage
+     * @param mixed $mainImage
      */
-    public function setMainImage($MainImage): void
+    public function setMainImage($mainImage): void
     {
-        $this->MainImage = $MainImage;
+        $this->mainImage = $mainImage;
     }
 
     /**
@@ -91,6 +92,23 @@ class GetAnimeResponse
     {
         $this->rating = $rating;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
+
+    /**
+     * @param mixed $comments
+     */
+    public function setComments($comments): void
+    {
+        $this->comments = $comments;
+    }
+
 
 
 }

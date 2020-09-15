@@ -6,8 +6,8 @@ namespace App\Response;
 
 class GetAnimeByIdResponse
 {
-    private $Name;
-    private $MainImage;
+    private $name;
+    private $mainImage;
     private $categoryID;
 
     /**
@@ -15,15 +15,15 @@ class GetAnimeByIdResponse
      */
     public function getName()
     {
-        return $this->Name;
+        return $this->name;
     }
 
     /**
-     * @param mixed $Name
+     * @param mixed $name
      */
-    public function setName($Name): void
+    public function setName($name): void
     {
-        $this->Name = $Name;
+        $this->name = $name;
     }
 
     /**
@@ -31,15 +31,15 @@ class GetAnimeByIdResponse
      */
     public function getMainImage()
     {
-        return $this->MainImage;
+        return $this->mainImage;
     }
 
     /**
-     * @param mixed $MainImage
+     * @param mixed $mainImage
      */
-    public function setMainImage($MainImage): void
+    public function setMainImage($mainImage): void
     {
-        $this->MainImage = $MainImage;
+        $this->mainImage = $mainImage;
     }
 
     /**
