@@ -3,7 +3,11 @@
 namespace App\Repository;
 
 use App\Entity\Anime;
+use App\Entity\Image;
+use App\Entity\InterAction;
+use App\Entity\Rating;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query\Expr\Join;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -51,6 +55,28 @@ class AnimeRepository extends ServiceEntityRepository
     public function getAll()
     {
         $res = $this->createQueryBuilder('anime')
+            ->select('anime.id', 'anime.name', 'anime.categoryID','img.image as mainImage',
+                'count(DISTINCT I.type) as countInteraction','avg(R.rateValue) as rating')
+            ->leftJoin(
+                Image::class,
+                'img',
+                Join::WITH,
+                'img.animeID = anime.id'
+            )
+            ->leftJoin(
+                InterAction::class,
+                'I',
+                Join::WITH,
+                'I.animeId = anime.id'
+            )
+            ->leftJoin(
+                Rating::class,
+                'R',
+                Join::WITH,
+                'R.animeId = anime.id'
+            )
+            ->andWhere('I.type=:t')
+            ->setParameter('t', 1)
             ->getQuery()
             ->getResult();
 

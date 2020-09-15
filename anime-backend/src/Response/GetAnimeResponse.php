@@ -9,6 +9,8 @@ class GetAnimeResponse
     private $Name;
     private $MainImage;
     private $categoryID;
+    private $countInteraction;
+    private $rating;
 
     /**
      * @return mixed
@@ -57,4 +59,38 @@ class GetAnimeResponse
     {
         $this->categoryID = $categoryID;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getCountInteraction()
+    {
+        return $this->countInteraction;
+    }
+
+    /**
+     * @param mixed $countInteraction
+     */
+    public function setCountInteraction($countInteraction): void
+    {
+        $this->countInteraction = $countInteraction;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRating()
+    {
+        return $this->rating;
+    }
+
+    /**
+     * @param mixed $rating
+     */
+    public function setRating($rating): void
+    {
+        $this->rating = $rating;
+    }
+
+
 }

@@ -48,7 +48,7 @@ class AnimeService
         $response = [];
         foreach ($result as $row)
         {
-            $response[] = $this->autoMapping->map(Anime::class, GetAnimeResponse::class, $row);
+            $response[] = $this->autoMapping->map('array'::class, GetAnimeResponse::class, $row);
         }
         return $response;
     }
