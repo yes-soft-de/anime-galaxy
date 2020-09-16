@@ -11,6 +11,7 @@ class GetAnimeByIdResponse
     public $categoryName;
     public $countInteraction;
     public $rating;
+    public $comment;
 
     /**
      * @return mixed
@@ -88,6 +89,18 @@ class GetAnimeByIdResponse
     public function setRating($rating)
     {
         $this->rating = $rating;
+
+        return $this;
+    }
+
+    /**
+     * Set the value of comment
+     *
+     * @return  self
+     */ 
+    public function setComment($comment)
+    {
+        $this->comment = $comment;
 
         return $this;
     }

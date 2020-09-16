@@ -15,7 +15,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class AnimeController extends BaseController
+class  AnimeController extends BaseController
 {
     private $animeService;
     private $autoMapping;

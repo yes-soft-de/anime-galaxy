@@ -56,7 +56,7 @@ class WatchListController extends BaseController
         
         return $this->response($result, self::FETCH);
     }
-
+    
 
      /**
      * @Route("/watchListsAnime/{animeID}", name="getAllWatchListsByAnimeID",methods={"GET"})

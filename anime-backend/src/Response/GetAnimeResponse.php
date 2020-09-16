@@ -7,10 +7,12 @@ namespace App\Response;
 class GetAnimeResponse
 {
     private $name;
-    private $MainImage;
-    private $categoryID;
-    public $countAllInteraction;
-    public $rating;
+    private $mainImage;
+    private $categoryName;
+    private $countInteraction;
+    private $rating;
+    private $comments;
+
     /**
      * @return mixed
      */
@@ -32,39 +34,55 @@ class GetAnimeResponse
      */
     public function getMainImage()
     {
-        return $this->MainImage;
+        return $this->mainImage;
     }
 
     /**
-     * @param mixed $MainImage
+     * @param mixed $mainImage
      */
-    public function setMainImage($MainImage): void
+    public function setMainImage($mainImage): void
     {
-        $this->MainImage = $MainImage;
+        $this->mainImage = $mainImage;
     }
 
     /**
      * @return mixed
      */
-    public function getCategoryID()
+    public function getCategoryName()
     {
-        return $this->categoryID;
+        return $this->categoryName;
     }
 
     /**
-     * @param mixed $categoryID
+     * @param mixed $categoryName
      */
-    public function setCategoryID($categoryID): void
+    public function setCategoryName($categoryName): void
     {
-        $this->categoryID = $categoryID;
+        $this->categoryName = $categoryName;
     }
 
     /**
-     * @param mixed $countAllInteraction
+     * @return mixed
      */
-    public function setCountAllInteraction($countAllInteraction): void
+    public function getCountInteraction()
     {
-        $this->countAllInteraction = $countAllInteraction;
+        return $this->countInteraction;
+    }
+
+    /**
+     * @param mixed $countInteraction
+     */
+    public function setCountInteraction($countInteraction): void
+    {
+        $this->countInteraction = $countInteraction;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRating()
+    {
+        return $this->rating;
     }
 
     /**
@@ -74,4 +92,23 @@ class GetAnimeResponse
     {
         $this->rating = $rating;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
+
+    /**
+     * @param mixed $comments
+     */
+    public function setComments($comments): void
+    {
+        $this->comments = $comments;
+    }
+
+
+
 }

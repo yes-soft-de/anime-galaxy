@@ -5,8 +5,8 @@ namespace App\Request;
 class UpdateInterActionRequest
 {
     private $id;
-    private $userId;
-    private $animeId;
+    private $userID;
+    private $animeID;
     private $type;
 
      /**
@@ -32,15 +32,15 @@ class UpdateInterActionRequest
      */ 
     public function getUserId()
     {
-        return $this->userId;
+        return $this->userID;
     }
 
     /**
-     * @param mixed $userId
+     * @param mixed $userID
      */
-    public function setUserId($userId)
+    public function setUserId($userID)
     {
-        $this->userId = $userId;
+        $this->userID = $userID;
 
         return $this;
     }
@@ -50,15 +50,15 @@ class UpdateInterActionRequest
      */  
     public function getAnimeId()
     {
-        return $this->animeId;
+        return $this->animeID;
     }
 
     /**
-     * @param mixed $animeId
+     * @param mixed $animeID
      */
-    public function setAnimeId($animeId)
+    public function setAnimeId($animeID)
     {
-        $this->animeId = $animeId;
+        $this->animeID = $animeID;
 
         return $this;
     }
