@@ -62,46 +62,52 @@ class GetAnimeByIdResponse
     }
 
     /**
-     * Get the value of countInteraction
-     */ 
+     * @return mixed
+     */
     public function getCountInteraction()
     {
         return $this->countInteraction;
     }
 
     /**
-     * Set the value of countInteraction
-     *
-     * @return  self
-     */ 
-    public function setCountInteraction($countInteraction)
+     * @param mixed $countInteraction
+     */
+    public function setCountInteraction($countInteraction): void
     {
         $this->countInteraction = $countInteraction;
-
-        return $this;
     }
 
     /**
-     * Set the value of rating
-     *
-     * @return  self
-     */ 
-    public function setRating($rating)
+     * @return mixed
+     */
+    public function getRating()
+    {
+        return $this->rating;
+    }
+
+    /**
+     * @param mixed $rating
+     */
+    public function setRating($rating): void
     {
         $this->rating = $rating;
-
-        return $this;
     }
 
     /**
-     * Set the value of comment
-     *
-     * @return  self
-     */ 
-    public function setComment($comment)
+     * @return mixed
+     */
+    public function getComment()
+    {
+        return $this->comment;
+    }
+
+    /**
+     * @param mixed $comment
+     */
+    public function setComment($comment): void
     {
         $this->comment = $comment;
-
-        return $this;
     }
+
+
 }

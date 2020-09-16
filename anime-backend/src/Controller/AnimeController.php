@@ -88,9 +88,7 @@ class  AnimeController extends BaseController
     public function update(Request $request)
     {
         $data = json_decode($request->getContent(), true);
-        //$id = $request->get('id');
         $request = $this->autoMapping->map(\stdClass::class, UpdateAnimeRequest::class, (object)$data);
-        //$request->setId($id);
         $result = $this->animeService->update($request);
         return $this->response($result, self::UPDATE);
     }

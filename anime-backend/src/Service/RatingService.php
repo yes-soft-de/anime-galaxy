@@ -13,14 +13,11 @@ use Symfony\Component\HttpFoundation\Request;
 use App\Response\GetRatingsResponse;
 use App\Response\CountRatingResponse;
 
-
-
 class RatingService
 
 {
     private $ratingManager;
     private $autoMapping;
-
 
     public function __construct(RatingManager $ratingManager, AutoMapping $autoMapping)
     {
@@ -42,7 +39,6 @@ class RatingService
         return $response;
     }
 
-
     public function update($request)
     {
         $ratingResult = $this->ratingManager->update($request);
@@ -52,21 +48,18 @@ class RatingService
         return $response;   
     }
 
-
     public function getRating($animeID, $userID)
     {
         $result = $this->ratingManager->getRating($animeID, $userID);
-        $response = $this->autoMapping->map('array'::class, CountRatingResponse::class, $result);
+        $response = $this->autoMapping->map('array', CountRatingResponse::class, $result);
         $response->setAvgRating($result);
         return $response;
     }
 
-
-
     public function getAllRatings($animeId)
     {
         $result = $this->ratingManager->getAllRatings($animeId);
-        $response =  $this->autoMapping->map('array'::class, CountRatingResponse::class, $result);
+        $response =  $this->autoMapping->map('array', CountRatingResponse::class, $result);
         $response->setAvgRating($result);
         return $response;
     }

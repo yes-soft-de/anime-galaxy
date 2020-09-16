@@ -44,7 +44,9 @@ class ImageService
         $result = $this->imageManager->getAll();
         $response=[];
         foreach ($result as $row)
+        {
             $response[] = $this->autoMapping->map(Image::class, GetImageResponse::class, $row);
+        }
         return $response;
     }
 
@@ -54,7 +56,9 @@ class ImageService
         $result = $this->imageManager->getImagesByAnimeID($request);
         $response=[];
         foreach ($result as $row)
+        {
             $response[] = $this->autoMapping->map(Image::class, GetImageResponse::class, $row);
+        }
         return $response;
     }
 

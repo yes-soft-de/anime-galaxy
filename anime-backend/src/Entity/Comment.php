@@ -37,16 +37,20 @@ class Comment
         return $this->id;
     }
 
-    public function getUserId(): ?int
+    /**
+     * @return mixed
+     */
+    public function getUserID()
     {
         return $this->userID;
     }
 
-    public function setUserId(int $userID): self
+    /**
+     * @param mixed $userID
+     */
+    public function setUserID($userID): void
     {
         $this->userID = $userID;
-
-        return $this;
     }
 
     public function getAnimeId(): ?int

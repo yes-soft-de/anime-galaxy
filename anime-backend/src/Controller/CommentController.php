@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\AutoMapping;
@@ -12,16 +12,16 @@ use App\Request\UpdateCommentRequest;
 use App\Request\DeleteRequest;
 use App\Request\GetByIdRequest;
 use Symfony\Component\HttpFoundation\Response;
+
 class CommentController extends BaseController
 {
-
     private $commentService;
     private $autoMapping;
-
 
     /**
      * CommentController constructor.
      * @param CommentService $commentService
+     * @param AutoMapping $autoMapping
      */
     public function __construct(CommentService $commentService,AutoMapping $autoMapping)
     {
@@ -29,9 +29,12 @@ class CommentController extends BaseController
         $this->autoMapping    = $autoMapping;
     }
 
-
     /**
      * @Route("/comment/{userID}/{animeID}", name="comment", name="createComment",methods={"POST"})
+     * @param Request $request
+     * @param $userID
+     * @param $animeID
+     * @return JsonResponse
      */
     public function create(Request $request, $userID , $animeID)
     {
@@ -43,10 +46,11 @@ class CommentController extends BaseController
          return $this->response($result, self::CREATE);
     }
 
-
     /**
      * @Route("/comment/{userID}/{animeID}", name="updateComment",methods={"PUT"})
      * @param Request $request
+     * @param $userID
+     * @param $animeID
      * @return JsonResponse|Response
      */
     public function update(Request $request, $userID, $animeID)
@@ -59,7 +63,6 @@ class CommentController extends BaseController
         return $this->response($result, self::UPDATE);
     }
 
-
      /**
      * @Route("/comment/{ID}", name="deleteComment",methods={"DELETE"})
      * @param Request $request
@@ -69,11 +72,8 @@ class CommentController extends BaseController
     {
         $request = new DeleteRequest($request->get('ID'));
         $result = $this->commentService->delete($request);
-
         return $this->response("Deleted Success", self::DELETE);
-
     }
-
 
     /**
      * @Route("/comment/{ID}", name="getCommentByID",methods={"GET"})
@@ -88,9 +88,9 @@ class CommentController extends BaseController
         return $this->response($result, self::FETCH);
     }
 
-
-     /**
+    /**
      * @Route("/comments/{animeID}", name="getAllcommentsForAnime",methods={"GET"})
+     * @param $animeID
      * @return JsonResponse
      */
     public function getAll($animeID)

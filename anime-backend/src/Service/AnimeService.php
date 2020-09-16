@@ -49,7 +49,7 @@ class AnimeService
         $response = [];
         foreach ($result as $row)
         {
-            $response[] = $this->autoMapping->map('array'::class, GetAnimeResponse::class, $row);
+            $response[] = $this->autoMapping->map('array', GetAnimeResponse::class, $row);
         }
         return $response;
     }
@@ -57,16 +57,18 @@ class AnimeService
     public function getAnimeById($request)
     {
         $result = $this->animeManager->getAnimeById($request);
-        $response = $this->autoMapping->map('array'::class, GetAnimeByIdResponse::class, $result);
+        $response = $this->autoMapping->map(Anime::class, GetAnimeByIdResponse::class, $result);
         return $response;
     }
 
     public function getAnimeByCategoryId($request)
     {
         $result = $this->animeManager->getByCategoryId($request);
-        $response=[];
+        $response = [];
         foreach ($result as $row)
-            $response[] = $this->autoMapping->map('array'::class, GetAnimeByCategoryResponse::class, $row);
+        {
+            $response[] = $this->autoMapping->map('array', GetAnimeByCategoryResponse::class, $row);
+        }
         return $response;
     }
 
@@ -74,11 +76,6 @@ class AnimeService
     {
         $animeResult = $this->animeManager->update($request);
         $response = $this->autoMapping->map(Anime::class, UpdateAnimeResponse::class, $animeResult);
-
-        /*$animeImage = new UpdateImageRequest();
-        $animeImage->image = $response->getMainImage();
-        $animeImage->animeID = $response->getId();
-        $animeResult = $this->imageManager->update($animeImage);*/
         $response->setName($request->getName());
         $response->setMainImage($request->getMainImage());
         return $response;
@@ -87,7 +84,7 @@ class AnimeService
     public function deleteAnime($request)
     {
         $animeResult = $this->animeManager->delete($request);
-        if($animeResult==null)
+        if($animeResult == null)
         {
             return null;
         }

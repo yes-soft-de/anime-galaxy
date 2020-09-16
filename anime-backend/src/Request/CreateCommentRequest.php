@@ -6,22 +6,29 @@ class CreateCommentRequest
 {
     private $id;
     private $userID;
-    public $animeID;
+    private $animeID;
     private $comment;
 
-     /**
+    /**
      * @return mixed
      */
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
-    
 
-   /**
+    /**
+     * @param mixed $id
+     */
+    public function setId($id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
      * @return mixed
-     */ 
-    public function getUserId()
+     */
+    public function getUserID()
     {
         return $this->userID;
     }
@@ -29,17 +36,15 @@ class CreateCommentRequest
     /**
      * @param mixed $userID
      */
-    public function setUserId($userID)
+    public function setUserID($userID): void
     {
         $this->userID = $userID;
-
-        return $this;
     }
 
     /**
      * @return mixed
-     */  
-    public function getAnimeId()
+     */
+    public function getAnimeID()
     {
         return $this->animeID;
     }
@@ -47,28 +52,26 @@ class CreateCommentRequest
     /**
      * @param mixed $animeID
      */
-    public function setAnimeId($animeID)
+    public function setAnimeID($animeID): void
     {
         $this->animeID = $animeID;
-
-        return $this;
     }
 
     /**
      * @return mixed
-     */ 
+     */
     public function getComment()
     {
         return $this->comment;
     }
 
-   /**
+    /**
      * @param mixed $comment
      */
-    public function setComment($comment)
+    public function setComment($comment): void
     {
         $this->comment = $comment;
-
-        return $this;
     }
+
+
 }

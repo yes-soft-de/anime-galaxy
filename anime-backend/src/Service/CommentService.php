@@ -27,11 +27,11 @@ class CommentService
   
     public function create($request, $userId, $animeId)
     {  
-        $request->setUserId($request->getUserId($userId));
-        $request->setAnimeId($request->getAnimeId($animeId));
+        $request->setUserID($request->getUserID($userId));
+        $request->setAnimeID($request->getAnimeID($animeId));
         $commentManager = $this->commentManager->create($request);
-        $commentManager->getUserId($userId);
-        $commentManager->getAnimeId($animeId);
+        $commentManager->getUserID($userId);
+        $commentManager->getAnimeID($animeId);
         $response = $this->autoMapping->map(Comment::class, CreateCommentResponse::class,
             $commentManager);
             
@@ -52,7 +52,8 @@ class CommentService
         $result = $this->commentManager->delete($request);
         $response = $this->autoMapping->map(Comment::class, GetCommentByIdResponse::class, $result);
     
-        if(!$response){
+        if(!$response)
+        {
            $error=['error'=>"this comment not found!!!"];
            return $error;
         }
@@ -72,7 +73,8 @@ class CommentService
     {
         $result = $this->commentManager->getAll($animeId);
         $response = [];
-        foreach ($result as $row) {
+        foreach ($result as $row)
+        {
             $response[] = $this->autoMapping->map(Comment::class, GetCommentsResponse::class, $row);
         }
 

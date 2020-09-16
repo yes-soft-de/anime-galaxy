@@ -19,35 +19,6 @@ class InterActionRepository extends ServiceEntityRepository
         parent::__construct($registry, InterAction::class);
     }
 
-    // /**
-    //  * @return InterAction[] Returns an array of InterAction objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('i')
-            ->andWhere('i.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('i.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?InterAction
-    {
-        return $this->createQueryBuilder('i')
-            ->andWhere('i.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
-
     public function getAll($id)
     {
         return  $res= $this->createQueryBuilder('InterAction')
@@ -56,7 +27,6 @@ class InterActionRepository extends ServiceEntityRepository
         ->getQuery()
         ->getResult();
     }
-
 
     public function getInterActionwithUser($animeID, $userID)
     {
@@ -68,7 +38,6 @@ class InterActionRepository extends ServiceEntityRepository
         ->getQuery()
         ->getResult();
     }
-
 
     public function getAllLikes($id)
     {
@@ -83,7 +52,6 @@ class InterActionRepository extends ServiceEntityRepository
        
         return $res;
     }
-
 
     public function getAllDisLikes($id)
     {
@@ -113,8 +81,6 @@ class InterActionRepository extends ServiceEntityRepository
         return $res;
     }
 
-
-
     public function getAllInerAction($id)
     {
         //count all interaction
@@ -127,8 +93,6 @@ class InterActionRepository extends ServiceEntityRepository
        
         return $res;
     }
-
-
 
     public function countInerActions($id)
     {

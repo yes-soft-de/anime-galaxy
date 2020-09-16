@@ -35,9 +35,11 @@ class FollowService
     public function getAll()
     {
         $result = $this->followManager->getAll();
-        $response=[];
+        $response = [];
         foreach ($result as $row)
+        {
             $response[] = $this->autoMapping->map(Follow::class, GetFollowResponse::class, $row);
+        }
         return $response;
     }
 
@@ -45,9 +47,11 @@ class FollowService
     public function getFollowByUserId($request)
     {
         $result = $this->followManager->getFollowByUserId($request);
-        $response=[];
+        $response = [];
         foreach ($result as $row)
+        {
             $response[] = $this->autoMapping->map(Follow::class, GetFollowResponse::class, $row);
+        }
         return $response;
     }
 

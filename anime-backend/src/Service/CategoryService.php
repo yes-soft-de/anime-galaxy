@@ -44,7 +44,9 @@ class CategoryService
         $result = $this->categoryManager->getAll();
         $response=[];
         foreach ($result as $row)
+        {
             $response[] = $this->autoMapping->map(Category::class, GetCategoryResponse::class, $row);
+        }
         return $response;
     }
 
@@ -61,7 +63,9 @@ class CategoryService
     {
         $result = $this->categoryManager->delete($request);
         if(!($result instanceof Category))
+        {
             return $result;
+        }
         $response = $this->autoMapping->map(Category::class, GetCategoryByIdResponse::class, $result);
         return $response;
     }

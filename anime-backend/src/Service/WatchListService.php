@@ -41,13 +41,9 @@ class WatchListService
     public function update($request)
     {
         $watchListResult = $this->watchListManager->update($request);
-     
         $response = $this->autoMapping->map(WatchList::class, UpdateWatchListResponse::class, $watchListResult);
-        
         return $response;   
     }
-
-
     
     public function getWatchListById($request)
     {
@@ -56,15 +52,14 @@ class WatchListService
         return $response;
     }
 
-
     public function getAllWatchListsByAnimeID($animeID)
     {
         $result = $this->watchListManager->getAllWatchListsByAnimeID($animeID);
         $response = [];
-        foreach ($result as $row) {
+        foreach ($result as $row)
+        {
             $response[] = $this->autoMapping->map(WatchList::class, GetWatchListsResponse::class, $row);
         }
-
         return $response;
     }
 
@@ -72,10 +67,10 @@ class WatchListService
     {
         $result = $this->watchListManager->getAllWatchListsByUserID($userID);
         $response = [];
-        foreach ($result as $row) {
+        foreach ($result as $row)
+        {
             $response[] = $this->autoMapping->map(WatchList::class, GetWatchListsResponse::class, $row);
         }
-
         return $response;
     }
 }
