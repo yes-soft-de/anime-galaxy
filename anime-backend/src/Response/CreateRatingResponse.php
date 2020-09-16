@@ -5,8 +5,8 @@ namespace App\Response;
 class CreateRatingResponse 
 {
     public $id;
-    public $userId;
-    public $animeId;
+    public $userID;
+    public $animeID;
     public $rateValue;
 
      /**
@@ -23,15 +23,15 @@ class CreateRatingResponse
      */ 
     public function getUserId()
     {
-        return $this->userId;
+        return $this->userID;
     }
 
     /**
      * @param mixed $userId
      */
-    public function setUserId($userId)
+    public function setUserId($userID)
     {
-        $this->userId = $userId;
+        $this->userID = $userID;
 
         return $this;
     }
@@ -41,15 +41,15 @@ class CreateRatingResponse
      */  
     public function getAnimeId()
     {
-        return $this->animeId;
+        return $this->animeID;
     }
 
     /**
-     * @param mixed $animeId
+     * @param mixed $animeID
      */
-    public function setAnimeId($animeId)
+    public function setAnimeId($animeID)
     {
-        $this->animeId = $animeId;
+        $this->animeID = $animeID;
 
         return $this;
     }

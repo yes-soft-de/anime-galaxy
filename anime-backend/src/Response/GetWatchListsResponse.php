@@ -5,8 +5,8 @@ namespace App\Response;
 class GetWatchListsResponse
 {
     public $id;
-    public $userId;
-    public $animeId;
+    public $userID;
+    public $animeID;
    
 
      /**
@@ -18,40 +18,29 @@ class GetWatchListsResponse
     }
     
 
-   /**
-     * @return mixed
+  
+
+    /**
+     * Set the value of userID
+     *
+     * @return  self
      */ 
-    public function getUserId()
+    public function setUserID($userID)
     {
-        return $this->userId;
-    }
-
-    /**
-     * @param mixed $userId
-     */
-    public function setUserId($userId)
-    {
-        $this->userId = $userId;
+        $this->userID = $userID;
 
         return $this;
     }
 
     /**
-     * @return mixed
-     */  
-    public function getAnimeId()
+     * Set the value of animeID
+     *
+     * @return  self
+     */ 
+    public function setAnimeID($animeID)
     {
-        return $this->animeId;
-    }
-
-    /**
-     * @param mixed $animeId
-     */
-    public function setAnimeId($animeId)
-    {
-        $this->animeId = $animeId;
+        $this->animeID = $animeID;
 
         return $this;
     }
-
 }

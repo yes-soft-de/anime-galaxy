@@ -6,9 +6,12 @@ namespace App\Response;
 
 class GetAnimeByIdResponse
 {
-    private $name;
-    private $mainImage;
-    private $categoryID;
+    public $name;
+    public $mainImage;
+    public $categoryName;
+    public $countInteraction;
+    public $rating;
+    public $comment;
 
     /**
      * @return mixed
@@ -45,16 +48,60 @@ class GetAnimeByIdResponse
     /**
      * @return mixed
      */
-    public function getCategoryID()
+    public function getCategoryName()
     {
-        return $this->categoryID;
+        return $this->categoryName;
     }
 
     /**
-     * @param mixed $categoryID
+     * @param mixed $categoryName
      */
-    public function setCategoryID($categoryID): void
+    public function setCategoryName($categoryName): void
     {
-        $this->categoryID = $categoryID;
+        $this->categoryName = $categoryName;
+    }
+
+    /**
+     * Get the value of countInteraction
+     */ 
+    public function getCountInteraction()
+    {
+        return $this->countInteraction;
+    }
+
+    /**
+     * Set the value of countInteraction
+     *
+     * @return  self
+     */ 
+    public function setCountInteraction($countInteraction)
+    {
+        $this->countInteraction = $countInteraction;
+
+        return $this;
+    }
+
+    /**
+     * Set the value of rating
+     *
+     * @return  self
+     */ 
+    public function setRating($rating)
+    {
+        $this->rating = $rating;
+
+        return $this;
+    }
+
+    /**
+     * Set the value of comment
+     *
+     * @return  self
+     */ 
+    public function setComment($comment)
+    {
+        $this->comment = $comment;
+
+        return $this;
     }
 }

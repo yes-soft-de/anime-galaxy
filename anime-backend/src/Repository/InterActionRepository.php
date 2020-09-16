@@ -51,7 +51,7 @@ class InterActionRepository extends ServiceEntityRepository
     public function getAll($id)
     {
         return  $res= $this->createQueryBuilder('InterAction')
-        ->andWhere('InterAction.animeId = :id')
+        ->andWhere('InterAction.animeID = :id')
         ->setParameter('id', $id)
         ->getQuery()
         ->getResult();
@@ -61,8 +61,8 @@ class InterActionRepository extends ServiceEntityRepository
     public function getInterActionwithUser($animeID, $userID)
     {
         return  $res= $this->createQueryBuilder('InterAction')
-        ->andWhere('InterAction.animeId = :animeID')
-        ->andWhere('InterAction.userId  = :userID')
+        ->andWhere('InterAction.animeID = :animeID')
+        ->andWhere('InterAction.userID  = :userID')
         ->setParameter('animeID', $animeID)
         ->setParameter('userID', $userID)
         ->getQuery()
@@ -74,7 +74,7 @@ class InterActionRepository extends ServiceEntityRepository
     {
         // Like = 1
          $res= $this->createQueryBuilder('InterAction')
-        ->andWhere('InterAction.animeId = :id')
+        ->andWhere('InterAction.animeID = :id')
         ->andWhere('InterAction.type = 1')
         ->select('count(InterAction.type) as Like')
         ->setParameter('id', $id)
@@ -89,7 +89,7 @@ class InterActionRepository extends ServiceEntityRepository
     {
         // disLike = 2
          $res= $this->createQueryBuilder('InterAction')
-        ->andWhere('InterAction.animeId = :id')
+        ->andWhere('InterAction.animeID = :id')
         ->andWhere('InterAction.type = 2')
         ->select('count(InterAction.type) as DisLike')
         ->setParameter('id', $id)
@@ -103,7 +103,7 @@ class InterActionRepository extends ServiceEntityRepository
     {
         // love = 3
          $res= $this->createQueryBuilder('InterAction')
-        ->andWhere('InterAction.animeId = :id')
+        ->andWhere('InterAction.animeID = :id')
         ->andWhere('InterAction.type = 3')
         ->select('count(InterAction.type) as Love')
         ->setParameter('id', $id)
@@ -119,7 +119,7 @@ class InterActionRepository extends ServiceEntityRepository
     {
         //count all interaction
          $res= $this->createQueryBuilder('InterAction')
-        ->andWhere('InterAction.animeId = :id')
+        ->andWhere('InterAction.animeID = :id')
         ->select('count(InterAction.type) as CountAllInteraction')
         ->setParameter('id', $id)
         ->getQuery()

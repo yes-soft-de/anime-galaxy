@@ -51,7 +51,7 @@ class WatchListRepository extends ServiceEntityRepository
     public function getAllWatchListsByAnimeID($id)
     {
         return  $res= $this->createQueryBuilder('WatchList')
-        ->andWhere('WatchList.animeId = :id')
+        ->andWhere('WatchList.animeID = :id')
         ->setParameter('id', $id)
         ->getQuery()
         ->getResult();
@@ -60,7 +60,7 @@ class WatchListRepository extends ServiceEntityRepository
     public function getAllWatchListsByUserID($id)
     {
         return  $res= $this->createQueryBuilder('WatchList')
-        ->andWhere('WatchList.userId = :id')
+        ->andWhere('WatchList.userID = :id')
         ->setParameter('id', $id)
         ->getQuery()
         ->getResult();

@@ -5,8 +5,8 @@ namespace App\Request;
 class CreateWatchListRequest
 {
     private $id;
-    private $userId;
-    public $animeId;
+    private $userID;
+    public $animeID;
 
      /**
      * @return mixed
@@ -22,15 +22,15 @@ class CreateWatchListRequest
      */ 
     public function getUserId()
     {
-        return $this->userId;
+        return $this->userID;
     }
 
     /**
-     * @param mixed $userId
+     * @param mixed $userID
      */
-    public function setUserId($userId)
+    public function setUserID($userID)
     {
-        $this->userId = $userId;
+        $this->userID = $userID;
 
         return $this;
     }
@@ -40,15 +40,15 @@ class CreateWatchListRequest
      */  
     public function getAnimeId()
     {
-        return $this->animeId;
+        return $this->animeID;
     }
 
     /**
-     * @param mixed $animeId
+     * @param mixed $animeID
      */
-    public function setAnimeId($animeId)
+    public function setAnimeId($animeID)
     {
-        $this->animeId = $animeId;
+        $this->animeID = $animeID;
 
         return $this;
     }
