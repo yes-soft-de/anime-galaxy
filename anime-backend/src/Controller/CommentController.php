@@ -40,8 +40,8 @@ class CommentController extends BaseController
     {
          $data = json_decode($request->getContent(), true);
          $request=$this->autoMapping->map(\stdClass::class,CreateCommentRequest::class,(object)$data);
-         $request->setUserId($userID);
-         $request->setAnimeId($animeID);
+         $request->setUserID($userID);
+         $request->setAnimeID($animeID);
          $result = $this->commentService->create($request, $userID , $animeID);
          return $this->response($result, self::CREATE);
     }
@@ -57,8 +57,8 @@ class CommentController extends BaseController
     {
         $data = json_decode($request->getContent(), true);
         $request = $this->autoMapping->map(\stdClass::class, UpdateCommentRequest::class, (object) $data);
-        $request->setUserId($userID);
-        $request->setAnimeId($animeID);
+        $request->setUserID($userID);
+        $request->setAnimeID($animeID);
         $result = $this->commentService->update($request);
         return $this->response($result, self::UPDATE);
     }

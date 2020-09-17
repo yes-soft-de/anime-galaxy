@@ -103,6 +103,7 @@ class AnimeRepository extends ServiceEntityRepository
             ->setParameter('id',(INT) $id)
             ->getQuery()
             ->getResult();
+
         return $res;
     }
     

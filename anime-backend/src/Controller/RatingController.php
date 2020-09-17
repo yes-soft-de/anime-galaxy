@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\AutoMapping;
@@ -26,12 +27,15 @@ class RatingController extends BaseController
     {
         $this->ratingService  = $ratingService;
         $this->autoMapping    = $autoMapping;
-    } 
+    }
 
-
-    
     /**
      * @Route("/rating/{userID}/{animeID}/{rateValue}", name="createRating", name="createRating",methods={"POST"})
+     * @param Request $request
+     * @param $userID
+     * @param $animeID
+     * @param $rateValue
+     * @return JsonResponse
      */
     public function create(Request $request, $userID , $animeID, $rateValue)
     {
@@ -48,6 +52,9 @@ class RatingController extends BaseController
     /**
      * @Route("/rating/{userID}/{animeID}/{rateValue}", name="updateRating",methods={"PUT"})
      * @param Request $request
+     * @param $userID
+     * @param $animeID
+     * @param $rateValue
      * @return JsonResponse|Response
      */
     public function update(Request $request, $userID, $animeID, $rateValue)
@@ -60,11 +67,11 @@ class RatingController extends BaseController
         $result = $this->ratingService->update($request);
         return $this->response($result, self::UPDATE);
     }
-    
-    
 
     /**
      * @Route("/rating/{animeID}/{userID}", name="getRatingByAnimeIDAndUserID",methods={"GET"})
+     * @param $animeID
+     * @param $userID
      * @return JsonResponse
      */
     public function getRating($animeID, $userID)

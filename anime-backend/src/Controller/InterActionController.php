@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\AutoMapping;
@@ -27,43 +28,47 @@ class InterActionController extends BaseController
         $this->autoMapping        = $autoMapping;
     }
 
-
     /**
      * @Route("/interaction/{userID}/{animeID}/{type}", name="createInteraction", name="createInteraction",methods={"POST"})
+     * @param Request $request
+     * @param $userID
+     * @param $animeID
+     * @param $type
+     * @return JsonResponse
      */
     public function create(Request $request, $userID , $animeID, $type)
     {
          $data = json_decode($request->getContent(), true);
          $request=$this->autoMapping->map(\stdClass::class,CreateInterActionRequest::class,(object)$data);
-         $request->setUserId($userID);
-         $request->setAnimeId($animeID);
+         $request->setUserID($userID);
+         $request->setAnimeID($animeID);
          $request->setType($type);
          $result = $this->interActionService->create($request, $userID , $animeID, $type);
          return $this->response($result, self::CREATE);
     }
 
-
     /**
      * @Route("/interaction/{userID}/{animeID}/{type}", name="updateInteraction",methods={"PUT"})
      * @param Request $request
+     * @param $userID
+     * @param $animeID
+     * @param $type
      * @return JsonResponse|Response
      */
     public function update(Request $request, $userID, $animeID, $type)
     {
-      
         $data = json_decode($request->getContent(), true);
         $request = $this->autoMapping->map(\stdClass::class, UpdateInterActionRequest::class, (object) $data);
-        $request->setUserId($userID);
-        $request->setAnimeId($animeID);
+        $request->setUserID($userID);
+        $request->setAnimeID($animeID);
         $request->setType($type);
         $result = $this->interActionService->update($request);
         return $this->response($result, self::UPDATE);
     }
 
-
-
-     /**
+    /**
      * @Route("/interaction/{animeID}", name="getAllinteractionWithAllUsersByAnimeID",methods={"GET"})
+     * @param $animeID
      * @return JsonResponse
      */
     public function getAll($animeID)
@@ -72,23 +77,24 @@ class InterActionController extends BaseController
         return $this->response($result, self::FETCH);
     }
 
-
     /**
      * @Route("/interaction/{animeID}/{userID}", name="getAllinterActionWithUserByAnimeIDAndUserID",methods={"GET"})
+     * @param $animeID
+     * @param $userID
      * @return JsonResponse
      */
-    public function getInterActionwithUser($animeID, $userID)
+    public function getInteractionWithUser($animeID, $userID)
     {
         $result = $this->interActionService->getInterActionwithUser($animeID, $userID);
         return $this->response($result, self::FETCH);
     }
 
-
     /**
      * @Route("/countInteractions/{animeID}", name="countInteractionsByAnimeID",methods={"GET"})
+     * @param $animeID
      * @return JsonResponse
      */
-    public function countInerActions($animeID)
+    public function countInteractions($animeID)
     {
         $result = $this->interActionService->countInerActions($animeID);
         return $this->response($result, self::FETCH);

@@ -37,12 +37,12 @@ class InterAction
         return $this->id;
     }
 
-    public function getUserId(): ?int
+    public function getUserID(): ?string
     {
         return $this->userID;
     }
 
-    public function setUserId(int $userID): self
+    public function setUserID(string $userID): self
     {
         $this->userID = $userID;
 

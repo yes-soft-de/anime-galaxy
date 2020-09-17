@@ -27,10 +27,10 @@ class UpdateInterActionRequest
         return $this;
     }
 
-   /**
+    /**
      * @return mixed
-     */ 
-    public function getUserId()
+     */
+    public function getUserID()
     {
         return $this->userID;
     }
@@ -38,17 +38,15 @@ class UpdateInterActionRequest
     /**
      * @param mixed $userID
      */
-    public function setUserId($userID)
+    public function setUserID($userID): void
     {
         $this->userID = $userID;
-
-        return $this;
     }
 
     /**
      * @return mixed
-     */  
-    public function getAnimeId()
+     */
+    public function getAnimeID()
     {
         return $this->animeID;
     }
@@ -56,11 +54,9 @@ class UpdateInterActionRequest
     /**
      * @param mixed $animeID
      */
-    public function setAnimeId($animeID)
+    public function setAnimeID($animeID): void
     {
         $this->animeID = $animeID;
-
-        return $this;
     }
 
     /**
