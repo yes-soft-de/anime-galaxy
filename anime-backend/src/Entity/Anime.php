@@ -23,7 +23,7 @@ class Anime
     private $name;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string")
      */
     private $mainImage;
 
@@ -49,12 +49,12 @@ class Anime
         return $this;
     }
 
-    public function getMainImage(): ?int
+    public function getMainImage(): ?string
     {
         return $this->mainImage;
     }
 
-    public function setMainImage(int $mainImage): self
+    public function setMainImage(string $mainImage): self
     {
         $this->mainImage = $mainImage;
 
