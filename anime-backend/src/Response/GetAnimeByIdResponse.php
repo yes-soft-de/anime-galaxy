@@ -6,12 +6,12 @@ namespace App\Response;
 
 class GetAnimeByIdResponse
 {
-    public $name;
-    public $mainImage;
-    public $categoryName;
-    public $countInteraction;
-    public $rating;
-    public $comment;
+    private $name;
+    private $image;
+    private $categoryName;
+    private $countInteraction;
+    private $rating;
+    private $comment;
 
     /**
      * @return mixed
@@ -32,17 +32,17 @@ class GetAnimeByIdResponse
     /**
      * @return mixed
      */
-    public function getMainImage()
+    public function getImage()
     {
-        return $this->mainImage;
+        return $this->image;
     }
 
     /**
-     * @param mixed $mainImage
+     * @param mixed $image
      */
-    public function setMainImage($mainImage): void
+    public function setImage($image): void
     {
-        $this->mainImage = $mainImage;
+        $this->image = $image;
     }
 
     /**

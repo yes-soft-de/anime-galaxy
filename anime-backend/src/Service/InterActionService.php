@@ -74,12 +74,10 @@ class InterActionService
         return $response;
     }
 
-
-
     public function countInerActions($animeId)
     {
         $result = $this->interActionManager->countInerActions($animeId);
-        $response =  $this->autoMapping->map(InterAction::class, CountInerActionResponse::class, $result);
+        $response =  $this->autoMapping->map('array', CountInerActionResponse::class, $result);
         $response->setCountIneraction($result);
         return $response;
     }

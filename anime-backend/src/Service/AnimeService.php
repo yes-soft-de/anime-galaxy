@@ -57,7 +57,11 @@ class AnimeService
     public function getAnimeById($request)
     {
         $result = $this->animeManager->getAnimeById($request);
-        $response = $this->autoMapping->map(Anime::class, GetAnimeByIdResponse::class, $result);
+        $response=[];
+        foreach ($result as $row)
+        {
+            $response[] = $this->autoMapping->map('array', GetAnimeByIdResponse::class, $row);
+        }
         return $response;
     }
 

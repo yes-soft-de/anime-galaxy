@@ -66,8 +66,14 @@ class AnimeRepository extends ServiceEntityRepository
     public function getAnimeById($id)
     {
         $res = $this->createQueryBuilder('anime')
-        ->select('anime.id','anime.name', 'anime.mainImage', 'category.name as categoryName',
+        ->select('anime.id','anime.name', 'img.image as image', 'category.name as categoryName',
             'count( DISTINCT interAction.type) as countInteraction', 'avg(rate.rateValue) as rating', 'count(DISTINCT comment.comment) as comments')
+            ->leftJoin(
+                Image::class,            // Entity
+                'img',                   // Alias
+                Join::WITH,           // Join type
+                'img.animeID = anime.id' // Join columns
+            )
             ->join(
                 Category::class,            // Entity
                 'category',                   // Alias
@@ -93,10 +99,10 @@ class AnimeRepository extends ServiceEntityRepository
                 'comment.animeID = anime.id ' // Join columns
             )
             ->andWhere('anime.id=:id')
-            ->setParameter('id',$id)
+            ->groupBy('img.image')
+            ->setParameter('id',(INT) $id)
             ->getQuery()
-            ->getOneOrNullResult();
-
+            ->getResult();
         return $res;
     }
     
@@ -125,7 +131,7 @@ class AnimeRepository extends ServiceEntityRepository
                 'rate.animeID = anime.id' // Join columns
             )
             ->groupBy('anime.id')
-            ->setParameter('categoryId', $categoryId)
+            ->setParameter('categoryId', (INT)$categoryId)
             ->getQuery()
             ->getResult();
         
