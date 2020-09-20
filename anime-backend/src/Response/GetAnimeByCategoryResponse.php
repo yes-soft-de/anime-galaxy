@@ -6,11 +6,29 @@ namespace App\Response;
 
 class GetAnimeByCategoryResponse
 {
+    private $id;
     private $name;
     private $mainImage;
     private $like;
     private $rating;
     private $comments;
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id): void
+    {
+        $this->id = $id;
+    }
+
 
     /**
      * @return mixed
