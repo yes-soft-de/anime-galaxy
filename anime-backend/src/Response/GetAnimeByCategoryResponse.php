@@ -8,7 +8,7 @@ class GetAnimeByCategoryResponse
 {
     private $name;
     private $mainImage;
-    private $countInteraction;
+    private $like;
     private $rating;
     private $comments;
 
@@ -47,17 +47,17 @@ class GetAnimeByCategoryResponse
     /**
      * @return mixed
      */
-    public function getCountInteraction()
+    public function getLike()
     {
-        return $this->countInteraction;
+        return $this->like;
     }
 
     /**
-     * @param mixed $countInteraction
+     * @param mixed $like
      */
-    public function setCountInteraction($countInteraction): void
+    public function setLike($like): void
     {
-        $this->countInteraction = $countInteraction;
+        $this->like = $like;
     }
 
     /**

@@ -9,6 +9,7 @@ use App\Entity\Image;
 use App\Entity\Category;
 use App\Entity\Comment;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query\Expr\From;
 use Doctrine\ORM\Query\Expr\Join;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -30,7 +31,7 @@ class AnimeRepository extends ServiceEntityRepository
     {
         $res = $this->createQueryBuilder('anime')
             ->select('anime.id', 'anime.name', 'anime.mainImage', 'category.name as categoryName',
-                'count(DISTINCT interAction.type) as countInteraction','avg(rate.rateValue) as rating',
+                'count(DISTINCT interAction.type) as like','avg(rate.rateValue) as rating',
                 'count(DISTINCT comment.comment) as comments')
             ->leftJoin(
                 Category::class,
@@ -66,15 +67,15 @@ class AnimeRepository extends ServiceEntityRepository
     public function getAnimeById($id)
     {
         $res = $this->createQueryBuilder('anime')
-        ->select('anime.id','anime.name', 'anime.mainImage','img.image as image', 'category.name as categoryName',
-            'count( DISTINCT interAction.type) as countInteraction', 'avg(rate.rateValue) as rating', 'count(DISTINCT comment.comment) as comments')
+        ->select('anime.id','anime.name', 'anime.mainImage', 'img.image as image', 'category.name as categoryName',
+            'count( DISTINCT interAction.type) as like', 'avg(rate.rateValue) as rating', 'count(DISTINCT comment.comment) as comments')
             ->leftJoin(
-                Image::class,            // Entity
-                'img',                   // Alias
-                Join::WITH,           // Join type
-                'img.animeID = anime.id' // Join columns
+                Image::class,
+                'img',
+                Join::WITH,
+                'img.animeID = anime.id'
             )
-            ->join(
+            ->leftJoin(
                 Category::class,            // Entity
                 'category',                   // Alias
                 Join::WITH,           // Join type
@@ -99,11 +100,10 @@ class AnimeRepository extends ServiceEntityRepository
                 'comment.animeID = anime.id ' // Join columns
             )
             ->andWhere('anime.id=:id')
-            ->groupBy('img.image')
             ->setParameter('id',(INT) $id)
+            ->groupBy('img.image')
             ->getQuery()
             ->getResult();
-
         return $res;
     }
     
@@ -112,7 +112,7 @@ class AnimeRepository extends ServiceEntityRepository
         $res = $this->createQueryBuilder('anime')
             ->andWhere('anime.categoryID=:categoryId')
             ->select('anime.id','anime.name', 'anime.mainImage', 'count(DISTINCT comment.comment) as comments',
-                'count(DISTINCT interAction.type) as countInteraction', 'avg(rate.rateValue) as rating')
+                'count(DISTINCT interAction.type) as like', 'avg(rate.rateValue) as rating')
             ->leftJoin(
                 Comment::class,            // Entity
                 'comment',                   // Alias
