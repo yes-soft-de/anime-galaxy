@@ -66,7 +66,7 @@ class AnimeRepository extends ServiceEntityRepository
     public function getAnimeById($id)
     {
         $res = $this->createQueryBuilder('anime')
-        ->select('anime.id','anime.name', 'img.image as image', 'category.name as categoryName',
+        ->select('anime.id','anime.name', 'anime.mainImage','img.image as image', 'category.name as categoryName',
             'count( DISTINCT interAction.type) as countInteraction', 'avg(rate.rateValue) as rating', 'count(DISTINCT comment.comment) as comments')
             ->leftJoin(
                 Image::class,            // Entity
