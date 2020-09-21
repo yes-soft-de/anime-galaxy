@@ -69,7 +69,7 @@ class  AnimeController extends BaseController
     }
 
     /**
-     * @Route("/category/{id}", name="getAllAnimeByCategory", methods={"GET"})
+     * @Route("/animeByCategory/{id}", name="getAllAnimeByCategory", methods={"GET"})
      * @param Request $request
      * @return JsonResponse
      */

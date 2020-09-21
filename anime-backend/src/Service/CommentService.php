@@ -80,4 +80,15 @@ class CommentService
 
         return $response;
     }
+
+    public function getCommentsByAnimeId($request)
+    {
+        $result = $this->commentManager->getCommentsByAnimeId($request);
+
+        foreach ($result as $row)
+        {
+            $response[] = $this->autoMapping->map('array', GetCommentsResponse::class, $row);
+        }
+        return $response;
+    }
 }

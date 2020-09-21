@@ -21,19 +21,22 @@ class AnimeService
     private $animeManager;
     private $autoMapping;
     private $imageManager;
+    private $commentService;
 
     /**
      * AnimeService constructor.
      * @param AnimeManager $animeManager
      * @param AutoMapping $autoMapping
      * @param ImageManager $imageManager
+     * @param CommentService $commentService
      */
     public function __construct(AnimeManager $animeManager, AutoMapping $autoMapping,
- ImageManager $imageManager)
+ ImageManager $imageManager, CommentService $commentService)
     {
         $this->animeManager = $animeManager;
         $this->autoMapping = $autoMapping;
         $this->imageManager = $imageManager;
+        $this->commentService = $commentService;
     }
 
     public function createAnime($request)
@@ -55,14 +58,18 @@ class AnimeService
     }
 
     public function getAnimeById($request)
-    {  
+    {
        $resultImg = $this->imageManager->getImagesByAnimeID($request);
-       $result    = $this->animeManager->getAnimeById($request);
+       $resultComments = $this->commentService->getCommentsByAnimeId($request);
+       $result = $this->animeManager->getAnimeById($request);
+
        foreach ($result as $row)
        {
        $response = $this->autoMapping->map('array', GetAnimeByIdResponse::class, $row);
-       } 
+       }
+
         $response->setImage($resultImg);
+       $response->setComments($resultComments);
         return $response;
     }
 

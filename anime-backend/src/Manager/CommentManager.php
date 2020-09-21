@@ -38,8 +38,6 @@ class CommentManager
         return $commentEntity;
     }
 
-
-
     public function update(UpdateCommentRequest $request)
     {
         $commentEntity = $this->commentRepository->find($request->getId());
@@ -52,7 +50,6 @@ class CommentManager
         }
         return $commentEntity;
     }
-
 
     public function delete(DeleteRequest $request)
     {
@@ -67,18 +64,23 @@ class CommentManager
          }
          return $comment;
     }
-    
 
     public function getCommentById(GetByIdRequest $request)
     {
         return $result = $this->commentRepository->find($request->getId());
     }
 
-
     public function getAll($animeId)
     {
         $comments = $this->commentRepository->getAll($animeId);
 
         return $comments;
+    }
+
+    public function getCommentsByAnimeId(GetByIdRequest $request)
+    {
+        $data = $this->commentRepository->getCommentsByAnimeId($request->getId());
+
+        return $data;
     }
 }
