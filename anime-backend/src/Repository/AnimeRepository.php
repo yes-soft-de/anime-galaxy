@@ -66,7 +66,7 @@ class AnimeRepository extends ServiceEntityRepository
     {
         $res = $this->createQueryBuilder('anime')
     
-        ->select('anime.id','anime.name', 'anime.id','anime.name', 'anime.mainImage','category.name as categoryName', 'count( DISTINCT interAction.type) as countInteraction', 'avg(rate.rateValue) as rating', 'count(DISTINCT comment.comment) as comments')
+        ->select('anime.id','anime.name', 'anime.id','anime.name', 'anime.mainImage','category.name as categoryName', 'count( DISTINCT interAction.type) as like', 'avg(rate.rateValue) as rating', 'count(DISTINCT comment.comment) as comments')
         
             ->leftJoin(
                 Category::class,            // Entity
