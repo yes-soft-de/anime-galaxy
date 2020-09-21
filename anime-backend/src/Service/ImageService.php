@@ -54,10 +54,10 @@ class ImageService
     public function getImagesByAnimeId($request)
     {
         $result = $this->imageManager->getImagesByAnimeID($request);
-        $response=[];
+        
         foreach ($result as $row)
         {
-            $response[] = $this->autoMapping->map(Image::class, GetImageResponse::class, $row);
+            $response[] = $this->autoMapping->map('array', GetImageResponse::class, $row);
         }
         return $response;
     }

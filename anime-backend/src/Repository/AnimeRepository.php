@@ -12,7 +12,6 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\Query\Expr\Join;
 use Doctrine\Persistence\ManagerRegistry;
 
-
 /**
  * @method Anime|null find($id, $lockMode = null, $lockVersion = null)
  * @method Anime|null findOneBy(array $criteria, array $orderBy = null)
@@ -66,20 +65,16 @@ class AnimeRepository extends ServiceEntityRepository
     public function getAnimeById($id)
     {
         $res = $this->createQueryBuilder('anime')
-        ->select('anime.id','anime.name', 'anime.mainImage','img.image as image', 'category.name as categoryName',
-            'count( DISTINCT interAction.type) as countInteraction', 'avg(rate.rateValue) as rating', 'count(DISTINCT comment.comment) as comments')
+    
+        ->select('anime.id','anime.name', 'anime.id','anime.name', 'anime.mainImage','category.name as categoryName', 'count( DISTINCT interAction.type) as countInteraction', 'avg(rate.rateValue) as rating', 'count(DISTINCT comment.comment) as comments')
+        
             ->leftJoin(
-                Image::class,            // Entity
-                'img',                   // Alias
-                Join::WITH,           // Join type
-                'img.animeID = anime.id' // Join columns
-            )
-            ->join(
                 Category::class,            // Entity
                 'category',                   // Alias
                 Join::WITH,           // Join type
                 'category.id = anime.categoryID' // Join columns
             )
+            
             ->leftJoin(
             InterAction::class,            // Entity
             'interAction',                   // Alias
@@ -99,11 +94,11 @@ class AnimeRepository extends ServiceEntityRepository
                 'comment.animeID = anime.id ' // Join columns
             )
             ->andWhere('anime.id=:id')
-            ->groupBy('img.image')
+            ->groupBy('anime.id')
+            ->orderBy('anime.id')
             ->setParameter('id',(INT) $id)
             ->getQuery()
             ->getResult();
-
         return $res;
     }
     

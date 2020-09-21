@@ -5,7 +5,7 @@ namespace App\Repository;
 use App\Entity\Image;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
-
+use App\Entity\Anime;
 /**
  * @method Image|null find($id, $lockMode = null, $lockVersion = null)
  * @method Image|null findOneBy(array $criteria, array $orderBy = null)
@@ -32,13 +32,16 @@ class ImageRepository extends ServiceEntityRepository
 
     public function getImagesByAnimeId($animeID)
     {
-        $res = $this->createQueryBuilder('image')
-            ->andWhere('image.animeID=:id')
-            ->setParameter('id',$animeID)
-            ->getQuery()
-            ->getResult();
+        $result=$this->createQueryBuilder('image')
+        ->select('image.image')
+        ->from('App:Anime','anime')
+        ->andWhere('anime.id=image.animeID')
+        ->andWhere('anime.id=:animeID')
+        ->setParameter('animeID',$animeID)
+        ->getQuery()
+        ->getResult();
 
-        return $res;
+        return $result;
     }
 
     public function getAll()
