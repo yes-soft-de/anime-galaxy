@@ -6,13 +6,30 @@ namespace App\Response;
 
 class GetAnimeByIdResponse
 {
+    private $id;
     private $name;
     private $mainImage;
     private $image;
     private $categoryName;
-    private $countInteraction;
+    private $like;
     private $rating;
     private $comments;
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id): void
+    {
+        $this->id = $id;
+    }
 
     /**
      * @return mixed
@@ -81,17 +98,17 @@ class GetAnimeByIdResponse
     /**
      * @return mixed
      */
-    public function getCountInteraction()
+    public function getLike()
     {
-        return $this->countInteraction;
+        return $this->like;
     }
 
     /**
-     * @param mixed $countInteraction
+     * @param mixed $like
      */
-    public function setCountInteraction($countInteraction): void
+    public function setLike($like): void
     {
-        $this->countInteraction = $countInteraction;
+        $this->like = $like;
     }
 
     /**
