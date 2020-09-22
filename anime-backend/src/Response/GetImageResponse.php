@@ -7,7 +7,6 @@ namespace App\Response;
 class GetImageResponse
 {
     private $image;
-    private $animeID;
 
     /**
      * @return mixed
@@ -24,22 +23,4 @@ class GetImageResponse
     {
         $this->image = $image;
     }
-
-    /**
-     * @return mixed
-     */
-    public function getAnimeID()
-    {
-        return $this->animeID;
-    }
-
-    /**
-     * @param mixed $animeID
-     */
-    public function setAnimeID($animeID): void
-    {
-        $this->animeID = $animeID;
-    }
-
-
 }

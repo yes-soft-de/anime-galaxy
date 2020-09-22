@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\WatchListRepository;
+use App\Repository\FavouriteRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=WatchListRepository::class)
+ * @ORM\Entity(repositoryClass=FavouriteRepository::class)
  */
-class WatchList
+class Favourite
 {
     /**
      * @ORM\Id
@@ -27,17 +27,22 @@ class WatchList
      */
     private $animeID;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $categoryID;
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getUserId(): ?int
+    public function getUserId(): ?string
     {
         return $this->userID;
     }
 
-    public function setUserId(int $userID): self
+    public function setUserId(string $userID): self
     {
         $this->userID = $userID;
 
@@ -52,6 +57,18 @@ class WatchList
     public function setAnimeId(int $animeID): self
     {
         $this->animeID = $animeID;
+
+        return $this;
+    }
+
+    public function getCategoryID(): ?int
+    {
+        return $this->categoryID;
+    }
+
+    public function setCategoryID(int $categoryID): self
+    {
+        $this->categoryID = $categoryID;
 
         return $this;
     }

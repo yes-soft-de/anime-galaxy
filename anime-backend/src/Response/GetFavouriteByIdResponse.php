@@ -2,7 +2,7 @@
 
 namespace App\Response;
 
-class GetWatchListByIdResponse
+class GetFavouriteByIdResponse
 {
     public $id;
     public $userID;
@@ -15,31 +15,21 @@ class GetWatchListByIdResponse
     {
         return $this->id;
     }
-    
-
-   
 
     /**
-     * Set the value of userID
-     *
-     * @return  self
-     */ 
-    public function setUserID($userID)
+     * @param mixed $userID
+     */
+    public function setUserID($userID): void
     {
         $this->userID = $userID;
-
-        return $this;
     }
 
     /**
-     * Set the value of animeID
-     *
-     * @return  self
-     */ 
-    public function setAnimeID($animeID)
+     * @param mixed $animeID
+     */
+    public function setAnimeID($animeID): void
     {
         $this->animeID = $animeID;
-
-        return $this;
     }
+
 }

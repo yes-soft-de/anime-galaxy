@@ -20,22 +20,22 @@ class AnimeService
 {
     private $animeManager;
     private $autoMapping;
-    private $imageManager;
+    private $imageService;
     private $commentService;
 
     /**
      * AnimeService constructor.
      * @param AnimeManager $animeManager
      * @param AutoMapping $autoMapping
-     * @param ImageManager $imageManager
+     * @param ImageService $imageService
      * @param CommentService $commentService
      */
     public function __construct(AnimeManager $animeManager, AutoMapping $autoMapping,
- ImageManager $imageManager, CommentService $commentService)
+ ImageService $imageService, CommentService $commentService)
     {
         $this->animeManager = $animeManager;
         $this->autoMapping = $autoMapping;
-        $this->imageManager = $imageManager;
+        $this->imageService = $imageService;
         $this->commentService = $commentService;
     }
 
@@ -59,7 +59,7 @@ class AnimeService
 
     public function getAnimeById($request)
     {
-       $resultImg = $this->imageManager->getImagesByAnimeID($request);
+       $resultImg = $this->imageService->getImagesByAnimeID($request);
        $resultComments = $this->commentService->getCommentsByAnimeId($request);
        $result = $this->animeManager->getAnimeById($request);
 

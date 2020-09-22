@@ -2,7 +2,7 @@
 
 namespace App\Response;
 
-class CreateWatchListResponse
+class CreateFavouriteResponse
 {
     public $id;
     public $userID;
@@ -15,7 +15,6 @@ class CreateWatchListResponse
     {
         return $this->id;
     }
-    
 
    /**
      * @return mixed
@@ -28,17 +27,15 @@ class CreateWatchListResponse
     /**
      * @param mixed $userID
      */
-    public function setUserId($userID)
+    public function setUserID($userID): void
     {
         $this->userID = $userID;
-
-        return $this;
     }
 
     /**
      * @return mixed
-     */  
-    public function getAnimeId()
+     */
+    public function getAnimeID()
     {
         return $this->animeID;
     }
@@ -46,11 +43,10 @@ class CreateWatchListResponse
     /**
      * @param mixed $animeID
      */
-    public function setAnimeId($animeID)
+    public function setAnimeID($animeID): void
     {
         $this->animeID = $animeID;
-
-        return $this;
     }
+
 
 }

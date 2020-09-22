@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Response;
+namespace App\Request;
 
-class UpdateWatchListResponse
+class CreateFavouriteRequest
 {
-    public $id;
-    public $userID;
+    private $id;
+    private $userID;
     public $animeID;
-   
 
      /**
      * @return mixed
@@ -16,12 +15,11 @@ class UpdateWatchListResponse
     {
         return $this->id;
     }
-    
 
-   /**
+    /**
      * @return mixed
-     */ 
-    public function getUserId()
+     */
+    public function getUserID()
     {
         return $this->userID;
     }
@@ -29,17 +27,15 @@ class UpdateWatchListResponse
     /**
      * @param mixed $userID
      */
-    public function setUserId($userID)
+    public function setUserID($userID): void
     {
         $this->userID = $userID;
-
-        return $this;
     }
 
     /**
      * @return mixed
-     */  
-    public function getAnimeId()
+     */
+    public function getAnimeID()
     {
         return $this->animeID;
     }
@@ -47,11 +43,9 @@ class UpdateWatchListResponse
     /**
      * @param mixed $animeID
      */
-    public function setAnimeId($animeID)
+    public function setAnimeID($animeID): void
     {
         $this->animeID = $animeID;
-
-        return $this;
     }
 
 }
