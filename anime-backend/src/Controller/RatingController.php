@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -10,7 +9,6 @@ use App\AutoMapping;
 use App\Service\RatingService;
 use App\Request\CreateRatingRequest;
 use App\Request\UpdateRatingRequest;
-use App\Request\GetByIdRequest;
 use Symfony\Component\HttpFoundation\Response;
 
 class RatingController extends BaseController
@@ -18,15 +16,15 @@ class RatingController extends BaseController
     private $ratingService;
     private $autoMapping;
 
-
     /**
      * RatingController constructor.
      * @param RatingService $ratingService
+     * @param AutoMapping $autoMapping
      */
-    public function __construct(RatingService $ratingService,AutoMapping $autoMapping)
+    public function __construct(RatingService $ratingService, AutoMapping $autoMapping)
     {
-        $this->ratingService  = $ratingService;
-        $this->autoMapping    = $autoMapping;
+        $this->ratingService = $ratingService;
+        $this->autoMapping = $autoMapping;
     }
 
     /**
@@ -48,9 +46,8 @@ class RatingController extends BaseController
          return $this->response($result, self::CREATE);
     }
 
-
     /**
-     * @Route("/rating/{userID}/{animeID}/{rateValue}", name="updateRating",methods={"PUT"})
+     * @Route("/rating/{userID}/{animeID}/{rateValue}", name="updateRating", methods={"PUT"})
      * @param Request $request
      * @param $userID
      * @param $animeID
@@ -69,7 +66,7 @@ class RatingController extends BaseController
     }
 
     /**
-     * @Route("/rating/{animeID}/{userID}", name="getRatingByAnimeIDAndUserID",methods={"GET"})
+     * @Route("/rating/{animeID}/{userID}", name="getRatingByAnimeIDAndUserID", methods={"GET"})
      * @param $animeID
      * @param $userID
      * @return JsonResponse
@@ -81,15 +78,13 @@ class RatingController extends BaseController
         return $this->response($result, self::FETCH);
     }
 
-
-    
     /**
-     * @Route("/ratings/{animeID}", name="getAllRatingsByAnimeID",methods={"GET"})
+     * @Route("/ratings/{animeID}", name="getAllRatingsByAnimeID", methods={"GET"})
+     * @param $animeID
      * @return JsonResponse
      */
     public function getAllRatings($animeID)
     {
-        
         $result = $this->ratingService->getAllRatings($animeID);
        
         return $this->response($result, self::FETCH);

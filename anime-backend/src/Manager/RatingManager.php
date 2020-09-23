@@ -6,11 +6,7 @@ use App\Entity\Rating;
 use App\Repository\RatingRepository;
 use App\Request\CreateRatingRequest;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Flex\Response;
 use App\Request\UpdateRatingRequest;
-use App\Request\GetByIdRequest;
 
 class RatingManager
 {
@@ -52,15 +48,12 @@ class RatingManager
         return $ratingEntity;
     }
 
-
     public function getRating($animeID)
     {
         $rating = $this->ratingRepository->getRating($animeID);
 
         return $rating;
     }
-
-
 
     public function getAllRatings($animeID)
     {

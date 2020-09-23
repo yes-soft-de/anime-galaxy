@@ -6,16 +6,11 @@ namespace App\Service;
 
 use App\AutoMapping;
 use App\Entity\Image;
-use App\Entity\Images;
 use App\Manager\ImageManager;
 use App\Response\CreateImageResponse;
 use App\Response\GetImageByIdResponse;
 use App\Response\GetImageResponse;
 use App\Response\UpdateImageResponse;
-use Symfony\Component\HttpFoundation\Request;
-use App\Response\DeleteResponse;
-use Symfony\Component\Routing\Exception\NoConfigurationException;
-use Doctrine\ORM\NonUniqueResultException;
 
 class ImageService
 

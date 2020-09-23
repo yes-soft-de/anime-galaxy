@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Response;
+namespace App\Request;
 
-class CreateInterActionResponse 
+class UpdateInteractionRequest
 {
-    public $id;
-    public $userID;
-    public $animeID;
-    public $type;
+    private $id;
+    private $userID;
+    private $animeID;
+    private $type;
 
      /**
      * @return mixed
@@ -16,12 +16,19 @@ class CreateInterActionResponse
     {
         return $this->id;
     }
-    
 
-   /**
+    /**
+     * @param mixed $id
+     */
+    public function setId($id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
      * @return mixed
-     */ 
-    public function getUserId()
+     */
+    public function getUserID()
     {
         return $this->userID;
     }
@@ -29,17 +36,15 @@ class CreateInterActionResponse
     /**
      * @param mixed $userID
      */
-    public function setUserId($userID)
+    public function setUserID($userID): void
     {
         $this->userID = $userID;
-
-        return $this;
     }
 
     /**
      * @return mixed
-     */  
-    public function getAnimeId()
+     */
+    public function getAnimeID()
     {
         return $this->animeID;
     }
@@ -47,13 +52,12 @@ class CreateInterActionResponse
     /**
      * @param mixed $animeID
      */
-    public function setAnimeId($animeID)
+    public function setAnimeID($animeID): void
     {
         $this->animeID = $animeID;
-
-        return $this;
     }
- /**
+
+    /**
      * @return mixed
      */ 
     public function getType()
@@ -61,13 +65,12 @@ class CreateInterActionResponse
         return $this->type;
     }
 
-   /**
+    /**
      * @param mixed $type
      */
-    public function setType($type)
+    public function setType($type): void
     {
         $this->type = $type;
-
-        return $this;
     }
+
 }

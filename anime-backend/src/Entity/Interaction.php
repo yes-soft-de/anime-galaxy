@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\InterActionRepository;
+use App\Repository\InteractionRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=InterActionRepository::class)
+ * @ORM\Entity(repositoryClass=InteractionRepository::class)
  */
-class InterAction
+class Interaction
 {
     /**
      * @ORM\Id
