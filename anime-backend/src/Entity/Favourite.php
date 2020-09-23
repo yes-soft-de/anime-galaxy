@@ -32,6 +32,11 @@ class Favourite
      */
     private $categoryID;
 
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $creationDate;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +74,18 @@ class Favourite
     public function setCategoryID(int $categoryID): self
     {
         $this->categoryID = $categoryID;
+
+        return $this;
+    }
+
+    public function getCreationDate(): ?\DateTimeInterface
+    {
+        return $this->creationDate;
+    }
+
+    public function setCreationDate(?\DateTimeInterface $creationDate): self
+    {
+        $this->creationDate = $creationDate;
 
         return $this;
     }

@@ -32,6 +32,11 @@ class Rating
      */
     private $rateValue;
 
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $creationDate;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +74,18 @@ class Rating
     public function setRateValue(int $rateValue): self
     {
         $this->rateValue = $rateValue;
+
+        return $this;
+    }
+
+    public function getCreationDate(): ?\DateTimeInterface
+    {
+        return $this->creationDate;
+    }
+
+    public function setCreationDate(?\DateTimeInterface $creationDate): self
+    {
+        $this->creationDate = $creationDate;
 
         return $this;
     }

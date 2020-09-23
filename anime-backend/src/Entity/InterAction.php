@@ -32,6 +32,11 @@ class InterAction
      */
     private $type;
 
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $creationDate;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +74,18 @@ class InterAction
     public function setType(int $type): self
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    public function getCreationDate(): ?\DateTimeInterface
+    {
+        return $this->creationDate;
+    }
+
+    public function setCreationDate(?\DateTimeInterface $creationDate): self
+    {
+        $this->creationDate = $creationDate;
 
         return $this;
     }

@@ -8,7 +8,7 @@ class CreateCommentRequest
     private $userID;
     private $animeID;
     private $comment;
-
+    private $solar;
     /**
      * @return mixed
      */
@@ -74,4 +74,22 @@ class CreateCommentRequest
     }
 
 
+
+    /**
+     * @return mixed
+     */ 
+    public function getSolar()
+    {
+        return $this->solar;
+    }
+
+    /**
+     * @param mixed $solar
+     */ 
+    public function setSolar($solar)
+    {
+        $this->solar = $solar;
+
+        return $this;
+    }
 }

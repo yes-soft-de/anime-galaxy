@@ -32,6 +32,16 @@ class Comment
      */
     private $comment;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $solar;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $creationDate;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -73,6 +83,30 @@ class Comment
     public function setComment(string $comment): self
     {
         $this->comment = $comment;
+
+        return $this;
+    }
+
+    public function getSolar(): ?bool
+    {
+        return $this->solar;
+    }
+
+    public function setSolar(?bool $solar): self
+    {
+        $this->solar = $solar;
+
+        return $this;
+    }
+
+    public function getCreationDate(): ?\DateTimeInterface
+    {
+        return $this->creationDate;
+    }
+
+    public function setCreationDate(?\DateTimeInterface $creationDate): self
+    {
+        $this->creationDate = $creationDate;
 
         return $this;
     }

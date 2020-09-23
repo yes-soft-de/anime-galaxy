@@ -8,7 +8,7 @@ class UpdateCommentRequest
     private $userID;
     private $animeID;
     private $comment;
-
+    private $solar;
     /**
      * @return mixed
      */
@@ -71,6 +71,26 @@ class UpdateCommentRequest
     public function setComment($comment)
     {
         $this->comment = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of solar
+     */ 
+    public function getSolar()
+    {
+        return $this->solar;
+    }
+
+    /**
+     * Set the value of solar
+     *
+     * @return  self
+     */ 
+    public function setSolar($solar)
+    {
+        $this->solar = $solar;
 
         return $this;
     }
