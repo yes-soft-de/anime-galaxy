@@ -81,12 +81,12 @@
 ##### Get rating by animeID . 
 `Method: GET. Path: /ratings/animeID`
 
-### Watch List APIs
-##### Create watchList. 
-`Method: POST. Path: /watchList/userID/animeID`
-##### Get a watchList  by ID. 
-`Method: GET. Path: /watchList/ID`
-##### Get a watchList  by animeID. 
-`Method: GET. Path: /watchListsAnime/animeID`
-##### Get a watchList  by userID. 
-`Method: GET. Path: /watchListsUser/userID`
+### Favourite APIs
+##### Create a new favourite. 
+`Method: POST. Path: /favourite/userID/animeID`
+##### Get a favourite by ID. 
+`Method: GET. Path: /favourite/ID`
+##### Get a favourite by animeID. 
+`Method: GET. Path: /favouriteAnime/animeID`
+##### Get a favourite by userID. 
+`Method: GET. Path: /favouriteUser/userID`
