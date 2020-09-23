@@ -8,7 +8,8 @@ class CreateCommentRequest
     private $userID;
     private $animeID;
     private $comment;
-    private $solar;
+    private $spoilerAlert;
+    private $creationDate;
     /**
      * @return mixed
      */
@@ -78,18 +79,37 @@ class CreateCommentRequest
     /**
      * @return mixed
      */ 
-    public function getSolar()
+    public function getSpoilerAlert()
     {
-        return $this->solar;
+        return $this->spoilerAlert;
     }
 
     /**
-     * @param mixed $solar
+     * @param mixed $spoilerAlert
      */ 
-    public function setSolar($solar)
+    public function setSpoilerAlert($spoilerAlert)
     {
-        $this->solar = $solar;
+        $this->spoilerAlert = $spoilerAlert;
 
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */ 
+    public function getCreationDate()
+    {
+        return $this->creationDate;
+    }
+
+    /**
+     * Set the value of creationDate
+     *
+     * @return  self
+     */ 
+    public function setCreationDate($creationDate): void
+    {
+        $this->creationDate = new \DateTime('now');
+
     }
 }

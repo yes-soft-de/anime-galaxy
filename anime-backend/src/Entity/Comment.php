@@ -35,13 +35,20 @@ class Comment
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $solar;
+    private $spoilerAlert;
 
     /**
      * @ORM\Column(type="date", nullable=true)
      */
     private $creationDate;
 
+    /**
+     * date constructor.
+     */
+    public function __construct()
+    {
+        $this->creationDate = new \DateTime('now');
+    }
     public function getId(): ?int
     {
         return $this->id;
@@ -87,14 +94,14 @@ class Comment
         return $this;
     }
 
-    public function getSolar(): ?bool
+    public function getSpoilerAlert(): ?bool
     {
-        return $this->solar;
+        return $this->spoilerAlert;
     }
 
-    public function setSolar(?bool $solar): self
+    public function setSpoilerAlert(?bool $spoilerAlert): self
     {
-        $this->solar = $solar;
+        $this->spoilerAlert = $spoilerAlert;
 
         return $this;
     }
@@ -106,7 +113,7 @@ class Comment
 
     public function setCreationDate(?\DateTimeInterface $creationDate): self
     {
-        $this->creationDate = $creationDate;
+        $this->creationDate = new \DateTime('now');
 
         return $this;
     }

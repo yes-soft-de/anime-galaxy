@@ -8,7 +8,7 @@ class UpdateCommentRequest
     private $userID;
     private $animeID;
     private $comment;
-    private $solar;
+    private $spoilerAlert;
     /**
      * @return mixed
      */
@@ -76,21 +76,21 @@ class UpdateCommentRequest
     }
 
     /**
-     * Get the value of solar
+     * Get the value of spoilerAlert
      */ 
-    public function getSolar()
+    public function getSpoilerAlert()
     {
-        return $this->solar;
+        return $this->spoilerAlert;
     }
 
     /**
-     * Set the value of solar
+     * Set the value of spoilerAlert
      *
      * @return  self
      */ 
-    public function setSolar($solar)
+    public function setSpoilerAlert($spoilerAlert)
     {
-        $this->solar = $solar;
+        $this->spoilerAlert = $spoilerAlert;
 
         return $this;
     }

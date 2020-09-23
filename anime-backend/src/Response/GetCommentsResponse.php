@@ -6,7 +6,7 @@ class GetCommentsResponse
 {
     
     private $comment;
-    private $solar;
+    private $spoilerAlert;
     /**
      * @return mixed
      */ 
@@ -28,17 +28,17 @@ class GetCommentsResponse
     /**
      * @return mixed
      */ 
-    public function getSolar()
+    public function getSpoilerAlert()
     {
-        return $this->solar;
+        return $this->spoilerAlert;
     }
 
    /**
-     * @param mixed $solar
+     * @param mixed $spoilerAlert
      */ 
-    public function setSolar($solar)
+    public function setSpoilerAlert($spoilerAlert)
     {
-        $this->solar = $solar;
+        $this->spoilerAlert = $spoilerAlert;
 
         return $this;
     }
