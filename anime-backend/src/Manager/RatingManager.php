@@ -48,9 +48,9 @@ class RatingManager
         return $ratingEntity;
     }
 
-    public function getRating($animeID)
+    public function getRating($animeID, $userID)
     {
-        $rating = $this->ratingRepository->getRating($animeID);
+        $rating = $this->ratingRepository->getRating($animeID, $userID);
 
         return $rating;
     }
