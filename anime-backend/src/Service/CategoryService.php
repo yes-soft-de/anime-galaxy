@@ -13,9 +13,6 @@ use App\Response\CreateCategoryResponse;
 use App\Response\GetCategoryByIdResponse;
 use App\Response\GetCategoryResponse;
 use App\Response\UpdateCategoryResponse;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Exception\NoConfigurationException;
-use Doctrine\ORM\NonUniqueResultException;
 
 class CategoryService
 

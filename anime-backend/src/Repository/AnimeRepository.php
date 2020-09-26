@@ -3,9 +3,8 @@
 namespace App\Repository;
 
 use App\Entity\Anime;
-use App\Entity\InterAction;
+use App\Entity\Interaction;
 use App\Entity\Rating;
-use App\Entity\Image;
 use App\Entity\Category;
 use App\Entity\Comment;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -30,7 +29,7 @@ class AnimeRepository extends ServiceEntityRepository
     {
         $res = $this->createQueryBuilder('anime')
             ->select('anime.id', 'anime.name', 'anime.mainImage', 'category.name as categoryName',
-                'count(DISTINCT interAction.type) as like','avg(rate.rateValue) as rating',
+                'count(DISTINCT interaction.type) as like','avg(rate.rateValue) as rating',
                 'count(DISTINCT comment.comment) as comments')
             ->leftJoin(
                 Category::class,
@@ -39,10 +38,10 @@ class AnimeRepository extends ServiceEntityRepository
                 'category.id = anime.categoryID'
             )
             ->leftJoin(
-                InterAction::class,              
-                'interAction',                        
-                Join::WITH,              
-                'interAction.animeID = anime.id'  
+                Interaction::class,              //Entity
+                'interaction',                        //Alias
+                Join::WITH,              //Join Type
+                'interaction.animeID = anime.id'  //Join Column
             )
             ->leftJoin(
                 Rating::class,                   
@@ -67,7 +66,7 @@ class AnimeRepository extends ServiceEntityRepository
     {
         $res = $this->createQueryBuilder('anime')
     
-        ->select('anime.id','anime.name', 'anime.mainImage','category.name as categoryName', 'count( DISTINCT interAction.type) as like', 'avg(rate.rateValue) as rating')
+        ->select('anime.id','anime.name', 'anime.mainImage','category.name as categoryName', 'count( DISTINCT interaction.type) as like', 'avg(rate.rateValue) as rating')
         
             ->leftJoin(
                 Category::class,            
@@ -77,10 +76,10 @@ class AnimeRepository extends ServiceEntityRepository
             )
             
             ->leftJoin(
-            InterAction::class,           
-            'interAction',                  
-            Join::WITH,           
-            'interAction.animeID = anime.id' 
+            Interaction::class,            // Entity
+            'interaction',                   // Alias
+            Join::WITH,           // Join type
+            'interaction.animeID = anime.id' // Join columns
             )
             ->leftJoin(
                 Rating::class,            
@@ -103,7 +102,7 @@ class AnimeRepository extends ServiceEntityRepository
         $res = $this->createQueryBuilder('anime')
             ->andWhere('anime.categoryID=:categoryId')
             ->select('anime.id','anime.name', 'anime.mainImage', 'count(DISTINCT comment.comment) as comments',
-                'count(DISTINCT interAction.type) as like', 'avg(rate.rateValue) as rating')
+                'count(DISTINCT interaction.type) as like', 'avg(rate.rateValue) as rating')
             ->leftJoin(
                 Comment::class,            
                 'comment',                  
@@ -111,10 +110,10 @@ class AnimeRepository extends ServiceEntityRepository
                 'comment.animeID = anime.id ' 
             )
             ->leftJoin(
-                InterAction::class,           
-                'interAction',                  
-                Join::WITH,           
-                'interAction.animeID = anime.id ' 
+                Interaction::class,            // Entity
+                'interaction',                   // Alias
+                Join::WITH,           // Join type
+                'interaction.animeID = anime.id ' // Join columns
             )
             ->leftJoin(
                 Rating::class,            

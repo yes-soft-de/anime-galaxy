@@ -9,8 +9,6 @@ use App\Entity\Rating;
 use App\Manager\RatingManager;
 use App\Response\CreateRatingResponse;
 use App\Response\UpdateRatingResponse;
-use Symfony\Component\HttpFoundation\Request;
-use App\Response\GetRatingsResponse;
 use App\Response\CountRatingResponse;
 
 class RatingService

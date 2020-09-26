@@ -9,9 +9,9 @@ use App\Entity\Comment;
 use App\Manager\CommentManager;
 use App\Response\CreateCommentResponse;
 use App\Response\UpdateCommentResponse;
-use Symfony\Component\HttpFoundation\Request;
 use App\Response\GetCommentByIdResponse;
 use App\Response\GetCommentsResponse;
+
 class CommentService
 
 {

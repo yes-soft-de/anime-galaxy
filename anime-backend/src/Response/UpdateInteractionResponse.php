@@ -2,26 +2,33 @@
 
 namespace App\Response;
 
-class GetInterActionsResponse
+class UpdateInteractionResponse
 {
-    public $id;
-    public $userID;
-    public $animeID;
-    public $type;
+    private $id;
+    private $userID;
+    private $animeID;
+    private $type;
 
-     /**
+    /**
      * @return mixed
      */
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
-    
 
-   /**
+    /**
+     * @param mixed $id
+     */
+    public function setId($id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
      * @return mixed
-     */ 
-    public function getUserId()
+     */
+    public function getUserID()
     {
         return $this->userID;
     }
@@ -29,17 +36,15 @@ class GetInterActionsResponse
     /**
      * @param mixed $userID
      */
-    public function setUserId($userID)
+    public function setUserID($userID): void
     {
         $this->userID = $userID;
-
-        return $this;
     }
 
     /**
      * @return mixed
-     */  
-    public function getAnimeId()
+     */
+    public function getAnimeID()
     {
         return $this->animeID;
     }
@@ -47,28 +52,26 @@ class GetInterActionsResponse
     /**
      * @param mixed $animeID
      */
-    public function setAnimeId($animeID)
+    public function setAnimeID($animeID): void
     {
         $this->animeID = $animeID;
-
-        return $this;
     }
 
-     /**
+    /**
      * @return mixed
-     */ 
+     */
     public function getType()
     {
         return $this->type;
     }
 
-   /**
+    /**
      * @param mixed $type
      */
-    public function setType($type)
+    public function setType($type): void
     {
         $this->type = $type;
-
-        return $this;
     }
+
+
 }
