@@ -6,14 +6,14 @@ namespace App\Response;
 
 class GetAnimeByIdResponse
 {
-    private $id;
-    private $name;
-    private $mainImage;
-    private $image;
-    private $categoryName;
-    private $like;
-    private $rating;
-    private $comments;
+    public $id;
+    public $name;
+    public $mainImage;
+    public $image;
+    public $categoryName;
+    public $interactions;
+    public $rating;
+    public $comments;
 
     /**
      * @return mixed
@@ -98,22 +98,6 @@ class GetAnimeByIdResponse
     /**
      * @return mixed
      */
-    public function getLike()
-    {
-        return $this->like;
-    }
-
-    /**
-     * @param mixed $like
-     */
-    public function setLike($like): void
-    {
-        $this->like = $like;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getRating()
     {
         return $this->rating;
@@ -142,8 +126,6 @@ class GetAnimeByIdResponse
     {
         $this->comments = $comments;
     }
-
-
 
 
 }

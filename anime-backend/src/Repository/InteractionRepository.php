@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Interaction;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use phpDocumentor\Reflection\DocBlock\Tags\Return_;
 
 /**
  * @method Interaction|null find($id, $lockMode = null, $lockVersion = null)
@@ -42,15 +43,16 @@ class InteractionRepository extends ServiceEntityRepository
     public function getAllLikes($id)
     {
         // Like = 1
-         $res= $this->createQueryBuilder('interaction')
-        ->andWhere('interaction.animeID = :id')
-        ->andWhere('interaction.type = 1')
-        ->select('count(interaction.type) as Like')
-        ->setParameter('id', $id)
-        ->getQuery()
-        ->getResult();
-       
-        return $res;
+        return $this->createQueryBuilder('interaction')
+            ->select('count(interaction.type)')
+
+            ->andWhere('interaction.animeID = :id')
+            ->andWhere('interaction.type = 1')
+
+            ->setParameter('id', $id)
+
+            ->getQuery()
+            ->getOneOrNullResult();
     }
 
     public function getAllDisLikes($id)
@@ -70,15 +72,16 @@ class InteractionRepository extends ServiceEntityRepository
     public function getAllLove($id)
     {
         // love = 3
-         $res= $this->createQueryBuilder('interaction')
-        ->andWhere('interaction.animeID = :id')
-        ->andWhere('interaction.type = 3')
-        ->select('count(interaction.type) as Love')
-        ->setParameter('id', $id)
-        ->getQuery()
-        ->getResult();
-       
-        return $res;
+        return $this->createQueryBuilder('interaction')
+            ->select('count(interaction.type)')
+
+            ->andWhere('interaction.animeID = :id')
+            ->andWhere('interaction.type = 3')
+
+            ->setParameter('id', $id)
+
+            ->getQuery()
+            ->getOneOrNullResult();
     }
 
     public function getAllInteractions($id)
@@ -96,15 +99,13 @@ class InteractionRepository extends ServiceEntityRepository
 
     public function countInteractions($id)
     {
-
-      $arr=[
+        //ToDo: this needs remove after finish
+      return [
           $this->getAllLikes($id),
           $this->getAllDisLikes($id),
           $this->getAllLove($id),
           $this->getAllInteractions($id)
-      ]; 
-     
-      return $arr;
+      ];
     }
 
 }
