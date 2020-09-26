@@ -88,4 +88,20 @@ class AnimeManager
         }
         return $anime;
     }
+
+
+    public function getHighestRatedAnime()
+    {
+        $data = $this->animeRepository->getHighestRatedAnime();
+
+        return $data;
+    }
+
+
+    public function getHighestRatedAnimeByUser($userID)
+    {
+        $data = $this->animeRepository->getHighestRatedAnimeByUser($userID);
+
+        return $data;
+    }
 }

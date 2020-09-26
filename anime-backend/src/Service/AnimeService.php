@@ -16,6 +16,8 @@ use App\Response\GetAnimeResponse;
 use App\Response\GetAnimeByCategoryResponse;
 use App\Response\UpdateAnimeResponse;
 
+use App\Response\GetHighestRatedAnimeResponse;
+use App\Response\GetHighestRatedAnimeByUserResponse;
 class AnimeService
 {
     private $animeManager;
@@ -68,7 +70,7 @@ class AnimeService
        $response = $this->autoMapping->map('array', GetAnimeByIdResponse::class, $row);
        }
 
-        $response->setImage($resultImg);
+       $response->setImage($resultImg);
        $response->setComments($resultComments);
         return $response;
     }
@@ -102,6 +104,34 @@ class AnimeService
             return null;
         }
         $response = $this->autoMapping->map(Anime::class, GetAnimeByIdResponse::class, $animeResult);
+        return $response;
+    }
+
+
+    public function getHighestRatedAnime()
+    {
+        
+       
+        $result = $this->animeManager->getHighestRatedAnime();
+        $response = [];
+        foreach ($result as $row)
+        {
+            $response[] = $this->autoMapping->map('array', GetHighestRatedAnimeResponse::class, $row);
+        }
+        return $response;
+    }
+
+
+    public function getHighestRatedAnimeByUser($userID)
+    {   
+       
+  
+        $result = $this->animeManager->getHighestRatedAnimeByUser($userID);
+        
+        $response = [];
+        foreach ($result as $row) {
+            $response[] = $this->autoMapping->map('array', GetHighestRatedAnimeByUserResponse::class, $row);
+        }
         return $response;
     }
 }

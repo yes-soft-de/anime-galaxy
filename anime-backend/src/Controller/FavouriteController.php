@@ -79,4 +79,5 @@ class FavouriteController extends BaseController
         $result = $this->favouriteService->getAllFavouritesByUserID($userID);
         return $this->response($result, self::FETCH);
     }  
+
 }

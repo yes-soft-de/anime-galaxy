@@ -12,6 +12,7 @@ use App\Response\GetFavouriteByIdResponse;
 use App\Response\GetFavouriteResponse;
 use App\Response\UpdateFavouriteResponse;
 use Symfony\Component\HttpFoundation\Request;
+use App\Response\GetFavouriteCategoryResponse;
 
 class FavouriteService
 
@@ -74,4 +75,5 @@ class FavouriteService
         }
         return $response;
     }
+
 }

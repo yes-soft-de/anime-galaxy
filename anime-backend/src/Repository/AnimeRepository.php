@@ -11,6 +11,7 @@ use App\Entity\Comment;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\Query\Expr\Join;
 use Doctrine\Persistence\ManagerRegistry;
+use App\Entity\Favourite;
 
 /**
  * @method Anime|null find($id, $lockMode = null, $lockVersion = null)
@@ -38,22 +39,22 @@ class AnimeRepository extends ServiceEntityRepository
                 'category.id = anime.categoryID'
             )
             ->leftJoin(
-                InterAction::class,              //Entity
-                'interAction',                        //Alias
-                Join::WITH,              //Join Type
-                'interAction.animeID = anime.id'  //Join Column
+                InterAction::class,              
+                'interAction',                        
+                Join::WITH,              
+                'interAction.animeID = anime.id'  
             )
             ->leftJoin(
-                Rating::class,                   //Entity
-                'rate',                         //Alias
-                Join::WITH,              //Join Type
-                'rate.animeID = anime.id'   //Join Column
+                Rating::class,                   
+                'rate',                        
+                Join::WITH,             
+                'rate.animeID = anime.id'  
             )
             ->leftJoin(
-                Comment::class,                  //Entity
-                'comment',                            //Alias
-                Join::WITH,              //Join Type
-                'comment.animeID = anime.id'      //Join Column
+                Comment::class,                  
+                'comment',                           
+                Join::WITH,              
+                'comment.animeID = anime.id'      
             )
             ->groupBy('anime.id')
             ->getQuery()
@@ -69,23 +70,23 @@ class AnimeRepository extends ServiceEntityRepository
         ->select('anime.id','anime.name', 'anime.mainImage','category.name as categoryName', 'count( DISTINCT interAction.type) as like', 'avg(rate.rateValue) as rating')
         
             ->leftJoin(
-                Category::class,            // Entity
-                'category',                   // Alias
-                Join::WITH,           // Join type
-                'category.id = anime.categoryID' // Join columns
+                Category::class,            
+                'category',                   
+                Join::WITH,           
+                'category.id = anime.categoryID'
             )
             
             ->leftJoin(
-            InterAction::class,            // Entity
-            'interAction',                   // Alias
-            Join::WITH,           // Join type
-            'interAction.animeID = anime.id' // Join columns
+            InterAction::class,           
+            'interAction',                  
+            Join::WITH,           
+            'interAction.animeID = anime.id' 
             )
             ->leftJoin(
-                Rating::class,            // Entity
-                'rate',                   // Alias
-                Join::WITH,           // Join type
-                'rate.animeID = anime.id' // Join columns
+                Rating::class,            
+                'rate',                   
+                Join::WITH,           
+                'rate.animeID = anime.id' 
             )
             ->andWhere('anime.id=:id')
             ->groupBy('anime.id')
@@ -104,22 +105,22 @@ class AnimeRepository extends ServiceEntityRepository
             ->select('anime.id','anime.name', 'anime.mainImage', 'count(DISTINCT comment.comment) as comments',
                 'count(DISTINCT interAction.type) as like', 'avg(rate.rateValue) as rating')
             ->leftJoin(
-                Comment::class,            // Entity
-                'comment',                   // Alias
-                Join::WITH,          // Join type
-                'comment.animeID = anime.id ' // Join columns
+                Comment::class,            
+                'comment',                  
+                Join::WITH,          
+                'comment.animeID = anime.id ' 
             )
             ->leftJoin(
-                InterAction::class,            // Entity
-                'interAction',                   // Alias
-                Join::WITH,           // Join type
-                'interAction.animeID = anime.id ' // Join columns
+                InterAction::class,           
+                'interAction',                  
+                Join::WITH,           
+                'interAction.animeID = anime.id ' 
             )
             ->leftJoin(
-                Rating::class,            // Entity
-                'rate',                   // Alias
-                Join::WITH,           // Join type
-                'rate.animeID = anime.id' // Join columns
+                Rating::class,            
+                'rate',                   
+                Join::WITH,           
+                'rate.animeID = anime.id' 
             )
             ->groupBy('anime.id')
             ->setParameter('categoryId', (INT)$categoryId)
@@ -128,7 +129,60 @@ class AnimeRepository extends ServiceEntityRepository
         
         return $res;
     }
-    
 
-    
+
+    public function getHighestRatedAnime()
+    {
+        $res = $this->createQueryBuilder('anime')
+            ->select('anime.id', 'anime.name as animeName', 'anime.mainImage as animeMainImage', 'category.name as categoryName', 'avg(rate.rateValue) as rating'
+                )
+            ->leftjoin(
+                Category::class,
+                'category',
+                Join::WITH,
+                'category.id = anime.categoryID'
+            )
+            ->leftJoin(
+                Rating::class,
+                'rate',
+                Join::WITH,
+                'rate.animeID = anime.id'
+            )
+            ->setMaxResults(3)   
+            ->addOrderBy('rating','DESC')
+            ->groupBy('category.name')
+            ->groupBy('animeName')
+            ->getQuery()
+            ->getResult();
+        return $res;
+    }
+
+
+    public function getHighestRatedAnimeByUser($userID)
+    {
+        $res= $this->createQueryBuilder('anime')
+        ->select('anime.id','anime.name as animeName', 'anime.mainImage as animeMainImage')
+        ->addSelect('category.name as categoryName')
+       
+        ->leftJoin(
+            favourite::class,
+            'favourite',
+            Join::WITH,
+           'favourite.userID = :userID'
+        )
+        ->leftjoin(
+            Category::class,
+            'category',
+            Join::WITH,
+            'category.id = anime.categoryID'
+        )
+        ->andWhere('anime.id=favourite.animeID')
+        ->setParameter('userID', $userID)
+        ->groupBy('anime.id')
+        ->getQuery()
+        ->getResult();
+        return $res;
+    }
+      
+     
 }

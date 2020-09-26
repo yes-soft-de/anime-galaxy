@@ -104,4 +104,29 @@ class  AnimeController extends BaseController
         $result = $this->animeService->deleteAnime($request);
         return $this->response("",self::DELETE);
     }
+
+
+     /**
+     * @Route("/getHighestRatedAnime", name="GetHighestRatedAnimeByCategory", methods={"GET"})
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function getHighestRatedAnime(Request $request)
+    {
+        $result = $this->animeService->getHighestRatedAnime();
+        return $this->response($result, self::FETCH);
+    }
+
+
+    /**
+     * @Route("getHighestRatedAnime/{userID}", name="GetHighestRatedAnimeByUser", methods={"GET"})
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function getHighestRatedAnimeByUser($userID)
+    {
+        $result = $this->animeService->getHighestRatedAnimeByUser($userID);
+        return $this->response($result, self::FETCH);
+    }
+
 }
