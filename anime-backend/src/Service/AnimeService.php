@@ -129,6 +129,7 @@ class AnimeService
         foreach ($result as $row) {
             $response[] = $this->autoMapping->map('array', GetHighestRatedAnimeByUserResponse::class, $row);
         }
+       
         return $response;
     }
 }

@@ -147,7 +147,7 @@ class AnimeRepository extends ServiceEntityRepository
                 Join::WITH,
                 'rate.animeID = anime.id'
             )
-            ->setMaxResults(3)   
+            ->setMaxResults(5)   
             ->addOrderBy('rating','DESC')
             ->groupBy('category.name')
             ->groupBy('animeName')
@@ -160,7 +160,7 @@ class AnimeRepository extends ServiceEntityRepository
     public function getHighestRatedAnimeByUser($userID)
     {
         $res= $this->createQueryBuilder('anime')
-        ->select('anime.id','anime.name as animeName', 'anime.mainImage as animeMainImage')
+        ->select('anime.id','anime.name as animeName', 'anime.mainImage as animeMainImage', 'avg(rate.rateValue) as rating')
         ->addSelect('category.name as categoryName')
        
         ->leftJoin(
@@ -174,7 +174,14 @@ class AnimeRepository extends ServiceEntityRepository
             'category',
             Join::WITH,
             'category.id = anime.categoryID'
+        ) ->leftJoin(
+            Rating::class,
+            'rate',
+            Join::WITH,
+            'rate.animeID = anime.id'
         )
+        ->setMaxResults(5)   
+        ->addOrderBy('rating','DESC')
         ->andWhere('anime.id=favourite.animeID')
         ->setParameter('userID', $userID)
         ->groupBy('anime.id')

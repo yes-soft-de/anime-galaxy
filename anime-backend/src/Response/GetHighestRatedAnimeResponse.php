@@ -10,7 +10,7 @@ class GetHighestRatedAnimeResponse
     private $categoryName;
     private $animeName;
     private $animeMainImage;
-    private $rating;
+  
     /**
      * @return mixed
      */
@@ -86,23 +86,4 @@ class GetHighestRatedAnimeResponse
         return $this;
     }
 
-    /**
-     * Get the value of rating
-     */ 
-    public function getRating()
-    {
-        return $this->rating;
-    }
-
-    /**
-     * Set the value of rating
-     *
-     * @return  self
-     */ 
-    public function setRating($rating)
-    {
-        $this->rating = $rating;
-
-        return $this;
-    }
 }
