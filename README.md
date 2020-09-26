@@ -66,7 +66,7 @@
 
 ### Interaction APIs
 ##### Create new Interaction. 
-`Method: POST. Path: /Interaction/userID/animeID/type`
+`Method: POST. Path: /interaction`
 ##### Update existing interaction. 
 `Method: PUT. Path: /Interaction/userID/animeID/type`
 ##### Get all interaction by animeID. 
