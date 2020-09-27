@@ -100,8 +100,8 @@ class AnimeService
         {
             return null;
         }
-        $response = $this->autoMapping->map(Anime::class, GetAnimeByIdResponse::class, $animeResult);
-        return $response;
+        return  $this->autoMapping->map(Anime::class, GetAnimeByIdResponse::class, $animeResult);
+        
     }
 
 
@@ -121,15 +121,13 @@ class AnimeService
 
     public function getHighestRatedAnimeByUser($userID)
     {   
-       
-  
         $result = $this->animeManager->getHighestRatedAnimeByUser($userID);
         
         $response = [];
         foreach ($result as $row) {
             $response[] = $this->autoMapping->map('array', GetHighestRatedAnimeByUserResponse::class, $row);
         }
-       
+      
         return $response;
     }
 }
