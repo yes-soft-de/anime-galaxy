@@ -7,10 +7,9 @@ namespace App\Service;
 use App\AutoMapping;
 use App\Entity\Interaction;
 use App\Manager\InteractionManager;
-use App\Response\CountInteractionResponse;
+use App\Request\CreateInteractionRequest;
 use App\Response\CreateInteractionResponse;
 use App\Response\UpdateInteractionResponse;
-use Symfony\Component\HttpFoundation\Request;
 use App\Response\GetInteractionResponse;
 
 class InteractionService
@@ -24,18 +23,11 @@ class InteractionService
         $this->autoMapping        = $autoMapping;
     }
   
-    public function create($request, $userID, $animeID, $type)
-    {  
-        $request->setUserID($request->getUserID($userID));
-        $request->setAnimeID($request->getAnimeID($animeID));
-        $request->setType($request->getType($type));
+    public function create(CreateInteractionRequest $request)
+    {
         $interactionManager = $this->interactionManager->create($request);
-        $interactionManager->getUserID($userID);
-        $interactionManager->getAnimeID($animeID);
-        $interactionManager->getType($type);
-        $response = $this->autoMapping->map(Interaction::class, CreateInteractionResponse::class, $interactionManager);
-            
-        return $response;
+
+        return $this->autoMapping->map(Interaction::class, CreateInteractionResponse::class, $interactionManager);
     }
 
     public function update($request)
@@ -69,11 +61,19 @@ class InteractionService
         return $response;
     }
 
-    public function countInteractions($animeId)
+    public function countInteractions($request)
     {
-        $result = $this->interactionManager->countInteractions($animeId);
-        $response =  $this->autoMapping->map('array', CountInteractionResponse::class, $result);
-        $response->setCountInteraction($result);
-        return $response;
+        return $this->interactionManager->countInteractions($request->getID());
     }
+
+    public function loved($request)
+    {
+       return $this->interactionManager->loved($request)[1];
+    }
+
+    public function like($request)
+    {
+        return $this->interactionManager->like($request)[1];
+    }
+
 }

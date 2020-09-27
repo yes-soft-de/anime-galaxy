@@ -27,12 +27,13 @@ class InteractionManager
     }
     public function create(CreateInteractionRequest $request)
     {
-        $interActionEntity = $this->autoMapping->map(CreateInteractionRequest::class, Interaction::class, $request);
+        $interactionEntity = $this->autoMapping->map(CreateInteractionRequest::class, Interaction::class, $request);
 
-        $this->entityManager->persist($interActionEntity);
+        $this->entityManager->persist($interactionEntity);
         $this->entityManager->flush();
         $this->entityManager->clear();
-        return $interActionEntity;
+
+        return $interactionEntity;
     }
 
     public function update(UpdateInteractionRequest $request)
@@ -67,8 +68,16 @@ class InteractionManager
 
     public function countInteractions($animeID)
     {
-        $interactions = $this->interactionRepository->countInteractions($animeID);
+        return $this->interactionRepository->countInteractions($animeID);
+    }
 
-        return $interactions;
+    public function loved($request)
+    {
+        return $this->interactionRepository->getAllLove($request->getID());
+    }
+
+    public function like($request)
+    {
+        return $this->interactionRepository->getAllLikes($request->getID());
     }
 }

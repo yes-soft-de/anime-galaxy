@@ -4,18 +4,10 @@ namespace App\Request;
 
 class CreateInteractionRequest
 {
-    private $id;
+
     private $userID;
     private $animeID;
     private $type;
-
-     /**
-     * @return mixed
-     */
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
 
     /**
      * @return mixed
@@ -64,6 +56,5 @@ class CreateInteractionRequest
     {
         $this->type = $type;
     }
-
 
 }

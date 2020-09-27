@@ -8,43 +8,46 @@ use Symfony\Component\HttpFoundation\Request;
 use App\AutoMapping;
 use App\Service\InteractionService;
 use App\Request\CreateInteractionRequest;
-use App\Request\GetByIdRequest;
 use Symfony\Component\HttpFoundation\Response;
 use App\Request\UpdateInteractionRequest;
+use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class InteractionController extends BaseController
 {
     private $interactionService;
     private $autoMapping;
+    private $validator;
 
-    /**
-     * InteractionController constructor.
-     * @param InteractionService $interactionService
-     * @param AutoMapping $autoMapping
-     */
-    public function __construct(InteractionService $interactionService, AutoMapping $autoMapping)
+    public function __construct(ValidatorInterface $validator, SerializerInterface $serializer, InteractionService $interactionService, AutoMapping $autoMapping)
     {
+        parent::__construct($serializer);
         $this->interactionService = $interactionService;
         $this->autoMapping = $autoMapping;
+        $this->validator = $validator;
     }
 
     /**
-     * @Route("/interaction/{userID}/{animeID}/{type}", name="createInteraction", name="createInteraction",methods={"POST"})
+     * @Route("interaction", name="createInteraction", methods={"POST"})
      * @param Request $request
-     * @param $userID
-     * @param $animeID
-     * @param $type
      * @return JsonResponse
      */
-    public function create(Request $request, $userID , $animeID, $type)
+    public function create(Request $request)
     {
-         $data = json_decode($request->getContent(), true);
-         $request=$this->autoMapping->map(\stdClass::class,CreateInteractionRequest::class,(object)$data);
-         $request->setUserID($userID);
-         $request->setAnimeID($animeID);
-         $request->setType($type);
-         $result = $this->interactionService->create($request, $userID , $animeID, $type);
-         return $this->response($result, self::CREATE);
+        $data = json_decode($request->getContent(), true);
+        $request = $this->autoMapping->map(\stdClass::class,CreateInteractionRequest::class, (object)$data);
+
+        $violations = $this->validator->validate($request);
+        if (\count($violations) > 0)
+        {
+            $violationsString = (string) $violations;
+
+            return new JsonResponse($violationsString, Response::HTTP_OK);
+        }
+
+        $result = $this->interactionService->create($request);
+
+        return $this->response($result, self::CREATE);
     }
 
     /**

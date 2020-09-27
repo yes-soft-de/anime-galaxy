@@ -12,30 +12,25 @@ use App\Response\GetAnimeByIdResponse;
 use App\Response\GetAnimeResponse;
 use App\Response\GetAnimeByCategoryResponse;
 use App\Response\UpdateAnimeResponse;
-
 use App\Response\GetHighestRatedAnimeResponse;
 use App\Response\GetHighestRatedAnimeByUserResponse;
+
 class AnimeService
 {
     private $animeManager;
     private $autoMapping;
     private $imageService;
     private $commentService;
+    private $interactionService;
 
-    /**
-     * AnimeService constructor.
-     * @param AnimeManager $animeManager
-     * @param AutoMapping $autoMapping
-     * @param ImageService $imageService
-     * @param CommentService $commentService
-     */
-    public function __construct(AnimeManager $animeManager, AutoMapping $autoMapping,
- ImageService $imageService, CommentService $commentService)
+    public function __construct(AnimeManager $animeManager, AutoMapping $autoMapping, ImageService $imageService, CommentService $commentService,
+                        InteractionService $interactionService)
     {
         $this->animeManager = $animeManager;
         $this->autoMapping = $autoMapping;
         $this->imageService = $imageService;
         $this->commentService = $commentService;
+        $this->interactionService = $interactionService;
     }
 
     public function createAnime($request)
@@ -58,17 +53,26 @@ class AnimeService
 
     public function getAnimeById($request)
     {
-       $resultImg = $this->imageService->getImagesByAnimeID($request);
-       $resultComments = $this->commentService->getCommentsByAnimeId($request);
-       $result = $this->animeManager->getAnimeById($request);
+        /** @var $response GetAnimeByIdResponse*/
+        $response = [];
 
-       foreach ($result as $row)
-       {
-       $response = $this->autoMapping->map('array', GetAnimeByIdResponse::class, $row);
-       }
+        $result = $this->animeManager->getAnimeById($request);
 
-       $response->setImage($resultImg);
-       $response->setComments($resultComments);
+        $resultImg = $this->imageService->getImagesByAnimeID($request);
+        $resultComments = $this->commentService->getCommentsByAnimeId($request);
+        $love = $this->interactionService->loved($request);
+        $like = $this->interactionService->like($request);
+
+        foreach ($result as $row)
+        {
+            $response = $this->autoMapping->map('array', GetAnimeByIdResponse::class, $row);
+        }
+
+        $response->setImage($resultImg);
+        $response->setComments($resultComments);
+        $response->interactions['love'] = $love;
+        $response->interactions['like'] = $like;
+
         return $response;
     }
 
@@ -104,27 +108,26 @@ class AnimeService
         
     }
 
-
     public function getHighestRatedAnime()
     {
-        
-       
-        $result = $this->animeManager->getHighestRatedAnime();
         $response = [];
+        $result = $this->animeManager->getHighestRatedAnime();
+
         foreach ($result as $row)
         {
             $response[] = $this->autoMapping->map('array', GetHighestRatedAnimeResponse::class, $row);
         }
+
         return $response;
     }
 
-
     public function getHighestRatedAnimeByUser($userID)
-    {   
-        $result = $this->animeManager->getHighestRatedAnimeByUser($userID);
-        
+    {
         $response = [];
-        foreach ($result as $row) {
+        $result = $this->animeManager->getHighestRatedAnimeByUser($userID);
+
+        foreach ($result as $row)
+        {
             $response[] = $this->autoMapping->map('array', GetHighestRatedAnimeByUserResponse::class, $row);
         }
       
