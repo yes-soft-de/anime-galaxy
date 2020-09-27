@@ -68,11 +68,11 @@
 ##### Create new Interaction. 
 `Method: POST. Path: /interaction`
 ##### Update existing interaction. 
-`Method: PUT. Path: /Interaction/userID/animeID/type`
+`Method: PUT. Path: /interaction/userID/animeID/type`
 ##### Get all interaction by animeID. 
-`Method: GET. Path: /Interaction/animeID`
+`Method: GET. Path: /interaction/animeID`
 ##### Get all interaction by animeID and userID. 
-`Method: GET. Path: /Interaction/animeID/userID`
+`Method: GET. Path: /interaction/animeID/userID`
 ##### Get count interaction by animeID. Method: GET. Path/ countInteractions/animeID
 
 ### Rating APIs
@@ -94,3 +94,15 @@
 `Method: GET. Path: /favouriteAnime/animeID`
 ##### Get a favourite by userID. 
 `Method: GET. Path: /favouriteUser/userID`
+
+### Grade APIs
+##### Create a new recorde with grade equals to 0. 
+`Method: POST. Path: /register-point`
+##### Update an existing grade by userID. 
+`Method: PUT. Path: /grade`
+##### Get users by specific points. 
+`Method: GET. Path: /usersByPoints/{points}`
+##### Get a grade of specific user. 
+`Method: GET. Path: /grade/{userID}`
+#### Delete an existing recorde by ID. 
+`Method: DELETE. Path: /grade/{userID}`
