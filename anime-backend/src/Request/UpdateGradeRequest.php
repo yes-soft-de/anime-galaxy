@@ -6,25 +6,8 @@ namespace App\Request;
 
 class UpdateGradeRequest
 {
-    private $id;
-    private $userID;
-    private $points;
-
-    /**
-     * @return mixed
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param mixed $id
-     */
-    public function setId($id): void
-    {
-        $this->id = $id;
-    }
+    public $userID;
+    public $points;
 
     /**
      * @return mixed
@@ -33,14 +16,6 @@ class UpdateGradeRequest
     {
         return $this->userID;
     }
-
-//    /**
-//     * @param mixed $userID
-//     */
-//    public function setUserID($userID): void
-//    {
-//        $this->userID = $userID;
-//    }
 
     /**
      * @return mixed
