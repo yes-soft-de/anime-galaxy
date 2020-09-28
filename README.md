@@ -1,5 +1,17 @@
 # anime-galaxy
 
+##### Table of Contents
+* [Anime APIs](#anime-apis)
+* [Category APIs](#category-apis)
+* [Image APIs](#image-apis)
+* [Follow APIS](#follow-apis)
+* [Comment APIs](#comment-apis)
+* [Interaction APIs](#interaction-apis)
+* [Rating APIs](#rating-apis)
+* [Favourite APIs](#favourite-apis) 
+* [Grade APIs](#grade-apis)
+
+
 ### Anime APIs
 ##### Create new anime.
 `Method: POST. Path: /anime`
@@ -91,4 +103,16 @@
 ##### Get a favourite by animeID. 
 `Method: GET. Path: /favouriteAnime/{animeID}`
 ##### Get a favourite by userID. 
-`Method: GET. Path: /favouriteUser/{userID}`
+`Method: GET. Path: /favouriteUser/userID`
+
+### Grade APIs
+##### Create a new recorde with grade equals to 0. 
+`Method: POST. Path: /register-point`
+##### Update an existing grade by userID. 
+`Method: PUT. Path: /grade`
+##### Get users by specific points. 
+`Method: GET. Path: /usersByPoints/{points}`
+##### Get a grade of specific user. 
+`Method: GET. Path: /grade/{userID}`
+#### Delete an existing recorde by ID. 
+`Method: DELETE. Path: /grade/{userID}`
