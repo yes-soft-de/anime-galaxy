@@ -21,45 +21,37 @@ class FollowRepository extends ServiceEntityRepository
 
     public function getAll()
     {
-        $res = $this->createQueryBuilder('follow')
+        return $this->createQueryBuilder('follow')
             ->getQuery()
             ->getResult();
-
-        return $res;
     }
 
     public function getFollowById($id): ?Follow
     {
-        $res = $this->createQueryBuilder('follow')
+        return $this->createQueryBuilder('follow')
             ->andWhere('follow.id=:id')
             ->setParameter('id',$id)
             ->getQuery()
             ->getOneOrNullResult();
-
-        return $res;
     }
 
     public function getFollowsByUserId($userID)
     {
-        $res = $this->createQueryBuilder('follow')
+        return $this->createQueryBuilder('follow')
             ->andWhere('follow.userID=:userID')
             ->setParameter('userID',$userID)
             ->getQuery()
             ->getResult();
-
-        return $res;
     }
 
     public function getFollowByUserIdAndFriendId($userID, $friendID): ?Follow
     {
-        $res = $this->createQueryBuilder('follow')
+        return $this->createQueryBuilder('follow')
             ->andWhere('follow.userID=:userID')
             ->andWhere('follow.friendID=:friendID')
             ->setParameter('userID',$userID)
             ->setParameter('friendID', $friendID)
             ->getQuery()
             ->getOneOrNullResult();
-
-        return $res;
     }
 }

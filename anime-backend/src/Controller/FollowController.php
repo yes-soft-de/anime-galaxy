@@ -12,7 +12,7 @@ use App\Service\FollowService;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-
+use Symfony\Component\Serializer\SerializerInterface;
 class FollowController extends BaseController
 {
     private $followService;
@@ -23,8 +23,9 @@ class FollowController extends BaseController
      * @param FollowService $followService
      * @param AutoMapping $autoMapping
      */
-    public function __construct(FollowService $followService, AutoMapping $autoMapping)
+    public function __construct(FollowService $followService, AutoMapping $autoMapping, SerializerInterface $serializer)
     {
+        parent::__construct($serializer);
         $this->followService = $followService;
         $this->autoMapping = $autoMapping;
     }

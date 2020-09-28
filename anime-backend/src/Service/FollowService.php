@@ -26,11 +26,9 @@ class FollowService
     public function create($request)
     {
         $followResult = $this->followManager->create($request);
-        $response = $this->autoMapping->map(Follow::class, CreateFollowResponse::class,
+        return $this->autoMapping->map(Follow::class, CreateFollowResponse::class,
             $followResult);
-        return $response;
     }
-
 
     public function getAll()
     {
@@ -43,7 +41,6 @@ class FollowService
         return $response;
     }
 
-
     public function getFollowByUserId($request)
     {
         $result = $this->followManager->getFollowByUserId($request);
@@ -55,21 +52,19 @@ class FollowService
         return $response;
     }
 
-
     public function delete($request)
     {
         $result = $this->followManager->delete($request);
         $response = $this->autoMapping->map(Follow::class, GetFollowByIdResponse::class, $result);
 
         if(!$response){
+
             $error=['error'=>"this category not found!!!"];
             return $error;
         }
         else{
             return $response;
         }
-
-
     }
 
     public function deleteByUserIdAndFriendID($request)
@@ -78,13 +73,12 @@ class FollowService
         $response = $this->autoMapping->map(Follow::class, GetFollowByIdResponse::class, $result);
 
         if(!$response){
+
             $error=['error'=>"this category not found!!!"];
             return $error;
         }
         else{
             return $response;
         }
-
-
     }
 }

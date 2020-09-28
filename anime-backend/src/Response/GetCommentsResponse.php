@@ -5,8 +5,8 @@ namespace App\Response;
 class GetCommentsResponse
 {
     
-    private $comment;
-    private $spoilerAlert;
+    public $comment;
+    public $spoilerAlert;
     /**
      * @return mixed
      */ 

@@ -11,7 +11,6 @@ use App\Request\CreateInteractionRequest;
 use App\Response\CreateInteractionResponse;
 use App\Response\UpdateInteractionResponse;
 use App\Response\GetInteractionResponse;
-
 class InteractionService
 {
     private $interactionManager;
@@ -34,9 +33,7 @@ class InteractionService
     {
         $interactionResult = $this->interactionManager->update($request);
      
-        $response = $this->autoMapping->map(Interaction::class, UpdateInteractionResponse::class, $interactionResult);
-        
-        return $response;   
+        return $this->autoMapping->map(Interaction::class, UpdateInteractionResponse::class, $interactionResult);  
     }
     
     public function getAll($animeID)
@@ -63,7 +60,7 @@ class InteractionService
 
     public function countInteractions($request)
     {
-        return $this->interactionManager->countInteractions($request->getID());
+        return $this->interactionManager->countInteractions($request);
     }
 
     public function loved($request)
@@ -76,4 +73,15 @@ class InteractionService
         return $this->interactionManager->like($request)[1];
     }
 
+    public function lovedAll($ID)
+    {
+       return  $this->interactionManager->lovedAll($ID)[1];
+    
+    }
+
+    public function likeAll($ID)
+    {
+       return  $this->interactionManager->likeAll($ID)[1];
+    
+    }
 }

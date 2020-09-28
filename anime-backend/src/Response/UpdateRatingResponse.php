@@ -21,7 +21,7 @@ class UpdateRatingResponse
    /**
      * @return mixed
      */ 
-    public function getUserId()
+    public function getUserID()
     {
         return $this->userID;
     }
@@ -29,7 +29,7 @@ class UpdateRatingResponse
     /**
      * @param mixed $userID
      */
-    public function setUserId($userID)
+    public function setUserID($userID)
     {
         $this->userID = $userID;
 
@@ -39,7 +39,7 @@ class UpdateRatingResponse
     /**
      * @return mixed
      */  
-    public function getAnimeId()
+    public function getAnimeID()
     {
         return $this->animeID;
     }
@@ -47,7 +47,7 @@ class UpdateRatingResponse
     /**
      * @param mixed $animeID
      */
-    public function setAnimeId($animeID)
+    public function setAnimeID($animeID)
     {
         $this->animeID = $animeID;
 

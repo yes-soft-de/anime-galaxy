@@ -21,24 +21,17 @@ class CategoryRepository extends ServiceEntityRepository
 
     public function getAll()
     {
-        $res = $this->createQueryBuilder('category')
+        return $this->createQueryBuilder('category')
             ->getQuery()
             ->getResult();
-
-        return $res;
     }
 
     public function getCategoryById($id): ?Category
     {
-        $res= $this->createQueryBuilder('category')
+        return $this->createQueryBuilder('category')
             ->andWhere('category.id=:id')
             ->setParameter('id', $id)
             ->getQuery()
             ->getOneOrNullResult();
-
-        return $res;
     }
-
-
-   
 }

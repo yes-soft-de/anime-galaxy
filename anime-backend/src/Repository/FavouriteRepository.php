@@ -19,18 +19,18 @@ class FavouriteRepository extends ServiceEntityRepository
         parent::__construct($registry, Favourite::class);
     }
 
-    public function getAllFavouritesByAnimeID($id)
+    public function getAllFavouritesByAnimeID($animeID)
     {
-        return  $res= $this->createQueryBuilder('Favourite')
+        return $this->createQueryBuilder('Favourite')
         ->andWhere('Favourite.animeID = :id')
-        ->setParameter('id', $id)
+        ->setParameter('id', $animeID)
         ->getQuery()
         ->getResult();
     }
 
     public function getAllFavouritesByUserID($id)
     {
-        return  $res= $this->createQueryBuilder('Favourite')
+        return  $this->createQueryBuilder('Favourite')
         ->andWhere('Favourite.userID = :id')
         ->setParameter('id', $id)
         ->getQuery()

@@ -52,11 +52,6 @@ class FavouriteManager
         return $favouriteEntity;
     }
 
-    public function getFavouriteById(GetByIdRequest $request)
-    {
-        return $result = $this->favouriteRepository->find($request->getId());
-    }
-
     public function getAllFavouritesByAnimeID($animeID)
     {
         $favourite = $this->favouriteRepository->getAllFavouritesByAnimeID($animeID);

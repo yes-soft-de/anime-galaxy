@@ -13,7 +13,7 @@ use App\Service\ImageService;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-
+use Symfony\Component\Serializer\SerializerInterface;
 class ImageController extends BaseController
 {
     private $imageService;
@@ -24,8 +24,9 @@ class ImageController extends BaseController
      * @param ImageService $imageService
      * @param AutoMapping $autoMapping
      */
-    public function __construct(ImageService $imageService, AutoMapping $autoMapping)
+    public function __construct(ImageService $imageService, AutoMapping $autoMapping, SerializerInterface $serializer)
     {
+        parent::__construct($serializer);
         $this->imageService = $imageService;
         $this->autoMapping = $autoMapping;
     }

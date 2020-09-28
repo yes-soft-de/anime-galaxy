@@ -10,7 +10,7 @@ use App\Service\RatingService;
 use App\Request\CreateRatingRequest;
 use App\Request\UpdateRatingRequest;
 use Symfony\Component\HttpFoundation\Response;
-
+use Symfony\Component\Serializer\SerializerInterface;
 class RatingController extends BaseController
 {
     private $ratingService;
@@ -21,46 +21,35 @@ class RatingController extends BaseController
      * @param RatingService $ratingService
      * @param AutoMapping $autoMapping
      */
-    public function __construct(RatingService $ratingService, AutoMapping $autoMapping)
+    public function __construct(RatingService $ratingService, AutoMapping $autoMapping, SerializerInterface $serializer)
     {
+        parent::__construct($serializer);
         $this->ratingService = $ratingService;
         $this->autoMapping = $autoMapping;
     }
 
     /**
-     * @Route("/rating/{userID}/{animeID}/{rateValue}", name="createRating", name="createRating",methods={"POST"})
+     * @Route("rating", name="createRating", name="createRating",methods={"POST"})
      * @param Request $request
-     * @param $userID
-     * @param $animeID
-     * @param $rateValue
      * @return JsonResponse
      */
-    public function create(Request $request, $userID , $animeID, $rateValue)
+    public function create(Request $request)
     {
          $data = json_decode($request->getContent(), true);
          $request=$this->autoMapping->map(\stdClass::class,CreateRatingRequest::class,(object)$data);
-         $request->setUserId($userID);
-         $request->setAnimeId($animeID);
-         $request->setRateValue($rateValue);
-         $result = $this->ratingService->create($request, $userID , $animeID, $rateValue);
+         $result = $this->ratingService->create($request);
          return $this->response($result, self::CREATE);
     }
 
     /**
-     * @Route("/rating/{userID}/{animeID}/{rateValue}", name="updateRating", methods={"PUT"})
+     * @Route("rating", name="updateRating", methods={"PUT"})
      * @param Request $request
-     * @param $userID
-     * @param $animeID
-     * @param $rateValue
      * @return JsonResponse|Response
      */
-    public function update(Request $request, $userID, $animeID, $rateValue)
+    public function update(Request $request)
     {
         $data = json_decode($request->getContent(), true);
         $request = $this->autoMapping->map(\stdClass::class, UpdateRatingRequest::class, (object) $data);
-        $request->setUserId($userID);
-        $request->setAnimeId($animeID);
-        $request->setRateValue($rateValue);
         $result = $this->ratingService->update($request);
         return $this->response($result, self::UPDATE);
     }

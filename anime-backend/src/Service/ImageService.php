@@ -33,7 +33,6 @@ class ImageService
         return $response;
     }
     
-    
     public function getAll()
     {
         $result = $this->imageManager->getAll();
@@ -57,12 +56,10 @@ class ImageService
         return $response;
     }
 
-
     public function delete($request)
     {
         $result = $this->imageManager->delete($request);
-        $response = $this->autoMapping->map(Image::class, GetImageByIdResponse::class, $result);
-        return $response;
+        return $this->autoMapping->map(Image::class, GetImageByIdResponse::class, $result);
     }
 
     public function update($request)

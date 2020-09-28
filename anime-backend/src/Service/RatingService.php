@@ -23,27 +23,17 @@ class RatingService
         $this->autoMapping   = $autoMapping;
     }
   
-    public function create($request, $userID, $animeID, $rateValue)
+    public function create($request)
     {  
-        $request->setUserId($request->getUserId($userID));
-        $request->setAnimeId($request->getAnimeId($animeID));
-        $request->setRateValue($request->getRateValue($rateValue));
         $ratingManager = $this->ratingManager->create($request);
-        $ratingManager->getUserId($userID);
-        $ratingManager->getAnimeId($animeID);
-        $ratingManager->getRateValue($rateValue);
-        $response = $this->autoMapping->map(Rating::class, CreateRatingResponse::class, $ratingManager);
-        
-        return $response;
+        return $this->autoMapping->map(Rating::class, CreateRatingResponse::class, $ratingManager);
     }
 
     public function update($request)
     {
         $ratingResult = $this->ratingManager->update($request);
      
-        $response = $this->autoMapping->map(Rating::class, UpdateRatingResponse::class, $ratingResult);
-        
-        return $response;   
+        return $this->autoMapping->map(Rating::class, UpdateRatingResponse::class, $ratingResult);   
     }
 
     public function getRating($animeID, $userID)
@@ -62,5 +52,4 @@ class RatingService
         return $response;
     }
 
-    
 }

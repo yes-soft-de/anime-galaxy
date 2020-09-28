@@ -6,7 +6,8 @@ class CreateFavouriteRequest
 {
     private $id;
     private $userID;
-    public $animeID;
+    private $animeID;
+    private $categoryID;
 
      /**
      * @return mixed
@@ -48,4 +49,24 @@ class CreateFavouriteRequest
         $this->animeID = $animeID;
     }
 
+
+    /**
+     * Get the value of categoryID
+     */ 
+    public function getCategoryID()
+    {
+        return $this->categoryID;
+    }
+
+    /**
+     * Set the value of categoryID
+     *
+     * @return  self
+     */ 
+    public function setCategoryID($categoryID)
+    {
+        $this->categoryID = $categoryID;
+
+        return $this;
+    }
 }

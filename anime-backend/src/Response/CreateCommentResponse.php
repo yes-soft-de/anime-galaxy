@@ -4,12 +4,12 @@ namespace App\Response;
 
 class CreateCommentResponse
 {
-    private $id;
-    private $userID;
-    private $animeID;
-    private $comment;
-    private $spoilerAlert;
-    private $creationDate;
+    public $id;
+    public $userID;
+    public $animeID;
+    public $comment;
+    public $spoilerAlert;
+    public $creationDate;
     /**
      * @return mixed
      */

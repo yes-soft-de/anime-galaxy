@@ -12,7 +12,7 @@ use App\Service\FavouriteService;
 use App\Request\DeleteRequest;
 use App\Request\GetByIdRequest;
 use Symfony\Component\HttpFoundation\Response;
-
+use Symfony\Component\Serializer\SerializerInterface;
 class FavouriteController extends BaseController
 {
     private $favouriteService;
@@ -23,43 +23,28 @@ class FavouriteController extends BaseController
      * @param FavouriteService $favouriteService
      * @param AutoMapping $autoMapping
      */
-    public function __construct(FavouriteService $favouriteService, AutoMapping $autoMapping)
+    public function __construct(FavouriteService $favouriteService, AutoMapping $autoMapping, SerializerInterface $serializer)
     {
+        parent::__construct($serializer);
         $this->favouriteService = $favouriteService;
         $this->autoMapping    = $autoMapping;
     }
 
     /**
-     * @Route("/favourite/{userID}/{animeID}", name="createFavourite", methods={"POST"})
+     * @Route("favourite", name="createFavourite", methods={"POST"})
      * @param Request $request
-     * @param $userID
-     * @param $animeID
      * @return JsonResponse
      */
-    public function create(Request $request, $userID , $animeID)
+    public function create(Request $request)
     {
          $data = json_decode($request->getContent(), true);
          $request=$this->autoMapping->map(\stdClass::class,CreateFavouriteRequest::class,(object)$data);
-         $request->setUserID($userID);
-         $request->setAnimeID($animeID);
-         $result = $this->favouriteService->create($request, $userID , $animeID);
+         $result = $this->favouriteService->create($request);
          return $this->response($result, self::CREATE);
     }
 
     /**
-     * @Route("/favourite/{ID}", name="getFavouriteByID", methods={"GET"})
-     * @param Request $request
-     * @return JsonResponse
-     */
-    public function getFavouriteById(Request $request)
-    {
-        $request=new GetByIdRequest($request->get('ID'));
-        $result = $this->favouriteService->getFavouriteById($request);
-        return $this->response($result, self::FETCH);
-    }
-
-    /**
-     * @Route("/favouritesAnime/{animeID}", name="getAllFavouritesByAnimeID", methods={"GET"})
+     * @Route("favouriteAnime/{animeID}", name="getAllFavouritesByAnimeID", methods={"GET"})
      * @param $animeID
      * @return JsonResponse
      */
@@ -70,7 +55,7 @@ class FavouriteController extends BaseController
     }
 
     /**
-     * @Route("/favouriteUser/{userID}", name="getAllFavouritesByUserID", methods={"GET"})
+     * @Route("favouriteUser/{userID}", name="getAllFavouritesByUserID", methods={"GET"})
      * @param $userID
      * @return JsonResponse
      */

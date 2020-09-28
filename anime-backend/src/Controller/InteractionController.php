@@ -102,4 +102,5 @@ class InteractionController extends BaseController
         $result = $this->interactionService->countInteractions($animeID);
         return $this->response($result, self::FETCH);
     }
+
 }

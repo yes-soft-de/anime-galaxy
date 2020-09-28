@@ -25,13 +25,9 @@ class CommentService
         $this->autoMapping = $autoMapping;
     }
   
-    public function create($request, $userId, $animeId)
+    public function create($request)
     {  
-        $request->setUserID($request->getUserID($userId));
-        $request->setAnimeID($request->getAnimeID($animeId));
         $commentManager = $this->commentManager->create($request);
-        $commentManager->getUserID($userId);
-        $commentManager->getAnimeID($animeId);
         $response = $this->autoMapping->map(Comment::class, CreateCommentResponse::class,
             $commentManager);
             

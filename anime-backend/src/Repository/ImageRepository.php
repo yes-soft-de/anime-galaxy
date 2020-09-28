@@ -21,35 +21,27 @@ class ImageRepository extends ServiceEntityRepository
 
     public function getImageById($Id)
     {
-        $res = $this->createQueryBuilder('image')
+        return $this->createQueryBuilder('image')
             ->andWhere('image.id=:id')
             ->setParameter('id', $Id)
             ->getQuery()
             ->getOneOrNullResult();
-
-        return $res;
     }
 
     public function getImagesByAnimeId($animeID)
     {
-        $result=$this->createQueryBuilder('image')
+        return $this->createQueryBuilder('image')
         ->select('image.image')
-        ->from('App:Anime','anime')
-        ->andWhere('anime.id=image.animeID')
-        ->andWhere('anime.id=:animeID')
+        ->andWhere('image.animeID=:animeID')
         ->setParameter('animeID',$animeID)
         ->getQuery()
         ->getResult();
-
-        return $result;
     }
 
     public function getAll()
     {
-        $res = $this->createQueryBuilder('image')
+        return $this->createQueryBuilder('image')
             ->getQuery()
             ->getResult();
-
-        return $res;
     }
 }

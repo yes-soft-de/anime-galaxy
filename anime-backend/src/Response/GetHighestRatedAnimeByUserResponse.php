@@ -6,9 +6,9 @@ namespace App\Response;
 
 class GetHighestRatedAnimeByUserResponse
 {
-    private $id;
-    private $animeName;
-    private $animeMainImage;
+    public $id;
+    public $animeName;
+    public $animeMainImage;
     /**
      * @return mixed
      */

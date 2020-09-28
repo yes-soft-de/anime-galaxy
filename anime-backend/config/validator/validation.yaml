@@ -2,7 +2,7 @@ App\Request\UploadImageRequest:
   properties:
     uploadedFile:
       - Image:
-          #mimeTypesMessage: "thid id not message"
+          #mimeTypesMessage: "this id not message"
           maxSize: 2m
           maxSizeMessage: "Image size over 2M"
 
@@ -13,4 +13,29 @@ App\Request\CreateInteractionRequest:
     animeID:
       - NotBlank: ~
     type:
+      - NotBlank: ~
+
+App\Request\CreateAnimeRequest:
+  properties:
+    name:
+      - NotBlank: ~
+    categoryID:
+      - NotBlank: ~
+    mainImage:
+      - NotBlank: ~
+
+App\Request\CreateCategoryRequest:
+  properties:
+    name:
+      - NotBlank: ~
+    description:
+      - NotBlank: ~
+
+App\Request\CreateCommentRequest:
+  properties:
+    userID:
+      - NotBlank: ~
+    animeID:
+      - NotBlank: ~
+    comment:
       - NotBlank: ~

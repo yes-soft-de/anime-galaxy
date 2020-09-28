@@ -10,6 +10,25 @@ class CreateAnimeRequest
     private $name;
     private $mainImage;
     private $categoryID;
+    private $creationDate;
+
+
+    /**
+     * @return mixed
+     */
+    public function getCreationDate(): ?\DateTimeInterface
+    {
+        return $this->creationDate;
+    }
+
+    /**
+     * @param mixed $creationDate
+     */
+    public function setCreationDate(?\DateTimeInterface $creationDate): void
+    {
+        // $this->creationDate = $creationDate;
+        $this->creationDate = new \DateTime('Now');
+    }
 
     /**
      * @return mixed

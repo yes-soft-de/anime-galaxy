@@ -22,7 +22,7 @@ class CommentRepository extends ServiceEntityRepository
 
     public function getAll($id)
     {
-        return  $res= $this->createQueryBuilder('Comment')
+        return $this->createQueryBuilder('Comment')
         ->andWhere('Comment.animeID = :id')
         ->setParameter('id', $id)
         ->getQuery()
@@ -31,7 +31,7 @@ class CommentRepository extends ServiceEntityRepository
 
     public function getCommentsByAnimeId($animeID)
     {
-        $result = $this->createQueryBuilder('comment')
+        return $this->createQueryBuilder('comment')
             ->select('comment.comment')
             ->from('App:Anime','anime')
             ->andWhere('anime.id=comment.animeID')
@@ -39,7 +39,5 @@ class CommentRepository extends ServiceEntityRepository
             ->setParameter('animeID', $animeID)
             ->getQuery()
             ->getResult();
-
-        return $result;
     }
 }

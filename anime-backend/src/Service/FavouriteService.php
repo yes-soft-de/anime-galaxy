@@ -25,13 +25,9 @@ class FavouriteService
         $this->autoMapping = $autoMapping;
     }
   
-    public function create($request, $userId, $animeId)
+    public function create($request)
     {  
-        $request->setUserID($request->getUserID($userId));
-        $request->setAnimeID($request->getAnimeID($animeId));
         $favouriteManager = $this->favouriteManager->create($request);
-        $favouriteManager->getUserID($userId);
-        $favouriteManager->getAnimeID($animeId);
         $response = $this->autoMapping->map(Favourite::class, CreateFavouriteResponse::class,
             $favouriteManager);
             
@@ -43,13 +39,6 @@ class FavouriteService
         $favouriteResult = $this->favouriteManager->update($request);
         $response = $this->autoMapping->map(Favourite::class, UpdateFavouriteResponse::class, $favouriteResult);
         return $response;   
-    }
-    
-    public function getFavouriteById($request)
-    {
-        $result = $this->favouriteManager->getFavouriteById($request);
-        $response = $this->autoMapping->map(Favourite::class, GetFavouriteByIdResponse::class, $result);
-        return $response;
     }
 
     public function getAllFavouritesByAnimeID($animeID)

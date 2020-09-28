@@ -35,7 +35,6 @@ class CategoryService
         return $response;
     }
     
-    
     public function getAll()
     {
         $result = $this->categoryManager->getAll();
@@ -47,14 +46,11 @@ class CategoryService
         return $response;
     }
 
-
     public function getCategoryById($request)
     {
         $result = $this->categoryManager->getCategoryById($request);
-        $response = $this->autoMapping->map(Category::class, GetCategoryByIdResponse::class, $result);
-        return $response;
+        return  $this->autoMapping->map(Category::class, GetCategoryByIdResponse::class, $result);
     }
-
 
     public function delete($request)
     {

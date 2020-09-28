@@ -68,18 +68,18 @@
 ##### Create new Interaction. 
 `Method: POST. Path: /interaction`
 ##### Update existing interaction. 
-`Method: PUT. Path: /Interaction/userID/animeID/type`
+`Method: PUT. Path: /interaction/userID/animeID/type`
 ##### Get all interaction by animeID. 
-`Method: GET. Path: /Interaction/animeID`
+`Method: GET. Path: /interaction/animeID`
 ##### Get all interaction by animeID and userID. 
-`Method: GET. Path: /Interaction/animeID/userID`
+`Method: GET. Path: /interaction/animeID/userID`
 ##### Get count interaction by animeID. Method: GET. Path/ countInteractions/animeID
 
 ### Rating APIs
 ##### Create new rating. 
-`Method: POST. Path: /rating/userID/animeID/rateValue`
+`Method: POST. Path: /rating`
 ##### Update existing rating. 
-`Method: PUT. Path: /rating/userID/animeID/rateValue`
+`Method: PUT. Path: /rating`
 ##### Get rating by animeID and userID. 
 `Method: GET. Path: /rating/animeID/userID`
 ##### Get rating by animeID . 
@@ -87,10 +87,8 @@
 
 ### Favourite APIs
 ##### Create a new favourite. 
-`Method: POST. Path: /favourite/userID/animeID`
-##### Get a favourite by ID. 
-`Method: GET. Path: /favourite/ID`
+`Method: POST. Path: /favourite`
 ##### Get a favourite by animeID. 
-`Method: GET. Path: /favouriteAnime/animeID`
+`Method: GET. Path: /favouriteAnime/{animeID}`
 ##### Get a favourite by userID. 
-`Method: GET. Path: /favouriteUser/userID`
+`Method: GET. Path: /favouriteUser/{userID}`

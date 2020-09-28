@@ -12,53 +12,58 @@ use App\Request\UpdateCommentRequest;
 use App\Request\DeleteRequest;
 use App\Request\GetByIdRequest;
 use Symfony\Component\HttpFoundation\Response;
-
+use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 class CommentController extends BaseController
 {
     private $commentService;
     private $autoMapping;
+    private $validator;
 
     /**
      * CommentController constructor.
      * @param CommentService $commentService
      * @param AutoMapping $autoMapping
      */
-    public function __construct(CommentService $commentService,AutoMapping $autoMapping)
+    public function __construct(ValidatorInterface $validator, CommentService $commentService,AutoMapping $autoMapping, SerializerInterface $serializer)
     {
+        parent::__construct($serializer);
         $this->commentService = $commentService;
         $this->autoMapping    = $autoMapping;
+        $this->validator      = $validator;
     }
 
     /**
-     * @Route("/comment/{userID}/{animeID}", name="comment", name="createComment",methods={"POST"})
+     * @Route("comment", name="comment", name="createComment",methods={"POST"})
      * @param Request $request
-     * @param $userID
-     * @param $animeID
      * @return JsonResponse
      */
-    public function create(Request $request, $userID , $animeID)
+    public function create(Request $request)
     {
          $data = json_decode($request->getContent(), true);
          $request=$this->autoMapping->map(\stdClass::class,CreateCommentRequest::class,(object)$data);
-         $request->setUserID($userID);
-         $request->setAnimeID($animeID);
-         $result = $this->commentService->create($request, $userID , $animeID);
+        
+         $violations = $this->validator->validate($request);
+         if (\count($violations) > 0)
+         {
+             $violationsString = (string) $violations;
+ 
+             return new JsonResponse($violationsString, Response::HTTP_OK);
+         }
+
+         $result = $this->commentService->create($request);
          return $this->response($result, self::CREATE);
     }
 
     /**
-     * @Route("/comment/{userID}/{animeID}", name="updateComment",methods={"PUT"})
+     * @Route("comment", name="updateComment",methods={"PUT"})
      * @param Request $request
-     * @param $userID
-     * @param $animeID
      * @return JsonResponse|Response
      */
-    public function update(Request $request, $userID, $animeID)
+    public function update(Request $request)
     {
         $data = json_decode($request->getContent(), true);
         $request = $this->autoMapping->map(\stdClass::class, UpdateCommentRequest::class, (object) $data);
-        $request->setUserID($userID);
-        $request->setAnimeID($animeID);
         $result = $this->commentService->update($request);
         return $this->response($result, self::UPDATE);
     }

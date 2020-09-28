@@ -7,6 +7,7 @@ class CreateFavouriteResponse
     public $id;
     public $userID;
     public $animeID;
+    public $categoryID;
 
      /**
      * @return mixed
@@ -19,7 +20,7 @@ class CreateFavouriteResponse
    /**
      * @return mixed
      */ 
-    public function getUserId()
+    public function getUserID()
     {
         return $this->userID;
     }
@@ -49,4 +50,24 @@ class CreateFavouriteResponse
     }
 
 
+
+    /**
+     * Get the value of categoryID
+     */ 
+    public function getCategoryID()
+    {
+        return $this->categoryID;
+    }
+
+    /**
+     * Set the value of categoryID
+     *
+     * @return  self
+     */ 
+    public function setCategoryID($categoryID)
+    {
+        $this->categoryID = $categoryID;
+
+        return $this;
+    }
 }

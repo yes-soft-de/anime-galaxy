@@ -3,8 +3,10 @@
 namespace App\Repository;
 
 use App\Entity\Interaction;
+use App\Entity\Anime;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\ORM\Query\Expr\Join;
 use phpDocumentor\Reflection\DocBlock\Tags\Return_;
 
 /**
@@ -22,7 +24,7 @@ class InteractionRepository extends ServiceEntityRepository
 
     public function getAll($id)
     {
-        return  $res= $this->createQueryBuilder('interaction')
+        return $this->createQueryBuilder('interaction')
         ->andWhere('interaction.animeID = :id')
         ->setParameter('id', $id)
         ->getQuery()
@@ -31,7 +33,7 @@ class InteractionRepository extends ServiceEntityRepository
 
     public function getInteractionWithUser($animeID, $userID)
     {
-        return  $res= $this->createQueryBuilder('interaction')
+        return $this->createQueryBuilder('interaction')
         ->andWhere('interaction.animeID = :animeID')
         ->andWhere('interaction.userID  = :userID')
         ->setParameter('animeID', $animeID)
@@ -58,15 +60,13 @@ class InteractionRepository extends ServiceEntityRepository
     public function getAllDisLikes($id)
     {
         // disLike = 2
-         $res= $this->createQueryBuilder('interaction')
+        return $this->createQueryBuilder('interaction')
         ->andWhere('interaction.animeID = :id')
         ->andWhere('interaction.type = 2')
         ->select('count(interaction.type) as DisLike')
         ->setParameter('id', $id)
         ->getQuery()
         ->getResult();
-       
-        return $res;
     }
 
     public function getAllLove($id)
@@ -77,9 +77,7 @@ class InteractionRepository extends ServiceEntityRepository
 
             ->andWhere('interaction.animeID = :id')
             ->andWhere('interaction.type = 3')
-
             ->setParameter('id', $id)
-
             ->getQuery()
             ->getOneOrNullResult();
     }
@@ -87,14 +85,36 @@ class InteractionRepository extends ServiceEntityRepository
     public function getAllInteractions($id)
     {
         //count all interaction
-         $res= $this->createQueryBuilder('interaction')
+        return $this->createQueryBuilder('interaction')
         ->andWhere('interaction.animeID = :id')
         ->select('count(interaction.type) as CountAllInteraction')
         ->setParameter('id', $id)
         ->getQuery()
         ->getResult();
-       
-        return $res;
+    }
+
+    public function getLoveAll($id)
+    {
+       // love = 3
+       return $this->createQueryBuilder('interaction')
+       ->select('count(interaction.type)')
+       ->andWhere('interaction.animeID = :id')
+       ->andWhere('interaction.type = 3')
+       ->setParameter('id', $id)
+       ->getQuery()
+       ->getOneOrNullResult();
+    }
+
+    public function getLikeAll($id)
+    {
+       // like = 1
+       return $this->createQueryBuilder('interaction')
+       ->select('count(interaction.type)')
+       ->andWhere('interaction.animeID = :id')
+       ->andWhere('interaction.type = 1')
+       ->setParameter('id', $id)
+       ->getQuery()
+       ->getOneOrNullResult();
     }
 
     public function countInteractions($id)

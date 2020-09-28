@@ -80,4 +80,14 @@ class InteractionManager
     {
         return $this->interactionRepository->getAllLikes($request->getID());
     }
+
+    public function lovedAll($ID)
+    {
+        return $this->interactionRepository->getLoveAll($ID);
+    }
+
+    public function likeAll($ID)
+    {
+        return $this->interactionRepository->getLikeAll($ID);
+    }
 }

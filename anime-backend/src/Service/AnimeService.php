@@ -22,6 +22,7 @@ class AnimeService
     private $imageService;
     private $commentService;
     private $interactionService;
+  
 
     public function __construct(AnimeManager $animeManager, AutoMapping $autoMapping, ImageService $imageService, CommentService $commentService,
                         InteractionService $interactionService)
@@ -31,24 +32,13 @@ class AnimeService
         $this->imageService = $imageService;
         $this->commentService = $commentService;
         $this->interactionService = $interactionService;
+       
     }
 
     public function createAnime($request)
     {
         $animeResult = $this->animeManager->create($request);
-        $response = $this->autoMapping->map(Anime::class, CreateAnimeResponse::class, $animeResult);
-        return $response;
-    }
-
-    public function getAllAnime()
-    {
-        $result = $this->animeManager->getAllAnime();
-        $response = [];
-        foreach ($result as $row)
-        {
-            $response[] = $this->autoMapping->map('array', GetAnimeResponse::class, $row);
-        }
-        return $response;
+        return $this->autoMapping->map(Anime::class, CreateAnimeResponse::class, $animeResult);
     }
 
     public function getAnimeById($request)
@@ -76,13 +66,35 @@ class AnimeService
         return $response;
     }
 
-    public function getAnimeByCategoryId($request)
+    public function getAllAnime()
     {
-        $result = $this->animeManager->getByCategoryId($request);
+        /** @var $response GetAnimeResponse*/
+        $result = $this->animeManager->getAllAnime();
         $response = [];
         
         foreach ($result as $row)
         {
+            $row['interaction']=[
+            'love' => $this->interactionService->lovedAll($row['id']),
+            'like' => $this->interactionService->likeAll($row['id'])
+            ];
+            $response[] = $this->autoMapping->map('array', GetAnimeResponse::class, $row);
+          
+        }
+        return $response;
+    }
+
+    public function getAnimeByCategoryID($categoryID)
+    {
+        $result = $this->animeManager->getByCategoryID($categoryID);
+        $response = [];
+        
+        foreach ($result as $row)
+        {
+            $row['interaction']=[
+                'love' => $this->interactionService->lovedAll($row['id']),
+                'like' => $this->interactionService->likeAll($row['id'])
+                ];
             $response[] = $this->autoMapping->map('array', GetAnimeByCategoryResponse::class, $row);
         }
         return $response;

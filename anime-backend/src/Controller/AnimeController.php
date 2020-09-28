@@ -14,21 +14,25 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
+use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 class  AnimeController extends BaseController
 {
     private $animeService;
     private $autoMapping;
-
+    private $validator;
+    
     /**
      * AnimeController constructor.
      * @param AnimeService $animeService
      * @param AutoMapping $autoMapping
      */
-    public function __construct(AnimeService $animeService, AutoMapping $autoMapping)
+    public function __construct(ValidatorInterface $validator, AnimeService $animeService, SerializerInterface $serializer, AutoMapping $autoMapping)
     {
+        parent::__construct($serializer);
         $this->animeService = $animeService;
-        $this->autoMapping = $autoMapping;
+        $this->autoMapping  = $autoMapping;
+        $this->validator    = $validator;
     }
 
 
@@ -41,6 +45,15 @@ class  AnimeController extends BaseController
     {
         $data = json_decode($request->getContent(), true);
         $request = $this->autoMapping->map(\stdClass::class, CreateAnimeRequest::class, (object)$data);
+
+        $violations = $this->validator->validate($request);
+        if (\count($violations) > 0)
+        {
+            $violationsString = (string) $violations;
+
+            return new JsonResponse($violationsString, Response::HTTP_OK);
+        }
+        
         $result = $this->animeService->createAnime($request);
         return $this->response($result, self::CREATE);
     }
@@ -69,14 +82,13 @@ class  AnimeController extends BaseController
     }
 
     /**
-     * @Route("/animeByCategory/{id}", name="getAllAnimeByCategory", methods={"GET"})
+     * @Route("/animeByCategory/{categoryID}", name="getAllAnimeByCategory", methods={"GET"})
      * @param Request $request
      * @return JsonResponse
      */
-    public function getByCategoryId(Request $request)
+    public function getByCategoryID($categoryID)
     {
-        $request = new GetByIdRequest($request->get('id'));
-        $result = $this->animeService->getAnimeByCategoryId($request);
+        $result = $this->animeService->getAnimeByCategoryID($categoryID);
         return $this->response($result, self::FETCH);
     }
 
@@ -104,7 +116,6 @@ class  AnimeController extends BaseController
         $result = $this->animeService->deleteAnime($request);
         return $this->response("",self::DELETE);
     }
-
 
      /**
      * @Route("/getHighestRatedAnime", name="GetHighestRatedAnimeByCategory", methods={"GET"})

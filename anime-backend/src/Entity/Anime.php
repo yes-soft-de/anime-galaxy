@@ -85,7 +85,8 @@ class Anime
 
     public function setCreationDate(?\DateTimeInterface $creationDate): self
     {
-        $this->creationDate = $creationDate;
+        // $this->creationDate = $creationDate;
+        $this->creationDate = new \DateTime('Now');
 
         return $this;
     }
