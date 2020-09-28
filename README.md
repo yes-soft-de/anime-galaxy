@@ -1,5 +1,17 @@
 # anime-galaxy
 
+##### Table of Contents
+* [Anime APIs](#anime-apis)
+* [Category APIs](#category-apis)
+* [Image APIs](#image-apis)
+* [Follow APIS](#follow-apis)
+* [Comment APIs](#comment-apis)
+* [Interaction APIs](#interaction-apis)
+* [Rating APIs](#rating-apis)
+* [Favourite APIs](#favourite-apis) 
+* [Grade APIs](#grade-apis)
+
+
 ### Anime APIs
 ##### Create new anime.
 `Method: POST. Path: /anime`
