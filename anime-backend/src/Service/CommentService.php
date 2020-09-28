@@ -18,7 +18,6 @@ class CommentService
     private $commentManager;
     private $autoMapping;
 
-
     public function __construct(CommentManager $commentManager, AutoMapping $autoMapping)
     {
         $this->commentManager =$commentManager;
@@ -28,47 +27,46 @@ class CommentService
     public function create($request)
     {  
         $commentManager = $this->commentManager->create($request);
-        $response = $this->autoMapping->map(Comment::class, CreateCommentResponse::class,
+
+        return $this->autoMapping->map(Comment::class, CreateCommentResponse::class,
             $commentManager);
-            
-        return $response;
     }
 
     public function update($request)
     {
         $commentResult = $this->commentManager->update($request);
-     
-        $response = $this->autoMapping->map(Comment::class, UpdateCommentResponse::class, $commentResult);
-        
-        return $response;   
+
+        return $this->autoMapping->map(Comment::class, UpdateCommentResponse::class, $commentResult);
     }
 
     public function delete($request)
     {
         $result = $this->commentManager->delete($request);
+
         $response = $this->autoMapping->map(Comment::class, GetCommentByIdResponse::class, $result);
     
         if(!$response)
         {
-           $error=['error'=>"this comment not found!!!"];
-           return $error;
+           return null;
         }
-        else{
-        return $response;}
-          
+        else
+        {
+            return $response;
+        }
     }
 
     public function getCommentById($request)
     {
         $result = $this->commentManager->getCommentById($request);
-        $response = $this->autoMapping->map(Comment::class, GetCommentByIdResponse::class, $result);
-        return $response;
+
+        return $this->autoMapping->map(Comment::class, GetCommentByIdResponse::class, $result);
     }
 
     public function getAll($animeId)
     {
-        $result = $this->commentManager->getAll($animeId);
         $response = [];
+        $result = $this->commentManager->getAll($animeId);
+
         foreach ($result as $row)
         {
             $response[] = $this->autoMapping->map(Comment::class, GetCommentsResponse::class, $row);
@@ -79,6 +77,7 @@ class CommentService
 
     public function getCommentsByAnimeId($request)
     {
+        $response = [];
         $result = $this->commentManager->getCommentsByAnimeId($request);
 
         foreach ($result as $row)

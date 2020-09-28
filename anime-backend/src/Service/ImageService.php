@@ -18,7 +18,6 @@ class ImageService
     private $imageManager;
     private $autoMapping;
 
-
     public function __construct(ImageManager $imageManager, AutoMapping $autoMapping)
     {
         $this->imageManager =$imageManager;
@@ -28,46 +27,52 @@ class ImageService
     public function create($request)
     {  
         $imageResult = $this->imageManager->create($request);
-        $response = $this->autoMapping->map(Image::class, CreateImageResponse::class,
+
+        return $this->autoMapping->map(Image::class, CreateImageResponse::class,
             $imageResult);
-        return $response;
     }
     
     public function getAll()
     {
-        $result = $this->imageManager->getAll();
         $response=[];
+        $result = $this->imageManager->getAll();
+
         foreach ($result as $row)
         {
             $response[] = $this->autoMapping->map(Image::class, GetImageResponse::class, $row);
         }
+
         return $response;
     }
 
-
     public function getImagesByAnimeId($request)
     {
+        $response = [];
         $result = $this->imageManager->getImagesByAnimeID($request);
         
         foreach ($result as $row)
         {
             $response[] = $this->autoMapping->map('array', GetImageResponse::class, $row);
         }
+
         return $response;
     }
 
     public function delete($request)
     {
         $result = $this->imageManager->delete($request);
+
         return $this->autoMapping->map(Image::class, GetImageByIdResponse::class, $result);
     }
 
     public function update($request)
     {
         $imageResult = $this->imageManager->update($request);
+
         $response = $this->autoMapping->map(Image::class, UpdateImageResponse::class, $imageResult);
         $response->setImage($request->getImage());
         $response->setAnimeID($request->getAnimeID());
+
         return $response;
     }
 

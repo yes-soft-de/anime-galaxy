@@ -9,6 +9,7 @@ class GetHighestRatedAnimeByUserResponse
     public $id;
     public $animeName;
     public $animeMainImage;
+
     /**
      * @return mixed
      */
@@ -34,15 +35,11 @@ class GetHighestRatedAnimeByUserResponse
     }
 
     /**
-     * Set the value of animeName
-     *
-     * @return  self
-     */ 
-    public function setAnimeName($animeName)
+     * @param mixed $animeName
+     */
+    public function setAnimeName($animeName): void
     {
         $this->animeName = $animeName;
-
-        return $this;
     }
 
     /**
@@ -54,16 +51,11 @@ class GetHighestRatedAnimeByUserResponse
     }
 
     /**
-     * Set the value of animeMainImage
-     *
-     * @return  self
-     */ 
-    public function setAnimeMainImage($animeMainImage)
+     * @param mixed $animeMainImage
+     */
+    public function setAnimeMainImage($animeMainImage): void
     {
         $this->animeMainImage = $animeMainImage;
-
-        return $this;
     }
 
-    
 }

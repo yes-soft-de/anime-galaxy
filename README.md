@@ -25,9 +25,9 @@
 `Method: GET. Path: /category/ID`
 ##### Delete existing anime by ID. 
 `Method: DELET. Path: /anime`
-##### Get Highest Rated Anime By Category
+##### Get Highest Rated Anime
 `Method: GET. Path: /getHighestRatedAnime`
-##### Get Highest Rated Anime By Category By User
+##### Get Highest Rated Anime By User
 `Method: GET. Path: /getHighestRatedAnime/{userID}`
 
 ### Category APIs

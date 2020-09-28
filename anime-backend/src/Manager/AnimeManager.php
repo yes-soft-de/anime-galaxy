@@ -30,9 +30,11 @@ class AnimeManager
     public function create(CreateAnimeRequest $request)
     {
         $animeEntity = $this->autoMapping->map(CreateAnimeRequest::class, Anime::class, $request);
+
         $this->entityManager->persist($animeEntity);
         $this->entityManager->flush();
         $this->entityManager->clear();
+
         return $animeEntity;
     }
 
@@ -43,17 +45,13 @@ class AnimeManager
 
     public function getAllAnime()
     {
-        $data = $this->animeRepository->getAll();
-
-        return $data;
+        return $this->animeRepository->getAll();
     }
 
 
     public function getByCategoryID($categoryID)
     {
-        $result = $this->animeRepository->getAnimeByCategoryID($categoryID);
-
-        return $result;
+        return $this->animeRepository->getAnimeByCategoryID($categoryID);
     }
 
     public function update(UpdateAnimeRequest $request)
@@ -78,7 +76,6 @@ class AnimeManager
         if(!$anime)
         {
             return null;
-            // return new Response(['data'=>'The project was not found!']);
         }
         else
         {
@@ -91,16 +88,12 @@ class AnimeManager
 
     public function getHighestRatedAnime()
     {
-        $data = $this->animeRepository->getHighestRatedAnime();
-
-        return $data;
+        return $this->animeRepository->getHighestRatedAnime();
     }
 
 
     public function getHighestRatedAnimeByUser($userID)
     {
-        $data = $this->animeRepository->getHighestRatedAnimeByUser($userID);
-
-        return $data;
+        return $this->animeRepository->getHighestRatedAnimeByUser($userID);
     }
 }

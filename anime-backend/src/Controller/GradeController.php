@@ -3,7 +3,6 @@
 
 namespace App\Controller;
 
-
 use App\AutoMapping;
 use App\Request\CreateGradeRequest;
 use App\Request\DeleteRequest;

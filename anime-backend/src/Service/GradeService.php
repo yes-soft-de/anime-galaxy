@@ -18,11 +18,6 @@ class GradeService
     private $gradeManager;
     private $autoMapping;
 
-    /**
-     * AnimeService constructor.
-     * @param GradeManager $gradeManager
-     * @param AutoMapping $autoMapping
-     */
     public function __construct(GradeManager $gradeManager, AutoMapping $autoMapping)
     {
         $this->gradeManager = $gradeManager;

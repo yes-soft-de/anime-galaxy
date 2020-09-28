@@ -11,6 +11,7 @@ use App\Request\CreateInteractionRequest;
 use App\Response\CreateInteractionResponse;
 use App\Response\UpdateInteractionResponse;
 use App\Response\GetInteractionResponse;
+
 class InteractionService
 {
     private $interactionManager;
@@ -76,12 +77,10 @@ class InteractionService
     public function lovedAll($ID)
     {
        return  $this->interactionManager->lovedAll($ID)[1];
-    
     }
 
     public function likeAll($ID)
     {
        return  $this->interactionManager->likeAll($ID)[1];
-    
     }
 }

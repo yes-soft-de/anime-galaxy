@@ -14,23 +14,19 @@ use App\Request\GetByIdRequest;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
+
 class CommentController extends BaseController
 {
     private $commentService;
     private $autoMapping;
     private $validator;
 
-    /**
-     * CommentController constructor.
-     * @param CommentService $commentService
-     * @param AutoMapping $autoMapping
-     */
     public function __construct(ValidatorInterface $validator, CommentService $commentService,AutoMapping $autoMapping, SerializerInterface $serializer)
     {
         parent::__construct($serializer);
         $this->commentService = $commentService;
-        $this->autoMapping    = $autoMapping;
-        $this->validator      = $validator;
+        $this->autoMapping = $autoMapping;
+        $this->validator = $validator;
     }
 
     /**
@@ -64,7 +60,9 @@ class CommentController extends BaseController
     {
         $data = json_decode($request->getContent(), true);
         $request = $this->autoMapping->map(\stdClass::class, UpdateCommentRequest::class, (object) $data);
+
         $result = $this->commentService->update($request);
+
         return $this->response($result, self::UPDATE);
     }
 
@@ -76,7 +74,9 @@ class CommentController extends BaseController
     public function delete(Request $request)
     {
         $request = new DeleteRequest($request->get('ID'));
+
         $result = $this->commentService->delete($request);
+
         return $this->response("Deleted Success", self::DELETE);
     }
 
@@ -101,6 +101,7 @@ class CommentController extends BaseController
     public function getAll($animeID)
     {
         $result = $this->commentService->getAll($animeID);
+
         return $this->response($result, self::FETCH);
     }
 }

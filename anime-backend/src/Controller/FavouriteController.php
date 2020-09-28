@@ -1,33 +1,25 @@
 <?php
 
 namespace App\Controller;
-use App\Entity\Favourite;
+
 use App\Request\CreateFavouriteRequest;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\AutoMapping;
 use App\Service\FavouriteService;
-use App\Request\DeleteRequest;
-use App\Request\GetByIdRequest;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Serializer\SerializerInterface;
+
 class FavouriteController extends BaseController
 {
     private $favouriteService;
     private $autoMapping;
 
-    /**
-     * watchListController constructor.
-     * @param FavouriteService $favouriteService
-     * @param AutoMapping $autoMapping
-     */
     public function __construct(FavouriteService $favouriteService, AutoMapping $autoMapping, SerializerInterface $serializer)
     {
         parent::__construct($serializer);
         $this->favouriteService = $favouriteService;
-        $this->autoMapping    = $autoMapping;
+        $this->autoMapping = $autoMapping;
     }
 
     /**
@@ -39,7 +31,9 @@ class FavouriteController extends BaseController
     {
          $data = json_decode($request->getContent(), true);
          $request=$this->autoMapping->map(\stdClass::class,CreateFavouriteRequest::class,(object)$data);
+
          $result = $this->favouriteService->create($request);
+
          return $this->response($result, self::CREATE);
     }
 
@@ -51,6 +45,7 @@ class FavouriteController extends BaseController
     public function getAllFavouritesByAnimeID($animeID)
     {
         $result = $this->favouriteService->getAllFavouritesByAnimeID($animeID);
+
         return $this->response($result, self::FETCH);
     }
 
@@ -62,6 +57,7 @@ class FavouriteController extends BaseController
     public function getAllFavouritesByUserID($userID)
     {
         $result = $this->favouriteService->getAllFavouritesByUserID($userID);
+
         return $this->response($result, self::FETCH);
     }  
 

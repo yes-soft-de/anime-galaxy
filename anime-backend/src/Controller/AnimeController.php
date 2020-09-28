@@ -3,7 +3,6 @@
 
 namespace App\Controller;
 
-
 use App\AutoMapping;
 use App\Request\CreateAnimeRequest;
 use App\Request\DeleteRequest;
@@ -16,17 +15,13 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
+
 class  AnimeController extends BaseController
 {
     private $animeService;
     private $autoMapping;
     private $validator;
-    
-    /**
-     * AnimeController constructor.
-     * @param AnimeService $animeService
-     * @param AutoMapping $autoMapping
-     */
+
     public function __construct(ValidatorInterface $validator, AnimeService $animeService, SerializerInterface $serializer, AutoMapping $autoMapping)
     {
         parent::__construct($serializer);
@@ -34,7 +29,6 @@ class  AnimeController extends BaseController
         $this->autoMapping  = $autoMapping;
         $this->validator    = $validator;
     }
-
 
     /**
      * @Route("/anime", name="createAnime", methods={"POST"})
@@ -67,6 +61,7 @@ class  AnimeController extends BaseController
     {
         $request = new GetByIdRequest($request->get('id'));
         $result = $this->animeService->getAnimeById($request);
+
         return $this->response($result, self::FETCH);
     }
 
@@ -83,12 +78,13 @@ class  AnimeController extends BaseController
 
     /**
      * @Route("/animeByCategory/{categoryID}", name="getAllAnimeByCategory", methods={"GET"})
-     * @param Request $request
+     * @param $categoryID
      * @return JsonResponse
      */
     public function getByCategoryID($categoryID)
     {
         $result = $this->animeService->getAnimeByCategoryID($categoryID);
+
         return $this->response($result, self::FETCH);
     }
 
@@ -101,7 +97,9 @@ class  AnimeController extends BaseController
     {
         $data = json_decode($request->getContent(), true);
         $request = $this->autoMapping->map(\stdClass::class, UpdateAnimeRequest::class, (object)$data);
+
         $result = $this->animeService->update($request);
+
         return $this->response($result, self::UPDATE);
     }
 
@@ -113,30 +111,32 @@ class  AnimeController extends BaseController
     public function delete(Request $request)
     {
         $request = new DeleteRequest($request->get('id'));
+
         $result = $this->animeService->deleteAnime($request);
+
         return $this->response("",self::DELETE);
     }
 
-     /**
+    /**
      * @Route("/getHighestRatedAnime", name="GetHighestRatedAnimeByCategory", methods={"GET"})
-     * @param Request $request
      * @return JsonResponse
      */
-    public function getHighestRatedAnime(Request $request)
+    public function getHighestRatedAnime()
     {
         $result = $this->animeService->getHighestRatedAnime();
+
         return $this->response($result, self::FETCH);
     }
 
-
     /**
      * @Route("getHighestRatedAnime/{userID}", name="GetHighestRatedAnimeByUser", methods={"GET"})
-     * @param Request $request
+     * @param $userID
      * @return JsonResponse
      */
     public function getHighestRatedAnimeByUser($userID)
     {
         $result = $this->animeService->getHighestRatedAnimeByUser($userID);
+
         return $this->response($result, self::FETCH);
     }
 

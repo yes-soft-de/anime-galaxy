@@ -11,6 +11,7 @@ use App\Request\CreateRatingRequest;
 use App\Request\UpdateRatingRequest;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Serializer\SerializerInterface;
+
 class RatingController extends BaseController
 {
     private $ratingService;

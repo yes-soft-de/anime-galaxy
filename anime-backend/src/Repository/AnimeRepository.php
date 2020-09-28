@@ -3,7 +3,6 @@
 namespace App\Repository;
 
 use App\Entity\Anime;
-use App\Entity\Interaction;
 use App\Entity\Rating;
 use App\Entity\Category;
 use App\Entity\Comment;
@@ -24,8 +23,6 @@ class AnimeRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Anime::class);
     }
-
-    
 
     public function getAnimeById($id)
     {

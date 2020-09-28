@@ -12,7 +12,6 @@ use App\Response\UpdateRatingResponse;
 use App\Response\CountRatingResponse;
 
 class RatingService
-
 {
     private $ratingManager;
     private $autoMapping;
@@ -26,6 +25,7 @@ class RatingService
     public function create($request)
     {  
         $ratingManager = $this->ratingManager->create($request);
+
         return $this->autoMapping->map(Rating::class, CreateRatingResponse::class, $ratingManager);
     }
 
@@ -39,16 +39,20 @@ class RatingService
     public function getRating($animeID, $userID)
     {
         $result = $this->ratingManager->getRating($animeID, $userID);
+
         $response = $this->autoMapping->map('array', CountRatingResponse::class, $result);
         $response->setAvgRating($result);
+
         return $response;
     }
 
     public function getAllRatings($animeId)
     {
         $result = $this->ratingManager->getAllRatings($animeId);
+
         $response =  $this->autoMapping->map('array', CountRatingResponse::class, $result);
         $response->setAvgRating($result);
+
         return $response;
     }
 

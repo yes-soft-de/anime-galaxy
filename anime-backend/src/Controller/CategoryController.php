@@ -3,11 +3,9 @@
 
 namespace App\Controller;
 
-
 use App\AutoMapping;
 use App\Request\CreateCategoryRequest;
 use App\Request\DeleteRequest;
-use App\Request\GetByIdRequest;
 use App\Request\UpdateCategoryRequest;
 use App\Service\CategoryService;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -16,17 +14,13 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
+
 class CategoryController extends BaseController
 {
     private $categoryService;
     private $autoMapping;
     private $validator;
 
-    /**
-     * CategoryController constructor.
-     * @param CategoryService $categoryService
-     * @param AutoMapping $autoMapping
-     */
     public function __construct(ValidatorInterface $validator, CategoryService $categoryService, AutoMapping $autoMapping, SerializerInterface $serializer)
     {
         parent::__construct($serializer);
@@ -63,6 +57,7 @@ class CategoryController extends BaseController
     public function getAll()
     {
         $result = $this->categoryService->getAll();
+
         return $this->response($result, self::FETCH);
     }
 
@@ -74,10 +69,10 @@ class CategoryController extends BaseController
     public function update(Request $request)
     {
         $data = json_decode($request->getContent(), true);
-        //$id = $request->get('id');
         $request = $this->autoMapping->map(\stdClass::class, UpdateCategoryRequest::class, (object) $data);
-        //$request->setId($id);
+
         $result = $this->categoryService->update($request);
+
         return $this->response($result, self::UPDATE);
     }
 

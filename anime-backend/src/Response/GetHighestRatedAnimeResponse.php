@@ -27,8 +27,6 @@ class GetHighestRatedAnimeResponse
         $this->id = $id;
     }
 
-
-   
     /**
      * @return mixed
      */
@@ -40,50 +38,41 @@ class GetHighestRatedAnimeResponse
     /**
      * @param mixed $categoryName
      */
-    public function setCategoryName($categoryName)
+    public function setCategoryName($categoryName): void
     {
         $this->categoryName = $categoryName;
-        return $this->$categoryName;
     }
 
     /**
-     * Get the value of animeName
-     */ 
+     * @return mixed
+     */
     public function getAnimeName()
     {
         return $this->animeName;
     }
 
     /**
-     * Set the value of animeName
-     *
-     * @return  self
-     */ 
-    public function setAnimeName($animeName)
+     * @param mixed $animeName
+     */
+    public function setAnimeName($animeName): void
     {
         $this->animeName = $animeName;
-
-        return $this;
     }
 
     /**
-     * Get the value of animeMainImage
-     */ 
+     * @return mixed
+     */
     public function getAnimeMainImage()
     {
         return $this->animeMainImage;
     }
 
     /**
-     * Set the value of animeMainImage
-     *
-     * @return  self
-     */ 
-    public function setAnimeMainImage($animeMainImage)
+     * @param mixed $animeMainImage
+     */
+    public function setAnimeMainImage($animeMainImage): void
     {
         $this->animeMainImage = $animeMainImage;
-
-        return $this;
     }
 
 }

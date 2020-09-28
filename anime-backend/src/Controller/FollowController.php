@@ -7,12 +7,12 @@ namespace App\Controller;
 use App\AutoMapping;
 use App\Request\CreateFollowRequest;
 use App\Request\DeleteRequest;
-use App\Request\GetByIdRequest;
 use App\Service\FollowService;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
+
 class FollowController extends BaseController
 {
     private $followService;
