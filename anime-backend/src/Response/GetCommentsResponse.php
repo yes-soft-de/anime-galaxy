@@ -4,9 +4,10 @@ namespace App\Response;
 
 class GetCommentsResponse
 {
-    
     public $comment;
     public $spoilerAlert;
+    public $creationDate;
+
     /**
      * @return mixed
      */ 

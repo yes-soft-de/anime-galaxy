@@ -10,6 +10,7 @@ class CreateCommentResponse
     public $comment;
     public $spoilerAlert;
     public $creationDate;
+
     /**
      * @return mixed
      */
