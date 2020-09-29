@@ -139,7 +139,7 @@ class AnimeRepository extends ServiceEntityRepository
         ->addSelect('category.name as categoryName')
        
         ->leftJoin(
-            favourite::class,
+            Favourite::class,
             'favourite',
             Join::WITH,
            'favourite.userID = :userID'
