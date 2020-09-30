@@ -85,7 +85,8 @@
 `Method: GET. Path: /interaction/animeID`
 ##### Get all interaction by animeID and userID. 
 `Method: GET. Path: /interaction/animeID/userID`
-##### Get count interaction by animeID. Method: GET. Path/ countInteractions/animeID
+##### Get count interaction by animeID. 
+`Method: GET. Path/ countInteractions/animeID`
 
 ### Rating APIs
 ##### Create new rating. 
@@ -110,8 +111,9 @@
 `Method: POST. Path: /register-point`
 ##### Update an existing grade by userID. 
 `Method: PUT. Path: /grade`
-##### Get users by specific points. 
-`Method: GET. Path: /usersByPoints/{points}`
+##### Get top 50 users 
+###### _Used for display the grade of each user in his/her profile_
+`Method: GET. Path: /top50`
 ##### Get a grade of specific user. 
 `Method: GET. Path: /grade/{userID}`
 #### Delete an existing recorde by ID. 
