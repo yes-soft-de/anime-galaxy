@@ -37,12 +37,12 @@ class GradeRepository extends ServiceEntityRepository
             ->getOneOrNullResult();
     }
 
-    public function getUsersByPoints($points)
+    public function getTopUsers()
     {
         return $this->createQueryBuilder('grade')
             ->select('grade.userID, grade.points')
-            ->andWhere('grade.points = :points')
-            ->setParameter('points', $points)
+            ->orderBy('grade.points','DESC')
+            ->setMaxResults(50)
             ->getQuery()
             ->getResult();
     }

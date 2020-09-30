@@ -9,7 +9,6 @@ use App\Entity\Grade;
 use App\Repository\GradeRepository;
 use App\Request\CreateGradeRequest;
 use App\Request\DeleteRequest;
-use App\Request\GetByPointsRequest;
 use App\Request\UpdateGradeRequest;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -57,9 +56,9 @@ class GradeManager
         }
     }
 
-    public function getUsersByPoints(GetByPointsRequest $request)
+    public function getTopUsers()
     {
-        return $this->gradeRepository->getUsersByPoints($request->getPoints());
+        return $this->gradeRepository->getTopUsers();
     }
 
     public function getGradeByUserId($userID)

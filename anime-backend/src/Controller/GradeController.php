@@ -6,7 +6,6 @@ namespace App\Controller;
 use App\AutoMapping;
 use App\Request\CreateGradeRequest;
 use App\Request\DeleteRequest;
-use App\Request\GetByPointsRequest;
 use App\Request\UpdateGradeRequest;
 use App\Service\GradeService;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -59,14 +58,12 @@ class GradeController extends BaseController
     }
 
     /**
-     * @Route("/usersByPoints/{points}", name="getUsersByPoints", methods={"GET"})
-     * @param Request $request
+     * @Route("/top50", name="getTopUsers", methods={"GET"})
      * @return JsonResponse
      */
-    public function getUsersByPoints(Request $request)
+    public function getTopUsers()
     {
-        $request = new GetByPointsRequest($request->get('points'));
-        $result = $this->gradeService->getUsersByPoints($request);
+        $result = $this->gradeService->getTopUsers();
 
         return $this->response($result, self::FETCH);
     }

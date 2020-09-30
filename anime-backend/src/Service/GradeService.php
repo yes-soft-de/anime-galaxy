@@ -31,10 +31,10 @@ class GradeService
         return $this->autoMapping->map(Grade::class, CreateGradeResponse::class, $gradeResult);
     }
 
-    public function getUsersByPoints($request)
+    public function getTopUsers()
     {
         $response = [];
-        $result = $this->gradeManager->getUsersByPoints($request);
+        $result = $this->gradeManager->getTopUsers();
 
         foreach ($result as $row)
         {
