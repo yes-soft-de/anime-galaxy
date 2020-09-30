@@ -124,7 +124,7 @@ class AnimeRepository extends ServiceEntityRepository
                 Join::WITH,
                 'rate.animeID = anime.id'
             )
-            ->setMaxResults(5)   
+            ->setMaxResults(10)   
             ->addOrderBy('rating','DESC')
             ->groupBy('category.name')
             ->groupBy('animeName')
@@ -157,7 +157,7 @@ class AnimeRepository extends ServiceEntityRepository
             'rate.animeID = anime.id'
         )
         ->andWhere('anime.id=favourite.animeID')
-        ->setMaxResults(5)   
+        ->setMaxResults(10)   
         ->addOrderBy('rating','DESC')
         ->setParameter('userID', $userID)
         ->groupBy('anime.id')

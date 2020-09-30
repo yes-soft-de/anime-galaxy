@@ -6,10 +6,11 @@ namespace App\Response;
 
 class GetHighestRatedAnimeResponse
 {
-    private $id;
-    private $categoryName;
-    private $animeName;
-    private $animeMainImage;
+    public $id;
+    public $categoryName;
+    public $animeName;
+    public $animeMainImage;
+    public  $rating;
   
     /**
      * @return mixed
