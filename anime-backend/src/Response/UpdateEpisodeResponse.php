@@ -6,22 +6,23 @@ namespace App\Response;
 
 class UpdateEpisodeResponse
 {
-    private $id;
-    private $animeID;
+    public $id;
 
-    private $seasonNumber;
+    public $animeID;
 
-    private $episodeNumber;
+    public $seasonNumber;
 
-    private $description;
+    public $episodeNumber;
 
-    private $image;
+    public $description;
 
-    private $duration;
+    public $image;
 
-    private $publishDate;
+    public $duration;
 
-    private $createdAt;
+    public $publishDate;
+
+    public $createdAt;
 
     /**
      * @param mixed $animeID

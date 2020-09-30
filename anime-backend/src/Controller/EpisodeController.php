@@ -5,6 +5,7 @@ namespace App\Controller;
 
 
 use App\AutoMapping;
+use App\Request\CreateEpisodeRequest;
 use App\Request\DeleteRequest;
 use App\Request\GetByIdRequest;
 use App\Request\UpdateEpisodeRequest;
@@ -29,16 +30,17 @@ class EpisodeController extends BaseController
     /**
      * @Route("/episode", name="createEpisode", methods={"POST"})
      * @param Request $request
+     * @return JsonResponse
      */
     public function create(Request $request)
     {
-//        $data = json_decode($request->getContent(), true);
-//
-//        $request = $this->autoMapping->map(\stdClass::class, CreateArticleRequest::class, (object)$data);
-//
-//        $result = $this->articleService->create($request);
-//
-//        return $this->response($result, self::CREATE);
+        $data = json_decode($request->getContent(), true);
+
+        $request = $this->autoMapping->map(\stdClass::class, CreateEpisodeRequest::class, (object)$data);
+
+        $result = $this->episodeService->create($request);
+
+        return $this->response($result, self::CREATE);
     }
 
     /**
@@ -93,7 +95,7 @@ class EpisodeController extends BaseController
     }
 
     /**
-     * @Route("/articles/{id}", name="deleteArticle", methods={"DELETE"})
+     * @Route("/episode/{id}", name="deleteEpisode", methods={"DELETE"})
      * @param Request $request
      * @return JsonResponse
      */

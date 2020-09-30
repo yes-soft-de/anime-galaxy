@@ -2,6 +2,7 @@
 
 ##### Table of Contents
 * [Anime APIs](#anime-apis)
+* [Episode APIs](#episode-apis)
 * [Category APIs](#category-apis)
 * [Image APIs](#image-apis)
 * [Follow APIS](#follow-apis)
@@ -29,6 +30,20 @@
 `Method: GET. Path: /getHighestRatedAnime`
 ##### Get Highest Rated Anime By User
 `Method: GET. Path: /getHighestRatedAnime/{userID}`
+
+### Episode APIs
+##### Insert new episode.
+`Method: POST. Path: /episode.`
+##### Get an episode by ID.
+`Method: Get. Path: /episode/id.`
+##### Get episodes of specific anime.
+`Method: Get. Path: /episode/animeID.`
+##### Get episodes of specific anime and specific season.
+`Method: Get. Path: /episode/animeID/seasonNumber.`
+##### Update an existing episode by ID.
+`Method: PUT. Path: /episode.`
+##### Delete an existing episode by ID.
+`Method: DELETE. Path: /episode/id.`
 
 ### Category APIs
 ##### Create a new category. 

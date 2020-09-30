@@ -43,7 +43,7 @@ class Episode
     private $image;
 
     /**
-     * @ORM\Column(type="time")
+     * @ORM\Column(type="time", nullable=true)
      */
     private $duration;
 
@@ -127,9 +127,9 @@ class Episode
         return $this->duration;
     }
 
-    public function setDuration(\DateTimeInterface $duration): self
+    public function setDuration(): self
     {
-        $this->duration = $duration;
+        $this->duration = new \DateTime('Now');
 
         return $this;
     }

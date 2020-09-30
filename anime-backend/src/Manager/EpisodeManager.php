@@ -31,6 +31,7 @@ class EpisodeManager
     {
         $episodeEntity = $this->autoMapping->map(CreateEpisodeRequest::class, Episode::class, $request);
         $episodeEntity->setCreatedAt();
+        $episodeEntity->setDuration();
 
         $this->entityManager->persist($episodeEntity);
         $this->entityManager->flush();
