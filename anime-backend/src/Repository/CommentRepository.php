@@ -4,7 +4,6 @@ namespace App\Repository;
 
 use App\Entity\Comment;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\ORM\Query;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -32,7 +31,7 @@ class CommentRepository extends ServiceEntityRepository
     public function getCommentsByAnimeId($animeID)
     {
         return $this->createQueryBuilder('comment')
-            ->select('comment.comment')
+            ->select('comment.comment, comment.spoilerAlert, comment.creationDate')
             ->from('App:Anime','anime')
             ->andWhere('anime.id=comment.animeID')
             ->andWhere('anime.id=:animeID')

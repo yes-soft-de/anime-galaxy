@@ -2,6 +2,8 @@
 
 namespace App\Request;
 
+use DateTime;
+
 class CreateCommentRequest
 {
     private $id;
@@ -10,6 +12,12 @@ class CreateCommentRequest
     private $comment;
     private $spoilerAlert;
     private $creationDate;
+
+    public function __construct()
+    {
+        $this->creationDate = new DateTime('Now');
+    }
+
     /**
      * @return mixed
      */
@@ -74,8 +82,6 @@ class CreateCommentRequest
         $this->comment = $comment;
     }
 
-
-
     /**
      * @return mixed
      */ 
@@ -95,21 +101,20 @@ class CreateCommentRequest
     }
 
     /**
-     * @return mixed
-     */ 
-    public function getCreationDate()
+     * @return DateTime
+     */
+    public function getCreationDate(): DateTime
     {
         return $this->creationDate;
     }
 
     /**
-     * Set the value of creationDate
-     *
-     * @return  self
-     */ 
-    public function setCreationDate($creationDate): void
+     * @param DateTime $creationDate
+     */
+    public function setCreationDate(DateTime $creationDate): void
     {
-        $this->creationDate = new \DateTime('now');
-
+        $this->creationDate = $creationDate;
     }
+
+
 }

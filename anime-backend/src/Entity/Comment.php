@@ -47,7 +47,7 @@ class Comment
      */
     public function __construct()
     {
-        $this->creationDate = new \DateTime('now');
+        //$this->creationDate = new \DateTime('Now');
     }
     public function getId(): ?int
     {
@@ -111,9 +111,9 @@ class Comment
         return $this->creationDate;
     }
 
-    public function setCreationDate(?\DateTimeInterface $creationDate): self
+    public function setCreationDate(): self
     {
-        $this->creationDate = new \DateTime('now');
+        $this->creationDate = new \DateTime('Now');
 
         return $this;
     }
