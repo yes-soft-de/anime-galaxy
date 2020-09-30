@@ -5,59 +5,87 @@ namespace App\Service;
 
 
 use App\AutoMapping;
+use App\Entity\Episode;
+use App\Manager\EpisodeManager;
+use App\Request\CreateEpisodeRequest;
+use App\Response\CreateEpisodeResponse;
+use App\Response\GetEpisodeByIdResponse;
+use App\Response\GetEpisodeResponse;
+use App\Response\UpdateEpisodeResponse;
 
 class EpisodeService
 {
-    private $articleManager;
+    private $episodeManager;
     private $autoMapping;
 
-    public function __construct(ArticleManager $articleManager, AutoMapping $autoMapping)
+    public function __construct(EpisodeManager $episodeManager, AutoMapping $autoMapping)
     {
-        $this->articleManager = $articleManager;
+        $this->episodeManager = $episodeManager;
         $this->autoMapping = $autoMapping;
     }
 
-    public function create($request)
+    public function create(CreateEpisodeRequest $request)
     {
-        $articleResult = $this->articleManager->create($request);
-        $response = $this->autoMapping->map(Articles::class, CreateArticleResponse::class, $articleResult);
-        return $response;
+        $episodeResult = $this->episodeManager->create($request);
+        return $this->autoMapping->map(Episode::class, CreateEpisodeResponse::class, $episodeResult);
     }
 
     public function update($request)
     {
-        $articleResult = $this->articleManager->update($request);
-        $response = $this->autoMapping->map(Articles::class, UpdateArticleResponse::class, $articleResult);
-        $response->setArticle($request->getArticle());
+        $episodeResult = $this->episodeManager->update($request);
+        $response = $this->autoMapping->map(Episode::class, UpdateEpisodeResponse::class, $episodeResult);
+
+        $response->setDescription($request->getDescription());
+        $response->setImage($request->getImage());
+
         return $response;
     }
 
-    public function getAll()
+    public function getEpisodesByAnimeId($animeID)
     {
-        $result = $this->articleManager->getAll();
         $response = [];
+        $result = $this->episodeManager->getEpisodesByAnimeId($animeID);
+
         foreach ($result as $row)
         {
-            $response[] = $this->autoMapping->map(Articles::class, GetArticleResponse::class, $row);
+            $response[] = $this->autoMapping->map(Episode::class, GetEpisodeResponse::class, $row);
         }
+
         return $response;
     }
 
-    public function getArticleById($request)
+    public function getEpisodesByAnimeIdAndSeasonNumber($animeID, $seasonNumber)
     {
-        $result = $this->articleManager->getArticleById($request);
-        $response = $this->autoMapping->map(Articles::class, GetArticleByIdResponse::class, $result);
+        $response = [];
+        $result = $this->episodeManager->getEpisodesByAnimeIdAndSeasonNumber($animeID, $seasonNumber);
+
+        foreach ($result as $row)
+        {
+            $response[] = $this->autoMapping->map(Episode::class, GetEpisodeResponse::class, $row);
+        }
+
         return $response;
+    }
+
+    public function getEpisodeById($request)
+    {
+        $result = $this->episodeManager->getEpisodeById($request);
+
+        return $this->autoMapping->map(Episode::class, GetEpisodeByIdResponse::class, $result);
     }
 
     public function delete($request)
     {
-        $articleResult = $this->articleManager->delete($request);
-        if($articleResult==null)
+        $response = [];
+        $episodeResult = $this->episodeManager->delete($request);
+
+        if($episodeResult == null)
         {
             return null;
         }
-        $response = $this->autoMapping->map(Articles::class, GetArticleByIdResponse::class, $articleResult);
+
+        $response = $this->autoMapping->map(Episode::class, GetEpisodeByIdResponse::class, $episodeResult);
+
         return $response;
     }
 }

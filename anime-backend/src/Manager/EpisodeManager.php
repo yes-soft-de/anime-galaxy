@@ -5,9 +5,12 @@ namespace App\Manager;
 
 
 use App\AutoMapping;
+use App\Entity\Episode;
 use App\Repository\EpisodeRepository;
+use App\Request\CreateEpisodeRequest;
 use App\Request\DeleteRequest;
 use App\Request\GetByIdRequest;
+use App\Request\UpdateEpisodeRequest;
 use Doctrine\ORM\EntityManagerInterface;
 
 class EpisodeManager
@@ -24,57 +27,61 @@ class EpisodeManager
         $this->autoMapping = $autoMapping;
     }
 
-    public function create(CreateArticleRequest $request)
+    public function create(CreateEpisodeRequest $request)
     {
-        $articleEntity = $this->autoMapping->map(CreateArticleRequest::class, Articles::class, $request);
-        $articleEntity->setDate();
-        $this->entityManager->persist($articleEntity);
+        $episodeEntity = $this->autoMapping->map(CreateEpisodeRequest::class, Episode::class, $request);
+        $episodeEntity->setCreatedAt();
+
+        $this->entityManager->persist($episodeEntity);
         $this->entityManager->flush();
         $this->entityManager->clear();
-        return $articleEntity;
+
+        return $episodeEntity;
     }
 
-    public function update(UpdateArticleRequest $request)
+    public function update(UpdateEpisodeRequest $request)
     {
-        $articleEntity = $this->articleRepository->getArticleById($request->getId());
-        if(!$articleEntity)
+        $episodeEntity = $this->episodeRepository->getEpisodeById($request->getId());
+        if(!$episodeEntity)
         {
 
         }
         else
         {
-            $articleEntity = $this->autoMapping->mapToObject(UpdateArticleRequest::class,
-             Articles::class, $request, $articleEntity);
+            $episodeEntity = $this->autoMapping->mapToObject(UpdateEpisodeRequest::class,
+             Episode::class, $request, $episodeEntity);
             $this->entityManager->flush();
-            return $articleEntity;
+            return $episodeEntity;
         }
     }
 
-    public function getAll()
+    public function getEpisodeById(GetByIdRequest $request)
     {
-        $data = $this->articleRepository->getAll();
-
-        return $data;
+        return $this->episodeRepository->getEpisodeById($request->getId());
     }
 
-    public function getArticleById(GetByIdRequest $request)
+    public function getEpisodesByAnimeId($animeId)
     {
-        return $result = $this->articleRepository->getArticleById($request->getId());
+        return $this->episodeRepository->getEpisodesByAnimeId($animeId);
+    }
+
+    public function getEpisodesByAnimeIdAndSeasonNumber($animeId, $seasonNumber)
+    {
+        return $result = $this->episodeRepository->getEpisodesByAnimeIdAndSeasonNumber($animeId, $seasonNumber);
     }
 
     public function delete(DeleteRequest $request)
     {
-        $article = $this->articleRepository->getArticleById($request->getId());
-        if(!$article)
+        $episode = $this->episodeRepository->getEpisodeById($request->getId());
+        if(!$episode)
         {
             return null;
-            // return new Response(['data'=>'The project was not found!']);
         }
         else
         {
-            $this->entityManager->remove($article);
+            $this->entityManager->remove($episode);
             $this->entityManager->flush();
         }
-        return $article;
+        return $episode;
     }
 }

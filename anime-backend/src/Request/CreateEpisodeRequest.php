@@ -42,6 +42,14 @@ class CreateEpisodeRequest
         $this->id = $id;
     }
 
+    /**
+     * @param DateTime $createdAt
+     */
+    public function setCreatedAt(DateTime $createdAt): void
+    {
+        $this->createdAt = $createdAt;
+    }
+
 
 
 }

@@ -6,20 +6,13 @@ namespace App\Response;
 
 class GetEpisodeByIdResponse
 {
-    private $animeID;
-
-    private $seasonNumber;
-
-    private $episodeNumber;
-
-    private $description;
-
-    private $image;
-
-    private $duration;
-
-    private $publishDate;
-
-    private $createdAt;
+    public $animeID;
+    public $seasonNumber;
+    public $episodeNumber;
+    public $description;
+    public $image;
+    public $duration;
+    public $publishDate;
+    public $createdAt;
 
 }
