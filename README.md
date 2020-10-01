@@ -11,6 +11,9 @@
 * [Rating APIs](#rating-apis)
 * [Favourite APIs](#favourite-apis) 
 * [Grade APIs](#grade-apis)
+* [Comment Episode APIs](#comment-episode-apis)
+
+Comment Episode APIs
 
 
 ### Anime APIs
@@ -80,9 +83,9 @@
 
 ### Comment APIs
 ##### Create new comment. 
-`Method: POST. Path: /comment/userID/animeID`
+`Method: POST. Path: /comment`
 ##### Update existing comment by ID. 
-`Method: PUT. Path: /comment/userID/animeID`
+`Method: PUT. Path: /comment`
 ##### Delete existing comment by ID. 
 `Method: DELETE. Path: /comment/ID`
 ##### Get specific comment by ID. 
@@ -133,3 +136,15 @@
 `Method: GET. Path: /grade/{userID}`
 #### Delete an existing recorde by ID. 
 `Method: DELETE. Path: /grade/{userID}`
+
+### Comment Episode APIs
+##### Create new comment Episode. 
+`Method: POST. Path: /commentEpisode`
+##### update Comment Episode. 
+`Method: PUT. Path: /commentEpisode`
+##### Delete existing comment Episode by ID. 
+`Method: DELETE. Path: /commentEpisode/ID`
+##### Get specific comment by ID. 
+`Method: GET. Path: /commentEpisode/ID`
+##### Get all comments by episodeID. 
+`Method: GET. Path: /commentsEpisode/{episodeID}`

@@ -2,13 +2,15 @@
 
 namespace App\Response;
 
-class UpdateCommentResponse
+class CreateCommentEpisodeResponse
 {
-    private $id;
-    private $userID;
-    private $animeID;
-    private $comment;
-    private $spoilerAlert;
+    public $id;
+    public $userID;
+    public $episodeID;
+    public $comment;
+    public $spoilerAlert;
+    public $creationDate;
+
     /**
      * @return mixed
      */
@@ -44,54 +46,67 @@ class UpdateCommentResponse
     /**
      * @return mixed
      */
-    public function getAnimeID()
+    public function getEpisodeID()
     {
-        return $this->animeID;
+        return $this->episodeID;
     }
 
     /**
      * @param mixed $animeID
      */
-    public function setAnimeID($animeID): void
+    public function setEpisodeID($episodeID): void
     {
-        $this->animeID = $animeID;
+        $this->episodeID = $episodeID;
     }
 
     /**
      * @return mixed
-     */ 
+     */
     public function getComment()
     {
         return $this->comment;
     }
 
-   /**
+    /**
      * @param mixed $comment
      */
-    public function setComment($comment)
+    public function setComment($comment): void
     {
         $this->comment = $comment;
-
-        return $this;
     }
 
-    /**
-     * Get the value of spoilerAlert
-     */ 
-    public function getSpoilerAlert()
-    {
-        return $this->spoilerAlert;
-    }
 
-    /**
-     * Set the value of spoilerAlert
-     *
-     * @return  self
+   /**
+     * @param mixed $spoilerAlert
      */ 
     public function setSpoilerAlert($spoilerAlert)
     {
         $this->spoilerAlert = $spoilerAlert;
 
         return $this;
+    }
+
+      /**
+     * @return mixed
+     */
+    public function getSpoilerAlert()
+    {
+        return $this->spoilerAlert;
+    }
+
+    /**
+     * @return mixed
+     */ 
+    public function getCreationDate()
+    {
+        return $this->creationDate;
+    }
+
+    /**
+     * @param mixed $creationDate
+     */ 
+    public function setCreationDate($creationDate): void
+    {
+        $this->creationDate = $creationDate;
     }
 }

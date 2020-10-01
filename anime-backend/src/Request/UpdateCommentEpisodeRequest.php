@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Response;
+namespace App\Request;
 
-class UpdateCommentResponse
+class UpdateCommentEpisodeRequest
 {
     private $id;
     private $userID;
-    private $animeID;
+    private $episodeID;
     private $comment;
     private $spoilerAlert;
     /**
@@ -44,17 +44,17 @@ class UpdateCommentResponse
     /**
      * @return mixed
      */
-    public function getAnimeID()
+    public function getEpisodeID()
     {
-        return $this->animeID;
+        return $this->episodeID;
     }
 
     /**
-     * @param mixed $animeID
+     * @param mixed $episodeID
      */
-    public function setAnimeID($animeID): void
+    public function setEpisodeID($episodeID): void
     {
-        $this->animeID = $animeID;
+        $this->episodeID = $episodeID;
     }
 
     /**
