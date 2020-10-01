@@ -83,9 +83,9 @@ class Rating
         return $this->creationDate;
     }
 
-    public function setCreationDate(?\DateTimeInterface $creationDate): self
+    public function setCreationDate(): self
     {
-        $this->creationDate = $creationDate;
+        $this->creationDate = new \DateTime('Now');
 
         return $this;
     }

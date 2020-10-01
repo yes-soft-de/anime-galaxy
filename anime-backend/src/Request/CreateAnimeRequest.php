@@ -12,22 +12,9 @@ class CreateAnimeRequest
     private $categoryID;
     private $creationDate;
 
-
-    /**
-     * @return mixed
-     */
-    public function getCreationDate(): ?\DateTimeInterface
+    public function __construct()
     {
-        return $this->creationDate;
-    }
-
-    /**
-     * @param mixed $creationDate
-     */
-    public function setCreationDate(?\DateTimeInterface $creationDate): void
-    {
-        // $this->creationDate = $creationDate;
-        $this->creationDate = new \DateTime('Now');
+        $this->creationDate = new DateTime('Now');
     }
 
     /**
@@ -78,20 +65,20 @@ class CreateAnimeRequest
         $this->mainImage = $mainImage;
     }
 
-    /**
-     * @return mixed
+   /**
+     * @return DateTime
      */
-    public function getCategoryID()
+    public function getCreationDate(): DateTime
     {
-        return $this->categoryID;
+        return $this->creationDate;
     }
 
     /**
-     * @param mixed $categoryID
+     * @param DateTime $creationDate
      */
-    public function setCategoryID($categoryID): void
+    public function setCreationDate(DateTime $creationDate): void
     {
-        $this->categoryID = $categoryID;
+        $this->creationDate = $creationDate;
     }
 
 }

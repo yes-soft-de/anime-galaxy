@@ -37,6 +37,14 @@ class Anime
      */
     private $creationDate;
 
+    /**
+     * date constructor.
+     */
+    public function __construct()
+    {
+        //$this->creationDate = new \DateTime('Now');
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -78,14 +86,13 @@ class Anime
         return $this;
     }
 
-    public function getCreationDate(): ?\DateTimeInterface
+     public function getCreationDate(): ?\DateTimeInterface
     {
         return $this->creationDate;
     }
 
-    public function setCreationDate(?\DateTimeInterface $creationDate): self
+    public function setCreationDate(): self
     {
-        // $this->creationDate = $creationDate;
         $this->creationDate = new \DateTime('Now');
 
         return $this;

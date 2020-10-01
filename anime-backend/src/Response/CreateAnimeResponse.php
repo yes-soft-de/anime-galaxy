@@ -11,23 +11,6 @@ class CreateAnimeResponse
     public $categoryID;
     public $creationDate;
     
-
-    /**
-     * @return mixed
-     */
-    public function getCreationDate()
-    {
-        return $this->creationDate;
-    }
-
-    /**
-     * @param mixed $creationDate
-     */
-    public function setCreationDate($creationDate): void
-    {
-        $this->creationDate = $creationDate;
-    }
-
     /**
      * @return mixed
      */
@@ -74,5 +57,21 @@ class CreateAnimeResponse
     public function setCategoryID($categoryID): void
     {
         $this->categoryID = $categoryID;
+    }
+
+    /**
+     * @return mixed
+     */ 
+    public function getCreationDate()
+    {
+        return $this->creationDate;
+    }
+
+    /**
+     * @param mixed $creationDate
+     */ 
+    public function setCreationDate($creationDate): void
+    {
+        $this->creationDate = $creationDate;
     }
 }

@@ -12,6 +12,9 @@
 * [Favourite APIs](#favourite-apis) 
 * [Grade APIs](#grade-apis)
 * [Comment Episode APIs](#comment-episode-apis)
+* [Interaction Episode APIs](#Interaction-episode-apis)
+
+
 
 Comment Episode APIs
 
@@ -148,3 +151,15 @@ Comment Episode APIs
 `Method: GET. Path: /commentEpisode/ID`
 ##### Get all comments by episodeID. 
 `Method: GET. Path: /commentsEpisode/{episodeID}`
+
+### Interaction Episode APIs
+##### Create new Interaction Episode. 
+`Method: POST. Path: /interactionEpisode`
+##### Update existing interaction Episode. 
+`Method: PUT. Path: /interactionEpisode`
+##### Get all interaction Episode by episodeID. 
+`Method: GET. Path: /interaction/episodeID`
+##### Get all interaction Episode by episodeID and userID. 
+`Method: GET. Path: /interaction/episodeID/userID`
+
+

@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\InteractionRepository;
+use App\Repository\InteractionEpisodeRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=InteractionRepository::class)
+ * @ORM\Entity(repositoryClass=InteractionEpisodeRepository::class)
  */
-class Interaction
+class InteractionEpisode
 {
     /**
      * @ORM\Id
@@ -25,7 +25,7 @@ class Interaction
     /**
      * @ORM\Column(type="integer")
      */
-    private $animeID;
+    private $episodeID;
 
     /**
      * @ORM\Column(type="integer")
@@ -54,14 +54,14 @@ class Interaction
         return $this;
     }
 
-    public function getAnimeId(): ?int
+    public function getEpisodeID(): ?int
     {
-        return $this->animeID;
+        return $this->episodeID;
     }
 
-    public function setAnimeId(int $animeID): self
+    public function setEpisodeID(int $episodeID): self
     {
-        $this->animeID = $animeID;
+        $this->episodeID = $episodeID;
 
         return $this;
     }
