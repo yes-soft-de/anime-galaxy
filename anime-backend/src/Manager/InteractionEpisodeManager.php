@@ -28,6 +28,7 @@ class InteractionEpisodeManager
     public function create(CreateInteractionEpisodeRequest $request)
     {
         $interactionEntity = $this->autoMapping->map(CreateInteractionEpisodeRequest::class, InteractionEpisode::class, $request);
+        $interactionEntity->setCreationDate();
 
         $this->entityManager->persist($interactionEntity);
         $this->entityManager->flush();

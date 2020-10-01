@@ -13,6 +13,7 @@
 * [Grade APIs](#grade-apis)
 * [Comment Episode APIs](#comment-episode-apis)
 * [Interaction Episode APIs](#Interaction-episode-apis)
+* [Rating APIs](#rating-apis)
 
 
 
@@ -161,5 +162,15 @@ Comment Episode APIs
 `Method: GET. Path: /interaction/episodeID`
 ##### Get all interaction Episode by episodeID and userID. 
 `Method: GET. Path: /interaction/episodeID/userID`
+
+### Rating Episode APIs
+##### Create new rating Episode. 
+`Method: POST. Path: /ratingEpisode`
+##### Update existing rating Episode. 
+`Method: PUT. Path: /ratingEpisode`
+##### Get rating by episodeID and userID. 
+`Method: GET. Path: /ratingEpisode/episodeID/userID`
+##### Get rating by episodeID . 
+`Method: GET. Path: /ratingEpisode/episodeID`
 
 

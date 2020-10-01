@@ -8,6 +8,12 @@ class CreateInteractionRequest
     private $userID;
     private $animeID;
     private $type;
+    private $creationDate;
+
+    public function __construct()
+    {
+        $this->creationDate = new DateTime('Now');
+    }
 
     /**
      * @return mixed
@@ -55,6 +61,22 @@ class CreateInteractionRequest
     public function setType($type): void
     {
         $this->type = $type;
+    }
+
+    /**
+     * @return DateTime
+     */
+    public function getCreationDate(): DateTime
+    {
+        return $this->creationDate;
+    }
+
+    /**
+     * @param DateTime $creationDate
+     */
+    public function setCreationDate(DateTime $creationDate): void
+    {
+        $this->creationDate = $creationDate;
     }
 
 }

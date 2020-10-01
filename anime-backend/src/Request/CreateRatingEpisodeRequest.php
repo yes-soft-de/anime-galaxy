@@ -2,37 +2,48 @@
 
 namespace App\Request;
 
-class CreateInteractionEpisodeRequest
+class CreateRatingEpisodeRequest 
 {
-
+    private $id;
     private $userID;
     private $episodeID;
-    private $type;
+    private $rateValue;
     private $creationDate;
 
     public function __construct()
     {
         $this->creationDate = new DateTime('Now');
     }
-    /**
+     /**
      * @return mixed
      */
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+    
+
+   /**
+     * @return mixed
+     */ 
     public function getUserID()
     {
         return $this->userID;
     }
 
     /**
-     * @param mixed $userID
+     * @param mixed $userId
      */
-    public function setUserID($userID): void
+    public function setUserID($userID)
     {
         $this->userID = $userID;
+
+        return $this;
     }
 
     /**
      * @return mixed
-     */
+     */  
     public function getEpisodeID()
     {
         return $this->episodeID;
@@ -41,28 +52,31 @@ class CreateInteractionEpisodeRequest
     /**
      * @param mixed $episodeID
      */
-    public function setEpisodeID($episodeID): void
+    public function setEpisodeID($episodeID)
     {
         $this->episodeID = $episodeID;
-    }
 
-    /**
+        return $this;
+    }
+ /**
      * @return mixed
      */ 
-    public function getType()
+    public function getRateValue()
     {
-        return $this->type;
+        return $this->rateValue;
     }
 
-    /**
-     * @param mixed $type
+   /**
+     * @param mixed $rateValue
      */
-    public function setType($type): void
+    public function setRateValue($rateValue)
     {
-        $this->type = $type;
+        $this->rateValue = $rateValue;
+
+        return $this;
     }
 
-    /**
+     /**
      * @return DateTime
      */
     public function getCreationDate(): DateTime
