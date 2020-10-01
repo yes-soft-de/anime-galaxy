@@ -2,12 +2,20 @@
 
 namespace App\Request;
 
+use DateTime;
+
 class CreateRatingRequest
 {
     private $id;
     private $userID;
     public  $animeID;
     private $rateValue;
+    private $creationDate;
+
+    public function __construct()
+    {
+        $this->creationDate = new DateTime('Now');
+    }
 
      /**
      * @return mixed
@@ -70,5 +78,21 @@ class CreateRatingRequest
         $this->rateValue = $rateValue;
 
         return $this;
+    }
+
+    /**
+     * @return DateTime
+     */
+    public function getCreationDate(): DateTime
+    {
+        return $this->creationDate;
+    }
+
+    /**
+     * @param DateTime $creationDate
+     */
+    public function setCreationDate(DateTime $creationDate): void
+    {
+        $this->creationDate = $creationDate;
     }
 }

@@ -38,35 +38,33 @@ class ImageManager
     public function create(CreateImageRequest $request)
     {
         $imageEntity = $this->autoMapping->map(CreateImageRequest::class, Image::class, $request);
+
         $this->entityManager->persist($imageEntity);
         $this->entityManager->flush();
         $this->entityManager->clear();
+
         return $imageEntity;
     }
     public function getAll()
     {
-        $data = $this->imageRepository->getAll();
-
-        return $data;
+        return $this->imageRepository->getAll();
     }
 
     public function getImagesByAnimeID(GetByIdRequest $request)
     {
-        $data = $this->imageRepository->getImagesByAnimeId($request->getId());
-
-        return $data;
+        return $this->imageRepository->getImagesByAnimeId($request->getId());
     }
     
     
     public function delete(DeleteRequest $request)
     {
         $image = $this->imageRepository->getImageById($request->getId());
-        if (!$image ) {
-           // return new Response(['data'=>'this project  is not found']);
+        if (!$image )
+        {
           
         } 
-         else{   
-
+         else
+         {
             $this->entityManager->remove($image);
             $this->entityManager->flush();
          }
@@ -75,17 +73,13 @@ class ImageManager
 
     public function update(UpdateImageRequest $request)
     {
-        /*if($request->animeID){
-            $anime= $this->entityManager->getRepository(Anime::class)
-                ->find($request->animeID);
-            $request->setAnimeID($anime);
-
-        }*/
         $imageEntity = $this->imageRepository->getImageById($request->getId());
 
-        if (!$imageEntity) {
+        if (!$imageEntity)
+        {
 
-        } else {
+        } else
+        {
             $imageEntity = $this->autoMapping->mapToObject(UpdateImageRequest::class,
                 Image::class, $request, $imageEntity);
 

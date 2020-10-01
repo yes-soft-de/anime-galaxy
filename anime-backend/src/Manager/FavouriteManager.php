@@ -7,11 +7,6 @@ use App\Repository\FavouriteRepository;
 use App\Request\CreateFavouriteRequest;
 use App\Request\UpdateFavouriteRequest;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Flex\Response;
-use App\Request\DeleteRequest;
-use App\Request\GetByIdRequest;
 
 class FavouriteManager
 {
@@ -30,10 +25,12 @@ class FavouriteManager
     public function create(CreateFavouriteRequest $request)
     {
         $favouriteEntity = $this->autoMapping->map(CreateFavouriteRequest::class, Favourite::class, $request);
+        $favouriteEntity->setCreationDate();
 
         $this->entityManager->persist($favouriteEntity);
         $this->entityManager->flush();
         $this->entityManager->clear();
+
         return $favouriteEntity;
     }
 
@@ -54,15 +51,11 @@ class FavouriteManager
 
     public function getAllFavouritesByAnimeID($animeID)
     {
-        $favourite = $this->favouriteRepository->getAllFavouritesByAnimeID($animeID);
-
-        return $favourite;
+        return $this->favouriteRepository->getAllFavouritesByAnimeID($animeID);
     }
 
     public function getAllFavouritesByUserID($userID)
     {
-        $favourite = $this->favouriteRepository->getAllFavouritesByUserID($userID);
-
-        return $favourite;
+        return $this->favouriteRepository->getAllFavouritesByUserID($userID);
     }
 }

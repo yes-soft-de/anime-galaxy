@@ -6,11 +6,7 @@ use App\Entity\Interaction;
 use App\Repository\InteractionRepository;
 use App\Request\CreateInteractionRequest;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Flex\Response;
 use App\Request\UpdateInteractionRequest;
-use App\Request\GetByIdRequest;
 
 class InteractionManager
 {
@@ -28,6 +24,7 @@ class InteractionManager
     public function create(CreateInteractionRequest $request)
     {
         $interactionEntity = $this->autoMapping->map(CreateInteractionRequest::class, Interaction::class, $request);
+        $interactionEntity->setCreationDate();
 
         $this->entityManager->persist($interactionEntity);
         $this->entityManager->flush();
@@ -54,16 +51,12 @@ class InteractionManager
 
     public function getAll($animeID)
     {
-        $interactions = $this->interactionRepository->getAll($animeID);
-
-        return $interactions;
+        return $this->interactionRepository->getAll($animeID);
     }
 
     public function getInteractionWithUser($animeID, $userID)
     {
-        $interactions = $this->interactionRepository->getInteractionWithUser($animeID, $userID);
-
-        return $interactions;
+        return $this->interactionRepository->getInteractionWithUser($animeID, $userID);
     }
 
     public function countInteractions($animeID)

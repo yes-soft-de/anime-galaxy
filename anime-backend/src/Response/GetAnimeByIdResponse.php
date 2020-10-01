@@ -9,7 +9,7 @@ class GetAnimeByIdResponse
     public $id;
     public $name;
     public $mainImage;
-    public $image;
+    public $images;
     public $categoryName;
     public $interactions;
     public $rating;
@@ -66,17 +66,17 @@ class GetAnimeByIdResponse
     /**
      * @return mixed
      */
-    public function getImage()
+    public function getImages()
     {
-        return $this->image;
+        return $this->images;
     }
 
     /**
-     * @param mixed $image
+     * @param mixed $images
      */
-    public function setImage($image): void
+    public function setImages($images): void
     {
-        $this->image = $image;
+        $this->images = $images;
     }
 
     /**

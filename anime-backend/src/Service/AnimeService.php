@@ -58,7 +58,7 @@ class AnimeService
             $response = $this->autoMapping->map('array', GetAnimeByIdResponse::class, $row);
         }
 
-        $response->setImage($resultImg);
+        $response->setImages($resultImg);
         $response->setComments($resultComments);
         $response->interactions['love'] = $love;
         $response->interactions['like'] = $like;

@@ -8,6 +8,7 @@ class CreateRatingResponse
     public $userID;
     public $animeID;
     public $rateValue;
+    public $creationDate;
 
      /**
      * @return mixed

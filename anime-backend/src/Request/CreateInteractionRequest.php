@@ -2,9 +2,10 @@
 
 namespace App\Request;
 
+use DateTime;
+
 class CreateInteractionRequest
 {
-
     private $userID;
     private $animeID;
     private $type;
@@ -14,7 +15,6 @@ class CreateInteractionRequest
     {
         $this->creationDate = new DateTime('Now');
     }
-
     /**
      * @return mixed
      */

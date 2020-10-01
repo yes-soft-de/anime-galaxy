@@ -4,6 +4,8 @@
 namespace App\Request;
 
 
+use DateTime;
+
 class CreateAnimeRequest
 {
     private $id;
@@ -15,6 +17,21 @@ class CreateAnimeRequest
     public function __construct()
     {
         $this->creationDate = new DateTime('Now');
+    }
+    /**
+     * @return mixed
+     */
+    public function getCreationDate(): DateTime
+    {
+        return $this->creationDate;
+    }
+
+    /**
+     * @param mixed $creationDate
+     */
+    public function setCreationDate(DateTime $creationDate): void
+    {
+         $this->creationDate = $creationDate;
     }
 
     /**
@@ -65,20 +82,5 @@ class CreateAnimeRequest
         $this->mainImage = $mainImage;
     }
 
-   /**
-     * @return DateTime
-     */
-    public function getCreationDate(): DateTime
-    {
-        return $this->creationDate;
-    }
-
-    /**
-     * @param DateTime $creationDate
-     */
-    public function setCreationDate(DateTime $creationDate): void
-    {
-        $this->creationDate = $creationDate;
-    }
 
 }
