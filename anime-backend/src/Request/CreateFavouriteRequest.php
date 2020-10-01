@@ -2,13 +2,20 @@
 
 namespace App\Request;
 
+use DateTime;
+
 class CreateFavouriteRequest
 {
     private $id;
     private $userID;
     private $animeID;
     private $categoryID;
+    private $creationDate;
 
+    public function __construct()
+    {
+        $this->creationDate = new DateTime('Now');
+    }
      /**
      * @return mixed
      */
@@ -49,24 +56,36 @@ class CreateFavouriteRequest
         $this->animeID = $animeID;
     }
 
-
     /**
-     * Get the value of categoryID
-     */ 
+     * @return mixed
+     */
     public function getCategoryID()
     {
         return $this->categoryID;
     }
 
     /**
-     * Set the value of categoryID
-     *
-     * @return  self
-     */ 
-    public function setCategoryID($categoryID)
+     * @param mixed $categoryID
+     */
+    public function setCategoryID($categoryID): void
     {
         $this->categoryID = $categoryID;
-
-        return $this;
     }
+
+    /**
+     * @return DateTime
+     */
+    public function getCreationDate(): DateTime
+    {
+        return $this->creationDate;
+    }
+
+    /**
+     * @param DateTime $creationDate
+     */
+    public function setCreationDate(DateTime $creationDate): void
+    {
+        $this->creationDate = $creationDate;
+    }
+
 }

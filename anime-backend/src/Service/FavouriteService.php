@@ -12,7 +12,6 @@ use App\Response\GetFavouriteResponse;
 use App\Response\UpdateFavouriteResponse;
 
 class FavouriteService
-
 {
     private $favouriteManager;
     private $autoMapping;

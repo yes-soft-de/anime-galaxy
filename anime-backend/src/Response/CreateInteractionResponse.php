@@ -11,4 +11,6 @@ class CreateInteractionResponse
     public $animeID;
 
     public $type;
+
+    public $creationDate;
 }

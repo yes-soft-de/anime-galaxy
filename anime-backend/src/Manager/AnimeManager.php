@@ -30,6 +30,7 @@ class AnimeManager
     public function create(CreateAnimeRequest $request)
     {
         $animeEntity = $this->autoMapping->map(CreateAnimeRequest::class, Anime::class, $request);
+        $animeEntity->setCreationDate();
 
         $this->entityManager->persist($animeEntity);
         $this->entityManager->flush();

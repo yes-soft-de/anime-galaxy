@@ -8,6 +8,7 @@ class CreateFavouriteResponse
     public $userID;
     public $animeID;
     public $categoryID;
+    public $creationDate;
 
      /**
      * @return mixed
