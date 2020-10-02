@@ -6,10 +6,11 @@ use App\Entity\Anime;
 use App\Entity\Rating;
 use App\Entity\Category;
 use App\Entity\Comment;
+use App\Entity\Favourite;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\Query\Expr\Join;
 use Doctrine\Persistence\ManagerRegistry;
-use App\Entity\Favourite;
+
 
 /**
  * @method Anime|null find($id, $lockMode = null, $lockVersion = null)
@@ -163,6 +164,24 @@ class AnimeRepository extends ServiceEntityRepository
         ->groupBy('anime.id')
         ->getQuery()
         ->getResult();
+    }
+
+    public function getAllCommingSoon($date)
+    {        
+        return $this->createQueryBuilder('anime')
+            ->select('anime.id', 'anime.name', 'anime.mainImage', 'category.name as categoryName')
+            ->leftJoin(
+                Category::class,
+                'category',
+                Join::WITH,
+                'category.id = anime.categoryID'
+            )
+            ->andWhere( 'anime.creationDate > :date')
+            ->setParameter('date',$date)
+            ->groupBy('anime.id')
+            ->getQuery()
+            ->getResult();
+            
     }
       
      

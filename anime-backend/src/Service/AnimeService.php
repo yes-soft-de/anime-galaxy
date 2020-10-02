@@ -14,6 +14,7 @@ use App\Response\GetAnimeByCategoryResponse;
 use App\Response\UpdateAnimeResponse;
 use App\Response\GetHighestRatedAnimeResponse;
 use App\Response\GetHighestRatedAnimeByUserResponse;
+use App\Response\GetAnimeCommingSoonResponse;
 
 class AnimeService
 {
@@ -143,6 +144,21 @@ class AnimeService
             $response[] = $this->autoMapping->map('array', GetHighestRatedAnimeByUserResponse::class, $row);
         }
       
+        return $response;
+    }
+
+    public function getAllCommingSoon()
+    {
+        /** @var $response GetAnimeResponse*/
+       
+        $result = $this->animeManager->getAllCommingSoon();
+        $response = [];
+        
+        foreach ($result as $row)
+        {
+            $response[] = $this->autoMapping->map('array', GetAnimeCommingSoonResponse::class, $row);
+          
+        }
         return $response;
     }
 }

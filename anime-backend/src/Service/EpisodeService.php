@@ -12,16 +12,21 @@ use App\Response\CreateEpisodeResponse;
 use App\Response\GetEpisodeByIdResponse;
 use App\Response\GetEpisodeResponse;
 use App\Response\UpdateEpisodeResponse;
+use App\Response\GetEpisodeCommingSoonResponse;
 
 class EpisodeService
 {
     private $episodeManager;
     private $autoMapping;
+    private $commentService;
+    private $interactionService;
 
-    public function __construct(EpisodeManager $episodeManager, AutoMapping $autoMapping)
+    public function __construct(EpisodeManager $episodeManager, AutoMapping $autoMapping, CommentEpisodeService $commentService,InteractionEpisodeService $interactionService)
     {
         $this->episodeManager = $episodeManager;
         $this->autoMapping = $autoMapping;
+        $this->commentService = $commentService;
+        $this->interactionService = $interactionService;
     }
 
     public function create(CreateEpisodeRequest $request)
@@ -70,8 +75,19 @@ class EpisodeService
     public function getEpisodeById($request)
     {
         $result = $this->episodeManager->getEpisodeById($request);
-
-        return $this->autoMapping->map(Episode::class, GetEpisodeByIdResponse::class, $result);
+        $resultComments = $this->commentService->getCommentsByEpisodeId($request);
+        $love = $this->interactionService->loved($request);
+        $like = $this->interactionService->like($request);
+        foreach ($result as $row)
+        {
+        $response = $this->autoMapping->map('array', GetEpisodeByIdResponse::class, $row);
+        }
+        
+        $response->setComments($resultComments);
+        $response->interactions['love'] = $love;
+        $response->interactions['like'] = $like;
+        
+        return $response;
     }
 
     public function delete($request)
@@ -86,6 +102,21 @@ class EpisodeService
 
         $response = $this->autoMapping->map(Episode::class, GetEpisodeByIdResponse::class, $episodeResult);
 
+        return $response;
+    }
+
+    public function getAllCommingSoon()
+    {
+        /** @var $response GetAnimeResponse*/
+       
+        $result = $this->episodeManager->getAllCommingSoon();
+        $response = [];
+        
+        foreach ($result as $row)
+        {
+            $response[] = $this->autoMapping->map('array', GetEpisodeCommingSoonResponse::class, $row);
+          
+        }
         return $response;
     }
 }

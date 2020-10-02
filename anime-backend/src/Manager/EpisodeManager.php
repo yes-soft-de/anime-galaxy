@@ -85,4 +85,10 @@ class EpisodeManager
         }
         return $episode;
     }
+
+    public function getAllCommingSoon()
+    {
+        $date = new \DateTime("Now");
+        return $this->episodeRepository->getAllCommingSoon($date);
+    }
 }

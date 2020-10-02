@@ -37,14 +37,6 @@ class Anime
      */
     private $creationDate;
 
-    /**
-     * date constructor.
-     */
-    public function __construct()
-    {
-        //$this->creationDate = new \DateTime('Now');
-    }
-
     public function getId(): ?int
     {
         return $this->id;

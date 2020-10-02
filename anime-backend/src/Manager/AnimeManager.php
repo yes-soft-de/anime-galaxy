@@ -96,4 +96,10 @@ class AnimeManager
     {
         return $this->animeRepository->getHighestRatedAnimeByUser($userID);
     }
+
+    public function getAllCommingSoon()
+    {
+        $date = new \DateTime("Now");
+        return $this->animeRepository->getAllCommingSoon($date);
+    }
 }

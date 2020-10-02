@@ -106,4 +106,15 @@ class EpisodeController extends BaseController
 
         return $this->response("",self::DELETE);
     }
+
+     /**
+     * @Route("episodesCommingSoon", name="getAllEpisodesCommingSoon", methods={"GET"})
+     * @return JsonResponse
+     */
+    public function getAllCommingSoon()
+    {
+        $result = $this->episodeService->getAllCommingSoon();
+
+        return $this->response($result, self::FETCH);
+    }
 }

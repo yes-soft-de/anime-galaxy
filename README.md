@@ -37,6 +37,9 @@ Comment Episode APIs
 `Method: GET. Path: /getHighestRatedAnime`
 ##### Get Highest Rated Anime By User
 `Method: GET. Path: /getHighestRatedAnime/{userID}`
+##### Get All Anime CommingSoon
+`Method: GET. Path: /animeCommingSoon`
+
 
 ### Episode APIs
 ##### Insert new episode.

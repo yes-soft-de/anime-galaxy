@@ -4,16 +4,13 @@
 namespace App\Response;
 
 
-class GetAnimeByIdResponse
+class GetAnimeCommingSoonResponse
 {
     public $id;
     public $name;
     public $mainImage;
-    public $images;
     public $categoryName;
-    public $interactions;
-    public $comments;
-
+   
     /**
      * @return mixed
      */
@@ -65,22 +62,6 @@ class GetAnimeByIdResponse
     /**
      * @return mixed
      */
-    public function getImages()
-    {
-        return $this->images;
-    }
-
-    /**
-     * @param mixed $images
-     */
-    public function setImages($images): void
-    {
-        $this->images = $images;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getCategoryName()
     {
         return $this->categoryName;
@@ -93,38 +74,5 @@ class GetAnimeByIdResponse
     {
         $this->categoryName = $categoryName;
     }
-
-    /**
-     * @return mixed
-     */
-    public function getRating()
-    {
-        return $this->rating;
-    }
-
-    /**
-     * @param mixed $rating
-     */
-    public function setRating($rating): void
-    {
-        $this->rating = $rating;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getComments()
-    {
-        return $this->comments;
-    }
-
-    /**
-     * @param mixed $comments
-     */
-    public function setComments($comments): void
-    {
-        $this->comments = $comments;
-    }
-
 
 }
