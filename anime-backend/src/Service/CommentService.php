@@ -39,7 +39,7 @@ class CommentService
         if($response != null)
         {
             $this->updateGradeRequest->setUserID($response->getUserID());
-            $this->updateGradeRequest->setPoints(2);
+            $this->updateGradeRequest->setRequestSender("comment");
 
             $this->gradeService->update($this->updateGradeRequest);
         }

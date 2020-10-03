@@ -8,6 +8,7 @@ use App\AutoMapping;
 use App\Entity\InteractionEpisode;
 use App\Manager\InteractionEpisodeManager;
 use App\Request\CreateInteractionEpisodeRequest;
+use App\Request\UpdateGradeRequest;
 use App\Response\CreateInteractionEpisodeResponse;
 use App\Response\UpdateInteractionEpisodeResponse;
 use App\Response\GetInteractionEpisodeResponse;
@@ -16,25 +17,41 @@ class InteractionEpisodeService
 {
     private $interactionManager;
     private $autoMapping;
+    private $gradeService;
+    private $updateGradeRequest;
 
-    public function __construct(InteractionEpisodeManager $interactionManager, AutoMapping $autoMapping)
+    public function __construct(InteractionEpisodeManager $interactionManager, AutoMapping $autoMapping,
+                                GradeService $gradeService, UpdateGradeRequest $updateGradeRequest)
     {
         $this->interactionManager = $interactionManager;
-        $this->autoMapping        = $autoMapping;
+        $this->autoMapping = $autoMapping;
+        $this->gradeService = $gradeService;
+        $this->updateGradeRequest = $updateGradeRequest;
     }
   
     public function create(CreateInteractionEpisodeRequest $request)
     {
         $interactionManager = $this->interactionManager->create($request);
 
-        return $this->autoMapping->map(InteractionEpisode::class, CreateInteractionEpisodeResponse::class, $interactionManager);
+        $response = $this->autoMapping->map(InteractionEpisode::class, CreateInteractionEpisodeResponse::class, $interactionManager);
+
+        if($response != null && $response->getType() == 1)
+        {
+            $this->updateGradeRequest->setUserID($response->getUserID());
+            $this->updateGradeRequest->setRequestSender("like");
+
+            $this->gradeService->update($this->updateGradeRequest);
+        }
+
+        return $response;
     }
 
     public function update($request)
     {
         $interactionResult = $this->interactionManager->update($request);
-     
-        return $this->autoMapping->map(InteractionEpisode::class, UpdateInteractionEpisodeResponse::class, $interactionResult);  
+
+        return $this->autoMapping->map(InteractionEpisode::class, UpdateInteractionEpisodeResponse::class, $interactionResult);
+
     }
     
     public function getAll($episodeID)

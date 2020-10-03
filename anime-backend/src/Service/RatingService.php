@@ -37,7 +37,7 @@ GradeService $gradeService, UpdateGradeRequest $updateGradeRequest)
         if($response != null)
         {
             $this->updateGradeRequest->setUserID($response->getUserID());
-            $this->updateGradeRequest->setPoints(4);
+            $this->updateGradeRequest->setRequestSender("rating");
 
             $this->gradeService->update($this->updateGradeRequest);
         }

@@ -6,8 +6,14 @@ namespace App\Request;
 
 class UpdateGradeRequest
 {
-    public $userID;
-    public $points;
+    private $userID;
+    private $points;
+    /**
+     * @var $requestSender
+     * holds string refers to the caller of the update request
+     * "comment" refers to commentService
+     */
+    private $requestSender;
 
     /**
      * @return mixed
@@ -40,4 +46,21 @@ class UpdateGradeRequest
     {
         $this->points = $points;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getRequestSender()
+    {
+        return $this->requestSender;
+    }
+
+    /**
+     * @param mixed $requestSender
+     */
+    public function setRequestSender($requestSender): void
+    {
+        $this->requestSender = $requestSender;
+    }
+
 }

@@ -38,7 +38,7 @@ class FavouriteService
         if($response != null)
         {
             $this->updateGradeRequest->setUserID($response->getUserID());
-            $this->updateGradeRequest->setPoints(3);
+            $this->updateGradeRequest->setRequestSender("favourite");
 
             $this->gradeService->update($this->updateGradeRequest);
         }

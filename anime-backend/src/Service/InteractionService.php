@@ -38,7 +38,7 @@ class InteractionService
         if($response != null && $response->getType() == 1)
         {
             $this->updateGradeRequest->setUserID($response->getUserID());
-            $this->updateGradeRequest->setPoints(1);
+            $this->updateGradeRequest->setRequestSender("like");
 
             $this->gradeService->update($this->updateGradeRequest);
         }

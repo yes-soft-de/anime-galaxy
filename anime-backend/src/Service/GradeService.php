@@ -53,6 +53,23 @@ class GradeService
 
     public function update($request)
     {
+        if($request->getRequestSender() == "like")
+        {
+            $request->setPoints(1);
+        }
+        elseif ($request->getRequestSender() == "comment")
+        {
+            $request->setPoints(2);
+        }
+        elseif ($request->getRequestSender() == "favourite")
+        {
+            $request->setPoints(3);
+        }
+        elseif ($request->getRequestSender() == "rating")
+        {
+            $request->setPoints(4);
+        }
+
         $gradeResult = $this->gradeManager->update($request);
         $response = $this->autoMapping->map(Grade::class, UpdateGradeResponse::class, $gradeResult);
 

@@ -7,6 +7,7 @@ namespace App\Service;
 use App\AutoMapping;
 use App\Entity\RatingEpisode;
 use App\Manager\RatingEpisodeManager;
+use App\Request\UpdateGradeRequest;
 use App\Response\CreateRatingEpisodeResponse;
 use App\Response\UpdateRatingEpisodeResponse;
 use App\Response\CountRatingResponse;
@@ -15,18 +16,34 @@ class RatingEpisodeService
 {
     private $ratingManager;
     private $autoMapping;
+    private $gradeService;
+    private $updateGradeRequest;
 
-    public function __construct(RatingEpisodeManager $ratingManager, AutoMapping $autoMapping)
+    public function __construct(RatingEpisodeManager $ratingManager, AutoMapping $autoMapping,
+                                GradeService $gradeService,
+                                UpdateGradeRequest $updateGradeRequest)
     {
         $this->ratingManager = $ratingManager;
-        $this->autoMapping   = $autoMapping;
+        $this->autoMapping = $autoMapping;
+        $this->gradeService = $gradeService;
+        $this->updateGradeRequest = $updateGradeRequest;
     }
   
     public function create($request)
     {  
         $ratingManager = $this->ratingManager->create($request);
 
-        return $this->autoMapping->map(RatingEpisode::class, CreateRatingEpisodeResponse::class, $ratingManager);
+        $response = $this->autoMapping->map(RatingEpisode::class, CreateRatingEpisodeResponse::class, $ratingManager);
+
+        if($response != null)
+        {
+            $this->updateGradeRequest->setUserID($response->getUserID());
+            $this->updateGradeRequest->setRequestSender("rating");
+
+            $this->gradeService->update($this->updateGradeRequest);
+        }
+
+        return $response;
     }
 
     public function update($request)
