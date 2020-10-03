@@ -45,14 +45,15 @@ class GradeController extends BaseController
     /**
      * @Route("/grade", name="updateGrade", methods={"PUT"})
      * @param Request $request
+     * @param $points
      * @return JsonResponse
      */
-    public function update(Request $request)
+    public function update(Request $request, $points)
     {
         $data = json_decode($request->getContent(), true);
         $request = $this->autoMapping->map(\stdClass::class, UpdateGradeRequest::class, (object)$data);
 
-        $result = $this->gradeService->update($request);
+        $result = $this->gradeService->update($request, $points);
 
         return $this->response($result, self::UPDATE);
     }

@@ -8,6 +8,7 @@ use App\AutoMapping;
 use App\Entity\Interaction;
 use App\Manager\InteractionManager;
 use App\Request\CreateInteractionRequest;
+use App\Request\UpdateGradeRequest;
 use App\Response\CreateInteractionResponse;
 use App\Response\UpdateInteractionResponse;
 use App\Response\GetInteractionResponse;
@@ -16,25 +17,40 @@ class InteractionService
 {
     private $interactionManager;
     private $autoMapping;
+    private $gradeService;
+    private $updateGradeRequest;
 
-    public function __construct(InteractionManager $interactionManager, AutoMapping $autoMapping)
+    public function __construct(InteractionManager $interactionManager, AutoMapping $autoMapping,
+                                GradeService $gradeService, UpdateGradeRequest $updateGradeRequest)
     {
         $this->interactionManager = $interactionManager;
-        $this->autoMapping        = $autoMapping;
+        $this->autoMapping = $autoMapping;
+        $this->gradeService = $gradeService;
+        $this->updateGradeRequest = $updateGradeRequest;
     }
   
     public function create(CreateInteractionRequest $request)
     {
         $interactionManager = $this->interactionManager->create($request);
 
-        return $this->autoMapping->map(Interaction::class, CreateInteractionResponse::class, $interactionManager);
+        $response = $this->autoMapping->map(Interaction::class, CreateInteractionResponse::class, $interactionManager);
+
+        if($response != null && $response->getType() == 1)
+        {
+            $this->updateGradeRequest->setUserID($response->getUserID());
+            $this->updateGradeRequest->setPoints(1);
+
+            $this->gradeService->update($this->updateGradeRequest);
+        }
+
+        return $response;
     }
 
     public function update($request)
     {
         $interactionResult = $this->interactionManager->update($request);
-     
-        return $this->autoMapping->map(Interaction::class, UpdateInteractionResponse::class, $interactionResult);  
+
+        return $this->autoMapping->map(Interaction::class, UpdateInteractionResponse::class, $interactionResult);
     }
     
     public function getAll($animeID)

@@ -7,29 +7,44 @@ namespace App\Service;
 use App\AutoMapping;
 use App\Entity\Comment;
 use App\Manager\CommentManager;
+use App\Request\UpdateGradeRequest;
 use App\Response\CreateCommentResponse;
 use App\Response\UpdateCommentResponse;
 use App\Response\GetCommentByIdResponse;
 use App\Response\GetCommentsResponse;
 
 class CommentService
-
 {
     private $commentManager;
     private $autoMapping;
+    private $gradeService;
+    private $updateGradeRequest;
 
-    public function __construct(CommentManager $commentManager, AutoMapping $autoMapping)
+    public function __construct(CommentManager $commentManager, AutoMapping $autoMapping, GradeService $gradeService,
+ UpdateGradeRequest $updateGradeRequest)
     {
         $this->commentManager =$commentManager;
         $this->autoMapping = $autoMapping;
+        $this->gradeService = $gradeService;
+        $this->updateGradeRequest = $updateGradeRequest;
     }
   
     public function create($request)
     {  
         $commentManager = $this->commentManager->create($request);
 
-        return $this->autoMapping->map(Comment::class, CreateCommentResponse::class,
+        $response = $this->autoMapping->map(Comment::class, CreateCommentResponse::class,
             $commentManager);
+
+        if($response != null)
+        {
+            $this->updateGradeRequest->setUserID($response->getUserID());
+            $this->updateGradeRequest->setPoints(2);
+
+            $this->gradeService->update($this->updateGradeRequest);
+        }
+
+        return $response;
     }
 
     public function update($request)
