@@ -89,4 +89,5 @@ class InteractionEpisode
 
         return $this;
     }
+
 }

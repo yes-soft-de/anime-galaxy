@@ -53,7 +53,12 @@ class EpisodeService
 
         foreach ($result as $row)
         {
-            $response[] = $this->autoMapping->map(Episode::class, GetEpisodeResponse::class, $row);
+            $row['interaction']=[
+                'love' => $this->interactionService->lovedAll($row['id']),
+                'like' => $this->interactionService->likeAll($row['id'])
+                ];
+            
+            $response[] = $this->autoMapping->map('array', GetEpisodeResponse::class, $row); 
         }
 
         return $response;
@@ -66,7 +71,11 @@ class EpisodeService
 
         foreach ($result as $row)
         {
-            $response[] = $this->autoMapping->map(Episode::class, GetEpisodeResponse::class, $row);
+            $row['interaction']=[
+                'love' => $this->interactionService->lovedAll($row['id']),
+                'like' => $this->interactionService->likeAll($row['id'])
+                ];
+            $response[] = $this->autoMapping->map('array', GetEpisodeResponse::class, $row);
         }
 
         return $response;
@@ -78,6 +87,7 @@ class EpisodeService
         $resultComments = $this->commentService->getCommentsByEpisodeId($request);
         $love = $this->interactionService->loved($request);
         $like = $this->interactionService->like($request);
+        
         foreach ($result as $row)
         {
         $response = $this->autoMapping->map('array', GetEpisodeByIdResponse::class, $row);
@@ -114,9 +124,9 @@ class EpisodeService
         
         foreach ($result as $row)
         {
-            $response[] = $this->autoMapping->map('array', GetEpisodeCommingSoonResponse::class, $row);
-          
+            $response[] = $this->autoMapping->map('array', GetEpisodeCommingSoonResponse::class, $row); 
         }
+
         return $response;
     }
 }

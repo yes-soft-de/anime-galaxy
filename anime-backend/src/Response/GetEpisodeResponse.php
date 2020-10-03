@@ -6,7 +6,7 @@ namespace App\Response;
 
 class GetEpisodeResponse
 {
-    public $animeID;
+    public $animeName;
 
     public $seasonNumber;
 
@@ -21,5 +21,7 @@ class GetEpisodeResponse
     public $publishDate;
 
     public $createdAt;
+    
+    public $interaction;
 
 }

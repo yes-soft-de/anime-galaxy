@@ -85,7 +85,7 @@ class InteractionEpisodeRepository extends ServiceEntityRepository
     public function getAllInteractions($id)
     {
         //count all interaction
-        return $this->createQueryBuilder('interaction')
+        return $this->createQueryBuilder('interactionEpisode')
         ->andWhere('interactionEpisode.episodeID = :id')
         ->select('count(interactionEpisode.type) as CountAllInteraction')
         ->setParameter('id', $id)
@@ -93,26 +93,26 @@ class InteractionEpisodeRepository extends ServiceEntityRepository
         ->getResult();
     }
 
-    public function getLoveAll($id)
+    public function getLoveAll($ID)
     {
        // love = 3
        return $this->createQueryBuilder('interactionEpisode')
-       ->select('count(interactionEpisode.type)')
+       ->select('count(interactionEpisode.id)')
        ->andWhere('interactionEpisode.episodeID = :id')
        ->andWhere('interactionEpisode.type = 3')
-       ->setParameter('id', $id)
+       ->setParameter('id', $ID)
        ->getQuery()
        ->getOneOrNullResult();
     }
 
-    public function getLikeAll($id)
+    public function getLikeAll($ID)
     {
        // like = 1
        return $this->createQueryBuilder('interactionEpisode')
-       ->select('count(interactionEpisode.type)')
+       ->select('count(interactionEpisode.id)')
        ->andWhere('interactionEpisode.episodeID = :id')
        ->andWhere('interactionEpisode.type = 1')
-       ->setParameter('id', $id)
+       ->setParameter('id', $ID)
        ->getQuery()
        ->getOneOrNullResult();
     }

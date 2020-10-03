@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Episode;
 use App\Entity\Anime;
 use App\Entity\RatingEpisode;
+use App\Entity\CommentEpisode;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\ORM\Query\Expr\Join;
@@ -25,26 +26,64 @@ class EpisodeRepository extends ServiceEntityRepository
 
     public function getEpisodesByAnimeId($animeID)
     {
-        return $this->createQueryBuilder('e')
-            ->andWhere('e.animeID = :animeID')
-            ->setParameter('animeID', $animeID)
-            ->orderBy('e.id', 'ASC')
+        return $this->createQueryBuilder('episode')
+            ->select('episode.id', 'episode.image','episode.seasonNumber','episode.episodeNumber','episode.description','episode.duration','episode.publishDate','episode.createdAt','anime.name as animeName', 'count(DISTINCT comment.id) as comments','avg(rate.rateValue) as rating')
+            ->leftJoin(
+                Anime::class,
+                'anime',
+                Join::WITH,
+                'anime.id = episode.animeID'
+            )
+            ->leftJoin(
+                CommentEpisode::class,            
+                'comment',                  
+                Join::WITH,          
+                'comment.episodeID = episode.id ' 
+            )
+            ->leftJoin(
+                RatingEpisode::class,            
+                'rate',                   
+                Join::WITH,           
+                'rate.episodeID = episode.id' 
+            )
+            ->andWhere('episode.animeID=:animeID')
+            ->groupBy('episode.id')
+            // ->orderBy('episode.id', 'ASC')
+            ->setParameter('animeID', (INT)$animeID)
             ->getQuery()
-            ->getResult()
-        ;
+            ->getResult();
     }
 
     public function getEpisodesByAnimeIdAndSeasonNumber($animeID, $seasonNumber)
     {
-        return $this->createQueryBuilder('e')
-            ->andWhere('e.animeID = :animeID')
-            ->andWhere('e.seasonNumber = :seasonNumber')
-            ->setParameter('animeID', $animeID)
-            ->setParameter('seasonNumber', $seasonNumber)
-            ->orderBy('e.id', 'ASC')
-            ->getQuery()
-            ->getResult()
-            ;
+        return $this->createQueryBuilder('episode')
+        ->select('episode.id', 'episode.image','episode.seasonNumber','episode.episodeNumber','episode.description','episode.duration','episode.publishDate','episode.createdAt','anime.name as animeName', 'count(DISTINCT comment.id) as comments','avg(rate.rateValue) as rating')
+        ->leftJoin(
+            Anime::class,
+            'anime',
+            Join::WITH,
+            'anime.id = episode.animeID'
+        )
+        ->leftJoin(
+            CommentEpisode::class,            
+            'comment',                  
+            Join::WITH,          
+            'comment.episodeID = episode.id ' 
+        )
+        ->leftJoin(
+            RatingEpisode::class,            
+            'rate',                   
+            Join::WITH,           
+            'rate.episodeID = episode.id' 
+        )
+        ->andWhere('episode.animeID = :animeID')
+        ->andWhere('episode.seasonNumber = :seasonNumber')
+        ->groupBy('episode.id')
+        ->setParameter('animeID', (INT)$animeID)
+        ->setParameter('seasonNumber', (INT)$seasonNumber)
+        ->getQuery()
+        ->getResult();
+
     }
 
     public function getEpisodeById($id)
@@ -76,8 +115,6 @@ class EpisodeRepository extends ServiceEntityRepository
         ->getResult();
 
     }
-
-
 
     public function getAllCommingSoon($date)
     {        
