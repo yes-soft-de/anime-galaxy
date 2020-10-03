@@ -57,6 +57,7 @@ class GradeService
         $response = $this->autoMapping->map(Grade::class, UpdateGradeResponse::class, $gradeResult);
 
         $response->setPoints($request->getPoints());
+        $response->setUserID($request->getUserID());
 
         return $response;
     }

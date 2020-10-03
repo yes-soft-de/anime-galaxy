@@ -18,6 +18,14 @@ class UpdateGradeRequest
     }
 
     /**
+     * @param mixed $userID
+     */
+    public function setUserID($userID): void
+    {
+        $this->userID = $userID;
+    }
+
+    /**
      * @return mixed
      */
     public function getPoints()

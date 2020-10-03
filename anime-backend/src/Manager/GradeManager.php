@@ -43,10 +43,14 @@ class GradeManager
 
         if(!$gradeEntity)
         {
-            //return null;
+            return null;
         }
         else
         {
+            $newPoint = $request->getPoints() + $gradeEntity->getPoints();
+
+            $request->setPoints($newPoint);
+
             $gradeEntity = $this->autoMapping->mapToObject(UpdateGradeRequest::class,
                 Grade::class, $request, $gradeEntity);
 

@@ -7,6 +7,7 @@ namespace App\Service;
 use App\AutoMapping;
 use App\Entity\Favourite;
 use App\Manager\FavouriteManager;
+use App\Request\UpdateGradeRequest;
 use App\Response\CreateFavouriteResponse;
 use App\Response\GetFavouriteResponse;
 use App\Response\UpdateFavouriteResponse;
@@ -15,19 +16,34 @@ class FavouriteService
 {
     private $favouriteManager;
     private $autoMapping;
+    private $gradeService;
+    private $updateGradeRequest;
 
-    public function __construct(FavouriteManager $favouriteManager, AutoMapping $autoMapping)
+    public function __construct(FavouriteManager $favouriteManager, AutoMapping $autoMapping,
+                                GradeService $gradeService, UpdateGradeRequest $updateGradeRequest)
     {
         $this->favouriteManager = $favouriteManager;
         $this->autoMapping = $autoMapping;
+        $this->gradeService = $gradeService;
+        $this->updateGradeRequest = $updateGradeRequest;
     }
   
     public function create($request)
     {  
         $favouriteManager = $this->favouriteManager->create($request);
 
-        return $this->autoMapping->map(Favourite::class, CreateFavouriteResponse::class,
+        $response = $this->autoMapping->map(Favourite::class, CreateFavouriteResponse::class,
             $favouriteManager);
+
+        if($response != null)
+        {
+            $this->updateGradeRequest->setUserID($response->getUserID());
+            $this->updateGradeRequest->setPoints(3);
+
+            $this->gradeService->update($this->updateGradeRequest);
+        }
+
+        return $response;
     }
 
     public function update($request)
