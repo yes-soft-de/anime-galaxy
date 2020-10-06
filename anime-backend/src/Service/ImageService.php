@@ -70,8 +70,8 @@ class ImageService
         $imageResult = $this->imageManager->update($request);
 
         $response = $this->autoMapping->map(Image::class, UpdateImageResponse::class, $imageResult);
-        $response->setImage($request->getImage());
-        $response->setAnimeID($request->getAnimeID());
+        // $response->setImage($request->getImage());
+        // $response->setAnimeID($request->getAnimeID());
 
         return $response;
     }
