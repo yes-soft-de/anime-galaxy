@@ -1,0 +1,516 @@
+
+> Task :app:signingReport
+Variant: debugUnitTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+Variant: debug
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+Variant: release
+Config: release
+Store: C:\Users\TEC-GATE\Documents\Servers\anime-galaxy\anime-flutter\anime_galaxy\key.jks
+Alias: key
+MD5: 54:B2:F7:EA:D8:A3:14:07:8E:A9:85:71:65:A0:CE:31
+SHA1: D9:48:96:CC:69:1D:81:62:EF:F8:FB:40:E5:64:7A:CA:89:0C:0C:B8
+SHA-256: 3E:3B:8E:AC:17:5A:98:2A:DF:E0:0E:5E:27:71:09:7E:BA:BF:AF:D3:A3:25:2E:61:E1:18:E0:70:EF:3F:44:E4
+Valid until: Saturday, February 22, 2048
+----------
+Variant: profile
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+Variant: releaseUnitTest
+Config: release
+Store: C:\Users\TEC-GATE\Documents\Servers\anime-galaxy\anime-flutter\anime_galaxy\key.jks
+Alias: key
+MD5: 54:B2:F7:EA:D8:A3:14:07:8E:A9:85:71:65:A0:CE:31
+SHA1: D9:48:96:CC:69:1D:81:62:EF:F8:FB:40:E5:64:7A:CA:89:0C:0C:B8
+SHA-256: 3E:3B:8E:AC:17:5A:98:2A:DF:E0:0E:5E:27:71:09:7E:BA:BF:AF:D3:A3:25:2E:61:E1:18:E0:70:EF:3F:44:E4
+Valid until: Saturday, February 22, 2048
+----------
+Variant: profileUnitTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+Variant: debugAndroidTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+
+> Task :camera:signingReport
+Variant: debugAndroidTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+Variant: debugUnitTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+Variant: profileUnitTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+Variant: releaseUnitTest
+Config: none
+----------
+
+> Task :cloud_firestore:signingReport
+Variant: debugAndroidTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+Variant: releaseUnitTest
+Config: none
+----------
+Variant: profileUnitTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+Variant: debugUnitTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+
+> Task :firebase_analytics:signingReport
+Variant: debugUnitTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+Variant: releaseUnitTest
+Config: none
+----------
+Variant: profileUnitTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+Variant: debugAndroidTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+
+> Task :firebase_auth:signingReport
+Variant: profileUnitTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+Variant: releaseUnitTest
+Config: none
+----------
+Variant: debugAndroidTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+Variant: debugUnitTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+
+> Task :firebase_core:signingReport
+Variant: profileUnitTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+Variant: debugUnitTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+Variant: releaseUnitTest
+Config: none
+----------
+Variant: debugAndroidTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+
+> Task :firebase_remote_config:signingReport
+Variant: releaseUnitTest
+Config: none
+----------
+Variant: debugUnitTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+Variant: debugAndroidTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+Variant: profileUnitTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+
+> Task :fluttertoast:signingReport
+Variant: releaseUnitTest
+Config: none
+----------
+Variant: debugAndroidTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+Variant: debugUnitTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+Variant: profileUnitTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+
+> Task :google_sign_in:signingReport
+Variant: releaseUnitTest
+Config: none
+----------
+Variant: profileUnitTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+Variant: debugAndroidTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+Variant: debugUnitTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+
+> Task :path_provider:signingReport
+Variant: debugAndroidTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+Variant: debugUnitTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+Variant: releaseUnitTest
+Config: none
+----------
+Variant: profileUnitTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+
+> Task :shared_preferences:signingReport
+Variant: releaseUnitTest
+Config: none
+----------
+Variant: debugUnitTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+Variant: debugAndroidTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+Variant: profileUnitTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+
+> Task :sign_in_with_apple:signingReport
+Variant: debugUnitTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+Variant: profileUnitTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+Variant: debugAndroidTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+Variant: releaseUnitTest
+Config: none
+----------
+
+> Task :sqflite:signingReport
+Variant: profileUnitTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+Variant: debugUnitTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+Variant: debugAndroidTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+Variant: releaseUnitTest
+Config: none
+----------
+
+> Task :url_launcher:signingReport
+Variant: debugAndroidTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+Variant: debugUnitTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+Variant: releaseUnitTest
+Config: none
+----------
+Variant: profileUnitTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+
+> Task :video_player:signingReport
+Variant: releaseUnitTest
+Config: none
+----------
+Variant: debugAndroidTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+Variant: profileUnitTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+Variant: debugUnitTest
+Config: debug
+Store: C:\Users\TEC-GATE\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 85:26:39:49:93:D3:7A:B8:4A:46:EC:B2:60:7F:11:EC
+SHA1: 53:0C:83:85:81:45:B8:59:D6:17:1A:C8:34:60:E8:24:8C:35:54:BC
+SHA-256: 87:43:CA:A5:88:B2:2C:0A:A9:0F:C1:8E:0D:09:20:7F:15:4F:79:6C:EB:0C:E0:E7:CF:32:0C:E8:55:46:0E:A4
+Valid until: Wednesday, December 9, 2048
+----------
+
+BUILD SUCCESSFUL in 4s
+15 actionable tasks: 15 executed
