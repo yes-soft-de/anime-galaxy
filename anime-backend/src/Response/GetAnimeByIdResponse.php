@@ -13,6 +13,7 @@ class GetAnimeByIdResponse
     public $categoryName;
     public $interactions;
     public $comments;
+    public $rating;
 
     /**
      * @return mixed

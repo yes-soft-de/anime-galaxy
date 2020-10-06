@@ -90,6 +90,11 @@ class InteractionService
         return $this->interactionManager->like($request)[1];
     }
 
+    public function dislike($request)
+    {
+        return $this->interactionManager->dislike($request)[1];
+    }
+
     public function lovedAll($ID)
     {
        return  $this->interactionManager->lovedAll($ID)[1];
@@ -98,5 +103,10 @@ class InteractionService
     public function likeAll($ID)
     {
        return  $this->interactionManager->likeAll($ID)[1];
+    }
+
+    public function dislikeAll($ID)
+    {
+       return  $this->interactionManager->dislikeAll($ID)[1];
     }
 }
