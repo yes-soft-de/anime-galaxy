@@ -45,6 +45,9 @@ import '../../module_theme/service/theme_service/theme_service.dart' as _i34;
 import '../../module_theme/pressistance/theme_preferences_helper.dart' as _i35;
 import '../../module_home/home.module.dart' as _i36;
 import '../../module_home/ui/screens/home_screen.dart' as _i37;
+import '../../module_anime/anime_module.dart' as _i38;
+import '../../module_anime/ui/screen/anime_details_screen/anime_details_screen.dart'
+    as _i39;
 
 class AppComponent$Injector implements _i1.AppComponent {
   AppComponent$Injector._();
@@ -68,7 +71,8 @@ class AppComponent$Injector implements _i1.AppComponent {
       _createProfileModule(),
       _createLocalizationService(),
       _createSwapThemeDataService(),
-      _createHomeModule());
+      _createHomeModule(),
+      _createAnimeModlue());
   _i7.ChatModule _createChatModule() =>
       _i7.ChatModule(_createChatPage(), _createAuthGuard());
   _i8.ChatPage _createChatPage() => _i8.ChatPage(_createChatPageBloc());
@@ -132,6 +136,10 @@ class AppComponent$Injector implements _i1.AppComponent {
       _i35.ThemePreferencesHelper();
   _i36.HomeModule _createHomeModule() => _i36.HomeModule(_createHomeScreen());
   _i37.HomeScreen _createHomeScreen() => _i37.HomeScreen();
+  _i38.AnimeModlue _createAnimeModlue() =>
+      _i38.AnimeModlue(_createAnimeDetailsScreen());
+  _i39.AnimeDetailsScreen _createAnimeDetailsScreen() =>
+      _i39.AnimeDetailsScreen();
   @override
   _i6.MyApp get app => _createMyApp();
 }

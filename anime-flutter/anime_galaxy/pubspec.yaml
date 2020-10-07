@@ -88,7 +88,8 @@ dependencies:
 
   #  progress indicator
   percent_indicator: ^2.1.7+4
-
+#  rating bar
+  flutter_rating_bar: ^3.0.1+1
 
 dev_dependencies:
   flutter_test:
