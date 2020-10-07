@@ -86,6 +86,7 @@ class _MyAppState extends State<MyApp> {
     fullRoutesList.addAll(widget._authModule.getRoutes());
     fullRoutesList.addAll(widget._cameraModule.getRoutes());
     fullRoutesList.addAll(widget._profileModule.getRoutes());
+    fullRoutesList.addAll(widget._homeModule.getRoutes());
 
     return FutureBuilder(
       future: getConfiguratedApp(fullRoutesList),

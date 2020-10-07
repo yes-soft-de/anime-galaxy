@@ -67,7 +67,7 @@ class _AuthScreenState extends State<AuthScreen> {
     if (_currentState is AuthStateCodeSent) {
       pageLayout = Scaffold(
           resizeToAvoidBottomInset: false,
-          appBar: SwaptimeAppBar.getBackEnabledAppBar(),
+          appBar: AnimeGalaxyAppBar.getBackEnabledAppBar(),
           body: _getCodeSetter());
       if (mounted) setState(() {});
     } else if (_currentState is AuthStateLoading) {
@@ -76,7 +76,7 @@ class _AuthScreenState extends State<AuthScreen> {
     } else {
       pageLayout = Scaffold(
         resizeToAvoidBottomInset: false,
-        appBar: SwaptimeAppBar.getBackEnabledAppBar(),
+        appBar: AnimeGalaxyAppBar.getBackEnabledAppBar(),
         body: _getPhoneSetter(),
       );
       if (mounted) setState(() {});

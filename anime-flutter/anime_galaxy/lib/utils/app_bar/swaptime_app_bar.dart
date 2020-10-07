@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SwaptimeAppBar {
-  static AppBar getSwaptimeAppBar(GlobalKey<ScaffoldState> drawerKey) {
+class AnimeGalaxyAppBar {
+  static AppBar getAnimeGalaxyAppBar(GlobalKey<ScaffoldState> drawerKey) {
     return AppBar(
       leading: IconButton(
         icon: Icon(
