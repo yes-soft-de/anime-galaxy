@@ -91,6 +91,8 @@ dependencies:
 #  rating bar
   flutter_rating_bar: ^3.0.1+1
 
+  carousel_slider: ^2.3.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

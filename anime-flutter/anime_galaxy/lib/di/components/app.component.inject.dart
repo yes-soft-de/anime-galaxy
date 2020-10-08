@@ -48,6 +48,9 @@ import '../../module_home/ui/screens/home_screen.dart' as _i37;
 import '../../module_anime/anime_module.dart' as _i38;
 import '../../module_anime/ui/screen/anime_details_screen/anime_details_screen.dart'
     as _i39;
+import '../../module_notification/notification_module.dart' as _i40;
+import '../../module_notification/ui/screen/notification_screen/notification_screen.dart'
+    as _i41;
 
 class AppComponent$Injector implements _i1.AppComponent {
   AppComponent$Injector._();
@@ -72,7 +75,8 @@ class AppComponent$Injector implements _i1.AppComponent {
       _createLocalizationService(),
       _createSwapThemeDataService(),
       _createHomeModule(),
-      _createAnimeModlue());
+      _createAnimeModlue(),
+      _createNotificationModule());
   _i7.ChatModule _createChatModule() =>
       _i7.ChatModule(_createChatPage(), _createAuthGuard());
   _i8.ChatPage _createChatPage() => _i8.ChatPage(_createChatPageBloc());
@@ -140,6 +144,10 @@ class AppComponent$Injector implements _i1.AppComponent {
       _i38.AnimeModlue(_createAnimeDetailsScreen());
   _i39.AnimeDetailsScreen _createAnimeDetailsScreen() =>
       _i39.AnimeDetailsScreen();
+  _i40.NotificationModule _createNotificationModule() =>
+      _i40.NotificationModule(_createNotificationScreen());
+  _i41.NotificationScreen _createNotificationScreen() =>
+      _i41.NotificationScreen();
   @override
   _i6.MyApp get app => _createMyApp();
 }

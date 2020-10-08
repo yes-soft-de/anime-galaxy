@@ -27,6 +27,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
 
   Widget getPageLayout(){
     return Scaffold(
+      //TODO : replace the appbar with the proper one
       appBar : AppBar(title: Text('Anime'),),
       body : Container(
         padding: EdgeInsets.all(5),

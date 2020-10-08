@@ -12,8 +12,7 @@ class PointsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xff3d3e4c),
-      padding: EdgeInsetsDirectional.fromSTEB(5, 10, 5, 10),
+      padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
       child: Row(
 
         children: [
@@ -23,12 +22,14 @@ class PointsWidget extends StatelessWidget {
                 Icons.star,
                 color: Color(0xfff77f00),
               ),
-              Text(
-                '$points نقطة ',
-                textDirection: TextDirection.rtl,
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 10
+              Container(
+                margin: EdgeInsets.only(top: 10),
+                child: Text(
+                  '$points نقطة ',
+                  textDirection: TextDirection.rtl,
+                  style: TextStyle(
+                      fontSize: 10
+                  ),
                 ),
               ),
             ],
@@ -39,20 +40,22 @@ class PointsWidget extends StatelessWidget {
               Text(
                 'عضو  $memberType',
                 style: TextStyle(
-                    color: Colors.white,
                     fontSize: 10
                 ),
               ),
-              RotatedBox(
-                quarterTurns: 2,
-                child:   new LinearPercentIndicator(
-                  width: MediaQuery.of(context).size.width *0.8,
-                  animation: true,
-                  lineHeight: 10.0,
-                  animationDuration: 1000,
-                  percent: 0.01 * points,
-                  linearStrokeCap: LinearStrokeCap.roundAll,
-                  progressColor: Color(0xfff77f00),
+              Container(
+                margin: EdgeInsets.only(top: 10),
+                child: RotatedBox(
+                  quarterTurns: 2,
+                  child:   new LinearPercentIndicator(
+                    width: MediaQuery.of(context).size.width *0.8,
+                    animation: true,
+                    lineHeight: 10.0,
+                    animationDuration: 1500,
+                    percent: 0.01 * points,
+                    linearStrokeCap: LinearStrokeCap.roundAll,
+                    progressColor: Color(0xfff77f00),
+                  ),
                 ),
               ),
 

@@ -74,6 +74,13 @@
                 "qualifier": null
               },
               "isProvider": false
+            },
+            {
+              "lookupKey": {
+                "root": "asset:anime_galaxy/lib/module_notification/notification_module.dart#NotificationModule",
+                "qualifier": null
+              },
+              "isProvider": false
             }
           ]
         }

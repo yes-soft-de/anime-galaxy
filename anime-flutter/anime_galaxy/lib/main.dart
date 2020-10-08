@@ -1,5 +1,6 @@
 import 'package:anime_galaxy/module_anime/anime_routes.dart';
 import 'package:anime_galaxy/module_home/home.module.dart';
+import 'package:anime_galaxy/module_notification/notification_module.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -42,7 +43,7 @@ class MyApp extends StatefulWidget {
   final SwapThemeDataService _swapThemeService;
   final HomeModule _homeModule;
   final AnimeModlue _animeModlue;
-
+  final NotificationModule _notificationModule;
   MyApp(
     this._chatModule,
     this._cameraModule,
@@ -52,6 +53,7 @@ class MyApp extends StatefulWidget {
     this._swapThemeService,
     this._homeModule,
     this._animeModlue,
+    this._notificationModule,
   );
 
   @override
@@ -92,6 +94,7 @@ class _MyAppState extends State<MyApp> {
     fullRoutesList.addAll(widget._profileModule.getRoutes());
     fullRoutesList.addAll(widget._homeModule.getRoutes());
     fullRoutesList.addAll(widget._animeModlue.getRoutes());
+    fullRoutesList.addAll(widget._notificationModule.getRoutes());
 
     return FutureBuilder(
       future: getConfiguratedApp(fullRoutesList),
@@ -130,6 +133,6 @@ class _MyAppState extends State<MyApp> {
         supportedLocales: S.delegate.supportedLocales,
         title: 'Anime Galaxy',
         routes: fullRoutesList,
-        initialRoute: AnimeRoutes.ROUTE_ANIME_DETAILS_SCREEN);
+        initialRoute:HomeRoutes.ROUTE_HOME);
   }
 }
