@@ -8,6 +8,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:inject/inject.dart';
 
 import 'camera/camera_module.dart';
+import 'module_profile/profile_routes.dart';
 import 'di/components/app.component.dart';
 import 'generated/l10n.dart';
 import 'module_auth/auth_module.dart';
@@ -15,6 +16,7 @@ import 'module_chat/chat_module.dart';
 import 'module_home/home.routes.dart';
 import 'module_localization/service/localization_service/localization_service.dart';
 import 'module_profile/profile_module.dart';
+import 'module_profile/profile_routes.dart';
 import 'module_theme/service/theme_service/theme_service.dart';
 
 typedef Provider<T> = T Function();
@@ -124,6 +126,6 @@ class _MyAppState extends State<MyApp> {
         supportedLocales: S.delegate.supportedLocales,
         title: 'Anime Galaxy',
         routes: fullRoutesList,
-        initialRoute: HomeRoutes.ROUTE_HOME);
+        initialRoute: ProfileRoutes.MY_ROUTE_PROFILE);
   }
 }
