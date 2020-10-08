@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Controller;
 
 use App\AutoMapping;
@@ -16,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
-class  AnimeController extends BaseController
+class AnimeController extends BaseController
 {
     private $animeService;
     private $autoMapping;
@@ -26,8 +25,8 @@ class  AnimeController extends BaseController
     {
         parent::__construct($serializer);
         $this->animeService = $animeService;
-        $this->autoMapping  = $autoMapping;
-        $this->validator    = $validator;
+        $this->autoMapping = $autoMapping;
+        $this->validator = $validator;
     }
 
     /**
@@ -38,16 +37,15 @@ class  AnimeController extends BaseController
     public function create(Request $request)
     {
         $data = json_decode($request->getContent(), true);
-        $request = $this->autoMapping->map(\stdClass::class, CreateAnimeRequest::class, (object)$data);
+        $request = $this->autoMapping->map(\stdClass::class, CreateAnimeRequest::class, (object) $data);
 
         $violations = $this->validator->validate($request);
-        if (\count($violations) > 0)
-        {
+        if (\count($violations) > 0) {
             $violationsString = (string) $violations;
 
             return new JsonResponse($violationsString, Response::HTTP_OK);
         }
-        
+
         $result = $this->animeService->createAnime($request);
         return $this->response($result, self::CREATE);
     }
@@ -96,7 +94,7 @@ class  AnimeController extends BaseController
     public function update(Request $request)
     {
         $data = json_decode($request->getContent(), true);
-        $request = $this->autoMapping->map(\stdClass::class, UpdateAnimeRequest::class, (object)$data);
+        $request = $this->autoMapping->map(\stdClass::class, UpdateAnimeRequest::class, (object) $data);
 
         $result = $this->animeService->update($request);
 
@@ -114,7 +112,7 @@ class  AnimeController extends BaseController
 
         $result = $this->animeService->deleteAnime($request);
 
-        return $this->response("",self::DELETE);
+        return $this->response("", self::DELETE);
     }
 
     /**
@@ -150,5 +148,4 @@ class  AnimeController extends BaseController
 
         return $this->response($result, self::FETCH);
     }
-
 }

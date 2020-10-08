@@ -102,4 +102,5 @@ class AnimeManager
         $date = new \DateTime("Now");
         return $this->animeRepository->getAllCommingSoon($date);
     }
+
 }

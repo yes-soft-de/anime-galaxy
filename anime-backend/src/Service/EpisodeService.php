@@ -55,7 +55,8 @@ class EpisodeService
         {
             $row['interaction']=[
                 'love' => $this->interactionService->lovedAll($row['id']),
-                'like' => $this->interactionService->likeAll($row['id'])
+                'like' => $this->interactionService->likeAll($row['id']),
+                'dislike' => $this->interactionService->dislikeAll($row['id'])
                 ];
             
             $response[] = $this->autoMapping->map('array', GetEpisodeResponse::class, $row); 
@@ -73,7 +74,8 @@ class EpisodeService
         {
             $row['interaction']=[
                 'love' => $this->interactionService->lovedAll($row['id']),
-                'like' => $this->interactionService->likeAll($row['id'])
+                'like' => $this->interactionService->likeAll($row['id']),
+                'dislike' => $this->interactionService->dislikeAll($row['id'])
                 ];
             $response[] = $this->autoMapping->map('array', GetEpisodeResponse::class, $row);
         }
@@ -87,6 +89,7 @@ class EpisodeService
         $resultComments = $this->commentService->getCommentsByEpisodeId($request);
         $love = $this->interactionService->loved($request);
         $like = $this->interactionService->like($request);
+        $dislike = $this->interactionService->dislike($request);
         
         foreach ($result as $row)
         {
@@ -96,6 +99,7 @@ class EpisodeService
         $response->setComments($resultComments);
         $response->interactions['love'] = $love;
         $response->interactions['like'] = $like;
+        $response->interactions['dislike'] = $dislike;
         
         return $response;
     }
@@ -117,7 +121,7 @@ class EpisodeService
 
     public function getAllCommingSoon()
     {
-        /** @var $response GetAnimeResponse*/
+        /** @var $response */
        
         $result = $this->episodeManager->getAllCommingSoon();
         $response = [];

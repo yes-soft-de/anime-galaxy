@@ -2,24 +2,27 @@
 
 namespace App\Controller;
 
-use App\Request\CreateFavouriteRequest;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Request;
 use App\AutoMapping;
+use App\Request\CreateFavouriteRequest;
 use App\Service\FavouriteService;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class FavouriteController extends BaseController
 {
     private $favouriteService;
     private $autoMapping;
+    private $validator;
 
-    public function __construct(FavouriteService $favouriteService, AutoMapping $autoMapping, SerializerInterface $serializer)
+    public function __construct(ValidatorInterface $validator, FavouriteService $favouriteService, AutoMapping $autoMapping, SerializerInterface $serializer)
     {
         parent::__construct($serializer);
         $this->favouriteService = $favouriteService;
         $this->autoMapping = $autoMapping;
+        $this->validator = $validator;
     }
 
     /**
@@ -29,12 +32,19 @@ class FavouriteController extends BaseController
      */
     public function create(Request $request)
     {
-         $data = json_decode($request->getContent(), true);
-         $request=$this->autoMapping->map(\stdClass::class,CreateFavouriteRequest::class,(object)$data);
+        $data = json_decode($request->getContent(), true);
+        $request = $this->autoMapping->map(\stdClass::class, CreateFavouriteRequest::class, (object) $data);
 
-         $result = $this->favouriteService->create($request);
+        $violations = $this->validator->validate($request);
+        if (\count($violations) > 0) {
+            $violationsString = (string) $violations;
 
-         return $this->response($result, self::CREATE);
+            return new JsonResponse($violationsString, Response::HTTP_OK);
+        }
+
+        $result = $this->favouriteService->create($request);
+
+        return $this->response($result, self::CREATE);
     }
 
     /**
@@ -59,6 +69,19 @@ class FavouriteController extends BaseController
         $result = $this->favouriteService->getAllFavouritesByUserID($userID);
 
         return $this->response($result, self::FETCH);
-    }  
+    }
+
+    /**
+     * @Route("getMayLikeItF/{userID}", name="getMayLikeItF", methods={"GET"})
+     * @param $userID
+     * @return JsonResponse
+     */
+    public function getMayLikeIt($userID)
+    {
+        $result = $this->favouriteService->getMayLikeIt($userID);
+
+        return $this->response($result, self::FETCH);
+    }
+
 
 }

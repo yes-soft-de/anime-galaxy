@@ -15,6 +15,15 @@ App\Request\CreateInteractionRequest:
     type:
       - NotBlank: ~
 
+App\Request\CreateInteractionEpisodeRequest:
+  properties:
+    userID:
+      - NotBlank: ~
+    episodeID:
+      - NotBlank: ~
+    type:
+      - NotBlank: ~
+
 App\Request\CreateAnimeRequest:
   properties:
     name:
@@ -39,3 +48,69 @@ App\Request\CreateCommentRequest:
       - NotBlank: ~
     comment:
       - NotBlank: ~
+
+App\Request\CreateCommentRequest:
+  properties:
+    userID:
+      - NotBlank: ~
+    episodeID:
+      - NotBlank: ~
+    comment:
+      - NotBlank: ~
+
+App\Request\CreateEpisodeRequest:
+  properties:
+    animeID:
+      - NotBlank: ~
+    seasonNumber:
+      - NotBlank: ~
+    episodeNumber:
+      - NotBlank: ~
+    description:
+      - NotBlank: ~
+    image:
+      - NotBlank: ~
+    duration:
+      - NotBlank: ~
+
+App\Request\CreateFavouriteRequest:
+  properties:
+    animeID:
+      - NotBlank: ~
+    userID:
+      - NotBlank: ~
+    categoryID:
+      - NotBlank: ~
+    
+App\Request\CreateFollowRequest:
+  properties:
+    userID:
+      - NotBlank: ~
+    friendID:
+      - NotBlank: ~
+    
+App\Request\CreateImageRequest:
+  properties:
+    image:
+      - NotBlank: ~
+    animeID:
+      - NotBlank: ~
+    
+App\Request\CreateRatingRequest:
+  properties:
+    userID:
+      - NotBlank: ~
+    animeID:
+      - NotBlank: ~
+    rateValue:
+      - NotBlank: ~
+    
+App\Request\CreateRatingRequest:
+  properties:
+    userID:
+      - NotBlank: ~
+    episodeID:
+      - NotBlank: ~
+    rateValue:
+      - NotBlank: ~
+    

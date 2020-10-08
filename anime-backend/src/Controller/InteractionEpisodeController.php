@@ -2,17 +2,16 @@
 
 namespace App\Controller;
 
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Request;
 use App\AutoMapping;
-use App\Service\InteractionEpisodeService;
 use App\Request\CreateInteractionEpisodeRequest;
-use Symfony\Component\HttpFoundation\Response;
 use App\Request\UpdateInteractionEpisodeRequest;
+use App\Service\InteractionEpisodeService;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
-
 
 class InteractionEpisodeController extends BaseController
 {
@@ -36,11 +35,10 @@ class InteractionEpisodeController extends BaseController
     public function create(Request $request)
     {
         $data = json_decode($request->getContent(), true);
-        $request = $this->autoMapping->map(\stdClass::class,CreateInteractionEpisodeRequest::class, (object)$data);
+        $request = $this->autoMapping->map(\stdClass::class, CreateInteractionEpisodeRequest::class, (object) $data);
 
         $violations = $this->validator->validate($request);
-        if (\count($violations) > 0)
-        {
+        if (\count($violations) > 0) {
             $violationsString = (string) $violations;
 
             return new JsonResponse($violationsString, Response::HTTP_OK);
@@ -84,6 +82,5 @@ class InteractionEpisodeController extends BaseController
         $result = $this->interactionService->getInteractionWithUser($episodeID, $userID);
         return $this->response($result, self::FETCH);
     }
-
 
 }

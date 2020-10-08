@@ -5,21 +5,20 @@ use App\AutoMapping;
 use App\Entity\Interaction;
 use App\Repository\InteractionRepository;
 use App\Request\CreateInteractionRequest;
-use Doctrine\ORM\EntityManagerInterface;
 use App\Request\UpdateInteractionRequest;
+use Doctrine\ORM\EntityManagerInterface;
 
 class InteractionManager
 {
     private $entityManager;
     private $interactionRepository;
-    private $autoMapping;   
+    private $autoMapping;
 
     public function __construct(EntityManagerInterface $entityManagerInterface,
-    InteractionRepository $interactionRepository, AutoMapping $autoMapping )
-    {
-        $this->entityManager          = $entityManagerInterface;
-        $this->interactionRepository  = $interactionRepository;
-        $this->autoMapping            = $autoMapping;
+        InteractionRepository $interactionRepository, AutoMapping $autoMapping) {
+        $this->entityManager = $entityManagerInterface;
+        $this->interactionRepository = $interactionRepository;
+        $this->autoMapping = $autoMapping;
     }
     public function create(CreateInteractionRequest $request)
     {
@@ -36,13 +35,10 @@ class InteractionManager
     public function update(UpdateInteractionRequest $request)
     {
         $interaction = $this->interactionRepository->find($request->getId());
-        
-        if (!$interaction)
-        {
 
-        }
-        else
-            {
+        if (!$interaction) {
+
+        } else {
             $interaction = $this->autoMapping->mapToObject(UpdateInteractionRequest::class, Interaction::class, $request, $interaction);
             $this->entityManager->flush();
         }

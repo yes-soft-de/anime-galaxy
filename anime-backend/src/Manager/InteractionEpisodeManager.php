@@ -77,6 +77,11 @@ class InteractionEpisodeManager
         return $this->interactionRepository->getAllLikes($request->getID());
     }
 
+    public function dislike($request)
+    {
+        return $this->interactionRepository->getAllDislike($request->getID());
+    }
+
     public function lovedAll($ID)
     {
         return $this->interactionRepository->getLoveAll($ID);
@@ -85,5 +90,10 @@ class InteractionEpisodeManager
     public function likeAll($ID)
     {
         return $this->interactionRepository->getLikeAll($ID);
+    }
+
+    public function dislikeAll($ID)
+    {
+        return $this->interactionRepository->dislikeAll($ID);
     }
 }

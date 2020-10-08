@@ -2,32 +2,33 @@
 
 namespace App\Controller;
 
-
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Request;
 use App\AutoMapping;
-use App\Service\RatingEpisodeService;
 use App\Request\CreateRatingEpisodeRequest;
 use App\Request\UpdateRatingEpisodeRequest;
+use App\Service\RatingEpisodeService;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class RatingEpisodeController extends BaseController
 {
     private $ratingService;
     private $autoMapping;
-
+    private $validator;
     /**
      * RatingController constructor.
      * @param RatingEpisodeService $ratingService
      * @param AutoMapping $autoMapping
      */
-    public function __construct(RatingEpisodeService $ratingService, AutoMapping $autoMapping, SerializerInterface $serializer)
+    public function __construct(ValidatorInterface $validator, RatingEpisodeService $ratingService, AutoMapping $autoMapping, SerializerInterface $serializer)
     {
         parent::__construct($serializer);
         $this->ratingService = $ratingService;
         $this->autoMapping = $autoMapping;
+        $this->validator = $validator;
     }
 
     /**
@@ -37,10 +38,18 @@ class RatingEpisodeController extends BaseController
      */
     public function create(Request $request)
     {
-         $data = json_decode($request->getContent(), true);
-         $request=$this->autoMapping->map(\stdClass::class,CreateRatingEpisodeRequest::class,(object)$data);
-         $result = $this->ratingService->create($request);
-         return $this->response($result, self::CREATE);
+        $data = json_decode($request->getContent(), true);
+        $request = $this->autoMapping->map(\stdClass::class, CreateRatingEpisodeRequest::class, (object) $data);
+
+        $violations = $this->validator->validate($request);
+        if (\count($violations) > 0) {
+            $violationsString = (string) $violations;
+
+            return new JsonResponse($violationsString, Response::HTTP_OK);
+        }
+
+        $result = $this->ratingService->create($request);
+        return $this->response($result, self::CREATE);
     }
 
     /**
@@ -65,7 +74,7 @@ class RatingEpisodeController extends BaseController
     public function getRating($episodeID, $userID)
     {
         $result = $this->ratingService->getRating($episodeID, $userID);
-       
+
         return $this->response($result, self::FETCH);
     }
 
@@ -77,7 +86,7 @@ class RatingEpisodeController extends BaseController
     public function getAllRatings($episodeID)
     {
         $result = $this->ratingService->getAllRatings($episodeID);
-       
+
         return $this->response($result, self::FETCH);
     }
 

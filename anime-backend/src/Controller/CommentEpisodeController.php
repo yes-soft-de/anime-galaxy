@@ -2,15 +2,15 @@
 
 namespace App\Controller;
 
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Request;
 use App\AutoMapping;
-use App\Service\CommentEpisodeService;
 use App\Request\CreateCommentEpisodeRequest;
-use App\Request\UpdateCommentEpisodeRequest;
 use App\Request\DeleteRequest;
 use App\Request\GetByIdRequest;
+use App\Request\UpdateCommentEpisodeRequest;
+use App\Service\CommentEpisodeService;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
@@ -20,7 +20,7 @@ class CommentEpisodeController extends BaseController
     private $autoMapping;
     private $validator;
 
-    public function __construct(ValidatorInterface $validator, CommentEpisodeService $commentEpisodeService,AutoMapping $autoMapping, SerializerInterface $serializer)
+    public function __construct(ValidatorInterface $validator, CommentEpisodeService $commentEpisodeService, AutoMapping $autoMapping, SerializerInterface $serializer)
     {
         parent::__construct($serializer);
         $this->commentEpisodeService = $commentEpisodeService;
@@ -35,19 +35,18 @@ class CommentEpisodeController extends BaseController
      */
     public function create(Request $request)
     {
-         $data = json_decode($request->getContent(), true);
-         $request=$this->autoMapping->map(\stdClass::class,CreateCommentEpisodeRequest::class,(object)$data);
-        
-         $violations = $this->validator->validate($request);
-         if (\count($violations) > 0)
-         {
-             $violationsString = (string) $violations;
- 
-             return new JsonResponse($violationsString, Response::HTTP_OK);
-         }
+        $data = json_decode($request->getContent(), true);
+        $request = $this->autoMapping->map(\stdClass::class, CreateCommentEpisodeRequest::class, (object) $data);
 
-         $result = $this->commentEpisodeService->create($request);
-         return $this->response($result, self::CREATE);
+        $violations = $this->validator->validate($request);
+        if (\count($violations) > 0) {
+            $violationsString = (string) $violations;
+
+            return new JsonResponse($violationsString, Response::HTTP_OK);
+        }
+
+        $result = $this->commentEpisodeService->create($request);
+        return $this->response($result, self::CREATE);
     }
 
     /**
@@ -87,8 +86,8 @@ class CommentEpisodeController extends BaseController
     public function getCommentById(Request $request)
     {
         $request = new GetByIdRequest($request->get('ID'));
-        $result  = $this->commentEpisodeService->getCommentById($request);
-        
+        $result = $this->commentEpisodeService->getCommentById($request);
+
         return $this->response($result, self::FETCH);
     }
 

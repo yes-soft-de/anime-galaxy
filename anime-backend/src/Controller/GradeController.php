@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Controller;
 
 use App\AutoMapping;
@@ -33,13 +32,13 @@ class GradeController extends BaseController
     public function create(Request $request)
     {
         $data = json_decode($request->getContent(), true);
-        $request = $this->autoMapping->map(\stdClass::class, CreateGradeRequest::class, (object)$data);
+        $request = $this->autoMapping->map(\stdClass::class, CreateGradeRequest::class, (object) $data);
 
         $request->setPoints(0);
 
         $result = $this->gradeService->create($request);
 
-        return $this->response($result,self::CREATE);
+        return $this->response($result, self::CREATE);
     }
 
     /**
@@ -51,7 +50,7 @@ class GradeController extends BaseController
     public function update(Request $request, $points)
     {
         $data = json_decode($request->getContent(), true);
-        $request = $this->autoMapping->map(\stdClass::class, UpdateGradeRequest::class, (object)$data);
+        $request = $this->autoMapping->map(\stdClass::class, UpdateGradeRequest::class, (object) $data);
 
         $result = $this->gradeService->update($request, $points);
 
@@ -91,6 +90,6 @@ class GradeController extends BaseController
         $request = new DeleteRequest($request->get('id'));
         $result = $this->gradeService->delete($request);
 
-        return $this->response("",self::DELETE);
+        return $this->response("", self::DELETE);
     }
 }

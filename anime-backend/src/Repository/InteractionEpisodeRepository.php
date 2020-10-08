@@ -57,16 +57,19 @@ class InteractionEpisodeRepository extends ServiceEntityRepository
             ->getOneOrNullResult();
     }
 
-    public function getAllDisLikes($id)
+    public function getAllDislike($id)
     {
         // disLike = 2
         return $this->createQueryBuilder('interactionEpisode')
+        ->select('count(interactionEpisode.type)')
+
         ->andWhere('interactionEpisode.episodeID = :id')
         ->andWhere('interactionEpisode.type = 2')
-        ->select('count(interactionEpisode.type) as DisLike')
+
         ->setParameter('id', $id)
+
         ->getQuery()
-        ->getResult();
+        ->getOneOrNullResult();
     }
 
     public function getAllLove($id)
@@ -113,6 +116,18 @@ class InteractionEpisodeRepository extends ServiceEntityRepository
        ->andWhere('interactionEpisode.episodeID = :id')
        ->andWhere('interactionEpisode.type = 1')
        ->setParameter('id', $ID)
+       ->getQuery()
+       ->getOneOrNullResult();
+    }
+
+    public function dislikeAll($id)
+    {
+       // dislike = 2
+       return $this->createQueryBuilder('interactionEpisode')
+       ->select('count(interactionEpisode.type)')
+       ->andWhere('interactionEpisode.episodeID = :id')
+       ->andWhere('interactionEpisode.type = 2')
+       ->setParameter('id', $id)
        ->getQuery()
        ->getOneOrNullResult();
     }

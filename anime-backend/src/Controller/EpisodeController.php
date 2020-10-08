@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Controller;
-
 
 use App\AutoMapping;
 use App\Request\CreateEpisodeRequest;
@@ -14,17 +12,20 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class EpisodeController extends BaseController
 {
     private $episodeService;
     private $autoMapping;
+    private $validator;
 
-    public function __construct(SerializerInterface $serializer, EpisodeService $episodeService, AutoMapping $autoMapping)
+    public function __construct(ValidatorInterface $validator, SerializerInterface $serializer, EpisodeService $episodeService, AutoMapping $autoMapping)
     {
         parent::__construct($serializer);
         $this->episodeService = $episodeService;
         $this->autoMapping = $autoMapping;
+        $this->validator = $validator;
     }
 
     /**
@@ -36,7 +37,14 @@ class EpisodeController extends BaseController
     {
         $data = json_decode($request->getContent(), true);
 
-        $request = $this->autoMapping->map(\stdClass::class, CreateEpisodeRequest::class, (object)$data);
+        $request = $this->autoMapping->map(\stdClass::class, CreateEpisodeRequest::class, (object) $data);
+
+        $violations = $this->validator->validate($request);
+        if (\count($violations) > 0) {
+            $violationsString = (string) $violations;
+
+            return new JsonResponse($violationsString, Response::HTTP_OK);
+        }
 
         $result = $this->episodeService->create($request);
 
@@ -51,7 +59,7 @@ class EpisodeController extends BaseController
     public function update(Request $request)
     {
         $data = json_decode($request->getContent(), true);
-        $request = $this->autoMapping->map(\stdClass::class, UpdateEpisodeRequest::class, (object)$data);
+        $request = $this->autoMapping->map(\stdClass::class, UpdateEpisodeRequest::class, (object) $data);
 
         $result = $this->episodeService->update($request);
         return $this->response($result, self::UPDATE);
@@ -104,10 +112,10 @@ class EpisodeController extends BaseController
         $request = new DeleteRequest($request->get('id'));
         $result = $this->episodeService->delete($request);
 
-        return $this->response("",self::DELETE);
+        return $this->response("", self::DELETE);
     }
 
-     /**
+    /**
      * @Route("episodesCommingSoon", name="getAllEpisodesCommingSoon", methods={"GET"})
      * @return JsonResponse
      */

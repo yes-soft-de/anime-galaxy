@@ -2,14 +2,14 @@
 
 namespace App\Controller;
 
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Request;
 use App\AutoMapping;
-use App\Service\InteractionService;
 use App\Request\CreateInteractionRequest;
-use Symfony\Component\HttpFoundation\Response;
 use App\Request\UpdateInteractionRequest;
+use App\Service\InteractionService;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
@@ -35,11 +35,10 @@ class InteractionController extends BaseController
     public function create(Request $request)
     {
         $data = json_decode($request->getContent(), true);
-        $request = $this->autoMapping->map(\stdClass::class,CreateInteractionRequest::class, (object)$data);
+        $request = $this->autoMapping->map(\stdClass::class, CreateInteractionRequest::class, (object) $data);
 
         $violations = $this->validator->validate($request);
-        if (\count($violations) > 0)
-        {
+        if (\count($violations) > 0) {
             $violationsString = (string) $violations;
 
             return new JsonResponse($violationsString, Response::HTTP_OK);

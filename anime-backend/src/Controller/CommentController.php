@@ -2,16 +2,16 @@
 
 namespace App\Controller;
 
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Request;
 use App\AutoMapping;
-use App\Service\CommentService;
 use App\Request\CreateCommentRequest;
-use App\Request\UpdateCommentRequest;
 use App\Request\DeleteRequest;
 use App\Request\GetByIdRequest;
+use App\Request\UpdateCommentRequest;
+use App\Service\CommentService;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
@@ -21,7 +21,7 @@ class CommentController extends BaseController
     private $autoMapping;
     private $validator;
 
-    public function __construct(ValidatorInterface $validator, CommentService $commentService,AutoMapping $autoMapping, SerializerInterface $serializer)
+    public function __construct(ValidatorInterface $validator, CommentService $commentService, AutoMapping $autoMapping, SerializerInterface $serializer)
     {
         parent::__construct($serializer);
         $this->commentService = $commentService;
@@ -36,19 +36,18 @@ class CommentController extends BaseController
      */
     public function create(Request $request)
     {
-         $data = json_decode($request->getContent(), true);
-         $request=$this->autoMapping->map(\stdClass::class,CreateCommentRequest::class,(object)$data);
-        
-         $violations = $this->validator->validate($request);
-         if (\count($violations) > 0)
-         {
-             $violationsString = (string) $violations;
- 
-             return new JsonResponse($violationsString, Response::HTTP_OK);
-         }
+        $data = json_decode($request->getContent(), true);
+        $request = $this->autoMapping->map(\stdClass::class, CreateCommentRequest::class, (object) $data);
 
-         $result = $this->commentService->create($request);
-         return $this->response($result, self::CREATE);
+        $violations = $this->validator->validate($request);
+        if (\count($violations) > 0) {
+            $violationsString = (string) $violations;
+
+            return new JsonResponse($violationsString, Response::HTTP_OK);
+        }
+
+        $result = $this->commentService->create($request);
+        return $this->response($result, self::CREATE);
     }
 
     /**
@@ -66,7 +65,7 @@ class CommentController extends BaseController
         return $this->response($result, self::UPDATE);
     }
 
-     /**
+    /**
      * @Route("/comment/{ID}", name="deleteComment",methods={"DELETE"})
      * @param Request $request
      * @return JsonResponse
@@ -88,8 +87,8 @@ class CommentController extends BaseController
     public function getCommentById(Request $request)
     {
         $request = new GetByIdRequest($request->get('ID'));
-        $result  = $this->commentService->getCommentById($request);
-        
+        $result = $this->commentService->getCommentById($request);
+
         return $this->response($result, self::FETCH);
     }
 

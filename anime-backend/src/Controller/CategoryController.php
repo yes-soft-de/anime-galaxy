@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Controller;
 
 use App\AutoMapping;
@@ -26,7 +25,7 @@ class CategoryController extends BaseController
         parent::__construct($serializer);
         $this->categoryService = $categoryService;
         $this->autoMapping = $autoMapping;
-        $this->validator    = $validator;
+        $this->validator = $validator;
     }
 
     /**
@@ -40,13 +39,12 @@ class CategoryController extends BaseController
         $request = $this->autoMapping->map(\stdClass::class, CreateCategoryRequest::class, (object) $data);
 
         $violations = $this->validator->validate($request);
-        if (\count($violations) > 0)
-        {
+        if (\count($violations) > 0) {
             $violationsString = (string) $violations;
 
             return new JsonResponse($violationsString, Response::HTTP_OK);
         }
-        
+
         $result = $this->categoryService->create($request);
         return $this->response($result, self::CREATE);
     }

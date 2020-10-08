@@ -6,7 +6,7 @@ namespace App\Response;
 
 class GetImageResponse
 {
-    private $image;
+    public $image;
 
     /**
      * @return mixed
