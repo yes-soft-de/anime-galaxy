@@ -67,6 +67,13 @@
                 "qualifier": null
               },
               "isProvider": false
+            },
+            {
+              "lookupKey": {
+                "root": "asset:anime_galaxy/lib/anime_setting/routes/setting_module.dart#SettingModule",
+                "qualifier": null
+              },
+              "isProvider": false
             }
           ]
         }
