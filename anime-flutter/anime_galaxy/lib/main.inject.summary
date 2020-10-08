@@ -74,6 +74,13 @@
                 "qualifier": null
               },
               "isProvider": false
+            },
+            {
+              "lookupKey": {
+                "root": "asset:anime_galaxy/lib/anime_auth/auth_module.dart#AuthModuleAnime",
+                "qualifier": null
+              },
+              "isProvider": false
             }
           ]
         }

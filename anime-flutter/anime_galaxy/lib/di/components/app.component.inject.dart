@@ -48,6 +48,10 @@ import '../../module_home/ui/screens/home_screen.dart' as _i37;
 import '../../anime_setting/routes/setting_module.dart' as _i38;
 import '../../anime_setting/ui/screen/anim_setting.dart' as _i39;
 import '../../anime_setting/ui/style_app.dart' as _i40;
+import '../../anime_auth/auth_module.dart' as _i41;
+import '../../anime_auth/ui/screen/sign_up/sign_up.dart' as _i42;
+import '../../anime_auth/style_auth.dart' as _i43;
+import '../../anime_auth/ui/screen/sign_in/sign_in.dart' as _i44;
 
 class AppComponent$Injector implements _i1.AppComponent {
   AppComponent$Injector._();
@@ -72,7 +76,8 @@ class AppComponent$Injector implements _i1.AppComponent {
       _createLocalizationService(),
       _createSwapThemeDataService(),
       _createHomeModule(),
-      _createSettingModule());
+      _createSettingModule(),
+      _createAuthModuleAnime());
   _i7.ChatModule _createChatModule() =>
       _i7.ChatModule(_createChatPage(), _createAuthGuard());
   _i8.ChatPage _createChatPage() => _i8.ChatPage(_createChatPageBloc());
@@ -141,6 +146,11 @@ class AppComponent$Injector implements _i1.AppComponent {
   _i39.AnimSetting _createAnimSetting() =>
       _i39.AnimSetting(_createStyleSetting());
   _i40.StyleSetting _createStyleSetting() => _i40.StyleSetting();
+  _i41.AuthModuleAnime _createAuthModuleAnime() =>
+      _i41.AuthModuleAnime(_createSignUp(), _createSignIn());
+  _i42.SignUp _createSignUp() => _i42.SignUp(_createStyleAuth());
+  _i43.StyleAuth _createStyleAuth() => _i43.StyleAuth();
+  _i44.SignIn _createSignIn() => _i44.SignIn(_createStyleAuth());
   @override
   _i6.MyApp get app => _createMyApp();
 }
