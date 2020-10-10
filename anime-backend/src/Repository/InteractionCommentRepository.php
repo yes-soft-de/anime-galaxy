@@ -24,8 +24,8 @@ class InteractionCommentRepository extends ServiceEntityRepository
 
     public function getAll($id)
     {
-        return $this->createQueryBuilder('interactionComment')
-        ->andWhere('interactionComment.commentID = :id')
+        return $this->createQueryBuilder('interaction')
+        ->andWhere('interaction.commentID = :id')
         ->setParameter('id', $id)
         ->getQuery()
         ->getResult();
@@ -48,7 +48,7 @@ class InteractionCommentRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('interaction')
             ->select('count(interaction.type)')
 
-            ->andWhere('interaction.animeID = :id')
+            ->andWhere('interaction.commentID = :id')
             ->andWhere('interaction.type = 1')
 
             ->setParameter('id', $id)
@@ -63,7 +63,7 @@ class InteractionCommentRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('interaction')
         ->select('count(interaction.type)')
 
-        ->andWhere('interaction.animeID = :id')
+        ->andWhere('interaction.commentID = :id')
         ->andWhere('interaction.type = 2')
 
         ->setParameter('id', $id)
@@ -78,7 +78,7 @@ class InteractionCommentRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('interaction')
             ->select('count(interaction.type)')
 
-            ->andWhere('interaction.animeID = :id')
+            ->andWhere('interaction.commentID = :id')
             ->andWhere('interaction.type = 3')
             ->setParameter('id', $id)
             ->getQuery()
@@ -89,7 +89,7 @@ class InteractionCommentRepository extends ServiceEntityRepository
     {
         //count all interaction
         return $this->createQueryBuilder('interaction')
-        ->andWhere('interaction.animeID = :id')
+        ->andWhere('interaction.commentID = :id')
         ->select('count(interaction.type) as CountAllInteraction')
         ->setParameter('id', $id)
         ->getQuery()
@@ -101,7 +101,7 @@ class InteractionCommentRepository extends ServiceEntityRepository
        // love = 3
        return $this->createQueryBuilder('interaction')
        ->select('count(interaction.type)')
-       ->andWhere('interaction.animeID = :id')
+       ->andWhere('interaction.commentID = :id')
        ->andWhere('interaction.type = 3')
        ->setParameter('id', $id)
        ->getQuery()
@@ -113,7 +113,7 @@ class InteractionCommentRepository extends ServiceEntityRepository
        // like = 1
        return $this->createQueryBuilder('interaction')
        ->select('count(interaction.type)')
-       ->andWhere('interaction.animeID = :id')
+       ->andWhere('interaction.commentID = :id')
        ->andWhere('interaction.type = 1')
        ->setParameter('id', $id)
        ->getQuery()
@@ -125,22 +125,11 @@ class InteractionCommentRepository extends ServiceEntityRepository
        // dislike = 2
        return $this->createQueryBuilder('interaction')
        ->select('count(interaction.type)')
-       ->andWhere('interaction.animeID = :id')
+       ->andWhere('interaction.commentID = :id')
        ->andWhere('interaction.type = 2')
        ->setParameter('id', $id)
        ->getQuery()
        ->getOneOrNullResult();
-    }
-
-    public function countInteractions($id)
-    {
-        //ToDo: this needs remove after finish
-      return [
-          $this->getAllLikes($id),
-          $this->getAllDisLikes($id),
-          $this->getAllLove($id),
-          $this->getAllInteractions($id)
-      ];
     }
 
 }

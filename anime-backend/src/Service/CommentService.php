@@ -19,14 +19,16 @@ class CommentService
     private $autoMapping;
     private $gradeService;
     private $updateGradeRequest;
+    private $interactionService;
 
     public function __construct(CommentManager $commentManager, AutoMapping $autoMapping, GradeService $gradeService,
- UpdateGradeRequest $updateGradeRequest)
+ UpdateGradeRequest $updateGradeRequest, InteractionCommentService $interactionService)
     {
         $this->commentManager =$commentManager;
         $this->autoMapping = $autoMapping;
         $this->gradeService = $gradeService;
         $this->updateGradeRequest = $updateGradeRequest;
+        $this->interactionService = $interactionService;
     }
   
     public function create($request)
@@ -73,8 +75,18 @@ class CommentService
     public function getCommentById($request)
     {
         $result = $this->commentManager->getCommentById($request);
+        $love = $this->interactionService->loved($request);
+        $like = $this->interactionService->like($request);
+        $dislike = $this->interactionService->dislike($request);
+        foreach ($result as $row)
+        {
+            $response = $this->autoMapping->map('array', GetCommentByIdResponse::class, $row);
+        }
+        $response->interactions['love'] = $love;
+        $response->interactions['like'] = $like;
+        $response->interactions['dislike'] = $dislike;
 
-        return $this->autoMapping->map(Comment::class, GetCommentByIdResponse::class, $result);
+        return $response;
     }
 
     public function getAll($animeId)
@@ -92,11 +104,17 @@ class CommentService
 
     public function getCommentsByAnimeId($request)
     {
+      
         $response = [];
         $result = $this->commentManager->getCommentsByAnimeId($request);
-
+        
         foreach ($result as $row)
         {
+            $row['commentInteractions']=[
+                'love' => $this->interactionService->lovedAll($row['id']),
+                'like' => $this->interactionService->likeAll($row['id']),
+                'dislike' => $this->interactionService->dislikeAll($row['id'])
+                ];
             $response[] = $this->autoMapping->map('array', GetCommentsResponse::class, $row);
         }
         return $response;

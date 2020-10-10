@@ -4,11 +4,13 @@ namespace App\Response;
 
 class GetCommentByIdResponse
 {
-    private $id;
-    private $userID;
-    private $animeID;
-    private $comment;
-    private $spoilerAlert;
+    public $id;
+    public $userID;
+    public $animeID;
+    public $comment;
+    public $spoilerAlert;
+    public $creationDate;
+    public $interactions;
     /**
      * @return mixed
      */

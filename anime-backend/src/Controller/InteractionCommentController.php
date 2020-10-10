@@ -55,4 +55,30 @@ class InteractionCommentController extends BaseController
 
         return $this->response($result, self::UPDATE);
     }
+
+    /**
+     * @Route("/interactionComment/{commentID}", name="getAllInteractionCommentWithAllUsersByCommentID", methods={"GET"})
+     * @param $commentID
+     * @return JsonResponse
+     */
+    public function getAll($commentID)
+    {
+        $result = $this->interactionService->getAll($commentID);
+        return $this->response($result, self::FETCH);
+    }
+
+    /**
+     * @Route("/interactionComment/{commentID}/{userID}", name="getAllInterActionWithUserByCommentIDAndUserID", methods={"GET"})
+     * @param $commentID
+     * @param $userID
+     * @return JsonResponse
+     */
+    public function getInteractionWithUser($commentID, $userID)
+    {
+        $result = $this->interactionService->getInteractionWithUser($commentID, $userID);
+        return $this->response($result, self::FETCH);
+    }
+
+     
+
 }

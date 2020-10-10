@@ -46,5 +46,44 @@ class InteractionCommentManager
         return $interaction;
     }
 
+    public function getAll($commentID)
+    {
+        return $this->interactionRepository->getAll($commentID);
+    }
+
+    public function getInteractionWithUser($commentID, $userID)
+    {
+        return $this->interactionRepository->getInteractionWithUser($commentID, $userID);
+    }
+
     
+    public function loved($request)
+    {
+        return $this->interactionRepository->getAllLove($request->getID());
+    }
+
+    public function like($request)
+    {
+        return $this->interactionRepository->getAllLikes($request->getID());
+    }
+
+    public function dislike($request)
+    {
+        return $this->interactionRepository->getAllDislike($request->getID());
+    }
+
+    public function lovedAll($ID)
+    {
+        return $this->interactionRepository->getLoveAll($ID);
+    }
+
+    public function likeAll($ID)
+    {
+        return $this->interactionRepository->getLikeAll($ID);
+    }
+
+    public function dislikeAll($ID)
+    {
+        return $this->interactionRepository->dislikeAll($ID);
+    }
 }

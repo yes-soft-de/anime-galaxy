@@ -64,7 +64,8 @@ class CommentManager
 
     public function getCommentById(GetByIdRequest $request)
     {
-        return $result = $this->commentRepository->find($request->getId());
+        // return $result = $this->commentRepository->find($request->getId());
+        return $result = $this->commentRepository->getCommentById($request->getId());
     }
 
     public function getAll($animeId)
