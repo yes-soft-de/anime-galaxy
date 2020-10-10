@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="725e5472-6f36-4b43-98ba-36ab272bbbfe" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_3a_API_29" />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1iaV9vy8WtXmcvWBHtBP2VhbfiX" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="android.sdk.path" value="C:/forAndroid" />
+    <property name="dart.analysis.tool.window.force.activate" value="false" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/anime_auth" />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\flutter_project\anime-galaxy\anime-flutter\anime_galaxy\lib\anime_auth" />
+      <recent name="D:\flutter_project\anime-galaxy\anime-flutter\anime_galaxy\lib\anime_auth\ui\screen\sign_up" />
+      <recent name="D:\flutter_project\anime-galaxy\anime-flutter\anime_galaxy\lib\anime_auth\ui\widget\social_icon" />
+      <recent name="D:\flutter_project\anime-galaxy\anime-flutter\anime_galaxy\lib\anime_auth\ui\screen\sign_in" />
+      <recent name="D:\flutter_project\anime-galaxy\anime-flutter\anime_galaxy\assets\images" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
+      <option name="filePath" value="$PROJECT_DIR$/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="725e5472-6f36-4b43-98ba-36ab272bbbfe" name="Default Changelist" comment="" />
+      <created>1602145541214</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1602145541214</updated>
+    </task>
+    <task id="LOCAL-00001" summary="design setting page :&#10;add custom button widget&#10;add setting style class&#10;add custom circular image widget &#10;add ui for setting">
+      <created>1602157389805</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1602157389805</updated>
+    </task>
+    <task id="LOCAL-00002" summary="design login/register  page :&#10;add custom button widget&#10;add setting style class&#10;add custom circular image widget &#10;add ui for auth screen">
+      <created>1602182297540</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1602182297540</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="design setting page :&#10;add custom button widget&#10;add setting style class&#10;add custom circular image widget &#10;add ui for setting" />
+    <MESSAGE value="design login/register  page :&#10;add custom button widget&#10;add setting style class&#10;add custom circular image widget &#10;add ui for auth screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="design login/register  page :&#10;add custom button widget&#10;add setting style class&#10;add custom circular image widget &#10;add ui for auth screen" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="260" y="0" key="CommitChangelistDialog2" timestamp="1602182294870">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="260" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1602182294870" />
+    <state width="1323" height="460" key="GridCell.Tab.0.bottom" timestamp="1602182443196">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="460" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1602182443196" />
+    <state width="1323" height="460" key="GridCell.Tab.0.center" timestamp="1602182443196">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="460" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1602182443196" />
+    <state width="1323" height="460" key="GridCell.Tab.0.left" timestamp="1602182443196">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="460" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1602182443196" />
+    <state width="1323" height="460" key="GridCell.Tab.0.right" timestamp="1602182443196">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="460" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1602182443196" />
+    <state x="275" y="100" key="Vcs.Push.Dialog.v2" timestamp="1602182302615">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="100" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1602182302615" />
+    <state x="92" y="92" width="1182" height="544" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1602323141970">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="92" y="92" width="1182" height="544" key="com.android.tools.idea.avdmanager.AvdListDialog/0.0.1366.728@0.0.1366.728" timestamp="1602323141970" />
+    <state x="339" y="162" key="run.anything.popup" timestamp="1602151079504">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1602151079504" />
+  </component>
+</project>
