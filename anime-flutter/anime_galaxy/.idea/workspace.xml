@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="725e5472-6f36-4b43-98ba-36ab272bbbfe" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/images/facebook.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/google-plus.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/logo_dark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/twitter.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/anime_auth/auth_module.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/anime_auth/auth_routes.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/anime_auth/style_auth.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/anime_auth/ui/screen/sign_in/sign_in.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/anime_auth/ui/screen/sign_up/sign_up.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/anime_auth/ui/widget/custome_button/custome_button.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/anime_auth/ui/widget/social_icon/social_icon.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/di/components/app.component.inject.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/di/components/app.component.inject.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.inject.summary" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,42 +71,50 @@
       <option name="project" value="LOCAL" />
       <updated>1602157389805</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="design login/register  page :&#10;add custom button widget&#10;add setting style class&#10;add custom circular image widget &#10;add ui for auth screen">
+      <created>1602182297540</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1602182297540</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="design setting page :&#10;add custom button widget&#10;add setting style class&#10;add custom circular image widget &#10;add ui for setting" />
-    <option name="LAST_COMMIT_MESSAGE" value="design setting page :&#10;add custom button widget&#10;add setting style class&#10;add custom circular image widget &#10;add ui for setting" />
+    <MESSAGE value="design login/register  page :&#10;add custom button widget&#10;add setting style class&#10;add custom circular image widget &#10;add ui for auth screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="design login/register  page :&#10;add custom button widget&#10;add setting style class&#10;add custom circular image widget &#10;add ui for auth screen" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="260" y="0" key="CommitChangelistDialog2" timestamp="1602157380484">
+    <state x="260" y="0" key="CommitChangelistDialog2" timestamp="1602182294870">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="260" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1602157380484" />
-    <state width="1323" height="460" key="GridCell.Tab.0.bottom" timestamp="1602181015516">
+    <state x="260" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1602182294870" />
+    <state width="1323" height="460" key="GridCell.Tab.0.bottom" timestamp="1602182443196">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="460" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1602181015516" />
-    <state width="1323" height="460" key="GridCell.Tab.0.center" timestamp="1602181015515">
+    <state width="1323" height="460" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1602182443196" />
+    <state width="1323" height="460" key="GridCell.Tab.0.center" timestamp="1602182443196">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="460" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1602181015515" />
-    <state width="1323" height="460" key="GridCell.Tab.0.left" timestamp="1602181015515">
+    <state width="1323" height="460" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1602182443196" />
+    <state width="1323" height="460" key="GridCell.Tab.0.left" timestamp="1602182443196">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="460" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1602181015515" />
-    <state width="1323" height="460" key="GridCell.Tab.0.right" timestamp="1602181015515">
+    <state width="1323" height="460" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1602182443196" />
+    <state width="1323" height="460" key="GridCell.Tab.0.right" timestamp="1602182443196">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="460" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1602181015515" />
-    <state x="275" y="100" key="Vcs.Push.Dialog.v2" timestamp="1602157394376">
+    <state width="1323" height="460" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1602182443196" />
+    <state x="275" y="100" key="Vcs.Push.Dialog.v2" timestamp="1602182302615">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="100" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1602157394376" />
-    <state x="92" y="92" width="1182" height="544" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1602145971896">
+    <state x="275" y="100" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1602182302615" />
+    <state x="92" y="92" width="1182" height="544" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1602323141970">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="92" y="92" width="1182" height="544" key="com.android.tools.idea.avdmanager.AvdListDialog/0.0.1366.728@0.0.1366.728" timestamp="1602145971896" />
+    <state x="92" y="92" width="1182" height="544" key="com.android.tools.idea.avdmanager.AvdListDialog/0.0.1366.728@0.0.1366.728" timestamp="1602323141970" />
     <state x="339" y="162" key="run.anything.popup" timestamp="1602151079504">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
