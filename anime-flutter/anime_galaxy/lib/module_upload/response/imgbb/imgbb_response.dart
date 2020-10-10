@@ -31,9 +31,9 @@ class Data {
   String size;
   String time;
   String expiration;
-  Image image;
-  Image thumb;
-  Image medium;
+  Image2 image;
+  Image2 thumb;
+  Image2 medium;
   String deleteUrl;
 
   Data(
@@ -59,9 +59,9 @@ class Data {
     size = json['size'].toString();
     time = json['time'];
     expiration = json['expiration'];
-    image = json['image'] != null ? new Image.fromJson(json['image']) : null;
-    thumb = json['thumb'] != null ? new Image.fromJson(json['thumb']) : null;
-    medium = json['medium'] != null ? new Image.fromJson(json['medium']) : null;
+    image = json['image'] != null ? new Image2.fromJson(json['image']) : null;
+    thumb = json['thumb'] != null ? new Image2.fromJson(json['thumb']) : null;
+    medium = json['medium'] != null ? new Image2.fromJson(json['medium']) : null;
     deleteUrl = json['delete_url'];
   }
 
@@ -89,16 +89,16 @@ class Data {
   }
 }
 
-class Image {
+class Image2 {
   String filename;
   String name;
   String mime;
   String extension;
   String url;
 
-  Image({this.filename, this.name, this.mime, this.extension, this.url});
+  Image2({this.filename, this.name, this.mime, this.extension, this.url});
 
-  Image.fromJson(Map<String, dynamic> json) {
+  Image2.fromJson(Map<String, dynamic> json) {
     filename = json['filename'];
     name = json['name'];
     mime = json['mime'];

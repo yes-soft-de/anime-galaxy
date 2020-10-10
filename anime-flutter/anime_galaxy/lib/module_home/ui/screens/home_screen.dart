@@ -1,17 +1,18 @@
+import 'dart:ui';
+
 import 'package:anime_galaxy/module_home/ui/widget/episode_card/episode_card.dart';
 import 'package:anime_galaxy/module_home/ui/widget/points_widget/points_widget.dart';
+import 'package:anime_galaxy/module_upload/response/imgbb/imgbb_response.dart';
 import 'package:anime_galaxy/utils/project_colors/project_color.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:inject/inject.dart';
 
 final List<String> imgList = [
-  'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',
-  'https://images.unsplash.com/photo-1522205408450-add114ad53fe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=368f45b0888aeb0b7b08e3a1084d3ede&auto=format&fit=crop&w=1950&q=80',
-  'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=94a1e718d89ca60a6337a6008341ca50&auto=format&fit=crop&w=1950&q=80',
-  'https://images.unsplash.com/photo-1523205771623-e0faa4d2813d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=89719a0d55dd05e2deae4120227e6efc&auto=format&fit=crop&w=1953&q=80',
-  'https://images.unsplash.com/photo-1508704019882-f9cf40e475b4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8c6e5e3aba713b17aa1fe71ab4f0ae5b&auto=format&fit=crop&w=1352&q=80',
-  'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80'
+  'https://i.pinimg.com/236x/ab/46/ae/ab46ae9f35056e9a34072295fd974e9c.jpg',
+ 'https://i.pinimg.com/236x/2a/85/a9/2a85a97e119b597cab78dff22ac9f7a2--city-landscape-landscape-wallpaper.jpg',
+  'https://i.pinimg.com/236x/10/43/25/10432589c5c2a8f9521c9c33e8ab337b--art-background-animation-background.jpg',
+'https://i.pinimg.com/236x/e9/55/3d/e9553dfe572e71ba82811a3dad2def52.jpg'
 ];
 
 @provide
@@ -71,15 +72,17 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 ),
               ),
 
-//              CarouselSlider(
-//                options: CarouselOptions(
-//                  aspectRatio: 2.0,
-//                  enlargeCenterPage: true,
-//                  scrollDirection: Axis.vertical,
-//                  autoPlay: true,
-//                ),
-//                items: imageSliders,
-//              ),
+
+              CarouselSlider(
+                options: CarouselOptions(
+                  autoPlay: true,
+                  aspectRatio: 2.0,
+                  enlargeCenterPage: false,
+                  viewportFraction:1
+                ),
+                items: imageSliders,
+
+              ),
 
               Container(
                 margin: EdgeInsetsDirectional.fromSTEB(10,0,10,20),
@@ -234,44 +237,85 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     );
   }
 
-
-  final List<Widget> imageSliders = imgList.map((item) => Container(
+  final List<Widget> imageSliders = imgList
+      .map((item) => Container(
     child: Container(
       margin: EdgeInsets.all(5.0),
       child: ClipRRect(
-          borderRadius: BorderRadius.all(Radius.circular(5.0)),
+          borderRadius: BorderRadius.all(Radius.circular(0.0)),
           child: Stack(
             children: <Widget>[
-              Image.network(item, fit: BoxFit.cover, width: 1000.0),
-              Positioned(
-                bottom: 0.0,
-                left: 0.0,
-                right: 0.0,
-                child: Container(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        Color.fromARGB(200, 0, 0, 0),
-                        Color.fromARGB(0, 0, 0, 0)
-                      ],
-                      begin: Alignment.bottomCenter,
-                      end: Alignment.topCenter,
-                    ),
+              new Container(
+                decoration: new BoxDecoration(
+                  image: new DecorationImage(
+                    image: new  NetworkImage(item , ),
+                    fit: BoxFit.cover,
                   ),
-                  padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-                  child: Text(
-                    'No. ${imgList.indexOf(item)} image',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.bold,
-                    ),
+                ),
+                child: new BackdropFilter(
+                  filter: new ImageFilter.blur(sigmaX: 1.0, sigmaY: 1.0),
+                  child: new Container(
+                    decoration: new BoxDecoration(color: Colors.white.withOpacity(0.0)),
                   ),
                 ),
               ),
+
+
+              Positioned(
+                left: 0.0,
+                right: 0.0,
+                child: Container(
+                  padding: EdgeInsets.symmetric(
+                      vertical: 10.0, horizontal: 10.0),
+                  child:Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+
+                          Text(
+                            'Hunter X Hunter',
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+
+                          Text(
+                            'أكشن-مغامرة-شاونين',
+                            style: TextStyle(
+                                color: Colors.white70,
+                                fontSize: 8
+                            ),
+                          ),
+                          Text(
+                            'الحلقة 24 الموسم 3',
+                            style: TextStyle(
+                                color: Colors.white70,
+                                fontSize: 10
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(width: 10,),
+                      Container(
+                        width: 75,
+                        height: 160,
+                        child: Image(
+
+                          image: NetworkImage(
+                              'https://m.media-amazon.com/images/M/MV5BZjNmZDhkN2QtNDYyZC00YzJmLTg0ODUtN2FjNjhhMzE3ZmUxXkEyXkFqcGdeQXVyNjc2NjA5MTU@._V1_UX182_CR0,0,182,268_AL_.jpg'
+                          ),
+                        ),
+                      )
+                    ],
+                  )
+                ),
+              ),
             ],
-          )
-      ),
+          )),
     ),
-  )).toList();
+  ))
+      .toList();
+
 }
