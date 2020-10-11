@@ -46,13 +46,6 @@ App\Request\CreateCommentRequest:
       - NotBlank: ~
     animeID:
       - NotBlank: ~
-    comment:
-      - NotBlank: ~
-
-App\Request\CreateCommentRequest:
-  properties:
-    userID:
-      - NotBlank: ~
     episodeID:
       - NotBlank: ~
     comment:
@@ -102,15 +95,9 @@ App\Request\CreateRatingRequest:
       - NotBlank: ~
     animeID:
       - NotBlank: ~
-    rateValue:
-      - NotBlank: ~
-    
-App\Request\CreateRatingRequest:
-  properties:
-    userID:
-      - NotBlank: ~
     episodeID:
       - NotBlank: ~
     rateValue:
       - NotBlank: ~
+
     
