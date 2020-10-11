@@ -3,6 +3,7 @@
 import 'package:anime_galaxy/anime_setting/ui/style_app.dart';
 import 'package:anime_galaxy/anime_setting/ui/widget/circular_setting/circular_image.dart';
 import 'package:anime_galaxy/anime_setting/ui/widget/custome_button/custome_button.dart';
+import 'package:anime_galaxy/generated/l10n.dart';
 import 'package:anime_galaxy/utils/project_color/project_color.dart';
 
 
@@ -83,7 +84,7 @@ class _AnimSettingState extends State<AnimSetting> {
             ,children: [
 
               CircularImage(linkImg: "https://www.lamsahfannan.com/content/uploads/2017/03/3dlat.net_08_15_258a_6.jpg",
-                w: hight/18,h: hight/18,),
+                width: hight/18,height: hight/18,),
               SizedBox(width: 10,),
               Flexible(child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -125,7 +126,7 @@ class _AnimSettingState extends State<AnimSetting> {
                         ),
                         child: Align(
                             alignment: Alignment.center,
-                            child: CircularImage(w: hight/8,h: hight/8,linkImg: "https://www.lamsahfannan.com/content/uploads/2017/03/3dlat.net_08_15_258a_6.jpg",)),
+                            child: CircularImage(width: hight/8,height: hight/8,linkImg: "https://www.lamsahfannan.com/content/uploads/2017/03/3dlat.net_08_15_258a_6.jpg",)),
 
                       ),
                     ),
@@ -169,7 +170,7 @@ class _AnimSettingState extends State<AnimSetting> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   IconButton(icon:  Icon(Icons.notifications,color: Colors.white,),onPressed: (){},),
-                  Expanded(child: Text("الاشعارات",textAlign: TextAlign.start,style:  widget.styleApp.getTextSyle(day: false),)),
+                  Expanded(child: Text(S.of(context).notifications,textAlign: TextAlign.start,style:  widget.styleApp.getTextSyle(day: false),)),
 
                 ],
               ),
@@ -177,7 +178,7 @@ class _AnimSettingState extends State<AnimSetting> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   IconButton(icon:  Icon(Icons.edit,color: Colors.white,),onPressed: (){},),
-                  Expanded(child: Text("الاعدادات العامة",textAlign: TextAlign.start,style: widget.styleApp.getTextSyle(day: false),)),
+                  Expanded(child: Text(S.of(context).general_setting,textAlign: TextAlign.start,style: widget.styleApp.getTextSyle(day: false),)),
 
                 ],
               ),
@@ -185,7 +186,7 @@ class _AnimSettingState extends State<AnimSetting> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   IconButton(icon:  Icon(Icons.person,color: Colors.white,),onPressed: (){},),
-                  Expanded(child: Text("الحساب",textAlign: TextAlign.start,style: widget.styleApp.getTextSyle(day: false),)),
+                  Expanded(child: Text(S.of(context).accounts,textAlign: TextAlign.start,style: widget.styleApp.getTextSyle(day: false),)),
 
                 ],
               ),
@@ -193,7 +194,7 @@ class _AnimSettingState extends State<AnimSetting> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   IconButton(icon:  Icon(Icons.work,color: Colors.white,),onPressed: (){},),
-                  Expanded(child: Text("الخصوصية",textAlign: TextAlign.start,style: widget.styleApp.getTextSyle(day: false),)),
+                  Expanded(child: Text(S.of(context).privacy,textAlign: TextAlign.start,style: widget.styleApp.getTextSyle(day: false),)),
 
                 ],
               ),

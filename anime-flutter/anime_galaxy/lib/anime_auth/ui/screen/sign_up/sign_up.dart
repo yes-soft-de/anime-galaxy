@@ -5,6 +5,7 @@
 import 'package:anime_galaxy/anime_auth/style_auth.dart';
 import 'package:anime_galaxy/anime_auth/ui/widget/social_icon/social_icon.dart';
 import 'package:anime_galaxy/anime_setting/ui/widget/custome_button/custome_button.dart';
+import 'package:anime_galaxy/generated/l10n.dart';
 import 'package:anime_galaxy/utils/project_color/project_color.dart';
 
 import 'package:flutter/material.dart';
@@ -56,22 +57,22 @@ class _SignUpState extends State<SignUp> {
                 TextFormField(
                   style: widget.styleApp.getTextSyle(size: 14,color:ProjectColors.bgIconDark ,day: false),
                   decoration: widget.styleApp.getInputDecorationUnderLineDark(
-                    label: "الاسم",
-                      hint: "الاسم"),
+                    label: S.of(context).name,
+                      hint:  S.of(context).name),
                 ),
 
                 TextFormField(
                   style: widget.styleApp.getTextSyle(size: 14,color:ProjectColors.bgIconDark ,day: false),
                   decoration: widget.styleApp.getInputDecorationUnderLineDark(
-                      label: "الايميل",
-                      hint: "الايميل",icon: Icon(Icons.email,color: ProjectColors.bgIconDark,)),
+                      label: S.of(context).email,
+                      hint: S.of(context).email,icon: Icon(Icons.email,color: ProjectColors.bgIconDark,)),
                 ),
 
                 TextFormField(
                   style: widget.styleApp.getTextSyle(size: 14,color:ProjectColors.bgIconDark ,day: false),
                   decoration: widget.styleApp.getInputDecorationUnderLineDark(
-                    label: "كلمة مرور",
-                      hint: "كلمة مرور",icon: Icon(Icons.work,color: ProjectColors.bgIconDark,)),
+                    label: S.of(context).password,
+                      hint: S.of(context).password,icon: Icon(Icons.work,color: ProjectColors.bgIconDark,)),
                 ),
 
 

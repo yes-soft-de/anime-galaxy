@@ -612,6 +612,116 @@ class S {
       args: [],
     );
   }
+
+  /// `movie 1`
+  String get movie1 {
+    return Intl.message(
+      'movie 1',
+      name: 'movie1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `mmmmmm`
+  String get mmmmmm {
+    return Intl.message(
+      'mmmmmm',
+      name: 'mmmmmm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `المسلسلات الموصى بها عالميا`
+  String get series_international {
+    return Intl.message(
+      'المسلسلات الموصى بها عالميا',
+      name: 'series_international',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `المسلسلات الموصى بها حسب تفضيلاتك`
+  String get series_favorite {
+    return Intl.message(
+      'المسلسلات الموصى بها حسب تفضيلاتك',
+      name: 'series_favorite',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `اعضاء نشطين`
+  String get active_members {
+    return Intl.message(
+      'اعضاء نشطين',
+      name: 'active_members',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الاعدادات العامة`
+  String get general_setting {
+    return Intl.message(
+      'الاعدادات العامة',
+      name: 'general_setting',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الحساب`
+  String get accounts {
+    return Intl.message(
+      'الحساب',
+      name: 'accounts',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الخصوصية`
+  String get privacy {
+    return Intl.message(
+      'الخصوصية',
+      name: 'privacy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الاسم`
+  String get name {
+    return Intl.message(
+      'الاسم',
+      name: 'name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الايميل`
+  String get email {
+    return Intl.message(
+      'الايميل',
+      name: 'email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `كلمة مرور`
+  String get password {
+    return Intl.message(
+      'كلمة مرور',
+      name: 'password',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
