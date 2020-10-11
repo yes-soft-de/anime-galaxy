@@ -91,7 +91,6 @@ class AnimeManager
         return $this->animeRepository->getHighestRatedAnime();
     }
 
-
     public function getHighestRatedAnimeByUser($userID)
     {
         return $this->animeRepository->getHighestRatedAnimeByUser($userID);
@@ -101,6 +100,15 @@ class AnimeManager
     {
         $date = new \DateTime("Now");
         return $this->animeRepository->getAllCommingSoon($date);
+    }
+
+    public function getMaybeYouLike($userID)
+    {
+        return $this->animeRepository->getMaybeYouLike($userID);
+    }
+    public function getMaybeYouLike1($id)
+    {
+        return $this->animeRepository->getMaybeYouLike1($id);
     }
 
 }

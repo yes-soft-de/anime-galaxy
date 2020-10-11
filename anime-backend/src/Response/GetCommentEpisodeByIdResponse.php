@@ -4,11 +4,12 @@ namespace App\Response;
 
 class GetCommentEpisodeByIdResponse
 {
-    private $id;
-    private $userID;
-    private $episodeID;
-    private $comment;
-    private $spoilerAlert;
+    public $id;
+    public $userID;
+    public $episodeID;
+    public $comment;
+    public $spoilerAlert;
+    public $interactions;
     /**
      * @return mixed
      */

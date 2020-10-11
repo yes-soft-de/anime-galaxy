@@ -33,6 +33,7 @@ class CommentRepository extends ServiceEntityRepository
     public function getAll($id)
     {
         return $this->createQueryBuilder('Comment')
+        ->select('Comment.id','Comment.comment as comment','Comment.userID','Comment.animeID','Comment.spoilerAlert','Comment.creationDate')
         ->andWhere('Comment.animeID = :id')
         ->setParameter('id', $id)
         ->getQuery()

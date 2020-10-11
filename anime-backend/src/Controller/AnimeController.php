@@ -148,4 +148,17 @@ class AnimeController extends BaseController
 
         return $this->response($result, self::FETCH);
     }
+
+    
+    /**
+     * @Route("getMaybeYouLike/{userID}", name="getMaybeYouLike", methods={"GET"})
+     * @param $userID
+     * @return JsonResponse
+     */
+    public function getMaybeYouLike($userID)
+    {
+        $result = $this->animeService->getMaybeYouLike($userID);
+
+        return $this->response($result, self::FETCH);
+    }
 }

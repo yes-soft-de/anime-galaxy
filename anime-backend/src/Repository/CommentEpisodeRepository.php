@@ -20,9 +20,21 @@ class CommentEpisodeRepository extends ServiceEntityRepository
         parent::__construct($registry, CommentEpisode::class);
     }
 
+    public function getCommentById($id)
+    {
+        return $this->createQueryBuilder('CommentEpisode')
+    
+            ->select('CommentEpisode.id','CommentEpisode.comment as comment','CommentEpisode.userID','CommentEpisode.episodeID','CommentEpisode.spoilerAlert','CommentEpisode.creationDate')
+            ->andWhere('CommentEpisode.id=:id')
+            ->setParameter('id',$id)
+            ->getQuery()
+            ->getResult();
+    }
+
     public function getAll($episodeID)
     {
         return $this->createQueryBuilder('CommentEpisode')
+        ->select('CommentEpisode.id','CommentEpisode.comment as comment','CommentEpisode.userID','CommentEpisode.episodeID','CommentEpisode.spoilerAlert','CommentEpisode.creationDate')
         ->andWhere('CommentEpisode.episodeID = :episodeID')
         ->setParameter('episodeID', $episodeID)
         ->getQuery()
@@ -32,7 +44,7 @@ class CommentEpisodeRepository extends ServiceEntityRepository
     public function getCommentsByEpisodeId($episodeID)
     {
         return $this->createQueryBuilder('CommentEpisode')
-            ->select('CommentEpisode.comment, CommentEpisode.spoilerAlert, CommentEpisode.creationDate')
+            ->select('CommentEpisode.id','CommentEpisode.comment, CommentEpisode.spoilerAlert, CommentEpisode.creationDate')
             ->from('App:Episode','episode')
             ->andWhere('episode.id=CommentEpisode.episodeID')
             ->andWhere('episode.id=:episodeID')

@@ -53,7 +53,7 @@ class EpisodeService
 
         foreach ($result as $row)
         {
-            $row['interaction']=[
+            $row['episodInteraction']=[
                 'love' => $this->interactionService->lovedAll($row['id']),
                 'like' => $this->interactionService->likeAll($row['id']),
                 'dislike' => $this->interactionService->dislikeAll($row['id'])

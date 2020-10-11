@@ -64,7 +64,7 @@ class CommentEpisodeManager
 
     public function getCommentById(GetByIdRequest $request)
     {
-        return $result = $this->commentEpisodeRepository->find($request->getId());
+        return $result = $this->commentEpisodeRepository->getCommentById($request->getId());
     }
 
     public function getAll($Episode)

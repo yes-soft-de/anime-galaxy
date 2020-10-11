@@ -22,6 +22,6 @@ class GetEpisodeResponse
 
     public $createdAt;
     
-    public $interaction;
+    public $episodInteraction;
 
 }

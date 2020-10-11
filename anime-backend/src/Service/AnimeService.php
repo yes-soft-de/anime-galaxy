@@ -15,6 +15,9 @@ use App\Response\UpdateAnimeResponse;
 use App\Response\GetHighestRatedAnimeResponse;
 use App\Response\GetHighestRatedAnimeByUserResponse;
 use App\Response\GetAnimeCommingSoonResponse;
+use App\Response\GetMaybeYouLikeResponse;
+use Symfony\Component\Validator\Constraints\Length;
+use Doctrine\Common\Collections\ArrayCollection;
 
 class AnimeService
 {
@@ -162,6 +165,34 @@ class AnimeService
         {
             $response[] = $this->autoMapping->map('array', GetAnimeCommingSoonResponse::class, $row);
           
+        }
+        return $response;
+    }
+
+    public  function searchMyArray($arrays, $key, $search) 
+    {       
+        $count = 0;
+     
+        foreach($arrays as $object)
+         {
+            if(is_object($object)) {
+               $object = get_object_vars($object);
+            }
+            if(array_key_exists($key, $object) && $object[$key] == $search) $count++;
+        }
+        return $count;
+     }   
+
+    public function getMaybeYouLike($userID)
+    {
+        $response = [];
+       $result = $this->animeManager->getMaybeYouLike($userID);
+        
+       $result1 = $this->animeManager->getMaybeYouLike1($userID);
+       foreach($result1 as $res){
+          if (!$this->searchMyArray($result, 'id',$res['id'])){
+              $response[] = $this->autoMapping->map('array', GetMaybeYouLikeResponse::class, $res);
+          }
         }
         return $response;
     }
