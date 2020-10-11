@@ -1,12 +1,14 @@
+
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
+import 'package:anime_galaxy/generated/l10n.dart';
 
 // ignore: must_be_immutable
 class PointsWidget extends StatelessWidget {
   final int points;
    String memberType;
   PointsWidget({this.points}){
-    memberType = points<80 ? 'برونزي' : points < 90 ? 'فضي' : 'ذهبي';
+    memberType = points<80 ? S.current.pronze : points < 90 ? S.current.silver : 'ذهبي';
   }
 
   @override

@@ -18,6 +18,8 @@ class S {
   static const AppLocalizationDelegate delegate =
     AppLocalizationDelegate();
 
+  
+
   static Future<S> load(Locale locale) {
     final name = (locale.countryCode?.isEmpty ?? false) ? locale.languageCode : locale.toString();
     final localeName = Intl.canonicalizedLocale(name); 

@@ -1,3 +1,4 @@
+import 'package:anime_galaxy/generated/l10n.dart';
 import 'package:anime_galaxy/module_anime/ui/widget/anime_details_widget/ainme_details_widget.dart';
 import 'package:anime_galaxy/module_anime/ui/widget/comment_card/comment_card.dart';
 import 'package:anime_galaxy/module_anime/ui/widget/episode_card/episode_card.dart';
@@ -30,7 +31,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
   Widget getPageLayout(){
     return Scaffold(
       //TODO : replace the appbar with the proper one
-      appBar : AppBar(title: Text('Anime'),),
+      appBar : AppBar(title: Text(S.of(context).anime),),
       body : Container(
         padding: EdgeInsets.all(5),
         child: SingleChildScrollView(
@@ -73,7 +74,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
 //                },
 //              ),
                   Text(
-                    'قيم المسلسل',
+                    S.of(context).EvaluteSerise,
                     style: TextStyle(
                       fontSize: 12
                     ),
@@ -89,7 +90,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Text(
-                        'حول',
+                        S.of(context).about,
                       style: TextStyle(
                           fontSize: 12
                       ),
