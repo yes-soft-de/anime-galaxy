@@ -1,6 +1,7 @@
 import 'package:anime_galaxy/module_anime/ui/widget/anime_details_widget/ainme_details_widget.dart';
 import 'package:anime_galaxy/module_anime/ui/widget/comment_card/comment_card.dart';
 import 'package:anime_galaxy/module_anime/ui/widget/episode_card/episode_card.dart';
+import 'package:anime_galaxy/module_rating/ui/widget/rating_bar.dart';
 import 'package:anime_galaxy/utils/project_colors/project_color.dart'; 
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -18,6 +19,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
   bool isExpanded = false;
   List<String> classifications = ['علوم','فانتازي','أكشن'];
   List<int> episodes = [1,2,3,4,5,6];
+  double rating = 3.5;
 
   @override
   Widget build(BuildContext context) {
@@ -35,8 +37,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
           child: Column(
             children:[
               AnimeDetailsWidget(
-                  arabicName: 'دكتور ستون',
-                  englishName: 'Dr. Stone',
+                  name: 'Dr. Stone-دكتور ستون',
                   comments: 78,
                   likes: 90,
                   rate: 4.5,
@@ -47,22 +48,30 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                RatingBar(
-                initialRating: 2,
-                direction: Axis.horizontal,
-                itemSize: 30,
-//                allowHalfRating: true,
-                itemCount: 5,
-                ratingWidget: RatingWidget(
-                  full: Icon(Icons.favorite,color: ProjectColors.ThemeColor,  ),
-//                  half: _image('assets/heart_half.png'),
-                  empty: Icon(Icons.favorite_border,color: ProjectColors.ThemeColor, ),
-                ),
-                itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-                onRatingUpdate: (rating) {
-                  print(rating);
-                },
-              ),
+                 AnimeRatingBar(
+                   rating: rating,
+                   fillIcon: Icon(Icons.favorite,color: ProjectColors.ThemeColor,  ),
+                   halfFillIcon: Icon(Icons.star_half,color: ProjectColors.ThemeColor,  ),
+                   emptyIcon: Icon(Icons.favorite_border,color: ProjectColors.ThemeColor, ),
+                   onRatingChanged: (rating) => setState(() => this.rating = rating),
+                   itemSize:40,
+                 ),
+//                RatingBar(
+//                initialRating: 2,
+//                direction: Axis.horizontal,
+//                itemSize: 30,
+////                allowHalfRating: true,
+//                itemCount: 5,
+//                ratingWidget: RatingWidget(
+//                  full: Icon(Icons.favorite,color: ProjectColors.ThemeColor,  ),
+////                  half: _image('assets/heart_half.png'),
+//                  empty: Icon(Icons.favorite_border,color: ProjectColors.ThemeColor, ),
+//                ),
+//                itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+//                onRatingUpdate: (rating) {
+//                  print(rating);
+//                },
+//              ),
                   Text(
                     'قيم المسلسل',
                     style: TextStyle(

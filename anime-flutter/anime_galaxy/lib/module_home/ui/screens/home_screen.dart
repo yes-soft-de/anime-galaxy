@@ -109,7 +109,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   child: new ConstrainedBox(
                       constraints: isExpanded
                           ? new BoxConstraints()
-                          : new BoxConstraints(maxHeight: 150.0),
+                          : new BoxConstraints(maxHeight: 175.0),
                       child:    GridView.builder(itemBuilder: (BuildContext context, int index){
 
                           return  EpisodeCard(
@@ -182,7 +182,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   child: new ConstrainedBox(
                     constraints: isExpanded2
                         ? new BoxConstraints()
-                        : new BoxConstraints(maxHeight: 150.0),
+                        : new BoxConstraints(maxHeight: 175.0),
                     child:    GridView.builder(itemBuilder: (BuildContext context, int index){
 
                       return  EpisodeCard(

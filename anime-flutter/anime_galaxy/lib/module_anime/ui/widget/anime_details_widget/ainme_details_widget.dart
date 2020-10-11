@@ -2,8 +2,7 @@
 import 'package:flutter/material.dart';
 
 class AnimeDetailsWidget extends StatelessWidget {
-  final String arabicName;
-  final String englishName;
+  final String name;
   final String showYear;
   final double rate;
   final int likes;
@@ -11,8 +10,7 @@ class AnimeDetailsWidget extends StatelessWidget {
   final String image;
 
   AnimeDetailsWidget({
-   this.arabicName,
-    this.englishName,
+   this.name,
     this.likes,
     this.rate,
     this.showYear,
@@ -32,7 +30,7 @@ class AnimeDetailsWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Text(
-                  '$arabicName - $englishName',
+                  name,
                   textDirection: TextDirection.rtl,
                 ),
                 Text( showYear,
