@@ -39,6 +39,8 @@ Comment Episode APIs
 `Method: GET. Path: /getHighestRatedAnime/{userID}`
 ##### Get All Anime CommingSoon
 `Method: GET. Path: /animeCommingSoon`
+##### Get Anime Maybe You Like
+`Method: GET. Path: /getMaybeYouLike/{userID}`
 
 
 ### Episode APIs
