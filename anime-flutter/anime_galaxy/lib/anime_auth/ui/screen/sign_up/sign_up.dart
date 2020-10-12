@@ -55,22 +55,22 @@ class _SignUpState extends State<SignUp> {
                 SizedBox(height: 10,),
 
                 TextFormField(
-                  style: widget.styleApp.getTextSyle(size: 14,color:ProjectColors.bgIconDark ,day: false),
-                  decoration: widget.styleApp.getInputDecorationUnderLineDark(
+                  style: StyleAuth.getTextSyle(size: 14,color:ProjectColors.bgIconDark ,day: false),
+                  decoration: StyleAuth.getInputDecorationUnderLineDark(
                     label: S.of(context).name,
                       hint:  S.of(context).name),
                 ),
 
                 TextFormField(
-                  style: widget.styleApp.getTextSyle(size: 14,color:ProjectColors.bgIconDark ,day: false),
-                  decoration: widget.styleApp.getInputDecorationUnderLineDark(
+                  style: StyleAuth.getTextSyle(size: 14,color:ProjectColors.bgIconDark ,day: false),
+                  decoration: StyleAuth.getInputDecorationUnderLineDark(
                       label: S.of(context).email,
                       hint: S.of(context).email,icon: Icon(Icons.email,color: ProjectColors.bgIconDark,)),
                 ),
 
                 TextFormField(
-                  style: widget.styleApp.getTextSyle(size: 14,color:ProjectColors.bgIconDark ,day: false),
-                  decoration: widget.styleApp.getInputDecorationUnderLineDark(
+                  style: StyleAuth.getTextSyle(size: 14,color:ProjectColors.bgIconDark ,day: false),
+                  decoration: StyleAuth.getInputDecorationUnderLineDark(
                     label: S.of(context).password,
                       hint: S.of(context).password,icon: Icon(Icons.work,color: ProjectColors.bgIconDark,)),
                 ),
@@ -112,7 +112,7 @@ class _SignUpState extends State<SignUp> {
 
         CustomeButton(
           txt: "تابع",
-          textStyle: widget.styleApp.getTextSyle(day: false,size: 14,),
+          textStyle: StyleAuth.getTextSyle(day: false,size: 14,),
           press: (){
             //  Navigator.pushNamed(context, RotingModule.ROUTE_ANIM_SETTIING_PAGE);
           },

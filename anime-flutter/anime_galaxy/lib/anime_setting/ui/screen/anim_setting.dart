@@ -89,8 +89,8 @@ class _AnimSettingState extends State<AnimSetting> {
               Flexible(child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text("مرحبا",style: widget.styleApp.getTextSyle(day: false,size: 14),),
-                  Text("صباح الخير",style: widget.styleApp.getTextSyle(day: false,size: 14),),
+                  Text("مرحبا",style: StyleSetting.getTextSyle(day: false,size: 14),),
+                  Text("صباح الخير",style: StyleSetting.getTextSyle(day: false,size: 14),),
                 ],
               ),)
             ],),
@@ -142,7 +142,7 @@ class _AnimSettingState extends State<AnimSetting> {
 
 
 
-                  CustomeButton(textStyle: widget.styleApp.getTextSyle(day: false),txt: "تعديل",),
+                  CustomeButton(textStyle: StyleSetting.getTextSyle(day: false),txt: "تعديل",),
 
                   Column(
 
@@ -170,7 +170,7 @@ class _AnimSettingState extends State<AnimSetting> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   IconButton(icon:  Icon(Icons.notifications,color: Colors.white,),onPressed: (){},),
-                  Expanded(child: Text(S.of(context).notifications,textAlign: TextAlign.start,style:  widget.styleApp.getTextSyle(day: false),)),
+                  Expanded(child: Text(S.of(context).notifications,textAlign: TextAlign.start,style:  StyleSetting.getTextSyle(day: false),)),
 
                 ],
               ),
@@ -178,7 +178,7 @@ class _AnimSettingState extends State<AnimSetting> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   IconButton(icon:  Icon(Icons.edit,color: Colors.white,),onPressed: (){},),
-                  Expanded(child: Text(S.of(context).general_setting,textAlign: TextAlign.start,style: widget.styleApp.getTextSyle(day: false),)),
+                  Expanded(child: Text(S.of(context).general_setting,textAlign: TextAlign.start,style: StyleSetting.getTextSyle(day: false),)),
 
                 ],
               ),
@@ -186,7 +186,7 @@ class _AnimSettingState extends State<AnimSetting> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   IconButton(icon:  Icon(Icons.person,color: Colors.white,),onPressed: (){},),
-                  Expanded(child: Text(S.of(context).accounts,textAlign: TextAlign.start,style: widget.styleApp.getTextSyle(day: false),)),
+                  Expanded(child: Text(S.of(context).accounts,textAlign: TextAlign.start,style: StyleSetting.getTextSyle(day: false),)),
 
                 ],
               ),
@@ -194,7 +194,7 @@ class _AnimSettingState extends State<AnimSetting> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   IconButton(icon:  Icon(Icons.work,color: Colors.white,),onPressed: (){},),
-                  Expanded(child: Text(S.of(context).privacy,textAlign: TextAlign.start,style: widget.styleApp.getTextSyle(day: false),)),
+                  Expanded(child: Text(S.of(context).privacy,textAlign: TextAlign.start,style: StyleSetting.getTextSyle(day: false),)),
 
                 ],
               ),

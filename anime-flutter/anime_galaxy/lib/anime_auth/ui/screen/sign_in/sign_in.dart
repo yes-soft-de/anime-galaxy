@@ -55,16 +55,16 @@ class _SignInState extends State<SignIn> {
 
                 TextFormField(
 
-                  style: widget.styleApp.getTextSyle(size: 14,color:ProjectColors.bgIconDark ,day: false),
-                  decoration: widget.styleApp.getInputDecorationUnderLineDark(
+                  style: StyleAuth.getTextSyle(size: 14,color:ProjectColors.bgIconDark ,day: false),
+                  decoration: StyleAuth.getInputDecorationUnderLineDark(
                       label: "الاسم"),
                 ),
 
 
 
                 TextFormField(
-                  style: widget.styleApp.getTextSyle(size: 14,color:ProjectColors.bgIconDark ,day: false),
-                  decoration: widget.styleApp.getInputDecorationUnderLineDark(label: "كلمة مرور",icon: Icon(Icons.work,color: ProjectColors.bgIconDark,)),
+                  style: StyleAuth.getTextSyle(size: 14,color:ProjectColors.bgIconDark ,day: false),
+                  decoration: StyleAuth.getInputDecorationUnderLineDark(label: "كلمة مرور",icon: Icon(Icons.work,color: ProjectColors.bgIconDark,)),
                 ),
 
 
@@ -102,7 +102,7 @@ class _SignInState extends State<SignIn> {
 
         CustomeButton(
           txt: "تابع",
-          textStyle: widget.styleApp.getTextSyle(day: false,size: 14,),
+          textStyle: StyleAuth.getTextSyle(day: false,size: 14,),
           press: (){
             //  Navigator.pushNamed(context, RotingModule.ROUTE_ANIM_SETTIING_PAGE);
           },

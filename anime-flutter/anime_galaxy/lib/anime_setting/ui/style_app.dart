@@ -9,7 +9,7 @@ class StyleSetting{
 
 
 
-  OutlineInputBorder  getOutLineBorder({double width,Color color,double radius}){
+ static  OutlineInputBorder  getOutLineBorder({double width,Color color,double radius}){
 
     return OutlineInputBorder(
       borderSide: BorderSide(
@@ -22,7 +22,7 @@ class StyleSetting{
   }
 
 
-  InputDecoration getInputDecorationDay({String hint,String label,Widget icon}){
+ static InputDecoration getInputDecorationDay({String hint,String label,Widget icon}){
 
     if(icon==null)
       icon=Icon(Icons.person,color: ProjectColors.bgIconDay,);
@@ -44,7 +44,7 @@ class StyleSetting{
 
 
 
-  InputDecoration getInputDecorationUnderLineDay({String hint,String label,Widget icon}){
+ static InputDecoration getInputDecorationUnderLineDay({String hint,String label,Widget icon}){
 
     if(icon==null)
       icon=Icon(Icons.person,color: ProjectColors.bgIconDay,);
@@ -72,7 +72,7 @@ class StyleSetting{
   }
 
 
-  InputDecoration getInputDecorationUnderLineDark({String hint,String label,Widget icon}){
+ static InputDecoration getInputDecorationUnderLineDark({String hint,String label,Widget icon}){
 
     if(icon==null)
       icon=Icon(Icons.person,color: ProjectColors.bgIconDark,);
@@ -103,7 +103,7 @@ class StyleSetting{
 
 
 
-  TextStyle getTextSyle({double size,Color color,FontWeight fontWeight,bool underLine,bool day=true}){
+ static  TextStyle getTextSyle({double size,Color color,FontWeight fontWeight,bool underLine,bool day=true}){
     if(underLine==null)
       underLine=false;
 
