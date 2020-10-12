@@ -162,7 +162,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
               AnimeRatingBar(
                 rating: rating,
                 fillIcon: Icon(Icons.favorite,color: ProjectColors.ThemeColor,  ),
-                halfFillIcon: Icon(Icons.star_half,color: ProjectColors.ThemeColor,  ),
+                halfFillIcon: Icon(Icons.favorite_border,color: ProjectColors.ThemeColor,  ),
                 emptyIcon: Icon(Icons.favorite_border,color: ProjectColors.ThemeColor, ),
                 onRatingChanged: (rating) => setState(() => this.rating = rating),
                 itemSize:40,
@@ -289,7 +289,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
               ],
             ),
           ),
-          //TODO : change this to better code
+
           //classifications
           RotatedBox(
             quarterTurns: 2,
