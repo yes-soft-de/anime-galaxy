@@ -1,17 +1,17 @@
 {
-  "asset": "asset:anime_galaxy/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.dart",
+  "asset": "asset:anime_galaxy/lib/module_anime/repository/anime_details/anime_details.repository.dart",
   "summary": {
     "injector": [],
     "module": [],
     "injectable": [
       {
-        "name": "AnimeDetailsScreen",
+        "name": "AnimeDetailsRepository",
         "constructor": {
           "name": "",
           "kind": "constructor",
           "injectedType": {
             "lookupKey": {
-              "root": "asset:anime_galaxy/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.dart#AnimeDetailsScreen",
+              "root": "asset:anime_galaxy/lib/module_anime/repository/anime_details/anime_details.repository.dart#AnimeDetailsRepository",
               "qualifier": null
             },
             "isProvider": false
@@ -21,7 +21,7 @@
           "dependencies": [
             {
               "lookupKey": {
-                "root": "asset:anime_galaxy/lib/module_anime/state_manager/anime_details/anime_details.state_manager.dart#AnimeDetailsStateManager",
+                "root": "asset:anime_galaxy/lib/module_network/http_client/http_client.dart#ApiClient",
                 "qualifier": null
               },
               "isProvider": false

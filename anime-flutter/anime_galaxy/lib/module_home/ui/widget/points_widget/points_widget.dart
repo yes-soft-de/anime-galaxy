@@ -8,7 +8,7 @@ class PointsWidget extends StatelessWidget {
   final int points;
    String memberType;
   PointsWidget({this.points}){
-    memberType = points<80 ? S.current.pronze : points < 90 ? S.current.silver : 'ذهبي';
+    memberType = points<80 ? 'برونز'/*S.current.pronze*/ : points < 90 ?'فضي'/* S.current.silver*/ : 'ذهبي';
   }
 
   @override

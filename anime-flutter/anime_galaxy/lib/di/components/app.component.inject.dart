@@ -48,9 +48,17 @@ import '../../module_home/ui/screens/home_screen.dart' as _i37;
 import '../../module_anime/anime_module.dart' as _i38;
 import '../../module_anime/ui/screen/anime_details_screen/anime_details_screen.dart'
     as _i39;
-import '../../module_notification/notification_module.dart' as _i40;
-import '../../module_notification/ui/screen/notification_screen/notification_screen.dart'
+import '../../module_anime/state_manager/anime_details/anime_details.state_manager.dart'
+    as _i40;
+import '../../module_anime/service/anime_details/anime_details.service.dart'
     as _i41;
+import '../../module_anime/manager/anime_details/anime_details.manager.dart'
+    as _i42;
+import '../../module_anime/repository/anime_details/anime_details.repository.dart'
+    as _i43;
+import '../../module_notification/notification_module.dart' as _i44;
+import '../../module_notification/ui/screen/notification_screen/notification_screen.dart'
+    as _i45;
 
 class AppComponent$Injector implements _i1.AppComponent {
   AppComponent$Injector._();
@@ -143,11 +151,19 @@ class AppComponent$Injector implements _i1.AppComponent {
   _i38.AnimeModlue _createAnimeModlue() =>
       _i38.AnimeModlue(_createAnimeDetailsScreen());
   _i39.AnimeDetailsScreen _createAnimeDetailsScreen() =>
-      _i39.AnimeDetailsScreen();
-  _i40.NotificationModule _createNotificationModule() =>
-      _i40.NotificationModule(_createNotificationScreen());
-  _i41.NotificationScreen _createNotificationScreen() =>
-      _i41.NotificationScreen();
+      _i39.AnimeDetailsScreen(_createAnimeDetailsStateManager());
+  _i40.AnimeDetailsStateManager _createAnimeDetailsStateManager() =>
+      _i40.AnimeDetailsStateManager(_createAnimeDetailsService());
+  _i41.AnimeDetailsService _createAnimeDetailsService() =>
+      _i41.AnimeDetailsService(_createAnimeDetailsManager());
+  _i42.AnimeDetailsManager _createAnimeDetailsManager() =>
+      _i42.AnimeDetailsManager(_createAnimeDetailsRepository());
+  _i43.AnimeDetailsRepository _createAnimeDetailsRepository() =>
+      _i43.AnimeDetailsRepository(_createApiClient());
+  _i44.NotificationModule _createNotificationModule() =>
+      _i44.NotificationModule(_createNotificationScreen());
+  _i45.NotificationScreen _createNotificationScreen() =>
+      _i45.NotificationScreen();
   @override
   _i6.MyApp get app => _createMyApp();
 }
