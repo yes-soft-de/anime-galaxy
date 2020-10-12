@@ -293,39 +293,31 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
           //classifications
           RotatedBox(
             quarterTurns: 2,
-            child: GridView.builder(itemBuilder: (BuildContext context, int index){
-
-              return Container(
-                  margin: EdgeInsetsDirectional.fromSTEB(5, 0, 5, 0),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: Colors.black38)
-                  ),
-                  child: Center(
-                      child: RotatedBox(
-                          quarterTurns: 2,
-                          child: Text(
-                            anime.classifications[index].name,
-                            style: TextStyle(
-                                fontSize: 10
-                            ),
-                          )
-                      )
-                  )
-              );
-            },
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 5,
-                mainAxisSpacing: 5,
-                crossAxisSpacing: 3,
-                childAspectRatio: (4/4),
-
-              ),
-              itemCount:anime.classifications.length,
-
-              shrinkWrap: true,),
+            child: Row(
+              children: List.generate(anime.classifications.length, (index) {
+                return Container(
+                    padding: EdgeInsetsDirectional.fromSTEB(10, 5, 10, 5),
+                    margin: EdgeInsets.only(left:7),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(color: Colors.black38)
+                    ),
+                    child: Center(
+                        child: RotatedBox(
+                            quarterTurns: 2,
+                            child: Text(
+                              anime.classifications[index].name,
+                              style: TextStyle(
+                                  fontSize: 10
+                              ),
+                            )
+                        )
+                    )
+                );
+              }),
+            ),
           ),
+
           //divider
           Container(
             margin: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
