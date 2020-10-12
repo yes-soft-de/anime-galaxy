@@ -183,7 +183,7 @@ class AnimeRepository extends ServiceEntityRepository
             ->getResult();       
     }  
 
-    public function getMaybeYouLike($userID)
+    public function getAnimeFavourite($userID)
     {
         return $this->createQueryBuilder('anime')
         ->select('anime.id','anime.name as animeName', 'anime.mainImage as animeMainImage')
@@ -207,7 +207,7 @@ class AnimeRepository extends ServiceEntityRepository
         ->getQuery()
         ->getResult();
     }
-    public function getMaybeYouLike1($userID)
+    public function getAnimeByFavouriteCateory($userID)
     {    
          $result=$this->createQueryBuilder('anime')
         ->select('anime.id','anime.name as animeName', 'anime.mainImage as animeMainImage', 'avg(rate.rateValue) as rating')
@@ -230,6 +230,7 @@ class AnimeRepository extends ServiceEntityRepository
             Join::WITH,
             'rate.animeID = anime.id'
         )
+        ->andWhere('category.id = favourite.categoryID')
         ->setParameter('userID', $userID)
         ->setMaxResults(10)   
         ->addOrderBy('rating','DESC')

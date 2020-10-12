@@ -156,7 +156,7 @@ class AnimeService
 
     public function getAllCommingSoon()
     {
-        /** @var $response GetAnimeResponse*/
+        /** @var $response */
        
         $result = $this->animeManager->getAllCommingSoon();
         $response = [];
@@ -185,10 +185,11 @@ class AnimeService
 
     public function getMaybeYouLike($userID)
     {
-        $response = [];
-       $result = $this->animeManager->getMaybeYouLike($userID);
-        
-       $result1 = $this->animeManager->getMaybeYouLike1($userID);
+        /** @var $response */
+       $response = [];
+       $result = $this->animeManager->getAnimeFavourite($userID);
+       
+       $result1 = $this->animeManager->getAnimeByFavouriteCateory($userID);
        foreach($result1 as $res){
           if (!$this->searchMyArray($result, 'id',$res['id'])){
               $response[] = $this->autoMapping->map('array', GetMaybeYouLikeResponse::class, $res);
