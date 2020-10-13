@@ -5,18 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="949cf1e4-ee88-43fb-8374-6a66b1c9c391" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/module_notification/manager/notification/notification.manager.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/module_notification/model/notification_model/notification_model.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/module_notification/repository/notification/notification.repository.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/module_notification/service/notification/notification.service.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/module_notification/state/notification/notification.state.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/module_notification/state_manager/notification/notification.state_manager.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/di/components/app.component.inject.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/di/components/app.component.inject.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/ui/screens/home_screen.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/ui/screens/home_screen.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_notification/ui/screen/notification_screen/notification_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_notification/ui/screen/notification_screen/notification_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_notification/ui/screen/notification_screen/notification_screen.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_notification/ui/screen/notification_screen/notification_screen.inject.summary" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/generated/intl/messages_all.inject.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/generated/intl/messages_ar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/intl/messages_ar.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/generated/intl/messages_ar.inject.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/generated/intl/messages_en.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/intl/messages_en.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/generated/intl/messages_en.inject.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/generated/l10n.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/l10n.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/l10n/intl_ar.arb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/l10n/intl_ar.arb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/l10n/intl_en.arb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/l10n/intl_en.arb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_anime/ui/widget/anime_details_widget/ainme_details_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/ui/widget/anime_details_widget/ainme_details_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_anime/ui/widget/episode_card/episode_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/ui/widget/episode_card/episode_card.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_home/ui/screens/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/ui/screens/home_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_home/ui/widget/episode_card/episode_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/ui/widget/episode_card/episode_card.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_home/ui/widget/points_widget/points_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/ui/widget/points_widget/points_widget.dart" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -34,31 +36,22 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/module_notification/ui/screen/notification_screen/notification_screen.dart">
+        <entry file="file://$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="72" column="51" selection-start-line="72" selection-start-column="51" selection-end-line="72" selection-end-column="51" />
+            <state relative-caret-position="7300">
+              <caret line="365" column="42" selection-start-line="365" selection-start-column="42" selection-end-line="365" selection-end-column="42" />
               <folding>
-                <element signature="e#0#99#0" expanded="true" />
+                <element signature="e#0#50#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/di/components/app.component.inject.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="157" column="56" selection-start-line="157" selection-start-column="56" selection-end-line="157" selection-end-column="56" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/module_notification/state_manager/notification/notification.state_manager.dart">
+        <entry file="file://$PROJECT_DIR$/lib/module_anime/ui/widget/anime_details_widget/ainme_details_widget.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="121">
-              <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+            <state relative-caret-position="154">
+              <caret line="88" column="27" selection-start-line="88" selection-start-column="26" selection-end-line="88" selection-end-column="27" />
               <folding>
                 <element signature="e#1#51#0" expanded="true" />
               </folding>
@@ -67,12 +60,89 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/module_anime/ui/widget/comment_card/comment_card.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1018">
+              <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/module_home/ui/screens/home_screen.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="68" selection-start-line="33" selection-start-column="2" selection-end-line="68" />
+            <state relative-caret-position="-1227">
+              <caret line="297" column="37" selection-start-line="297" selection-start-column="37" selection-end-line="297" selection-end-column="37" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/module_home/ui/widget/episode_card/episode_card.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-273">
+              <caret line="40" column="41" selection-start-line="40" selection-start-column="41" selection-end-line="40" selection-end-column="41" />
+              <folding>
+                <element signature="e#1#51#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/module_home/ui/widget/points_widget/points_widget.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-296">
+              <caret line="42" column="20" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
+              <folding>
+                <element signature="e#1#40#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/module_notification/ui/screen/notification_screen/notification_screen.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1264">
+              <caret line="72" column="51" selection-start-line="72" selection-start-column="51" selection-end-line="72" selection-end-column="51" />
+              <folding>
+                <element signature="e#0#99#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/module_notification/ui/widget/circular_image/circular_image.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-376">
+              <folding>
+                <element signature="e#0#17#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/module_notification/ui/widget/notification_card/notification_card.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1076">
+              <caret line="2" column="95" selection-start-line="2" selection-start-column="95" selection-end-line="2" selection-end-column="95" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/module_anime/ui/widget/episode_card/episode_card.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="45" column="22" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="22" />
+              <folding>
+                <element signature="e#1#51#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -133,18 +203,15 @@
         <option value="$PROJECT_DIR$/lib/utils/app_bar/swaptime_app_bar.dart" />
         <option value="$PROJECT_DIR$/lib/module_anime/anime_routes.dart" />
         <option value="$PROJECT_DIR$/lib/module_anime/anime_module.dart" />
-        <option value="$PROJECT_DIR$/lib/module_anime/ui/widget/episode_card/episode_card.dart" />
         <option value="$PROJECT_DIR$/lib/module_anime/ui/widget/comment_card/comment_card.dart" />
         <option value="$PROJECT_DIR$/lib/module_notification/ui/widget/card_notification.dart" />
         <option value="$PROJECT_DIR$/lib/module_notification/ui/widget/circular_image/circular_image.dart" />
         <option value="$PROJECT_DIR$/lib/module_notification/notification_routes.dart" />
         <option value="$PROJECT_DIR$/lib/module_notification/notification_module.dart" />
         <option value="$PROJECT_DIR$/lib/module_upload/response/imgbb/imgbb_response.dart" />
-        <option value="$PROJECT_DIR$/lib/module_anime/ui/widget/anime_details_widget/ainme_details_widget.dart" />
         <option value="$PROJECT_DIR$/lib/main.dart" />
         <option value="$PROJECT_DIR$/lib/generated/l10n.dart" />
         <option value="$PROJECT_DIR$/lib/module_anime/model/anime_model/anime_model.dart" />
-        <option value="$PROJECT_DIR$/lib/module_home/ui/widget/points_widget/points_widget.dart" />
         <option value="$PROJECT_DIR$/lib/module_anime/service/anime_details/anime_details.service.dart" />
         <option value="$PROJECT_DIR$/lib/module_anime/manager/anime_details/anime_details.manager.dart" />
         <option value="$PROJECT_DIR$/lib/module_anime/state/anime_details/anime_details.state.dart" />
@@ -156,9 +223,7 @@
         <option value="$PROJECT_DIR$/lib/module_home/state/home/home.state.dart" />
         <option value="$PROJECT_DIR$/pubspec.yaml" />
         <option value="$PROJECT_DIR$/lib/module_auth/ui/screen/auth_screen/auth_screen.dart" />
-        <option value="$PROJECT_DIR$/lib/module_home/ui/screens/home_screen.dart" />
         <option value="$PROJECT_DIR$/lib/module_anime/state_manager/anime_details/anime_details.state_manager.dart" />
-        <option value="$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.dart" />
         <option value="$PROJECT_DIR$/lib/module_forms/forms_module.dart" />
         <option value="$PROJECT_DIR$/lib/module_home/repository/home/home.repository.dart" />
         <option value="$PROJECT_DIR$/lib/module_home/state_manager/home/home.state_manager.dart" />
@@ -175,6 +240,12 @@
         <option value="$PROJECT_DIR$/lib/module_notification/state/notification/notification.state.dart" />
         <option value="$PROJECT_DIR$/lib/module_notification/state_manager/notification/notification.state_manager.dart" />
         <option value="$PROJECT_DIR$/lib/module_notification/ui/screen/notification_screen/notification_screen.dart" />
+        <option value="$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.dart" />
+        <option value="$PROJECT_DIR$/lib/module_anime/ui/widget/episode_card/episode_card.dart" />
+        <option value="$PROJECT_DIR$/lib/module_anime/ui/widget/anime_details_widget/ainme_details_widget.dart" />
+        <option value="$PROJECT_DIR$/lib/module_home/ui/screens/home_screen.dart" />
+        <option value="$PROJECT_DIR$/lib/module_home/ui/widget/episode_card/episode_card.dart" />
+        <option value="$PROJECT_DIR$/lib/module_home/ui/widget/points_widget/points_widget.dart" />
       </list>
     </option>
   </component>
@@ -206,6 +277,18 @@
               <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
               <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="l10n" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="module_anime" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
               <item name="module_home" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -227,29 +310,33 @@
               <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
               <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="module_notification" type="462c0819:PsiDirectoryNode" />
+              <item name="module_home" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="widget" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="module_home" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="widget" type="462c0819:PsiDirectoryNode" />
+              <item name="episode_card" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="module_home" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="widget" type="462c0819:PsiDirectoryNode" />
+              <item name="points_widget" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
               <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
               <item name="module_notification" type="462c0819:PsiDirectoryNode" />
-              <item name="manager" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="module_notification" type="462c0819:PsiDirectoryNode" />
-              <item name="state_manager" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="module_notification" type="462c0819:PsiDirectoryNode" />
-              <item name="state_manager" type="462c0819:PsiDirectoryNode" />
-              <item name="notification" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
@@ -257,6 +344,49 @@
               <item name="lib" type="462c0819:PsiDirectoryNode" />
               <item name="module_notification" type="462c0819:PsiDirectoryNode" />
               <item name="ui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="module_notification" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="screen" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="module_notification" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="screen" type="462c0819:PsiDirectoryNode" />
+              <item name="notification_screen" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="module_notification" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="widget" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="module_notification" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="widget" type="462c0819:PsiDirectoryNode" />
+              <item name="circular_image" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="module_notification" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="widget" type="462c0819:PsiDirectoryNode" />
+              <item name="notification_card" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -387,7 +517,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602593898857</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="implement full architecture for notifications screen">
+      <created>1602603212453</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1602603212453</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TodoView">
@@ -401,6 +538,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23146747" />
       <window_info id="Captures" order="1" side_tool="true" />
@@ -417,11 +555,11 @@
       <window_info anchor="bottom" id="Android Profiler" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Logcat" order="4" weight="0.3289689" />
       <window_info anchor="bottom" id="Debug" order="5" />
-      <window_info anchor="bottom" id="Terminal" order="6" visible="true" weight="0.3633388" />
+      <window_info anchor="bottom" id="Terminal" order="6" weight="0.3633388" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3289689" />
       <window_info anchor="bottom" id="Find" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.42389524" />
+      <window_info anchor="bottom" id="Messages" order="10" visible="true" weight="0.29787233" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Theme Preview" order="2" />
@@ -443,29 +581,10 @@
     <MESSAGE value="edit anime details screen" />
     <MESSAGE value="implement 80% of home screen full architecture" />
     <MESSAGE value="add state manager to home screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="add state manager to home screen" />
+    <MESSAGE value="implement full architecture for notifications screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="implement full architecture for notifications screen" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_rating_bar-3.0.1+1/lib/flutter_rating_bar.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="576" column="26" selection-start-line="576" selection-start-column="26" selection-end-line="576" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/generated/intl/messages_en.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1364">
-          <folding>
-            <element signature="e#0#5303#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/generated/intl/messages_ar.inject.dart" />
-    <entry file="file://$PROJECT_DIR$/lib/l10n/intl_en.arb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/generated/intl/messages_all.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20">
@@ -479,23 +598,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.inject.dart">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_anime/ui/widget/anime_details_widget/ainme_details_widget.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="9" selection-end-column="21" />
-          <folding>
-            <element signature="e#1#71#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_anime/ui/widget/comment_card/comment_card.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="1" lean-forward="true" selection-start-line="2" selection-start-column="1" selection-end-line="6" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/module_network/http_client/http_client.dart">
       <provider selected="true" editor-type-id="text-editor">
@@ -611,13 +713,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/l10n/intl_ar.arb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="920">
-          <caret line="46" column="28" selection-start-line="46" selection-start-column="28" selection-end-line="46" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/watch-code.bat">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -653,16 +748,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="2" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="397" column="1" selection-start-line="397" selection-start-column="1" selection-end-line="397" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -710,20 +795,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="4" column="59" selection-start-line="4" selection-start-column="59" selection-end-line="4" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_notification/ui/widget/notification_card/notification_card.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="95" selection-start-line="2" selection-start-column="95" selection-end-line="2" selection-end-column="95" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_home/ui/widget/points_widget/points_widget.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -828,16 +899,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_home/ui/screens/home_screen.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="68" selection-start-line="33" selection-start-column="2" selection-end-line="68" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/module_notification/state_manager/notification/notification.state_manager.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="121">
@@ -848,9 +909,95 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/di/components/app.component.inject.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="157" column="56" selection-start-line="157" selection-start-column="56" selection-end-line="157" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/l10n/intl_ar.arb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-216">
+          <caret line="46" column="28" selection-start-line="46" selection-start-column="28" selection-end-line="46" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/l10n/intl_en.arb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1136" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7300">
+          <caret line="365" column="42" selection-start-line="365" selection-start-column="42" selection-end-line="365" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_anime/ui/widget/episode_card/episode_card.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="45" column="22" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="22" />
+          <folding>
+            <element signature="e#1#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_anime/ui/widget/anime_details_widget/ainme_details_widget.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="88" column="27" selection-start-line="88" selection-start-column="26" selection-end-line="88" selection-end-column="27" />
+          <folding>
+            <element signature="e#1#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_anime/ui/widget/comment_card/comment_card.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1018">
+          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_home/ui/screens/home_screen.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1227">
+          <caret line="297" column="37" selection-start-line="297" selection-start-column="37" selection-end-line="297" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_home/ui/widget/episode_card/episode_card.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-273">
+          <caret line="40" column="41" selection-start-line="40" selection-start-column="41" selection-end-line="40" selection-end-column="41" />
+          <folding>
+            <element signature="e#1#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_home/ui/widget/points_widget/points_widget.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-296">
+          <caret line="42" column="20" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
+          <folding>
+            <element signature="e#1#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/module_notification/ui/screen/notification_screen/notification_screen.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
+        <state relative-caret-position="1264">
           <caret line="72" column="51" selection-start-line="72" selection-start-column="51" selection-end-line="72" selection-end-column="51" />
           <folding>
             <element signature="e#0#99#0" expanded="true" />
@@ -858,10 +1005,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/di/components/app.component.inject.dart">
+    <entry file="file://$PROJECT_DIR$/lib/module_notification/ui/widget/circular_image/circular_image.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="157" column="56" selection-start-line="157" selection-start-column="56" selection-end-line="157" selection-end-column="56" />
+        <state relative-caret-position="-376">
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_notification/ui/widget/notification_card/notification_card.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1076">
+          <caret line="2" column="95" selection-start-line="2" selection-start-column="95" selection-end-line="2" selection-end-column="95" />
         </state>
       </provider>
     </entry>
