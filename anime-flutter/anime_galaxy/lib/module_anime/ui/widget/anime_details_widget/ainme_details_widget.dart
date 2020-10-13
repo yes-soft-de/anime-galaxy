@@ -1,4 +1,5 @@
- import 'package:anime_galaxy/utils/project_colors/project_color.dart';
+ import 'package:anime_galaxy/generated/l10n.dart';
+import 'package:anime_galaxy/utils/project_colors/project_color.dart';
 import 'package:flutter/material.dart';
 
 class AnimeDetailsWidget extends StatelessWidget {
@@ -85,7 +86,7 @@ class AnimeDetailsWidget extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          'مشاركة',
+                          S.of(context).Share,
                           textDirection: TextDirection.rtl,
                           style: TextStyle(
                             fontSize: 10
@@ -100,7 +101,7 @@ class AnimeDetailsWidget extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          'أحببته',
+                          S.of(context).Like,
                           textDirection: TextDirection.rtl,
                           style: TextStyle(
                               fontSize: 10
@@ -121,7 +122,7 @@ class AnimeDetailsWidget extends StatelessWidget {
 
                           onPressed: () {},
                           child:Text(
-                            'متابعة',
+                            S.of(context).Follow,
                             style: TextStyle(
                               fontSize: 8,
                               color: Colors.white

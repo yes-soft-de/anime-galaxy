@@ -22,10 +22,7 @@ class AnimeDetailsScreen extends StatefulWidget {
 
 class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProviderStateMixin<AnimeDetailsScreen> {
   double screenWidth;
-  final String text =   'تدور أحداث القصة عن سينكو هو عضو في نادي علوم ويحب العلم، يخبره صديقه تايجو، أنه على وشك أن يعترف بحبه لصديقته يوزوريها. يجتمع تايجو معها تحت شجرة الكافور في المدرسة، عندما أوشك تايجو على الاعتراف، ظهر ضوء ساطع في السماء، قام بتحويل كل إنسان على الأرض إلى حجر. لكن تايجو لا يزال على قيد الحياة مع تقدم السنين بفضل حافزه لتحرير نفسه ويوزوريها. يتحرر تايجو من الحجر ويجد رسالة محفورة على الشجرة تؤدي به إلى اكتشاف أن سينكو قد تحرر أيضًا من الحجر.';
-  bool isExpanded = false;
-  List<String> classifications = ['علوم','فانتازي','أكشن'];
-  List<int> episodes = [1,2,3,4,5,6];
+   bool isExpanded = false; 
   double rating = 3.5;
   bool  loading =true;
   AnimeDetailsState  currentState = AnimeDetailsStateInit();
@@ -183,7 +180,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
 //                },
 //              ),
               Text(
-                'قيم المسلسل',
+                S.of(context).RateSeries,
                 style: TextStyle(
                     fontSize: 12
                 ),
@@ -199,7 +196,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Text(
-                  'حول',
+                  S.of(context).About,
                   style: TextStyle(
                       fontSize: 12
                   ),
@@ -274,13 +271,13 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'المزيد',
+                  S.of(context).More,
                   style: TextStyle(
                       fontSize: 10
                   ),
                 ),
                 Text(
-                  'التصنيف',
+                  S.of(context).Classification,
                   style: TextStyle(
                       fontSize: 10
                   ),
@@ -331,7 +328,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Text(
-                    'آخر الحلقات',
+                    S.of(context).LastEpisodes,
                     textDirection: TextDirection.rtl,
                     style: TextStyle(
                         fontSize: 12
@@ -366,7 +363,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Text(
-                    'آخر الردود والتعليقات',
+                    S.of(context).LastReplaysAndComments,
                     textDirection: TextDirection.rtl,
                     style: TextStyle(
                         fontSize: 12

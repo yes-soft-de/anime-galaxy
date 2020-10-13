@@ -63,5 +63,22 @@
   "anime": "Anime",
   "EvaluteSerise": "قيم المسلسل",
   "about": "حول",
-  "confirm": "Confirm!"
+  "confirm": "Confirm!",
+  "RateSeries": "قيم المسلسل",
+  "About": "حول",
+  "More": "المزيد",
+  "Classification": "التصنيف",
+  "LastEpisodes": "آخر الحلقات",
+  "LastReplaysAndComments": "آخر الردود والتعليقات",
+  "Share": "مشاركة",
+  "Like": "أحببته",
+  "Follow": "متابعة",
+  "Episode": "حلقة",
+  "Season": "الموسم",
+  "newEpisodes": "حلقات جديدة",
+  "watchedSeries": "مسلسلات متابعة",
+  "mayLikeSeries": "مسلسلات قد تعجبك",
+  "gold": "ذهبي",
+  "point": "نقطة",
+  "member": "عضو"
 }

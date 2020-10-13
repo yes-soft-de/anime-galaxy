@@ -21,7 +21,18 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
+    "About" : MessageLookupByLibrary.simpleMessage("حول"),
+    "Classification" : MessageLookupByLibrary.simpleMessage("التصنيف"),
+    "Episode" : MessageLookupByLibrary.simpleMessage("حلقة"),
     "EvaluteSerise" : MessageLookupByLibrary.simpleMessage("قيم المسلسل"),
+    "Follow" : MessageLookupByLibrary.simpleMessage("متابعة"),
+    "LastEpisodes" : MessageLookupByLibrary.simpleMessage("آخر الحلقات"),
+    "LastReplaysAndComments" : MessageLookupByLibrary.simpleMessage("آخر الردود والتعليقات"),
+    "Like" : MessageLookupByLibrary.simpleMessage("أحببته"),
+    "More" : MessageLookupByLibrary.simpleMessage("المزيد"),
+    "RateSeries" : MessageLookupByLibrary.simpleMessage("قيم المسلسل"),
+    "Season" : MessageLookupByLibrary.simpleMessage("الموسم"),
+    "Share" : MessageLookupByLibrary.simpleMessage("مشاركة"),
     "about" : MessageLookupByLibrary.simpleMessage("حول"),
     "add" : MessageLookupByLibrary.simpleMessage("اضافة"),
     "anime" : MessageLookupByLibrary.simpleMessage("Anime"),
@@ -42,6 +53,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "feed" : MessageLookupByLibrary.simpleMessage("الرئيسة"),
     "feedback" : MessageLookupByLibrary.simpleMessage("اعطنا رأيك!"),
     "gamesList" : MessageLookupByLibrary.simpleMessage("قائمة الألعاب"),
+    "gold" : MessageLookupByLibrary.simpleMessage("ذهبي"),
     "home" : MessageLookupByLibrary.simpleMessage("الرئيسية"),
     "insertViaAPreset" : MessageLookupByLibrary.simpleMessage("الادخال من القائمة"),
     "insertViaCamera" : MessageLookupByLibrary.simpleMessage("الادخال عبر الكاميرا"),
@@ -50,6 +62,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "loading" : MessageLookupByLibrary.simpleMessage("جار التحميل!"),
     "location" : MessageLookupByLibrary.simpleMessage("الموقع"),
     "login" : MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+    "mayLikeSeries" : MessageLookupByLibrary.simpleMessage("مسلسلات قد تعجبك"),
+    "member" : MessageLookupByLibrary.simpleMessage("عضو"),
+    "newEpisodes" : MessageLookupByLibrary.simpleMessage("حلقات جديدة"),
     "noCameraFound" : MessageLookupByLibrary.simpleMessage("لا يوجد كاميرا"),
     "notLoggedIn" : MessageLookupByLibrary.simpleMessage("غير مسجل دخول!"),
     "notifications" : MessageLookupByLibrary.simpleMessage("الإشعارات"),
@@ -59,6 +74,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "pleaseProvideYourName" : MessageLookupByLibrary.simpleMessage("الرجاء ادخال اسمك :)"),
     "pleaseUploadTheImage" : MessageLookupByLibrary.simpleMessage("الرجاء حفظ الصورة"),
     "pleaseUploadYourImage" : MessageLookupByLibrary.simpleMessage("الرجاء رفع صورتك :)"),
+    "point" : MessageLookupByLibrary.simpleMessage("نقطة"),
     "privacyPolicy" : MessageLookupByLibrary.simpleMessage("شروط الخصوصية"),
     "profile" : MessageLookupByLibrary.simpleMessage("الشخصية"),
     "pronze" : MessageLookupByLibrary.simpleMessage("برونزي"),
@@ -84,6 +100,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "uploadImage" : MessageLookupByLibrary.simpleMessage("حفظ الصورة"),
     "uploading" : MessageLookupByLibrary.simpleMessage("جار الرفع"),
     "usa" : MessageLookupByLibrary.simpleMessage("الولايات المتحدة"),
-    "username" : MessageLookupByLibrary.simpleMessage("اسم المستخدم:")
+    "username" : MessageLookupByLibrary.simpleMessage("اسم المستخدم:"),
+    "watchedSeries" : MessageLookupByLibrary.simpleMessage("مسلسلات متابعة")
   };
 }

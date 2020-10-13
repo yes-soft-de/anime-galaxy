@@ -1,4 +1,5 @@
- import 'package:flutter/material.dart';
+ import 'package:anime_galaxy/generated/l10n.dart';
+import 'package:flutter/material.dart';
 
 class EpisodeCard extends StatelessWidget {
   final String image;
@@ -37,7 +38,7 @@ class EpisodeCard extends StatelessWidget {
               Center(
 
                   child: Text(
-                    'حلقة $episodeNumber',
+                    S.of(context).Episode+ '$episodeNumber',
                     textDirection: TextDirection.rtl,
                     style: TextStyle(
                         fontSize: 10,

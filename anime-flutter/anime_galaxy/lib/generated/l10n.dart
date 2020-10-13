@@ -672,6 +672,176 @@ class S {
       args: [],
     );
   }
+
+  /// `قيم المسلسل`
+  String get RateSeries {
+    return Intl.message(
+      'قيم المسلسل',
+      name: 'RateSeries',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `حول`
+  String get About {
+    return Intl.message(
+      'حول',
+      name: 'About',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `المزيد`
+  String get More {
+    return Intl.message(
+      'المزيد',
+      name: 'More',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `التصنيف`
+  String get Classification {
+    return Intl.message(
+      'التصنيف',
+      name: 'Classification',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `آخر الحلقات`
+  String get LastEpisodes {
+    return Intl.message(
+      'آخر الحلقات',
+      name: 'LastEpisodes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `آخر الردود والتعليقات`
+  String get LastReplaysAndComments {
+    return Intl.message(
+      'آخر الردود والتعليقات',
+      name: 'LastReplaysAndComments',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `مشاركة`
+  String get Share {
+    return Intl.message(
+      'مشاركة',
+      name: 'Share',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `أحببته`
+  String get Like {
+    return Intl.message(
+      'أحببته',
+      name: 'Like',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `متابعة`
+  String get Follow {
+    return Intl.message(
+      'متابعة',
+      name: 'Follow',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `حلقة`
+  String get Episode {
+    return Intl.message(
+      'حلقة',
+      name: 'Episode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الموسم`
+  String get Season {
+    return Intl.message(
+      'الموسم',
+      name: 'Season',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `حلقات جديدة`
+  String get newEpisodes {
+    return Intl.message(
+      'حلقات جديدة',
+      name: 'newEpisodes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `مسلسلات متابعة`
+  String get watchedSeries {
+    return Intl.message(
+      'مسلسلات متابعة',
+      name: 'watchedSeries',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `مسلسلات قد تعجبك`
+  String get mayLikeSeries {
+    return Intl.message(
+      'مسلسلات قد تعجبك',
+      name: 'mayLikeSeries',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ذهبي`
+  String get gold {
+    return Intl.message(
+      'ذهبي',
+      name: 'gold',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `نقطة`
+  String get point {
+    return Intl.message(
+      'نقطة',
+      name: 'point',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `عضو`
+  String get member {
+    return Intl.message(
+      'عضو',
+      name: 'member',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

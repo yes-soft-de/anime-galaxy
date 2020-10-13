@@ -8,7 +8,7 @@ class PointsWidget extends StatelessWidget {
   final int points;
    String memberType;
   PointsWidget({this.points}){
-    memberType = points<80 ? 'برونز'/*S.current.pronze*/ : points < 90 ?'فضي'/* S.current.silver*/ : 'ذهبي';
+    memberType = points<80 ? S.current.pronze : points < 90 ?  S.current.silver : S.of(context).gold;
   }
 
   @override
@@ -27,7 +27,7 @@ class PointsWidget extends StatelessWidget {
               Container(
                 margin: EdgeInsets.only(top: 10),
                 child: Text(
-                  '$points نقطة ',
+                  '$points '+ S.of(context).point,
                   textDirection: TextDirection.rtl,
                   style: TextStyle(
                       fontSize: 10
@@ -40,7 +40,7 @@ class PointsWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(
-                'عضو  $memberType',
+                S.of(context).member+'$memberType',
                 style: TextStyle(
                     fontSize: 10
                 ),

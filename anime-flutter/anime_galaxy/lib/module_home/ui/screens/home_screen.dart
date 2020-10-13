@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:anime_galaxy/generated/l10n.dart';
 import 'package:anime_galaxy/module_home/model/home_model/home_model.dart';
 import 'package:anime_galaxy/module_home/state/home/home.state.dart';
 import 'package:anime_galaxy/module_home/ui/widget/episode_card/episode_card.dart';
@@ -139,7 +140,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                       ),
                                     ),
                                     Text(
-                                      'الحلقة ${item.episodeNumber} الموسم ${item.season}',
+                                      S.of(context).Episode +'${item.episodeNumber} ' + S.of(context).Season + '${item.season}',
                                       style: TextStyle(
                                           color: Colors.white70,
                                           fontSize: 10
@@ -182,13 +183,13 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'المزيد',
+                    S.of(context).More,
                     style: TextStyle(
                         fontSize: 10
                     ),
                   ),
                   Text(
-                    'حلقات جديدة',
+                    S.of(context).newEpisodes,
                     style: TextStyle(
                         fontSize: 10
                     ),
@@ -215,13 +216,13 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'المزيد',
+                   S.of(context).More,
                     style: TextStyle(
                         fontSize: 10
                     ),
                   ),
                   Text(
-                    'مسلسلات متابعة',
+                    S.of(context).watchedSeries,
                     style: TextStyle(
                         fontSize: 10
                     ),
@@ -288,13 +289,13 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'المزيد',
+                   S.of(context).More,
                     style: TextStyle(
                         fontSize: 10
                     ),
                   ),
                   Text(
-                    'مسلسلات قد تعجبك',
+                    S.of(context).mayLikeSeries,
                     style: TextStyle(
                         fontSize: 10
                     ),
