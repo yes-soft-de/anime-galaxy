@@ -8,7 +8,6 @@ import 'package:anime_galaxy/module_anime/ui/widget/episode_card/episode_card.da
 import 'package:anime_galaxy/module_rating/ui/widget/rating_bar.dart';
 import 'package:anime_galaxy/utils/project_colors/project_color.dart'; 
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:inject/inject.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -397,13 +396,4 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
     );
   }
 
-
-  Widget _image(String asset) {
-    return Image.asset(
-      asset,
-      height: 30.0,
-      width: 30.0,
-      color: Colors.amber,
-    );
-  }
 }

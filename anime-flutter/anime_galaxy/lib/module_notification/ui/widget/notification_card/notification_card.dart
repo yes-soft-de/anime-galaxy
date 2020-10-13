@@ -1,7 +1,6 @@
 
 
 import 'package:anime_galaxy/module_notification/ui/widget/circular_image/circular_image.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class NotificationCard extends StatelessWidget {

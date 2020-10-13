@@ -21,11 +21,15 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
+    "EvaluteSerise" : MessageLookupByLibrary.simpleMessage("قيم المسلسل"),
+    "about" : MessageLookupByLibrary.simpleMessage("حول"),
     "add" : MessageLookupByLibrary.simpleMessage("Add"),
+    "anime" : MessageLookupByLibrary.simpleMessage("Anime"),
     "beTheFirstToComment" : MessageLookupByLibrary.simpleMessage("Be the First to Comment"),
     "chatRoom" : MessageLookupByLibrary.simpleMessage("Chat Room"),
     "close" : MessageLookupByLibrary.simpleMessage("Close"),
     "comment" : MessageLookupByLibrary.simpleMessage("Comment"),
+    "confirm" : MessageLookupByLibrary.simpleMessage("Confirm!"),
     "darkMode" : MessageLookupByLibrary.simpleMessage("Dark Mode"),
     "emptyComment" : MessageLookupByLibrary.simpleMessage("Empty Comment!"),
     "emptyList" : MessageLookupByLibrary.simpleMessage("Empty List"),
@@ -57,6 +61,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "pleaseUploadYourImage" : MessageLookupByLibrary.simpleMessage("Please Upload your Image :)"),
     "privacyPolicy" : MessageLookupByLibrary.simpleMessage("Privacy Policy"),
     "profile" : MessageLookupByLibrary.simpleMessage("Profile"),
+    "pronze" : MessageLookupByLibrary.simpleMessage("برونزي"),
     "requestASwap" : MessageLookupByLibrary.simpleMessage("Request a Swap!"),
     "retry" : MessageLookupByLibrary.simpleMessage("Retry"),
     "saudiArabia" : MessageLookupByLibrary.simpleMessage("Saudi Arabia"),
@@ -68,6 +73,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "setGame" : MessageLookupByLibrary.simpleMessage("Set Game"),
     "settings" : MessageLookupByLibrary.simpleMessage("Settings"),
     "signOut" : MessageLookupByLibrary.simpleMessage("Sign out"),
+    "silver" : MessageLookupByLibrary.simpleMessage("فضي"),
     "startChat" : MessageLookupByLibrary.simpleMessage("Start Chat"),
     "startWriting" : MessageLookupByLibrary.simpleMessage("Start Writing"),
     "submitGame" : MessageLookupByLibrary.simpleMessage("Submit Game!"),

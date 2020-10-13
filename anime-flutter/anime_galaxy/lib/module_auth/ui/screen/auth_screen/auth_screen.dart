@@ -129,7 +129,7 @@ class _AuthScreenState extends State<AuthScreen> {
                   Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Text(
-                      loading == false ? 'Confirm!' : 'Loading!',
+                      loading == false ? S.of(context).confirm : 'Loading!',
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,

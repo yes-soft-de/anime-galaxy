@@ -10,12 +10,12 @@ import 'package:rxdart/rxdart.dart';
 class HomeStateManager{
   final HomeService _homeService;
   final PublishSubject<HomeState> _stateSubject = PublishSubject();
-  Stream<HomeState> get stateManager => _stateSubject.stream;
+  Stream<HomeState> get stateStream => _stateSubject.stream;
 
 
   HomeStateManager(this._homeService);
 
-  getHomeDetails(){
+  void getHomeDetails(){
     this._stateSubject.add(HomeStateFetching());
 
     this._homeService.getHomePageDetails().then((value) {

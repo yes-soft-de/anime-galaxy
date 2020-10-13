@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-typedef void RatingChangeCallback(double rating);
+typedef RatingChangeCallback = void Function(double rating);
 
 class  AnimeRatingBar extends StatelessWidget {
   final int itemCount;

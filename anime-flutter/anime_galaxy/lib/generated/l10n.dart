@@ -18,8 +18,6 @@ class S {
   static const AppLocalizationDelegate delegate =
     AppLocalizationDelegate();
 
-  
-
   static Future<S> load(Locale locale) {
     final name = (locale.countryCode?.isEmpty ?? false) ? locale.languageCode : locale.toString();
     final localeName = Intl.canonicalizedLocale(name); 
@@ -610,6 +608,66 @@ class S {
     return Intl.message(
       'This Game is Great',
       name: 'thisGameIsGreat',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `برونزي`
+  String get pronze {
+    return Intl.message(
+      'برونزي',
+      name: 'pronze',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `فضي`
+  String get silver {
+    return Intl.message(
+      'فضي',
+      name: 'silver',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Anime`
+  String get anime {
+    return Intl.message(
+      'Anime',
+      name: 'anime',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `قيم المسلسل`
+  String get EvaluteSerise {
+    return Intl.message(
+      'قيم المسلسل',
+      name: 'EvaluteSerise',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `حول`
+  String get about {
+    return Intl.message(
+      'حول',
+      name: 'about',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm!`
+  String get confirm {
+    return Intl.message(
+      'Confirm!',
+      name: 'confirm',
       desc: '',
       args: [],
     );

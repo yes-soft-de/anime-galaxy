@@ -25,15 +25,15 @@ List<Series> mayLikedSeries =[
 ];
 
 List<Episode> episodes =[
-  new Episode(  image :'',seriesName:'Hunter X Hunter',classification:'أكشن-مغامرة-شاونين',episodeNumber:21, season:3),
-  new Episode(  image :'',seriesName:'Hunter X Hunter',classification:'أكشن-مغامرة-شاونين',episodeNumber:22, season:3),
-  new Episode(  image :'',seriesName:'Hunter X Hunter',classification:'أكشن-مغامرة-شاونين',episodeNumber:23, season:3),
-  new Episode(  image :'',seriesName:'Hunter X Hunter',classification:'أكشن-مغامرة-شاونين',episodeNumber:24, season:3),
+  new Episode(  image :'https://i.pinimg.com/236x/ab/46/ae/ab46ae9f35056e9a34072295fd974e9c.jpg',seriesName:'Hunter X Hunter',classification:'أكشن-مغامرة-شاونين',episodeNumber:21, season:3),
+  new Episode(  image :'https://i.pinimg.com/236x/2a/85/a9/2a85a97e119b597cab78dff22ac9f7a2--city-landscape-landscape-wallpaper.jpg',seriesName:'Hunter X Hunter',classification:'أكشن-مغامرة-شاونين',episodeNumber:22, season:3),
+  new Episode(  image :'https://i.pinimg.com/236x/10/43/25/10432589c5c2a8f9521c9c33e8ab337b--art-background-animation-background.jpg',seriesName:'Hunter X Hunter',classification:'أكشن-مغامرة-شاونين',episodeNumber:23, season:3),
+  new Episode(  image :'https://i.pinimg.com/236x/e9/55/3d/e9553dfe572e71ba82811a3dad2def52.jpg',seriesName:'Hunter X Hunter',classification:'أكشن-مغامرة-شاونين',episodeNumber:24, season:3),
 ];
 
 @provide
 class HomeRepository{
-  ApiClient _httpClient;
+  final ApiClient _httpClient;
 
   HomeRepository(this._httpClient);
 

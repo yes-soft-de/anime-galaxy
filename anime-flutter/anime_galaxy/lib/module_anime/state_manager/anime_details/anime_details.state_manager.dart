@@ -17,7 +17,7 @@ class AnimeDetailsStateManager {
       this._animeDetailsService
       );
 
-  getAnimeDetails(int animeId){
+  void getAnimeDetails(int animeId){
     this._stateSubject.add(AnimeDetailsStateFetching());
 
     this._animeDetailsService.getAnimeDetails(animeId).then(
