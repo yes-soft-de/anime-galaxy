@@ -1,19 +1,60 @@
+import 'package:anime_galaxy/module_notification/model/notification_model/notification_model.dart';
+import 'package:anime_galaxy/module_notification/state/notification/notification.state.dart';
+import 'package:anime_galaxy/module_notification/state_manager/notification/notification.state_manager.dart';
 import 'package:anime_galaxy/module_notification/ui/widget/notification_card/notification_card.dart';
 import 'package:flutter/material.dart';
 import 'package:inject/inject.dart';
 
 @provide
 class NotificationScreen extends StatefulWidget {
+  final NotificationStateManager _stateManager;
+
+  NotificationScreen(this._stateManager);
+
   @override
   _NotificationScreenState createState() => _NotificationScreenState();
 }
 
 class _NotificationScreenState extends State<NotificationScreen> {
-  List<int> notifications = [1,1,1,1,11,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
+  List<NotificationModel> notifications;
+  NotificationState currentState;
+  bool  loading =true;
+
+  @override
+  void initState() {
+    super.initState();
+    widget._stateManager.stateStream.listen((event) {
+      currentState = event;
+      processEvent();
+    });
+  }
+  void processEvent(){
+    if(currentState is NotificationStateFetchingSuccess){
+      NotificationStateFetchingSuccess state = currentState;
+      notifications = state.data;
+      loading = false;
+      if(this.mounted){
+        setState(() {
+
+        });
+      }
+    }
+  }
   @override
   Widget build(BuildContext context) {
+    if (currentState is NotificationStateInit) {
+      widget._stateManager.getNotifications();
+      if(this.mounted){
+        setState(() {});
+      }
+    }
+
+
+
     return getPageLayout();
+
   }
+
 
   Widget getPageLayout(){
     return Scaffold(
@@ -27,9 +68,9 @@ class _NotificationScreenState extends State<NotificationScreen> {
               return Container(
                 margin: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
                   child: NotificationCard(
-                    image: 'https://i.pinimg.com/236x/5b/27/06/5b2706b1d6459ca81b4576a122844fdc.jpg',
-                    content: 'تم صدور حلقة جديدة من ون بيس',
-                    date: 'منذ ساعتين',
+                    image: notifications[index].image,
+                    content: notifications[index].content,
+                    date: notifications[index].date,
                   )
               );
             }),

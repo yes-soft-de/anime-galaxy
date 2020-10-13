@@ -1,17 +1,17 @@
 {
-  "asset": "asset:anime_galaxy/lib/module_home/ui/screens/home_screen.dart",
+  "asset": "asset:anime_galaxy/lib/module_notification/state_manager/notification/notification.state_manager.dart",
   "summary": {
     "injector": [],
     "module": [],
     "injectable": [
       {
-        "name": "HomeScreen",
+        "name": "NotificationStateManager",
         "constructor": {
           "name": "",
           "kind": "constructor",
           "injectedType": {
             "lookupKey": {
-              "root": "asset:anime_galaxy/lib/module_home/ui/screens/home_screen.dart#HomeScreen",
+              "root": "asset:anime_galaxy/lib/module_notification/state_manager/notification/notification.state_manager.dart#NotificationStateManager",
               "qualifier": null
             },
             "isProvider": false
@@ -21,7 +21,7 @@
           "dependencies": [
             {
               "lookupKey": {
-                "root": "asset:anime_galaxy/lib/module_home/state_manager/home/home.state_manager.dart#HomeStateManager",
+                "root": "asset:anime_galaxy/lib/module_notification/service/notification/notification.service.dart#NotificationService",
                 "qualifier": null
               },
               "isProvider": false

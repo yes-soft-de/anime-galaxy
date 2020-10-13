@@ -45,20 +45,32 @@ import '../../module_theme/service/theme_service/theme_service.dart' as _i34;
 import '../../module_theme/pressistance/theme_preferences_helper.dart' as _i35;
 import '../../module_home/home.module.dart' as _i36;
 import '../../module_home/ui/screens/home_screen.dart' as _i37;
-import '../../module_anime/anime_module.dart' as _i38;
+import '../../module_home/state_manager/home/home.state_manager.dart' as _i38;
+import '../../module_home/service/home/home.service.dart' as _i39;
+import '../../module_home/manager/home/home.manager.dart' as _i40;
+import '../../module_home/repository/home/home.repository.dart' as _i41;
+import '../../module_anime/anime_module.dart' as _i42;
 import '../../module_anime/ui/screen/anime_details_screen/anime_details_screen.dart'
-    as _i39;
-import '../../module_anime/state_manager/anime_details/anime_details.state_manager.dart'
-    as _i40;
-import '../../module_anime/service/anime_details/anime_details.service.dart'
-    as _i41;
-import '../../module_anime/manager/anime_details/anime_details.manager.dart'
-    as _i42;
-import '../../module_anime/repository/anime_details/anime_details.repository.dart'
     as _i43;
-import '../../module_notification/notification_module.dart' as _i44;
-import '../../module_notification/ui/screen/notification_screen/notification_screen.dart'
+import '../../module_anime/state_manager/anime_details/anime_details.state_manager.dart'
+    as _i44;
+import '../../module_anime/service/anime_details/anime_details.service.dart'
     as _i45;
+import '../../module_anime/manager/anime_details/anime_details.manager.dart'
+    as _i46;
+import '../../module_anime/repository/anime_details/anime_details.repository.dart'
+    as _i47;
+import '../../module_notification/notification_module.dart' as _i48;
+import '../../module_notification/ui/screen/notification_screen/notification_screen.dart'
+    as _i49;
+import '../../module_notification/state_manager/notification/notification.state_manager.dart'
+    as _i50;
+import '../../module_notification/service/notification/notification.service.dart'
+    as _i51;
+import '../../module_notification/manager/notification/notification.manager.dart'
+    as _i52;
+import '../../module_notification/repository/notification/notification.repository.dart'
+    as _i53;
 
 class AppComponent$Injector implements _i1.AppComponent {
   AppComponent$Injector._();
@@ -147,23 +159,40 @@ class AppComponent$Injector implements _i1.AppComponent {
   _i35.ThemePreferencesHelper _createThemePreferencesHelper() =>
       _i35.ThemePreferencesHelper();
   _i36.HomeModule _createHomeModule() => _i36.HomeModule(_createHomeScreen());
-  _i37.HomeScreen _createHomeScreen() => _i37.HomeScreen();
-  _i38.AnimeModlue _createAnimeModlue() =>
-      _i38.AnimeModlue(_createAnimeDetailsScreen());
-  _i39.AnimeDetailsScreen _createAnimeDetailsScreen() =>
-      _i39.AnimeDetailsScreen(_createAnimeDetailsStateManager());
-  _i40.AnimeDetailsStateManager _createAnimeDetailsStateManager() =>
-      _i40.AnimeDetailsStateManager(_createAnimeDetailsService());
-  _i41.AnimeDetailsService _createAnimeDetailsService() =>
-      _i41.AnimeDetailsService(_createAnimeDetailsManager());
-  _i42.AnimeDetailsManager _createAnimeDetailsManager() =>
-      _i42.AnimeDetailsManager(_createAnimeDetailsRepository());
-  _i43.AnimeDetailsRepository _createAnimeDetailsRepository() =>
-      _i43.AnimeDetailsRepository(_createApiClient());
-  _i44.NotificationModule _createNotificationModule() =>
-      _i44.NotificationModule(_createNotificationScreen());
-  _i45.NotificationScreen _createNotificationScreen() =>
-      _i45.NotificationScreen();
+  _i37.HomeScreen _createHomeScreen() =>
+      _i37.HomeScreen(_createHomeStateManager());
+  _i38.HomeStateManager _createHomeStateManager() =>
+      _i38.HomeStateManager(_createHomeService());
+  _i39.HomeService _createHomeService() =>
+      _i39.HomeService(_createHomeManager());
+  _i40.HomeManager _createHomeManager() =>
+      _i40.HomeManager(_createHomeRepository());
+  _i41.HomeRepository _createHomeRepository() =>
+      _i41.HomeRepository(_createApiClient());
+  _i42.AnimeModlue _createAnimeModlue() =>
+      _i42.AnimeModlue(_createAnimeDetailsScreen());
+  _i43.AnimeDetailsScreen _createAnimeDetailsScreen() =>
+      _i43.AnimeDetailsScreen(_createAnimeDetailsStateManager());
+  _i44.AnimeDetailsStateManager _createAnimeDetailsStateManager() =>
+      _i44.AnimeDetailsStateManager(_createAnimeDetailsService());
+  _i45.AnimeDetailsService _createAnimeDetailsService() =>
+      _i45.AnimeDetailsService(_createAnimeDetailsManager());
+  _i46.AnimeDetailsManager _createAnimeDetailsManager() =>
+      _i46.AnimeDetailsManager(_createAnimeDetailsRepository());
+  _i47.AnimeDetailsRepository _createAnimeDetailsRepository() =>
+      _i47.AnimeDetailsRepository(_createApiClient());
+  _i48.NotificationModule _createNotificationModule() =>
+      _i48.NotificationModule(_createNotificationScreen());
+  _i49.NotificationScreen _createNotificationScreen() =>
+      _i49.NotificationScreen(_createNotificationStateManager());
+  _i50.NotificationStateManager _createNotificationStateManager() =>
+      _i50.NotificationStateManager(_createNotificationService());
+  _i51.NotificationService _createNotificationService() =>
+      _i51.NotificationService(_createNotificationManager());
+  _i52.NotificationManager _createNotificationManager() =>
+      _i52.NotificationManager(_createNotificationRepository());
+  _i53.NotificationRepository _createNotificationRepository() =>
+      _i53.NotificationRepository();
   @override
   _i6.MyApp get app => _createMyApp();
 }
