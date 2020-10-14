@@ -42,7 +42,7 @@ class EpisodeManager
 
     public function update(UpdateEpisodeRequest $request)
     {
-        $episodeEntity = $this->episodeRepository->getEpisodeById($request->getId());
+        $episodeEntity = $this->episodeRepository->find($request->getId());
         if(!$episodeEntity)
         {
 

@@ -30,7 +30,7 @@ class AnimeController extends BaseController
     }
 
     /**
-     * @Route("/anime", name="createAnime", methods={"POST"})
+     * @Route("anime", name="createAnime", methods={"POST"})
      * @param Request $request
      * @return JsonResponse
      */
@@ -87,7 +87,7 @@ class AnimeController extends BaseController
     }
 
     /**
-     * @Route("/anime", name="updateAnime", methods={"PUT"})
+     * @Route("anime", name="updateAnime", methods={"PUT"})
      * @param Request $request
      * @return JsonResponse|Response
      */
@@ -96,6 +96,13 @@ class AnimeController extends BaseController
         $data = json_decode($request->getContent(), true);
         $request = $this->autoMapping->map(\stdClass::class, UpdateAnimeRequest::class, (object) $data);
 
+        $violations = $this->validator->validate($request);
+        if (\count($violations) > 0) {
+            $violationsString = (string) $violations;
+
+            return new JsonResponse($violationsString, Response::HTTP_OK);
+        }
+        
         $result = $this->animeService->update($request);
 
         return $this->response($result, self::UPDATE);

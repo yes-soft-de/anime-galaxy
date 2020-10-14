@@ -6,7 +6,6 @@ use DateTime;
 
 class CreateFavouriteRequest
 {
-    private $id;
     private $userID;
     private $animeID;
     private $categoryID;
@@ -15,13 +14,6 @@ class CreateFavouriteRequest
     public function __construct()
     {
         $this->creationDate = new DateTime('Now');
-    }
-     /**
-     * @return mixed
-     */
-    public function getId(): ?int
-    {
-        return $this->id;
     }
 
     /**

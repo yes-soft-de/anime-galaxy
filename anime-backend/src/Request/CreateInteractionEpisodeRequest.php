@@ -4,7 +4,6 @@ namespace App\Request;
 
 class CreateInteractionEpisodeRequest
 {
-
     private $userID;
     private $episodeID;
     private $type;

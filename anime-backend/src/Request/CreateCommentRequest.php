@@ -6,7 +6,6 @@ use DateTime;
 
 class CreateCommentRequest
 {
-    private $id;
     private $userID;
     private $animeID;
     private $comment;
@@ -16,22 +15,6 @@ class CreateCommentRequest
     public function __construct()
     {
         $this->creationDate = new DateTime('Now');
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param mixed $id
-     */
-    public function setId($id): void
-    {
-        $this->id = $id;
     }
 
     /**

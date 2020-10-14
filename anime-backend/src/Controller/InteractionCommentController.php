@@ -12,18 +12,20 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
-
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class InteractionCommentController extends BaseController
 {
     private $interactionService;
     private $autoMapping;
+    private $validator;
 
-    public function __construct( SerializerInterface $serializer, InteractionCommentService $interactionService, AutoMapping $autoMapping)
+    public function __construct( ValidatorInterface $validator, SerializerInterface $serializer, InteractionCommentService $interactionService, AutoMapping $autoMapping)
     {
         parent::__construct($serializer);
         $this->interactionService = $interactionService;
         $this->autoMapping = $autoMapping;
+        $this->validator = $validator;
     }
 
       /**
@@ -35,6 +37,13 @@ class InteractionCommentController extends BaseController
     {
         $data = json_decode($request->getContent(), true);
         $request = $this->autoMapping->map(\stdClass::class, CreateInteractionCommentRequest::class, (object) $data);
+       
+        $violations = $this->validator->validate($request);
+        if (\count($violations) > 0) {
+            $violationsString = (string) $violations;
+
+            return new JsonResponse($violationsString, Response::HTTP_OK);
+        }
 
         $result = $this->interactionService->create($request);
 
@@ -51,6 +60,13 @@ class InteractionCommentController extends BaseController
         $data = json_decode($request->getContent(), true);
         $request = $this->autoMapping->map(\stdClass::class, UpdateInteractionCommentRequest::class, (object) $data);
 
+        $violations = $this->validator->validate($request);
+        if (\count($violations) > 0) {
+            $violationsString = (string) $violations;
+
+            return new JsonResponse($violationsString, Response::HTTP_OK);
+        }
+        
         $result = $this->interactionService->update($request);
 
         return $this->response($result, self::UPDATE);

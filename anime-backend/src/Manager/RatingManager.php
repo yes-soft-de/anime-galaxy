@@ -24,7 +24,7 @@ class RatingManager
     public function create(CreateRatingRequest $request)
     {
         $ratingEntity = $this->autoMapping->map(CreateRatingRequest::class, Rating::class, $request);
-        $ratingEntity->setCreationDate();
+        $ratingEntity->setCreationDate($request->creationDate);
 
         $this->entityManager->persist($ratingEntity);
         $this->entityManager->flush();

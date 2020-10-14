@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
-
+use Symfony\Component\HttpFoundation\Response;
 class EpisodeController extends BaseController
 {
     private $episodeService;
@@ -29,7 +29,7 @@ class EpisodeController extends BaseController
     }
 
     /**
-     * @Route("/episode", name="createEpisode", methods={"POST"})
+     * @Route("episode", name="createEpisode", methods={"POST"})
      * @param Request $request
      * @return JsonResponse
      */
@@ -52,7 +52,7 @@ class EpisodeController extends BaseController
     }
 
     /**
-     * @Route("/episode/{id}", name="updateArticle", methods={"PUT"})
+     * @Route("episode", name="updateEpisode", methods={"PUT"})
      * @param Request $request
      * @return JsonResponse
      */
@@ -60,6 +60,13 @@ class EpisodeController extends BaseController
     {
         $data = json_decode($request->getContent(), true);
         $request = $this->autoMapping->map(\stdClass::class, UpdateEpisodeRequest::class, (object) $data);
+        
+        $violations = $this->validator->validate($request);
+        if (\count($violations) > 0) {
+            $violationsString = (string) $violations;
+
+            return new JsonResponse($violationsString, Response::HTTP_OK);
+        }
 
         $result = $this->episodeService->update($request);
         return $this->response($result, self::UPDATE);

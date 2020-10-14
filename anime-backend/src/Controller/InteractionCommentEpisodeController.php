@@ -11,21 +11,23 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
-
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class InteractionCommentEpisodeController extends BaseController
 {
     private $interactionService;
     private $autoMapping;
+    private $validator;
 
-    public function __construct( SerializerInterface $serializer, InteractionCommentEpisodeService $interactionService, AutoMapping $autoMapping)
+    public function __construct(ValidatorInterface $validator, SerializerInterface $serializer, InteractionCommentEpisodeService $interactionService, AutoMapping $autoMapping)
     {
         parent::__construct($serializer);
         $this->interactionService = $interactionService;
         $this->autoMapping = $autoMapping;
+        $this->validator = $validator;
     }
 
-      /**
+    /**
      * @Route("interactionCommentEpisode", name="createInteractionCommentEpisode", methods={"POST"})
      * @param Request $request
      * @return JsonResponse
@@ -34,6 +36,13 @@ class InteractionCommentEpisodeController extends BaseController
     {
         $data = json_decode($request->getContent(), true);
         $request = $this->autoMapping->map(\stdClass::class, CreateInteractionCommentEpisodeRequest::class, (object) $data);
+
+        $violations = $this->validator->validate($request);
+        if (\count($violations) > 0) {
+            $violationsString = (string) $violations;
+
+            return new JsonResponse($violationsString, Response::HTTP_OK);
+        }
 
         $result = $this->interactionService->create($request);
 
@@ -50,6 +59,13 @@ class InteractionCommentEpisodeController extends BaseController
         $data = json_decode($request->getContent(), true);
         $request = $this->autoMapping->map(\stdClass::class, UpdateInteractionCommentEpisodeRequest::class, (object) $data);
 
+        $violations = $this->validator->validate($request);
+        if (\count($violations) > 0) {
+            $violationsString = (string) $violations;
+
+            return new JsonResponse($violationsString, Response::HTTP_OK);
+        }
+        
         $result = $this->interactionService->update($request);
 
         return $this->response($result, self::UPDATE);

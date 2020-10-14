@@ -83,9 +83,9 @@ class Rating
         return $this->creationDate;
     }
 
-    public function setCreationDate(): self
+    public function setCreationDate($creationDate): self
     {
-        $this->creationDate = new \DateTime('Now');
+        $this->creationDate = new \DateTime($creationDate);
 
         return $this;
     }

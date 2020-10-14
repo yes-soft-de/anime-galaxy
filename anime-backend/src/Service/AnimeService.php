@@ -111,10 +111,8 @@ class AnimeService
     public function update($request)
     {
         $animeResult = $this->animeManager->update($request);
-        $response = $this->autoMapping->map(Anime::class, UpdateAnimeResponse::class, $animeResult);
-        $response->setName($request->getName());
-        $response->setMainImage($request->getMainImage());
-        return $response;
+        return $this->autoMapping->map(Anime::class, UpdateAnimeResponse::class, $animeResult);
+         
     }
 
     public function deleteAnime($request)

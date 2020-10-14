@@ -4,8 +4,6 @@ namespace App\Request;
 
 class CreateImageRequest
 {
-    
-    public $id;
     public $image;
     public $animeID;
 
@@ -16,15 +14,7 @@ class CreateImageRequest
     {
         return $this->id;
     }
-
-    /**
-     * @param mixed $id
-     */
-    public function setId($id): void
-    {
-        $this->id = $id;
-    }
-
+    
     /**
      * @return mixed
      */

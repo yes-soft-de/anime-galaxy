@@ -6,32 +6,14 @@ use DateTime;
 
 class CreateRatingRequest
 {
-    private $id;
     private $userID;
     public  $animeID;
     private $rateValue;
-    private $creationDate;
+    public $creationDate;
 
-    public function __construct()
+    public function __construct($creationDate)
     {
-        $this->creationDate = new DateTime('Now');
-    }
-
-     /**
-     * @return mixed
-     */
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-    
-
-   /**
-     * @return mixed
-     */ 
-    public function getUserId()
-    {
-        return $this->userID;
+        $this->creationDate = new DateTime($creationDate);
     }
 
     /**

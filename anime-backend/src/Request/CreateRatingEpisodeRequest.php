@@ -4,7 +4,6 @@ namespace App\Request;
 
 class CreateRatingEpisodeRequest 
 {
-    private $id;
     private $userID;
     private $episodeID;
     private $rateValue;
@@ -14,15 +13,7 @@ class CreateRatingEpisodeRequest
     {
         $this->creationDate = new DateTime('Now');
     }
-     /**
-     * @return mixed
-     */
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-    
-
+   
    /**
      * @return mixed
      */ 

@@ -6,7 +6,6 @@ use DateTime;
 
 class CreateCommentEpisodeRequest
 {
-    private $id;
     private $userID;
     private $episodeID;
     private $comment;
@@ -16,22 +15,6 @@ class CreateCommentEpisodeRequest
     public function __construct()
     {
         $this->creationDate = new DateTime('Now');
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param mixed $id
-     */
-    public function setId($id): void
-    {
-        $this->id = $id;
     }
 
     /**
