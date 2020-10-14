@@ -17,8 +17,6 @@
 
 
 
-Comment Episode APIs
-
 
 ### Anime APIs
 ##### Create new anime.
@@ -63,7 +61,7 @@ Comment Episode APIs
 ##### Get all categories. 
 `Method: GET. Path: /category`
 ##### Update existing category. 
-`Method: PUT. Path: / category`
+`Method: PUT. Path: /category`
 ##### Delete specific category. 
 `Method: DELETE. Path: / category`
 
@@ -107,7 +105,7 @@ Comment Episode APIs
 ##### Create new Interaction. 
 `Method: POST. Path: /interaction`
 ##### Update existing interaction. 
-`Method: PUT. Path: /interaction/userID/animeID/type`
+`Method: PUT. Path: /interaction`
 ##### Get all interaction by animeID. 
 `Method: GET. Path: /interaction/animeID`
 ##### Get all interaction by animeID and userID. 
