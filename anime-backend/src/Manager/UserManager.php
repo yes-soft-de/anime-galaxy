@@ -7,6 +7,7 @@ namespace App\Manager;
 use App\AutoMapping;
 use App\Entity\User;
 use App\Entity\UserEntity;
+use App\Entity\UserProfile;
 use App\Entity\UserProfileEntity;
 use App\Repository\UserEntityRepository;
 use App\Repository\UserProfileEntityRepository;
@@ -59,7 +60,7 @@ class UserManager
 
     public function userProfileCreate(UserProfileCreateRequest $request)
     {
-        $userProfile = $this->autoMapping->map(UserProfileCreateRequest::class, UserProfileEntity::class, $request);
+        $userProfile = $this->autoMapping->map(UserProfileCreateRequest::class, UserProfile::class, $request);
 
         $this->entityManager->persist($userProfile);
         $this->entityManager->flush();
@@ -75,7 +76,7 @@ class UserManager
         if ($item)
         {
             $item = $this->autoMapping->mapToObject(UserProfileUpdateRequest::class,
-                UserProfileEntity::class, $request, $item);
+                UserProfile::class, $request, $item);
 
             $this->entityManager->flush();
             $this->entityManager->clear();
