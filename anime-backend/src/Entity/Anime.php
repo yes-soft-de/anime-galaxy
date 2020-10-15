@@ -37,6 +37,16 @@ class Anime
      */
     private $creationDate;
 
+    /**
+     * @ORM\Column(type="string", length=15, nullable=true)
+     */
+    private $age;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $trailer;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,6 +96,30 @@ class Anime
     public function setCreationDate(): self
     {
         $this->creationDate = new \DateTime('Now');
+
+        return $this;
+    }
+
+    public function getAge(): ?string
+    {
+        return $this->age;
+    }
+
+    public function setAge(?string $age): self
+    {
+        $this->age = $age;
+
+        return $this;
+    }
+
+    public function getTrailer(): ?string
+    {
+        return $this->trailer;
+    }
+
+    public function setTrailer(?string $trailer): self
+    {
+        $this->trailer = $trailer;
 
         return $this;
     }

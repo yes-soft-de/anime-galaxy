@@ -10,6 +10,8 @@ class UpdateAnimeRequest
     private $name;
     private $mainImage;
     private $categoryID;
+    private $age;
+    private $trailer;
 
     /**
      * @return mixed

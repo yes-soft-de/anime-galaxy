@@ -12,6 +12,8 @@ class CreateAnimeRequest
     private $mainImage;
     private $categoryID;
     private $creationDate;
+    private $age;
+    private $trailer;
 
     public function __construct()
     {

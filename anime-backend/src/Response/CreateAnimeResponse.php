@@ -10,6 +10,8 @@ class CreateAnimeResponse
     public $mainImage;
     public $categoryID;
     public $creationDate;
+    public $age;
+    public $trailer;
     
     /**
      * @return mixed
