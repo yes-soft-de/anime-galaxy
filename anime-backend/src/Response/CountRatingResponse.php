@@ -7,9 +7,6 @@ class CountRatingResponse
 
     public $avgRating;
    
-
-   
-
     /**
      * Set the value of avgRating
      *

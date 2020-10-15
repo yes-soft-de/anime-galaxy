@@ -4,12 +4,35 @@
 namespace App\Request;
 
 
+use DateTime;
+
 class CreateAnimeRequest
 {
     private $id;
     private $name;
     private $mainImage;
     private $categoryID;
+    private $creationDate;
+
+    public function __construct()
+    {
+        $this->creationDate = new DateTime('Now');
+    }
+    /**
+     * @return mixed
+     */
+    public function getCreationDate(): DateTime
+    {
+        return $this->creationDate;
+    }
+
+    /**
+     * @param mixed $creationDate
+     */
+    public function setCreationDate(DateTime $creationDate): void
+    {
+         $this->creationDate = $creationDate;
+    }
 
     /**
      * @return mixed
@@ -59,20 +82,5 @@ class CreateAnimeRequest
         $this->mainImage = $mainImage;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getCategoryID()
-    {
-        return $this->categoryID;
-    }
-
-    /**
-     * @param mixed $categoryID
-     */
-    public function setCategoryID($categoryID): void
-    {
-        $this->categoryID = $categoryID;
-    }
 
 }

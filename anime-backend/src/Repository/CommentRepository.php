@@ -19,40 +19,36 @@ class CommentRepository extends ServiceEntityRepository
         parent::__construct($registry, Comment::class);
     }
 
-    // /**
-    //  * @return Comment[] Returns an array of Comment objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function getCommentById($id)
     {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('c.id', 'ASC')
-            ->setMaxResults(10)
+        return $this->createQueryBuilder('Comment')
+    
+            ->select('Comment.id','Comment.comment as comment','Comment.userID','Comment.animeID','Comment.spoilerAlert','Comment.creationDate')
+            ->andWhere('Comment.id=:id')
+            ->setParameter('id',$id)
             ->getQuery()
-            ->getResult()
-        ;
+            ->getResult();
     }
-    */
 
-    /*
-    public function findOneBySomeField($value): ?Comment
-    {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
     public function getAll($id)
     {
-        return  $res= $this->createQueryBuilder('Comment')
-        ->andWhere('Comment.animeId = :id')
+        return $this->createQueryBuilder('Comment')
+        ->select('Comment.id','Comment.comment as comment','Comment.userID','Comment.animeID','Comment.spoilerAlert','Comment.creationDate')
+        ->andWhere('Comment.animeID = :id')
         ->setParameter('id', $id)
         ->getQuery()
         ->getResult();
+    }
+
+    public function getCommentsByAnimeId($animeID)
+    {
+        return $this->createQueryBuilder('comment')
+            ->select('comment.id,comment.comment, comment.spoilerAlert, comment.creationDate')
+            ->from('App:Anime','anime')
+            ->andWhere('anime.id=comment.animeID')
+            ->andWhere('anime.id=:animeID')
+            ->setParameter('animeID', $animeID)
+            ->getQuery()
+            ->getResult();
     }
 }

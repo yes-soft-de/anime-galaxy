@@ -7,65 +7,108 @@ namespace App\Service;
 use App\AutoMapping;
 use App\Entity\Anime;
 use App\Manager\AnimeManager;
-use App\Manager\ImageManager;
-use App\Request\UpdateAnimeRequest;
-use App\Request\UpdateImageRequest;
 use App\Response\CreateAnimeResponse;
 use App\Response\GetAnimeByIdResponse;
 use App\Response\GetAnimeResponse;
+use App\Response\GetAnimeByCategoryResponse;
 use App\Response\UpdateAnimeResponse;
+use App\Response\GetHighestRatedAnimeResponse;
+use App\Response\GetHighestRatedAnimeByUserResponse;
+use App\Response\GetAnimeCommingSoonResponse;
+use App\Response\GetMaybeYouLikeResponse;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
+use Symfony\Component\Validator\Constraints\Length;
+use Doctrine\Common\Collections\ArrayCollection;
 
 class AnimeService
 {
     private $animeManager;
     private $autoMapping;
-    private $imageManager;
+    private $imageService;
+    private $commentService;
+    private $interactionService;
+    private $params;
 
-    /**
-     * AnimeService constructor.
-     * @param AnimeManager $animeManager
-     * @param AutoMapping $autoMapping
-     * @param ImageManager $imageManager
-     */
-    public function __construct(AnimeManager $animeManager, AutoMapping $autoMapping,
- ImageManager $imageManager)
+
+    public function __construct(AnimeManager $animeManager, AutoMapping $autoMapping, ImageService $imageService, CommentService $commentService,
+                        InteractionService $interactionService, ParameterBagInterface $params)
     {
         $this->animeManager = $animeManager;
         $this->autoMapping = $autoMapping;
-        $this->imageManager = $imageManager;
+        $this->imageService = $imageService;
+        $this->commentService = $commentService;
+        $this->interactionService = $interactionService;
+
+        $this->params = $params->get('upload_base_url').'/';
     }
 
     public function createAnime($request)
     {
         $animeResult = $this->animeManager->create($request);
-        $response = $this->autoMapping->map(Anime::class, CreateAnimeResponse::class, $animeResult);
+        return $this->autoMapping->map(Anime::class, CreateAnimeResponse::class, $animeResult);
+    }
+
+    public function getAnimeById($request)
+    {
+        /** @var $response GetAnimeByIdResponse*/
+        $response = [];
+
+        $result = $this->animeManager->getAnimeById($request);
+
+        $resultImg = $this->imageService->getImagesByAnimeID($request);
+        $resultComments = $this->commentService->getCommentsByAnimeId($request);
+        $love = $this->interactionService->loved($request);
+        $like = $this->interactionService->like($request);
+        $dislike = $this->interactionService->dislike($request);
+
+        foreach ($result as $row)
+        {
+            $row['mainImage'] = $this->specialLinkCheck($row['specialLink']).$row['mainImage'];
+            $response = $this->autoMapping->map('array', GetAnimeByIdResponse::class, $row);
+        }
+
+        $response->setImages($resultImg);
+        $response->setComments($resultComments);
+        $response->interactions['love'] = $love;
+        $response->interactions['like'] = $like;
+        $response->interactions['dislike'] = $dislike;
+
         return $response;
     }
 
     public function getAllAnime()
     {
+        /** @var $response GetAnimeResponse*/
         $result = $this->animeManager->getAllAnime();
         $response = [];
+        
         foreach ($result as $row)
         {
-            $response[] = $this->autoMapping->map(Anime::class, GetAnimeResponse::class, $row);
+            $row['interaction']=[
+            'love' => $this->interactionService->lovedAll($row['id']),
+            'like' => $this->interactionService->likeAll($row['id']),
+            'dislike' => $this->interactionService->dislikeAll($row['id'])
+            ];
+            $response[] = $this->autoMapping->map('array', GetAnimeResponse::class, $row);
+          
         }
         return $response;
     }
 
-    public function getAnimeById($request)
+    public function getAnimeByCategoryID($categoryID)
     {
-        $result = $this->animeManager->getAnimeById($request);
-        $response = $this->autoMapping->map(Anime::class, GetAnimeByIdResponse::class, $result);
-        return $response;
-    }
-
-    public function getAnimeByCategoryId($request)
-    {
-        $result = $this->animeManager->getByCategoryId($request);
-        $response=[];
+        $result = $this->animeManager->getByCategoryID($categoryID);
+        $response = [];
+        
         foreach ($result as $row)
-            $response[] = $this->autoMapping->map(Anime::class, GetAnimeResponse::class, $row);
+        {
+            $row['interaction']=[
+                'love' => $this->interactionService->lovedAll($row['id']),
+                'like' => $this->interactionService->likeAll($row['id']),
+                'dislike' => $this->interactionService->dislikeAll($row['id'])
+            ];
+            $response[] = $this->autoMapping->map('array', GetAnimeByCategoryResponse::class, $row);
+        }
         return $response;
     }
 
@@ -73,11 +116,6 @@ class AnimeService
     {
         $animeResult = $this->animeManager->update($request);
         $response = $this->autoMapping->map(Anime::class, UpdateAnimeResponse::class, $animeResult);
-
-        /*$animeImage = new UpdateImageRequest();
-        $animeImage->image = $response->getMainImage();
-        $animeImage->animeID = $response->getId();
-        $animeResult = $this->imageManager->update($animeImage);*/
         $response->setName($request->getName());
         $response->setMainImage($request->getMainImage());
         return $response;
@@ -86,11 +124,89 @@ class AnimeService
     public function deleteAnime($request)
     {
         $animeResult = $this->animeManager->delete($request);
-        if($animeResult==null)
+        if($animeResult == null)
         {
             return null;
         }
-        $response = $this->autoMapping->map(Anime::class, GetAnimeByIdResponse::class, $animeResult);
+        return  $this->autoMapping->map(Anime::class, GetAnimeByIdResponse::class, $animeResult);
+        
+    }
+
+    public function getHighestRatedAnime()
+    {
+        $response = [];
+        $result = $this->animeManager->getHighestRatedAnime();
+
+        foreach ($result as $row)
+        {
+            $response[] = $this->autoMapping->map('array', GetHighestRatedAnimeResponse::class, $row);
+        }
+
         return $response;
+    }
+
+    public function getHighestRatedAnimeByUser($userID)
+    {
+        $response = [];
+        $result = $this->animeManager->getHighestRatedAnimeByUser($userID);
+
+        foreach ($result as $row)
+        {
+            $response[] = $this->autoMapping->map('array', GetHighestRatedAnimeByUserResponse::class, $row);
+        }
+      
+        return $response;
+    }
+
+    public function getAllCommingSoon()
+    {
+        /** @var $response */
+       
+        $result = $this->animeManager->getAllCommingSoon();
+        $response = [];
+        
+        foreach ($result as $row)
+        {
+            $response[] = $this->autoMapping->map('array', GetAnimeCommingSoonResponse::class, $row);
+          
+        }
+        return $response;
+    }
+
+    public  function searchMyArray($arrays, $key, $search) 
+    {       
+        $count = 0;
+     
+        foreach($arrays as $object)
+         {
+            if(is_object($object)) {
+               $object = get_object_vars($object);
+            }
+            if(array_key_exists($key, $object) && $object[$key] == $search) $count++;
+        }
+        return $count;
+     }   
+
+    public function getMaybeYouLike($userID)
+    {
+        /** @var $response */
+       $response = [];
+       $result = $this->animeManager->getAnimeFavourite($userID);
+       
+       $result1 = $this->animeManager->getAnimeByFavouriteCateory($userID);
+       foreach($result1 as $res){
+          if (!$this->searchMyArray($result, 'id',$res['id'])){
+              $response[] = $this->autoMapping->map('array', GetMaybeYouLikeResponse::class, $res);
+          }
+        }
+        return $response;
+    }
+
+    public function specialLinkCheck($bool)
+    {
+        if (!$bool)
+        {
+            return $this->params;
+        }
     }
 }

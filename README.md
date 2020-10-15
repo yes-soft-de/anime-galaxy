@@ -1,5 +1,25 @@
 # anime-galaxy
 
+##### Table of Contents
+* [Anime APIs](#anime-apis)
+* [Episode APIs](#episode-apis)
+* [Category APIs](#category-apis)
+* [Image APIs](#image-apis)
+* [Follow APIS](#follow-apis)
+* [Comment APIs](#comment-apis)
+* [Interaction APIs](#interaction-apis)
+* [Rating APIs](#rating-apis)
+* [Favourite APIs](#favourite-apis) 
+* [Grade APIs](#grade-apis)
+* [Comment Episode APIs](#comment-episode-apis)
+* [Interaction Episode APIs](#Interaction-episode-apis)
+* [Rating APIs](#rating-apis)
+
+
+
+Comment Episode APIs
+
+
 ### Anime APIs
 ##### Create new anime.
 `Method: POST. Path: /anime`
@@ -13,6 +33,29 @@
 `Method: GET. Path: /category/ID`
 ##### Delete existing anime by ID. 
 `Method: DELET. Path: /anime`
+##### Get Highest Rated Anime
+`Method: GET. Path: /getHighestRatedAnime`
+##### Get Highest Rated Anime By User
+`Method: GET. Path: /getHighestRatedAnime/{userID}`
+##### Get All Anime CommingSoon
+`Method: GET. Path: /animeCommingSoon`
+##### Get Anime Maybe You Like
+`Method: GET. Path: /getMaybeYouLike/{userID}`
+
+
+### Episode APIs
+##### Insert new episode.
+`Method: POST. Path: /episode.`
+##### Get an episode by ID.
+`Method: Get. Path: /episode/id.`
+##### Get episodes of specific anime.
+`Method: Get. Path: /episode/animeID.`
+##### Get episodes of specific anime and specific season.
+`Method: Get. Path: /episode/animeID/seasonNumber.`
+##### Update an existing episode by ID.
+`Method: PUT. Path: /episode.`
+##### Delete an existing episode by ID.
+`Method: DELETE. Path: /episode/id.`
 
 ### Category APIs
 ##### Create a new category. 
@@ -49,9 +92,9 @@
 
 ### Comment APIs
 ##### Create new comment. 
-`Method: POST. Path: /comment/userID/animeID`
+`Method: POST. Path: /comment`
 ##### Update existing comment by ID. 
-`Method: PUT. Path: /comment/userID/animeID`
+`Method: PUT. Path: /comment`
 ##### Delete existing comment by ID. 
 `Method: DELETE. Path: /comment/ID`
 ##### Get specific comment by ID. 
@@ -62,31 +105,77 @@
 
 ### Interaction APIs
 ##### Create new Interaction. 
-`Method: POST. Path: /Interaction/userID/animeID/type`
+`Method: POST. Path: /interaction`
 ##### Update existing interaction. 
-`Method: PUT. Path: /Interaction/userID/animeID/type`
+`Method: PUT. Path: /interaction/userID/animeID/type`
 ##### Get all interaction by animeID. 
-`Method: GET. Path: /Interaction/animeID`
+`Method: GET. Path: /interaction/animeID`
 ##### Get all interaction by animeID and userID. 
-`Method: GET. Path: /Interaction/animeID/userID`
-##### Get count interaction by animeID. Method: GET. Path/ countInteractions/animeID
+`Method: GET. Path: /interaction/animeID/userID`
+##### Get count interaction by animeID. 
+`Method: GET. Path/ countInteractions/animeID`
 
 ### Rating APIs
 ##### Create new rating. 
-`Method: POST. Path: /rating/userID/animeID/rateValue`
+`Method: POST. Path: /rating`
 ##### Update existing rating. 
-`Method: PUT. Path: /rating/userID/animeID/rateValue`
+`Method: PUT. Path: /rating`
 ##### Get rating by animeID and userID. 
 `Method: GET. Path: /rating/animeID/userID`
 ##### Get rating by animeID . 
 `Method: GET. Path: /ratings/animeID`
 
-### Watch List APIs
-##### Create watchList. 
-`Method: POST. Path: /watchList/userID/animeID`
-##### Get a watchList  by ID. 
-`Method: GET. Path: /watchList/ID`
-##### Get a watchList  by animeID. 
-`Method: GET. Path: /watchListsAnime/animeID`
-##### Get a watchList  by userID. 
-`Method: GET. Path: /watchListsUser/userID`
+### Favourite APIs
+##### Create a new favourite. 
+`Method: POST. Path: /favourite`
+##### Get a favourite by animeID. 
+`Method: GET. Path: /favouriteAnime/{animeID}`
+##### Get a favourite by userID. 
+`Method: GET. Path: /favouriteUser/userID`
+
+### Grade APIs
+##### Create a new recorde with grade equals to 0. 
+`Method: POST. Path: /register-point`
+##### Update an existing grade by userID. 
+`Method: PUT. Path: /grade`
+##### Get top 50 users 
+###### _Used for display the grade of each user in his/her profile_
+`Method: GET. Path: /top50`
+##### Get a grade of specific user. 
+`Method: GET. Path: /grade/{userID}`
+#### Delete an existing recorde by ID. 
+`Method: DELETE. Path: /grade/{userID}`
+
+### Comment Episode APIs
+##### Create new comment Episode. 
+`Method: POST. Path: /commentEpisode`
+##### update Comment Episode. 
+`Method: PUT. Path: /commentEpisode`
+##### Delete existing comment Episode by ID. 
+`Method: DELETE. Path: /commentEpisode/ID`
+##### Get specific comment by ID. 
+`Method: GET. Path: /commentEpisode/ID`
+##### Get all comments by episodeID. 
+`Method: GET. Path: /commentsEpisode/{episodeID}`
+
+### Interaction Episode APIs
+##### Create new Interaction Episode. 
+`Method: POST. Path: /interactionEpisode`
+##### Update existing interaction Episode. 
+`Method: PUT. Path: /interactionEpisode`
+##### Get all interaction Episode by episodeID. 
+`Method: GET. Path: /interaction/episodeID`
+##### Get all interaction Episode by episodeID and userID. 
+`Method: GET. Path: /interaction/episodeID/userID`
+
+### Rating Episode APIs
+##### Create new rating Episode. 
+`Method: POST. Path: /ratingEpisode`
+##### Update existing rating Episode. 
+`Method: PUT. Path: /ratingEpisode`
+##### Get rating by episodeID and userID. 
+`Method: GET. Path: /ratingEpisode/episodeID/userID`
+##### Get rating by episodeID . 
+`Method: GET. Path: /ratingEpisode/episodeID`
+
+

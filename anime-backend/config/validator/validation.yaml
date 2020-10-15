@@ -1,0 +1,103 @@
+App\Request\UploadImageRequest:
+  properties:
+    uploadedFile:
+      - Image:
+          #mimeTypesMessage: "this id not message"
+          maxSize: 2m
+          maxSizeMessage: "Image size over 2M"
+
+App\Request\CreateInteractionRequest:
+  properties:
+    userID:
+      - NotBlank: ~
+    animeID:
+      - NotBlank: ~
+    type:
+      - NotBlank: ~
+
+App\Request\CreateInteractionEpisodeRequest:
+  properties:
+    userID:
+      - NotBlank: ~
+    episodeID:
+      - NotBlank: ~
+    type:
+      - NotBlank: ~
+
+App\Request\CreateAnimeRequest:
+  properties:
+    name:
+      - NotBlank: ~
+    categoryID:
+      - NotBlank: ~
+    mainImage:
+      - NotBlank: ~
+
+App\Request\CreateCategoryRequest:
+  properties:
+    name:
+      - NotBlank: ~
+    description:
+      - NotBlank: ~
+
+App\Request\CreateCommentRequest:
+  properties:
+    userID:
+      - NotBlank: ~
+    animeID:
+      - NotBlank: ~
+    episodeID:
+      - NotBlank: ~
+    comment:
+      - NotBlank: ~
+
+App\Request\CreateEpisodeRequest:
+  properties:
+    animeID:
+      - NotBlank: ~
+    seasonNumber:
+      - NotBlank: ~
+    episodeNumber:
+      - NotBlank: ~
+    description:
+      - NotBlank: ~
+    image:
+      - NotBlank: ~
+    duration:
+      - NotBlank: ~
+
+App\Request\CreateFavouriteRequest:
+  properties:
+    animeID:
+      - NotBlank: ~
+    userID:
+      - NotBlank: ~
+    categoryID:
+      - NotBlank: ~
+    
+App\Request\CreateFollowRequest:
+  properties:
+    userID:
+      - NotBlank: ~
+    friendID:
+      - NotBlank: ~
+    
+App\Request\CreateImageRequest:
+  properties:
+    image:
+      - NotBlank: ~
+    animeID:
+      - NotBlank: ~
+    
+App\Request\CreateRatingRequest:
+  properties:
+    userID:
+      - NotBlank: ~
+    animeID:
+      - NotBlank: ~
+    episodeID:
+      - NotBlank: ~
+    rateValue:
+      - NotBlank: ~
+
+    

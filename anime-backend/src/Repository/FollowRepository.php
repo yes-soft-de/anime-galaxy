@@ -19,76 +19,39 @@ class FollowRepository extends ServiceEntityRepository
         parent::__construct($registry, Follow::class);
     }
 
-    // /**
-    //  * @return Follow[] Returns an array of Follow objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('f')
-            ->andWhere('f.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('f.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?Follow
-    {
-        return $this->createQueryBuilder('f')
-            ->andWhere('f.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
-
     public function getAll()
     {
-        $res = $this->createQueryBuilder('follow')
+        return $this->createQueryBuilder('follow')
             ->getQuery()
             ->getResult();
-
-        return $res;
     }
 
     public function getFollowById($id): ?Follow
     {
-        $res = $this->createQueryBuilder('follow')
+        return $this->createQueryBuilder('follow')
             ->andWhere('follow.id=:id')
             ->setParameter('id',$id)
             ->getQuery()
             ->getOneOrNullResult();
-
-        return $res;
     }
 
     public function getFollowsByUserId($userID)
     {
-        $res = $this->createQueryBuilder('follow')
+        return $this->createQueryBuilder('follow')
             ->andWhere('follow.userID=:userID')
             ->setParameter('userID',$userID)
             ->getQuery()
             ->getResult();
-
-        return $res;
     }
 
     public function getFollowByUserIdAndFriendId($userID, $friendID): ?Follow
     {
-        $res = $this->createQueryBuilder('follow')
+        return $this->createQueryBuilder('follow')
             ->andWhere('follow.userID=:userID')
             ->andWhere('follow.friendID=:friendID')
             ->setParameter('userID',$userID)
             ->setParameter('friendID', $friendID)
             ->getQuery()
             ->getOneOrNullResult();
-
-        return $res;
     }
 }

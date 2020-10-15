@@ -1,0 +1,92 @@
+<?php
+
+namespace App\Entity;
+
+use App\Repository\FavouriteRepository;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity(repositoryClass=FavouriteRepository::class)
+ */
+class Favourite
+{
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
+     */
+    private $id;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $userID;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $animeID;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $categoryID;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $creationDate;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getUserId(): ?string
+    {
+        return $this->userID;
+    }
+
+    public function setUserId(string $userID): self
+    {
+        $this->userID = $userID;
+
+        return $this;
+    }
+
+    public function getAnimeId(): ?int
+    {
+        return $this->animeID;
+    }
+
+    public function setAnimeId(int $animeID): self
+    {
+        $this->animeID = $animeID;
+
+        return $this;
+    }
+
+    public function getCategoryID(): ?int
+    {
+        return $this->categoryID;
+    }
+
+    public function setCategoryID(int $categoryID): self
+    {
+        $this->categoryID = $categoryID;
+
+        return $this;
+    }
+
+    public function getCreationDate(): ?\DateTimeInterface
+    {
+        return $this->creationDate;
+    }
+
+    public function setCreationDate(): self
+    {
+        $this->creationDate = new \DateTime('Now');
+
+        return $this;
+    }
+}

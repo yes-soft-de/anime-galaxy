@@ -4,55 +4,10 @@ namespace App\Response;
 
 class GetCommentsResponse
 {
-    public $id;
-    public $userId;
-    public $animeId;
     public $comment;
-
-     /**
-     * @return mixed
-     */
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-    
-
-   /**
-     * @return mixed
-     */ 
-    public function getUserId()
-    {
-        return $this->userId;
-    }
-
-    /**
-     * @param mixed $userId
-     */
-    public function setUserId($userId)
-    {
-        $this->userId = $userId;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */  
-    public function getAnimeId()
-    {
-        return $this->animeId;
-    }
-
-    /**
-     * @param mixed $animeId
-     */
-    public function setAnimeId($animeId)
-    {
-        $this->animeId = $animeId;
-
-        return $this;
-    }
+    public $spoilerAlert;
+    public $creationDate;
+    public $commentInteractions;
 
     /**
      * @return mixed
@@ -62,12 +17,30 @@ class GetCommentsResponse
         return $this->comment;
     }
 
-   /**
+    /**
      * @param mixed $comment
      */
     public function setComment($comment)
     {
         $this->comment = $comment;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */ 
+    public function getSpoilerAlert()
+    {
+        return $this->spoilerAlert;
+    }
+
+   /**
+     * @param mixed $spoilerAlert
+     */ 
+    public function setSpoilerAlert($spoilerAlert)
+    {
+        $this->spoilerAlert = $spoilerAlert;
 
         return $this;
     }

@@ -6,9 +6,9 @@ namespace App\Response;
 
 class CreateFollowResponse
 {
-    private $id;
-    private $userID;
-    private $friendID;
+    public $id;
+    public $userID;
+    public $friendID;
 
     /**
      * @return mixed

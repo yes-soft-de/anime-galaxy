@@ -3,8 +3,14 @@
 namespace App\Repository;
 
 use App\Entity\Anime;
+use App\Entity\Rating;
+use App\Entity\Category;
+use App\Entity\Comment;
+use App\Entity\Favourite;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query\Expr\Join;
 use Doctrine\Persistence\ManagerRegistry;
+
 
 /**
  * @method Anime|null find($id, $lockMode = null, $lockVersion = null)
@@ -19,63 +25,220 @@ class AnimeRepository extends ServiceEntityRepository
         parent::__construct($registry, Anime::class);
     }
 
-    // /**
-    //  * @return Anime[] Returns an array of Anime objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function getAnimeById($id)
     {
-        return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('a.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+        return $this->createQueryBuilder('anime')
+    
+        ->select('anime.id','anime.name', 'anime.mainImage','category.name as categoryName',
+            'avg(rate.rateValue) as rating', 'anime.specialLink')
+        
+            ->leftJoin(
+                Category::class,
+                'category',
+                Join::WITH,
+                'category.id = anime.categoryID'
+            )
 
-    /*
-    public function findOneBySomeField($value): ?Anime
-    {
-        return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
-            ->setParameter('val', $value)
+            ->leftJoin(
+                Rating::class,            
+                'rate',                   
+                Join::WITH,           
+                'rate.animeID = anime.id' 
+            )
+            ->andWhere('anime.id=:id')
+            ->setParameter('id',(INT) $id)
+
+            ->groupBy('anime.id')
+            ->orderBy('anime.id')
+
             ->getQuery()
-            ->getOneOrNullResult()
-        ;
+            ->getResult();
     }
-    */
 
     public function getAll()
     {
-        $res = $this->createQueryBuilder('anime')
+        return $this->createQueryBuilder('anime')
+            ->select('anime.id', 'anime.name', 'anime.mainImage', 'category.name as categoryName',
+                'avg(rate.rateValue) as rating',
+                'count(DISTINCT comment.id) as comments')
+            ->leftJoin(
+                Category::class,
+                'category',
+                Join::WITH,
+                'category.id = anime.categoryID'
+            )
+           
+            ->leftJoin(
+                Rating::class,                   
+                'rate',                        
+                Join::WITH,             
+                'rate.animeID = anime.id'  
+            )
+            ->leftJoin(
+                Comment::class,                  
+                'comment',                           
+                Join::WITH,              
+                'comment.animeID = anime.id'      
+            )
+            ->groupBy('anime.id')
             ->getQuery()
             ->getResult();
-
-        return $res;
-    }
-
-    public function getAnimeById($id): ?Anime
-    {
-        $res = $this->createQueryBuilder('anime')
-            ->andWhere('anime.id=:id')
-            ->setParameter('id', $id)
-            ->getQuery()
-            ->getOneOrNullResult();
-
-        return $res;
     }
     
-    public function getAnimeByCategoryId($catId)
+    public function getAnimeByCategoryID($categoryID)
     {
-        $res = $this->createQueryBuilder('anime')
-            ->andWhere('anime.categoryID=:catId')
-            ->setParameter('catId', $catId)
+        return $this->createQueryBuilder('anime')
+            ->select('anime.id','anime.name', 'anime.mainImage', 'count(DISTINCT comment.id) as comments','avg(rate.rateValue) as rating')
+            ->leftJoin(
+                Comment::class,            
+                'comment',                  
+                Join::WITH,          
+                'comment.animeID = anime.id ' 
+            )
+            ->leftJoin(
+                Rating::class,            
+                'rate',                   
+                Join::WITH,           
+                'rate.animeID = anime.id' 
+            )
+            ->andWhere('anime.categoryID=:categoryID')
+            ->groupBy('anime.id')
+            ->setParameter('categoryID', (INT)$categoryID)
             ->getQuery()
             ->getResult();
-        
-        return $res;
     }
+
+    public function getHighestRatedAnime()
+    {
+        return $this->createQueryBuilder('anime')
+            ->select('anime.id', 'anime.name as animeName', 'anime.mainImage as animeMainImage', 'category.name as categoryName', 'avg(rate.rateValue) as rating'
+                )
+            ->leftjoin(
+                Category::class,
+                'category',
+                Join::WITH,
+                'category.id = anime.categoryID'
+            )
+            ->leftJoin(
+                Rating::class,
+                'rate',
+                Join::WITH,
+                'rate.animeID = anime.id'
+            )
+            ->setMaxResults(10)   
+            ->addOrderBy('rating','DESC')
+            ->groupBy('category.name')
+            ->groupBy('animeName')
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function getHighestRatedAnimeByUser($userID)
+    {
+        return $this->createQueryBuilder('anime')
+        ->select('anime.id','anime.name as animeName', 'anime.mainImage as animeMainImage', 'avg(rate.rateValue) as rating')
+        ->addSelect('category.name as categoryName')
+       
+        ->leftJoin(
+            Favourite::class,
+            'favourite',
+            Join::WITH,
+           'favourite.userID = :userID'
+        )
+        ->leftjoin(
+            Category::class,
+            'category',
+            Join::WITH,
+            'category.id = anime.categoryID'
+        )
+         ->leftJoin(
+            Rating::class,
+            'rate',
+            Join::WITH,
+            'rate.animeID = anime.id'
+        )
+        ->andWhere('anime.id=favourite.animeID')
+        ->setMaxResults(10)   
+        ->addOrderBy('rating','DESC')
+        ->setParameter('userID', $userID)
+        ->groupBy('anime.id')
+        ->getQuery()
+        ->getResult();
+    }
+
+    public function getAllCommingSoon($date)
+    {        
+        return $this->createQueryBuilder('anime')
+            ->select('anime.id', 'anime.name', 'anime.mainImage', 'category.name as categoryName')
+            ->leftJoin(
+                Category::class,
+                'category',
+                Join::WITH,
+                'category.id = anime.categoryID'
+            )
+            ->andWhere( 'anime.creationDate > :date')
+            ->setParameter('date',$date)
+            ->groupBy('anime.id')
+            ->getQuery()
+            ->getResult();       
+    }  
+
+    public function getAnimeFavourite($userID)
+    {
+        return $this->createQueryBuilder('anime')
+        ->select('anime.id','anime.name as animeName', 'anime.mainImage as animeMainImage')
+        ->addSelect('category.name as categoryName')
+       
+        ->join(
+            Favourite::class,
+            'favourite',
+            Join::WITH,
+           'favourite.userID = :userID'
+        )
+        ->leftjoin(
+            Category::class,
+            'category',
+            Join::WITH,
+            'category.id = anime.categoryID'
+        )
+        ->andWhere('anime.id = favourite.animeID')
+        ->setParameter('userID', $userID)
+        ->groupBy('anime.id')
+        ->getQuery()
+        ->getResult();
+    }
+    public function getAnimeByFavouriteCateory($userID)
+    {    
+         $result=$this->createQueryBuilder('anime')
+        ->select('anime.id','anime.name as animeName', 'anime.mainImage as animeMainImage', 'avg(rate.rateValue) as rating')
+        ->addSelect('category.name as categoryName')
+        ->leftjoin(
+            Category::class,
+            'category',
+            Join::WITH,
+            'category.id = anime.categoryID'
+        )
+         ->join(
+            Favourite::class,
+            'favourite',
+            Join::WITH,
+           'favourite.userID = :userID'
+        )
+        ->leftJoin(
+            Rating::class,
+            'rate',
+            Join::WITH,
+            'rate.animeID = anime.id'
+        )
+        ->andWhere('category.id = favourite.categoryID')
+        ->setParameter('userID', $userID)
+        ->setMaxResults(10)   
+        ->addOrderBy('rating','DESC')
+        ->groupBy('anime.id')
+        ->getQuery()
+        ->getResult();
+        return $result;
+    }
+
+     
 }

@@ -16,7 +16,6 @@ class FollowService
     private $followManager;
     private $autoMapping;
 
-
     public function __construct(FollowManager $followManager, AutoMapping $autoMapping)
     {
         $this->followManager = $followManager;
@@ -26,46 +25,50 @@ class FollowService
     public function create($request)
     {
         $followResult = $this->followManager->create($request);
-        $response = $this->autoMapping->map(Follow::class, CreateFollowResponse::class,
-            $followResult);
-        return $response;
-    }
 
+        return $this->autoMapping->map(Follow::class, CreateFollowResponse::class,
+            $followResult);
+    }
 
     public function getAll()
     {
         $result = $this->followManager->getAll();
-        $response=[];
+        $response = [];
+
         foreach ($result as $row)
+        {
             $response[] = $this->autoMapping->map(Follow::class, GetFollowResponse::class, $row);
+        }
+
         return $response;
     }
-
 
     public function getFollowByUserId($request)
     {
         $result = $this->followManager->getFollowByUserId($request);
-        $response=[];
+        $response = [];
+
         foreach ($result as $row)
+        {
             $response[] = $this->autoMapping->map(Follow::class, GetFollowResponse::class, $row);
+        }
+
         return $response;
     }
-
 
     public function delete($request)
     {
         $result = $this->followManager->delete($request);
         $response = $this->autoMapping->map(Follow::class, GetFollowByIdResponse::class, $result);
 
-        if(!$response){
-            $error=['error'=>"this category not found!!!"];
-            return $error;
+        if(!$response)
+        {
+            return null;
         }
-        else{
+        else
+        {
             return $response;
         }
-
-
     }
 
     public function deleteByUserIdAndFriendID($request)
@@ -73,14 +76,12 @@ class FollowService
         $result = $this->followManager->deleteByUserIdAndFriendId($request);
         $response = $this->autoMapping->map(Follow::class, GetFollowByIdResponse::class, $result);
 
-        if(!$response){
-            $error=['error'=>"this category not found!!!"];
-            return $error;
+        if(!$response)
+        {
+            return null;
         }
         else{
             return $response;
         }
-
-
     }
 }

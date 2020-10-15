@@ -19,62 +19,29 @@ class ImageRepository extends ServiceEntityRepository
         parent::__construct($registry, Image::class);
     }
 
-    // /**
-    //  * @return Image[] Returns an array of Image objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('i')
-            ->andWhere('i.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('i.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?Image
-    {
-        return $this->createQueryBuilder('i')
-            ->andWhere('i.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
     public function getImageById($Id)
     {
-        $res = $this->createQueryBuilder('image')
+        return $this->createQueryBuilder('image')
             ->andWhere('image.id=:id')
             ->setParameter('id', $Id)
             ->getQuery()
             ->getOneOrNullResult();
-
-        return $res;
     }
 
     public function getImagesByAnimeId($animeID)
     {
-        $res = $this->createQueryBuilder('image')
-            ->andWhere('image.animeID=:id')
-            ->setParameter('id',$animeID)
-            ->getQuery()
-            ->getResult();
-
-        return $res;
+        return $this->createQueryBuilder('image')
+        ->select('image.image')
+        ->andWhere('image.animeID=:animeID')
+        ->setParameter('animeID',$animeID)
+        ->getQuery()
+        ->getResult();
     }
 
     public function getAll()
     {
-        $res = $this->createQueryBuilder('image')
+        return $this->createQueryBuilder('image')
             ->getQuery()
             ->getResult();
-
-        return $res;
     }
 }

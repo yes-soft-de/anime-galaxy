@@ -5,70 +5,108 @@ namespace App\Response;
 class CreateCommentResponse
 {
     public $id;
-    public $userId;
-    public $animeId;
+    public $userID;
+    public $animeID;
     public $comment;
+    public $spoilerAlert;
+    public $creationDate;
 
-     /**
+    /**
      * @return mixed
      */
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
-    
-
-   /**
-     * @return mixed
-     */ 
-    public function getUserId()
-    {
-        return $this->userId;
-    }
 
     /**
-     * @param mixed $userId
+     * @param mixed $id
      */
-    public function setUserId($userId)
+    public function setId($id): void
     {
-        $this->userId = $userId;
-
-        return $this;
+        $this->id = $id;
     }
 
     /**
      * @return mixed
-     */  
-    public function getAnimeId()
-    {
-        return $this->animeId;
-    }
-
-    /**
-     * @param mixed $animeId
      */
-    public function setAnimeId($animeId)
+    public function getUserID()
     {
-        $this->animeId = $animeId;
+        return $this->userID;
+    }
 
-        return $this;
+    /**
+     * @param mixed $userID
+     */
+    public function setUserID($userID): void
+    {
+        $this->userID = $userID;
     }
 
     /**
      * @return mixed
-     */ 
+     */
+    public function getAnimeID()
+    {
+        return $this->animeID;
+    }
+
+    /**
+     * @param mixed $animeID
+     */
+    public function setAnimeID($animeID): void
+    {
+        $this->animeID = $animeID;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getComment()
     {
         return $this->comment;
     }
 
-   /**
+    /**
      * @param mixed $comment
      */
-    public function setComment($comment)
+    public function setComment($comment): void
     {
         $this->comment = $comment;
+    }
+
+
+   /**
+     * @param mixed $spoilerAlert
+     */ 
+    public function setSpoilerAlert($spoilerAlert)
+    {
+        $this->spoilerAlert = $spoilerAlert;
 
         return $this;
+    }
+
+      /**
+     * @return mixed
+     */
+    public function getSpoilerAlert()
+    {
+        return $this->spoilerAlert;
+    }
+
+    /**
+     * @return mixed
+     */ 
+    public function getCreationDate()
+    {
+        return $this->creationDate;
+    }
+
+    /**
+     * @param mixed $creationDate
+     */ 
+    public function setCreationDate($creationDate): void
+    {
+        $this->creationDate = $creationDate;
     }
 }

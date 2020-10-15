@@ -6,24 +6,45 @@ namespace App\Response;
 
 class GetAnimeByIdResponse
 {
-    private $Name;
-    private $MainImage;
-    private $categoryID;
+    public $id;
+    public $name;
+    public $mainImage;
+    public $images;
+    public $categoryName;
+    public $interactions;
+    public $comments;
+    public $rating;
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id): void
+    {
+        $this->id = $id;
+    }
 
     /**
      * @return mixed
      */
     public function getName()
     {
-        return $this->Name;
+        return $this->name;
     }
 
     /**
-     * @param mixed $Name
+     * @param mixed $name
      */
-    public function setName($Name): void
+    public function setName($name): void
     {
-        $this->Name = $Name;
+        $this->name = $name;
     }
 
     /**
@@ -31,30 +52,80 @@ class GetAnimeByIdResponse
      */
     public function getMainImage()
     {
-        return $this->MainImage;
+        return $this->mainImage;
     }
 
     /**
-     * @param mixed $MainImage
+     * @param mixed $mainImage
      */
-    public function setMainImage($MainImage): void
+    public function setMainImage($mainImage): void
     {
-        $this->MainImage = $MainImage;
+        $this->mainImage = $mainImage;
     }
 
     /**
      * @return mixed
      */
-    public function getCategoryID()
+    public function getImages()
     {
-        return $this->categoryID;
+        return $this->images;
     }
 
     /**
-     * @param mixed $categoryID
+     * @param mixed $images
      */
-    public function setCategoryID($categoryID): void
+    public function setImages($images): void
     {
-        $this->categoryID = $categoryID;
+        $this->images = $images;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getCategoryName()
+    {
+        return $this->categoryName;
+    }
+
+    /**
+     * @param mixed $categoryName
+     */
+    public function setCategoryName($categoryName): void
+    {
+        $this->categoryName = $categoryName;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRating()
+    {
+        return $this->rating;
+    }
+
+    /**
+     * @param mixed $rating
+     */
+    public function setRating($rating): void
+    {
+        $this->rating = $rating;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
+
+    /**
+     * @param mixed $comments
+     */
+    public function setComments($comments): void
+    {
+        $this->comments = $comments;
+    }
+
+
 }

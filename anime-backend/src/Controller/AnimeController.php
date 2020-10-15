@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Controller;
-
 
 use App\AutoMapping;
 use App\Request\CreateAnimeRequest;
@@ -14,23 +12,22 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class AnimeController extends BaseController
 {
     private $animeService;
     private $autoMapping;
+    private $validator;
 
-    /**
-     * AnimeController constructor.
-     * @param AnimeService $animeService
-     * @param AutoMapping $autoMapping
-     */
-    public function __construct(AnimeService $animeService, AutoMapping $autoMapping)
+    public function __construct(ValidatorInterface $validator, AnimeService $animeService, SerializerInterface $serializer, AutoMapping $autoMapping)
     {
+        parent::__construct($serializer);
         $this->animeService = $animeService;
         $this->autoMapping = $autoMapping;
+        $this->validator = $validator;
     }
-
 
     /**
      * @Route("/anime", name="createAnime", methods={"POST"})
@@ -40,7 +37,15 @@ class AnimeController extends BaseController
     public function create(Request $request)
     {
         $data = json_decode($request->getContent(), true);
-        $request = $this->autoMapping->map(\stdClass::class, CreateAnimeRequest::class, (object)$data);
+        $request = $this->autoMapping->map(\stdClass::class, CreateAnimeRequest::class, (object) $data);
+
+        $violations = $this->validator->validate($request);
+        if (\count($violations) > 0) {
+            $violationsString = (string) $violations;
+
+            return new JsonResponse($violationsString, Response::HTTP_OK);
+        }
+
         $result = $this->animeService->createAnime($request);
         return $this->response($result, self::CREATE);
     }
@@ -50,10 +55,11 @@ class AnimeController extends BaseController
      * @param Request $request
      * @return JsonResponse
      */
-    public function getById(Request $request)
+    public function getAnimeById(Request $request)
     {
         $request = new GetByIdRequest($request->get('id'));
         $result = $this->animeService->getAnimeById($request);
+
         return $this->response($result, self::FETCH);
     }
 
@@ -69,14 +75,14 @@ class AnimeController extends BaseController
     }
 
     /**
-     * @Route("/category/{id}", name="getAllAnimeByCategory", methods={"GET"})
-     * @param Request $request
+     * @Route("/animeByCategory/{categoryID}", name="getAllAnimeByCategory", methods={"GET"})
+     * @param $categoryID
      * @return JsonResponse
      */
-    public function getByCategoryId(Request $request)
+    public function getByCategoryID($categoryID)
     {
-        $request = new GetByIdRequest($request->get('id'));
-        $result = $this->animeService->getAnimeByCategoryId($request);
+        $result = $this->animeService->getAnimeByCategoryID($categoryID);
+
         return $this->response($result, self::FETCH);
     }
 
@@ -88,10 +94,10 @@ class AnimeController extends BaseController
     public function update(Request $request)
     {
         $data = json_decode($request->getContent(), true);
-        //$id = $request->get('id');
-        $request = $this->autoMapping->map(\stdClass::class, UpdateAnimeRequest::class, (object)$data);
-        //$request->setId($id);
+        $request = $this->autoMapping->map(\stdClass::class, UpdateAnimeRequest::class, (object) $data);
+
         $result = $this->animeService->update($request);
+
         return $this->response($result, self::UPDATE);
     }
 
@@ -103,7 +109,56 @@ class AnimeController extends BaseController
     public function delete(Request $request)
     {
         $request = new DeleteRequest($request->get('id'));
+
         $result = $this->animeService->deleteAnime($request);
-        return $this->response("",self::DELETE);
+
+        return $this->response("", self::DELETE);
+    }
+
+    /**
+     * @Route("/getHighestRatedAnime", name="GetHighestRatedAnimeByCategory", methods={"GET"})
+     * @return JsonResponse
+     */
+    public function getHighestRatedAnime()
+    {
+        $result = $this->animeService->getHighestRatedAnime();
+
+        return $this->response($result, self::FETCH);
+    }
+
+    /**
+     * @Route("getHighestRatedAnime/{userID}", name="GetHighestRatedAnimeByUser", methods={"GET"})
+     * @param $userID
+     * @return JsonResponse
+     */
+    public function getHighestRatedAnimeByUser($userID)
+    {
+        $result = $this->animeService->getHighestRatedAnimeByUser($userID);
+
+        return $this->response($result, self::FETCH);
+    }
+
+    /**
+     * @Route("animeCommingSoon", name="getAllAnimeCommingSoon", methods={"GET"})
+     * @return JsonResponse
+     */
+    public function getAllCommingSoon()
+    {
+        $result = $this->animeService->getAllCommingSoon();
+
+        return $this->response($result, self::FETCH);
+    }
+
+    
+    /**
+     * @Route("getMaybeYouLike/{userID}", name="getMaybeYouLike", methods={"GET"})
+     * @param $userID
+     * @return JsonResponse
+     */
+    public function getMaybeYouLike($userID)
+    {
+        $result = $this->animeService->getMaybeYouLike($userID);
+
+        return $this->response($result, self::FETCH);
     }
 }

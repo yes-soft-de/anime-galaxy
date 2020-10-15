@@ -6,23 +6,17 @@ namespace App\Service;
 
 use App\AutoMapping;
 use App\Entity\Image;
-use App\Entity\Images;
 use App\Manager\ImageManager;
 use App\Response\CreateImageResponse;
 use App\Response\GetImageByIdResponse;
 use App\Response\GetImageResponse;
 use App\Response\UpdateImageResponse;
-use Symfony\Component\HttpFoundation\Request;
-use App\Response\DeleteResponse;
-use Symfony\Component\Routing\Exception\NoConfigurationException;
-use Doctrine\ORM\NonUniqueResultException;
 
 class ImageService
 
 {
     private $imageManager;
     private $autoMapping;
-
 
     public function __construct(ImageManager $imageManager, AutoMapping $autoMapping)
     {
@@ -33,45 +27,52 @@ class ImageService
     public function create($request)
     {  
         $imageResult = $this->imageManager->create($request);
-        $response = $this->autoMapping->map(Image::class, CreateImageResponse::class,
+
+        return $this->autoMapping->map(Image::class, CreateImageResponse::class,
             $imageResult);
-        return $response;
     }
-    
     
     public function getAll()
     {
-        $result = $this->imageManager->getAll();
         $response=[];
+        $result = $this->imageManager->getAll();
+
         foreach ($result as $row)
+        {
             $response[] = $this->autoMapping->map(Image::class, GetImageResponse::class, $row);
+        }
+
         return $response;
     }
-
 
     public function getImagesByAnimeId($request)
     {
+        $response = [];
         $result = $this->imageManager->getImagesByAnimeID($request);
-        $response=[];
+        
         foreach ($result as $row)
-            $response[] = $this->autoMapping->map(Image::class, GetImageResponse::class, $row);
+        {
+            $response[] = $this->autoMapping->map('array', GetImageResponse::class, $row);
+        }
+
         return $response;
     }
-
 
     public function delete($request)
     {
         $result = $this->imageManager->delete($request);
-        $response = $this->autoMapping->map(Image::class, GetImageByIdResponse::class, $result);
-        return $response;
+
+        return $this->autoMapping->map(Image::class, GetImageByIdResponse::class, $result);
     }
 
     public function update($request)
     {
         $imageResult = $this->imageManager->update($request);
+
         $response = $this->autoMapping->map(Image::class, UpdateImageResponse::class, $imageResult);
-        $response->setImage($request->getImage());
-        $response->setAnimeID($request->getAnimeID());
+        // $response->setImage($request->getImage());
+        // $response->setAnimeID($request->getAnimeID());
+
         return $response;
     }
 

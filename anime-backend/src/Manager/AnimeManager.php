@@ -30,31 +30,28 @@ class AnimeManager
     public function create(CreateAnimeRequest $request)
     {
         $animeEntity = $this->autoMapping->map(CreateAnimeRequest::class, Anime::class, $request);
+        $animeEntity->setCreationDate();
         $this->entityManager->persist($animeEntity);
         $this->entityManager->flush();
         $this->entityManager->clear();
+
         return $animeEntity;
     }
 
     public function getAnimeById(GetByIdRequest $request)
     {
-        $result = $this->animeRepository->getAnimeById($request->getId());
-
-        return $result;
-    }
-
-    public function getByCategoryId(GetByIdRequest $request)
-    {
-        $result = $this->animeRepository->getAnimeByCategoryId($request->getId());
-
-        return $result;
+        return $this->animeRepository->getAnimeById($request->getId());
     }
 
     public function getAllAnime()
     {
-        $data = $this->animeRepository->getAll();
+        return $this->animeRepository->getAll();
+    }
 
-        return $data;
+
+    public function getByCategoryID($categoryID)
+    {
+        return $this->animeRepository->getAnimeByCategoryID($categoryID);
     }
 
     public function update(UpdateAnimeRequest $request)
@@ -79,7 +76,6 @@ class AnimeManager
         if(!$anime)
         {
             return null;
-            // return new Response(['data'=>'The project was not found!']);
         }
         else
         {
@@ -88,4 +84,31 @@ class AnimeManager
         }
         return $anime;
     }
+
+
+    public function getHighestRatedAnime()
+    {
+        return $this->animeRepository->getHighestRatedAnime();
+    }
+
+    public function getHighestRatedAnimeByUser($userID)
+    {
+        return $this->animeRepository->getHighestRatedAnimeByUser($userID);
+    }
+
+    public function getAllCommingSoon()
+    {
+        $date = new \DateTime("Now");
+        return $this->animeRepository->getAllCommingSoon($date);
+    }
+
+    public function getAnimeFavourite($userID)
+    {
+        return $this->animeRepository->getAnimeFavourite($userID);
+    }
+    public function getAnimeByFavouriteCateory($id)
+    {
+        return $this->animeRepository->getAnimeByFavouriteCateory($id);
+    }
+
 }

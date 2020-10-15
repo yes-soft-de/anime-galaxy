@@ -4,54 +4,57 @@ namespace App\Response;
 
 class UpdateCommentResponse
 {
-    public $id;
-    public $userId;
-    public $animeId;
-    public $comment;
-
-     /**
+    private $id;
+    private $userID;
+    private $animeID;
+    private $comment;
+    private $spoilerAlert;
+    /**
      * @return mixed
      */
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
-    
-
-   /**
-     * @return mixed
-     */ 
-    public function getUserId()
-    {
-        return $this->userId;
-    }
 
     /**
-     * @param mixed $userId
+     * @param mixed $id
      */
-    public function setUserId($userId)
+    public function setId($id): void
     {
-        $this->userId = $userId;
-
-        return $this;
+        $this->id = $id;
     }
 
     /**
      * @return mixed
-     */  
-    public function getAnimeId()
+     */
+    public function getUserID()
     {
-        return $this->animeId;
+        return $this->userID;
     }
 
     /**
-     * @param mixed $animeId
+     * @param mixed $userID
      */
-    public function setAnimeId($animeId)
+    public function setUserID($userID): void
     {
-        $this->animeId = $animeId;
+        $this->userID = $userID;
+    }
 
-        return $this;
+    /**
+     * @return mixed
+     */
+    public function getAnimeID()
+    {
+        return $this->animeID;
+    }
+
+    /**
+     * @param mixed $animeID
+     */
+    public function setAnimeID($animeID): void
+    {
+        $this->animeID = $animeID;
     }
 
     /**
@@ -68,6 +71,26 @@ class UpdateCommentResponse
     public function setComment($comment)
     {
         $this->comment = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of spoilerAlert
+     */ 
+    public function getSpoilerAlert()
+    {
+        return $this->spoilerAlert;
+    }
+
+    /**
+     * Set the value of spoilerAlert
+     *
+     * @return  self
+     */ 
+    public function setSpoilerAlert($spoilerAlert)
+    {
+        $this->spoilerAlert = $spoilerAlert;
 
         return $this;
     }

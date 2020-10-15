@@ -6,17 +6,11 @@ namespace App\Response;
 
 class CreateAnimeResponse
 {
-    private $name;
-    private $mainImage;
-    private $categoryID;
-
-    /**
-     * CreateAnimeResponse constructor.
-     */
-    public function __construct()
-    {
-    }
-
+    public $name;
+    public $mainImage;
+    public $categoryID;
+    public $creationDate;
+    
     /**
      * @return mixed
      */
@@ -63,5 +57,21 @@ class CreateAnimeResponse
     public function setCategoryID($categoryID): void
     {
         $this->categoryID = $categoryID;
+    }
+
+    /**
+     * @return mixed
+     */ 
+    public function getCreationDate()
+    {
+        return $this->creationDate;
+    }
+
+    /**
+     * @param mixed $creationDate
+     */ 
+    public function setCreationDate($creationDate): void
+    {
+        $this->creationDate = $creationDate;
     }
 }

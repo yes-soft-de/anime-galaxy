@@ -6,9 +6,9 @@ namespace App\Response;
 
 class CreateImageResponse
 {
-    private $id;
-    private $image;
-    private $animeID;
+    public $id;
+    public $image;
+    public $animeID;
 
     /**
      * @return mixed

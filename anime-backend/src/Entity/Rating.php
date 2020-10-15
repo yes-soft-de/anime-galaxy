@@ -18,45 +18,50 @@ class Rating
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string")
      */
-    private $userId;
+    private $userID;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $animeId;
+    private $animeID;
 
     /**
      * @ORM\Column(type="integer")
      */
     private $rateValue;
 
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $creationDate;
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getUserId(): ?int
+    public function getUserID(): ?string
     {
-        return $this->userId;
+        return $this->userID;
     }
 
-    public function setUserId(int $userId): self
+    public function setUserID(string $userID): self
     {
-        $this->userId = $userId;
+        $this->userID = $userID;
 
         return $this;
     }
 
-    public function getAnimeId(): ?int
+    public function getAnimeID(): ?int
     {
-        return $this->animeId;
+        return $this->animeID;
     }
 
-    public function setAnimeId(int $animeId): self
+    public function setAnimeID(int $animeID): self
     {
-        $this->animeId = $animeId;
+        $this->animeID = $animeID;
 
         return $this;
     }
@@ -69,6 +74,18 @@ class Rating
     public function setRateValue(int $rateValue): self
     {
         $this->rateValue = $rateValue;
+
+        return $this;
+    }
+
+    public function getCreationDate(): ?\DateTimeInterface
+    {
+        return $this->creationDate;
+    }
+
+    public function setCreationDate(): self
+    {
+        $this->creationDate = new \DateTime('Now');
 
         return $this;
     }

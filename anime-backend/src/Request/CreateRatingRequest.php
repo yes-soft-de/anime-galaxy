@@ -2,12 +2,39 @@
 
 namespace App\Request;
 
+use DateTime;
+
 class CreateRatingRequest
 {
     private $id;
-    private $userId;
-    public  $animeId;
+    private $userID;
+    public  $animeID;
     private $rateValue;
+    private $creationDate;
+    private $episodeID;
+
+
+    /**
+     * @return mixed
+     */
+    public function getEpisodeID()
+    {
+        return $this->episodeID;
+    }
+
+    /**
+     * @param mixed $episodeID
+     */
+    public function setEpisodeID($episodeID): void
+    {
+        $this->episodeID = $episodeID;
+    }
+
+
+    public function __construct()
+    {
+        $this->creationDate = new DateTime('Now');
+    }
 
      /**
      * @return mixed
@@ -23,15 +50,15 @@ class CreateRatingRequest
      */ 
     public function getUserId()
     {
-        return $this->userId;
+        return $this->userID;
     }
 
     /**
-     * @param mixed $userId
+     * @param mixed $userID
      */
-    public function setUserId($userId)
+    public function setUserId($userID)
     {
-        $this->userId = $userId;
+        $this->userID = $userID;
 
         return $this;
     }
@@ -41,15 +68,15 @@ class CreateRatingRequest
      */  
     public function getAnimeId()
     {
-        return $this->animeId;
+        return $this->animeID;
     }
 
     /**
-     * @param mixed $animeId
+     * @param mixed $animeID
      */
-    public function setAnimeId($animeId)
+    public function setAnimeId($animeID)
     {
-        $this->animeId = $animeId;
+        $this->animeID = $animeID;
 
         return $this;
     }
@@ -70,5 +97,21 @@ class CreateRatingRequest
         $this->rateValue = $rateValue;
 
         return $this;
+    }
+
+    /**
+     * @return DateTime
+     */
+    public function getCreationDate(): DateTime
+    {
+        return $this->creationDate;
+    }
+
+    /**
+     * @param DateTime $creationDate
+     */
+    public function setCreationDate(DateTime $creationDate): void
+    {
+        $this->creationDate = $creationDate;
     }
 }

@@ -6,18 +6,13 @@ use App\Entity\Rating;
 use App\Repository\RatingRepository;
 use App\Request\CreateRatingRequest;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Flex\Response;
 use App\Request\UpdateRatingRequest;
-use App\Request\GetByIdRequest;
 
 class RatingManager
 {
     private $entityManager;
     private $ratingRepository;
-    private $autoMapping;   
-   
+    private $autoMapping;
 
     public function __construct(EntityManagerInterface $entityManagerInterface,
     RatingRepository $ratingRepository, AutoMapping $autoMapping )
@@ -29,6 +24,7 @@ class RatingManager
     public function create(CreateRatingRequest $request)
     {
         $ratingEntity = $this->autoMapping->map(CreateRatingRequest::class, Rating::class, $request);
+        $ratingEntity->setCreationDate();
 
         $this->entityManager->persist($ratingEntity);
         $this->entityManager->flush();
@@ -52,15 +48,12 @@ class RatingManager
         return $ratingEntity;
     }
 
-
     public function getRating($animeID, $userID)
     {
         $rating = $this->ratingRepository->getRating($animeID, $userID);
 
         return $rating;
     }
-
-
 
     public function getAllRatings($animeID)
     {

@@ -23,7 +23,7 @@ class Anime
     private $name;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string")
      */
     private $mainImage;
 
@@ -31,6 +31,16 @@ class Anime
      * @ORM\Column(type="integer")
      */
     private $categoryID;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $creationDate;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $specialLink;
 
     public function getId(): ?int
     {
@@ -49,12 +59,12 @@ class Anime
         return $this;
     }
 
-    public function getMainImage(): ?int
+    public function getMainImage(): ?string
     {
         return $this->mainImage;
     }
 
-    public function setMainImage(int $mainImage): self
+    public function setMainImage(string $mainImage): self
     {
         $this->mainImage = $mainImage;
 
@@ -69,6 +79,30 @@ class Anime
     public function setCategoryID(int $categoryID): self
     {
         $this->categoryID = $categoryID;
+
+        return $this;
+    }
+
+     public function getCreationDate(): ?\DateTimeInterface
+    {
+        return $this->creationDate;
+    }
+
+    public function setCreationDate(): self
+    {
+        $this->creationDate = new \DateTime('Now');
+
+        return $this;
+    }
+
+    public function getSpecialLink(): ?bool
+    {
+        return $this->specialLink;
+    }
+
+    public function setSpecialLink(?bool $specialLink): self
+    {
+        $this->specialLink = $specialLink;
 
         return $this;
     }

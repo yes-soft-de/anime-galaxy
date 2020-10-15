@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Controller;
-
 
 use App\AutoMapping;
 use App\Request\CreateImageRequest;
@@ -13,21 +11,26 @@ use App\Service\ImageService;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class ImageController extends BaseController
 {
     private $imageService;
     private $autoMapping;
+    private $validator;
 
     /**
      * ImageController constructor.
      * @param ImageService $imageService
      * @param AutoMapping $autoMapping
      */
-    public function __construct(ImageService $imageService, AutoMapping $autoMapping)
+    public function __construct(ValidatorInterface $validator, ImageService $imageService, AutoMapping $autoMapping, SerializerInterface $serializer)
     {
+        parent::__construct($serializer);
         $this->imageService = $imageService;
         $this->autoMapping = $autoMapping;
+        $this->validator = $validator;
     }
 
     /**
@@ -38,7 +41,15 @@ class ImageController extends BaseController
     public function create(Request $request)
     {
         $data = json_decode($request->getContent(), true);
-        $request = $this->autoMapping->map(\stdClass::class,CreateImageRequest::class,(object)$data);
+        $request = $this->autoMapping->map(\stdClass::class, CreateImageRequest::class, (object) $data);
+
+        $violations = $this->validator->validate($request);
+        if (\count($violations) > 0) {
+            $violationsString = (string) $violations;
+
+            return new JsonResponse($violationsString, Response::HTTP_OK);
+        }
+
         $result = $this->imageService->create($request);
         return $this->response($result, self::CREATE);
     }
@@ -73,7 +84,7 @@ class ImageController extends BaseController
     {
         $request = new DeleteRequest($request->get('id'));
         $result = $this->imageService->delete($request);
-        return $this->response("",self::DELETE);
+        return $this->response("", self::DELETE);
     }
 
     /**
