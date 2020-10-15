@@ -36,8 +36,10 @@ class CommentController extends BaseController
      */
     public function create(Request $request)
     {
+        dd($this->getUser());
         $data = json_decode($request->getContent(), true);
         $request = $this->autoMapping->map(\stdClass::class, CreateCommentRequest::class, (object) $data);
+        $request->setUserID($this->getUser()->getUsername());
 
         $violations = $this->validator->validate($request);
         if (\count($violations) > 0) {

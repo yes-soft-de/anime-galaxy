@@ -11,6 +11,25 @@ class CreateRatingRequest
     public  $animeID;
     private $rateValue;
     private $creationDate;
+    private $episodeID;
+
+
+    /**
+     * @return mixed
+     */
+    public function getEpisodeID()
+    {
+        return $this->episodeID;
+    }
+
+    /**
+     * @param mixed $episodeID
+     */
+    public function setEpisodeID($episodeID): void
+    {
+        $this->episodeID = $episodeID;
+    }
+
 
     public function __construct()
     {

@@ -17,20 +17,32 @@ class AutoMapping
     }
     public function map($source,$target,$object)
     {
+        $response = [];
+
         $mapper=$this->config($source,$target);
-        try {
+        try
+        {
             $response = $mapper->map($object, $target);
-        } catch (UnregisteredMappingException $e) {
         }
+        catch (UnregisteredMappingException $e)
+        {
+        }
+
         return $response;
     }
     public function mapToObject($source,$target,$sourceObject,$targetObject)
     {
+        $response = [];
+
         $mapper=$this->config($source,$target);
-        try {
+        try
+        {
             $response = $mapper->mapToObject($sourceObject, $targetObject);
-        } catch (UnregisteredMappingException $e) {
         }
+        catch (UnregisteredMappingException $e)
+        {
+        }
+
         return $response;
     }
 }

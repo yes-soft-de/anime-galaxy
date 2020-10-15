@@ -2,7 +2,9 @@
 
 namespace App\Request;
 
-class CreateRatingEpisodeRequest 
+use DateTime;
+
+class CreateRatingEpisodeRequest
 {
     private $id;
     private $userID;
