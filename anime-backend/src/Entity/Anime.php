@@ -37,6 +37,11 @@ class Anime
      */
     private $creationDate;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $specialLink;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,6 +91,18 @@ class Anime
     public function setCreationDate(): self
     {
         $this->creationDate = new \DateTime('Now');
+
+        return $this;
+    }
+
+    public function getSpecialLink(): ?bool
+    {
+        return $this->specialLink;
+    }
+
+    public function setSpecialLink(?bool $specialLink): self
+    {
+        $this->specialLink = $specialLink;
 
         return $this;
     }
