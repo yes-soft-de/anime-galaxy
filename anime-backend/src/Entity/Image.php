@@ -27,6 +27,11 @@ class Image
      */
     private $animeID;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $specialLink;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -58,6 +63,18 @@ class Image
     public function setAnimeID(int $animeID): self
     {
         $this->animeID = $animeID;
+
+        return $this;
+    }
+
+    public function getSpecialLink(): ?bool
+    {
+        return $this->specialLink;
+    }
+
+    public function setSpecialLink(?bool $specialLink): self
+    {
+        $this->specialLink = $specialLink;
 
         return $this;
     }
