@@ -8,7 +8,6 @@ use DateTime;
 
 class CreateEpisodeRequest
 {
-    private $id;
     private $animeID;
     private $seasonNumber;
     private $episodeNumber;
@@ -24,22 +23,6 @@ class CreateEpisodeRequest
     public function __construct()
     {
         $this->createdAt = new DateTime('Now');
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param mixed $id
-     */
-    public function setId($id): void
-    {
-        $this->id = $id;
     }
 
     /**

@@ -67,7 +67,7 @@ GradeService $gradeService, UpdateGradeRequest $updateGradeRequest)
         $result = $this->ratingManager->getAllRatings($animeId);
 
         $response =  $this->autoMapping->map('array', CountRatingResponse::class, $result);
-        $response->setAvgRating($result);
+        // $response->setAvgRating($result);
 
         return $response;
     }

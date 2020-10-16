@@ -56,7 +56,7 @@ class AnimeManager
 
     public function update(UpdateAnimeRequest $request)
     {
-        $animeEntity = $this->animeRepository->getAnimeById($request->getId());
+        $animeEntity = $this->animeRepository->find($request->getId());
         if(!$animeEntity)
         {
             //return null;

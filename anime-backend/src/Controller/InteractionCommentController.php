@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-
 use App\AutoMapping;
 use App\Request\CreateInteractionCommentRequest;
 use App\Request\UpdateInteractionCommentRequest;
@@ -12,21 +11,23 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
-
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class InteractionCommentController extends BaseController
 {
     private $interactionService;
     private $autoMapping;
+    private $validator;
 
-    public function __construct( SerializerInterface $serializer, InteractionCommentService $interactionService, AutoMapping $autoMapping)
+    public function __construct(ValidatorInterface $validator, SerializerInterface $serializer, InteractionCommentService $interactionService, AutoMapping $autoMapping)
     {
         parent::__construct($serializer);
         $this->interactionService = $interactionService;
         $this->autoMapping = $autoMapping;
+        $this->validator = $validator;
     }
 
-      /**
+    /**
      * @Route("interactionComment", name="createInteractionComment", methods={"POST"})
      * @param Request $request
      * @return JsonResponse
@@ -36,13 +37,20 @@ class InteractionCommentController extends BaseController
         $data = json_decode($request->getContent(), true);
         $request = $this->autoMapping->map(\stdClass::class, CreateInteractionCommentRequest::class, (object) $data);
 
+        $violations = $this->validator->validate($request);
+        if (\count($violations) > 0) {
+            $violationsString = (string) $violations;
+
+            return new JsonResponse($violationsString, Response::HTTP_OK);
+        }
+
         $result = $this->interactionService->create($request);
 
         return $this->response($result, self::CREATE);
     }
 
     /**
-     * @Route("interactionComment", name="updateinteractionComment", methods={"PUT"})
+     * @Route("/interactionComment", name="updateinteractionComment", methods={"PUT"})
      * @param Request $request
      * @return JsonResponse|Response
      */
@@ -50,6 +58,13 @@ class InteractionCommentController extends BaseController
     {
         $data = json_decode($request->getContent(), true);
         $request = $this->autoMapping->map(\stdClass::class, UpdateInteractionCommentRequest::class, (object) $data);
+
+        $violations = $this->validator->validate($request);
+        if (\count($violations) > 0) {
+            $violationsString = (string) $violations;
+
+            return new JsonResponse($violationsString, Response::HTTP_OK);
+        }
 
         $result = $this->interactionService->update($request);
 
@@ -78,7 +93,5 @@ class InteractionCommentController extends BaseController
         $result = $this->interactionService->getInteractionWithUser($commentID, $userID);
         return $this->response($result, self::FETCH);
     }
-
-     
 
 }

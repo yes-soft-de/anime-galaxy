@@ -95,9 +95,15 @@ class ImageController extends BaseController
     public function update(Request $request)
     {
         $data = json_decode($request->getContent(), true);
-        //$id = $request->get('id');
         $request = $this->autoMapping->map(\stdClass::class, UpdateImageRequest::class, (object) $data);
-        //$request->setId($id);
+       
+        $violations = $this->validator->validate($request);
+        if (\count($violations) > 0) {
+            $violationsString = (string) $violations;
+
+            return new JsonResponse($violationsString, Response::HTTP_OK);
+        }
+
         $result = $this->imageService->update($request);
         return $this->response($result, self::UPDATE);
     }

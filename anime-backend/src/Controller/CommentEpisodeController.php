@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
-
+use Symfony\Component\HttpFoundation\Response;
 class CommentEpisodeController extends BaseController
 {
     private $commentEpisodeService;
@@ -50,7 +50,7 @@ class CommentEpisodeController extends BaseController
     }
 
     /**
-     * @Route("commentEpisode", name="updateCommentEpisode",methods={"PUT"})
+     * @Route("/commentEpisode", name="updateCommentEpisode",methods={"PUT"})
      * @param Request $request
      * @return JsonResponse|Response
      */
@@ -58,6 +58,13 @@ class CommentEpisodeController extends BaseController
     {
         $data = json_decode($request->getContent(), true);
         $request = $this->autoMapping->map(\stdClass::class, UpdateCommentEpisodeRequest::class, (object) $data);
+
+        $violations = $this->validator->validate($request);
+        if (\count($violations) > 0) {
+            $violationsString = (string) $violations;
+
+            return new JsonResponse($violationsString, Response::HTTP_OK);
+        }
 
         $result = $this->commentEpisodeService->update($request);
 

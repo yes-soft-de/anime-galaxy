@@ -4,38 +4,37 @@ namespace App\Tests\fixtures;
 
 use PHPUnit\Framework\TestCase;
 
-
 class ImageProvider extends TestCase
 {
-    //'title' => [ [Expected..],[Actual..] ] ];
+    //'title' =>[Expected..],[Actual..]
 
     public function create(): array
     {
         return [
-           //'title' => [ [rateValue,animeID,userID,creationDate],[Actual,Actual..] ] ];
-            'CreateImage' => [ [1,1],[1,1] ] ];    
+
+            'CreateImage' => [1, 1], [1, 1],[101, 101], [21, 21]
+        ];
     }
 
     public function update(): array
     {
-        //'title' => [ [image,animeID],[Actual,Actual..] ] ];
         return [
-            'UpdateImage' => [ [1,1],[1,1]]];    
+            'UpdateImage' => [1, 1], [1, 1],[10, 10], [101, 101]
+        ];
     }
 
     public function getImagesByAnimeId(): array
     {
         return [
-            'getImagesByAnimeId' => [ [2],[2]],   
-            'getImagesByAnimeIb2' => [ [02],[02]]
-        ];    
+            'getImagesByAnimeId' => [2,2],[02,02]
+        ];
     }
 
     public function delete(): array
     {
         return [
-            'deleteImage' => [2,2]
-        ];    
+            'deleteImage' => [2, 2],[20, 20]
+        ];
     }
 
 }

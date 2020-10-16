@@ -6,7 +6,6 @@ use DateTime;
 
 class CreateRatingEpisodeRequest
 {
-    private $id;
     private $userID;
     private $episodeID;
     private $rateValue;

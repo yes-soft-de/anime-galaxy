@@ -6,7 +6,6 @@ use DateTime;
 
 class CreateFavouriteRequest
 {
-    private $id;
     private $userID;
     private $animeID;
     private $categoryID;

@@ -53,7 +53,7 @@ class RatingEpisodeController extends BaseController
     }
 
     /**
-     * @Route("ratingEpisode", name="updateRatingEpisode", methods={"PUT"})
+     * @Route("/ratingEpisode", name="updateRatingEpisode", methods={"PUT"})
      * @param Request $request
      * @return JsonResponse|Response
      */
@@ -61,6 +61,14 @@ class RatingEpisodeController extends BaseController
     {
         $data = json_decode($request->getContent(), true);
         $request = $this->autoMapping->map(\stdClass::class, UpdateRatingEpisodeRequest::class, (object) $data);
+        
+        $violations = $this->validator->validate($request);
+        if (\count($violations) > 0) {
+            $violationsString = (string) $violations;
+
+            return new JsonResponse($violationsString, Response::HTTP_OK);
+        }
+
         $result = $this->ratingService->update($request);
         return $this->response($result, self::UPDATE);
     }

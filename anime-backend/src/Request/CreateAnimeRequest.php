@@ -8,7 +8,6 @@ use DateTime;
 
 class CreateAnimeRequest
 {
-    private $id;
     private $name;
     private $mainImage;
     private $categoryID;
@@ -32,22 +31,6 @@ class CreateAnimeRequest
     public function setCreationDate(DateTime $creationDate): void
     {
          $this->creationDate = $creationDate;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param mixed $id
-     */
-    public function setId($id): void
-    {
-        $this->id = $id;
     }
 
     /**
