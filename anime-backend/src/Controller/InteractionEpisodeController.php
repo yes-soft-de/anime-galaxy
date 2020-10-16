@@ -50,12 +50,20 @@ class InteractionEpisodeController extends BaseController
     }
 
     /**
-     * @Route("interactionEpisode", name="updateInteractionEpisode", methods={"PUT"})
+     * @Route("/interactionEpisode", name="updateInteractionEpisode", methods={"PUT"})
      */
     public function update(Request $request)
     {
         $data = json_decode($request->getContent(), true);
         $request = $this->autoMapping->map(\stdClass::class, UpdateInteractionEpisodeRequest::class, (object) $data);
+
+        $violations = $this->validator->validate($request);
+        if (\count($violations) > 0) {
+            $violationsString = (string) $violations;
+
+            return new JsonResponse($violationsString, Response::HTTP_OK);
+        }
+        
         $result = $this->interactionService->update($request);
         return $this->response($result, self::UPDATE);
     }

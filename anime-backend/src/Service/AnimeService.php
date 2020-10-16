@@ -16,6 +16,7 @@ use App\Response\GetHighestRatedAnimeResponse;
 use App\Response\GetHighestRatedAnimeByUserResponse;
 use App\Response\GetAnimeCommingSoonResponse;
 use App\Response\GetMaybeYouLikeResponse;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\Validator\Constraints\Length;
 use Doctrine\Common\Collections\ArrayCollection;
 
@@ -26,17 +27,19 @@ class AnimeService
     private $imageService;
     private $commentService;
     private $interactionService;
-  
+    private $params;
+
 
     public function __construct(AnimeManager $animeManager, AutoMapping $autoMapping, ImageService $imageService, CommentService $commentService,
-                        InteractionService $interactionService)
+                        InteractionService $interactionService, ParameterBagInterface $params)
     {
         $this->animeManager = $animeManager;
         $this->autoMapping = $autoMapping;
         $this->imageService = $imageService;
         $this->commentService = $commentService;
         $this->interactionService = $interactionService;
-       
+
+        $this->params = $params->get('upload_base_url').'/';
     }
 
     public function createAnime($request)
@@ -60,6 +63,7 @@ class AnimeService
 
         foreach ($result as $row)
         {
+            $row['mainImage'] = $this->specialLinkCheck($row['specialLink']).$row['mainImage'];
             $response = $this->autoMapping->map('array', GetAnimeByIdResponse::class, $row);
         }
 
@@ -196,5 +200,13 @@ class AnimeService
           }
         }
         return $response;
+    }
+
+    public function specialLinkCheck($bool)
+    {
+        if (!$bool)
+        {
+            return $this->params;
+        }
     }
 }

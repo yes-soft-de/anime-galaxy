@@ -6,49 +6,15 @@ use DateTime;
 
 class CreateCommentRequest
 {
-    private $id;
     private $userID;
     private $animeID;
     private $comment;
     private $spoilerAlert;
     private $creationDate;
-    private $episodeID;
-
-    /**
-     * @return mixed
-     */
-    public function getEpisodeID()
-    {
-        return $this->episodeID;
-    }
-
-    /**
-     * @param mixed $episodeID
-     */
-    public function setEpisodeID($episodeID): void
-    {
-        $this->episodeID = $episodeID;
-    }
 
     public function __construct()
     {
         $this->creationDate = new DateTime('Now');
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param mixed $id
-     */
-    public function setId($id): void
-    {
-        $this->id = $id;
     }
 
     /**

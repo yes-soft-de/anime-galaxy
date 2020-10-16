@@ -6,22 +6,20 @@ use App\AutoMapping;
 use App\Entity\Image;
 use App\Manager\ImageManager;
 use App\Request\CreateImageRequest;
+use App\Request\DeleteRequest;
+use App\Request\GetByIdRequest;
 use App\Request\UpdateImageRequest;
 use App\Response\CreateImageResponse;
-use App\Response\UpdateImageResponse;
-use App\Response\GetImageResponse;
 use App\Response\GetImageByIdResponse;
+use App\Response\GetImageResponse;
+use App\Response\UpdateImageResponse;
 use App\Service\ImageService;
 use App\Tests\fixtures\ImageProvider;
-use App\Request\GetByIdRequest;
-use App\Request\DeleteRequest;
 use PHPUnit\Framework\TestCase;
-
-
 
 class ImageServiceUnitTest extends TestCase
 {
-  
+
     private $mockManager;
     private $autoMapping;
 
@@ -34,16 +32,16 @@ class ImageServiceUnitTest extends TestCase
     /**
      * @dataProvider create
      */
-    public function testCreateWithDataProvider(array $expected, array $actual)
-    { 
+    public function testCreateWithDataProvider($expected, $actual)
+    {
         $createImageResponse = new CreateImageResponse();
-        $createImageResponse->animeID = $expected[0];
-        $createImageResponse->image = $expected[1];
-    
+        $createImageResponse->animeID = $expected;
+        $createImageResponse->image = $expected;
+
         $image = new Image();
-        $image->setAnimeID($actual[0]);
-        $image->setImage($actual[1]);
-       
+        $image->setAnimeID($actual);
+        $image->setImage($actual);
+
         $createImageRequest = new CreateImageRequest();
 
         $this->mockImageManager
@@ -62,19 +60,19 @@ class ImageServiceUnitTest extends TestCase
         return $result->create();
     }
 
-   /**
+    /**
      * @dataProvider update
      */
-    public function testUpdateWithDataProvider(array $expected, array $actual)
-    { 
+    public function testUpdateWithDataProvider($expected, $actual)
+    {
         $Response = new UpdateImageResponse();
-        $Response->image = $expected[0];
-        $Response->animeID = $expected[1];
-   
+        $Response->image = $expected;
+        $Response->animeID = $expected;
+
         $image = new Image();
-        $image->setImage($actual[0]);
-        $image->setAnimeID($actual[1]);
-       
+        $image->setImage($actual);
+        $image->setAnimeID($actual);
+
         $UpdateImageRequest = new UpdateImageRequest();
 
         $this->mockImageManager
@@ -82,7 +80,7 @@ class ImageServiceUnitTest extends TestCase
             ->willReturn($image);
 
         $imageService = new ImageService($this->mockImageManager, $this->autoMapping);
-        
+
         $this->assertEquals($Response, $imageService->update($UpdateImageRequest));
     }
 
@@ -92,9 +90,9 @@ class ImageServiceUnitTest extends TestCase
         return $result->update();
     }
 
-     //  Get All
+    //  Get All
     public function testGetAllWithDataProvider()
-    { 
+    {
         $image = new Image();
         $this->mockImageManager
             ->method('getAll')
@@ -104,26 +102,27 @@ class ImageServiceUnitTest extends TestCase
         $this->assertIsArray($imageService->getAll());
     }
 
-    
-   /**
+    /**
      * @dataProvider GetImagesByAnimeId
      */
     public function testGetImagesByAnimeIdWithDataProvider($expected, $actual)
-    { 
+    {
         $Response = new GetImageResponse();
-        $Response->setImage($expected[0]);
-        
+        $Response->setImage($expected);
+
         $image = new Image();
-        $image->setImage($actual[0]);
+        $image->setImage($actual);
 
-        $getByIdRequest = new GetByIdRequest($image->setAnimeID(10));
-
+        $getByIdRequest = new GetByIdRequest($actual);
+        
         $this->mockImageManager
             ->method('getImagesByAnimeID')
             ->willReturn($image);
-           
+
         $imageService = new ImageService($this->mockImageManager, $this->autoMapping);
-        $this->assertIsArray($imageService->getImagesByAnimeId($getByIdRequest));    }
+        $this->assertIsArray($imageService->getImagesByAnimeId($getByIdRequest));
+        
+    }
 
     public function getImagesByAnimeId()
     {
@@ -134,17 +133,17 @@ class ImageServiceUnitTest extends TestCase
     /**
      * @dataProvider delete
      */
-    public function testdeleteWithDataProvider( $expected,  $actual)
-    { 
+    public function testdeleteWithDataProvider($expected, $actual)
+    {
         $Response = new GetImageByIdResponse();
         $Response->image = $expected;
         $Response->animeID = $expected;
-   
+
         $image = new Image();
         $image->setId($actual);
         $image->setImage($actual);
         $image->setAnimeID($actual);
-        
+
         $deleteImageRequest = new DeleteRequest($image->getId());
 
         $this->mockImageManager
@@ -152,7 +151,7 @@ class ImageServiceUnitTest extends TestCase
             ->willReturn($image);
 
         $imageService = new ImageService($this->mockImageManager, $this->autoMapping);
-        
+
         $this->assertEquals($Response, $imageService->delete($deleteImageRequest));
     }
 

@@ -50,20 +50,22 @@ class InteractionController extends BaseController
     }
 
     /**
-     * @Route("/interaction/{userID}/{animeID}/{type}", name="updateInteraction", methods={"PUT"})
+     * @Route("/interaction", name="updateInteraction", methods={"PUT"})
      * @param Request $request
-     * @param $userID
-     * @param $animeID
-     * @param $type
      * @return JsonResponse|Response
      */
-    public function update(Request $request, $userID, $animeID, $type)
+    public function update(Request $request)
     {
         $data = json_decode($request->getContent(), true);
         $request = $this->autoMapping->map(\stdClass::class, UpdateInteractionRequest::class, (object) $data);
-        $request->setUserID($userID);
-        $request->setAnimeID($animeID);
-        $request->setType($type);
+
+        $violations = $this->validator->validate($request);
+        if (\count($violations) > 0) {
+            $violationsString = (string) $violations;
+
+            return new JsonResponse($violationsString, Response::HTTP_OK);
+        }
+
         $result = $this->interactionService->update($request);
         return $this->response($result, self::UPDATE);
     }

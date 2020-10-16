@@ -107,7 +107,7 @@ Comment Episode APIs
 ##### Create new Interaction. 
 `Method: POST. Path: /interaction`
 ##### Update existing interaction. 
-`Method: PUT. Path: /interaction/userID/animeID/type`
+`Method: PUT. Path: /interaction`
 ##### Get all interaction by animeID. 
 `Method: GET. Path: /interaction/animeID`
 ##### Get all interaction by animeID and userID. 

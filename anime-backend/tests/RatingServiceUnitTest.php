@@ -1,13 +1,13 @@
 <?php
-
 namespace App\Tests;
 
 use App\AutoMapping;
 use App\Entity\Rating;
 use App\Manager\RatingManager;
 use App\Request\CreateRatingRequest;
-use App\Request\UpdateRatingRequest;
 use App\Request\UpdateGradeRequest;
+use App\Request\UpdateRatingRequest;
+use App\Response\CountRatingResponse;
 use App\Response\CreateRatingResponse;
 use App\Response\UpdateRatingResponse;
 use App\Service\GradeService;
@@ -15,11 +15,9 @@ use App\Service\RatingService;
 use App\Tests\fixtures\RatingProvider;
 use PHPUnit\Framework\TestCase;
 
-
-
 class RatingServiceUnitTest extends TestCase
 {
-  
+
     private $mockRatingManager;
     private $autoMapping;
     private $gradeService;
@@ -36,20 +34,20 @@ class RatingServiceUnitTest extends TestCase
     /**
      * @dataProvider create
      */
-    public function testCreateWithDataProvider(array $expected, array $actual)
-    { 
+    public function testCreateWithDataProvider($expected,$actual)
+    {
         $createRatingResponse = new CreateRatingResponse();
-        $createRatingResponse->rateValue = $expected[0];
-        $createRatingResponse->animeID = $expected[1];
-        $createRatingResponse->userID = $expected[2];
-        // $createRatingResponse->creationDate = $expected[3];
-    
+        $createRatingResponse->rateValue = $expected;
+        $createRatingResponse->animeID = $expected;
+        $createRatingResponse->userID = $expected;
+        // $createRatingResponse->creationDate = $expected;
+
         $rating = new Rating();
-        $rating->setRateValue($actual[0]);
-        $rating->setAnimeID($actual[1]);
-        $rating->setUserID($actual[2]);
-        // $rating->setCreationDate($actual[3]);
-       
+        $rating->setRateValue($actual);
+        $rating->setAnimeID($actual);
+        $rating->setUserID($actual);
+        // $rating->setCreationDate($actual);
+
         $createRatingRequest = new CreateRatingRequest();
 
         $this->mockRatingManager
@@ -57,14 +55,10 @@ class RatingServiceUnitTest extends TestCase
             ->willReturn($rating);
 
         $ratingService = new RatingService($this->mockRatingManager, $this->autoMapping, $this->gradeService, $this->updateGradeRequest);
-
         $this->assertEquals($createRatingResponse, $ratingService->create($createRatingRequest));
 
     }
 
-    /**
-     * return string[][]
-     */
     public function create()
     {
         $result = new RatingProvider();
@@ -74,18 +68,18 @@ class RatingServiceUnitTest extends TestCase
     /**
      * @dataProvider update
      */
-    public function testUpdateWithDataProvider(array $expected, array $actual)
-    { 
+    public function testUpdateWithDataProvider($expected, $actual)
+    {
         $updateRatingResponse = new UpdateRatingResponse();
-        $updateRatingResponse->rateValue = $expected[0];
-        $updateRatingResponse->animeID = $expected[1];
-        $updateRatingResponse->userID = $expected[2];
-    
+        $updateRatingResponse->rateValue = $expected;
+        $updateRatingResponse->animeID = $expected;
+        $updateRatingResponse->userID = $expected;
+
         $rating = new Rating();
-        $rating->setRateValue($actual[0]);
-        $rating->setAnimeID($actual[1]);
-        $rating->setUserID($actual[2]);
-       
+        $rating->setRateValue($actual);
+        $rating->setAnimeID($actual);
+        $rating->setUserID($actual);
+
         $UpdateRatingRequest = new UpdateRatingRequest();
 
         $this->mockRatingManager
@@ -93,7 +87,7 @@ class RatingServiceUnitTest extends TestCase
             ->willReturn($rating);
 
         $ratingService = new RatingService($this->mockRatingManager, $this->autoMapping, $this->gradeService, $this->updateGradeRequest);
-        
+
         $this->assertEquals($updateRatingResponse, $ratingService->update($UpdateRatingRequest));
     }
 
@@ -103,5 +97,28 @@ class RatingServiceUnitTest extends TestCase
         return $result->update();
     }
 
+     /**
+     * @dataProvider getAllRatings
+     */
+    public function testGetAllRatingsByAnimeIdWithDataProvider( $expected,  $actual)
+    {       
+        $Response = new CountRatingResponse();
+        $Response->setAvgRating($expected);
+        
+        $this->mockRatingManager
+            ->method('getAllRatings')
+            ->willReturn(["avgRating" => $actual]);
+
+        $ratingService = new RatingService($this->mockRatingManager, $this->autoMapping, $this->gradeService, $this->updateGradeRequest);
+        
+        $this->assertEquals($Response, $ratingService->getAllRatings($actual));
+        
+    }
+
+    public function getAllRatings()
+    {
+        $result = new RatingProvider();
+        return $result->getAllRatingsByAnimeID();
+    }
 
 }

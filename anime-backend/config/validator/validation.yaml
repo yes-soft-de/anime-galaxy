@@ -46,9 +46,25 @@ App\Request\CreateCommentRequest:
       - NotBlank: ~
     animeID:
       - NotBlank: ~
-    episodeID:
-      - NotBlank: ~
     comment:
+      - NotBlank: ~
+
+App\Request\CreateInteractionCommentRequest:
+  properties:
+    userID:
+      - NotBlank: ~
+    commentID:
+      - NotBlank: ~
+    type:
+      - NotBlank: ~
+
+App\Request\CreateInteractionCommentEpisodeRequest:
+  properties:
+    userID:
+      - NotBlank: ~
+    commentID:
+      - NotBlank: ~
+    type:
       - NotBlank: ~
 
 App\Request\CreateEpisodeRequest:
@@ -62,8 +78,6 @@ App\Request\CreateEpisodeRequest:
     description:
       - NotBlank: ~
     image:
-      - NotBlank: ~
-    duration:
       - NotBlank: ~
 
 App\Request\CreateFavouriteRequest:
@@ -95,9 +109,132 @@ App\Request\CreateRatingRequest:
       - NotBlank: ~
     animeID:
       - NotBlank: ~
+    rateValue:
+      - NotBlank: ~
+ 
+App\Request\CreateRatingEpisodeRequest:
+  properties:
+    userID:
+      - NotBlank: ~
     episodeID:
       - NotBlank: ~
     rateValue:
       - NotBlank: ~
 
+App\Request\CreateCommentEpisodeRequest:
+  properties:
+    userID:
+      - NotBlank: ~
+    episodeID:
+      - NotBlank: ~
+    comment:
+      - NotBlank: ~
+
+
+App\Request\UpdateInteractionRequest:
+  properties:
+    userID:
+      - NotBlank: ~
+    animeID:
+      - NotBlank: ~
+    type:
+      - NotBlank: ~
     
+App\Request\UpdateInteractionEpisodeRequest:
+  properties:
+    userID:
+      - NotBlank: ~
+    episodeID:
+      - NotBlank: ~
+    type:
+      - NotBlank: ~
+
+App\Request\UpdateAnimeRequest:
+  properties:
+    name:
+      - NotBlank: ~
+    categoryID:
+      - NotBlank: ~
+    mainImage:
+      - NotBlank: ~
+
+App\Request\UpdateCategoryRequest:
+  properties:
+    name:
+      - NotBlank: ~
+    description:
+      - NotBlank: ~
+
+App\Request\UpdateCommentRequest:
+  properties:
+    userID:
+      - NotBlank: ~
+    animeID:
+      - NotBlank: ~
+    comment:
+      - NotBlank: ~
+
+App\Request\UpdateEpisodeRequest:
+  properties:
+    animeID:
+      - NotBlank: ~
+    seasonNumber:
+      - NotBlank: ~
+    episodeNumber:
+      - NotBlank: ~
+    description:
+      - NotBlank: ~
+    image:
+      - NotBlank: ~
+
+App\Request\UpdateImageRequest:
+  properties:
+    image:
+      - NotBlank: ~
+    animeID:
+      - NotBlank: ~
+
+App\Request\UpdateRatingRequest:
+  properties:
+    userID:
+      - NotBlank: ~
+    animeID:
+      - NotBlank: ~
+    rateValue:
+      - NotBlank: ~
+      
+App\Request\UpdateRatingEpisodeRequest:
+  properties:
+    userID:
+      - NotBlank: ~
+    episodeID:
+      - NotBlank: ~
+    rateValue:
+      - NotBlank: ~
+
+App\Request\UpdateCommentEpisodeRequest:
+  properties:
+    userID:
+      - NotBlank: ~
+    episodeID:
+      - NotBlank: ~
+    comment:
+      - NotBlank: ~
+
+App\Request\UpdateInteractionCommentRequest:
+  properties:
+    userID:
+      - NotBlank: ~
+    commentID:
+      - NotBlank: ~
+    type:
+      - NotBlank: ~
+
+App\Request\UpdateInteractionCommentEpisodeRequest:
+  properties:
+    userID:
+      - NotBlank: ~
+    commentID:
+      - NotBlank: ~
+    type:
+      - NotBlank: ~

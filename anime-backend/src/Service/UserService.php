@@ -7,6 +7,7 @@ namespace App\Service;
 use App\AutoMapping;
 use App\Entity\User;
 use App\Entity\UserEntity;
+use App\Entity\UserProfile;
 use App\Entity\UserProfileEntity;
 use App\Manager\UserManager;
 use App\Request\UserProfileCreateRequest;
@@ -38,7 +39,7 @@ class UserService
     {
         $userProfile = $this->userManager->userProfileCreate($request);
 
-        $response = $this->autoMapping->map(UserProfileEntity::class,UserProfileCreateResponse::class, $userProfile);
+        $response = $this->autoMapping->map(UserProfile::class,UserProfileCreateResponse::class, $userProfile);
 
         return $response;
     }
@@ -47,7 +48,7 @@ class UserService
     {
         $item = $this->userManager->userProfileUpdate($request);
 
-        $response = $this->autoMapping->map(UserProfileEntity::class,UserProfileResponse::class, $item);
+        $response = $this->autoMapping->map(UserProfile::class,UserProfileResponse::class, $item);
 
         return $response;
     }
@@ -56,7 +57,7 @@ class UserService
     {
         $item = $this->userManager->getProfileByUserID($userID);
 
-        $itemsResponse = $this->autoMapping->map(UserProfileEntity::class, UserProfileResponse::class, $item);
+        $itemsResponse = $this->autoMapping->map(UserProfile::class, UserProfileResponse::class, $item);
 
         return $itemsResponse;
     }
