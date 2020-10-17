@@ -64,6 +64,7 @@ class AnimeService
         foreach ($result as $row)
         {
             $row['mainImage'] = $this->specialLinkCheck($row['specialLink']).$row['mainImage'];
+
             $response = $this->autoMapping->map('array', GetAnimeByIdResponse::class, $row);
         }
 
@@ -84,6 +85,8 @@ class AnimeService
         
         foreach ($result as $row)
         {
+            $row['mainImage'] = $this->specialLinkCheck($row['specialLink']).$row['mainImage'];
+
             $row['interaction']=[
             'love' => $this->interactionService->lovedAll($row['id']),
             'like' => $this->interactionService->likeAll($row['id']),
@@ -102,6 +105,8 @@ class AnimeService
         
         foreach ($result as $row)
         {
+            $row['mainImage'] = $this->specialLinkCheck($row['specialLink']).$row['mainImage'];
+
             $row['interaction']=[
                 'love' => $this->interactionService->lovedAll($row['id']),
                 'like' => $this->interactionService->likeAll($row['id']),
@@ -139,6 +144,8 @@ class AnimeService
 
         foreach ($result as $row)
         {
+            $row['animeMainImage'] = $this->specialLinkCheck($row['specialLink']).$row['animeMainImage'];
+
             $response[] = $this->autoMapping->map('array', GetHighestRatedAnimeResponse::class, $row);
         }
 
@@ -152,28 +159,32 @@ class AnimeService
 
         foreach ($result as $row)
         {
+            $row['animeMainImage'] = $this->specialLinkCheck($row['specialLink']).$row['animeMainImage'];
+
             $response[] = $this->autoMapping->map('array', GetHighestRatedAnimeByUserResponse::class, $row);
         }
       
         return $response;
     }
 
-    public function getAllCommingSoon()
+    public function getAllComingSoon()
     {
         /** @var $response */
        
-        $result = $this->animeManager->getAllCommingSoon();
+        $result = $this->animeManager->getAllComingSoon();
         $response = [];
         
         foreach ($result as $row)
         {
+            $row['mainImage'] = $this->specialLinkCheck($row['specialLink']).$row['mainImage'];
+
             $response[] = $this->autoMapping->map('array', GetAnimeCommingSoonResponse::class, $row);
           
         }
         return $response;
     }
 
-    public  function searchMyArray($arrays, $key, $search) 
+    public function searchMyArray($arrays, $key, $search)
     {       
         $count = 0;
      
@@ -191,11 +202,17 @@ class AnimeService
     {
         /** @var $response */
        $response = [];
+
        $result = $this->animeManager->getAnimeFavourite($userID);
        
-       $result1 = $this->animeManager->getAnimeByFavouriteCateory($userID);
-       foreach($result1 as $res){
-          if (!$this->searchMyArray($result, 'id',$res['id'])){
+       $result1 = $this->animeManager->getAnimeByFavouriteCategory($userID);
+
+       foreach($result1 as $res)
+       {
+           $res['animeMainImage'] = $this->specialLinkCheck($res['specialLink']).$res['animeMainImage'];
+
+          if (!$this->searchMyArray($result, 'id', $res['id']))
+          {
               $response[] = $this->autoMapping->map('array', GetMaybeYouLikeResponse::class, $res);
           }
         }

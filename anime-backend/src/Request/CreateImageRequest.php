@@ -4,8 +4,9 @@ namespace App\Request;
 
 class CreateImageRequest
 {
-    public $image;
-    public $animeID;
+    private $image;
+    private $animeID;
+    private $specialLink;
     
     /**
      * @return mixed
@@ -37,6 +38,22 @@ class CreateImageRequest
     public function setAnimeID($animeID): void
     {
         $this->animeID = $animeID;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSpecialLink()
+    {
+        return $this->specialLink;
+    }
+
+    /**
+     * @param mixed $specialLink
+     */
+    public function setSpecialLink($specialLink)
+    {
+        $this->specialLink = $specialLink;
     }
 
 

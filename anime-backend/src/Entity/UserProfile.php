@@ -37,6 +37,11 @@ class UserProfile
      */
     private $story;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $specialLink;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,6 +91,18 @@ class UserProfile
     public function setStory(?string $story): self
     {
         $this->story = $story;
+
+        return $this;
+    }
+
+    public function getSpecialLink(): ?bool
+    {
+        return $this->specialLink;
+    }
+
+    public function setSpecialLink(?bool $specialLink): self
+    {
+        $this->specialLink = $specialLink;
 
         return $this;
     }
