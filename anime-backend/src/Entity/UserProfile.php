@@ -25,7 +25,7 @@ class UserProfile
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $name;
+    private $userName;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -38,9 +38,9 @@ class UserProfile
     private $story;
 
     /**
-     * @ORM\Column(type="boolean", nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $specialLink;
+    private $location;
 
     public function getId(): ?int
     {
@@ -59,14 +59,14 @@ class UserProfile
         return $this;
     }
 
-    public function getName(): ?string
+    public function getUserName(): ?string
     {
-        return $this->name;
+        return $this->userName;
     }
 
-    public function setName(string $name): self
+    public function setUserName(string $userName): self
     {
-        $this->name = $name;
+        $this->userName = $userName;
 
         return $this;
     }
@@ -95,14 +95,14 @@ class UserProfile
         return $this;
     }
 
-    public function getSpecialLink(): ?bool
+    public function getLocation(): ?string
     {
-        return $this->specialLink;
+        return $this->location;
     }
 
-    public function setSpecialLink(?bool $specialLink): self
+    public function setLocation(?string $location): self
     {
-        $this->specialLink = $specialLink;
+        $this->location = $location;
 
         return $this;
     }
