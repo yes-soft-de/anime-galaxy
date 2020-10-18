@@ -47,6 +47,11 @@ php bin/console doctrine:migration:migrate
 /user
 methods: POST
 ```
+#### login
+```
+/login_check
+methods: POST
+```
 #### Create user profile
 ```
 /userprofile
