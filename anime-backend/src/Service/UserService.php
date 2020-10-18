@@ -14,16 +14,19 @@ use App\Request\UserRegisterRequest;
 use App\Response\UserProfileCreateResponse;
 use App\Response\UserProfileResponse;
 use App\Response\UserRegisterResponse;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 class UserService
 {
     private $autoMapping;
     private $userManager;
+    private $params;
 
-    public function __construct(AutoMapping $autoMapping, UserManager $userManager)
+    public function __construct(AutoMapping $autoMapping, UserManager $userManager, ParameterBagInterface $params)
     {
         $this->autoMapping = $autoMapping;
         $this->userManager = $userManager;
+        $this->params = $params->get('upload_base_url').'/';
     }
 
     public function userRegister(UserRegisterRequest $request)
@@ -50,7 +53,8 @@ class UserService
     public function getUserProfileByUserID($userID)
     {
         $item = $this->userManager->getProfileByUserID($userID);
+        $item['image'] = $this->params.$item['image'];
 
-        return $this->autoMapping->map(UserProfile::class, UserProfileResponse::class, $item);
+        return $this->autoMapping->map('array', UserProfileResponse::class, $item);
     }
 }

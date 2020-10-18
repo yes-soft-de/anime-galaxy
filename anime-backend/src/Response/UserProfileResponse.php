@@ -17,4 +17,6 @@ class UserProfileResponse
     public $story;
 
     public $image;
+
+    public $createdAt;
 }

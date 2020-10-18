@@ -2,8 +2,10 @@
 
 namespace App\Repository;
 
+use App\Entity\User;
 use App\Entity\UserProfile;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query\Expr\Join;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -22,7 +24,14 @@ class UserProfileRepository extends ServiceEntityRepository
     public function getProfileByUSerID($userID)
     {
         return $this->createQueryBuilder('profile')
-
+            ->select('user.createdAt as createdAt','profile.userID', 'profile.userName', 'profile.location', 'profile.image',
+                'profile.image', 'profile.story')
+            ->leftJoin(
+                User::class,
+                'user',
+                Join::WITH,
+                'user.userID = profile.userID'
+            )
             ->andWhere('profile.userID=:userID')
             ->setParameter('userID', $userID)
 
