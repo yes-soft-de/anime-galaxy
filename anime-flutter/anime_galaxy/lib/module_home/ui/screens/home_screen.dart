@@ -29,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   bool isExpanded2 = false;
   double screenWidth;
   HomeModel anime;
-  HomeState currentState;
+  HomeState currentState = new HomeStateInit();
   bool  loading =true;
 
   @override
@@ -88,86 +88,87 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
   Widget body(){
 
-    final List<Widget> imageSliders = anime.newEpisodes
-        .map((item) => Container(
-            child: Container(
-              margin: EdgeInsets.all(5.0),
-              child: ClipRRect(
-                  borderRadius: BorderRadius.all(Radius.circular(0.0)),
-                  child: Stack(
-                    children: <Widget>[
-                      new Container(
-                        decoration: new BoxDecoration(
-                          image: new DecorationImage(
-                            image: new  NetworkImage(item.image , ),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        child: new BackdropFilter(
-                          filter: new ImageFilter.blur(sigmaX: 1.0, sigmaY: 1.0),
-                          child: new Container(
-                            decoration: new BoxDecoration(color: Colors.white.withOpacity(0.0)),
-                          ),
-                        ),
+
+      final List<Widget> imageSliders = anime.newEpisodes
+          .map((item) => Container(
+        child: Container(
+          margin: EdgeInsets.all(5.0),
+          child: ClipRRect(
+              borderRadius: BorderRadius.all(Radius.circular(0.0)),
+              child: Stack(
+                children: <Widget>[
+                  new Container(
+                    decoration: new BoxDecoration(
+                      image: new DecorationImage(
+                        image: new  NetworkImage(item.image , ),
+                        fit: BoxFit.cover,
                       ),
+                    ),
+                    child: new BackdropFilter(
+                      filter: new ImageFilter.blur(sigmaX: 1.0, sigmaY: 1.0),
+                      child: new Container(
+                        decoration: new BoxDecoration(color: Colors.white.withOpacity(0.0)),
+                      ),
+                    ),
+                  ),
 
 
-                      Positioned(
-                        left: 0.0,
-                        right: 0.0,
-                        child: Container(
-                            padding: EdgeInsets.symmetric(
-                                vertical: 10.0, horizontal: 10.0),
-                            child:Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: <Widget>[
+                  Positioned(
+                    left: 0.0,
+                    right: 0.0,
+                    child: Container(
+                        padding: EdgeInsets.symmetric(
+                            vertical: 10.0, horizontal: 10.0),
+                        child:Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
 
-                                    Text(
-                                      item.seriesName,
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                      ),
-                                    ),
-
-                                    Text(
-                                      item.classification,
-                                      style: TextStyle(
-                                          color: Colors.white70,
-                                          fontSize: 8
-                                      ),
-                                    ),
-                                    Text(
-                                      S.of(context).Episode +'${item.episodeNumber} ' + S.of(context).Season + '${item.season}',
-                                      style: TextStyle(
-                                          color: Colors.white70,
-                                          fontSize: 10
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(width: 10,),
-                                Container(
-                                  width: 75,
-                                  height: 160,
-                                  child: Image(
-
-                                    image: NetworkImage(
-                                        'https://m.media-amazon.com/images/M/MV5BZjNmZDhkN2QtNDYyZC00YzJmLTg0ODUtN2FjNjhhMzE3ZmUxXkEyXkFqcGdeQXVyNjc2NjA5MTU@._V1_UX182_CR0,0,182,268_AL_.jpg'
-                                    ),
+                                Text(
+                                  item.seriesName,
+                                  style: TextStyle(
+                                    color: Colors.white,
                                   ),
-                                )
+                                ),
+
+                                Text(
+                                  item.classification,
+                                  style: TextStyle(
+                                      color: Colors.white70,
+                                      fontSize: 8
+                                  ),
+                                ),
+                                Text(
+                                  S.of(context).Episode +'${item.episodeNumber} ' + S.of(context).Season + '${item.season}',
+                                  style: TextStyle(
+                                      color: Colors.white70,
+                                      fontSize: 10
+                                  ),
+                                ),
                               ],
+                            ),
+                            SizedBox(width: 10,),
+                            Container(
+                              width: 75,
+                              height: 160,
+                              child: Image(
+
+                                image: NetworkImage(
+                                    'https://m.media-amazon.com/images/M/MV5BZjNmZDhkN2QtNDYyZC00YzJmLTg0ODUtN2FjNjhhMzE3ZmUxXkEyXkFqcGdeQXVyNjc2NjA5MTU@._V1_UX182_CR0,0,182,268_AL_.jpg'
+                                ),
+                              ),
                             )
-                        ),
-                      ),
-                    ],
-                  )),
-            ),
-    ))
-        .toList();
+                          ],
+                        )
+                    ),
+                  ),
+                ],
+              )),
+        ),
+      ))
+          .toList();
 
     return SingleChildScrollView(
       child: Container(
@@ -175,7 +176,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         child: Column(
           children: [
             PointsWidget(
-              points: anime.points,
+              points:10 /*anime.points*/,
             ),
             Container(
               margin: EdgeInsetsDirectional.fromSTEB(10,0,10,20),

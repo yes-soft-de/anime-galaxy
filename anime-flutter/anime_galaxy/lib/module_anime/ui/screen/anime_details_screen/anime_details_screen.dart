@@ -55,13 +55,14 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
     screenWidth = MediaQuery.of(context).size.width;
 
     if (currentState is AnimeDetailsStateInit) {
-      widget._stateManager.getAnimeDetails(1);
+      widget._stateManager.getAnimeDetails(3);
       if(this.mounted){
         setState(() {});
       }
-    }
 
+    }
     return getPageLayout();
+
 
 
 //    switch (currentState.runtimeType) {
@@ -96,7 +97,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
         OutlineButton(
           onPressed: () {
             loading = true;
-            widget._stateManager.getAnimeDetails(1);
+            widget._stateManager.getAnimeDetails(3);
           },
           child: Text(S.of(context).retry),
         )
@@ -290,7 +291,29 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
           RotatedBox(
             quarterTurns: 2,
             child: Row(
-              children: List.generate(anime.classifications.length, (index) {
+              children: [
+                Container(
+                padding: EdgeInsetsDirectional.fromSTEB(10, 5, 10, 5),
+                margin: EdgeInsets.only(left:7),
+                decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(color: Colors.black38)
+                ),
+                    child: Center(
+                        child: RotatedBox(
+                        quarterTurns: 2,
+                              child: Text(
+                              anime.classification,
+                              style: TextStyle(
+                              fontSize: 10
+                              ),
+                              )
+                        )
+                    )
+                ),
+              ],
+              //in case of multiple classifications
+            /*  children: List.generate(anime.classification.length, (index) {
                 return Container(
                     padding: EdgeInsetsDirectional.fromSTEB(10, 5, 10, 5),
                     margin: EdgeInsets.only(left:7),
@@ -302,7 +325,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
                         child: RotatedBox(
                             quarterTurns: 2,
                             child: Text(
-                              anime.classifications[index].name,
+                              anime.classification[index],
                               style: TextStyle(
                                   fontSize: 10
                               ),
@@ -310,7 +333,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
                         )
                     )
                 );
-              }),
+              }),*/
             ),
           ),
 
@@ -343,7 +366,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
             return  EpisodeCard(
               image: anime.episodes[index].image,
               episodeNumber: anime.episodes[index].episodeNumber,
-              classification: anime.episodes[index].classification.name,
+              classification: anime.episodes[index].classification,
             );
           },
             padding: EdgeInsets.symmetric(horizontal: 10),

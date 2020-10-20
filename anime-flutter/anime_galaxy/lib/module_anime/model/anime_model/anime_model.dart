@@ -2,11 +2,11 @@ class AnimeModel{
     String name;
     String showYear;
     double rate;
-    int likesNumber;
+    String likesNumber;
     int commentsNumber;
     String image;
     String about;
-    List<AnimeClassification> classifications;
+    String  classification;
     List<Comment> comments;
     List<Episode> episodes;
 
@@ -17,20 +17,14 @@ class AnimeModel{
       this.rate,
       this.likesNumber,
       this.about,
-      this.classifications,
+      this.classification,
       this.showYear,
       this.comments,
       this.episodes,
 });
 }
 
-class AnimeClassification{
-  String name;
 
-  AnimeClassification({
-    this.name,
-});
-}
 
 class Comment{
     String userImage;
@@ -49,7 +43,7 @@ class Comment{
 class Episode{
   int episodeNumber;
   String image;
-   AnimeClassification  classification;
+   String  classification;
 
   Episode({
     this.classification,

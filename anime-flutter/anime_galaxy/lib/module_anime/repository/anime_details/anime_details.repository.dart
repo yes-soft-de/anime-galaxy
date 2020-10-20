@@ -1,5 +1,7 @@
 
+import 'package:anime_galaxy/consts/urls.dart';
 import 'package:anime_galaxy/module_anime/model/anime_model/anime_model.dart';
+import 'package:anime_galaxy/module_anime/response/anime_response.dart';
 import 'package:anime_galaxy/module_network/http_client/http_client.dart';
 import 'package:inject/inject.dart';
 
@@ -13,32 +15,32 @@ List<Episode> episodes = [
   new Episode(
     image: 'https://i.pinimg.com/236x/5b/27/06/5b2706b1d6459ca81b4576a122844fdc.jpg',
     episodeNumber: 1,
-    classification: new AnimeClassification(name:'أكشن شاونين'),
+    classification: 'أكشن شاونين',
   ),
   new Episode(
     image: 'https://i.pinimg.com/236x/5b/27/06/5b2706b1d6459ca81b4576a122844fdc.jpg',
     episodeNumber: 2,
-    classification: new AnimeClassification(name:'أكشن شاونين'),
+    classification: 'أكشن شاونين',
   ),
   new Episode(
     image: 'https://i.pinimg.com/236x/5b/27/06/5b2706b1d6459ca81b4576a122844fdc.jpg',
     episodeNumber: 3,
-    classification: new AnimeClassification(name:'أكشن شاونين'),
+    classification: 'أكشن شاونين',
   ),
   new Episode(
     image: 'https://i.pinimg.com/236x/5b/27/06/5b2706b1d6459ca81b4576a122844fdc.jpg',
     episodeNumber: 4,
-    classification: new AnimeClassification(name:'أكشن شاونين'),
+    classification: 'أكشن شاونين',
   ),
   new Episode(
     image: 'https://i.pinimg.com/236x/5b/27/06/5b2706b1d6459ca81b4576a122844fdc.jpg',
     episodeNumber: 5,
-    classification: new AnimeClassification(name:'أكشن شاونين'),
+    classification: 'أكشن شاونين',
   ),
   new Episode(
     image: 'https://i.pinimg.com/236x/5b/27/06/5b2706b1d6459ca81b4576a122844fdc.jpg',
     episodeNumber: 6,
-    classification: new AnimeClassification(name:'أكشن شاونين'),
+    classification: 'أكشن شاونين',
   ),
 
 ];
@@ -49,32 +51,23 @@ class AnimeDetailsRepository{
 
   AnimeDetailsRepository(this._httpClient);
 
-  Future<AnimeModel> getAnimeDetails(int animeId)async{
-    await Future.delayed(Duration(milliseconds: 4000));
-    AnimeModel anime = new AnimeModel();
-    anime.name = 'دكتور ستون-Dr .Stone';
-    anime.showYear = '2020';
-    anime.commentsNumber = 78;
-    anime.likesNumber = 90;
-    anime.rate = 4.6;
-    anime.image = 'https://i.pinimg.com/236x/5b/27/06/5b2706b1d6459ca81b4576a122844fdc.jpg';
-    anime.about = 'تدور أحداث القصة عن سينكو هو عضو في نادي علوم ويحب العلم، يخبره صديقه تايجو، أنه على وشك أن يعترف بحبه لصديقته يوزوريها. يجتمع تايجو معها تحت شجرة الكافور في المدرسة، عندما أوشك تايجو على الاعتراف، ظهر ضوء ساطع في السماء، قام بتحويل كل إنسان على الأرض إلى حجر. لكن تايجو لا يزال على قيد الحياة مع تقدم السنين بفضل حافزه لتحرير نفسه ويوزوريها. يتحرر تايجو من الحجر ويجد رسالة محفورة على الشجرة تؤدي به إلى اكتشاف أن سينكو قد تحرر أيضًا من الحجر.';
-    anime.episodes = await getEpisodes(animeId);
-    anime.comments = await getComments(animeId);
-    List<AnimeClassification> classifications =[
-       new AnimeClassification(name: 'علوم'),
-       new AnimeClassification(name: 'فانتازي'),
-       new AnimeClassification(name: 'اكشن'),
-    ];
-    anime.classifications = classifications;
+  Future<AnimeResponse> getAnimeDetails(int animeId)async{
+
+    dynamic response = await _httpClient.get(Urls.API_ANIME+'/$animeId');
+
+    if(response == null) return null;
+
+   print('hhh '+response["Data"].toString());
+
+
+    AnimeResponse anime = new AnimeResponse();
+    anime = AnimeResponse.fromJson(response["Data"]);
 
     return anime;
 
   }
-  Future<List<Comment>> getComments(int animeId) async{
-    await Future.delayed(Duration(milliseconds: 500));
-    return comments;
-  }
+
+
   Future<List<Episode>> getEpisodes(int animeId) async{
     await Future.delayed(Duration(milliseconds: 500));
     return episodes;

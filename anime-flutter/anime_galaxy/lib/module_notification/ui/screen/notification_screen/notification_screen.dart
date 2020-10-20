@@ -17,7 +17,7 @@ class NotificationScreen extends StatefulWidget {
 
 class _NotificationScreenState extends State<NotificationScreen> {
   List<NotificationModel> notifications;
-  NotificationState currentState;
+  NotificationState currentState = new NotificationStateInit();
   bool  loading =true;
 
   @override
