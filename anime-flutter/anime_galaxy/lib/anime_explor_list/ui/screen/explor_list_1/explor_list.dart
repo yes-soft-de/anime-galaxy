@@ -1,3 +1,6 @@
+import 'package:anime_galaxy/anime_explor_list/model/AllAnimeData.dart';
+import 'package:anime_galaxy/anime_explor_list/state/anime_explore_list_state.dart';
+import 'package:anime_galaxy/anime_explor_list/state_manager/anime_explore_list_state_manager.dart';
 import 'package:anime_galaxy/anime_explor_list/style_explore_list.dart';
 import 'package:anime_galaxy/anime_explor_list/ui/widget/card_members/card_series.dart';
 import 'package:anime_galaxy/anime_explor_list/ui/widget/card_series/card_series.dart';
@@ -16,20 +19,70 @@ import 'package:inject/inject.dart';
 class AnimeExploreList extends StatefulWidget {
   final StyleExploreList styleApp;
 
+  final AnimeExplorListStateManager _stateManager;
 
-  AnimeExploreList(this.styleApp);
+
+  AnimeExploreList(this.styleApp,this._stateManager);
 
   @override
   _ExploreListState createState() => _ExploreListState();
 }
 
 class _ExploreListState extends State<AnimeExploreList> {
-
   GlobalKey<ScaffoldState> _drawerKey = GlobalKey();
+  List<AllAnimeData> animes = [];
+  AnimeExplorListState currentState = AnimeExplorListStateInit();
+
+
+
+
+  @override
+  void initState() {
+    super.initState();
+
+    widget._stateManager.stateStream.listen((event) {
+      currentState = event;
+      processEvent();
+    });
+  }
+
+  void processEvent() {
+    if (currentState is AnimeExplorListStateFetchingSuccess) {
+      AnimeExplorListStateFetchingSuccess state = currentState;
+      animes = state.data;
+
+      if(this.mounted){
+        setState(() {});
+      }
+    }
+
+
+  }
+
+
   @override
   Widget build(BuildContext context) {
     double hight=MediaQuery.of(context).size.height;
     double width=MediaQuery.of(context).size.width;
+
+    print("begin");
+    if (currentState is AnimeExplorListStateInit) {
+      print("begin after");
+      widget._stateManager.getShows();
+      if(this.mounted){
+        setState(() {});
+      }
+
+
+
+    }
+
+    return data(context,hight,width);
+  }
+
+
+  Widget data(BuildContext context,double hight,double width){
+
     return SafeArea(
 
       child: Scaffold(
@@ -81,7 +134,7 @@ class _ExploreListState extends State<AnimeExploreList> {
                   children: [
                     Expanded(
                       child: Text(S.of(context).series_international,style: StyleExploreList.getTextSyle(size: 16,fontWeight: FontWeight.w500,
-                      day: false,),),
+                        day: false,),),
                     ),
                   ],
                 ),
@@ -89,17 +142,18 @@ class _ExploreListState extends State<AnimeExploreList> {
 
                   height: 200,
                   child: ListView.builder(itemBuilder: (context,index){
+                    AllAnimeData item=animes.elementAt(index);
                     return   Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 2),
                       child: CardSeries(url_image: "https://www.lamsahfannan.com/content/uploads/2017/03/3dlat.net_08_15_258a_6.jpg",
-                        series_category: "category",
-                        series_name: "name",),
+                        series_category: "${item.categoryName}",
+                        series_name: "${item.name}",),
                     );
                   },
-                  itemCount:4 ,
+                    itemCount:animes.length ,
 
 
-                  scrollDirection: Axis.horizontal,),
+                    scrollDirection: Axis.horizontal,),
                 ),
 
                 Divider(height: 1,thickness: 0.1,color: Colors.grey,),
@@ -157,9 +211,9 @@ class _ExploreListState extends State<AnimeExploreList> {
                 ),
               ],
 
-      ),
+            ),
           ),
-      ),
+        ),
 
       ),
     );

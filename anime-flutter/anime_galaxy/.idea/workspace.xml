@@ -1,15 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fa29066a-e844-4019-9b94-a82814f630c3" name="Default Changelist" comment="">
+    <list default="true" id="fa29066a-e844-4019-9b94-a82814f630c3" name="Default Changelist" comment="edit functions in style class to static">
+      <change afterPath="$PROJECT_DIR$/lib/anime_explor_list/anime_explor_list_repository/anime_explor_list_repository.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/anime_explor_list/manager/anime_explor_list_manager.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/anime_explor_list/model/AllAnimeData.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/anime_explor_list/model/AllAnimeModel.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/anime_explor_list/model/Interaction.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/anime_explor_list/services/anime_explor_list_services.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/anime_explor_list/state/anime_explore_list_state.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/anime_explor_list/state_manager/anime_explore_list_state_manager.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/anime_explor_list/ui/screen/explor_list_1/explor_list.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_explor_list/ui/screen/explor_list_1/explor_list.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/anime_explor_list/ui/widget/card_members/card_series.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_explor_list/ui/widget/card_members/card_series.inject.summary" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/anime_explor_list/ui/widget/card_series_favorite/card_series.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_explor_list/ui/widget/card_series_favorite/card_series.inject.summary" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/consts/urls.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/consts/urls.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/di/components/app.component.inject.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/di/components/app.component.inject.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_3_XL_API_23" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_3a_API_29" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -83,47 +97,55 @@
       <option name="project" value="LOCAL" />
       <updated>1602434858860</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="edit functions in style class to static">
+      <created>1602500070951</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1602500070951</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="design setting page :&#10;add custom button widget&#10;add setting style class&#10;add custom circular image widget &#10;add ui for setting" />
     <MESSAGE value="design Explore list  page :&#10;add custom button widget&#10;add setting style class and edit it to static&#10;add translation file" />
-    <option name="LAST_COMMIT_MESSAGE" value="design Explore list  page :&#10;add custom button widget&#10;add setting style class and edit it to static&#10;add translation file" />
+    <MESSAGE value="edit functions in style class to static" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit functions in style class to static" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="488" y="83" key="#com.intellij.ide.util.MemberChooser" timestamp="1602418311605">
+    <state x="488" y="83" key="#com.intellij.ide.util.MemberChooser" timestamp="1603124996175">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="488" y="83" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1602418311605" />
-    <state x="260" y="0" key="CommitChangelistDialog2" timestamp="1602434854187">
+    <state x="488" y="83" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1603124996175" />
+    <state x="260" y="0" key="CommitChangelistDialog2" timestamp="1603108843423">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="260" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1602434854187" />
-    <state width="1323" height="460" key="GridCell.Tab.0.bottom" timestamp="1602419228472">
+    <state x="260" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1603108843423" />
+    <state width="1323" height="382" key="GridCell.Tab.0.bottom" timestamp="1603130789004">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="460" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1602419228472" />
-    <state width="1323" height="460" key="GridCell.Tab.0.center" timestamp="1602419228472">
+    <state width="1323" height="382" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1603130789004" />
+    <state width="1323" height="382" key="GridCell.Tab.0.center" timestamp="1603130789004">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="460" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1602419228472" />
-    <state width="1323" height="460" key="GridCell.Tab.0.left" timestamp="1602419228472">
+    <state width="1323" height="382" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1603130789004" />
+    <state width="1323" height="382" key="GridCell.Tab.0.left" timestamp="1603130789004">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="460" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1602419228472" />
-    <state width="1323" height="460" key="GridCell.Tab.0.right" timestamp="1602419228472">
+    <state width="1323" height="382" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1603130789004" />
+    <state width="1323" height="382" key="GridCell.Tab.0.right" timestamp="1603130789004">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="460" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1602419228472" />
-    <state x="275" y="100" key="Vcs.Push.Dialog.v2" timestamp="1602434862007">
+    <state width="1323" height="382" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1603130789004" />
+    <state x="275" y="100" key="Vcs.Push.Dialog.v2" timestamp="1602500074956">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="100" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1602434862007" />
-    <state x="92" y="92" width="1182" height="544" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1602422990996">
+    <state x="275" y="100" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1602500074956" />
+    <state x="92" y="92" width="1182" height="544" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1603127571244">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="92" y="92" width="1182" height="544" key="com.android.tools.idea.avdmanager.AvdListDialog/0.0.1366.728@0.0.1366.728" timestamp="1602422990996" />
+    <state x="92" y="92" width="1182" height="544" key="com.android.tools.idea.avdmanager.AvdListDialog/0.0.1366.728@0.0.1366.728" timestamp="1603127571244" />
     <state x="339" y="162" key="run.anything.popup" timestamp="1602151079504">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

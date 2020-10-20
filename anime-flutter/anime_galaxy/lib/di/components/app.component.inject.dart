@@ -56,6 +56,13 @@ import '../../anime_explor_list/routes/explor_list_module.dart' as _i45;
 import '../../anime_explor_list/ui/screen/explor_list_1/explor_list.dart'
     as _i46;
 import '../../anime_explor_list/style_explore_list.dart' as _i47;
+import '../../anime_explor_list/state_manager/anime_explore_list_state_manager.dart'
+    as _i48;
+import '../../anime_explor_list/services/anime_explor_list_services.dart'
+    as _i49;
+import '../../anime_explor_list/manager/anime_explor_list_manager.dart' as _i50;
+import '../../anime_explor_list/anime_explor_list_repository/anime_explor_list_repository.dart'
+    as _i51;
 
 class AppComponent$Injector implements _i1.AppComponent {
   AppComponent$Injector._();
@@ -158,9 +165,17 @@ class AppComponent$Injector implements _i1.AppComponent {
   _i44.SignIn _createSignIn() => _i44.SignIn(_createStyleAuth());
   _i45.ExplorListModule _createExplorListModule() =>
       _i45.ExplorListModule(_createAnimeExploreList());
-  _i46.AnimeExploreList _createAnimeExploreList() =>
-      _i46.AnimeExploreList(_createStyleExploreList());
+  _i46.AnimeExploreList _createAnimeExploreList() => _i46.AnimeExploreList(
+      _createStyleExploreList(), _createAnimeExplorListStateManager());
   _i47.StyleExploreList _createStyleExploreList() => _i47.StyleExploreList();
+  _i48.AnimeExplorListStateManager _createAnimeExplorListStateManager() =>
+      _i48.AnimeExplorListStateManager(_createAnimeExplorListServices());
+  _i49.AnimeExplorListServices _createAnimeExplorListServices() =>
+      _i49.AnimeExplorListServices(_createAnimeExplorListManager());
+  _i50.AnimeExplorListManager _createAnimeExplorListManager() =>
+      _i50.AnimeExplorListManager(_createAnimeExplorListRepository());
+  _i51.AnimeExplorListRepository _createAnimeExplorListRepository() =>
+      _i51.AnimeExplorListRepository(_createApiClient());
   @override
   _i6.MyApp get app => _createMyApp();
 }
