@@ -5,7 +5,9 @@ namespace App\Repository;
 use App\Entity\Comment;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
-
+use App\Service\FollowService;
+use App\Entity\Anime;
+use Doctrine\ORM\Query\Expr\Join;
 /**
  * @method Comment|null find($id, $lockMode = null, $lockVersion = null)
  * @method Comment|null findOneBy(array $criteria, array $orderBy = null)
@@ -50,5 +52,28 @@ class CommentRepository extends ServiceEntityRepository
             ->setParameter('animeID', $animeID)
             ->getQuery()
             ->getResult();
+    }
+
+    public function getFollowersComments($friendID, $date)
+    {
+        return $this->createQueryBuilder('comment')
+            ->select('comment.userID','comment.id as commentID','comment.comment ','comment.creationDate as commentDate')
+            ->addSelect('Anime.id as animeID','Anime.name as AnimeName')
+
+            ->leftJoin(
+                Anime::class,
+                'Anime',
+                 Join::WITH,
+                'comment.animeID = Anime.id'
+            )
+            ->andWhere('comment.creationDate in (:date)')
+            ->andWhere('comment.userID = :friendID')         
+            ->setParameter('friendID',$friendID)
+            ->setParameter('date',$date)
+            ->setMaxResults(3) 
+            ->addOrderBy('comment.creationDate','DESC')
+            ->getQuery()
+            ->getResult();
+            
     }
 }

@@ -3,8 +3,10 @@
 namespace App\Repository;
 
 use App\Entity\Rating;
+use App\Entity\Anime;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\ORM\Query\Expr\Join;
 
 /**
  * @method Rating|null find($id, $lockMode = null, $lockVersion = null)
@@ -42,5 +44,28 @@ class RatingRepository extends ServiceEntityRepository
                 ->setParameter('animeID', $animeID)
                 ->getQuery()
                 ->getOneOrNullResult();
+    }
+
+    public function getFollowersRatings($friendID, $date)
+    {
+        return $this->createQueryBuilder('Rating')
+            ->select('Rating.userID','Rating.id as RatingID','Rating.rateValue ','Rating.creationDate as RatingDate')
+            ->addSelect('Anime.id as animeID','Anime.name as AnimeName')
+
+            ->leftJoin(
+                Anime::class,
+                'Anime',
+                 Join::WITH,
+                'Rating.animeID = Anime.id '
+            )  
+            ->andWhere('Rating.creationDate in (:date)')
+            ->andWhere('Rating.userID = :friendID')          
+            ->setParameter('friendID',$friendID)
+            ->setParameter('date',$date)
+            ->setMaxResults(3) 
+            ->addOrderBy('Rating.creationDate','DESC')
+            ->getQuery()
+            ->getResult();
+            
     }
 }

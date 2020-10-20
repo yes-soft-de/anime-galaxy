@@ -67,9 +67,13 @@ GradeService $gradeService, UpdateGradeRequest $updateGradeRequest)
         $result = $this->ratingManager->getAllRatings($animeId);
 
         $response =  $this->autoMapping->map('array', CountRatingResponse::class, $result);
-        // $response->setAvgRating($result);
 
         return $response;
     }
 
+ public function getFollowersRatings($friendID)
+    {
+       return $this->ratingManager->getFollowersRatings($friendID);
+        
+    }
 }

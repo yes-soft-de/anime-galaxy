@@ -115,4 +115,10 @@ class CommentService
         }
         return $response;
     }
+
+    public function getFollowersComments($friendID)
+    {
+        return  $this->commentManager->getFollowersComments($friendID); 
+    
+    }
 }

@@ -5,10 +5,10 @@ use App\AutoMapping;
 use App\Entity\Comment;
 use App\Repository\CommentRepository;
 use App\Request\CreateCommentRequest;
-use Doctrine\ORM\EntityManagerInterface;
 use App\Request\DeleteRequest;
-use App\Request\UpdateCommentRequest;
 use App\Request\GetByIdRequest;
+use App\Request\UpdateCommentRequest;
+use Doctrine\ORM\EntityManagerInterface;
 
 class CommentManager
 {
@@ -17,11 +17,10 @@ class CommentManager
     private $autoMapping;
 
     public function __construct(EntityManagerInterface $entityManagerInterface,
-    CommentRepository $commentRepository, AutoMapping $autoMapping )
-    {
-        $this->entityManager      = $entityManagerInterface;
-        $this->commentRepository  = $commentRepository;
-        $this->autoMapping        = $autoMapping;
+        CommentRepository $commentRepository, AutoMapping $autoMapping) {
+        $this->entityManager = $entityManagerInterface;
+        $this->commentRepository = $commentRepository;
+        $this->autoMapping = $autoMapping;
     }
     public function create(CreateCommentRequest $request)
     {
@@ -38,7 +37,7 @@ class CommentManager
     public function update(UpdateCommentRequest $request)
     {
         $commentEntity = $this->commentRepository->find($request->getId());
-        
+
         if (!$commentEntity) {
 
         } else {
@@ -51,15 +50,14 @@ class CommentManager
     public function delete(DeleteRequest $request)
     {
         $comment = $this->commentRepository->find($request->getId());
-        if (!$comment ) {
-                  
-        } 
-         else{   
+        if (!$comment) {
+
+        } else {
 
             $this->entityManager->remove($comment);
             $this->entityManager->flush();
-         }
-         return $comment;
+        }
+        return $comment;
     }
 
     public function getCommentById(GetByIdRequest $request)
@@ -76,5 +74,15 @@ class CommentManager
     public function getCommentsByAnimeId(GetByIdRequest $request)
     {
         return $this->commentRepository->getCommentsByAnimeId($request->getId());
+    }
+
+    public function getFollowersComments($userID)
+    {
+        $date = [];
+        for ($i = 1; $i <= 7; $i++) {
+            $date[] = date('Y-m-d', strtotime('-' . $i . ' day'));
+        }
+
+        return $result = $this->commentRepository->getFollowersComments($userID, $date);
     }
 }

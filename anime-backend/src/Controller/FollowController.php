@@ -96,4 +96,15 @@ class FollowController extends BaseController
 
         return $this->response(" ", self::DELETE);
     }
+
+    /**
+     * @Route("/FollowersActivities/{userID}", name="getFollowersActivities", methods={"GET"})
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function getFollowersActivities($userID)
+    {
+        $result = $this->followService->getFollowers($userID);
+        return $this->response($result, self::FETCH);
+    }
 }

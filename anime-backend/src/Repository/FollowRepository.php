@@ -3,6 +3,12 @@
 namespace App\Repository;
 
 use App\Entity\Follow;
+use App\Entity\Comment;
+use App\Entity\Rating;
+use App\Entity\Favourite;
+use App\Entity\Interaction;
+use App\Entity\Anime;
+use Doctrine\ORM\Query\Expr\Join;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -54,4 +60,16 @@ class FollowRepository extends ServiceEntityRepository
             ->getQuery()
             ->getOneOrNullResult();
     }
+
+
+    public function getFollowers($userID)
+    {
+        return $this->createQueryBuilder('follow')
+            ->select('follow.friendID')
+            ->andWhere('follow.userID = :userID')
+            ->setParameter('userID',$userID)
+            ->getQuery()
+            ->getResult();      
+    }
+
 }
