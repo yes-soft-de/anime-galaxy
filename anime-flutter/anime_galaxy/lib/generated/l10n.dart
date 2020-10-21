@@ -842,6 +842,16 @@ class S {
       args: [],
     );
   }
+
+  /// `ابدأ متابعة المسلسلات`
+  String get startWachingSeries {
+    return Intl.message(
+      'ابدأ متابعة المسلسلات',
+      name: 'startWachingSeries',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

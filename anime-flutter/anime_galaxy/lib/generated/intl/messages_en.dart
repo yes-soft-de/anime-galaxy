@@ -91,6 +91,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "signOut" : MessageLookupByLibrary.simpleMessage("Sign out"),
     "silver" : MessageLookupByLibrary.simpleMessage("فضي"),
     "startChat" : MessageLookupByLibrary.simpleMessage("Start Chat"),
+    "startWachingSeries" : MessageLookupByLibrary.simpleMessage("ابدأ متابعة المسلسلات"),
     "startWriting" : MessageLookupByLibrary.simpleMessage("Start Writing"),
     "submitGame" : MessageLookupByLibrary.simpleMessage("Submit Game!"),
     "syria" : MessageLookupByLibrary.simpleMessage("Syria"),

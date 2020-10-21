@@ -8,6 +8,7 @@ import 'package:anime_galaxy/module_anime/ui/widget/episode_card/episode_card.da
 import 'package:anime_galaxy/module_rating/ui/widget/rating_bar.dart';
 import 'package:anime_galaxy/utils/project_colors/project_color.dart'; 
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:inject/inject.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -212,7 +213,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
               child: new ConstrainedBox(
                   constraints: isExpanded
                       ? new BoxConstraints()
-                      : new BoxConstraints(maxHeight: 150.0),
+                      : new BoxConstraints(maxHeight: 75.0),
                   child:
                   Container(
                     width: screenWidth*0.9,
@@ -361,7 +362,9 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
               )
           ),
           // last episodes
-          GridView.builder(itemBuilder: (BuildContext context, int index){
+          GridView.builder(
+            physics: NeverScrollableScrollPhysics(),
+            itemBuilder: (BuildContext context, int index){
 
             return  EpisodeCard(
               image: anime.episodes[index].image,
@@ -396,7 +399,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
               )
           ),
           ListView.builder(
-            scrollDirection: Axis.vertical,
+            physics: NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             itemCount: anime.comments.length,
             itemBuilder: (BuildContext context , int index){

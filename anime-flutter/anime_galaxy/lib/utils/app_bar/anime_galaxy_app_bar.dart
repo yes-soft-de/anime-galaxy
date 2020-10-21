@@ -22,11 +22,12 @@ class AnimeGalaxyAppBar {
 
   static AppBar getBackEnabledAppBar() {
     return AppBar(
-      title: Text(
-        'Swaptime',
-        style: TextStyle(fontWeight: FontWeight.w300),
-      ),
+//      title: Text(
+//        'Swaptime',
+//        style: TextStyle(fontWeight: FontWeight.w300),
+//      ),
       centerTitle: true,
+      elevation: 0,
       actions: [
         // IconButton(
         //   icon: Icon(Icons.search),

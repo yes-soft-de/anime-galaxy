@@ -71,6 +71,8 @@ import '../../module_notification/manager/notification/notification.manager.dart
     as _i52;
 import '../../module_notification/repository/notification/notification.repository.dart'
     as _i53;
+import '../../module_init_account/account_module.dart' as _i54;
+import '../../module_init_account/ui/screen/init_account_screen.dart' as _i55;
 
 class AppComponent$Injector implements _i1.AppComponent {
   AppComponent$Injector._();
@@ -96,7 +98,8 @@ class AppComponent$Injector implements _i1.AppComponent {
       _createSwapThemeDataService(),
       _createHomeModule(),
       _createAnimeModlue(),
-      _createNotificationModule());
+      _createNotificationModule(),
+      _createAccountModule());
   _i7.ChatModule _createChatModule() =>
       _i7.ChatModule(_createChatPage(), _createAuthGuard());
   _i8.ChatPage _createChatPage() => _i8.ChatPage(_createChatPageBloc());
@@ -193,6 +196,9 @@ class AppComponent$Injector implements _i1.AppComponent {
       _i52.NotificationManager(_createNotificationRepository());
   _i53.NotificationRepository _createNotificationRepository() =>
       _i53.NotificationRepository();
+  _i54.AccountModule _createAccountModule() =>
+      _i54.AccountModule(_createInitAccountScreen());
+  _i55.InitAccountScreen _createInitAccountScreen() => _i55.InitAccountScreen();
   @override
   _i6.MyApp get app => _createMyApp();
 }

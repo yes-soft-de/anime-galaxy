@@ -1,5 +1,7 @@
 import 'package:anime_galaxy/module_anime/anime_routes.dart';
 import 'package:anime_galaxy/module_home/home.module.dart';
+import 'package:anime_galaxy/module_init_account/account_module.dart';
+import 'package:anime_galaxy/module_init_account/init_account_routes.dart';
 import 'package:anime_galaxy/module_notification/notification_module.dart';
 import 'package:anime_galaxy/module_notification/notification_routes.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
@@ -45,6 +47,7 @@ class MyApp extends StatefulWidget {
   final HomeModule _homeModule;
   final AnimeModlue _animeModlue;
   final NotificationModule _notificationModule;
+  final AccountModule _accountModule;
   MyApp(
     this._chatModule,
     this._cameraModule,
@@ -55,6 +58,7 @@ class MyApp extends StatefulWidget {
     this._homeModule,
     this._animeModlue,
     this._notificationModule,
+    this._accountModule,
   );
 
   @override
@@ -96,6 +100,7 @@ class _MyAppState extends State<MyApp> {
     fullRoutesList.addAll(widget._homeModule.getRoutes());
     fullRoutesList.addAll(widget._animeModlue.getRoutes());
     fullRoutesList.addAll(widget._notificationModule.getRoutes());
+    fullRoutesList.addAll(widget._accountModule.getRoutes());
 
     return FutureBuilder(
       future: getConfiguratedApp(fullRoutesList),
@@ -134,6 +139,6 @@ class _MyAppState extends State<MyApp> {
         supportedLocales: S.delegate.supportedLocales,
         title: 'Anime Galaxy',
         routes: fullRoutesList,
-        initialRoute:AnimeRoutes.ROUTE_ANIME_DETAILS_SCREEN);
+        initialRoute:InitAccountRoutes.INIT_ACCOUNT_ROUTE);
   }
 }

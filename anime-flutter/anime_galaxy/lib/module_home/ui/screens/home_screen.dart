@@ -230,7 +230,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   ),
                 ],
               ),
-            ),     new AnimatedSize(
+            ),
+            new AnimatedSize(
                 vsync: this,
                 duration: const Duration(milliseconds: 500),
                 child: new ConstrainedBox(
@@ -253,7 +254,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                         childAspectRatio: (2.3/4)
                     ),
                     itemCount:anime.watchedSeries.length,
-
+                     physics: NeverScrollableScrollPhysics(),
                     shrinkWrap: true,),
 
 //
