@@ -81,26 +81,38 @@ class FollowService
         }
     }
 
-    public function searchMyArray($arrays, $key, $search)
+    // public function searchMyArray($arrays, $key, $search)
+    // {
+    //     $count = 0;
+
+    //     foreach ($arrays as $object) {
+    //         if (is_object($object)) {
+    //             $object = get_object_vars($object);
+    //         }
+    //         if (array_key_exists($key, $object) && $object[$key] == $search) {
+    //             $count++;
+    //         }
+
+    //     }
+    //     return $count;
+    // }
+    function sortByDate($key)
     {
-        $count = 0;
-
-        foreach ($arrays as $object) {
-            if (is_object($object)) {
-                $object = get_object_vars($object);
+        return function ($a) use ($key) {
+             if ($a[$key] != $a[$key]) {
+                return ($a[$key] > $a[$key]) ? -1 : 1;   
             }
-            if (array_key_exists($key, $object) && $object[$key] == $search) {
-                $count++;
+             else {
+                return 0;
             }
+        };
 
-        }
-        return $count;
     }
-
     public function getFollowers($userID)
     {
         /** @var $response */
         $response = [];
+        $arr = [];
         $resultFollowers = $this->followManager->getFollowers($userID);
 
         foreach ($resultFollowers as $row) {
@@ -111,24 +123,29 @@ class FollowService
 
             foreach ($row['comment'] as $res) {
 
-                if ($this->searchMyArray($row['comment'], 'commentID', true)) {
-
-                    $response[] = $this->autoMapping->map('array', getFollowersActivitiesResponse::class, $res);
-                }
+                // if ($this->searchMyArray($row['comment'], 'commentID', true)) {
+                    $arr[] = $res;
+                    // $response[] = $this->autoMapping->map('array', getFollowersActivitiesResponse::class, $res);
+                // }
             }
 
             foreach ($row['rating'] as $res) {
 
-                if ($this->searchMyArray($row['rating'], 'RatingID', true)) {
-                    $response[] = $this->autoMapping->map('array', getFollowersActivitiesResponse::class, $res);
-                }
-            }
-            // if ($row['comment'] !=  $row['rating']) {
-            //     dd( ($res1['commentDate'] > $res2['RatingDate']) ? -1 : 1);
-            // }
+                // if ($this->searchMyArray($row['rating'], 'RatingID', true)) {
+                    $arr[] = $res;
+                    // $response[] = $this->autoMapping->map('array', getFollowersActivitiesResponse::class, $res);
+                // }
+            }          
+           
         }
-        // dd($response);
+    //    array_multisort(array_column($arr,'Date'),
+        // SORT_DESC);
+      usort($arr, $this->sortByDate('date'));
 
+         foreach ($arr as $res) {
+            $response[] = $this->autoMapping->map('array', getFollowersActivitiesResponse::class, $res);
+         }
+        dd($response);
         return $response;
     }
 

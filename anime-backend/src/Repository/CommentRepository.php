@@ -7,6 +7,7 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Service\FollowService;
 use App\Entity\Anime;
+use App\Entity\UserProfile;
 use Doctrine\ORM\Query\Expr\Join;
 /**
  * @method Comment|null find($id, $lockMode = null, $lockVersion = null)
@@ -57,8 +58,8 @@ class CommentRepository extends ServiceEntityRepository
     public function getFollowersComments($friendID, $date)
     {
         return $this->createQueryBuilder('comment')
-            ->select('comment.userID','comment.id as commentID','comment.comment ','comment.creationDate as commentDate')
-            ->addSelect('Anime.id as animeID','Anime.name as AnimeName')
+            ->select('comment.userID','comment.id as commentID','comment.comment ','comment.creationDate as date')
+            ->addSelect('Anime.id as animeID','Anime.name as AnimeName','UserProfile.userName')
 
             ->leftJoin(
                 Anime::class,
@@ -66,6 +67,12 @@ class CommentRepository extends ServiceEntityRepository
                  Join::WITH,
                 'comment.animeID = Anime.id'
             )
+            ->leftJoin(
+                UserProfile::class,
+                'UserProfile',
+                 Join::WITH,
+                'comment.userID = UserProfile.userID '
+            ) 
             ->andWhere('comment.creationDate in (:date)')
             ->andWhere('comment.userID = :friendID')         
             ->setParameter('friendID',$friendID)
