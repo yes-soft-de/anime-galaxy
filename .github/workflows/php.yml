@@ -19,7 +19,7 @@ jobs:
       run: pwd
     - name: Validate composer.json and composer.lock
       
-      run: composer validate -d anime-galaxy/anime-backend/composer.json
+      run: composer validate -d /home/runner/work/anime-galaxy/anime-galaxy/anime-backend/composer.json
 
     - name: Cache Composer packages
       id: composer-cache
