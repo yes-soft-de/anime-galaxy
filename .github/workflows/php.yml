@@ -16,7 +16,7 @@ jobs:
 
     - name: pwd
       
-      run: pwd
+      run: ls -al
     - name: Validate composer.json and composer.lock
       
       run: composer validate -d /home/runner/work/anime-galaxy/anime-galaxy/anime-backend/composer.json
