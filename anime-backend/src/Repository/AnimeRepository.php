@@ -60,7 +60,7 @@ class AnimeRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('anime')
             ->select('anime.id', 'anime.name', 'anime.mainImage', 'category.name as categoryName',
                 'avg(rate.rateValue) as rating',
-                'count(DISTINCT comment.id) as comments')
+                'count(DISTINCT comment.id) as comments', 'anime.specialLink')
             ->leftJoin(
                 Category::class,
                 'category',
@@ -88,7 +88,8 @@ class AnimeRepository extends ServiceEntityRepository
     public function getAnimeByCategoryID($categoryID)
     {
         return $this->createQueryBuilder('anime')
-            ->select('anime.id','anime.name', 'anime.mainImage', 'count(DISTINCT comment.id) as comments','avg(rate.rateValue) as rating')
+            ->select('anime.id','anime.name', 'anime.mainImage', 'count(DISTINCT comment.id) as comments',
+                'avg(rate.rateValue) as rating', 'anime.specialLink')
             ->leftJoin(
                 Comment::class,            
                 'comment',                  
@@ -111,7 +112,8 @@ class AnimeRepository extends ServiceEntityRepository
     public function getHighestRatedAnime()
     {
         return $this->createQueryBuilder('anime')
-            ->select('anime.id', 'anime.name as animeName', 'anime.mainImage as animeMainImage', 'category.name as categoryName', 'avg(rate.rateValue) as rating'
+            ->select('anime.id', 'anime.name as animeName', 'anime.mainImage as animeMainImage',
+                'category.name as categoryName', 'avg(rate.rateValue) as rating', 'anime.specialLink'
                 )
             ->leftjoin(
                 Category::class,
@@ -136,7 +138,8 @@ class AnimeRepository extends ServiceEntityRepository
     public function getHighestRatedAnimeByUser($userID)
     {
         return $this->createQueryBuilder('anime')
-        ->select('anime.id','anime.name as animeName', 'anime.mainImage as animeMainImage', 'avg(rate.rateValue) as rating')
+        ->select('anime.id','anime.name as animeName', 'anime.mainImage as animeMainImage',
+            'avg(rate.rateValue) as rating', 'anime.specialLink')
         ->addSelect('category.name as categoryName')
        
         ->leftJoin(
@@ -166,10 +169,10 @@ class AnimeRepository extends ServiceEntityRepository
         ->getResult();
     }
 
-    public function getAllCommingSoon($date)
+    public function getAllComingSoon($date)
     {        
         return $this->createQueryBuilder('anime')
-            ->select('anime.id', 'anime.name', 'anime.mainImage', 'category.name as categoryName')
+            ->select('anime.id', 'anime.name', 'anime.mainImage', 'category.name as categoryName', 'anime.specialLink')
             ->leftJoin(
                 Category::class,
                 'category',
@@ -186,7 +189,7 @@ class AnimeRepository extends ServiceEntityRepository
     public function getAnimeFavourite($userID)
     {
         return $this->createQueryBuilder('anime')
-        ->select('anime.id','anime.name as animeName', 'anime.mainImage as animeMainImage')
+        ->select('anime.id','anime.name as animeName', 'anime.mainImage as animeMainImage', 'anime.specialLink')
         ->addSelect('category.name as categoryName')
        
         ->join(
@@ -207,10 +210,12 @@ class AnimeRepository extends ServiceEntityRepository
         ->getQuery()
         ->getResult();
     }
-    public function getAnimeByFavouriteCateory($userID)
+
+    public function getAnimeByFavouriteCategory($userID)
     {    
-         $result=$this->createQueryBuilder('anime')
-        ->select('anime.id','anime.name as animeName', 'anime.mainImage as animeMainImage', 'avg(rate.rateValue) as rating')
+        return $this->createQueryBuilder('anime')
+        ->select('anime.id','anime.name as animeName', 'anime.mainImage as animeMainImage',
+            'avg(rate.rateValue) as rating', 'anime.specialLink')
         ->addSelect('category.name as categoryName')
         ->leftjoin(
             Category::class,
@@ -237,7 +242,6 @@ class AnimeRepository extends ServiceEntityRepository
         ->groupBy('anime.id')
         ->getQuery()
         ->getResult();
-        return $result;
     }
 
      

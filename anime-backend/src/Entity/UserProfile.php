@@ -25,7 +25,7 @@ class UserProfile
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $name;
+    private $userName;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -36,6 +36,11 @@ class UserProfile
      * @ORM\Column(type="text", nullable=true)
      */
     private $story;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $location;
 
     public function getId(): ?int
     {
@@ -54,14 +59,14 @@ class UserProfile
         return $this;
     }
 
-    public function getName(): ?string
+    public function getUserName(): ?string
     {
-        return $this->name;
+        return $this->userName;
     }
 
-    public function setName(string $name): self
+    public function setUserName(string $userName): self
     {
-        $this->name = $name;
+        $this->userName = $userName;
 
         return $this;
     }
@@ -86,6 +91,18 @@ class UserProfile
     public function setStory(?string $story): self
     {
         $this->story = $story;
+
+        return $this;
+    }
+
+    public function getLocation(): ?string
+    {
+        return $this->location;
+    }
+
+    public function setLocation(?string $location): self
+    {
+        $this->location = $location;
 
         return $this;
     }

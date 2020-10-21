@@ -27,7 +27,9 @@ class EpisodeRepository extends ServiceEntityRepository
     public function getEpisodesByAnimeId($animeID)
     {
         return $this->createQueryBuilder('episode')
-            ->select('episode.id', 'episode.image','episode.seasonNumber','episode.episodeNumber','episode.description','episode.duration','episode.publishDate','episode.createdAt','anime.name as animeName', 'count(DISTINCT comment.id) as comments','comment.id as commentID','avg(rate.rateValue) as rating')
+            ->select('episode.id', 'episode.image', 'episode.seasonNumber', 'episode.episodeNumber', 'episode.description',
+                'episode.duration', 'episode.publishDate', 'episode.createdAt', 'anime.name as animeName', 'count(DISTINCT comment.id) as comments',
+                'comment.id as commentID', 'avg(rate.rateValue) as rating', 'episode.specialLink')
             ->leftJoin(
                 Anime::class,
                 'anime',
@@ -57,7 +59,9 @@ class EpisodeRepository extends ServiceEntityRepository
     public function getEpisodesByAnimeIdAndSeasonNumber($animeID, $seasonNumber)
     {
         return $this->createQueryBuilder('episode')
-        ->select('episode.id', 'episode.image','episode.seasonNumber','episode.episodeNumber','episode.description','episode.duration','episode.publishDate','episode.createdAt','anime.name as animeName', 'count(DISTINCT comment.id) as comments','avg(rate.rateValue) as rating')
+        ->select('episode.id', 'episode.image', 'episode.seasonNumber', 'episode.episodeNumber', 'episode.description',
+            'episode.duration', 'episode.publishDate', 'episode.createdAt', 'anime.name as animeName', 'count(DISTINCT comment.id) as comments',
+            'avg(rate.rateValue) as rating', 'episode.specialLink')
         ->leftJoin(
             Anime::class,
             'anime',
@@ -89,7 +93,8 @@ class EpisodeRepository extends ServiceEntityRepository
     public function getEpisodeById($id)
     {
        return $this->createQueryBuilder('episode')
-        ->select('episode.id','episode.seasonNumber','episode.episodeNumber','episode.description','episode.image','episode.duration','episode.publishDate','episode.createdAt','anime.name as animeName',
+        ->select('episode.id','episode.seasonNumber', 'episode.episodeNumber', 'episode.description', 'episode.image',
+            'episode.duration', 'episode.publishDate', 'episode.createdAt', 'anime.name as animeName', 'episode.specialLink',
         'avg(rate.rateValue) as rating')
     
         ->leftJoin(
@@ -116,10 +121,11 @@ class EpisodeRepository extends ServiceEntityRepository
 
     }
 
-    public function getAllCommingSoon($date)
+    public function getAllComingSoon($date)
     {        
         return $this->createQueryBuilder('episode')
-            ->select('episode.id', 'episode.description','episode.episodeNumber','episode.image','episode.duration','episode.publishDate','episode.createdAt','episode.seasonNumber','anime.name as animeName')
+            ->select('episode.id', 'episode.description', 'episode.episodeNumber', 'episode.image', 'episode.duration',
+                'episode.publishDate', 'episode.createdAt', 'episode.seasonNumber', 'anime.name as animeName', 'episode.specialLink')
             ->leftJoin(
                 Anime::class,
                 'anime',

@@ -6,11 +6,8 @@ namespace App\Manager;
 
 use App\AutoMapping;
 use App\Entity\User;
-use App\Entity\UserEntity;
 use App\Entity\UserProfile;
-use App\Entity\UserProfileEntity;
-use App\Repository\UserEntityRepository;
-use App\Repository\UserProfileEntityRepository;
+use App\Repository\UserProfileRepository;
 use App\Repository\UserRepository;
 use App\Request\UserProfileCreateRequest;
 use App\Request\UserProfileUpdateRequest;
@@ -24,14 +21,16 @@ class UserManager
     private $entityManager;
     private $encoder;
     private $userRepository;
+    private $userProfileRepository;
 
     public function __construct(AutoMapping $autoMapping, EntityManagerInterface $entityManager,
-                                UserPasswordEncoderInterface $encoder, UserRepository $userRepository)
+                                UserPasswordEncoderInterface $encoder, UserRepository $userRepository, UserProfileRepository $userProfileRepository )
     {
         $this->autoMapping = $autoMapping;
         $this->entityManager = $entityManager;
         $this->encoder = $encoder;
         $this->userRepository = $userRepository;
+        $this->userProfileRepository = $userProfileRepository;
     }
 
     public function userRegister(UserRegisterRequest $request)
@@ -71,7 +70,7 @@ class UserManager
 
     public function userProfileUpdate(UserProfileUpdateRequest $request)
     {
-        $item = $this->userProfileEntityRepository->getProfileByUSerID($request->getUserID());
+        $item = $this->userProfileRepository->getUserProfile($request->getUserID());
 
         if ($item)
         {
@@ -87,6 +86,6 @@ class UserManager
 
     public function getProfileByUserID($userID)
     {
-        return $this->userProfileEntityRepository->getProfileByUSerID($userID);
+        return $this->userProfileRepository->getProfileByUSerID($userID);
     }
 }

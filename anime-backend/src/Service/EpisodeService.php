@@ -13,6 +13,7 @@ use App\Response\GetEpisodeByIdResponse;
 use App\Response\GetEpisodeResponse;
 use App\Response\UpdateEpisodeResponse;
 use App\Response\GetEpisodeCommingSoonResponse;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 class EpisodeService
 {
@@ -20,13 +21,17 @@ class EpisodeService
     private $autoMapping;
     private $commentService;
     private $interactionService;
+    private $params;
 
-    public function __construct(EpisodeManager $episodeManager, AutoMapping $autoMapping, CommentEpisodeService $commentService,InteractionEpisodeService $interactionService)
+    public function __construct(EpisodeManager $episodeManager, AutoMapping $autoMapping, CommentEpisodeService $commentService,
+                                InteractionEpisodeService $interactionService, ParameterBagInterface $params)
     {
         $this->episodeManager = $episodeManager;
         $this->autoMapping = $autoMapping;
         $this->commentService = $commentService;
         $this->interactionService = $interactionService;
+
+        $this->params = $params->get('upload_base_url').'/';
     }
 
     public function create(CreateEpisodeRequest $request)
@@ -53,6 +58,8 @@ class EpisodeService
 
         foreach ($result as $row)
         {
+            $row['image'] = $this->specialLinkCheck($row['specialLink']).$row['image'];
+
             $row['episodInteraction']=[
                 'love' => $this->interactionService->lovedAll($row['id']),
                 'like' => $this->interactionService->likeAll($row['id']),
@@ -72,7 +79,9 @@ class EpisodeService
 
         foreach ($result as $row)
         {
-            $row['interaction']=[
+            $row['image'] = $this->specialLinkCheck($row['specialLink']).$row['image'];
+
+            $row['interaction'] = [
                 'love' => $this->interactionService->lovedAll($row['id']),
                 'like' => $this->interactionService->likeAll($row['id']),
                 'dislike' => $this->interactionService->dislikeAll($row['id'])
@@ -93,7 +102,9 @@ class EpisodeService
         
         foreach ($result as $row)
         {
-        $response = $this->autoMapping->map('array', GetEpisodeByIdResponse::class, $row);
+            $row['image'] = $this->specialLinkCheck($row['specialLink']).$row['image'];
+
+            $response = $this->autoMapping->map('array', GetEpisodeByIdResponse::class, $row);
         }
         
         $response->setComments($resultComments);
@@ -106,7 +117,6 @@ class EpisodeService
 
     public function delete($request)
     {
-        $response = [];
         $episodeResult = $this->episodeManager->delete($request);
 
         if($episodeResult == null)
@@ -114,23 +124,31 @@ class EpisodeService
             return null;
         }
 
-        $response = $this->autoMapping->map(Episode::class, GetEpisodeByIdResponse::class, $episodeResult);
-
-        return $response;
+        return $this->autoMapping->map(Episode::class, GetEpisodeByIdResponse::class, $episodeResult);
     }
 
-    public function getAllCommingSoon()
+    public function getAllComingSoon()
     {
         /** @var $response */
        
-        $result = $this->episodeManager->getAllCommingSoon();
+        $result = $this->episodeManager->getAllComingSoon();
         $response = [];
         
         foreach ($result as $row)
         {
+            $row['image'] = $this->specialLinkCheck($row['specialLink']).$row['image'];
+
             $response[] = $this->autoMapping->map('array', GetEpisodeCommingSoonResponse::class, $row); 
         }
 
         return $response;
+    }
+
+    public function specialLinkCheck($bool)
+    {
+        if (!$bool)
+        {
+            return $this->params;
+        }
     }
 }

@@ -146,12 +146,12 @@ class AnimeController extends BaseController
     }
 
     /**
-     * @Route("animeCommingSoon", name="getAllAnimeCommingSoon", methods={"GET"})
+     * @Route("animeComingSoon", name="getAllAnimeComingSoon", methods={"GET"})
      * @return JsonResponse
      */
-    public function getAllCommingSoon()
+    public function getAllComingSoon()
     {
-        $result = $this->animeService->getAllCommingSoon();
+        $result = $this->animeService->getAllComingSoon();
 
         return $this->response($result, self::FETCH);
     }

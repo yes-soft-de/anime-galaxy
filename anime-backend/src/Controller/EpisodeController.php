@@ -123,12 +123,12 @@ class EpisodeController extends BaseController
     }
 
     /**
-     * @Route("episodesCommingSoon", name="getAllEpisodesCommingSoon", methods={"GET"})
+     * @Route("episodesComingSoon", name="getAllEpisodesComingSoon", methods={"GET"})
      * @return JsonResponse
      */
-    public function getAllCommingSoon()
+    public function getAllComingSoon()
     {
-        $result = $this->episodeService->getAllCommingSoon();
+        $result = $this->episodeService->getAllComingSoon();
 
         return $this->response($result, self::FETCH);
     }

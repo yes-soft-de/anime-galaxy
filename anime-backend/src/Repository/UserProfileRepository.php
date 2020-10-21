@@ -2,8 +2,10 @@
 
 namespace App\Repository;
 
+use App\Entity\User;
 use App\Entity\UserProfile;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query\Expr\Join;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -19,32 +21,32 @@ class UserProfileRepository extends ServiceEntityRepository
         parent::__construct($registry, UserProfile::class);
     }
 
-    // /**
-    //  * @return UserProfile[] Returns an array of UserProfile objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function getProfileByUSerID($userID)
     {
-        return $this->createQueryBuilder('u')
-            ->andWhere('u.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('u.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+        return $this->createQueryBuilder('profile')
+            ->select('user.createdAt as createdAt','profile.userID', 'profile.userName', 'profile.location', 'profile.image',
+                'profile.image', 'profile.story')
+            ->leftJoin(
+                User::class,
+                'user',
+                Join::WITH,
+                'user.userID = profile.userID'
+            )
+            ->andWhere('profile.userID=:userID')
+            ->setParameter('userID', $userID)
 
-    /*
-    public function findOneBySomeField($value): ?UserProfile
-    {
-        return $this->createQueryBuilder('u')
-            ->andWhere('u.exampleField = :val')
-            ->setParameter('val', $value)
             ->getQuery()
-            ->getOneOrNullResult()
-        ;
+            ->getOneOrNullResult();
     }
-    */
+
+    public function getUserProfile($userID)
+    {
+        return $this->createQueryBuilder('profile')
+
+            ->andWhere('profile.userID=:userID')
+            ->setParameter('userID', $userID)
+
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
 }

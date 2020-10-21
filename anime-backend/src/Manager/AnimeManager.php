@@ -96,19 +96,20 @@ class AnimeManager
         return $this->animeRepository->getHighestRatedAnimeByUser($userID);
     }
 
-    public function getAllCommingSoon()
+    public function getAllComingSoon()
     {
         $date = new \DateTime("Now");
-        return $this->animeRepository->getAllCommingSoon($date);
+        return $this->animeRepository->getAllComingSoon($date);
     }
 
     public function getAnimeFavourite($userID)
     {
         return $this->animeRepository->getAnimeFavourite($userID);
     }
-    public function getAnimeByFavouriteCateory($id)
+
+    public function getAnimeByFavouriteCategory($id)
     {
-        return $this->animeRepository->getAnimeByFavouriteCateory($id);
+        return $this->animeRepository->getAnimeByFavouriteCategory($id);
     }
 
 }
