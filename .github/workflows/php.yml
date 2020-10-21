@@ -14,7 +14,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: pwd
+      
+      run: pwd
     - name: Validate composer.json and composer.lock
+      
       run: composer validate -d anime-galaxy/anime-backend/composer.json
 
     - name: Cache Composer packages
