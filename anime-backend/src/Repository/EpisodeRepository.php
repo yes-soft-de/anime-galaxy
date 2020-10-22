@@ -28,8 +28,7 @@ class EpisodeRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('episode')
             ->select('episode.id', 'episode.image', 'episode.seasonNumber', 'episode.episodeNumber', 'episode.description',
-                'episode.duration', 'episode.publishDate', 'episode.createdAt', 'anime.name as animeName', 'count(DISTINCT comment.id) as comments',
-                'comment.id as commentID', 'avg(rate.rateValue) as rating', 'episode.specialLink')
+                'episode.duration', 'episode.publishDate', 'episode.createdAt', 'anime.name as animeName', 'count(DISTINCT comment.id) as comments', 'avg(rate.rateValue) as rating', 'episode.specialLink')
             ->leftJoin(
                 Anime::class,
                 'anime',
@@ -48,9 +47,8 @@ class EpisodeRepository extends ServiceEntityRepository
                 Join::WITH,           
                 'rate.episodeID = episode.id' 
             )
-            ->andWhere('episode.animeID=:animeID')
+            ->andWhere('episode.animeID =:animeID')
             ->groupBy('episode.id')
-            // ->orderBy('episode.id', 'ASC')
             ->setParameter('animeID', (INT)$animeID)
             ->getQuery()
             ->getResult();
