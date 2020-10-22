@@ -6,6 +6,7 @@ namespace App\Response;
 
 class GetCategoryResponse
 {
+    public $id;
     public $name;
     public $description;
 
