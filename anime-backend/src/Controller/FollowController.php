@@ -98,7 +98,7 @@ class FollowController extends BaseController
     }
 
     /**
-     * @Route("/FollowersActivities/{userID}", name="getFollowersActivities", methods={"GET"})
+     * @Route("/followersActivities/{userID}", name="getFollowersActivities", methods={"GET"})
      * @param Request $request
      * @return JsonResponse
      */
