@@ -163,6 +163,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
                 emptyIcon: Icon(Icons.favorite_border,color: ProjectColors.ThemeColor, ),
                 onRatingChanged: (rating) => setState(() => this.rating = rating),
                 itemSize:40,
+                itemCount: 10,
               ),
 //                RatingBar(
 //                initialRating: 2,

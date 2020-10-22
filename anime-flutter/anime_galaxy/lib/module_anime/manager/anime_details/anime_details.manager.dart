@@ -1,7 +1,7 @@
 
 import 'package:anime_galaxy/module_anime/repository/anime_details/anime_details.repository.dart';
-import 'package:anime_galaxy/module_anime/response/anime_response.dart';
-import 'package:inject/inject.dart';
+import 'package:anime_galaxy/module_anime/response/anime_response/anime_response.dart';
+ import 'package:inject/inject.dart';
 
 @provide
 class AnimeDetailsManager{
