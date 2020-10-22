@@ -97,7 +97,7 @@ methods: GET
 ##### Get an episode by ID.
 `Method: Get. Path: /episode/id.`
 ##### Get episodes of specific anime.
-`Method: Get. Path: /episode/animeID.`
+`Method: Get. Path: /animeEpisodes/{animeID}.`
 ##### Get episodes of specific anime and specific season.
 `Method: Get. Path: /episode/animeID/seasonNumber.`
 ##### Update an existing episode by ID.
