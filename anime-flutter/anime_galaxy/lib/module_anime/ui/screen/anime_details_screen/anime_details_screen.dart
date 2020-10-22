@@ -28,7 +28,6 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
   bool  loading =true;
   AnimeDetailsState  currentState = AnimeDetailsStateInit();
   AnimeModel anime;
-
   @override
   void initState() {
 

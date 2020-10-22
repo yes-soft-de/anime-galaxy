@@ -73,6 +73,14 @@ import '../../module_notification/repository/notification/notification.repositor
     as _i53;
 import '../../module_init_account/account_module.dart' as _i54;
 import '../../module_init_account/ui/screen/init_account_screen.dart' as _i55;
+import '../../module_init_account/state_manager/init_account/init_account.state_manager.dart'
+    as _i56;
+import '../../module_init_account/service/init_account/init_account.service.dart'
+    as _i57;
+import '../../module_init_account/manager/init_account/init_account.manager.dart'
+    as _i58;
+import '../../module_init_account/repository/init_account/init_account.repository.dart'
+    as _i59;
 
 class AppComponent$Injector implements _i1.AppComponent {
   AppComponent$Injector._();
@@ -198,7 +206,16 @@ class AppComponent$Injector implements _i1.AppComponent {
       _i53.NotificationRepository();
   _i54.AccountModule _createAccountModule() =>
       _i54.AccountModule(_createInitAccountScreen());
-  _i55.InitAccountScreen _createInitAccountScreen() => _i55.InitAccountScreen();
+  _i55.InitAccountScreen _createInitAccountScreen() =>
+      _i55.InitAccountScreen(_createInitAccountStateManager());
+  _i56.InitAccountStateManager _createInitAccountStateManager() =>
+      _i56.InitAccountStateManager(_createInitAccountService());
+  _i57.InitAccountService _createInitAccountService() =>
+      _i57.InitAccountService(_createInitAccountManager());
+  _i58.InitAccountManager _createInitAccountManager() =>
+      _i58.InitAccountManager(_createInitAccountRepository());
+  _i59.InitAccountRepository _createInitAccountRepository() =>
+      _i59.InitAccountRepository(_createApiClient());
   @override
   _i6.MyApp get app => _createMyApp();
 }

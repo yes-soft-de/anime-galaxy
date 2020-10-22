@@ -95,6 +95,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "startWriting" : MessageLookupByLibrary.simpleMessage("Start Writing"),
     "submitGame" : MessageLookupByLibrary.simpleMessage("Submit Game!"),
     "syria" : MessageLookupByLibrary.simpleMessage("Syria"),
+    "test" : MessageLookupByLibrary.simpleMessage("ddd"),
     "thisGameIsGreat" : MessageLookupByLibrary.simpleMessage("This Game is Great"),
     "toMyCollection" : MessageLookupByLibrary.simpleMessage("to my collection"),
     "tos" : MessageLookupByLibrary.simpleMessage("TOS"),

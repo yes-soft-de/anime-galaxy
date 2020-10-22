@@ -29,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   bool isExpanded2 = false;
   double screenWidth;
   HomeModel anime;
-  HomeState currentState = new HomeStateInit();
+  HomeState currentState =  HomeStateInit();
   bool  loading =true;
 
   @override
