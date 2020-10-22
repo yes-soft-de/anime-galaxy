@@ -145,7 +145,7 @@ class FollowService
          foreach ($arr as $res) {
             $response[] = $this->autoMapping->map('array', getFollowersActivitiesResponse::class, $res);
          }
-        // dd($response);
+       // dd($response);
         return $response;
     }
 
