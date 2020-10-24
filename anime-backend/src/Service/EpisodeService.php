@@ -94,6 +94,7 @@ class EpisodeService
 
     public function getEpisodeById($request)
     {
+        $response= [];
         $result = $this->episodeManager->getEpisodeById($request);
         $resultComments = $this->commentService->getCommentsByEpisodeId($request);
         $love = $this->interactionService->loved($request);
@@ -106,12 +107,12 @@ class EpisodeService
 
             $response = $this->autoMapping->map('array', GetEpisodeByIdResponse::class, $row);
         }
-        
+        if($result){
         $response->setComments($resultComments);
         $response->interactions['love'] = $love;
         $response->interactions['like'] = $like;
         $response->interactions['dislike'] = $dislike;
-        
+        }
         return $response;
     }
 
