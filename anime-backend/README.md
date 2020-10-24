@@ -100,6 +100,8 @@ methods: GET
 `Method: Get. Path: /animeEpisodes/{animeID}.`
 ##### Get episodes of specific anime and specific season.
 `Method: Get. Path: /episode/animeID/seasonNumber.`
+##### Get All Episodes ComingSoon.
+`Method: Get. Path: /episodesComingSoon.`
 ##### Update an existing episode by ID.
 `Method: PUT. Path: /episode.`
 ##### Delete an existing episode by ID.
