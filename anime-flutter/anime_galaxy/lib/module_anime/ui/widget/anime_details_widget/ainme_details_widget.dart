@@ -32,10 +32,10 @@ class AnimeDetailsWidget extends StatelessWidget {
               children: [
                 Text(
                   name,
-                  textDirection: TextDirection.rtl,
+
                 ),
                 Text( showYear,
-                  textDirection: TextDirection.rtl,
+
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -87,13 +87,14 @@ class AnimeDetailsWidget extends StatelessWidget {
                       children: [
                         Text(
                           S.of(context).Share,
-                          textDirection: TextDirection.rtl,
+
                           style: TextStyle(
                             fontSize: 10
                           ),
                         ),
                         IconButton(
                           icon: Icon(Icons.share),
+                          //TODO : implement this
                           onPressed: (){},
                         )
                       ],
@@ -102,13 +103,14 @@ class AnimeDetailsWidget extends StatelessWidget {
                       children: [
                         Text(
                           S.of(context).Like,
-                          textDirection: TextDirection.rtl,
+
                           style: TextStyle(
                               fontSize: 10
                           ),
                         ),
                         IconButton(
                           icon: Icon(Icons.favorite),
+                          //TODO : implement this
                           onPressed: (){},
                         )
                       ],
@@ -119,7 +121,7 @@ class AnimeDetailsWidget extends StatelessWidget {
                         child: FlatButton(
                           color:ProjectColors.ThemeColor,
                           shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(20.0)),
-
+                          //TODO : implement this
                           onPressed: () {},
                           child:Text(
                             S.of(context).Follow,
@@ -141,11 +143,8 @@ class AnimeDetailsWidget extends StatelessWidget {
 
               child: ClipRRect(
                   borderRadius: BorderRadius.circular(15),
-                  child:  Image(
-                  image: NetworkImage(image),
+                  child:  FadeInImage.assetNetwork(placeholder:'' , image: image)
 
-
-              ),
               ),
             ),
 

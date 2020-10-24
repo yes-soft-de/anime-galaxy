@@ -5,16 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="949cf1e4-ee88-43fb-8374-6a66b1c9c391" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/repository/anime_details/anime_details.repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/repository/anime_details/anime_details.repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/response/anime_response/anime_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/response/anime_response/anime_response.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/service/anime_details/anime_details.service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/service/anime_details/anime_details.service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/ui/screens/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/ui/screens/home_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_init_account/ui/screen/init_account_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_init_account/ui/screen/init_account_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_init_account/ui/widget/anime_category_Card/anime_category_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_init_account/ui/widget/anime_category_Card/anime_category_card.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_anime/ui/widget/anime_details_widget/ainme_details_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/ui/widget/anime_details_widget/ainme_details_widget.dart" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -35,7 +27,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/module_anime/repository/anime_details/anime_details.repository.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="39">
+            <state relative-caret-position="820">
               <caret line="41" column="32" selection-start-line="41" selection-start-column="28" selection-end-line="41" selection-end-column="32" />
               <folding>
                 <element signature="e#1#48#0" expanded="true" />
@@ -68,7 +60,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.dart">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
@@ -76,6 +68,27 @@
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/module_anime/ui/widget/anime_details_widget/ainme_details_widget.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="57">
+              <caret line="102" column="33" lean-forward="true" selection-start-line="102" selection-start-column="33" selection-end-line="102" selection-end-column="33" />
+              <folding>
+                <element signature="e#1#51#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://C:/flutter/packages/flutter/lib/src/widgets/fade_in_image.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="127">
+              <caret line="205" column="14" selection-start-line="205" selection-start-column="14" selection-end-line="205" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -91,7 +104,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ontap</find>
       <find>on</find>
       <find>widget</find>
       <find>s.</find>
@@ -121,6 +133,7 @@
       <find>دكتور ستون-Dr.Stone</find>
       <find>about</find>
       <find>hoho</find>
+      <find>textd</find>
     </findStrings>
     <replaceStrings>
       <replace>AnimeDetailsScreen</replace>
@@ -152,7 +165,6 @@
         <option value="$PROJECT_DIR$/lib/module_upload/repository/upload_repository/upload_repository.dart" />
         <option value="$PROJECT_DIR$/lib/module_anime/response/anime_response.dart" />
         <option value="$PROJECT_DIR$/lib/module_anime/model/anime_model/anime_model.dart" />
-        <option value="$PROJECT_DIR$/lib/module_anime/ui/widget/anime_details_widget/ainme_details_widget.dart" />
         <option value="$PROJECT_DIR$/lib/generated/l10n.dart" />
         <option value="$PROJECT_DIR$/lib/module_network/http_client/http_client.dart" />
         <option value="$PROJECT_DIR$/lib/module_notification/ui/screen/notification_screen/notification_screen.dart" />
@@ -187,6 +199,7 @@
         <option value="$PROJECT_DIR$/lib/module_init_account/repository/init_account/init_account.repository.dart" />
         <option value="$PROJECT_DIR$/lib/module_anime/repository/anime_details/anime_details.repository.dart" />
         <option value="$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.dart" />
+        <option value="$PROJECT_DIR$/lib/module_anime/ui/widget/anime_details_widget/ainme_details_widget.dart" />
       </list>
     </option>
   </component>
@@ -225,6 +238,21 @@
               <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
               <item name="module_anime" type="462c0819:PsiDirectoryNode" />
+              <item name="repository" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="module_anime" type="462c0819:PsiDirectoryNode" />
+              <item name="repository" type="462c0819:PsiDirectoryNode" />
+              <item name="anime_details" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="module_anime" type="462c0819:PsiDirectoryNode" />
               <item name="ui" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -243,6 +271,23 @@
               <item name="ui" type="462c0819:PsiDirectoryNode" />
               <item name="screen" type="462c0819:PsiDirectoryNode" />
               <item name="anime_details_screen" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="module_anime" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="widget" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="module_anime" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="widget" type="462c0819:PsiDirectoryNode" />
+              <item name="anime_details_widget" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
@@ -430,7 +475,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603388370417</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="edit anime detail screen">
+      <created>1603562903739</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1603562903739</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TodoView">
@@ -456,13 +508,13 @@
       <window_info id="Capture Tool" order="7" />
       <window_info id="Favorites" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Dart Analysis" order="0" weight="0.3453355" />
-      <window_info anchor="bottom" id="Run" order="1" sideWeight="0.49848714" visible="true" weight="0.5695581" />
+      <window_info anchor="bottom" id="Run" order="1" sideWeight="0.4977307" weight="0.5695581" />
       <window_info anchor="bottom" id="TODO" order="2" weight="0.10801964" />
       <window_info anchor="bottom" id="Android Profiler" order="3" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Logcat" order="4" weight="0.3289689" />
+      <window_info anchor="bottom" id="Logcat" order="4" visible="true" weight="0.33224222" />
       <window_info anchor="bottom" id="Debug" order="5" />
       <window_info anchor="bottom" id="Terminal" order="6" weight="0.1603928" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5015129" side_tool="true" weight="0.497545" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50226927" side_tool="true" weight="0.5695581" />
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49848714" weight="0.13747954" />
       <window_info anchor="bottom" id="Find" order="9" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.36497545" />
@@ -522,23 +574,10 @@
     <MESSAGE value="add init account screen design" />
     <MESSAGE value="implement init account screen full structure" />
     <MESSAGE value="fetch real episodes in anime details screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="fetch real episodes in anime details screen" />
+    <MESSAGE value="edit anime detail screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit anime detail screen" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/module_anime/anime_module.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="14" column="12" lean-forward="true" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/generated/intl/messages_ar.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1425">
-          <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/android/local.properties">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -902,9 +941,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="164" column="27" selection-start-line="164" selection-start-column="27" selection-end-line="164" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/flutter/packages/flutter/lib/src/widgets/fade_in_image.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="205" column="14" selection-start-line="205" selection-start-column="14" selection-end-line="205" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/module_anime/repository/anime_details/anime_details.repository.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="39">
+        <state relative-caret-position="820">
           <caret line="41" column="32" selection-start-line="41" selection-start-column="28" selection-end-line="41" selection-end-column="32" />
           <folding>
             <element signature="e#1#48#0" expanded="true" />
@@ -912,12 +968,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.dart">
+    <entry file="file://$PROJECT_DIR$/lib/module_anime/ui/widget/anime_details_widget/ainme_details_widget.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="164" column="27" selection-start-line="164" selection-start-column="27" selection-end-line="164" selection-end-column="27" />
+        <state relative-caret-position="57">
+          <caret line="102" column="33" lean-forward="true" selection-start-line="102" selection-start-column="33" selection-end-line="102" selection-end-column="33" />
           <folding>
-            <element signature="e#0#50#0" expanded="true" />
+            <element signature="e#1#51#0" expanded="true" />
           </folding>
         </state>
       </provider>
