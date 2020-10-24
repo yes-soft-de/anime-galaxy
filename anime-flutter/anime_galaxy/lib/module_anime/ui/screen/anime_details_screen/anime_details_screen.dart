@@ -27,7 +27,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
   double rating = 3.5;
   bool  loading =true;
   AnimeDetailsState  currentState = AnimeDetailsStateInit();
-  AnimeModel anime;
+  AnimeModel anime = new AnimeModel();
   @override
   void initState() {
 
@@ -55,7 +55,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
     screenWidth = MediaQuery.of(context).size.width;
 
     if (currentState is AnimeDetailsStateInit) {
-      widget._stateManager.getAnimeDetails(3);
+      widget._stateManager.getAnimeDetails(1);
       if(this.mounted){
         setState(() {});
       }
@@ -115,14 +115,14 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
         padding: EdgeInsets.all(5),
         child: SingleChildScrollView(
 
-          child:loading?
+          child:/*loading?
           Shimmer.fromColors(
             baseColor: Colors.grey[300],
             highlightColor: Colors.grey[100],
             enabled:  true,
 
             child: body()
-          ):
+          ):*/
           body()
           ,
         ),
@@ -162,7 +162,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
                 halfFillIcon: Icon(Icons.favorite_border,color: ProjectColors.ThemeColor,  ),
                 emptyIcon: Icon(Icons.favorite_border,color: ProjectColors.ThemeColor, ),
                 onRatingChanged: (rating) => setState(() => this.rating = rating),
-                itemSize:40,
+                itemSize:25,
                 itemCount: 10,
               ),
 //                RatingBar(
@@ -224,7 +224,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
 
                     ),
                     child: Text(
-                      anime.about,
+                      '${anime.about}',
                       textDirection: TextDirection.rtl,
                       style: TextStyle(
                         fontSize: 10,
@@ -304,7 +304,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
                         child: RotatedBox(
                         quarterTurns: 2,
                               child: Text(
-                              anime.classification,
+                              '${anime.classification}',
                               style: TextStyle(
                               fontSize: 10
                               ),

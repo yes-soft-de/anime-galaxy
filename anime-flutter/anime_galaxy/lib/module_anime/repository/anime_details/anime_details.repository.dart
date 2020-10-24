@@ -39,8 +39,9 @@ class AnimeDetailsRepository{
   Future<List<EpisodeResponse>> getEpisodes(int animeId) async{
     dynamic response = await _httpClient.get(Urls.API_ANIME_EPISODES+'$animeId');
     List<EpisodeResponse> episodes = [];
+    dynamic res = response['Data'];
 
-    for(int i=0; i<response['Data'].Length ; i++){
+    for(int i=0; i<res.length ; i++){
       episodes.add(EpisodeResponse.fromJson(response['Data'][i]));
     }
 

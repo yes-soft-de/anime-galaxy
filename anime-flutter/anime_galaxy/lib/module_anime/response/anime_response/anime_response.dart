@@ -9,6 +9,7 @@ class AnimeResponse {
   double rating;
   Interactions interactions;
   List<EpisodeResponse> episodes;
+  String description;
   AnimeResponse(
       {this.id,
         this.name,
@@ -18,6 +19,7 @@ class AnimeResponse {
         this.rating,
         this.interactions,
         this.episodes,
+        this.description
       });
 
   AnimeResponse.fromJson(Map<String, dynamic> json) {
@@ -26,6 +28,7 @@ class AnimeResponse {
     mainImage = json['mainImage'];
     images = json['images'].cast<String>();
     categoryName = json['categoryName'];
+    description = json['description'];
     rating = json['rating'];
     interactions = json['interactions'] != null
         ? new Interactions.fromJson(json['interactions'])
@@ -39,6 +42,7 @@ class AnimeResponse {
     data['mainImage'] = this.mainImage;
     data['images'] = this.images;
     data['categoryName'] = this.categoryName;
+    data['description'] = this.description;
     data['rating'] = this.rating;
     if (this.interactions != null) {
       data['interactions'] = this.interactions.toJson();

@@ -32,10 +32,9 @@ class AnimeDetailsService{
     anime.commentsNumber = 4;
     //TODO : change this when comment fetch properly
     anime.comments =comments;
-    //TODO : change showYear and about to dynamic data from backend when it added
+    //TODO : change showYear to dynamic data from backend when it added
     anime.showYear = '2020';
-    anime.about = 'تدور أحداث القصة عن سينكو هو عضو في نادي علوم ويحب العلم، يخبره صديقه تايجو، أنه على وشك أن يعترف بحبه لصديقته يوزوريها. يجتمع تايجو معها تحت شجرة الكافور في المدرسة، عندما أوشك تايجو على الاعتراف، ظهر ضوء ساطع في السماء، قام بتحويل كل إنسان على الأرض إلى حجر. لكن تايجو لا يزال على قيد الحياة مع تقدم السنين بفضل حافزه لتحرير نفسه ويوزوريها. يتحرر تايجو من الحجر ويجد رسالة محفورة على الشجرة تؤدي به إلى اكتشاف أن سينكو قد تحرر أيضًا من الحجر.';
-
+    anime.about = response.description;
 
     anime.episodes = getEpisodes(response.episodes);
 

@@ -139,6 +139,6 @@ class _MyAppState extends State<MyApp> {
         supportedLocales: S.delegate.supportedLocales,
         title: 'Anime Galaxy',
         routes: fullRoutesList,
-        initialRoute:InitAccountRoutes.INIT_ACCOUNT_ROUTE);
+        initialRoute:AnimeRoutes.ROUTE_ANIME_DETAILS_SCREEN );
   }
 }

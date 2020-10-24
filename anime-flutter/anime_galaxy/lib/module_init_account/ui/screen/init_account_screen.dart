@@ -24,7 +24,7 @@ class InitAccountScreen extends StatefulWidget {
 class _InitAccountScreenState extends State<InitAccountScreen> with TickerProviderStateMixin<InitAccountScreen> {
   InitAccountState currentState = InitAccountStateInit();
   List<InitAccountModel> categories=[];
-
+  bool loading = true;
   @override
   void initState() {
     super.initState();
@@ -47,21 +47,24 @@ class _InitAccountScreenState extends State<InitAccountScreen> with TickerProvid
 
     if (currentState is InitAccountStateInit) {
       widget._stateManager.getCategories();
+      loading = false;
       if(this.mounted){
         setState(() {});
       }
-
-      if(currentState is InitAccountStateError){
-        return setErrorUI();
-      }
-      if(currentState is InitAccountStateFetching){
-        return setLoadingUI();
-      }
-      if(currentState is InitAccountStateSuccess){
-
-        return pageLayout();
-      }
-
+//      if(currentState is InitAccountStateFetching){
+//
+//        return setLoadingUI();
+//
+//      }
+//      if(currentState is InitAccountStateError){
+//        return setErrorUI();
+//      }
+//
+//      if(currentState is InitAccountStateSuccess){
+//
+//        return pageLayout();
+//      }
+//
     }
     return pageLayout();
   }
@@ -98,7 +101,8 @@ class _InitAccountScreenState extends State<InitAccountScreen> with TickerProvid
 
 
   Widget pageLayout(){
-    return Scaffold(
+    return loading ? setLoadingUI():
+    Scaffold(
       appBar: AnimeGalaxyAppBar.getBackEnabledAppBar(),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -133,7 +137,7 @@ class _InitAccountScreenState extends State<InitAccountScreen> with TickerProvid
                          setState(() {
 
                          });
-                         print(categories[index].seriesHidden.toString());
+
                        },
                                child: AnimeCategoryCard(
                                name: categories[index].name,

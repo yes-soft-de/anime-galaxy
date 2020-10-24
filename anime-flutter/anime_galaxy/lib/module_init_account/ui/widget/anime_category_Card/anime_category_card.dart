@@ -15,7 +15,8 @@ class AnimeCategoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-
+      width:MediaQuery.of(context).size.width,
+      height: 144,
       padding: EdgeInsets.all(16),
       margin: EdgeInsets.only(bottom: 20),
       decoration: BoxDecoration(
