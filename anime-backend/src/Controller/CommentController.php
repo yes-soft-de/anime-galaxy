@@ -30,13 +30,12 @@ class CommentController extends BaseController
     }
 
     /**
-     * @Route("comment", name="comment", name="createComment",methods={"POST"})
+     * @Route("/comment", name="comment", name="createComment",methods={"POST"})
      * @param Request $request
      * @return JsonResponse
      */
     public function create(Request $request)
     {
-        dd($this->getUser());
         $data = json_decode($request->getContent(), true);
         $request = $this->autoMapping->map(\stdClass::class, CreateCommentRequest::class, (object) $data);
         $request->setUserID($this->getUser()->getUsername());

@@ -75,10 +75,11 @@ class CommentService
         foreach ($result as $row) {
             $response = $this->autoMapping->map('array', GetCommentByIdResponse::class, $row);
         }
-        $response->interactions['love'] = $love;
-        $response->interactions['like'] = $like;
-        $response->interactions['dislike'] = $dislike;
-
+        if($response){
+            $response->interactions['love'] = $love;
+            $response->interactions['like'] = $like;
+            $response->interactions['dislike'] = $dislike;
+        }
         return $response;
     }
 
