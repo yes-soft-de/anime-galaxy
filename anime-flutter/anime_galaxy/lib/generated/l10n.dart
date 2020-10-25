@@ -922,6 +922,26 @@ class S {
       args: [],
     );
   }
+
+  /// `يحوي حرق`
+  String get spoilerAlert {
+    return Intl.message(
+      'يحوي حرق',
+      name: 'spoilerAlert',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `هناك مشكلة ما أعد التعليق لاحقا`
+  String get ommentingError {
+    return Intl.message(
+      'هناك مشكلة ما أعد التعليق لاحقا',
+      name: 'ommentingError',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

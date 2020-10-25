@@ -4,6 +4,14 @@ class HomeModel{
   List<Series> watchedSeries;
   List<Series> mayLikeSeries;
   List<Episode> newEpisodes;
+
+  HomeModel({
+    this.points,
+    this.newEpisodes,
+    this.mayLikeSeries,
+    this.watchedSeries,
+
+});
 }
 
 class Episode{

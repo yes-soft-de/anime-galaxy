@@ -1,3 +1,4 @@
+import 'package:anime_galaxy/module_anime/response/comment_response/comment_response.dart';
 import 'package:anime_galaxy/module_anime/response/episode_response/episode_response.dart';
 
 class AnimeResponse {
@@ -8,8 +9,10 @@ class AnimeResponse {
   String categoryName;
   double rating;
   Interactions interactions;
-  List<EpisodeResponse> episodes;
   String description;
+  List<EpisodeResponse> episodes;
+  List<CommentResponse> comments;
+
   AnimeResponse(
       {this.id,
         this.name,
@@ -19,7 +22,8 @@ class AnimeResponse {
         this.rating,
         this.interactions,
         this.episodes,
-        this.description
+        this.description,
+        this.comments,
       });
 
   AnimeResponse.fromJson(Map<String, dynamic> json) {

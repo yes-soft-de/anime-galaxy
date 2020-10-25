@@ -15,3 +15,9 @@ class AnimeDetailsStateFetchingSuccess extends AnimeDetailsState{
 }
 
 class AnimeDetailsStateFetchingError extends AnimeDetailsState{}
+
+class AnimeDetailsStateCommentingInProgress extends AnimeDetailsState{}
+
+class AnimeDetailsStateCommentingSuccess extends AnimeDetailsState{}
+
+class AnimeDetailsStateCommentingError extends AnimeDetailsState{}

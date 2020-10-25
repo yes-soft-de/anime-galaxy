@@ -39,16 +39,17 @@ class HomeRepository{
 
   Future<HomeModel> getHomePageDetails() async{
     await Future.delayed(Duration(milliseconds: 2000));
-    HomeModel result;
-    result.points = 76;
+
     List<Series> watchedSeries = await getWatchedSeries();
     List<Series> mayLikedSeries = await getMayLikedSeries();
     List<Episode> episodes = await getEpisodes();
 
-    result.watchedSeries = watchedSeries;
-    result.mayLikeSeries = mayLikedSeries;
-    result.newEpisodes = episodes;
-    
+    HomeModel result = new HomeModel(
+      points: 76,
+      watchedSeries: watchedSeries,
+      mayLikeSeries: mayLikedSeries,
+      newEpisodes: episodes,
+    );
     return result;
   }
 

@@ -175,7 +175,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         child: Column(
           children: [
             PointsWidget(
-              points:10 /*anime.points*/,
+              points: anime.points,
             ),
             Container(
               margin: EdgeInsetsDirectional.fromSTEB(10,0,10,20),
@@ -310,7 +310,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   constraints: isExpanded2
                       ? new BoxConstraints()
                       : new BoxConstraints(maxHeight: 175.0),
-                  child:    GridView.builder(itemBuilder: (BuildContext context, int index){
+                  child:    GridView.builder(
+                    physics: NeverScrollableScrollPhysics(),
+                    itemBuilder: (BuildContext context, int index){
 
                     return  EpisodeCard(
                       image: anime.mayLikeSeries[index].image,
@@ -320,10 +322,10 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   },
                     padding: EdgeInsets.symmetric(horizontal: 10),
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 4,
-                        mainAxisSpacing: 10,
-                        crossAxisSpacing: 6,
-                        childAspectRatio: (1.8/4)
+                        crossAxisCount: 3,
+                        mainAxisSpacing: 20,
+                        crossAxisSpacing: 20,
+                        childAspectRatio: (2.3/4)
                     ),
                     itemCount:anime.mayLikeSeries.length,
 
