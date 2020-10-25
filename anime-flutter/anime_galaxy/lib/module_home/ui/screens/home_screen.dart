@@ -87,281 +87,280 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
 
   Widget body(){
-return Container();
 
-//      final List<Widget> imageSliders = anime.newEpisodes
-//          .map((item) => Container(
-//        child: Container(
-//          margin: EdgeInsets.all(5.0),
-//          child: ClipRRect(
-//              borderRadius: BorderRadius.all(Radius.circular(0.0)),
-//              child: Stack(
-//                children: <Widget>[
-//                  new Container(
-//                    decoration: new BoxDecoration(
-//                      image: new DecorationImage(
-//                        image: new  NetworkImage(item.image , ),
-//                        fit: BoxFit.cover,
-//                      ),
-//                    ),
-//                    child: new BackdropFilter(
-//                      filter: new ImageFilter.blur(sigmaX: 1.0, sigmaY: 1.0),
-//                      child: new Container(
-//                        decoration: new BoxDecoration(color: Colors.white.withOpacity(0.0)),
-//                      ),
-//                    ),
-//                  ),
+      final List<Widget> imageSliders = anime.newEpisodes
+          .map((item) => Container(
+        child: Container(
+          margin: EdgeInsets.all(5.0),
+          child: ClipRRect(
+              borderRadius: BorderRadius.all(Radius.circular(0.0)),
+              child: Stack(
+                children: <Widget>[
+                  new Container(
+                    decoration: new BoxDecoration(
+                      image: new DecorationImage(
+                        image: new  NetworkImage(item.image , ),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    child: new BackdropFilter(
+                      filter: new ImageFilter.blur(sigmaX: 1.0, sigmaY: 1.0),
+                      child: new Container(
+                        decoration: new BoxDecoration(color: Colors.white.withOpacity(0.0)),
+                      ),
+                    ),
+                  ),
+
+
+                  Positioned(
+                    left: 0.0,
+                    right: 0.0,
+                    child: Container(
+                        padding: EdgeInsets.symmetric(
+                            vertical: 10.0, horizontal: 10.0),
+                        child:Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+
+                                Text(
+                                  item.seriesName,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                  ),
+                                ),
+
+                                Text(
+                                  item.classification,
+                                  style: TextStyle(
+                                      color: Colors.white70,
+                                      fontSize: 8
+                                  ),
+                                ),
+                                Text(
+                                  S.of(context).Episode +'${item.episodeNumber} ' + S.of(context).Season + '${item.season}',
+                                  style: TextStyle(
+                                      color: Colors.white70,
+                                      fontSize: 10
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(width: 10,),
+                            Container(
+                              width: 75,
+                              height: 160,
+                              child: Image(
+
+                                image: NetworkImage(
+                                    'https://m.media-amazon.com/images/M/MV5BZjNmZDhkN2QtNDYyZC00YzJmLTg0ODUtN2FjNjhhMzE3ZmUxXkEyXkFqcGdeQXVyNjc2NjA5MTU@._V1_UX182_CR0,0,182,268_AL_.jpg'
+                                ),
+                              ),
+                            )
+                          ],
+                        )
+                    ),
+                  ),
+                ],
+              )),
+        ),
+      ))
+          .toList();
+
+    return SingleChildScrollView(
+      child: Container(
+        padding: EdgeInsetsDirectional.fromSTEB(7, 0, 7, 10),
+        child: Column(
+          children: [
+            PointsWidget(
+              points:10 /*anime.points*/,
+            ),
+            Container(
+              margin: EdgeInsetsDirectional.fromSTEB(10,0,10,20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    S.of(context).More,
+                    style: TextStyle(
+                        fontSize: 10
+                    ),
+                  ),
+                  Text(
+                    S.of(context).newEpisodes,
+                    style: TextStyle(
+                        fontSize: 10
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+
+            CarouselSlider(
+              options: CarouselOptions(
+                  autoPlay: true,
+                  aspectRatio: 2.0,
+                  enlargeCenterPage: false,
+                  viewportFraction:1
+              ),
+              items: imageSliders,
+
+            ),
+
+            Container(
+              margin: EdgeInsetsDirectional.fromSTEB(10,0,10,20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                   S.of(context).More,
+                    style: TextStyle(
+                        fontSize: 10
+                    ),
+                  ),
+                  Text(
+                    S.of(context).watchedSeries,
+                    style: TextStyle(
+                        fontSize: 10
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            new AnimatedSize(
+                vsync: this,
+                duration: const Duration(milliseconds: 500),
+                child: new ConstrainedBox(
+                  constraints: isExpanded
+                      ? new BoxConstraints()
+                      : new BoxConstraints(maxHeight: 175.0),
+                  child:    GridView.builder(itemBuilder: (BuildContext context, int index){
+
+                    return  EpisodeCard(
+                      image: anime.watchedSeries[index].image,
+                      episodeNumber: 1,
+                      classification:anime.watchedSeries[index].classification,
+                    );
+                  },
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3,
+                        mainAxisSpacing: 20,
+                        crossAxisSpacing: 20,
+                        childAspectRatio: (2.3/4)
+                    ),
+                    itemCount:anime.watchedSeries.length,
+                     physics: NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,),
+
 //
+                )
+            ),
+            isExpanded
+                ?  new FlatButton(
+                child: Container(
+                    width: 30,
+                    height: 30,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      color: ProjectColors.ThemeColor,
+                    ),
+
+                    child: const Icon(Icons.keyboard_arrow_up,color: Colors.white,)),
+                onPressed: () => setState(() => isExpanded = false))
+
+                : new FlatButton(
+                child: Container(
+                    width: 30,
+                    height: 30,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      color: ProjectColors.ThemeColor,
+                    ),
+
+                    child: const Icon(Icons.keyboard_arrow_down,color: Colors.white,)),
+                onPressed: () => setState(() => isExpanded = true))
+            ,
+            Container(
+              margin: EdgeInsetsDirectional.fromSTEB(10,0,10,20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                   S.of(context).More,
+                    style: TextStyle(
+                        fontSize: 10
+                    ),
+                  ),
+                  Text(
+                    S.of(context).mayLikeSeries,
+                    style: TextStyle(
+                        fontSize: 10
+                    ),
+                  ),
+                ],
+              ),
+            ),     new AnimatedSize(
+                vsync: this,
+                duration: const Duration(milliseconds: 500),
+                child: new ConstrainedBox(
+                  constraints: isExpanded2
+                      ? new BoxConstraints()
+                      : new BoxConstraints(maxHeight: 175.0),
+                  child:    GridView.builder(itemBuilder: (BuildContext context, int index){
+
+                    return  EpisodeCard(
+                      image: anime.mayLikeSeries[index].image,
+                      episodeNumber: 1,
+                      classification: anime.mayLikeSeries[index].classification,
+                    );
+                  },
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 4,
+                        mainAxisSpacing: 10,
+                        crossAxisSpacing: 6,
+                        childAspectRatio: (1.8/4)
+                    ),
+                    itemCount:anime.mayLikeSeries.length,
+
+                    shrinkWrap: true,),
+
 //
-//                  Positioned(
-//                    left: 0.0,
-//                    right: 0.0,
-//                    child: Container(
-//                        padding: EdgeInsets.symmetric(
-//                            vertical: 10.0, horizontal: 10.0),
-//                        child:Row(
-//                          mainAxisAlignment: MainAxisAlignment.end,
-//                          children: [
-//                            Column(
-//                              mainAxisAlignment: MainAxisAlignment.center,
-//                              children: <Widget>[
-//
-//                                Text(
-//                                  item.seriesName,
-//                                  style: TextStyle(
-//                                    color: Colors.white,
-//                                  ),
-//                                ),
-//
-//                                Text(
-//                                  item.classification,
-//                                  style: TextStyle(
-//                                      color: Colors.white70,
-//                                      fontSize: 8
-//                                  ),
-//                                ),
-//                                Text(
-//                                  S.of(context).Episode +'${item.episodeNumber} ' + S.of(context).Season + '${item.season}',
-//                                  style: TextStyle(
-//                                      color: Colors.white70,
-//                                      fontSize: 10
-//                                  ),
-//                                ),
-//                              ],
-//                            ),
-//                            SizedBox(width: 10,),
-//                            Container(
-//                              width: 75,
-//                              height: 160,
-//                              child: Image(
-//
-//                                image: NetworkImage(
-//                                    'https://m.media-amazon.com/images/M/MV5BZjNmZDhkN2QtNDYyZC00YzJmLTg0ODUtN2FjNjhhMzE3ZmUxXkEyXkFqcGdeQXVyNjc2NjA5MTU@._V1_UX182_CR0,0,182,268_AL_.jpg'
-//                                ),
-//                              ),
-//                            )
-//                          ],
-//                        )
-//                    ),
-//                  ),
-//                ],
-//              )),
-//        ),
-//      ))
-//          .toList();
-//
-//    return SingleChildScrollView(
-//      child: Container(
-//        padding: EdgeInsetsDirectional.fromSTEB(7, 0, 7, 10),
-//        child: Column(
-//          children: [
-//            PointsWidget(
-//              points:10 /*anime.points*/,
-//            ),
-//            Container(
-//              margin: EdgeInsetsDirectional.fromSTEB(10,0,10,20),
-//              child: Row(
-//                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                children: [
-//                  Text(
-//                    S.of(context).More,
-//                    style: TextStyle(
-//                        fontSize: 10
-//                    ),
-//                  ),
-//                  Text(
-//                    S.of(context).newEpisodes,
-//                    style: TextStyle(
-//                        fontSize: 10
-//                    ),
-//                  ),
-//                ],
-//              ),
-//            ),
-//
-//
-//            CarouselSlider(
-//              options: CarouselOptions(
-//                  autoPlay: true,
-//                  aspectRatio: 2.0,
-//                  enlargeCenterPage: false,
-//                  viewportFraction:1
-//              ),
-//              items: imageSliders,
-//
-//            ),
-//
-//            Container(
-//              margin: EdgeInsetsDirectional.fromSTEB(10,0,10,20),
-//              child: Row(
-//                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                children: [
-//                  Text(
-//                   S.of(context).More,
-//                    style: TextStyle(
-//                        fontSize: 10
-//                    ),
-//                  ),
-//                  Text(
-//                    S.of(context).watchedSeries,
-//                    style: TextStyle(
-//                        fontSize: 10
-//                    ),
-//                  ),
-//                ],
-//              ),
-//            ),
-//            new AnimatedSize(
-//                vsync: this,
-//                duration: const Duration(milliseconds: 500),
-//                child: new ConstrainedBox(
-//                  constraints: isExpanded
-//                      ? new BoxConstraints()
-//                      : new BoxConstraints(maxHeight: 175.0),
-//                  child:    GridView.builder(itemBuilder: (BuildContext context, int index){
-//
-//                    return  EpisodeCard(
-//                      image: anime.watchedSeries[index].image,
-//                      episodeNumber: 1,
-//                      classification:anime.watchedSeries[index].classification,
-//                    );
-//                  },
-//                    padding: EdgeInsets.symmetric(horizontal: 10),
-//                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-//                        crossAxisCount: 3,
-//                        mainAxisSpacing: 20,
-//                        crossAxisSpacing: 20,
-//                        childAspectRatio: (2.3/4)
-//                    ),
-//                    itemCount:anime.watchedSeries.length,
-//                     physics: NeverScrollableScrollPhysics(),
-//                    shrinkWrap: true,),
-//
-////
-//                )
-//            ),
-//            isExpanded
-//                ?  new FlatButton(
-//                child: Container(
-//                    width: 30,
-//                    height: 30,
-//                    decoration: BoxDecoration(
-//                      borderRadius: BorderRadius.circular(50),
-//                      color: ProjectColors.ThemeColor,
-//                    ),
-//
-//                    child: const Icon(Icons.keyboard_arrow_up,color: Colors.white,)),
-//                onPressed: () => setState(() => isExpanded = false))
-//
-//                : new FlatButton(
-//                child: Container(
-//                    width: 30,
-//                    height: 30,
-//                    decoration: BoxDecoration(
-//                      borderRadius: BorderRadius.circular(50),
-//                      color: ProjectColors.ThemeColor,
-//                    ),
-//
-//                    child: const Icon(Icons.keyboard_arrow_down,color: Colors.white,)),
-//                onPressed: () => setState(() => isExpanded = true))
-//            ,
-//            Container(
-//              margin: EdgeInsetsDirectional.fromSTEB(10,0,10,20),
-//              child: Row(
-//                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                children: [
-//                  Text(
-//                   S.of(context).More,
-//                    style: TextStyle(
-//                        fontSize: 10
-//                    ),
-//                  ),
-//                  Text(
-//                    S.of(context).mayLikeSeries,
-//                    style: TextStyle(
-//                        fontSize: 10
-//                    ),
-//                  ),
-//                ],
-//              ),
-//            ),     new AnimatedSize(
-//                vsync: this,
-//                duration: const Duration(milliseconds: 500),
-//                child: new ConstrainedBox(
-//                  constraints: isExpanded2
-//                      ? new BoxConstraints()
-//                      : new BoxConstraints(maxHeight: 175.0),
-//                  child:    GridView.builder(itemBuilder: (BuildContext context, int index){
-//
-//                    return  EpisodeCard(
-//                      image: anime.mayLikeSeries[index].image,
-//                      episodeNumber: 1,
-//                      classification: anime.mayLikeSeries[index].classification,
-//                    );
-//                  },
-//                    padding: EdgeInsets.symmetric(horizontal: 10),
-//                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-//                        crossAxisCount: 4,
-//                        mainAxisSpacing: 10,
-//                        crossAxisSpacing: 6,
-//                        childAspectRatio: (1.8/4)
-//                    ),
-//                    itemCount:anime.mayLikeSeries.length,
-//
-//                    shrinkWrap: true,),
-//
-////
-//                )
-//            ),
-//            isExpanded2
-//                ?  new FlatButton(
-//                child: Container(
-//                    width: 30,
-//                    height: 30,
-//                    decoration: BoxDecoration(
-//                      borderRadius: BorderRadius.circular(50),
-//                      color: ProjectColors.ThemeColor,
-//                    ),
-//
-//                    child: const Icon(Icons.keyboard_arrow_up,color: Colors.white,)),
-//                onPressed: () => setState(() => isExpanded2 = false))
-//
-//                : new FlatButton(
-//                child: Container(
-//                    width: 30,
-//                    height: 30,
-//                    decoration: BoxDecoration(
-//                      borderRadius: BorderRadius.circular(50),
-//                      color: ProjectColors.ThemeColor,
-//                    ),
-//
-//                    child: const Icon(Icons.keyboard_arrow_down,color: Colors.white,)),
-//                onPressed: () => setState(() => isExpanded2 = true))
-//            ,
-//          ],
-//        ),
-//      ),
-//    );
+                )
+            ),
+            isExpanded2
+                ?  new FlatButton(
+                child: Container(
+                    width: 30,
+                    height: 30,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      color: ProjectColors.ThemeColor,
+                    ),
+
+                    child: const Icon(Icons.keyboard_arrow_up,color: Colors.white,)),
+                onPressed: () => setState(() => isExpanded2 = false))
+
+                : new FlatButton(
+                child: Container(
+                    width: 30,
+                    height: 30,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      color: ProjectColors.ThemeColor,
+                    ),
+
+                    child: const Icon(Icons.keyboard_arrow_down,color: Colors.white,)),
+                onPressed: () => setState(() => isExpanded2 = true))
+            ,
+          ],
+        ),
+      ),
+    );
   }
 
 

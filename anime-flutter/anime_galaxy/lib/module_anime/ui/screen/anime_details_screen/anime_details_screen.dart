@@ -9,7 +9,9 @@ import 'package:anime_galaxy/module_rating/ui/widget/rating_bar.dart';
 import 'package:anime_galaxy/utils/project_colors/project_color.dart'; 
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:inject/inject.dart';
+import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:shimmer/shimmer.dart';
 
 @provide
@@ -28,6 +30,8 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
   bool  loading =true;
   AnimeDetailsState  currentState = AnimeDetailsStateInit();
   AnimeModel anime = new AnimeModel();
+  bool isSwitched = false;
+
   @override
   void initState() {
 
@@ -55,7 +59,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
     screenWidth = MediaQuery.of(context).size.width;
 
     if (currentState is AnimeDetailsStateInit) {
-      widget._stateManager.getAnimeDetails(1);
+      widget._stateManager.getAnimeDetails(2);
       if(this.mounted){
         setState(() {});
       }
@@ -129,7 +133,10 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: ProjectColors.ThemeColor,
-        onPressed: (){},
+
+        onPressed: (){
+          _showCommentDialog(context);
+        },
         child:  Icon(
               Icons.comment,
             color: Colors.white,
@@ -142,29 +149,30 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
 
 
   Widget body(){
-    return Column(
-        children:[
-          AnimeDetailsWidget(
-              name: anime.name,
-              comments: anime.commentsNumber,
-              likes: anime.likesNumber,
-              rate: anime.rate,
-              showYear: anime.showYear,
-              image : anime.image
-          ),
-          //rating the series
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              AnimeRatingBar(
-                rating: rating,
-                fillIcon: Icon(Icons.favorite,color: ProjectColors.ThemeColor,  ),
-                halfFillIcon: Icon(Icons.favorite_border,color: ProjectColors.ThemeColor,  ),
-                emptyIcon: Icon(Icons.favorite_border,color: ProjectColors.ThemeColor, ),
-                onRatingChanged: (rating) => setState(() => this.rating = rating),
-                itemSize:25,
-                itemCount: 10,
-              ),
+    return Container(
+      child: Column(
+          children:[
+            AnimeDetailsWidget(
+                name: anime.name,
+                comments: anime.commentsNumber,
+                likes: anime.likesNumber,
+                rate: anime.rate,
+                showYear: anime.showYear,
+                image : anime.image
+            ),
+            //rating the series
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                AnimeRatingBar(
+                  rating: rating,
+                  fillIcon: Icon(Icons.favorite,color: ProjectColors.ThemeColor,  ),
+                  halfFillIcon: Icon(Icons.favorite_border,color: ProjectColors.ThemeColor,  ),
+                  emptyIcon: Icon(Icons.favorite_border,color: ProjectColors.ThemeColor, ),
+                  onRatingChanged: (rating) => setState(() => this.rating = rating),
+                  itemSize:25,
+                  itemCount: 10,
+                ),
 //                RatingBar(
 //                initialRating: 2,
 //                direction: Axis.horizontal,
@@ -181,242 +189,384 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
 //                  print(rating);
 //                },
 //              ),
-              Text(
-                S.of(context).RateSeries,
-                style: TextStyle(
-                    fontSize: 12
-                ),
-              )
-
-            ],
-          ),
-
-          //about
-          Container(
-            padding: EdgeInsetsDirectional.fromSTEB(0, 5, 5, 5),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
                 Text(
-                  S.of(context).About,
+                  S.of(context).RateSeries,
                   style: TextStyle(
-                      fontSize: 12
+                      fontSize: 14
                   ),
                 )
+
               ],
             ),
-          ),
 
-          new AnimatedSize(
-              vsync: this,
-              duration: const Duration(milliseconds: 500),
-              child: new ConstrainedBox(
-                  constraints: isExpanded
-                      ? new BoxConstraints()
-                      : new BoxConstraints(maxHeight: 75.0),
-                  child:
-                  Container(
-                    width: screenWidth*0.9,
-                    padding: EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: Colors.black38),
-
-                    ),
-                    child: Text(
-                      '${anime.about}',
-                      textDirection: TextDirection.rtl,
-                      style: TextStyle(
-                        fontSize: 10,
-                      ),
-                    ),
-                  )
-//
-              )
-          ),
-          isExpanded
-              ?  new FlatButton(
-              child: Container(
-                  width: 30,
-                  height: 30,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50),
-                    color: ProjectColors.ThemeColor,
-                  ),
-
-                  child: const Icon(Icons.keyboard_arrow_up,color: Colors.white,)),
-              onPressed: () => setState(() => isExpanded = false))
-
-              : new FlatButton(
-              child: Container(
-                  width: 30,
-                  height: 30,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50),
-                    color: ProjectColors.ThemeColor,
-                  ),
-
-                  child: const Icon(Icons.keyboard_arrow_down,color: Colors.white,)),
-              onPressed: () => setState(() => isExpanded = true))
-          ,
-
-          //divider
-          Container(
-            margin: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
-            height: 1,
-            width: screenWidth*0.8,
-            color: Colors.black38,
-          ),
-          Container(
-            margin: EdgeInsetsDirectional.fromSTEB(10,0,10,20),
-            child: Row(
+            //Statistics
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text(S.of(context).statics),
+                SizedBox(width: 10,)
+              ],
+            ),
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  S.of(context).More,
-                  style: TextStyle(
-                      fontSize: 10
-                  ),
+                LinearPercentIndicator(
+                  width: MediaQuery.of(context).size.width *0.5,
+                  animation: true,
+                  lineHeight: 12.0,
+                  animationDuration: 1500,
+                  percent: 0.8 ,
+                  linearStrokeCap: LinearStrokeCap.roundAll,
+                  progressColor: Color(0xfff77f00),
                 ),
                 Text(
-                  S.of(context).Classification,
+                    S.of(context).generalEvaluation,
                   style: TextStyle(
-                      fontSize: 10
+                    fontSize: 14
                   ),
                 ),
               ],
             ),
-          ),
-
-          //classifications
-          RotatedBox(
-            quarterTurns: 2,
-            child: Row(
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
-                padding: EdgeInsetsDirectional.fromSTEB(10, 5, 10, 5),
-                margin: EdgeInsets.only(left:7),
-                decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(color: Colors.black38)
+                LinearPercentIndicator(
+                  width: MediaQuery.of(context).size.width *0.5,
+                  animation: true,
+                  lineHeight: 12.0,
+                  animationDuration: 1500,
+                  percent: 0.8 ,
+                  linearStrokeCap: LinearStrokeCap.roundAll,
+                  progressColor: Color(0xfff77f00),
                 ),
-                    child: Center(
-                        child: RotatedBox(
-                        quarterTurns: 2,
-                              child: Text(
-                              '${anime.classification}',
-                              style: TextStyle(
-                              fontSize: 10
-                              ),
-                              )
-                        )
-                    )
+                Text(
+                    S.of(context).monthlyComments,
+                  style: TextStyle(
+                      fontSize: 14
+                  ),
                 ),
               ],
-              //in case of multiple classifications
-            /*  children: List.generate(anime.classification.length, (index) {
-                return Container(
+            ),
+
+
+            //about
+            Container(
+              padding: EdgeInsetsDirectional.fromSTEB(0, 5, 5, 5),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    S.of(context).About,
+                    style: TextStyle(
+                        fontSize: 12
+                    ),
+                  ),
+                  SizedBox(width: 10,)
+                ],
+              ),
+            ),
+
+            new AnimatedSize(
+                vsync: this,
+                duration: const Duration(milliseconds: 500),
+                child: new ConstrainedBox(
+                    constraints: isExpanded
+                        ? new BoxConstraints()
+                        : new BoxConstraints(maxHeight: 75.0),
+                    child:
+                    Container(
+                      width: screenWidth*0.9,
+                      padding: EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(color: Colors.black38),
+
+                      ),
+                      child: Text(
+                        '${anime.about}',
+                        textDirection: TextDirection.rtl,
+                        style: TextStyle(
+                          fontSize: 10,
+                        ),
+                      ),
+                    )
+//
+                )
+            ),
+            isExpanded
+                ?  new FlatButton(
+                child: Container(
+                    width: 30,
+                    height: 30,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      color: ProjectColors.ThemeColor,
+                    ),
+
+                    child: const Icon(Icons.keyboard_arrow_up,color: Colors.white,)),
+                onPressed: () => setState(() => isExpanded = false))
+
+                : new FlatButton(
+                child: Container(
+                    width: 30,
+                    height: 30,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      color: ProjectColors.ThemeColor,
+                    ),
+
+                    child: const Icon(Icons.keyboard_arrow_down,color: Colors.white,)),
+                onPressed: () => setState(() => isExpanded = true))
+            ,
+
+            //divider
+            Container(
+              margin: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
+              height: 1,
+              width: screenWidth*0.8,
+              color: Colors.black38,
+            ),
+            Container(
+              margin: EdgeInsetsDirectional.fromSTEB(10,0,10,20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    S.of(context).More,
+                    style: TextStyle(
+                        fontSize: 10
+                    ),
+                  ),
+                  Text(
+                    S.of(context).Classification,
+                    style: TextStyle(
+                        fontSize: 10
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            //classifications
+            RotatedBox(
+              quarterTurns: 2,
+              child: Row(
+                children: [
+                  Container(
                     padding: EdgeInsetsDirectional.fromSTEB(10, 5, 10, 5),
                     margin: EdgeInsets.only(left:7),
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(color: Colors.black38)
-                    ),
-                    child: Center(
-                        child: RotatedBox(
-                            quarterTurns: 2,
-                            child: Text(
-                              anime.classification[index],
-                              style: TextStyle(
-                                  fontSize: 10
-                              ),
-                            )
-                        )
-                    )
-                );
-              }),*/
-            ),
-          ),
-
-          //divider
-          Container(
-            margin: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
-            height: 1,
-            width: screenWidth*0.8,
-            color: Colors.black38,
-          ),
-
-          Container(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 5, 0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    S.of(context).LastEpisodes,
-                    textDirection: TextDirection.rtl,
-                    style: TextStyle(
-                        fontSize: 12
-                    ),
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(color: Colors.black38)
+                  ),
+                      child: Center(
+                          child: RotatedBox(
+                          quarterTurns: 2,
+                                child: Text(
+                                '${anime.classification}',
+                                style: TextStyle(
+                                fontSize: 10
+                                ),
+                                )
+                          )
+                      )
                   ),
                 ],
-              )
-          ),
-          // last episodes
-          GridView.builder(
-            physics: NeverScrollableScrollPhysics(),
-            itemBuilder: (BuildContext context, int index){
-
-            return  EpisodeCard(
-              image: anime.episodes[index].image,
-              episodeNumber: anime.episodes[index].episodeNumber,
-              classification: anime.episodes[index].classification,
-            );
-          },
-            padding: EdgeInsets.symmetric(horizontal: 10),
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3,
-                mainAxisSpacing: 20,
-                crossAxisSpacing: 20,
-                childAspectRatio: (2.3/4)
+                //in case of multiple classifications
+              /*  children: List.generate(anime.classification.length, (index) {
+                  return Container(
+                      padding: EdgeInsetsDirectional.fromSTEB(10, 5, 10, 5),
+                      margin: EdgeInsets.only(left:7),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(color: Colors.black38)
+                      ),
+                      child: Center(
+                          child: RotatedBox(
+                              quarterTurns: 2,
+                              child: Text(
+                                anime.classification[index],
+                                style: TextStyle(
+                                    fontSize: 10
+                                ),
+                              )
+                          )
+                      )
+                  );
+                }),*/
+              ),
             ),
-            itemCount:anime.episodes.length,
 
-            shrinkWrap: true,),
+            //divider
+            Container(
+              margin: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
+              height: 1,
+              width: screenWidth*0.8,
+              color: Colors.black38,
+            ),
 
-          Container(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 5, 0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    S.of(context).LastReplaysAndComments,
-                    textDirection: TextDirection.rtl,
-                    style: TextStyle(
-                        fontSize: 12
+            Container(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 5, 0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text(
+                      S.of(context).LastEpisodes,
+                      textDirection: TextDirection.rtl,
+                      style: TextStyle(
+                          fontSize: 12
+                      ),
                     ),
-                  ),
-                ],
-              )
-          ),
-          ListView.builder(
-            physics: NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            itemCount: anime.comments.length,
-            itemBuilder: (BuildContext context , int index){
-              return  CommentCard(
-                userImage: anime.comments[index].userImage,
-                userName: anime.comments[index].userName,
-                date: anime.comments[index].date,
-                comment: anime.comments[index].content,
+                  ],
+                )
+            ),
+            // last episodes
+            GridView.builder(
+              physics: NeverScrollableScrollPhysics(),
+              itemBuilder: (BuildContext context, int index){
+
+              return  EpisodeCard(
+                image: anime.episodes[index].image,
+                episodeNumber: anime.episodes[index].episodeNumber,
+                classification: anime.episodes[index].classification,
               );
             },
-          ),
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                  mainAxisSpacing: 20,
+                  crossAxisSpacing: 20,
+                  childAspectRatio: (2.3/4)
+              ),
+              itemCount:anime.episodes.length,
+
+              shrinkWrap: true,),
+
+            Container(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 5, 0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text(
+                      S.of(context).LastReplaysAndComments,
+                      textDirection: TextDirection.rtl,
+                      style: TextStyle(
+                          fontSize: 12
+                      ),
+                    ),
+                  ],
+                )
+            ),
+            ListView.builder(
+              physics: NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              itemCount: anime.comments.length,
+              itemBuilder: (BuildContext context , int index){
+                return  CommentCard(
+                  userImage: anime.comments[index].userImage,
+                  userName: anime.comments[index].userName,
+                  date: anime.comments[index].date,
+                  comment: anime.comments[index].content,
+                );
+              },
+            ),
 
 
 
-          SizedBox(height: 60,)
-        ]
+            SizedBox(height: 60,)
+          ]
+      ),
     );
-  }
 
+  }
+    _showCommentDialog(BuildContext context) {
+
+    showDialog(
+        context: context,
+        builder: (_) => new SimpleDialog(
+
+          children: [
+            Container(
+              padding:EdgeInsets.all(10),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+
+                 Row(
+                   mainAxisAlignment: MainAxisAlignment.end,
+                   children: [
+                     Text(
+                       S.of(context).newInteraction,
+                       style: GoogleFonts.roboto(
+
+                       )
+                     ),
+                   ],
+                 ),
+                  Container(
+                    padding: EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color:Colors.black,
+                    ),
+                    width: MediaQuery.of(context).size.width*0.6,
+                    child: TextField(
+                      style: TextStyle(
+                          color: Colors.white,
+                        fontSize: 14
+                      ),
+                      maxLines: 8,
+                      decoration: InputDecoration.collapsed(
+                          hintText:S.of(context).addYourComment,
+                          hintStyle: TextStyle( color: Colors.white),
+                      ),
+                      
+                    ),
+                  ),
+                  Switch(
+                    value: isSwitched,
+                    onChanged: (bool isOn) {
+                      setState(() {
+                        isSwitched = !isSwitched;
+
+                      });
+                    },
+                    activeTrackColor: ProjectColors.ThemeColor,
+                    activeColor: Colors.white,
+                  ),
+
+
+                  FlatButton(
+                      onPressed: (){
+
+
+                      },
+
+                      child:Container(
+
+                        height: 30,
+                        width: MediaQuery.of(context).size.width*0.6,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: ProjectColors.ThemeColor,
+                        ),
+                        child: Text(
+                          S.of(context).sendComment,
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.roboto(
+                            textStyle : TextStyle(
+                                fontSize: 10,
+                                color: Colors.white
+                            ),
+                          )
+                        ),
+
+                      )
+                  ),
+                ],
+              ),
+            )
+          ],
+        ));
+  }
 }

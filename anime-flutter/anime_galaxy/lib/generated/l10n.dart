@@ -862,6 +862,66 @@ class S {
       args: [],
     );
   }
+
+  /// `إحصاءات`
+  String get statics {
+    return Intl.message(
+      'إحصاءات',
+      name: 'statics',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `التقييم العام`
+  String get generalEvaluation {
+    return Intl.message(
+      'التقييم العام',
+      name: 'generalEvaluation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `التعليقات الشهرية`
+  String get monthlyComments {
+    return Intl.message(
+      'التعليقات الشهرية',
+      name: 'monthlyComments',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تفاعل جديد`
+  String get newInteraction {
+    return Intl.message(
+      'تفاعل جديد',
+      name: 'newInteraction',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `إرسال التعليق`
+  String get sendComment {
+    return Intl.message(
+      'إرسال التعليق',
+      name: 'sendComment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `اضف تعليقك`
+  String get addYourComment {
+    return Intl.message(
+      'اضف تعليقك',
+      name: 'addYourComment',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -38,7 +38,7 @@ class EpisodeCard extends StatelessWidget {
               Center(
 
                   child: Text(
-                   '$episodeNumber'+ S.of(context).Episode ,
+                   S.of(context).Episode + '$episodeNumber' ,
                     textDirection: TextDirection.rtl,
                     style: TextStyle(
                         fontSize: 10,

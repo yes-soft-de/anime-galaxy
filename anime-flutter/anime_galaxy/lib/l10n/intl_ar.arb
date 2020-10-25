@@ -80,5 +80,11 @@
   "mayLikeSeries": "مسلسلات قد تعجبك",
   "gold": "ذهبي",
   "point": "نقطة",
-  "member": "عضو"
+  "member": "عضو",
+  "statics": "إحصاءات",
+  "generalEvaluation": "التقييم العام",
+  "monthlyComments": "التعليقات الشهرية",
+  "newInteraction": "تفاعل جديد",
+  "sendComment": "إرسال التعليق",
+  "addYourComment": "اضف تعليقك"
 }

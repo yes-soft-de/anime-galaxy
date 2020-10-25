@@ -82,5 +82,11 @@
   "point": "نقطة",
   "member": "عضو",
   "startWachingSeries": "ابدأ متابعة المسلسلات",
-  "test": "ddd"
+  "test": "ddd",
+  "statics": "إحصاءات",
+  "generalEvaluation": "التقييم العام",
+  "monthlyComments": "التعليقات الشهرية",
+  "newInteraction": "تفاعل جديد",
+  "sendComment": "إرسال التعليق",
+  "addYourComment": "اضف تعليقك"
 }

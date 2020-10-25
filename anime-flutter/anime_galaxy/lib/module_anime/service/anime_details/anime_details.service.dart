@@ -47,7 +47,8 @@ class AnimeDetailsService{
     episodesResponse.forEach((element) {
       Episode episode = new Episode(
         episodeNumber: element.episodeNumber,
-        image: element.image,
+          //TODO : change this later
+        image: element.image.substring(element.image.lastIndexOf('http')),
         //TODO : change this later
         classification: 'أكشن-شاونين'
       );

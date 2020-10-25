@@ -98,6 +98,8 @@ dependencies:
 #shimmer effect for loading
   shimmer: ^1.1.1
 
+#  google fonts
+  google_fonts: ^1.1.1
 
 dev_dependencies:
   flutter_test:
