@@ -1,5 +1,6 @@
 
 import 'package:anime_galaxy/generated/l10n.dart';
+import 'package:anime_galaxy/module_init_account/request/favourite_request/favourite_request.dart';
 import 'package:anime_galaxy/module_init_account/service/init_account/init_account.service.dart';
 import 'package:anime_galaxy/module_init_account/state/init_account/init_account.state.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -23,6 +24,17 @@ class InitAccountStateManager{
       else{
         _stateSubject.add(InitAccountStateError());
         Fluttertoast.showToast(msg: S.current.errorLoadingData);
+      }
+    });
+  }
+  
+  void addAnimesToWatch(List<FavouriteRequest> favouriteRequests){
+    _initAccountService.addAnimesToWatch(favouriteRequests).then((value) {
+      if(value == null){
+        Fluttertoast.showToast(msg: S.current.errorHappened);
+        _stateSubject.add(InitAccountStateAddFavouritesError());
+      }else{
+        _stateSubject.add(InitAccountStateAddFavouritesSuccess());
       }
     });
   }

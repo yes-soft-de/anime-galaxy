@@ -8,4 +8,6 @@ class Urls {
   static const API_ANIME_EPISODES = BASE_API + '/animeEpisodes/';
   static const API_ALL_COMMENTS = BASE_API +'/comments/';
   static const API_COMMENT = BASE_API+ '/comment';
+  static const API_ADD_FAVOURITE = BASE_API + '/favourite';
+  static const API_ANIME_BY_CATEGORY = BASE_API +'/animeByCategory/';
 }

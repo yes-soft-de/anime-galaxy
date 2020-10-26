@@ -83,6 +83,24 @@ import '../../module_init_account/repository/init_account/init_account.repositor
     as _i59;
 import '../../main_screen/main_screen_module.dart' as _i60;
 import '../../main_screen/ui/screen/main_screen.dart' as _i61;
+import '../../anime_setting/routes/setting_module.dart' as _i62;
+import '../../anime_setting/ui/screen/anim_setting.dart' as _i63;
+import '../../anime_setting/ui/style_app.dart' as _i64;
+import '../../anime_auth/auth_module.dart' as _i65;
+import '../../anime_auth/ui/screen/sign_up/sign_up.dart' as _i66;
+import '../../anime_auth/style_auth.dart' as _i67;
+import '../../anime_auth/ui/screen/sign_in/sign_in.dart' as _i68;
+import '../../anime_explor_list/routes/explor_list_module.dart' as _i69;
+import '../../anime_explor_list/ui/screen/explor_list_1/explor_list.dart'
+    as _i70;
+import '../../anime_explor_list/style_explore_list.dart' as _i71;
+import '../../anime_explor_list/state_manager/anime_explore_list_state_manager.dart'
+    as _i72;
+import '../../anime_explor_list/services/anime_explor_list_services.dart'
+    as _i73;
+import '../../anime_explor_list/manager/anime_explor_list_manager.dart' as _i74;
+import '../../anime_explor_list/anime_explor_list_repository/anime_explor_list_repository.dart'
+    as _i75;
 
 class AppComponent$Injector implements _i1.AppComponent {
   AppComponent$Injector._();
@@ -110,7 +128,10 @@ class AppComponent$Injector implements _i1.AppComponent {
       _createAnimeModlue(),
       _createNotificationModule(),
       _createAccountModule(),
-      _createMainScreenModule());
+      _createMainScreenModule(),
+      _createSettingModule(),
+      _createAuthModuleAnime(),
+      _createExplorListModule());
   _i7.ChatModule _createChatModule() =>
       _i7.ChatModule(_createChatPage(), _createAuthGuard());
   _i8.ChatPage _createChatPage() => _i8.ChatPage(_createChatPageBloc());
@@ -223,6 +244,29 @@ class AppComponent$Injector implements _i1.AppComponent {
       _i60.MainScreenModule(_createMainScreen());
   _i61.MainScreen _createMainScreen() =>
       _i61.MainScreen(_createNotificationScreen(), _createHomeScreen());
+  _i62.SettingModule _createSettingModule() =>
+      _i62.SettingModule(_createAnimSetting());
+  _i63.AnimSetting _createAnimSetting() =>
+      _i63.AnimSetting(_createStyleSetting());
+  _i64.StyleSetting _createStyleSetting() => _i64.StyleSetting();
+  _i65.AuthModuleAnime _createAuthModuleAnime() =>
+      _i65.AuthModuleAnime(_createSignUp(), _createSignIn());
+  _i66.SignUp _createSignUp() => _i66.SignUp(_createStyleAuth());
+  _i67.StyleAuth _createStyleAuth() => _i67.StyleAuth();
+  _i68.SignIn _createSignIn() => _i68.SignIn(_createStyleAuth());
+  _i69.ExplorListModule _createExplorListModule() =>
+      _i69.ExplorListModule(_createAnimeExploreList());
+  _i70.AnimeExploreList _createAnimeExploreList() => _i70.AnimeExploreList(
+      _createStyleExploreList(), _createAnimeExplorListStateManager());
+  _i71.StyleExploreList _createStyleExploreList() => _i71.StyleExploreList();
+  _i72.AnimeExplorListStateManager _createAnimeExplorListStateManager() =>
+      _i72.AnimeExplorListStateManager(_createAnimeExplorListServices());
+  _i73.AnimeExplorListServices _createAnimeExplorListServices() =>
+      _i73.AnimeExplorListServices(_createAnimeExplorListManager());
+  _i74.AnimeExplorListManager _createAnimeExplorListManager() =>
+      _i74.AnimeExplorListManager(_createAnimeExplorListRepository());
+  _i75.AnimeExplorListRepository _createAnimeExplorListRepository() =>
+      _i75.AnimeExplorListRepository(_createApiClient());
   @override
   _i6.MyApp get app => _createMyApp();
 }

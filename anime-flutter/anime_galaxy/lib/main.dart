@@ -14,6 +14,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:inject/inject.dart';
 
+import 'anime_auth/auth_module.dart';
+import 'anime_explor_list/routes/explor_list_module.dart';
+import 'anime_setting/routes/setting_module.dart';
 import 'camera/camera_module.dart';
 import 'di/components/app.component.dart';
 import 'generated/l10n.dart';
@@ -51,6 +54,10 @@ class MyApp extends StatefulWidget {
   final NotificationModule _notificationModule;
   final AccountModule _accountModule;
   final MainScreenModule _mainScreenModule;
+  final SettingModule _settingModule;
+  final AuthModuleAnime _authModuleAnime;
+  final ExplorListModule _explorListModule;
+
   MyApp(
     this._chatModule,
     this._cameraModule,
@@ -63,6 +70,9 @@ class MyApp extends StatefulWidget {
     this._notificationModule,
     this._accountModule,
     this._mainScreenModule,
+    this._settingModule,
+    this._authModuleAnime,
+    this._explorListModule,
   );
 
   @override
@@ -106,6 +116,9 @@ class _MyAppState extends State<MyApp> {
     fullRoutesList.addAll(widget._notificationModule.getRoutes());
     fullRoutesList.addAll(widget._accountModule.getRoutes());
     fullRoutesList.addAll(widget._mainScreenModule.getRoutes());
+    fullRoutesList.addAll(widget._settingModule.getRoutes());
+    fullRoutesList.addAll(widget._authModuleAnime.getRoutes());
+    fullRoutesList.addAll(widget._explorListModule.getRoutes());
 
     return FutureBuilder(
       future: getConfiguratedApp(fullRoutesList),
@@ -144,6 +157,7 @@ class _MyAppState extends State<MyApp> {
         supportedLocales: S.delegate.supportedLocales,
         title: 'Anime Galaxy',
         routes: fullRoutesList,
-        initialRoute:MainScreenRoute.MAIN_SCREEN_ROUTE);
+        initialRoute:InitAccountRoutes.INIT_ACCOUNT_ROUTE
+    );
   }
 }
