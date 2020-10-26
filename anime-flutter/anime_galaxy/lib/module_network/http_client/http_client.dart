@@ -15,7 +15,7 @@ class ApiClient {
   final String tag = 'ApiClient';
 
   ApiClient(this._logger) {
-    _client = new Dio(BaseOptions(connectTimeout: 3000, receiveTimeout: 6000));
+    _client = new Dio(BaseOptions(connectTimeout: 20000, receiveTimeout: 25000));
     _client.interceptors.add(DioCacheManager(CacheConfig()).interceptor);
   }
 

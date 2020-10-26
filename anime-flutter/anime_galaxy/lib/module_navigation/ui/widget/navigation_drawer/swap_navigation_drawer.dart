@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:anime_galaxy/generated/l10n.dart';
 import 'package:anime_galaxy/module_home/home.routes.dart';
-import 'package:anime_galaxy/module_profile/model/profile_model/profile_model.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SwapNavigationDrawer extends StatelessWidget {

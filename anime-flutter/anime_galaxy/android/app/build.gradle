@@ -44,7 +44,7 @@ android {
 
     defaultConfig {
         applicationId "de.yes_soft.anime_galaxy"
-        minSdkVersion 21
+        minSdkVersion 23
         targetSdkVersion 28
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName

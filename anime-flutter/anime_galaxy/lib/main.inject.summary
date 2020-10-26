@@ -67,6 +67,34 @@
                 "qualifier": null
               },
               "isProvider": false
+            },
+            {
+              "lookupKey": {
+                "root": "asset:anime_galaxy/lib/module_anime/anime_module.dart#AnimeModlue",
+                "qualifier": null
+              },
+              "isProvider": false
+            },
+            {
+              "lookupKey": {
+                "root": "asset:anime_galaxy/lib/module_notification/notification_module.dart#NotificationModule",
+                "qualifier": null
+              },
+              "isProvider": false
+            },
+            {
+              "lookupKey": {
+                "root": "asset:anime_galaxy/lib/module_init_account/account_module.dart#AccountModule",
+                "qualifier": null
+              },
+              "isProvider": false
+            },
+            {
+              "lookupKey": {
+                "root": "asset:anime_galaxy/lib/main_screen/main_screen_module.dart#MainScreenModule",
+                "qualifier": null
+              },
+              "isProvider": false
             }
           ]
         }

@@ -1,4 +1,11 @@
+import 'package:anime_galaxy/main_screen/main_screen_module.dart';
+import 'package:anime_galaxy/main_screen/main_screen_routes.dart';
+import 'package:anime_galaxy/module_anime/anime_routes.dart';
 import 'package:anime_galaxy/module_home/home.module.dart';
+import 'package:anime_galaxy/module_init_account/account_module.dart';
+import 'package:anime_galaxy/module_init_account/init_account_routes.dart';
+import 'package:anime_galaxy/module_notification/notification_module.dart';
+import 'package:anime_galaxy/module_notification/notification_routes.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -10,6 +17,7 @@ import 'package:inject/inject.dart';
 import 'camera/camera_module.dart';
 import 'di/components/app.component.dart';
 import 'generated/l10n.dart';
+import 'module_anime/anime_module.dart';
 import 'module_auth/auth_module.dart';
 import 'module_chat/chat_module.dart';
 import 'module_home/home.routes.dart';
@@ -39,7 +47,10 @@ class MyApp extends StatefulWidget {
   final LocalizationService _localizationService;
   final SwapThemeDataService _swapThemeService;
   final HomeModule _homeModule;
-
+  final AnimeModlue _animeModlue;
+  final NotificationModule _notificationModule;
+  final AccountModule _accountModule;
+  final MainScreenModule _mainScreenModule;
   MyApp(
     this._chatModule,
     this._cameraModule,
@@ -48,6 +59,10 @@ class MyApp extends StatefulWidget {
     this._localizationService,
     this._swapThemeService,
     this._homeModule,
+    this._animeModlue,
+    this._notificationModule,
+    this._accountModule,
+    this._mainScreenModule,
   );
 
   @override
@@ -86,6 +101,11 @@ class _MyAppState extends State<MyApp> {
     fullRoutesList.addAll(widget._authModule.getRoutes());
     fullRoutesList.addAll(widget._cameraModule.getRoutes());
     fullRoutesList.addAll(widget._profileModule.getRoutes());
+    fullRoutesList.addAll(widget._homeModule.getRoutes());
+    fullRoutesList.addAll(widget._animeModlue.getRoutes());
+    fullRoutesList.addAll(widget._notificationModule.getRoutes());
+    fullRoutesList.addAll(widget._accountModule.getRoutes());
+    fullRoutesList.addAll(widget._mainScreenModule.getRoutes());
 
     return FutureBuilder(
       future: getConfiguratedApp(fullRoutesList),
@@ -124,6 +144,6 @@ class _MyAppState extends State<MyApp> {
         supportedLocales: S.delegate.supportedLocales,
         title: 'Anime Galaxy',
         routes: fullRoutesList,
-        initialRoute: HomeRoutes.ROUTE_HOME);
+        initialRoute:MainScreenRoute.MAIN_SCREEN_ROUTE);
   }
 }

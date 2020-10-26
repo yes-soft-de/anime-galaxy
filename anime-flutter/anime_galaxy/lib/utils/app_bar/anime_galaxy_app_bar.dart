@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SwaptimeAppBar {
-  static AppBar getSwaptimeAppBar(GlobalKey<ScaffoldState> drawerKey) {
+class AnimeGalaxyAppBar {
+  static AppBar getAnimeGalaxyAppBar(GlobalKey<ScaffoldState> drawerKey) {
     return AppBar(
       leading: IconButton(
         icon: Icon(
@@ -22,11 +22,12 @@ class SwaptimeAppBar {
 
   static AppBar getBackEnabledAppBar() {
     return AppBar(
-      title: Text(
-        'Swaptime',
-        style: TextStyle(fontWeight: FontWeight.w300),
-      ),
+//      title: Text(
+//        'Swaptime',
+//        style: TextStyle(fontWeight: FontWeight.w300),
+//      ),
       centerTitle: true,
+      elevation: 0,
       actions: [
         // IconButton(
         //   icon: Icon(Icons.search),
