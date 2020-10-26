@@ -613,111 +613,352 @@ class S {
     );
   }
 
-  /// `movie 1`
-  String get movie1 {
+ 
+  /// `برونزي`
+  String get pronze {
     return Intl.message(
-      'movie 1',
-      name: 'movie1',
+      'برونزي',
+      name: 'pronze',
+ 
+      desc: '',
+      args: [],
+    );
+  }
+ 
+  /// `فضي`
+  String get silver {
+    return Intl.message(
+      'فضي',
+      name: 'silver',
+ 
       desc: '',
       args: [],
     );
   }
 
-  /// `mmmmmm`
-  String get mmmmmm {
+ 
+  /// `Anime`
+  String get anime {
     return Intl.message(
-      'mmmmmm',
-      name: 'mmmmmm',
+      'Anime',
+      name: 'anime',
+ 
       desc: '',
       args: [],
     );
   }
 
-  /// `المسلسلات الموصى بها عالميا`
-  String get series_international {
+ 
+  /// `قيم المسلسل`
+  String get EvaluteSerise {
     return Intl.message(
-      'المسلسلات الموصى بها عالميا',
-      name: 'series_international',
+      'قيم المسلسل',
+      name: 'EvaluteSerise',
+ 
       desc: '',
       args: [],
     );
   }
 
-  /// `المسلسلات الموصى بها حسب تفضيلاتك`
-  String get series_favorite {
+ 
+  /// `حول`
+  String get about {
     return Intl.message(
-      'المسلسلات الموصى بها حسب تفضيلاتك',
-      name: 'series_favorite',
+      'حول',
+      name: 'about',
+ 
       desc: '',
       args: [],
     );
   }
 
-  /// `اعضاء نشطين`
-  String get active_members {
+ 
+  /// `Confirm!`
+  String get confirm {
     return Intl.message(
-      'اعضاء نشطين',
-      name: 'active_members',
+      'Confirm!',
+      name: 'confirm',
+ 
       desc: '',
       args: [],
     );
   }
 
-  /// `الاعدادات العامة`
-  String get general_setting {
+ 
+  /// `قيم المسلسل`
+  String get RateSeries {
     return Intl.message(
-      'الاعدادات العامة',
-      name: 'general_setting',
+      'قيم المسلسل',
+      name: 'RateSeries',
+ 
       desc: '',
       args: [],
     );
   }
 
-  /// `الحساب`
-  String get accounts {
+ 
+  /// `حول`
+  String get About {
     return Intl.message(
-      'الحساب',
-      name: 'accounts',
+      'حول',
+      name: 'About',
+ 
       desc: '',
       args: [],
     );
   }
 
-  /// `الخصوصية`
-  String get privacy {
+ 
+  /// `المزيد`
+  String get More {
     return Intl.message(
-      'الخصوصية',
-      name: 'privacy',
+      'المزيد',
+      name: 'More',
+ 
       desc: '',
       args: [],
     );
   }
 
-  /// `الاسم`
-  String get name {
+ 
+  /// `التصنيف`
+  String get Classification {
     return Intl.message(
-      'الاسم',
-      name: 'name',
+      'التصنيف',
+      name: 'Classification',
+ 
       desc: '',
       args: [],
     );
   }
 
-  /// `الايميل`
-  String get email {
+ 
+  /// `آخر الحلقات`
+  String get LastEpisodes {
     return Intl.message(
-      'الايميل',
-      name: 'email',
+      'آخر الحلقات',
+      name: 'LastEpisodes',
       desc: '',
       args: [],
     );
   }
 
-  /// `كلمة مرور`
-  String get password {
+  /// `آخر الردود والتعليقات`
+  String get LastReplaysAndComments {
     return Intl.message(
-      'كلمة مرور',
-      name: 'password',
+      'آخر الردود والتعليقات',
+      name: 'LastReplaysAndComments',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `مشاركة`
+  String get Share {
+    return Intl.message(
+      'مشاركة',
+      name: 'Share',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `أحببته`
+  String get Like {
+    return Intl.message(
+      'أحببته',
+      name: 'Like',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `متابعة`
+  String get Follow {
+    return Intl.message(
+      'متابعة',
+      name: 'Follow',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `حلقة`
+  String get Episode {
+    return Intl.message(
+      'حلقة',
+      name: 'Episode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الموسم`
+  String get Season {
+    return Intl.message(
+      'الموسم',
+      name: 'Season',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `حلقات جديدة`
+  String get newEpisodes {
+    return Intl.message(
+      'حلقات جديدة',
+      name: 'newEpisodes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `مسلسلات متابعة`
+  String get watchedSeries {
+    return Intl.message(
+      'مسلسلات متابعة',
+      name: 'watchedSeries',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `مسلسلات قد تعجبك`
+  String get mayLikeSeries {
+    return Intl.message(
+      'مسلسلات قد تعجبك',
+      name: 'mayLikeSeries',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ذهبي`
+  String get gold {
+    return Intl.message(
+      'ذهبي',
+      name: 'gold',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `نقطة`
+  String get point {
+    return Intl.message(
+      'نقطة',
+      name: 'point',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `عضو`
+  String get member {
+    return Intl.message(
+      'عضو',
+      name: 'member',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ابدأ متابعة المسلسلات`
+  String get startWachingSeries {
+    return Intl.message(
+      'ابدأ متابعة المسلسلات',
+      name: 'startWachingSeries',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ddd`
+  String get test {
+    return Intl.message(
+      'ddd',
+      name: 'test',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `إحصاءات`
+  String get statics {
+    return Intl.message(
+      'إحصاءات',
+      name: 'statics',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `التقييم العام`
+  String get generalEvaluation {
+    return Intl.message(
+      'التقييم العام',
+      name: 'generalEvaluation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `التعليقات الشهرية`
+  String get monthlyComments {
+    return Intl.message(
+      'التعليقات الشهرية',
+      name: 'monthlyComments',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تفاعل جديد`
+  String get newInteraction {
+    return Intl.message(
+      'تفاعل جديد',
+      name: 'newInteraction',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `إرسال التعليق`
+  String get sendComment {
+    return Intl.message(
+      'إرسال التعليق',
+      name: 'sendComment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `اضف تعليقك`
+  String get addYourComment {
+    return Intl.message(
+      'اضف تعليقك',
+      name: 'addYourComment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `يحوي حرق`
+  String get spoilerAlert {
+    return Intl.message(
+      'يحوي حرق',
+      name: 'spoilerAlert',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `هناك مشكلة ما أعد التعليق لاحقا`
+  String get ommentingError {
+    return Intl.message(
+      'هناك مشكلة ما أعد التعليق لاحقا',
+      name: 'ommentingError',
+ 
       desc: '',
       args: [],
     );

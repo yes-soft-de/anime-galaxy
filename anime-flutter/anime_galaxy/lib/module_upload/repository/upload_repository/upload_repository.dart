@@ -15,16 +15,16 @@ class UploadRepository {
 
     Logger().info('UploadRepo', 'Uploading: ' + filePath);
 
-    Response response = await client.post(
-      Urls.IMGBB,
-      data: data,
-      queryParameters: {'key': ApiKeys.KEY_IMG_DB},
-    );
-    Logger().info('Got a Response', response.toString());
-
-    if (response == null) {
-      return null;
-    }
-    return ImgBBResponse.fromJson(response.data);
+//    Response response = await client.post(
+//      Urls.IMGBB,
+//      data: data,
+//      queryParameters: {'key': ApiKeys.KEY_IMG_DB},
+//    );
+//    Logger().info('Got a Response', response.toString());
+//
+//    if (response == null) {
+//      return null;
+//    }
+//    return ImgBBResponse.fromJson(response.data);
   }
 }

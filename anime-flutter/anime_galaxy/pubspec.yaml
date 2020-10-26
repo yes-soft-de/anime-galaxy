@@ -86,6 +86,21 @@ dependencies:
   # UUID
   uuid: ^2.2.2
 
+  #  progress indicator
+  percent_indicator: ^2.1.7+4
+
+#  rating bar
+  flutter_rating_bar: ^3.0.1+1
+
+#  image slider
+  carousel_slider: ^2.3.1
+
+#shimmer effect for loading
+  shimmer: ^1.1.1
+
+#  google fonts
+  google_fonts: ^1.1.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -93,7 +108,7 @@ dev_dependencies:
   build_runner: ^1.10.1
 
   test: ^1.15.2
-
+ 
   inject_generator:
     git:
       url: https://github.com/yes-soft-de/inject.dart.git
@@ -105,10 +120,18 @@ dev_dependencies:
   # Icons Generator
   flutter_launcher_icons: "^0.7.3"
 
+
+
 flutter:
   uses-material-design: true
   assets:
     - assets/images/
+
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto/Roboto-Regular.ttf
+
 
 flutter_intl:
   enabled: true

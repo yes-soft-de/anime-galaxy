@@ -7,7 +7,7 @@ import 'package:anime_galaxy/module_auth/state_manager/auth_state_manager/auth_s
 import 'package:anime_galaxy/module_auth/states/auth_states/auth_states.dart';
 import 'package:anime_galaxy/module_profile/profile_routes.dart';
 import 'package:anime_galaxy/module_theme/service/theme_service/theme_service.dart';
-import 'package:anime_galaxy/utils/app_bar/swaptime_app_bar.dart';
+import 'package:anime_galaxy/utils/app_bar/anime_galaxy_app_bar.dart';
 
 @provide
 class AuthScreen extends StatefulWidget {
@@ -67,7 +67,7 @@ class _AuthScreenState extends State<AuthScreen> {
     if (_currentState is AuthStateCodeSent) {
       pageLayout = Scaffold(
           resizeToAvoidBottomInset: false,
-          appBar: SwaptimeAppBar.getBackEnabledAppBar(),
+          appBar: AnimeGalaxyAppBar.getBackEnabledAppBar(),
           body: _getCodeSetter());
       if (mounted) setState(() {});
     } else if (_currentState is AuthStateLoading) {
@@ -76,7 +76,7 @@ class _AuthScreenState extends State<AuthScreen> {
     } else {
       pageLayout = Scaffold(
         resizeToAvoidBottomInset: false,
-        appBar: SwaptimeAppBar.getBackEnabledAppBar(),
+        appBar: AnimeGalaxyAppBar.getBackEnabledAppBar(),
         body: _getPhoneSetter(),
       );
       if (mounted) setState(() {});
@@ -129,7 +129,7 @@ class _AuthScreenState extends State<AuthScreen> {
                   Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Text(
-                      loading == false ? 'Confirm!' : 'Loading!',
+                      loading == false ? S.of(context).confirm : 'Loading!',
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
