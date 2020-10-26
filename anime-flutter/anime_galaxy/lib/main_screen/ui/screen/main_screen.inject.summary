@@ -32,6 +32,20 @@
                 "qualifier": null
               },
               "isProvider": false
+            },
+            {
+              "lookupKey": {
+                "root": "asset:anime_galaxy/lib/module_settings/ui/ui/settings_page/settings_page.dart#SettingsPage",
+                "qualifier": null
+              },
+              "isProvider": false
+            },
+            {
+              "lookupKey": {
+                "root": "asset:anime_galaxy/lib/anime_explor_list/ui/screen/explor_list_1/explor_list.dart#AnimeExploreList",
+                "qualifier": null
+              },
+              "isProvider": false
             }
           ]
         }
