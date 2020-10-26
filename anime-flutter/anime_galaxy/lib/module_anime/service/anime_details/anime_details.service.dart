@@ -27,7 +27,6 @@ class AnimeDetailsService{
     anime.rate = response.rating;
     anime.likesNumber = response.interactions.like;
     anime.commentsNumber = 4;
-    //TODO : change this when comment fetch properly
     anime.comments = getComments(response.comments);
     //TODO : change showYear to dynamic data from backend when it added
     anime.showYear = '2020';

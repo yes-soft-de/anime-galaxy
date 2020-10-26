@@ -552,6 +552,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
                    child: Row(
                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+                      //TODO : this not work, solve it
                       Switch(
                         value: isSwitched,
                         onChanged: (bool isOn) {

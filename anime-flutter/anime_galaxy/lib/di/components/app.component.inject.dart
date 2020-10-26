@@ -81,6 +81,8 @@ import '../../module_init_account/manager/init_account/init_account.manager.dart
     as _i58;
 import '../../module_init_account/repository/init_account/init_account.repository.dart'
     as _i59;
+import '../../main_screen/main_screen_module.dart' as _i60;
+import '../../main_screen/ui/screen/main_screen.dart' as _i61;
 
 class AppComponent$Injector implements _i1.AppComponent {
   AppComponent$Injector._();
@@ -107,7 +109,8 @@ class AppComponent$Injector implements _i1.AppComponent {
       _createHomeModule(),
       _createAnimeModlue(),
       _createNotificationModule(),
-      _createAccountModule());
+      _createAccountModule(),
+      _createMainScreenModule());
   _i7.ChatModule _createChatModule() =>
       _i7.ChatModule(_createChatPage(), _createAuthGuard());
   _i8.ChatPage _createChatPage() => _i8.ChatPage(_createChatPageBloc());
@@ -216,6 +219,10 @@ class AppComponent$Injector implements _i1.AppComponent {
       _i58.InitAccountManager(_createInitAccountRepository());
   _i59.InitAccountRepository _createInitAccountRepository() =>
       _i59.InitAccountRepository(_createApiClient());
+  _i60.MainScreenModule _createMainScreenModule() =>
+      _i60.MainScreenModule(_createMainScreen());
+  _i61.MainScreen _createMainScreen() =>
+      _i61.MainScreen(_createNotificationScreen(), _createHomeScreen());
   @override
   _i6.MyApp get app => _createMyApp();
 }
