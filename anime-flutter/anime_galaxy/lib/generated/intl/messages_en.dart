@@ -21,6 +21,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
+ 
     "About" : MessageLookupByLibrary.simpleMessage("حول"),
     "Classification" : MessageLookupByLibrary.simpleMessage("التصنيف"),
     "Episode" : MessageLookupByLibrary.simpleMessage("حلقة"),
@@ -34,6 +35,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "Season" : MessageLookupByLibrary.simpleMessage("الموسم"),
     "Share" : MessageLookupByLibrary.simpleMessage("مشاركة"),
     "about" : MessageLookupByLibrary.simpleMessage("حول"),
+ 
     "add" : MessageLookupByLibrary.simpleMessage("Add"),
     "addYourComment" : MessageLookupByLibrary.simpleMessage("اضف تعليقك"),
     "anime" : MessageLookupByLibrary.simpleMessage("Anime"),
@@ -43,6 +45,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "comment" : MessageLookupByLibrary.simpleMessage("Comment"),
     "confirm" : MessageLookupByLibrary.simpleMessage("Confirm!"),
     "darkMode" : MessageLookupByLibrary.simpleMessage("Dark Mode"),
+    "email" : MessageLookupByLibrary.simpleMessage("الايميل"),
     "emptyComment" : MessageLookupByLibrary.simpleMessage("Empty Comment!"),
     "emptyList" : MessageLookupByLibrary.simpleMessage("Empty List"),
     "emptyTagList" : MessageLookupByLibrary.simpleMessage("Empty Tag List"),
@@ -54,8 +57,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "feed" : MessageLookupByLibrary.simpleMessage("Feed"),
     "feedback" : MessageLookupByLibrary.simpleMessage("Feedback!"),
     "gamesList" : MessageLookupByLibrary.simpleMessage("Games List"),
+ 
     "generalEvaluation" : MessageLookupByLibrary.simpleMessage("التقييم العام"),
     "gold" : MessageLookupByLibrary.simpleMessage("ذهبي"),
+ 
     "home" : MessageLookupByLibrary.simpleMessage("Home"),
     "insertViaAPreset" : MessageLookupByLibrary.simpleMessage("Insert via a Preset"),
     "insertViaCamera" : MessageLookupByLibrary.simpleMessage("Insert via Camera"),
@@ -64,6 +69,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "loading" : MessageLookupByLibrary.simpleMessage("Loading!"),
     "location" : MessageLookupByLibrary.simpleMessage("Location"),
     "login" : MessageLookupByLibrary.simpleMessage("Login"),
+ 
     "mayLikeSeries" : MessageLookupByLibrary.simpleMessage("مسلسلات قد تعجبك"),
     "member" : MessageLookupByLibrary.simpleMessage("عضو"),
     "monthlyComments" : MessageLookupByLibrary.simpleMessage("التعليقات الشهرية"),
@@ -73,13 +79,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "notLoggedIn" : MessageLookupByLibrary.simpleMessage("Not Logged in!"),
     "notifications" : MessageLookupByLibrary.simpleMessage("Notifications"),
     "ommentingError" : MessageLookupByLibrary.simpleMessage("هناك مشكلة ما أعد التعليق لاحقا"),
+ 
     "phoneNumber" : MessageLookupByLibrary.simpleMessage("Phone Number"),
     "pleaseInputPhoneNumber" : MessageLookupByLibrary.simpleMessage("Please Input Phone Number"),
     "pleaseProvideAShortStoryAboutYou" : MessageLookupByLibrary.simpleMessage("Please Provide a short story about you :)"),
     "pleaseProvideYourName" : MessageLookupByLibrary.simpleMessage("Please Provide your Name :)"),
     "pleaseUploadTheImage" : MessageLookupByLibrary.simpleMessage("Please Upload the Image"),
     "pleaseUploadYourImage" : MessageLookupByLibrary.simpleMessage("Please Upload your Image :)"),
+ 
     "point" : MessageLookupByLibrary.simpleMessage("نقطة"),
+ 
     "privacyPolicy" : MessageLookupByLibrary.simpleMessage("Privacy Policy"),
     "profile" : MessageLookupByLibrary.simpleMessage("Profile"),
     "pronze" : MessageLookupByLibrary.simpleMessage("برونزي"),
@@ -91,6 +100,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "searchAGame" : MessageLookupByLibrary.simpleMessage("Search a Game :)"),
     "sendComment" : MessageLookupByLibrary.simpleMessage("إرسال التعليق"),
     "sendMeACode" : MessageLookupByLibrary.simpleMessage("Send me a Code!"),
+    "series_favorite" : MessageLookupByLibrary.simpleMessage("المسلسلات الموصى بها حسب تفضيلاتك"),
+    "series_international" : MessageLookupByLibrary.simpleMessage("المسلسلات الموصى بها عالميا"),
     "setExchangeGame" : MessageLookupByLibrary.simpleMessage("Set Exchange Game"),
     "setGame" : MessageLookupByLibrary.simpleMessage("Set Game"),
     "settings" : MessageLookupByLibrary.simpleMessage("Settings"),

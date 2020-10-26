@@ -45,6 +45,8 @@ import '../../module_theme/service/theme_service/theme_service.dart' as _i34;
 import '../../module_theme/pressistance/theme_preferences_helper.dart' as _i35;
 import '../../module_home/home.module.dart' as _i36;
 import '../../module_home/ui/screens/home_screen.dart' as _i37;
+ 
+=======
 import '../../module_home/state_manager/home/home.state_manager.dart' as _i38;
 import '../../module_home/service/home/home.service.dart' as _i39;
 import '../../module_home/manager/home/home.manager.dart' as _i40;
@@ -83,6 +85,7 @@ import '../../module_init_account/repository/init_account/init_account.repositor
     as _i59;
 import '../../main_screen/main_screen_module.dart' as _i60;
 import '../../main_screen/ui/screen/main_screen.dart' as _i61;
+ 
 
 class AppComponent$Injector implements _i1.AppComponent {
   AppComponent$Injector._();
@@ -107,10 +110,12 @@ class AppComponent$Injector implements _i1.AppComponent {
       _createLocalizationService(),
       _createSwapThemeDataService(),
       _createHomeModule(),
+  
       _createAnimeModlue(),
       _createNotificationModule(),
       _createAccountModule(),
       _createMainScreenModule());
+ 
   _i7.ChatModule _createChatModule() =>
       _i7.ChatModule(_createChatPage(), _createAuthGuard());
   _i8.ChatPage _createChatPage() => _i8.ChatPage(_createChatPageBloc());
@@ -173,6 +178,7 @@ class AppComponent$Injector implements _i1.AppComponent {
   _i35.ThemePreferencesHelper _createThemePreferencesHelper() =>
       _i35.ThemePreferencesHelper();
   _i36.HomeModule _createHomeModule() => _i36.HomeModule(_createHomeScreen());
+ 
   _i37.HomeScreen _createHomeScreen() =>
       _i37.HomeScreen(_createHomeStateManager());
   _i38.HomeStateManager _createHomeStateManager() =>
@@ -223,6 +229,7 @@ class AppComponent$Injector implements _i1.AppComponent {
       _i60.MainScreenModule(_createMainScreen());
   _i61.MainScreen _createMainScreen() =>
       _i61.MainScreen(_createNotificationScreen(), _createHomeScreen());
+ 
   @override
   _i6.MyApp get app => _createMyApp();
 }

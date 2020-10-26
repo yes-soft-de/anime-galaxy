@@ -58,6 +58,7 @@
   "close": "الغاء",
   "comment": "تعليق",
   "thisGameIsGreat": "لعبة رائعة",
+ 
   "pronze": "برونزي",
   "silver": "فضي",
   "anime": "Anime",
@@ -89,4 +90,5 @@
   "addYourComment": "اضف تعليقك",
   "spoilerAlert": "يحوي حرق",
   "ommentingError": "هناك مشكلة ما أعد التعليق لاحقا"
+ 
 }
