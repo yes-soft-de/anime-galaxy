@@ -15,7 +15,6 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:inject/inject.dart';
 
 import 'anime_auth/auth_module.dart';
-import 'anime_explor_list/routes/explor_list_module.dart';
 import 'anime_setting/routes/setting_module.dart';
 import 'camera/camera_module.dart';
 import 'di/components/app.component.dart';
@@ -56,7 +55,7 @@ class MyApp extends StatefulWidget {
   final MainScreenModule _mainScreenModule;
   final SettingModule _settingModule;
   final AuthModuleAnime _authModuleAnime;
-  final ExplorListModule _explorListModule;
+//  final ExploreModule _exploreModule;
 
   MyApp(
     this._chatModule,
@@ -72,7 +71,7 @@ class MyApp extends StatefulWidget {
     this._mainScreenModule,
     this._settingModule,
     this._authModuleAnime,
-    this._explorListModule,
+//    this._exploreModule,
   );
 
   @override
@@ -118,7 +117,7 @@ class _MyAppState extends State<MyApp> {
     fullRoutesList.addAll(widget._mainScreenModule.getRoutes());
     fullRoutesList.addAll(widget._settingModule.getRoutes());
     fullRoutesList.addAll(widget._authModuleAnime.getRoutes());
-    fullRoutesList.addAll(widget._explorListModule.getRoutes());
+//    fullRoutesList.addAll(widget._exploreModule.getRoutes());
 
     return FutureBuilder(
       future: getConfiguratedApp(fullRoutesList),

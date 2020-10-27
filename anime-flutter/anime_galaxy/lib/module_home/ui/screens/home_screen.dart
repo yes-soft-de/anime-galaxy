@@ -90,6 +90,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
   Widget body(){
 
+    //image slider
       final List<Widget> imageSliders = anime.newEpisodes
           .map((item) => Container(
             child: Container(
@@ -101,7 +102,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       new Container(
                         decoration: new BoxDecoration(
                           image: new DecorationImage(
-                            image: new  NetworkImage(item.image , ),
+                            //TODO : change this when real images provided from backend
+                            image: new  NetworkImage(/*item.image ,*/ 'https://i.pinimg.com/236x/ab/46/ae/ab46ae9f35056e9a34072295fd974e9c.jpg' ),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -128,7 +130,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                   children: <Widget>[
 
                                     Text(
-                                      item.seriesName,
+                                      '${item.seriesName}',
                                       style: TextStyle(
                                         color: Colors.white,
                                       ),
@@ -155,7 +157,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                   width: 75,
                                   height: 160,
                                   child: Image(
-
+                                    //TODO : change this to dynamic images
                                     image: NetworkImage(
                                         'https://m.media-amazon.com/images/M/MV5BZjNmZDhkN2QtNDYyZC00YzJmLTg0ODUtN2FjNjhhMzE3ZmUxXkEyXkFqcGdeQXVyNjc2NjA5MTU@._V1_UX182_CR0,0,182,268_AL_.jpg'
                                     ),

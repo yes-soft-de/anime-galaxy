@@ -1,7 +1,3 @@
-
-
-
-
 import 'package:anime_galaxy/anime_auth/style_auth.dart';
 import 'package:anime_galaxy/anime_auth/ui/widget/social_icon/social_icon.dart';
 import 'package:anime_galaxy/anime_setting/ui/widget/custome_button/custome_button.dart';

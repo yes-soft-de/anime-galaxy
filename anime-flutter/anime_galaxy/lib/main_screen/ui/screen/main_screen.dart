@@ -1,4 +1,3 @@
-import 'package:anime_galaxy/anime_explor_list/ui/screen/explor_list_1/explor_list.dart';
 import 'package:anime_galaxy/module_home/ui/screens/home_screen.dart';
 import 'package:anime_galaxy/module_notification/ui/screen/notification_screen/notification_screen.dart';
 import 'package:anime_galaxy/module_settings/ui/ui/settings_page/settings_page.dart';
@@ -11,13 +10,13 @@ class MainScreen extends StatefulWidget {
   final HomeScreen _homeScreen;
   final NotificationScreen _notificationScreen;
   final SettingsPage _settingsScreen;
-  final AnimeExploreList _exploreScreen;
+//  final ExploreScreen _exploreScreen;
 
   MainScreen(
       this._notificationScreen,
       this._homeScreen,
       this._settingsScreen,
-      this._exploreScreen,
+//      this._exploreScreen,
       );
 
   @override
@@ -54,12 +53,12 @@ class _MainScreenState extends State<MainScreen> {
           currentIndex: _pageIndex,
           onTap: onTabTapped,
           backgroundColor: ProjectColors.ThemeColor,
-          fixedColor: ProjectColors.ThemeColor,
+          fixedColor: Colors.white,
           unselectedItemColor: Colors.grey,
           items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem( icon: Icon(Icons.home),title: Container(height: 0.0)),
+            BottomNavigationBarItem( icon: Icon(Icons.dashboard),title: Container(height: 0.0)),
             BottomNavigationBarItem(icon: Icon(Icons.notifications), title: Container(height: 0.0)),
-            BottomNavigationBarItem(icon: Icon(Icons.explore), title: Container(height: 0.0)),
+//            BottomNavigationBarItem(icon: Icon(Icons.explore), title: Container(height: 0.0)),
             BottomNavigationBarItem(icon: Icon(Icons.settings), title: Container(height: 0.0)),
           ],
 
@@ -69,7 +68,7 @@ class _MainScreenState extends State<MainScreen> {
         children: [
           widget._homeScreen,
           widget._notificationScreen,
-          widget._exploreScreen,
+//          widget._exploreScreen,
           widget._settingsScreen,
 
         ],
