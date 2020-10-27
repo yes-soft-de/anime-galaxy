@@ -13,6 +13,8 @@ class getFollowersActivitiesResponse
     public $comment;    
     public $date;    
     public $RatingID;
+    public $favouriteID;
+
     
 
 }

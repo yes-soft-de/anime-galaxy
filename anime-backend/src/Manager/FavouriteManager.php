@@ -58,4 +58,14 @@ class FavouriteManager
     {
         return $this->favouriteRepository->getAllFavouritesByUserID($userID);
     }
+
+    public function getFollowersFavourites($userID)
+    {
+        $date = [];
+        for ($i = 1; $i <= 7; $i++) {
+            $date[] = date('Y-m-d', strtotime('-' . $i . ' day'));
+        }
+
+        return $result = $this->favouriteRepository->getFollowersFavourites($userID, $date);
+    }
 }

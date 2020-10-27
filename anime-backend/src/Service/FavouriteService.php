@@ -79,4 +79,9 @@ class FavouriteService
         return $response;
     }
 
+    public function getFollowersFavourites($friendID)
+    {
+        return  $this->favouriteManager->getFollowersFavourites($friendID); 
+    
+    }
 }

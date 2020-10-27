@@ -16,13 +16,15 @@ class FollowService
     private $autoMapping;
     private $commentService;
     private $ratingService;
+    private $favouriteService;
 
-    public function __construct(FollowManager $followManager, AutoMapping $autoMapping, CommentService $commentService, RatingService $ratingService)
+    public function __construct(FollowManager $followManager, AutoMapping $autoMapping, CommentService $commentService, RatingService $ratingService, FavouriteService $favouriteService)
     {
         $this->followManager = $followManager;
         $this->autoMapping = $autoMapping;
         $this->commentService = $commentService;
         $this->ratingService = $ratingService;
+        $this->favouriteService = $favouriteService;
     }
 
     public function create($request)
@@ -81,36 +83,10 @@ class FollowService
         }
     }
 
-    // public function searchMyArray($arrays, $key, $search)
-    // {
-    //     $count = 0;
-
-    //     foreach ($arrays as $object) {
-    //         if (is_object($object)) {
-    //             $object = get_object_vars($object);
-    //         }
-    //         if (array_key_exists($key, $object) && $object[$key] == $search) {
-    //             $count++;
-    //         }
-
-    //     }
-    //     return $count;
-    // }
-    function sortByDate($key)
-    {
-        return function ($a) use ($key) {
-             if ($a[$key] != $a[$key]) {
-                return ($a[$key] > $a[$key]) ? -1 : 1;   
-            }
-             else {
-                return 0;
-            }
-        };
-
-    }
     public function getFollowers($userID)
     {
         /** @var $response */
+        /** @var $arr */
         $response = [];
         $arr = [];
         $resultFollowers = $this->followManager->getFollowers($userID);
@@ -120,31 +96,32 @@ class FollowService
             $row['comment'] = $this->commentService->getFollowersComments($row['friendID']);
 
             $row['rating'] = $this->ratingService->getFollowersRatings($row['friendID']);
+           
+            $row['favourite'] = $this->favouriteService->getFollowersFavourites($row['friendID']);
 
             foreach ($row['comment'] as $res) {
 
-                // if ($this->searchMyArray($row['comment'], 'commentID', true)) {
                     $arr[] = $res;
-                    // $response[] = $this->autoMapping->map('array', getFollowersActivitiesResponse::class, $res);
-                // }
             }
 
             foreach ($row['rating'] as $res) {
 
-                // if ($this->searchMyArray($row['rating'], 'RatingID', true)) {
                     $arr[] = $res;
-                    // $response[] = $this->autoMapping->map('array', getFollowersActivitiesResponse::class, $res);
-                // }
+            }
+
+            foreach ($row['favourite'] as $res) {
+
+                    $arr[] = $res;
             }          
            
         }
-    //    array_multisort(array_column($arr,'Date'),
-        // SORT_DESC);
-      usort($arr, $this->sortByDate('date'));
-
+    
          foreach ($arr as $res) {
             $response[] = $this->autoMapping->map('array', getFollowersActivitiesResponse::class, $res);
-         }
+            
+         } 
+         array_multisort(array_column($response,'Date'),SORT_DESC);
+        
         // dd($response);
         return $response;
     }
