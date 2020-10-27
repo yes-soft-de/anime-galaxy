@@ -130,7 +130,7 @@ class EpisodeRepository extends ServiceEntityRepository
                 Join::WITH,
                 'anime.id = episode.animeID'
             )
-            ->andWhere( 'episode.createdAt > :date')
+            ->andWhere( 'episode.publishDate > :date')
             ->setParameter('date',$date)
             ->groupBy('episode.id')
             ->getQuery()
