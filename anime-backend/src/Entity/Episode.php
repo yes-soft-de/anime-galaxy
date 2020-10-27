@@ -139,14 +139,14 @@ class Episode
         return $this;
     }
 
-    public function getPublishDate(): ?\DateTimeInterface
+    public function getPublishDate()
     {
         return $this->publishDate;
     }
 
-    public function setPublishDate(?\DateTimeInterface $publishDate): self
+    public function setPublishDate( $publishDate): self
     {
-        $this->publishDate = $publishDate;
+        $this->publishDate = new \DateTime($publishDate);
 
         return $this;
     }
