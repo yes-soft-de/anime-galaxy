@@ -119,7 +119,7 @@ class EpisodeController extends BaseController
         $request = new DeleteRequest($request->get('id'));
         $result = $this->episodeService->delete($request);
 
-        return $this->response("", self::DELETE);
+        return $this->response("the item has been deleted ", self::DELETE);
     }
 
     /**

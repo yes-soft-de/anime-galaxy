@@ -74,7 +74,7 @@ class EpisodeManager
 
     public function delete(DeleteRequest $request)
     {
-        $episode = $this->episodeRepository->getEpisodeById($request->getId());
+        $episode = $this->episodeRepository->find($request->getId());
         if(!$episode)
         {
             return null;
