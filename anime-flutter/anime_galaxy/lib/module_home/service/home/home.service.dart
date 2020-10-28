@@ -16,6 +16,10 @@ class HomeService{
     //TODO : change the passed id to real id of logged in user
     HomeResponse response = await _homeManager.getHomePageDetails('zoz');
 
+    response.watchedSeries.forEach((element) {
+      print('soso + ${element.name}');
+    });
+
     HomeModel homeModel = new HomeModel(
       watchedSeries: getWatchedSeries(response.watchedSeries),
       points: response.points.points,

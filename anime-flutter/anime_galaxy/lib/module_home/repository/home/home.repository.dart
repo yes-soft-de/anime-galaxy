@@ -95,6 +95,7 @@ class HomeRepository{
 
   Future<PointsResponse> getUserPoints(String userId)async{
     dynamic response = await _httpClient.get(Urls.API_USER_POINTS+userId);
-    return PointsResponse.fromJson(response['Data']);
+    dynamic res = response['Data'];
+    return PointsResponse.fromJson(res);
   }
 }

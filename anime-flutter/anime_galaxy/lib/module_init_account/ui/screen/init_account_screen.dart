@@ -195,7 +195,7 @@ class _InitAccountScreenState extends State<InitAccountScreen> with TickerProvid
                                        crossAxisCount: 3,
                                        mainAxisSpacing: 20,
                                        crossAxisSpacing: 20,
-                                       childAspectRatio: (2.3/4)
+                                       childAspectRatio: (2.0/4)
                                    ),
                                    itemCount:categories[index].series.length,
                                    physics: NeverScrollableScrollPhysics(),

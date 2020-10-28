@@ -1,5 +1,5 @@
 import 'package:anime_galaxy/module_home/ui/screens/home_screen.dart';
-import 'package:anime_galaxy/module_navigation/ui/widget/navigation_drawer/swap_navigation_drawer.dart';
+import 'package:anime_galaxy/module_navigation/ui/widget/navigation_drawer/anime_navigation_drawer.dart';
 import 'package:anime_galaxy/module_notification/ui/screen/notification_screen/notification_screen.dart';
 import 'package:anime_galaxy/module_settings/ui/ui/settings_page/settings_page.dart';
 import 'package:anime_galaxy/utils/app_bar/anime_galaxy_app_bar.dart';
@@ -52,7 +52,7 @@ class _MainScreenState extends State<MainScreen> {
       key: _scaffoldKey,
      //TODO : replace the appbar with the proper one
       appBar : AnimeGalaxyAppBar.getAnimeGalaxyAppBar( _scaffoldKey),
-      drawer: SwapNavigationDrawer(),
+      drawer: AnimeNavigationDrawer(),
       bottomNavigationBar: SizedBox(
         height: 40,
         child: BottomNavigationBar(
