@@ -2,8 +2,8 @@ import 'dart:ui';
 import 'package:anime_galaxy/generated/l10n.dart';
 import 'package:anime_galaxy/module_home/model/home_model/home_model.dart';
 import 'package:anime_galaxy/module_home/state/home/home.state.dart';
-import 'package:anime_galaxy/module_home/ui/widget/episode_card/episode_card.dart';
 import 'package:anime_galaxy/module_home/ui/widget/points_widget/points_widget.dart';
+import 'package:anime_galaxy/module_home/ui/widget/series_card/series_card.dart';
 import 'package:anime_galaxy/utils/loading_indicator/loading_indicator.dart';
 import 'package:anime_galaxy/utils/project_colors/project_color.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -240,12 +240,12 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     child: new ConstrainedBox(
                       constraints: isExpanded
                           ? new BoxConstraints()
-                          : new BoxConstraints(maxHeight: 175.0),
+                          : new BoxConstraints(maxHeight: 180.0),
                       child:    GridView.builder(itemBuilder: (BuildContext context, int index){
 
-                        return  EpisodeCard(
+                        return  SeriesCard(
                           image: anime.watchedSeries[index].image,
-                          episodeNumber: 1,
+                          name: anime.watchedSeries[index].name,
                           classification:anime.watchedSeries[index].classification,
                         );
                       },
@@ -254,7 +254,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                             crossAxisCount: 3,
                             mainAxisSpacing: 20,
                             crossAxisSpacing: 20,
-                            childAspectRatio: (2.3/4)
+                            childAspectRatio: (2.0/4)
                         ),
                         itemCount:anime.watchedSeries.length,
                          physics: NeverScrollableScrollPhysics(),
@@ -313,14 +313,14 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     child: new ConstrainedBox(
                       constraints: isExpanded2
                           ? new BoxConstraints()
-                          : new BoxConstraints(maxHeight: 175.0),
+                          : new BoxConstraints(maxHeight: 180.0),
                       child:    GridView.builder(
                         physics: NeverScrollableScrollPhysics(),
                         itemBuilder: (BuildContext context, int index){
 
-                        return  EpisodeCard(
+                        return  SeriesCard(
                           image: anime.mayLikeSeries[index].image,
-                          episodeNumber: 1,
+                          name: anime.mayLikeSeries[index].name,
                           classification: anime.mayLikeSeries[index].classification,
                         );
                       },
@@ -329,7 +329,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                             crossAxisCount: 3,
                             mainAxisSpacing: 20,
                             crossAxisSpacing: 20,
-                            childAspectRatio: (2.3/4)
+                            childAspectRatio: (2.0/4)
                         ),
                         itemCount:anime.mayLikeSeries.length,
 

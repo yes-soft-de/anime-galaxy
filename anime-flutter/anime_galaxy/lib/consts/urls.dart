@@ -17,5 +17,6 @@ class Urls {
   static const API_ANIME_YOU_MAY_LIKE = BASE_API + '/getMaybeYouLike';
   static const API_USER_POINTS = BASE_API + '/grade/';
   static const API_EPISODES_COMING_SOON = BASE_API + '/episodesComingSoon';
+  static const API_ACTIVE_USERS = BASE_API + '/top50';
 
 }

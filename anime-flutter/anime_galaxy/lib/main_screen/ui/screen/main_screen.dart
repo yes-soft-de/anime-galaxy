@@ -1,12 +1,15 @@
 import 'package:anime_galaxy/module_home/ui/screens/home_screen.dart';
+import 'package:anime_galaxy/module_navigation/ui/widget/navigation_drawer/swap_navigation_drawer.dart';
 import 'package:anime_galaxy/module_notification/ui/screen/notification_screen/notification_screen.dart';
 import 'package:anime_galaxy/module_settings/ui/ui/settings_page/settings_page.dart';
+import 'package:anime_galaxy/utils/app_bar/anime_galaxy_app_bar.dart';
 import 'package:anime_galaxy/utils/project_colors/project_color.dart';
 import 'package:flutter/material.dart';
 import 'package:inject/inject.dart';
 
 @provide
 class MainScreen extends StatefulWidget {
+
   final HomeScreen _homeScreen;
   final NotificationScreen _notificationScreen;
   final SettingsPage _settingsScreen;
@@ -24,6 +27,7 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   int _pageIndex = 0;
   PageController _pageController;
@@ -45,8 +49,10 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
      //TODO : replace the appbar with the proper one
-      appBar : AppBar(title: Text('Anime'),),
+      appBar : AnimeGalaxyAppBar.getAnimeGalaxyAppBar( _scaffoldKey),
+      drawer: SwapNavigationDrawer(),
       bottomNavigationBar: SizedBox(
         height: 40,
         child: BottomNavigationBar(
