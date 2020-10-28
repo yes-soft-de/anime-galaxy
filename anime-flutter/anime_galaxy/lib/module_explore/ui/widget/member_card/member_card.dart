@@ -2,27 +2,27 @@
 import 'package:anime_galaxy/module_explore/style/style_explore_list.dart';
 import 'package:flutter/material.dart';
 
-class CardMembers extends StatelessWidget {
-  String url_image;
-  String series_name;
+class MemberCard extends StatelessWidget {
+  final String url_image;
+  final String series_name;
 
 
 
 
 
-  CardMembers({this.url_image, this.series_name});
+  MemberCard({this.url_image, this.series_name});
 
   @override
   Widget build(BuildContext context) {
     return  Container(
 
-      width: 90,
-
+      width: 72,
+      height: 72,
       child: Column(
 
         children: [
 
-          Container(alignment: Alignment.center,child: CircularImage(width: 60,height: 60,linkImg: url_image,)),
+          Container(alignment: Alignment.center,child: CircularImage(width: 70,height: 70,linkImg: url_image,)),
 
           SizedBox(height: 4,),
 
@@ -30,7 +30,7 @@ class CardMembers extends StatelessWidget {
 
             children: [
               Expanded(
-                child: Text("${series_name}",style: StyleExploreList.getTextSyle(size: 14,fontWeight: FontWeight.w400,day:false),
+                child: Text("${series_name}",style: StyleExploreList.getTextSyle(size: 14,fontWeight: FontWeight.w400,day:true),
                   maxLines: 1,overflow: TextOverflow.ellipsis,textAlign: TextAlign.center,),
               ),
             ],

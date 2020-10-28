@@ -1,3 +1,4 @@
+import 'package:anime_galaxy/module_explore/ui/screen/explore_screen/explore_screen.dart';
 import 'package:anime_galaxy/module_home/ui/screens/home_screen.dart';
 import 'package:anime_galaxy/module_navigation/ui/widget/navigation_drawer/anime_navigation_drawer.dart';
 import 'package:anime_galaxy/module_notification/ui/screen/notification_screen/notification_screen.dart';
@@ -13,13 +14,13 @@ class MainScreen extends StatefulWidget {
   final HomeScreen _homeScreen;
   final NotificationScreen _notificationScreen;
   final SettingsPage _settingsScreen;
-//  final ExploreScreen _exploreScreen;
+  final ExploreScreen _exploreScreen;
 
   MainScreen(
       this._notificationScreen,
       this._homeScreen,
       this._settingsScreen,
-//      this._exploreScreen,
+      this._exploreScreen,
       );
 
   @override
@@ -64,7 +65,7 @@ class _MainScreenState extends State<MainScreen> {
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem( icon: Icon(Icons.dashboard),title: Container(height: 0.0)),
             BottomNavigationBarItem(icon: Icon(Icons.notifications), title: Container(height: 0.0)),
-//            BottomNavigationBarItem(icon: Icon(Icons.explore), title: Container(height: 0.0)),
+            BottomNavigationBarItem(icon: Icon(Icons.explore), title: Container(height: 0.0)),
             BottomNavigationBarItem(icon: Icon(Icons.settings), title: Container(height: 0.0)),
           ],
 
@@ -74,7 +75,7 @@ class _MainScreenState extends State<MainScreen> {
         children: [
           widget._homeScreen,
           widget._notificationScreen,
-//          widget._exploreScreen,
+          widget._exploreScreen,
           widget._settingsScreen,
 
         ],

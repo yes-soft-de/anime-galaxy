@@ -22,6 +22,7 @@ import 'generated/l10n.dart';
 import 'module_anime/anime_module.dart';
 import 'module_auth/auth_module.dart';
 import 'module_chat/chat_module.dart';
+import 'module_explore/explore_module.dart';
 import 'module_home/home.routes.dart';
 import 'module_localization/service/localization_service/localization_service.dart';
 import 'module_profile/profile_module.dart';
@@ -55,7 +56,7 @@ class MyApp extends StatefulWidget {
   final MainScreenModule _mainScreenModule;
   final SettingModule _settingModule;
   final AuthModuleAnime _authModuleAnime;
-//  final ExploreModule _exploreModule;
+  final ExploreModule _exploreModule;
 
   MyApp(
     this._chatModule,
@@ -71,7 +72,7 @@ class MyApp extends StatefulWidget {
     this._mainScreenModule,
     this._settingModule,
     this._authModuleAnime,
-//    this._exploreModule,
+    this._exploreModule,
   );
 
   @override
@@ -117,7 +118,7 @@ class _MyAppState extends State<MyApp> {
     fullRoutesList.addAll(widget._mainScreenModule.getRoutes());
     fullRoutesList.addAll(widget._settingModule.getRoutes());
     fullRoutesList.addAll(widget._authModuleAnime.getRoutes());
-//    fullRoutesList.addAll(widget._exploreModule.getRoutes());
+    fullRoutesList.addAll(widget._exploreModule.getRoutes());
 
     return FutureBuilder(
       future: getConfiguratedApp(fullRoutesList),

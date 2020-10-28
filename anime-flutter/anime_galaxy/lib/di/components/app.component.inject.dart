@@ -84,13 +84,21 @@ import '../../module_init_account/repository/init_account/init_account.repositor
 import '../../main_screen/main_screen_module.dart' as _i60;
 import '../../main_screen/ui/screen/main_screen.dart' as _i61;
 import '../../module_settings/ui/ui/settings_page/settings_page.dart' as _i62;
-import '../../anime_setting/routes/setting_module.dart' as _i63;
-import '../../anime_setting/ui/screen/anim_setting.dart' as _i64;
-import '../../anime_setting/ui/style_app.dart' as _i65;
-import '../../anime_auth/auth_module.dart' as _i66;
-import '../../anime_auth/ui/screen/sign_up/sign_up.dart' as _i67;
-import '../../anime_auth/style_auth.dart' as _i68;
-import '../../anime_auth/ui/screen/sign_in/sign_in.dart' as _i69;
+import '../../module_explore/ui/screen/explore_screen/explore_screen.dart'
+    as _i63;
+import '../../module_explore/state_manager/explore/explore.state_manager.dart'
+    as _i64;
+import '../../module_explore/service/explore/explore.service.dart' as _i65;
+import '../../module_explore/manager/explore/explore.manager.dart' as _i66;
+import '../../module_explore/repository/explore/explore.repositry.dart' as _i67;
+import '../../anime_setting/routes/setting_module.dart' as _i68;
+import '../../anime_setting/ui/screen/anim_setting.dart' as _i69;
+import '../../anime_setting/ui/style_app.dart' as _i70;
+import '../../anime_auth/auth_module.dart' as _i71;
+import '../../anime_auth/ui/screen/sign_up/sign_up.dart' as _i72;
+import '../../anime_auth/style_auth.dart' as _i73;
+import '../../anime_auth/ui/screen/sign_in/sign_in.dart' as _i74;
+import '../../module_explore/explore_module.dart' as _i75;
 
 class AppComponent$Injector implements _i1.AppComponent {
   AppComponent$Injector._();
@@ -120,7 +128,8 @@ class AppComponent$Injector implements _i1.AppComponent {
       _createAccountModule(),
       _createMainScreenModule(),
       _createSettingModule(),
-      _createAuthModuleAnime());
+      _createAuthModuleAnime(),
+      _createExploreModule());
   _i7.ChatModule _createChatModule() =>
       _i7.ChatModule(_createChatPage(), _createAuthGuard());
   _i8.ChatPage _createChatPage() => _i8.ChatPage(_createChatPageBloc());
@@ -232,21 +241,36 @@ class AppComponent$Injector implements _i1.AppComponent {
   _i60.MainScreenModule _createMainScreenModule() =>
       _i60.MainScreenModule(_createMainScreen());
   _i61.MainScreen _createMainScreen() => _i61.MainScreen(
-      _createNotificationScreen(), _createHomeScreen(), _createSettingsPage());
+      _createNotificationScreen(),
+      _createHomeScreen(),
+      _createSettingsPage(),
+      _createExploreScreen());
   _i62.SettingsPage _createSettingsPage() => _i62.SettingsPage(
       _createAuthService(),
       _createLocalizationService(),
       _createSwapThemeDataService());
-  _i63.SettingModule _createSettingModule() =>
-      _i63.SettingModule(_createAnimSetting());
-  _i64.AnimSetting _createAnimSetting() =>
-      _i64.AnimSetting(_createStyleSetting());
-  _i65.StyleSetting _createStyleSetting() => _i65.StyleSetting();
-  _i66.AuthModuleAnime _createAuthModuleAnime() =>
-      _i66.AuthModuleAnime(_createSignUp(), _createSignIn());
-  _i67.SignUp _createSignUp() => _i67.SignUp(_createStyleAuth());
-  _i68.StyleAuth _createStyleAuth() => _i68.StyleAuth();
-  _i69.SignIn _createSignIn() => _i69.SignIn(_createStyleAuth());
+  _i63.ExploreScreen _createExploreScreen() =>
+      _i63.ExploreScreen(_createExploreStateManager());
+  _i64.ExploreStateManager _createExploreStateManager() =>
+      _i64.ExploreStateManager(_createExploreService());
+  _i65.ExploreService _createExploreService() =>
+      _i65.ExploreService(_createExploreManager());
+  _i66.ExploreManager _createExploreManager() =>
+      _i66.ExploreManager(_createExploreRepository());
+  _i67.ExploreRepository _createExploreRepository() =>
+      _i67.ExploreRepository(_createApiClient());
+  _i68.SettingModule _createSettingModule() =>
+      _i68.SettingModule(_createAnimSetting());
+  _i69.AnimSetting _createAnimSetting() =>
+      _i69.AnimSetting(_createStyleSetting());
+  _i70.StyleSetting _createStyleSetting() => _i70.StyleSetting();
+  _i71.AuthModuleAnime _createAuthModuleAnime() =>
+      _i71.AuthModuleAnime(_createSignUp(), _createSignIn());
+  _i72.SignUp _createSignUp() => _i72.SignUp(_createStyleAuth());
+  _i73.StyleAuth _createStyleAuth() => _i73.StyleAuth();
+  _i74.SignIn _createSignIn() => _i74.SignIn(_createStyleAuth());
+  _i75.ExploreModule _createExploreModule() =>
+      _i75.ExploreModule(_createExploreScreen());
   @override
   _i6.MyApp get app => _createMyApp();
 }

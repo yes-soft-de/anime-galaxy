@@ -1,17 +1,17 @@
 {
-  "asset": "asset:anime_galaxy/lib/module_explore/ui/screen/explore_screen/explore_screen.dart",
+  "asset": "asset:anime_galaxy/lib/module_explore/manager/explore/explore.manager.dart",
   "summary": {
     "injector": [],
     "module": [],
     "injectable": [
       {
-        "name": "ExploreScreen",
+        "name": "ExploreManager",
         "constructor": {
           "name": "",
           "kind": "constructor",
           "injectedType": {
             "lookupKey": {
-              "root": "asset:anime_galaxy/lib/module_explore/ui/screen/explore_screen/explore_screen.dart#ExploreScreen",
+              "root": "asset:anime_galaxy/lib/module_explore/manager/explore/explore.manager.dart#ExploreManager",
               "qualifier": null
             },
             "isProvider": false
@@ -21,7 +21,7 @@
           "dependencies": [
             {
               "lookupKey": {
-                "root": "asset:anime_galaxy/lib/module_explore/state_manager/explore/explore.state_manager.dart#ExploreStateManager",
+                "root": "asset:anime_galaxy/lib/module_explore/repository/explore/explore.repositry.dart#ExploreRepository",
                 "qualifier": null
               },
               "isProvider": false
