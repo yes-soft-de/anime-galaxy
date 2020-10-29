@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:anime_galaxy/generated/l10n.dart';
+import 'package:anime_galaxy/module_anime/anime_routes.dart';
 import 'package:anime_galaxy/module_home/model/home_model/home_model.dart';
 import 'package:anime_galaxy/module_home/state/home/home.state.dart';
 import 'package:anime_galaxy/module_home/ui/widget/points_widget/points_widget.dart';
@@ -243,10 +244,18 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                           : new BoxConstraints(maxHeight: 180.0),
                       child:    GridView.builder(itemBuilder: (BuildContext context, int index){
 
-                        return  SeriesCard(
-                          image: anime.watchedSeries[index].image,
-                          name: anime.watchedSeries[index].name,
-                          classification:anime.watchedSeries[index].classification,
+                        return  GestureDetector(
+                          onTap: ()=>  Navigator.pushNamed(
+                                context,
+                                AnimeRoutes.ROUTE_ANIME_DETAILS_SCREEN,
+                                arguments: anime.watchedSeries[index].id
+                            ),
+
+                          child: SeriesCard(
+                            image: anime.watchedSeries[index].image,
+                            name: anime.watchedSeries[index].name,
+                            classification:anime.watchedSeries[index].classification,
+                          ),
                         );
                       },
                         padding: EdgeInsets.symmetric(horizontal: 10),
@@ -260,7 +269,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                          physics: NeverScrollableScrollPhysics(),
                         shrinkWrap: true,),
 
-    //
+
                     )
                 ),
                 isExpanded
@@ -318,10 +327,17 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                         physics: NeverScrollableScrollPhysics(),
                         itemBuilder: (BuildContext context, int index){
 
-                        return  SeriesCard(
-                          image: anime.mayLikeSeries[index].image,
-                          name: anime.mayLikeSeries[index].name,
-                          classification: anime.mayLikeSeries[index].classification,
+                        return GestureDetector(
+                          onTap: () => Navigator.pushNamed(
+                              context,
+                              AnimeRoutes.ROUTE_ANIME_DETAILS_SCREEN,
+                              arguments: anime.mayLikeSeries[index].id
+                          ),
+                          child: SeriesCard(
+                            image: anime.mayLikeSeries[index].image,
+                            name: anime.mayLikeSeries[index].name,
+                            classification: anime.mayLikeSeries[index].classification,
+                          ),
                         );
                       },
                         padding: EdgeInsets.symmetric(horizontal: 10),

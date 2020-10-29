@@ -37,6 +37,7 @@ class HomeService{
 
       seriesList.add(
           new Series(
+          id: element.id,
           name: element.name,
               //TODO : change this to real data
           image :'https://i.pinimg.com/236x/ab/46/ae/ab46ae9f35056e9a34072295fd974e9c.jpg',

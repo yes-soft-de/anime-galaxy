@@ -9,16 +9,12 @@ import 'package:inject/inject.dart';
 
 
 List<Series> mayLikedSeries =[
-  new Series(name: 'دكتور ستون-Dr.Stone',image: 'https://i.pinimg.com/236x/5b/27/06/5b2706b1d6459ca81b4576a122844fdc.jpg',classification: 'أكشن شاونين'),
-  new Series(name: 'دكتور ستون-Dr.Stone',image: 'https://i.pinimg.com/236x/5b/27/06/5b2706b1d6459ca81b4576a122844fdc.jpg',classification: 'أكشن شاونين'),
-  new Series(name: 'دكتور ستون-Dr.Stone',image: 'https://i.pinimg.com/236x/5b/27/06/5b2706b1d6459ca81b4576a122844fdc.jpg',classification: 'أكشن شاونين'),
-  new Series(name: 'دكتور ستون-Dr.Stone',image: 'https://i.pinimg.com/236x/5b/27/06/5b2706b1d6459ca81b4576a122844fdc.jpg',classification: 'أكشن شاونين'),
-  new Series(name: 'دكتور ستون-Dr.Stone',image: 'https://i.pinimg.com/236x/5b/27/06/5b2706b1d6459ca81b4576a122844fdc.jpg',classification: 'أكشن شاونين'),
-  new Series(name: 'دكتور ستون-Dr.Stone',image: 'https://i.pinimg.com/236x/5b/27/06/5b2706b1d6459ca81b4576a122844fdc.jpg',classification: 'أكشن شاونين'),
-  new Series(name: 'دكتور ستون-Dr.Stone',image: 'https://i.pinimg.com/236x/5b/27/06/5b2706b1d6459ca81b4576a122844fdc.jpg',classification: 'أكشن شاونين'),
-  new Series(name: 'دكتور ستون-Dr.Stone',image: 'https://i.pinimg.com/236x/5b/27/06/5b2706b1d6459ca81b4576a122844fdc.jpg',classification: 'أكشن شاونين'),
-  new Series(name: 'دكتور ستون-Dr.Stone',image: 'https://i.pinimg.com/236x/5b/27/06/5b2706b1d6459ca81b4576a122844fdc.jpg',classification: 'أكشن شاونين'),
- ];
+  new Series(id :1 ,name: 'دكتور ستون-Dr.Stone',image: 'https://i.pinimg.com/236x/5b/27/06/5b2706b1d6459ca81b4576a122844fdc.jpg',classification: 'أكشن شاونين'),
+  new Series(id :1 ,name: 'دكتور ستون-Dr.Stone',image: 'https://i.pinimg.com/236x/5b/27/06/5b2706b1d6459ca81b4576a122844fdc.jpg',classification: 'أكشن شاونين'),
+  new Series(id :1 ,name: 'دكتور ستون-Dr.Stone',image: 'https://i.pinimg.com/236x/5b/27/06/5b2706b1d6459ca81b4576a122844fdc.jpg',classification: 'أكشن شاونين'),
+  new Series(id :1 ,name: 'دكتور ستون-Dr.Stone',image: 'https://i.pinimg.com/236x/5b/27/06/5b2706b1d6459ca81b4576a122844fdc.jpg',classification: 'أكشن شاونين'),
+  new Series(id :1 ,name: 'دكتور ستون-Dr.Stone',image: 'https://i.pinimg.com/236x/5b/27/06/5b2706b1d6459ca81b4576a122844fdc.jpg',classification: 'أكشن شاونين'),
+  new Series(id :1 ,name: 'دكتور ستون-Dr.Stone',image: 'https://i.pinimg.com/236x/5b/27/06/5b2706b1d6459ca81b4576a122844fdc.jpg',classification: 'أكشن شاونين'),];
 
 
 

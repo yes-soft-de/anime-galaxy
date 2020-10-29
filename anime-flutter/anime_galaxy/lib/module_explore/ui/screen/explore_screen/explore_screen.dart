@@ -2,6 +2,7 @@
 import 'dart:ui';
 
 import 'package:anime_galaxy/generated/l10n.dart';
+import 'package:anime_galaxy/module_anime/anime_routes.dart';
 import 'package:anime_galaxy/module_explore/model/explore/explore_model.dart';
 import 'package:anime_galaxy/module_explore/state/explore/explore.state.dart';
 import 'package:anime_galaxy/module_explore/state_manager/explore/explore.state_manager.dart';
@@ -159,13 +160,20 @@ class ExploreScreen extends StatefulWidget {
 
                     return   Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 2),
-                      child: SeriesCard(
-                        url_image: 'https://www.lamsahfannan.com/content/uploads/2017/03/3dlat.net_08_15_258a_6.jpg',
-
-                        series_category: explore.worldRecommendedSeries[index].category,
-
-                        series_name: explore.worldRecommendedSeries[index].name,
+                      child: GestureDetector(
+                        onTap: ()=> Navigator.pushNamed(
+                          context,
+                          AnimeRoutes.ROUTE_ANIME_DETAILS_SCREEN,
+                          arguments: explore.worldRecommendedSeries[index].id
                         ),
+                        child: SeriesCard(
+                          url_image: 'https://www.lamsahfannan.com/content/uploads/2017/03/3dlat.net_08_15_258a_6.jpg',
+
+                          series_category: explore.worldRecommendedSeries[index].category,
+
+                          series_name: explore.worldRecommendedSeries[index].name,
+                          ),
+                      ),
                     );
                   },
                     itemCount:explore.worldRecommendedSeries.length ,
@@ -190,11 +198,18 @@ class ExploreScreen extends StatefulWidget {
                   child: ListView.builder(itemBuilder: (context,index){
                     return   Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 4),
-                      child: FavouriteSeriesCard(
-                        url_image: 'https://www.lamsahfannan.com/content/uploads/2017/03/3dlat.net_08_15_258a_6.jpg',
-                        series_category: explore.recommendedSeriesByUser[index].category,
-                        series_name: explore.recommendedSeriesByUser[index].name
-                        ,),
+                      child: GestureDetector(
+                        onTap: ()=> Navigator.pushNamed(
+                            context,
+                            AnimeRoutes.ROUTE_ANIME_DETAILS_SCREEN,
+                            arguments: explore.recommendedSeriesByUser[index].id
+                        ),
+                        child: FavouriteSeriesCard(
+                          url_image: 'https://www.lamsahfannan.com/content/uploads/2017/03/3dlat.net_08_15_258a_6.jpg',
+                          series_category: explore.recommendedSeriesByUser[index].category,
+                          series_name: explore.recommendedSeriesByUser[index].name
+                          ,),
+                      ),
                     );
                   },
                     itemCount:explore.recommendedSeriesByUser.length ,
