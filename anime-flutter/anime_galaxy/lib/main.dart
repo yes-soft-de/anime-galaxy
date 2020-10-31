@@ -1,6 +1,13 @@
+ 
+import 'package:anime_galaxy/anime_auth/auth_routes.dart';
+import 'package:anime_galaxy/anime_explor_list/routes/explor_list_route.dart';
+import 'package:anime_galaxy/anime_setting/routes/setting_module.dart';
+import 'package:anime_galaxy/anime_setting/routes/setting_route.dart';
+ 
 import 'package:anime_galaxy/main_screen/main_screen_module.dart';
 import 'package:anime_galaxy/main_screen/main_screen_routes.dart';
 import 'package:anime_galaxy/module_anime/anime_routes.dart';
+ 
 import 'package:anime_galaxy/module_home/home.module.dart';
 import 'package:anime_galaxy/module_init_account/account_module.dart';
 import 'package:anime_galaxy/module_init_account/init_account_routes.dart';
@@ -16,11 +23,13 @@ import 'package:inject/inject.dart';
 
 import 'anime_auth/auth_module.dart';
 import 'anime_setting/routes/setting_module.dart';
+import 'anime_explor_list/routes/explor_list_module.dart';
 import 'camera/camera_module.dart';
 import 'di/components/app.component.dart';
 import 'generated/l10n.dart';
 import 'module_anime/anime_module.dart';
 import 'module_auth/auth_module.dart';
+import 'module_auth/auth_routes.dart';
 import 'module_chat/chat_module.dart';
 import 'module_explore/explore_module.dart';
 import 'module_home/home.routes.dart';
@@ -50,6 +59,12 @@ class MyApp extends StatefulWidget {
   final LocalizationService _localizationService;
   final SwapThemeDataService _swapThemeService;
   final HomeModule _homeModule;
+ 
+  final SettingModule _settingModule;
+  final AuthModuleAnime _authModuleAnime;
+  final ExplorListModule _explorListModule;
+
+ 
   final AnimeModlue _animeModlue;
   final NotificationModule _notificationModule;
   final AccountModule _accountModule;
@@ -57,7 +72,6 @@ class MyApp extends StatefulWidget {
   final SettingModule _settingModule;
   final AuthModuleAnime _authModuleAnime;
   final ExploreModule _exploreModule;
-
   MyApp(
     this._chatModule,
     this._cameraModule,
@@ -66,6 +80,11 @@ class MyApp extends StatefulWidget {
     this._localizationService,
     this._swapThemeService,
     this._homeModule,
+ 
+   this._settingModule,
+   this._authModuleAnime
+   ,this._explorListModule
+ 
     this._animeModlue,
     this._notificationModule,
     this._accountModule,
@@ -111,6 +130,11 @@ class _MyAppState extends State<MyApp> {
     fullRoutesList.addAll(widget._authModule.getRoutes());
     fullRoutesList.addAll(widget._cameraModule.getRoutes());
     fullRoutesList.addAll(widget._profileModule.getRoutes());
+ 
+    fullRoutesList.addAll(widget._settingModule.getRoutes());
+    fullRoutesList.addAll(widget._authModuleAnime.getRoutes());
+    fullRoutesList.addAll(widget._explorListModule.getRoutes());
+ 
     fullRoutesList.addAll(widget._homeModule.getRoutes());
     fullRoutesList.addAll(widget._animeModlue.getRoutes());
     fullRoutesList.addAll(widget._notificationModule.getRoutes());
@@ -159,5 +183,6 @@ class _MyAppState extends State<MyApp> {
         routes: fullRoutesList,
         initialRoute:InitAccountRoutes.INIT_ACCOUNT_ROUTE
     );
+ 
   }
 }
