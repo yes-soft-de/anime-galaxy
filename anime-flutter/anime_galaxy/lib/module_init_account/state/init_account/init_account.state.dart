@@ -15,3 +15,7 @@ class InitAccountStateSuccess extends InitAccountState{
 }
 
 class InitAccountStateError extends InitAccountState{}
+
+class InitAccountStateAddFavouritesSuccess extends InitAccountState{}
+
+class InitAccountStateAddFavouritesError extends InitAccountState{}

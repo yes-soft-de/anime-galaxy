@@ -101,6 +101,27 @@
                 "qualifier": null
               },
               "isProvider": false
+            },
+            {
+              "lookupKey": {
+                "root": "asset:anime_galaxy/lib/anime_setting/routes/setting_module.dart#SettingModule",
+                "qualifier": null
+              },
+              "isProvider": false
+            },
+            {
+              "lookupKey": {
+                "root": "asset:anime_galaxy/lib/anime_auth/auth_module.dart#AuthModuleAnime",
+                "qualifier": null
+              },
+              "isProvider": false
+            },
+            {
+              "lookupKey": {
+                "root": "asset:anime_galaxy/lib/module_explore/explore_module.dart#ExploreModule",
+                "qualifier": null
+              },
+              "isProvider": false
             }
           ]
         }

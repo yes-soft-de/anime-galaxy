@@ -31,11 +31,13 @@ class Episode{
 }
 
 class Series{
+    int id;
     String image;
     String name;
     String classification;
 
     Series({
+      this.id,
       this.image,
       this.name,
       this.classification,

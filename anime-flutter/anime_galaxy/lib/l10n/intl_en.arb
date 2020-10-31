@@ -91,6 +91,17 @@
   "sendComment": "إرسال التعليق",
   "addYourComment": "اضف تعليقك",
   "spoilerAlert": "يحوي حرق",
+  "ommentingError": "هناك مشكلة ما أعد التعليق لاحقا",
+  "name": "الاسم",
+  "email": "البريد الالكتروني",
+  "password": "كلمة المرور",
+  "worldWideSeries": "المسلسلات الموصى بها عالميا",
+  "recomendationByFavorite": "المسلسلات الموصى بها حسب تفضيلاتك",
+  "activeMembers": "أعضاء نشيطين",
+  "genaeralSettings": "الإعدادات العامة",
+  "account": "الحساب",
+  "privacy": "الخصوصية",
+  "errorHappened": "حصل خطأ ما",
+  "continueUsingApp": "تابع استخدام التطبيق"
   "ommentingError": "هناك مشكلة ما أعد التعليق لاحقا"
- 
 }

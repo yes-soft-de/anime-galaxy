@@ -1,7 +1,3 @@
-
-
-
-
 import 'package:anime_galaxy/anime_auth/style_auth.dart';
 import 'package:anime_galaxy/anime_auth/ui/widget/social_icon/social_icon.dart';
 import 'package:anime_galaxy/anime_setting/ui/widget/custome_button/custome_button.dart';
@@ -84,7 +80,7 @@ class _SignUpState extends State<SignUp> {
                   children: <Widget>[
                     SocalIcon(
                       day: false,
-                      iconSrc: "assets/images/facebook.svg",
+                      iconSrc: 'assets/images/facebook.svg',
                       press: () {},
                     ),
                     SocalIcon(
@@ -111,7 +107,7 @@ class _SignUpState extends State<SignUp> {
         bottomNavigationBar:
 
         CustomeButton(
-          txt: "تابع",
+          txt: 'تابع',
           textStyle: StyleAuth.getTextSyle(day: false,size: 14,),
           press: (){
             //  Navigator.pushNamed(context, RotingModule.ROUTE_ANIM_SETTIING_PAGE);

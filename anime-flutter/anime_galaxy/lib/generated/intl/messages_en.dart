@@ -35,7 +35,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "Season" : MessageLookupByLibrary.simpleMessage("الموسم"),
     "Share" : MessageLookupByLibrary.simpleMessage("مشاركة"),
     "about" : MessageLookupByLibrary.simpleMessage("حول"),
- 
+    "account" : MessageLookupByLibrary.simpleMessage("الحساب"),
+    "activeMembers" : MessageLookupByLibrary.simpleMessage("أعضاء نشيطين"),
     "add" : MessageLookupByLibrary.simpleMessage("Add"),
     "addYourComment" : MessageLookupByLibrary.simpleMessage("اضف تعليقك"),
     "anime" : MessageLookupByLibrary.simpleMessage("Anime"),
@@ -44,20 +45,22 @@ class MessageLookup extends MessageLookupByLibrary {
     "close" : MessageLookupByLibrary.simpleMessage("Close"),
     "comment" : MessageLookupByLibrary.simpleMessage("Comment"),
     "confirm" : MessageLookupByLibrary.simpleMessage("Confirm!"),
+    "continueUsingApp" : MessageLookupByLibrary.simpleMessage("تابع استخدام التطبيق"),
     "darkMode" : MessageLookupByLibrary.simpleMessage("Dark Mode"),
-    "email" : MessageLookupByLibrary.simpleMessage("الايميل"),
+    "email" : MessageLookupByLibrary.simpleMessage("البريد الالكتروني"),
     "emptyComment" : MessageLookupByLibrary.simpleMessage("Empty Comment!"),
     "emptyList" : MessageLookupByLibrary.simpleMessage("Empty List"),
     "emptyTagList" : MessageLookupByLibrary.simpleMessage("Empty Tag List"),
     "enableAudio" : MessageLookupByLibrary.simpleMessage("Enable Audio:"),
     "errorGettingSwapItemId" : MessageLookupByLibrary.simpleMessage("Error Getting Swap Item id!"),
+    "errorHappened" : MessageLookupByLibrary.simpleMessage("حصل خطأ ما"),
     "errorLoadingData" : MessageLookupByLibrary.simpleMessage("Error Loading Data"),
     "errorLoadingItems" : MessageLookupByLibrary.simpleMessage("Error Loading Items!"),
     "favorite" : MessageLookupByLibrary.simpleMessage("Favorite"),
     "feed" : MessageLookupByLibrary.simpleMessage("Feed"),
     "feedback" : MessageLookupByLibrary.simpleMessage("Feedback!"),
     "gamesList" : MessageLookupByLibrary.simpleMessage("Games List"),
- 
+    "genaeralSettings" : MessageLookupByLibrary.simpleMessage("الإعدادات العامة"),
     "generalEvaluation" : MessageLookupByLibrary.simpleMessage("التقييم العام"),
     "gold" : MessageLookupByLibrary.simpleMessage("ذهبي"),
  
@@ -73,25 +76,26 @@ class MessageLookup extends MessageLookupByLibrary {
     "mayLikeSeries" : MessageLookupByLibrary.simpleMessage("مسلسلات قد تعجبك"),
     "member" : MessageLookupByLibrary.simpleMessage("عضو"),
     "monthlyComments" : MessageLookupByLibrary.simpleMessage("التعليقات الشهرية"),
+    "name" : MessageLookupByLibrary.simpleMessage("الاسم"),
     "newEpisodes" : MessageLookupByLibrary.simpleMessage("حلقات جديدة"),
     "newInteraction" : MessageLookupByLibrary.simpleMessage("تفاعل جديد"),
     "noCameraFound" : MessageLookupByLibrary.simpleMessage("No camera found"),
     "notLoggedIn" : MessageLookupByLibrary.simpleMessage("Not Logged in!"),
     "notifications" : MessageLookupByLibrary.simpleMessage("Notifications"),
     "ommentingError" : MessageLookupByLibrary.simpleMessage("هناك مشكلة ما أعد التعليق لاحقا"),
- 
+    "password" : MessageLookupByLibrary.simpleMessage("كلمة المرور"),
     "phoneNumber" : MessageLookupByLibrary.simpleMessage("Phone Number"),
     "pleaseInputPhoneNumber" : MessageLookupByLibrary.simpleMessage("Please Input Phone Number"),
     "pleaseProvideAShortStoryAboutYou" : MessageLookupByLibrary.simpleMessage("Please Provide a short story about you :)"),
     "pleaseProvideYourName" : MessageLookupByLibrary.simpleMessage("Please Provide your Name :)"),
     "pleaseUploadTheImage" : MessageLookupByLibrary.simpleMessage("Please Upload the Image"),
     "pleaseUploadYourImage" : MessageLookupByLibrary.simpleMessage("Please Upload your Image :)"),
- 
     "point" : MessageLookupByLibrary.simpleMessage("نقطة"),
- 
+    "privacy" : MessageLookupByLibrary.simpleMessage("الخصوصية"),
     "privacyPolicy" : MessageLookupByLibrary.simpleMessage("Privacy Policy"),
     "profile" : MessageLookupByLibrary.simpleMessage("Profile"),
     "pronze" : MessageLookupByLibrary.simpleMessage("برونزي"),
+    "recomendationByFavorite" : MessageLookupByLibrary.simpleMessage("المسلسلات الموصى بها حسب تفضيلاتك"),
     "requestASwap" : MessageLookupByLibrary.simpleMessage("Request a Swap!"),
     "retry" : MessageLookupByLibrary.simpleMessage("Retry"),
     "saudiArabia" : MessageLookupByLibrary.simpleMessage("Saudi Arabia"),
@@ -122,6 +126,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "uploading" : MessageLookupByLibrary.simpleMessage("Uploading"),
     "usa" : MessageLookupByLibrary.simpleMessage("USA"),
     "username" : MessageLookupByLibrary.simpleMessage("Username:"),
-    "watchedSeries" : MessageLookupByLibrary.simpleMessage("مسلسلات متابعة")
+    "watchedSeries" : MessageLookupByLibrary.simpleMessage("مسلسلات متابعة"),
+    "worldWideSeries" : MessageLookupByLibrary.simpleMessage("المسلسلات الموصى بها عالميا")
   };
 }

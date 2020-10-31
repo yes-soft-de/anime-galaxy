@@ -1,9 +1,17 @@
+import 'package:anime_galaxy/module_init_account/response/series_response/series_response.dart';
+
 class CategoryResponse {
   String name;
   String description;
   int id;
+  List<SeriesResponse> series;
 
-  CategoryResponse({this.name, this.description, this.id});
+  CategoryResponse({
+    this.name,
+    this.description,
+    this.id,
+    this.series,
+  });
 
   CategoryResponse.fromJson(Map<String, dynamic> json) {
     name = json['name'];

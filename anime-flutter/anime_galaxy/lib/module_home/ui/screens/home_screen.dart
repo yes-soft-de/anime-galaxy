@@ -1,9 +1,10 @@
 import 'dart:ui';
 import 'package:anime_galaxy/generated/l10n.dart';
+import 'package:anime_galaxy/module_anime/anime_routes.dart';
 import 'package:anime_galaxy/module_home/model/home_model/home_model.dart';
 import 'package:anime_galaxy/module_home/state/home/home.state.dart';
-import 'package:anime_galaxy/module_home/ui/widget/episode_card/episode_card.dart';
 import 'package:anime_galaxy/module_home/ui/widget/points_widget/points_widget.dart';
+import 'package:anime_galaxy/module_home/ui/widget/series_card/series_card.dart';
 import 'package:anime_galaxy/utils/loading_indicator/loading_indicator.dart';
 import 'package:anime_galaxy/utils/project_colors/project_color.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -90,6 +91,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
   Widget body(){
 
+    //image slider
       final List<Widget> imageSliders = anime.newEpisodes
           .map((item) => Container(
             child: Container(
@@ -101,7 +103,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       new Container(
                         decoration: new BoxDecoration(
                           image: new DecorationImage(
-                            image: new  NetworkImage(item.image , ),
+                            //TODO : change this when real images provided from backend
+                            image: new  NetworkImage(/*item.image ,*/ 'https://i.pinimg.com/236x/ab/46/ae/ab46ae9f35056e9a34072295fd974e9c.jpg' ),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -128,7 +131,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                   children: <Widget>[
 
                                     Text(
-                                      item.seriesName,
+                                      '${item.seriesName}',
                                       style: TextStyle(
                                         color: Colors.white,
                                       ),
@@ -155,7 +158,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                   width: 75,
                                   height: 160,
                                   child: Image(
-
+                                    //TODO : change this to dynamic images
                                     image: NetworkImage(
                                         'https://m.media-amazon.com/images/M/MV5BZjNmZDhkN2QtNDYyZC00YzJmLTg0ODUtN2FjNjhhMzE3ZmUxXkEyXkFqcGdeQXVyNjc2NjA5MTU@._V1_UX182_CR0,0,182,268_AL_.jpg'
                                     ),
@@ -238,13 +241,21 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     child: new ConstrainedBox(
                       constraints: isExpanded
                           ? new BoxConstraints()
-                          : new BoxConstraints(maxHeight: 175.0),
+                          : new BoxConstraints(maxHeight: 180.0),
                       child:    GridView.builder(itemBuilder: (BuildContext context, int index){
 
-                        return  EpisodeCard(
-                          image: anime.watchedSeries[index].image,
-                          episodeNumber: 1,
-                          classification:anime.watchedSeries[index].classification,
+                        return  GestureDetector(
+                          onTap: ()=>  Navigator.pushNamed(
+                                context,
+                                AnimeRoutes.ROUTE_ANIME_DETAILS_SCREEN,
+                                arguments: anime.watchedSeries[index].id
+                            ),
+
+                          child: SeriesCard(
+                            image: anime.watchedSeries[index].image,
+                            name: anime.watchedSeries[index].name,
+                            classification:anime.watchedSeries[index].classification,
+                          ),
                         );
                       },
                         padding: EdgeInsets.symmetric(horizontal: 10),
@@ -252,13 +263,13 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                             crossAxisCount: 3,
                             mainAxisSpacing: 20,
                             crossAxisSpacing: 20,
-                            childAspectRatio: (2.3/4)
+                            childAspectRatio: (2.0/4)
                         ),
                         itemCount:anime.watchedSeries.length,
                          physics: NeverScrollableScrollPhysics(),
                         shrinkWrap: true,),
 
-    //
+
                     )
                 ),
                 isExpanded
@@ -311,15 +322,22 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     child: new ConstrainedBox(
                       constraints: isExpanded2
                           ? new BoxConstraints()
-                          : new BoxConstraints(maxHeight: 175.0),
+                          : new BoxConstraints(maxHeight: 180.0),
                       child:    GridView.builder(
                         physics: NeverScrollableScrollPhysics(),
                         itemBuilder: (BuildContext context, int index){
 
-                        return  EpisodeCard(
-                          image: anime.mayLikeSeries[index].image,
-                          episodeNumber: 1,
-                          classification: anime.mayLikeSeries[index].classification,
+                        return GestureDetector(
+                          onTap: () => Navigator.pushNamed(
+                              context,
+                              AnimeRoutes.ROUTE_ANIME_DETAILS_SCREEN,
+                              arguments: anime.mayLikeSeries[index].id
+                          ),
+                          child: SeriesCard(
+                            image: anime.mayLikeSeries[index].image,
+                            name: anime.mayLikeSeries[index].name,
+                            classification: anime.mayLikeSeries[index].classification,
+                          ),
                         );
                       },
                         padding: EdgeInsets.symmetric(horizontal: 10),
@@ -327,7 +345,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                             crossAxisCount: 3,
                             mainAxisSpacing: 20,
                             crossAxisSpacing: 20,
-                            childAspectRatio: (2.3/4)
+                            childAspectRatio: (2.0/4)
                         ),
                         itemCount:anime.mayLikeSeries.length,
 

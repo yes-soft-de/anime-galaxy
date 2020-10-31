@@ -963,6 +963,116 @@ class S {
       args: [],
     );
   }
+
+  /// `الاسم`
+  String get name {
+    return Intl.message(
+      'الاسم',
+      name: 'name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `البريد الالكتروني`
+  String get email {
+    return Intl.message(
+      'البريد الالكتروني',
+      name: 'email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `كلمة المرور`
+  String get password {
+    return Intl.message(
+      'كلمة المرور',
+      name: 'password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `المسلسلات الموصى بها عالميا`
+  String get worldWideSeries {
+    return Intl.message(
+      'المسلسلات الموصى بها عالميا',
+      name: 'worldWideSeries',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `المسلسلات الموصى بها حسب تفضيلاتك`
+  String get recomendationByFavorite {
+    return Intl.message(
+      'المسلسلات الموصى بها حسب تفضيلاتك',
+      name: 'recomendationByFavorite',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `أعضاء نشيطين`
+  String get activeMembers {
+    return Intl.message(
+      'أعضاء نشيطين',
+      name: 'activeMembers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الإعدادات العامة`
+  String get genaeralSettings {
+    return Intl.message(
+      'الإعدادات العامة',
+      name: 'genaeralSettings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الحساب`
+  String get account {
+    return Intl.message(
+      'الحساب',
+      name: 'account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الخصوصية`
+  String get privacy {
+    return Intl.message(
+      'الخصوصية',
+      name: 'privacy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `حصل خطأ ما`
+  String get errorHappened {
+    return Intl.message(
+      'حصل خطأ ما',
+      name: 'errorHappened',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تابع استخدام التطبيق`
+  String get continueUsingApp {
+    return Intl.message(
+      'تابع استخدام التطبيق',
+      name: 'continueUsingApp',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

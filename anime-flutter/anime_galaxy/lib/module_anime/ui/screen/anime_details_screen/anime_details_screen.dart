@@ -32,8 +32,11 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
   AnimeModel anime = new AnimeModel();
   bool isSwitched = false;
   //TODO : change this get the id from routes
-  int animeId = 2;
+  int animeId ;
   final TextEditingController _commentController = TextEditingController();
+  
+  
+  
   @override
   void initState() {
 
@@ -73,10 +76,11 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
 
   @override
   Widget build(BuildContext context) {
+    animeId = ModalRoute.of(context).settings.arguments;
     screenWidth = MediaQuery.of(context).size.width;
 
     if (currentState is AnimeDetailsStateInit) {
-      widget._stateManager.getAnimeDetails(2);
+      widget._stateManager.getAnimeDetails(animeId);
       if(this.mounted){
         setState(() {});
       }
@@ -118,7 +122,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
         OutlineButton(
           onPressed: () {
             loading = true;
-            widget._stateManager.getAnimeDetails(3);
+            widget._stateManager.getAnimeDetails(animeId);
           },
           child: Text(S.of(context).retry),
         )

@@ -178,7 +178,7 @@ class _AnimSettingState extends State<AnimSetting> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   IconButton(icon:  Icon(Icons.edit,color: Colors.white,),onPressed: (){},),
-                  Expanded(child: Text(S.of(context).general_setting,textAlign: TextAlign.start,style: StyleSetting.getTextSyle(day: false),)),
+                  Expanded(child: Text(S.of(context).genaeralSettings,textAlign: TextAlign.start,style: StyleSetting.getTextSyle(day: false),)),
 
                 ],
               ),
@@ -187,7 +187,6 @@ class _AnimSettingState extends State<AnimSetting> {
                 children: [
                   IconButton(icon:  Icon(Icons.person,color: Colors.white,),onPressed: (){},),
                   Expanded(child: Text(S.of(context).accounts,textAlign: TextAlign.start,style: StyleSetting.getTextSyle(day: false),)),
-
                 ],
               ),
               Row(
