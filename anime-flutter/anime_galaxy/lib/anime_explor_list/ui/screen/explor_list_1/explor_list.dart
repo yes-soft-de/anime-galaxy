@@ -133,7 +133,7 @@ class _ExploreListState extends State<AnimeExploreList> {
                 Row(
                   children: [
                     Expanded(
-                      child: Text(S.of(context).series_international,style: StyleExploreList.getTextSyle(size: 16,fontWeight: FontWeight.w500,
+                      child: Text('International Series',style: StyleExploreList.getTextSyle(size: 16,fontWeight: FontWeight.w500,
                         day: false,),),
                     ),
                   ],
@@ -161,7 +161,7 @@ class _ExploreListState extends State<AnimeExploreList> {
                 Row(
                   children: [
                     Expanded(
-                      child: Text(S.of(context).series_favorite,style: StyleExploreList.getTextSyle(size: 16,fontWeight: FontWeight.w500,
+                      child: Text('Favorate Series',style: StyleExploreList.getTextSyle(size: 16,fontWeight: FontWeight.w500,
                         day: false,),),
                     ),
                   ],
@@ -189,7 +189,7 @@ class _ExploreListState extends State<AnimeExploreList> {
                 Row(
                   children: [
                     Expanded(
-                      child: Text(S.of(context).active_members,style: StyleExploreList.getTextSyle(size: 16,fontWeight: FontWeight.w500,
+                      child: Text('Active Members',style: StyleExploreList.getTextSyle(size: 16,fontWeight: FontWeight.w500,
                         day: false,),),
                     ),
                   ],
