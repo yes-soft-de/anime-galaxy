@@ -22,9 +22,9 @@ class SeriesCard extends StatelessWidget {
 
         children: [
           Container(
-            height: 140,
+            height: 136,
             child: Card (
-              child: Image.network("${url_image}",
+              child: Image.network('${url_image}',
                 fit: BoxFit.cover,width: 140,),
               elevation: 0,
 
@@ -38,16 +38,22 @@ class SeriesCard extends StatelessWidget {
           Row(
             children: [
               Expanded(
-                child: Text("${series_name}",style: StyleExploreList.getTextSyle(size: 14,fontWeight: FontWeight.w400,day:true),
-                  maxLines: 1,overflow: TextOverflow.ellipsis,),
+                child: Text(
+                  '${series_name}',
+                  style: StyleExploreList.getTextSyle(size: 14,fontWeight: FontWeight.w400,day:true),
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
             ],
           ),
           Row(
             children: [
               Expanded(
-                child: Text("${series_category}",style: StyleExploreList.getTextSyle(size: 14,day:true),
-                  maxLines: 1,overflow: TextOverflow.ellipsis,),
+                child: Text(
+                  '${series_category}',
+                  style: StyleExploreList.getTextSyle(size: 14,day:true),
+                   overflow: TextOverflow.ellipsis,
+                ),
               ),
             ],
           ),

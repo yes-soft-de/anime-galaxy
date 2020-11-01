@@ -6,7 +6,7 @@ class EpisodeResponse {
   String description;
   String image;
   Duration duration;
-  Null publishDate;
+  Duration publishDate;
   Duration createdAt;
   EpisodInteraction episodInteraction;
   String comments;
@@ -36,7 +36,9 @@ class EpisodeResponse {
     duration = json['duration'] != null
         ? new Duration.fromJson(json['duration'])
         : null;
-    publishDate = json['publishDate'];
+    publishDate = json['publishDate'] != null
+        ? new Duration.fromJson(json['publishDate'])
+        : null;
     createdAt = json['createdAt'] != null
         ? new Duration.fromJson(json['createdAt'])
         : null;
@@ -58,7 +60,9 @@ class EpisodeResponse {
     if (this.duration != null) {
       data['duration'] = this.duration.toJson();
     }
-    data['publishDate'] = this.publishDate;
+    if (this.publishDate != null) {
+      data['publishDate'] = this.publishDate.toJson();
+    }
     if (this.createdAt != null) {
       data['createdAt'] = this.createdAt.toJson();
     }

@@ -8,7 +8,13 @@ class PointsWidget extends StatelessWidget {
   final int points;
    String memberType;
   PointsWidget({this.points}){
-    memberType = points<80 ? S.current.pronze : points < 90 ?  S.current.silver : S.current.gold;
+    memberType = points < 200 ?
+                      S.current.ordinary:
+                      points < 500 ?
+                            S.current.pronze :
+                            points < 1000 ?
+                               S.current.silver :
+                               S.current.gold;
   }
 
   @override
@@ -40,7 +46,7 @@ class PointsWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(
-                S.of(context).member+'$memberType',
+                S.of(context).member+' $memberType',
                 style: TextStyle(
                     fontSize: 10
                 ),
@@ -54,7 +60,7 @@ class PointsWidget extends StatelessWidget {
                     animation: true,
                     lineHeight: 10.0,
                     animationDuration: 1500,
-                    percent: 0.01 * points,
+                    percent: 0.001 * points,
                     linearStrokeCap: LinearStrokeCap.roundAll,
                     progressColor: Color(0xfff77f00),
                   ),

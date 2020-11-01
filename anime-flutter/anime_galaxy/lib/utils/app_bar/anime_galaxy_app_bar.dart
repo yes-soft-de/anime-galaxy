@@ -27,11 +27,15 @@ class AnimeGalaxyAppBar {
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('صباح الخير',style: TextStyle(
-                    fontSize: 14
+                Text('صباح الخير',
+                    style: TextStyle(
+                            fontSize: 14,
+
                 )),
-                Text('محمد',style: TextStyle(
-                  fontSize: 14
+                Text('محمد',
+                    style: TextStyle(
+                             fontSize: 18,
+                             fontWeight: FontWeight.bold,
                 )),
               ],
             ),)

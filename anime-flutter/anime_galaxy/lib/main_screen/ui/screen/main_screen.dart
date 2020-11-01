@@ -51,24 +51,28 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-     //TODO : replace the appbar with the proper one
       appBar : AnimeGalaxyAppBar.getAnimeGalaxyAppBar( _scaffoldKey),
       drawer: AnimeNavigationDrawer(),
       bottomNavigationBar: SizedBox(
-        height: 40,
-        child: BottomNavigationBar(
-          currentIndex: _pageIndex,
-          onTap: onTabTapped,
-          backgroundColor: ProjectColors.ThemeColor,
-          fixedColor: Colors.white,
-          unselectedItemColor: Colors.grey,
-          items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem( icon: Icon(Icons.dashboard),title: Container(height: 0.0)),
-            BottomNavigationBarItem(icon: Icon(Icons.notifications), title: Container(height: 0.0)),
-            BottomNavigationBarItem(icon: Icon(Icons.explore), title: Container(height: 0.0)),
-            BottomNavigationBarItem(icon: Icon(Icons.settings), title: Container(height: 0.0)),
-          ],
+        height: 55,
+        child: Theme(
+          data: ThemeData(
+            canvasColor: ProjectColors.ThemeColor,
+          ),
+          child: BottomNavigationBar(
+            currentIndex: _pageIndex,
+            onTap: onTabTapped,
+            backgroundColor: ProjectColors.ThemeColor,
+            fixedColor: Colors.white,
+            unselectedItemColor: Colors.grey,
+            items: <BottomNavigationBarItem>[
+              BottomNavigationBarItem( icon: Icon(Icons.dashboard),title: Container(height: 0.0)),
+              BottomNavigationBarItem(icon: Icon(Icons.notifications), title: Container(height: 0.0)),
+              BottomNavigationBarItem(icon: Icon(Icons.explore), title: Container(height: 0.0)),
+              BottomNavigationBarItem(icon: Icon(Icons.settings), title: Container(height: 0.0)),
+            ],
 
+          ),
         ),
       ),
       body: PageView(
