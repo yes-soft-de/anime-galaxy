@@ -172,9 +172,7 @@ class _InitAccountScreenState extends State<InitAccountScreen> with TickerProvid
                                          favoriteAnimes.add(fr);
                                          categories[index].series[index2].isSelected = true ;
                                        }
-                                       if(favoriteAnimes.isNotEmpty){
-                                         showContinueModal();
-                                       }
+
                                        setState(() {
 
                                        });
@@ -214,6 +212,35 @@ class _InitAccountScreenState extends State<InitAccountScreen> with TickerProvid
           ),
         ),
       ),
+      bottomNavigationBar:  AnimatedSize(
+          vsync: this,
+          duration: const Duration(milliseconds: 200),
+          child: new ConstrainedBox(
+            constraints: favoriteAnimes.isNotEmpty
+                ? new BoxConstraints()
+                : new BoxConstraints(maxHeight: 0.0),
+            child:   GestureDetector(
+                onTap: ()=> widget._stateManager.addAnimesToWatch(favoriteAnimes),
+                child: Container(
+                  color: ProjectColors.ThemeColor,
+                  height: 40,
+                  child: Center(
+                    child: Text(
+                      S.of(context).continueUsingApp,
+                      style: TextStyle(
+                          color: Colors.white
+                      ),
+
+                    ),
+                  ),
+                )
+            )
+
+
+          )
+      ),
+
+
     );
   }
 

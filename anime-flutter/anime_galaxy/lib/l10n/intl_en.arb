@@ -102,6 +102,7 @@
   "account": "الحساب",
   "privacy": "الخصوصية",
   "errorHappened": "حصل خطأ ما",
-  "continueUsingApp": "تابع استخدام التطبيق"
-  "ommentingError": "هناك مشكلة ما أعد التعليق لاحقا"
+  "continueUsingApp": "تابع استخدام التطبيق",
+  "ordinary": "عادي",
+  "explore": "اكتشف"
 }

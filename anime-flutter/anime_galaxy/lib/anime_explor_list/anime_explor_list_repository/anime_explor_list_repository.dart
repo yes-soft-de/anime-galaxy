@@ -14,8 +14,8 @@ class AnimeExplorListRepository{
 
 
   Future<List<AllAnimeData>> getAllSeries() async {
-    print("url= ${Urls.API_ALL_ANIME}");
-   Map<String, dynamic> response = await _apiClient.get(Urls.API_ALL_ANIME);
+//    print("url= ${Urls.API_ALL_ANIME}");
+   Map<String, dynamic> response = await _apiClient.get(Urls.API_ANIME);
 
     print("request= finish");
 

@@ -145,8 +145,7 @@ class AnimeNavigationDrawer extends StatelessWidget {
                                 width: 16,
                               ),
                               Text(
-                                //TODO : use translation
-                                'اكتشف',
+                                S.of(context).explore,
                                 style: TextStyle(color: Colors.white),
                               ),
                             ],
@@ -258,6 +257,7 @@ class AnimeNavigationDrawer extends StatelessWidget {
                   // endregion
 
                   // region Social Links
+                  //TODO : add these images to assets
                   Flex(
                     direction: Axis.horizontal,
                     mainAxisAlignment: MainAxisAlignment.spaceAround,

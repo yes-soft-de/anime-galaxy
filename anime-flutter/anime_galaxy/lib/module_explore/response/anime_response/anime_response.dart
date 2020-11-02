@@ -1,9 +1,9 @@
 
 class AnimeResponse {
   int id;
-  String name;
+  String animeName;
   String mainImage;
-  List<String> images;
+//  List<String> images;
   String categoryName;
   double rating;
   Interactions interactions;
@@ -12,9 +12,9 @@ class AnimeResponse {
 
   AnimeResponse(
       {this.id,
-        this.name,
+        this.animeName,
         this.mainImage,
-        this.images,
+//        this.images,
         this.categoryName,
         this.rating,
         this.interactions,
@@ -23,9 +23,9 @@ class AnimeResponse {
 
   AnimeResponse.fromJson(Map<String, dynamic> json) {
     id = json['id'];
-    name = json['name'];
+    animeName = json['animeName'];
     mainImage = json['mainImage'];
-    images = json['images'].cast<String>();
+//    images = json['images'].cast<String>();
     categoryName = json['categoryName'];
     description = json['description'];
     rating = json['rating'];
@@ -37,9 +37,9 @@ class AnimeResponse {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['id'] = this.id;
-    data['name'] = this.name;
+    data['animeName'] = this.animeName;
     data['mainImage'] = this.mainImage;
-    data['images'] = this.images;
+//    data['images'] = this.images;
     data['categoryName'] = this.categoryName;
     data['description'] = this.description;
     data['rating'] = this.rating;

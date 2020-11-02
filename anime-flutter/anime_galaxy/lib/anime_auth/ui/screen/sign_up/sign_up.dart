@@ -85,12 +85,12 @@ class _SignUpState extends State<SignUp> {
                     ),
                     SocalIcon(
                       day: false,
-                      iconSrc: "assets/images/twitter.svg",
+                      iconSrc: 'assets/images/twitter.svg',
                       press: () {},
                     ),
                     SocalIcon(
                       day: false,
-                      iconSrc: "assets/images/google-plus.svg",
+                      iconSrc: 'assets/images/google-plus.svg',
                       press: () {},
                     ),
                   ],

@@ -183,9 +183,8 @@ class _SettingsPageState extends State<SettingsPage> {
                       children: [
                         Text(S.of(context).signOut),
                         IconButton(
- 
-                            icon: Icon(Icons.all_out),
- 
+//                            icon: Icon(Icons.logout),
+                            icon: Icon(Icons.arrow_drop_down_circle),
                             onPressed: () {
                               widget._authService.logout().then((value) {
                                 Navigator.pushNamedAndRemoveUntil(context,
@@ -201,9 +200,8 @@ class _SettingsPageState extends State<SettingsPage> {
                       children: [
                         Text(S.of(context).login),
                         IconButton(
- 
-                            icon: Icon(Icons.local_activity),
- 
+//                            icon: Icon(Icons.login),
+                            icon: Icon(Icons.radio),
                             onPressed: () {
                               Navigator.of(context)
                                   .pushNamed(AuthRoutes.ROUTE_AUTHORIZE);

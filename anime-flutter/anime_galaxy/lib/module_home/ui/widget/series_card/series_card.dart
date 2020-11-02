@@ -17,14 +17,15 @@ class SeriesCard extends StatelessWidget {
     return   Container(
           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
 
-          height: 160,
+          height: 120,
+          width: 90,
           child: Column(
             children: [
               Container(
                 width: MediaQuery.of(context).size.width,
 
                 margin: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
-                 height: 110,
+                 height: 90,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
                   image: DecorationImage(
@@ -40,8 +41,9 @@ class SeriesCard extends StatelessWidget {
                   child: Text(
                      '$name',
                     textDirection: TextDirection.rtl,
+                    overflow: TextOverflow.ellipsis,
                     style: TextStyle(
-                        fontSize: 10,
+                        fontSize: 12,
                         fontWeight: FontWeight.bold
                     ),
                   )
@@ -50,7 +52,7 @@ class SeriesCard extends StatelessWidget {
                     Text(
                       classification,
                       style: TextStyle(
-                          fontSize: 9,
+                          fontSize: 12,
                         color: Colors.black38
                       ),
                     ),

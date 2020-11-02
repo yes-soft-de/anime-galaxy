@@ -81,7 +81,7 @@ class ExploreScreen extends StatefulWidget {
                            decoration: new BoxDecoration(
                              image: new DecorationImage(
                                //TODO : change this when real images provided from backend
-                           image: new  NetworkImage(item.image , ),
+                           image:NetworkImage('https://i.pinimg.com/236x/8e/99/52/8e995276505cdc0b02d44cedb2043933--anime-scenery-environment-design.jpg'),
                            fit: BoxFit.cover,
                          ),
                        ),
@@ -101,7 +101,7 @@ class ExploreScreen extends StatefulWidget {
                                  padding: EdgeInsets.symmetric(
                                      vertical: 10.0, horizontal: 10.0),
                                  child:Row(
-                                   mainAxisAlignment: MainAxisAlignment.end,
+                                   mainAxisAlignment: MainAxisAlignment.center,
                                    children: [
                                      Column(
                                        mainAxisAlignment: MainAxisAlignment.center,
@@ -111,6 +111,7 @@ class ExploreScreen extends StatefulWidget {
                                            '${item.name}',
                                            style: TextStyle(
                                              color: Colors.white,
+                                             fontWeight: FontWeight.bold
                                            ),
                                          ),
 
@@ -125,7 +126,8 @@ class ExploreScreen extends StatefulWidget {
                    ],
                  )),
            ),
-         ))
+         )
+         )
              .toList();
     return SafeArea(
 
@@ -167,7 +169,7 @@ class ExploreScreen extends StatefulWidget {
                           arguments: explore.worldRecommendedSeries[index].id
                         ),
                         child: SeriesCard(
-                          url_image: 'https://www.lamsahfannan.com/content/uploads/2017/03/3dlat.net_08_15_258a_6.jpg',
+                          url_image: 'https://i.pinimg.com/236x/8f/32/dd/8f32dd6bb5a1b2bbb1380a1453ee3203.jpg',
 
                           series_category: explore.worldRecommendedSeries[index].category,
 
@@ -205,7 +207,7 @@ class ExploreScreen extends StatefulWidget {
                             arguments: explore.recommendedSeriesByUser[index].id
                         ),
                         child: FavouriteSeriesCard(
-                          url_image: 'https://www.lamsahfannan.com/content/uploads/2017/03/3dlat.net_08_15_258a_6.jpg',
+                          url_image: 'https://i.pinimg.com/236x/8f/32/dd/8f32dd6bb5a1b2bbb1380a1453ee3203.jpg',
                           series_category: explore.recommendedSeriesByUser[index].category,
                           series_name: explore.recommendedSeriesByUser[index].name
                           ,),
@@ -247,14 +249,17 @@ class ExploreScreen extends StatefulWidget {
                     scrollDirection: Axis.horizontal,),
                 ),
 
-                CarouselSlider(
-                  options: CarouselOptions(
-                      autoPlay: true,
-                      aspectRatio: 2.0,
-                      viewportFraction:1
-                  ),
-                  items: imageSliders,
+                Container(
+                  margin: EdgeInsets.only(top: 20),
+                  child: CarouselSlider(
+                    options: CarouselOptions(
+                        autoPlay: true,
+                        aspectRatio: 2.0,
+                      enlargeCenterPage: true,
+                    ),
+                    items: imageSliders,
 
+                  ),
                 ),
               ],
 

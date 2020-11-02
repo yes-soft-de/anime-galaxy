@@ -19,6 +19,7 @@ class AnimeDetailsService{
   Future<AnimeModel> getAnimeDetails(int animeId) async{
     AnimeResponse response = await _detailsManager.getAnimeDetails(animeId);
     AnimeModel anime = new AnimeModel();
+
     anime.name = response.name;
     //TODO : change this
     String image = response.mainImage.substring(response.mainImage.lastIndexOf('http'));
@@ -26,7 +27,7 @@ class AnimeDetailsService{
     anime.classification = response.categoryName;
     anime.rate = response.rating;
     anime.likesNumber = response.interactions.like;
-    anime.commentsNumber = 4;
+    anime.commentsNumber = response.comments.length;
     anime.comments = getComments(response.comments);
     //TODO : change showYear to dynamic data from backend when it added
     anime.showYear = '2020';

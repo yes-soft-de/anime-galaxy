@@ -21,7 +21,6 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
- 
     "About" : MessageLookupByLibrary.simpleMessage("حول"),
     "Classification" : MessageLookupByLibrary.simpleMessage("التصنيف"),
     "Episode" : MessageLookupByLibrary.simpleMessage("حلقة"),
@@ -56,6 +55,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "errorHappened" : MessageLookupByLibrary.simpleMessage("حصل خطأ ما"),
     "errorLoadingData" : MessageLookupByLibrary.simpleMessage("خطأ في تحميل البيانات"),
     "errorLoadingItems" : MessageLookupByLibrary.simpleMessage("خطأ في تحميل الصفحة!"),
+    "explore" : MessageLookupByLibrary.simpleMessage("اكتشف"),
     "favorite" : MessageLookupByLibrary.simpleMessage("المفضلة"),
     "feed" : MessageLookupByLibrary.simpleMessage("الرئيسة"),
     "feedback" : MessageLookupByLibrary.simpleMessage("اعطنا رأيك!"),
@@ -63,7 +63,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "genaeralSettings" : MessageLookupByLibrary.simpleMessage("الإعدادات العامة"),
     "generalEvaluation" : MessageLookupByLibrary.simpleMessage("التقييم العام"),
     "gold" : MessageLookupByLibrary.simpleMessage("ذهبي"),
- 
     "home" : MessageLookupByLibrary.simpleMessage("الرئيسية"),
     "insertViaAPreset" : MessageLookupByLibrary.simpleMessage("الادخال من القائمة"),
     "insertViaCamera" : MessageLookupByLibrary.simpleMessage("الادخال عبر الكاميرا"),
@@ -72,7 +71,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "loading" : MessageLookupByLibrary.simpleMessage("جار التحميل!"),
     "location" : MessageLookupByLibrary.simpleMessage("الموقع"),
     "login" : MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
- 
     "mayLikeSeries" : MessageLookupByLibrary.simpleMessage("مسلسلات قد تعجبك"),
     "member" : MessageLookupByLibrary.simpleMessage("عضو"),
     "monthlyComments" : MessageLookupByLibrary.simpleMessage("التعليقات الشهرية"),
@@ -83,6 +81,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "notLoggedIn" : MessageLookupByLibrary.simpleMessage("غير مسجل دخول!"),
     "notifications" : MessageLookupByLibrary.simpleMessage("الإشعارات"),
     "ommentingError" : MessageLookupByLibrary.simpleMessage("هناك مشكلة ما أعد التعليق لاحقا"),
+    "ordinary" : MessageLookupByLibrary.simpleMessage("عادي"),
     "password" : MessageLookupByLibrary.simpleMessage("كلمة المرور"),
     "phoneNumber" : MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
     "pleaseInputPhoneNumber" : MessageLookupByLibrary.simpleMessage("ادخل رقم الهاتف"),
@@ -90,7 +89,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "pleaseProvideYourName" : MessageLookupByLibrary.simpleMessage("الرجاء ادخال اسمك :)"),
     "pleaseUploadTheImage" : MessageLookupByLibrary.simpleMessage("الرجاء حفظ الصورة"),
     "pleaseUploadYourImage" : MessageLookupByLibrary.simpleMessage("الرجاء رفع صورتك :)"),
- 
     "point" : MessageLookupByLibrary.simpleMessage("نقطة"),
     "privacy" : MessageLookupByLibrary.simpleMessage("الخصوصية"),
     "privacyPolicy" : MessageLookupByLibrary.simpleMessage("شروط الخصوصية"),
@@ -105,8 +103,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "searchAGame" : MessageLookupByLibrary.simpleMessage("ابحث عن لعبة :)"),
     "sendComment" : MessageLookupByLibrary.simpleMessage("إرسال التعليق"),
     "sendMeACode" : MessageLookupByLibrary.simpleMessage("ارسل الرمز!"),
-    "series_favorite" : MessageLookupByLibrary.simpleMessage("المسلسلات الموصى بها حسب تفضيلاتك"),
-    "series_international" : MessageLookupByLibrary.simpleMessage("المسلسلات الموصى بها عالميا"),
     "setExchangeGame" : MessageLookupByLibrary.simpleMessage("حدد المبادلة"),
     "setGame" : MessageLookupByLibrary.simpleMessage("حدد لعية"),
     "settings" : MessageLookupByLibrary.simpleMessage("الاعدادات"),

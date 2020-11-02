@@ -134,6 +134,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                       '${item.seriesName}',
                                       style: TextStyle(
                                         color: Colors.white,
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold
                                       ),
                                     ),
 
@@ -141,14 +143,14 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                       item.classification,
                                       style: TextStyle(
                                           color: Colors.white70,
-                                          fontSize: 8
+                                          fontSize: 14
                                       ),
                                     ),
                                     Text(
                                       S.of(context).Episode +'${item.episodeNumber} ' + S.of(context).Season + '${item.season}',
                                       style: TextStyle(
                                           color: Colors.white70,
-                                          fontSize: 10
+                                          fontSize: 14
                                       ),
                                     ),
                                   ],
@@ -190,13 +192,14 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       Text(
                         S.of(context).More,
                         style: TextStyle(
-                            fontSize: 10
+                            fontSize: 14
                         ),
                       ),
                       Text(
                         S.of(context).newEpisodes,
                         style: TextStyle(
-                            fontSize: 10
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
                         ),
                       ),
                     ],
@@ -208,6 +211,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   options: CarouselOptions(
                       autoPlay: true,
                       aspectRatio: 2.0,
+                      autoPlayAnimationDuration: Duration(milliseconds: 1500),
                       enlargeCenterPage: false,
                       viewportFraction:1
                   ),
@@ -223,13 +227,14 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       Text(
                        S.of(context).More,
                         style: TextStyle(
-                            fontSize: 10
+                            fontSize: 14
                         ),
                       ),
                       Text(
                         S.of(context).watchedSeries,
                         style: TextStyle(
-                            fontSize: 10
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
                         ),
                       ),
                     ],
@@ -305,13 +310,14 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       Text(
                        S.of(context).More,
                         style: TextStyle(
-                            fontSize: 10
+                            fontSize: 14
                         ),
                       ),
                       Text(
                         S.of(context).mayLikeSeries,
                         style: TextStyle(
-                            fontSize: 10
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold
                         ),
                       ),
                     ],

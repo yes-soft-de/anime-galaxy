@@ -613,126 +613,106 @@ class S {
     );
   }
 
- 
   /// `برونزي`
   String get pronze {
     return Intl.message(
       'برونزي',
       name: 'pronze',
- 
       desc: '',
       args: [],
     );
   }
- 
+
   /// `فضي`
   String get silver {
     return Intl.message(
       'فضي',
       name: 'silver',
- 
       desc: '',
       args: [],
     );
   }
 
- 
   /// `Anime`
   String get anime {
     return Intl.message(
       'Anime',
       name: 'anime',
- 
       desc: '',
       args: [],
     );
   }
 
- 
   /// `قيم المسلسل`
   String get EvaluteSerise {
     return Intl.message(
       'قيم المسلسل',
       name: 'EvaluteSerise',
- 
       desc: '',
       args: [],
     );
   }
 
- 
   /// `حول`
   String get about {
     return Intl.message(
       'حول',
       name: 'about',
- 
       desc: '',
       args: [],
     );
   }
 
- 
   /// `Confirm!`
   String get confirm {
     return Intl.message(
       'Confirm!',
       name: 'confirm',
- 
       desc: '',
       args: [],
     );
   }
 
- 
   /// `قيم المسلسل`
   String get RateSeries {
     return Intl.message(
       'قيم المسلسل',
       name: 'RateSeries',
- 
       desc: '',
       args: [],
     );
   }
 
- 
   /// `حول`
   String get About {
     return Intl.message(
       'حول',
       name: 'About',
- 
       desc: '',
       args: [],
     );
   }
 
- 
   /// `المزيد`
   String get More {
     return Intl.message(
       'المزيد',
       name: 'More',
- 
       desc: '',
       args: [],
     );
   }
 
- 
   /// `التصنيف`
   String get Classification {
     return Intl.message(
       'التصنيف',
       name: 'Classification',
- 
       desc: '',
       args: [],
     );
   }
 
- 
   /// `آخر الحلقات`
   String get LastEpisodes {
     return Intl.message(
@@ -958,7 +938,6 @@ class S {
     return Intl.message(
       'هناك مشكلة ما أعد التعليق لاحقا',
       name: 'ommentingError',
- 
       desc: '',
       args: [],
     );
@@ -1069,6 +1048,26 @@ class S {
     return Intl.message(
       'تابع استخدام التطبيق',
       name: 'continueUsingApp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `عادي`
+  String get ordinary {
+    return Intl.message(
+      'عادي',
+      name: 'ordinary',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `اكتشف`
+  String get explore {
+    return Intl.message(
+      'اكتشف',
+      name: 'explore',
       desc: '',
       args: [],
     );
