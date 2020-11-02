@@ -13,6 +13,7 @@ class CreateAnimeRequest
     private $categoryID;
     private $creationDate;
     private $description;
+    public  $publishDate;
 
     public function __construct()
     {

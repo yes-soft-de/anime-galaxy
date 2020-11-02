@@ -172,14 +172,14 @@ class AnimeRepository extends ServiceEntityRepository
     public function getAllComingSoon($date)
     {        
         return $this->createQueryBuilder('anime')
-            ->select('anime.id', 'anime.name', 'anime.mainImage', 'category.name as categoryName', 'anime.specialLink')
+            ->select('anime.id', 'anime.name', 'anime.mainImage', 'category.name as categoryName', 'anime.specialLink', 'anime.publishDate')
             ->leftJoin(
                 Category::class,
                 'category',
                 Join::WITH,
                 'category.id = anime.categoryID'
             )
-            ->andWhere( 'anime.creationDate > :date')
+            ->andWhere( 'anime.publishDate > :date')
             ->setParameter('date',$date)
             ->groupBy('anime.id')
             ->getQuery()

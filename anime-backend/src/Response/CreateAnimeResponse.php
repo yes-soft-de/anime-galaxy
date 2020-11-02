@@ -11,6 +11,7 @@ class CreateAnimeResponse
     public $categoryID;
     public $creationDate;
     public $description;
+    public $publishDate;
     /**
      * @return mixed
      */

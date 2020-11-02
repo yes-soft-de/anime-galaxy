@@ -34,6 +34,8 @@ App\Request\CreateAnimeRequest:
       - NotBlank: ~
     description:
       - NotBlank: ~
+    publishDate:
+      - NotBlank: ~
 
 App\Request\CreateCategoryRequest:
   properties:
