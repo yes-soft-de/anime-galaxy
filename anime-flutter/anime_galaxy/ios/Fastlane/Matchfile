@@ -1,0 +1,5 @@
+git_url("git@github.com:yes-soft-de/flutter_keys.git")
+git_branch("anime_galaxy")
+storage_mode("git")
+app_identifier(["de.yes-soft.anime-galaxy"])
+username(ENV['FASTLANE_USER'])
