@@ -33,6 +33,8 @@ class EpisodeDetailsRepository{
 
   Future<List<CommentResponse>> _getComments(int episodeId) async{
     dynamic response = await _httpClient.get(Urls.API_ALL_EPISODE_COMMENTS+'$episodeId');
+    if(response == null ) return [];
+
     List<CommentResponse> comments = [];
     dynamic res = response['Data'];
     for(int i=0; i<res.length ; i++){

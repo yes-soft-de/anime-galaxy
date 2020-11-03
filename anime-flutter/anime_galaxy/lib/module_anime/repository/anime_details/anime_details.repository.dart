@@ -39,6 +39,7 @@ class AnimeDetailsRepository{
 
   Future<List<EpisodeResponse>> _getEpisodes(int animeId) async{
     dynamic response = await _httpClient.get(Urls.API_ANIME_EPISODES+'$animeId');
+    if(response == null) return [];
     List<EpisodeResponse> episodes = [];
     dynamic res = response['Data'];
 
@@ -51,6 +52,8 @@ class AnimeDetailsRepository{
 
   Future<List<CommentResponse>> _getComments(int animeId) async{
     dynamic response = await _httpClient.get(Urls.API_ALL_COMMENTS+'$animeId');
+    if(response == null) return [];
+
     List<CommentResponse> comments = [];
     dynamic res = response['Data'];
     for(int i=0; i<res.length ; i++){
