@@ -1,6 +1,4 @@
- import 'dart:math';
 import 'dart:ui';
-
 import 'package:anime_galaxy/generated/l10n.dart';
 import 'package:anime_galaxy/module_anime/anime_routes.dart';
 import 'package:anime_galaxy/module_explore/model/explore/explore_model.dart';

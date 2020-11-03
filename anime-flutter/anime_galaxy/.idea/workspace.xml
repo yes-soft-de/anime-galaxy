@@ -7,7 +7,6 @@
     <list default="true" id="949cf1e4-ee88-43fb-8374-6a66b1c9c391" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/module_explore/ui/screen/explore_screen/explore_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/ui/screen/explore_screen/explore_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/ui/screens/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/ui/screens/home_screen.dart" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -41,10 +40,9 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/module_explore/ui/screen/explore_screen/explore_screen.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="147" column="29" selection-start-line="147" selection-start-column="29" selection-end-line="147" selection-end-column="29" />
+            <state relative-caret-position="20">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
               <folding>
-                <element signature="e#1#20#0" expanded="true" />
                 <element signature="e#2213#4760#0" />
               </folding>
             </state>
@@ -532,7 +530,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604432354160</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="add refresh indicator to home and explore screen">
+      <created>1604433498712</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1604433498712</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TodoView">
@@ -548,7 +553,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24205749" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24205749" />
       <window_info id="Captures" order="1" side_tool="true" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
@@ -558,7 +563,7 @@
       <window_info id="Capture Tool" order="7" />
       <window_info id="Favorites" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Dart Analysis" order="0" weight="0.34697217" />
-      <window_info anchor="bottom" id="Run" order="1" sideWeight="0.4969743" visible="true" weight="0.41898528" />
+      <window_info active="true" anchor="bottom" id="Run" order="1" sideWeight="0.4969743" visible="true" weight="0.4222586" />
       <window_info anchor="bottom" id="TODO" order="2" weight="0.34697217" />
       <window_info anchor="bottom" id="Android Profiler" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Logcat" order="4" sideWeight="0.49924356" weight="0.34860885" />
@@ -618,7 +623,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add translation" />
     <MESSAGE value="add full architecture for anime details screen" />
     <MESSAGE value="edit anime details screen" />
     <MESSAGE value="implement 80% of home screen full architecture" />
@@ -643,7 +647,8 @@
     <MESSAGE value="new branch" />
     <MESSAGE value="add episode details screen design and full structure" />
     <MESSAGE value="fix design after depend on ar language only" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix design after depend on ar language only" />
+    <MESSAGE value="add refresh indicator to home and explore screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="add refresh indicator to home and explore screen" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/lib/di/components/app.component.dart">
@@ -1054,10 +1059,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/module_explore/ui/screen/explore_screen/explore_screen.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="147" column="29" selection-start-line="147" selection-start-column="29" selection-end-line="147" selection-end-column="29" />
+        <state relative-caret-position="20">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
           <folding>
-            <element signature="e#1#20#0" expanded="true" />
             <element signature="e#2213#4760#0" />
           </folding>
         </state>
