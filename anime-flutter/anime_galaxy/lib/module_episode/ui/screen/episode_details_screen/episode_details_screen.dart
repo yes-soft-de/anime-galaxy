@@ -169,7 +169,7 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen> with Ticker
           ),
 
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
+//      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
     );
   }
 

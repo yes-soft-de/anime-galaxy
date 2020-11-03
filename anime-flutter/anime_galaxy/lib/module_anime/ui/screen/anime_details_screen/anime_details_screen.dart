@@ -172,7 +172,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
           ),
 
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
+//      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
     );
   }
 
