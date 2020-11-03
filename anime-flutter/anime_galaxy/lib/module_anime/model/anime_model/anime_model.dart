@@ -9,6 +9,7 @@ class AnimeModel{
     String  classification;
     List<Comment> comments;
     List<Episode> episodes;
+    bool isFollowed;
 
     AnimeModel({
       this.commentsNumber,
@@ -21,6 +22,7 @@ class AnimeModel{
       this.showYear,
       this.comments,
       this.episodes,
+      this.isFollowed,
 });
 }
 

@@ -45,4 +45,8 @@ class AnimeDetailsStateManager {
     });
   }
 
+  void addToFavourite(int animeId){
+
+  }
+
 }

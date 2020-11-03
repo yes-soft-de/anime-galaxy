@@ -6,11 +6,11 @@ class CommentCard extends StatelessWidget {
   final String userName;
 
   CommentCard({
-   this.comment,
-   this.date,
-   this.userImage,
-   this.userName,
-});
+    this.comment,
+    this.date,
+    this.userImage,
+    this.userName,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,34 +22,33 @@ class CommentCard extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-
-              Text(
-                  date,
-                style: TextStyle(
-                  fontSize: 8
-                ),
-              ),
               Row(
                 children: [
-                  Text(
-                    userName,
-                    style: TextStyle(
-                        fontSize: 10
-                    ),
-                  ),
                   Container(
                     height: 50,
                     width: 50,
                     child: CircleAvatar(
                       radius: 50,
                       backgroundImage:NetworkImage(userImage),
+                    ),
+                  ),
 
-
+                  Text(
+                    userName,
+                    style: TextStyle(
+                        fontSize: 10
                     ),
                   ),
 
                 ],
               ),
+              Text(
+                date,
+                style: TextStyle(
+                    fontSize: 8
+                ),
+              ),
+
             ],
           ),
           Container(

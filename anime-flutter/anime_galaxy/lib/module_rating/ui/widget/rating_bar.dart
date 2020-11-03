@@ -42,7 +42,7 @@ class  AnimeRatingBar extends StatelessWidget {
           height: itemSize,
           child: FittedBox(
             fit: BoxFit.contain,
-              child: icon
+              child: RotatedBox(quarterTurns:2,child: icon)
           ),
       ),
     );

@@ -12,6 +12,7 @@ class AnimeResponse {
   String description;
   List<EpisodeResponse> episodes;
   List<CommentResponse> comments;
+  bool isFollowed;
 
   AnimeResponse(
       {this.id,
@@ -24,6 +25,7 @@ class AnimeResponse {
         this.episodes,
         this.description,
         this.comments,
+        this.isFollowed,
       });
 
   AnimeResponse.fromJson(Map<String, dynamic> json) {

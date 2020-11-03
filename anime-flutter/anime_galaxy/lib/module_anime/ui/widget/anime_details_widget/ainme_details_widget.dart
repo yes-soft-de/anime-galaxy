@@ -2,6 +2,8 @@
 import 'package:anime_galaxy/utils/project_colors/project_color.dart';
 import 'package:flutter/material.dart';
 
+typedef FollowCallBack = void Function();
+
 class AnimeDetailsWidget extends StatelessWidget {
   final String name;
   final String showYear;
@@ -9,6 +11,8 @@ class AnimeDetailsWidget extends StatelessWidget {
   final String likes;
   final int comments;
   final String image;
+  FollowCallBack onFollow;
+  bool isFollowed;
 
   AnimeDetailsWidget({
    this.name,
@@ -16,8 +20,11 @@ class AnimeDetailsWidget extends StatelessWidget {
     this.rate,
     this.showYear,
     this.comments,
-    this.image
+    this.image,
+    this.isFollowed,
+    this.onFollow,
 });
+  
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -25,10 +32,19 @@ class AnimeDetailsWidget extends StatelessWidget {
       child: Row(
         children: [
           Container(
+            width: MediaQuery.of(context).size.width*0.22,
+
+            child: ClipRRect(
+                borderRadius: BorderRadius.circular(15),
+                child:  FadeInImage.assetNetwork(placeholder:'' , image: image)
+
+            ),
+          ),
+          Container(
             width: MediaQuery.of(context).size.width*0.75,
             padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 10),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   name,
@@ -40,6 +56,17 @@ class AnimeDetailsWidget extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+                    Row(
+                      children: [
+                        Text(
+                            '$rate'
+                        ),
+                        Icon(
+                            Icons.star_border,
+                            color:ProjectColors.ThemeColor
+                        )
+                      ],
+                    ),
                     Row(
 
                       children: [
@@ -68,39 +95,33 @@ class AnimeDetailsWidget extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Row(
-                      children: [
-                        Text(
-                            '$rate'
-                        ),
-                        Icon(
-                            Icons.star_border,
-                            color:ProjectColors.ThemeColor
-                        )
-                      ],
-                    ),
                   ],
                 ),
                 Row(
                   children: [
-                    Row(
-                      children: [
-                        Text(
-                          S.of(context).Share,
-
+                    ButtonTheme(
+                      height: 12,
+                      child: FlatButton(
+                        color:isFollowed?Colors.grey:ProjectColors.ThemeColor,
+                        shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(20.0)),
+                        //TODO : implement this
+                        onPressed: isFollowed ? (){} : onFollow,
+                        child:Text(
+                          isFollowed ? S.of(context).isFollowed: S.of(context).Follow,
                           style: TextStyle(
-                            fontSize: 10
+                              fontSize: 8,
+                              color: Colors.white
                           ),
-                        ),
-                        IconButton(
-                          icon: Icon(Icons.share),
-                          //TODO : implement this
-                          onPressed: (){},
-                        )
-                      ],
+                        ) ,
+                      ),
                     ),
                     Row(
                       children: [
+                        IconButton(
+                          icon: Icon(Icons.favorite),
+                          //TODO : implement this
+                          onPressed: (){},
+                        ),
                         Text(
                           S.of(context).Like,
 
@@ -108,45 +129,34 @@ class AnimeDetailsWidget extends StatelessWidget {
                               fontSize: 10
                           ),
                         ),
+
+                      ],
+                    ),
+                    Row(
+                      children: [
+
                         IconButton(
-                          icon: Icon(Icons.favorite),
+                          icon: Icon(Icons.share),
                           //TODO : implement this
                           onPressed: (){},
-                        )
+                        ),
+                        Text(
+                          S.of(context).Share,
+
+                          style: TextStyle(
+                              fontSize: 10
+                          ),
+                        ),
                       ],
                     ),
 
-                      ButtonTheme(
-                        height: 10,
-                        child: FlatButton(
-                          color:ProjectColors.ThemeColor,
-                          shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(20.0)),
-                          //TODO : implement this
-                          onPressed: () {},
-                          child:Text(
-                            S.of(context).Follow,
-                            style: TextStyle(
-                              fontSize: 8,
-                              color: Colors.white
-                            ),
-                          ) ,
-                        ),
-                      ),
 
                   ],
                 )
               ],
             ),
           ),
-            Container(
-              width: MediaQuery.of(context).size.width*0.22,
 
-              child: ClipRRect(
-                  borderRadius: BorderRadius.circular(15),
-                  child:  FadeInImage.assetNetwork(placeholder:'' , image: image)
-
-              ),
-            ),
 
         ],
       ),

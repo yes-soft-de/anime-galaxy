@@ -190,44 +190,59 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen> with Ticker
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                AnimeRatingBar(
-                  rating: rating,
-                  fillIcon: Icon(Icons.favorite,color: ProjectColors.ThemeColor,  ),
-                  halfFillIcon: Icon(Icons.favorite_border,color: ProjectColors.ThemeColor,  ),
-                  emptyIcon: Icon(Icons.favorite_border,color: ProjectColors.ThemeColor, ),
-                  onRatingChanged: (rating) => setState(() => this.rating = rating),
-                  itemSize:25,
-                  itemCount: 10,
-                ),
-//                RatingBar(
-//                initialRating: 2,
-//                direction: Axis.horizontal,
-//                itemSize: 30,
-////                allowHalfRating: true,
-//                itemCount: 5,
-//                ratingWidget: RatingWidget(
-//                  full: Icon(Icons.favorite,color: ProjectColors.ThemeColor,  ),
-////                  half: _image('assets/heart_half.png'),
-//                  empty: Icon(Icons.favorite_border,color: ProjectColors.ThemeColor, ),
-//                ),
-//                itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-//                onRatingUpdate: (rating) {
-//                  print(rating);
-//                },
-//              ),
                 Text(
                   S.of(context).RateSeries,
                   style: TextStyle(
                       fontSize: 14
                   ),
-                )
+                ),
+                RotatedBox(
+                  quarterTurns: 2,
+                  child: AnimeRatingBar(
+                    rating: rating,
+                    fillIcon: Icon(Icons.favorite,color: ProjectColors.ThemeColor,  ),
+                    halfFillIcon: Icon(Icons.favorite_border,color: ProjectColors.ThemeColor,  ),
+                    emptyIcon: Icon(Icons.favorite_border,color: ProjectColors.ThemeColor, ),
+                    onRatingChanged: (rating) => setState(() => this.rating = rating),
+                    itemSize:25,
+                    itemCount: 10,
+                  ),
+                ),
+
+
+//                RotatedBox(
+//                  quarterTurns: 2,
+//                  child: RatingBar(
+//                  initialRating: 2,
+//                  direction: Axis.horizontal,
+//                  itemSize: 16,
+////                allowHalfRating: true,
+//                  itemCount: 10,
+//                  ratingWidget: RatingWidget(
+//                    full: RotatedBox(
+//                        quarterTurns: 2,
+//                        child: Icon(Icons.favorite,color: ProjectColors.ThemeColor,  )
+//                    ),
+////                  half: _image('assets/heart_half.png'),
+//                    empty: RotatedBox(
+//                      quarterTurns: 2,
+//                        child: Icon(Icons.favorite_border,color: ProjectColors.ThemeColor, )
+//                    ),
+//                  ),
+//                  itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+//                  onRatingUpdate: (rating) {
+//                    print(rating);
+//                  },
+//              ),
+//                ),
+
 
               ],
             ),
 
             //Statistics
             Row(
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(S.of(context).statics),
                 SizedBox(width: 10,)
@@ -236,6 +251,13 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen> with Ticker
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+
+                Text(
+                  S.of(context).generalEvaluation,
+                  style: TextStyle(
+                      fontSize: 14
+                  ),
+                ),
                 LinearPercentIndicator(
                   width: MediaQuery.of(context).size.width *0.5,
                   animation: true,
@@ -244,18 +266,19 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen> with Ticker
                   percent: 0.8 ,
                   linearStrokeCap: LinearStrokeCap.roundAll,
                   progressColor: Color(0xfff77f00),
-                ),
-                Text(
-                    S.of(context).generalEvaluation,
-                  style: TextStyle(
-                    fontSize: 14
-                  ),
                 ),
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+
+                Text(
+                  S.of(context).monthlyComments,
+                  style: TextStyle(
+                      fontSize: 14
+                  ),
+                ),
                 LinearPercentIndicator(
                   width: MediaQuery.of(context).size.width *0.5,
                   animation: true,
@@ -264,12 +287,6 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen> with Ticker
                   percent: 0.8 ,
                   linearStrokeCap: LinearStrokeCap.roundAll,
                   progressColor: Color(0xfff77f00),
-                ),
-                Text(
-                    S.of(context).monthlyComments,
-                  style: TextStyle(
-                      fontSize: 14
-                  ),
                 ),
               ],
             ),
@@ -279,7 +296,7 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen> with Ticker
             Container(
               padding: EdgeInsetsDirectional.fromSTEB(0, 5, 5, 5),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
                     S.of(context).About,
@@ -358,47 +375,43 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen> with Ticker
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    S.of(context).More,
-                    style: TextStyle(
-                        fontSize: 10
-                    ),
-                  ),
-                  Text(
                     S.of(context).Classification,
                     style: TextStyle(
                         fontSize: 10
                     ),
                   ),
+                  Text(
+                    S.of(context).More,
+                    style: TextStyle(
+                        fontSize: 10
+                    ),
+                  ),
+
                 ],
               ),
             ),
 
             //classifications
-            RotatedBox(
-              quarterTurns: 2,
-              child: Row(
-                children: [
-                  Container(
+            Row(
+              children: [
+                Container(
                     padding: EdgeInsetsDirectional.fromSTEB(10, 5, 10, 5),
                     margin: EdgeInsets.only(left:7),
                     decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(color: Colors.black38)
-                  ),
-                      child: Center(
-                          child: RotatedBox(
-                          quarterTurns: 2,
-                                child: Text(
-                                '${episode.classification}',
-                                style: TextStyle(
-                                fontSize: 10
-                                ),
-                                )
-                          )
-                      )
-                  ),
-                ],
-                //in case of multiple classifications
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(color: Colors.black38)
+                    ),
+                    child: Center(
+                        child: Text(
+                          '${episode.classification}',
+                          style: TextStyle(
+                              fontSize: 10
+                          ),
+                        )
+                    )
+                ),
+              ],
+              //in case of multiple classifications
               /*  children: List.generate(anime.classification.length, (index) {
                   return Container(
                       padding: EdgeInsetsDirectional.fromSTEB(10, 5, 10, 5),
@@ -420,8 +433,8 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen> with Ticker
                       )
                   );
                 }),*/
-              ),
             ),
+
 
             //divider
             Container(

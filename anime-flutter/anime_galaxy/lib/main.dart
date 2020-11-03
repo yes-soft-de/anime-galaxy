@@ -142,7 +142,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
         navigatorObservers: <NavigatorObserver>[observer],
         locale: Locale.fromSubtags(
-          languageCode: lang ?? 'en',
+          languageCode: 'ar' /* lang ?? 'en'*/,
         ),
         localizationsDelegates: [
           S.delegate,

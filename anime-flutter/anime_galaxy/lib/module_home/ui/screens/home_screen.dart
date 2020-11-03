@@ -124,8 +124,19 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                             padding: EdgeInsets.symmetric(
                                 vertical: 10.0, horizontal: 10.0),
                             child:Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
+                              mainAxisAlignment: MainAxisAlignment.start,
                               children: [
+                                Container(
+                                  width: 75,
+                                  height: 160,
+                                  child: Image(
+                                    //TODO : change this to dynamic images
+                                    image: NetworkImage(
+                                        'https://m.media-amazon.com/images/M/MV5BZjNmZDhkN2QtNDYyZC00YzJmLTg0ODUtN2FjNjhhMzE3ZmUxXkEyXkFqcGdeQXVyNjc2NjA5MTU@._V1_UX182_CR0,0,182,268_AL_.jpg'
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(width: 10,),
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget>[
@@ -133,9 +144,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                     Text(
                                       '${item.seriesName}',
                                       style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold
+                                          color: Colors.white,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold
                                       ),
                                     ),
 
@@ -155,17 +166,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                     ),
                                   ],
                                 ),
-                                SizedBox(width: 10,),
-                                Container(
-                                  width: 75,
-                                  height: 160,
-                                  child: Image(
-                                    //TODO : change this to dynamic images
-                                    image: NetworkImage(
-                                        'https://m.media-amazon.com/images/M/MV5BZjNmZDhkN2QtNDYyZC00YzJmLTg0ODUtN2FjNjhhMzE3ZmUxXkEyXkFqcGdeQXVyNjc2NjA5MTU@._V1_UX182_CR0,0,182,268_AL_.jpg'
-                                    ),
-                                  ),
-                                )
                               ],
                             )
                         ),
@@ -190,16 +190,16 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        S.of(context).More,
-                        style: TextStyle(
-                            fontSize: 14
-                        ),
-                      ),
-                      Text(
                         S.of(context).newEpisodes,
                         style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        S.of(context).More,
+                        style: TextStyle(
+                            fontSize: 14
                         ),
                       ),
                     ],
@@ -225,18 +225,19 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
+                        S.of(context).watchedSeries,
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
                        S.of(context).More,
                         style: TextStyle(
                             fontSize: 14
                         ),
                       ),
-                      Text(
-                        S.of(context).watchedSeries,
-                        style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                        ),
-                      ),
+
                     ],
                   ),
                 ),
@@ -308,18 +309,19 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                       S.of(context).More,
-                        style: TextStyle(
-                            fontSize: 14
-                        ),
-                      ),
-                      Text(
                         S.of(context).mayLikeSeries,
                         style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.bold
                         ),
                       ),
+                      Text(
+                       S.of(context).More,
+                        style: TextStyle(
+                            fontSize: 14
+                        ),
+                      ),
+
                     ],
                   ),
                 ),     new AnimatedSize(

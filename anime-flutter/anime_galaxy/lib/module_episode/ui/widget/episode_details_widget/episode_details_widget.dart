@@ -25,10 +25,19 @@ class EpisodeDetailsWidget extends StatelessWidget {
       child: Row(
         children: [
           Container(
+            width: MediaQuery.of(context).size.width*0.22,
+
+            child: ClipRRect(
+                borderRadius: BorderRadius.circular(15),
+                child:  FadeInImage.assetNetwork(placeholder:'' , image: image)
+
+            ),
+          ),
+          Container(
             width: MediaQuery.of(context).size.width*0.75,
             padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 10),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   name,
@@ -41,16 +50,27 @@ class EpisodeDetailsWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
+                      children: [
+                        Text(
+                            '$rate'
+                        ),
+                        Icon(
+                            Icons.star_border,
+                            color:ProjectColors.ThemeColor
+                        )
+                      ],
+                    ),
+                    Row(
 
                       children: [
                         Row(
                           children: [
                             Text(
-                              '$likes'
+                                '$likes'
                             ),
                             Icon(
-                              Icons.favorite,
-                              color:ProjectColors.ThemeColor
+                                Icons.favorite,
+                                color:ProjectColors.ThemeColor
                             )
                           ],
                         ),
@@ -68,39 +88,18 @@ class EpisodeDetailsWidget extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Row(
-                      children: [
-                        Text(
-                            '$rate'
-                        ),
-                        Icon(
-                            Icons.star_border,
-                            color:ProjectColors.ThemeColor
-                        )
-                      ],
-                    ),
                   ],
                 ),
                 Row(
                   children: [
+
                     Row(
                       children: [
-                        Text(
-                          S.of(context).Share,
-
-                          style: TextStyle(
-                            fontSize: 10
-                          ),
-                        ),
                         IconButton(
-                          icon: Icon(Icons.share),
+                          icon: Icon(Icons.favorite),
                           //TODO : implement this
                           onPressed: (){},
-                        )
-                      ],
-                    ),
-                    Row(
-                      children: [
+                        ),
                         Text(
                           S.of(context).Like,
 
@@ -108,45 +107,34 @@ class EpisodeDetailsWidget extends StatelessWidget {
                               fontSize: 10
                           ),
                         ),
+
+                      ],
+                    ),
+                    Row(
+                      children: [
+
                         IconButton(
-                          icon: Icon(Icons.favorite),
+                          icon: Icon(Icons.share),
                           //TODO : implement this
                           onPressed: (){},
-                        )
+                        ),
+                        Text(
+                          S.of(context).Share,
+
+                          style: TextStyle(
+                              fontSize: 10
+                          ),
+                        ),
                       ],
                     ),
 
-                      ButtonTheme(
-                        height: 10,
-                        child: FlatButton(
-                          color:ProjectColors.ThemeColor,
-                          shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(20.0)),
-                          //TODO : implement this
-                          onPressed: () {},
-                          child:Text(
-                            S.of(context).Follow,
-                            style: TextStyle(
-                              fontSize: 8,
-                              color: Colors.white
-                            ),
-                          ) ,
-                        ),
-                      ),
 
                   ],
                 )
               ],
             ),
           ),
-            Container(
-              width: MediaQuery.of(context).size.width*0.22,
 
-              child: ClipRRect(
-                  borderRadius: BorderRadius.circular(15),
-                  child:  FadeInImage.assetNetwork(placeholder:'' , image: image)
-
-              ),
-            ),
 
         ],
       ),

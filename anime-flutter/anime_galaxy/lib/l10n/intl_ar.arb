@@ -102,5 +102,8 @@
   "errorHappened": "حصل خطأ ما",
   "continueUsingApp": "تابع استخدام التطبيق",
   "ordinary": "عادي",
-  "explore": "اكتشف"
+  "explore": "اكتشف",
+  "isFollowed": "متابع",
+  "help": "مساعدة",
+  "edit": "تعديل"
 }

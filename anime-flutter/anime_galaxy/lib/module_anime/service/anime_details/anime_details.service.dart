@@ -32,6 +32,7 @@ class AnimeDetailsService{
     //TODO : change showYear to dynamic data from backend when it added
     anime.showYear = '2020';
     anime.about = response.description;
+    anime.isFollowed = response.isFollowed;
 
     anime.episodes = getEpisodes(response.episodes);
 
