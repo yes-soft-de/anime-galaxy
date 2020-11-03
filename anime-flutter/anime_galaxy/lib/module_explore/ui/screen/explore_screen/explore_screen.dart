@@ -49,6 +49,17 @@ class ExploreScreen extends StatefulWidget {
       }
     }
   }
+
+  Future<String> _refresh()async{
+    loading = true;
+    widget._stateManager.getExploreScreenContent();
+    await Future.delayed(Duration(milliseconds: 100));
+    setState(() {
+
+    });
+    return 'success';
+  }
+
   @override
   Widget build(BuildContext context) {
     if (currentState is ExploreStateInit) {
@@ -133,136 +144,139 @@ class ExploreScreen extends StatefulWidget {
 
       child: Scaffold(
 
-        body: SingleChildScrollView(
+        body: RefreshIndicator(
+          onRefresh: _refresh,
+          child: SingleChildScrollView(
 
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8),
-            child: Column(
-
-
-
-              mainAxisSize: MainAxisSize.min,
-              children: [
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              child: Column(
 
 
 
-                SizedBox(width: 8,),
-                Row(
-                  children: [
-                    Expanded(
-                      child: Text(S.of(context).worldWideSeries,style: StyleExploreList.getTextSyle(size: 14,fontWeight: FontWeight.w500,
-                        day: true,),),
-                    ),
-                  ],
-                ),
-                Container(
+                mainAxisSize: MainAxisSize.min,
+                children: [
 
-                  height: 200,
-                  child: ListView.builder(itemBuilder: (context,index){
 
-                    return   Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 2),
-                      child: GestureDetector(
-                        onTap: ()=> Navigator.pushNamed(
-                          context,
-                          AnimeRoutes.ROUTE_ANIME_DETAILS_SCREEN,
-                          arguments: explore.worldRecommendedSeries[index].id
-                        ),
-                        child: SeriesCard(
-                          url_image: 'https://i.pinimg.com/236x/8f/32/dd/8f32dd6bb5a1b2bbb1380a1453ee3203.jpg',
 
-                          series_category: explore.worldRecommendedSeries[index].category,
-
-                          series_name: explore.worldRecommendedSeries[index].name,
-                          ),
+                  SizedBox(width: 8,),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Text(S.of(context).worldWideSeries,style: StyleExploreList.getTextSyle(size: 14,fontWeight: FontWeight.w500,
+                          day: true,),),
                       ),
-                    );
-                  },
-                    itemCount:explore.worldRecommendedSeries.length ,
+                    ],
+                  ),
+                  Container(
 
+                    height: 200,
+                    child: ListView.builder(itemBuilder: (context,index){
 
-                    scrollDirection: Axis.horizontal,),
-                ),
-
-                Divider(height: 1,thickness: 0.1,color: Colors.grey,),
-                SizedBox(height: 10,),
-                Row(
-                  children: [
-                    Expanded(
-                      child: Text(S.of(context).recomendationByFavorite,style: StyleExploreList.getTextSyle(size: 14,fontWeight: FontWeight.w500,
-                        day: true,),),
-                    ),
-                  ],
-                ),
-                Container(
-
-                  height: 200,
-                  child: ListView.builder(itemBuilder: (context,index){
-                    return   Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 4),
-                      child: GestureDetector(
-                        onTap: ()=> Navigator.pushNamed(
+                      return   Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 2),
+                        child: GestureDetector(
+                          onTap: ()=> Navigator.pushNamed(
                             context,
                             AnimeRoutes.ROUTE_ANIME_DETAILS_SCREEN,
-                            arguments: explore.recommendedSeriesByUser[index].id
+                            arguments: explore.worldRecommendedSeries[index].id
+                          ),
+                          child: SeriesCard(
+                            url_image: 'https://i.pinimg.com/236x/8f/32/dd/8f32dd6bb5a1b2bbb1380a1453ee3203.jpg',
+
+                            series_category: explore.worldRecommendedSeries[index].category,
+
+                            series_name: explore.worldRecommendedSeries[index].name,
+                            ),
                         ),
-                        child: FavouriteSeriesCard(
-                          url_image: 'https://i.pinimg.com/236x/8f/32/dd/8f32dd6bb5a1b2bbb1380a1453ee3203.jpg',
-                          series_category: explore.recommendedSeriesByUser[index].category,
-                          series_name: explore.recommendedSeriesByUser[index].name
-                          ,),
-                      ),
-                    );
-                  },
-                    itemCount:explore.recommendedSeriesByUser.length ,
-                    shrinkWrap: true,
-                    scrollDirection: Axis.horizontal,),
-                ),
-                SizedBox(height: 10,),
-                Divider(height: 1,thickness: 0.1,color: Colors.grey,),
+                      );
+                    },
+                      itemCount:explore.worldRecommendedSeries.length ,
 
-                SizedBox(height: 10,),
 
-                Row(
-                  children: [
-                    Expanded(
-                      child: Text(S.of(context).activeMembers,style: StyleExploreList.getTextSyle(size: 14,fontWeight: FontWeight.w500,
-                        day: true,),),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10,),
-                Container(
-
-                  height: 100,
-                  child: ListView.builder(itemBuilder: (context,index){
-                    return   Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 4),
-                      child: MemberCard(
-                        url_image: 'https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=100&q=60 100w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=60 200w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=60 300w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60 400w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60 500w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60 600w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60 700w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60 800w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60 900w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60 1000w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=60 1100w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1200&q=60 1200w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1296&q=60 1296w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60 1400w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=60 1600w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1800&q=60 1800w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=60 2000w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2200&q=60 2200w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2400&q=60 2400w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2592&q=60 2592w',
-                        series_name: explore.activeUsers[index].name,
-                      ),
-                    );
-                  },
-                    itemCount:explore.activeUsers.length ,
-                    shrinkWrap: true,
-                    scrollDirection: Axis.horizontal,),
-                ),
-
-                Container(
-                  margin: EdgeInsets.only(top: 20),
-                  child: CarouselSlider(
-                    options: CarouselOptions(
-                        autoPlay: true,
-                        aspectRatio: 2.0,
-                      enlargeCenterPage: true,
-                    ),
-                    items: imageSliders,
-
+                      scrollDirection: Axis.horizontal,),
                   ),
-                ),
-              ],
 
+                  Divider(height: 1,thickness: 0.1,color: Colors.grey,),
+                  SizedBox(height: 10,),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Text(S.of(context).recomendationByFavorite,style: StyleExploreList.getTextSyle(size: 14,fontWeight: FontWeight.w500,
+                          day: true,),),
+                      ),
+                    ],
+                  ),
+                  Container(
+
+                    height: 200,
+                    child: ListView.builder(itemBuilder: (context,index){
+                      return   Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 4),
+                        child: GestureDetector(
+                          onTap: ()=> Navigator.pushNamed(
+                              context,
+                              AnimeRoutes.ROUTE_ANIME_DETAILS_SCREEN,
+                              arguments: explore.recommendedSeriesByUser[index].id
+                          ),
+                          child: FavouriteSeriesCard(
+                            url_image: 'https://i.pinimg.com/236x/8f/32/dd/8f32dd6bb5a1b2bbb1380a1453ee3203.jpg',
+                            series_category: explore.recommendedSeriesByUser[index].category,
+                            series_name: explore.recommendedSeriesByUser[index].name
+                            ,),
+                        ),
+                      );
+                    },
+                      itemCount:explore.recommendedSeriesByUser.length ,
+                      shrinkWrap: true,
+                      scrollDirection: Axis.horizontal,),
+                  ),
+                  SizedBox(height: 10,),
+                  Divider(height: 1,thickness: 0.1,color: Colors.grey,),
+
+                  SizedBox(height: 10,),
+
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Text(S.of(context).activeMembers,style: StyleExploreList.getTextSyle(size: 14,fontWeight: FontWeight.w500,
+                          day: true,),),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 10,),
+                  Container(
+
+                    height: 100,
+                    child: ListView.builder(itemBuilder: (context,index){
+                      return   Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 4),
+                        child: MemberCard(
+                          url_image: 'https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=100&q=60 100w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=60 200w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=60 300w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60 400w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60 500w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60 600w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60 700w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60 800w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60 900w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60 1000w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=60 1100w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1200&q=60 1200w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1296&q=60 1296w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60 1400w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=60 1600w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1800&q=60 1800w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=60 2000w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2200&q=60 2200w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2400&q=60 2400w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2592&q=60 2592w',
+                          series_name: explore.activeUsers[index].name,
+                        ),
+                      );
+                    },
+                      itemCount:explore.activeUsers.length ,
+                      shrinkWrap: true,
+                      scrollDirection: Axis.horizontal,),
+                  ),
+
+                  Container(
+                    margin: EdgeInsets.only(top: 20),
+                    child: CarouselSlider(
+                      options: CarouselOptions(
+                          autoPlay: true,
+                          aspectRatio: 2.0,
+                        enlargeCenterPage: true,
+                      ),
+                      items: imageSliders,
+
+                    ),
+                  ),
+                ],
+
+              ),
             ),
           ),
         ),

@@ -87,6 +87,15 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     );
   }
 
+  Future<String> _refresh()async{
+    loading = true;
+    widget._stateManger.getHomeDetails();
+    await Future.delayed(Duration(milliseconds: 100));
+    setState(() {
+
+    });
+    return 'success';
+  }
 
 
   Widget body(){
@@ -176,221 +185,224 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           ))
               .toList();
 
-        return SingleChildScrollView(
-          child: Container(
-            padding: EdgeInsetsDirectional.fromSTEB(7, 0, 7, 10),
-            child: Column(
-              children: [
-                PointsWidget(
-                  points: anime.points,
-                ),
-                Container(
-                  margin: EdgeInsetsDirectional.fromSTEB(10,0,10,20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        S.of(context).newEpisodes,
-                        style: TextStyle(
+        return RefreshIndicator(
+          onRefresh: _refresh,
+          child: SingleChildScrollView(
+            child: Container(
+              padding: EdgeInsetsDirectional.fromSTEB(7, 0, 7, 10),
+              child: Column(
+                children: [
+                  PointsWidget(
+                    points: anime.points,
+                  ),
+                  Container(
+                    margin: EdgeInsetsDirectional.fromSTEB(10,0,10,20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          S.of(context).newEpisodes,
+                          style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(
+                          S.of(context).More,
+                          style: TextStyle(
+                              fontSize: 14
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
+
+                  CarouselSlider(
+                    options: CarouselOptions(
+                        autoPlay: true,
+                        aspectRatio: 2.0,
+                        autoPlayAnimationDuration: Duration(milliseconds: 1500),
+                        enlargeCenterPage: false,
+                        viewportFraction:1
+                    ),
+                    items: imageSliders,
+
+                  ),
+
+                  Container(
+                    margin: EdgeInsetsDirectional.fromSTEB(10,0,10,20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          S.of(context).watchedSeries,
+                          style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
-                      Text(
-                        S.of(context).More,
-                        style: TextStyle(
-                            fontSize: 14
+                        Text(
+                         S.of(context).More,
+                          style: TextStyle(
+                              fontSize: 14
+                          ),
                         ),
-                      ),
-                    ],
+
+                      ],
+                    ),
                   ),
-                ),
+                  new AnimatedSize(
+                      vsync: this,
+                      duration: const Duration(milliseconds: 500),
+                      child: new ConstrainedBox(
+                        constraints: isExpanded
+                            ? new BoxConstraints()
+                            : new BoxConstraints(maxHeight: 180.0),
+                        child:    GridView.builder(itemBuilder: (BuildContext context, int index){
+
+                          return  GestureDetector(
+                            onTap: ()=>  Navigator.pushNamed(
+                                  context,
+                                  AnimeRoutes.ROUTE_ANIME_DETAILS_SCREEN,
+                                  arguments: anime.watchedSeries[index].id
+                              ),
+
+                            child: SeriesCard(
+                              image: anime.watchedSeries[index].image,
+                              name: anime.watchedSeries[index].name,
+                              classification:anime.watchedSeries[index].classification,
+                            ),
+                          );
+                        },
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 3,
+                              mainAxisSpacing: 20,
+                              crossAxisSpacing: 20,
+                              childAspectRatio: (2.0/4)
+                          ),
+                          itemCount:anime.watchedSeries.length,
+                           physics: NeverScrollableScrollPhysics(),
+                          shrinkWrap: true,),
 
 
-                CarouselSlider(
-                  options: CarouselOptions(
-                      autoPlay: true,
-                      aspectRatio: 2.0,
-                      autoPlayAnimationDuration: Duration(milliseconds: 1500),
-                      enlargeCenterPage: false,
-                      viewportFraction:1
+                      )
                   ),
-                  items: imageSliders,
+                  isExpanded
+                      ?  new FlatButton(
+                      child: Container(
+                          width: 30,
+                          height: 30,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50),
+                            color: ProjectColors.ThemeColor,
+                          ),
 
-                ),
+                          child: const Icon(Icons.keyboard_arrow_up,color: Colors.white,)),
+                      onPressed: () => setState(() => isExpanded = false))
 
-                Container(
-                  margin: EdgeInsetsDirectional.fromSTEB(10,0,10,20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        S.of(context).watchedSeries,
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
+                      : new FlatButton(
+                      child: Container(
+                          width: 30,
+                          height: 30,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50),
+                            color: ProjectColors.ThemeColor,
+                          ),
+
+                          child: const Icon(Icons.keyboard_arrow_down,color: Colors.white,)),
+                      onPressed: () => setState(() => isExpanded = true))
+                  ,
+                  Container(
+                    margin: EdgeInsetsDirectional.fromSTEB(10,0,10,20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          S.of(context).mayLikeSeries,
+                          style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold
+                          ),
                         ),
-                      ),
-                      Text(
-                       S.of(context).More,
-                        style: TextStyle(
-                            fontSize: 14
+                        Text(
+                         S.of(context).More,
+                          style: TextStyle(
+                              fontSize: 14
+                          ),
                         ),
-                      ),
 
-                    ],
-                  ),
-                ),
-                new AnimatedSize(
-                    vsync: this,
-                    duration: const Duration(milliseconds: 500),
-                    child: new ConstrainedBox(
-                      constraints: isExpanded
-                          ? new BoxConstraints()
-                          : new BoxConstraints(maxHeight: 180.0),
-                      child:    GridView.builder(itemBuilder: (BuildContext context, int index){
+                      ],
+                    ),
+                  ),     new AnimatedSize(
+                      vsync: this,
+                      duration: const Duration(milliseconds: 500),
+                      child: new ConstrainedBox(
+                        constraints: isExpanded2
+                            ? new BoxConstraints()
+                            : new BoxConstraints(maxHeight: 180.0),
+                        child:    GridView.builder(
+                          physics: NeverScrollableScrollPhysics(),
+                          itemBuilder: (BuildContext context, int index){
 
-                        return  GestureDetector(
-                          onTap: ()=>  Navigator.pushNamed(
+                          return GestureDetector(
+                            onTap: () => Navigator.pushNamed(
                                 context,
                                 AnimeRoutes.ROUTE_ANIME_DETAILS_SCREEN,
-                                arguments: anime.watchedSeries[index].id
+                                arguments: anime.mayLikeSeries[index].id
                             ),
-
-                          child: SeriesCard(
-                            image: anime.watchedSeries[index].image,
-                            name: anime.watchedSeries[index].name,
-                            classification:anime.watchedSeries[index].classification,
+                            child: SeriesCard(
+                              image: anime.mayLikeSeries[index].image,
+                              name: anime.mayLikeSeries[index].name,
+                              classification: anime.mayLikeSeries[index].classification,
+                            ),
+                          );
+                        },
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 3,
+                              mainAxisSpacing: 20,
+                              crossAxisSpacing: 20,
+                              childAspectRatio: (2.0/4)
                           ),
-                        );
-                      },
-                        padding: EdgeInsets.symmetric(horizontal: 10),
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 3,
-                            mainAxisSpacing: 20,
-                            crossAxisSpacing: 20,
-                            childAspectRatio: (2.0/4)
-                        ),
-                        itemCount:anime.watchedSeries.length,
-                         physics: NeverScrollableScrollPhysics(),
-                        shrinkWrap: true,),
+                          itemCount:anime.mayLikeSeries.length,
 
-
-                    )
-                ),
-                isExpanded
-                    ?  new FlatButton(
-                    child: Container(
-                        width: 30,
-                        height: 30,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                          color: ProjectColors.ThemeColor,
-                        ),
-
-                        child: const Icon(Icons.keyboard_arrow_up,color: Colors.white,)),
-                    onPressed: () => setState(() => isExpanded = false))
-
-                    : new FlatButton(
-                    child: Container(
-                        width: 30,
-                        height: 30,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                          color: ProjectColors.ThemeColor,
-                        ),
-
-                        child: const Icon(Icons.keyboard_arrow_down,color: Colors.white,)),
-                    onPressed: () => setState(() => isExpanded = true))
-                ,
-                Container(
-                  margin: EdgeInsetsDirectional.fromSTEB(10,0,10,20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        S.of(context).mayLikeSeries,
-                        style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold
-                        ),
-                      ),
-                      Text(
-                       S.of(context).More,
-                        style: TextStyle(
-                            fontSize: 14
-                        ),
-                      ),
-
-                    ],
-                  ),
-                ),     new AnimatedSize(
-                    vsync: this,
-                    duration: const Duration(milliseconds: 500),
-                    child: new ConstrainedBox(
-                      constraints: isExpanded2
-                          ? new BoxConstraints()
-                          : new BoxConstraints(maxHeight: 180.0),
-                      child:    GridView.builder(
-                        physics: NeverScrollableScrollPhysics(),
-                        itemBuilder: (BuildContext context, int index){
-
-                        return GestureDetector(
-                          onTap: () => Navigator.pushNamed(
-                              context,
-                              AnimeRoutes.ROUTE_ANIME_DETAILS_SCREEN,
-                              arguments: anime.mayLikeSeries[index].id
-                          ),
-                          child: SeriesCard(
-                            image: anime.mayLikeSeries[index].image,
-                            name: anime.mayLikeSeries[index].name,
-                            classification: anime.mayLikeSeries[index].classification,
-                          ),
-                        );
-                      },
-                        padding: EdgeInsets.symmetric(horizontal: 10),
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 3,
-                            mainAxisSpacing: 20,
-                            crossAxisSpacing: 20,
-                            childAspectRatio: (2.0/4)
-                        ),
-                        itemCount:anime.mayLikeSeries.length,
-
-                        shrinkWrap: true,),
+                          shrinkWrap: true,),
 
     //
-                    )
-                ),
-                isExpanded2
-                    ?  new FlatButton(
-                    child: Container(
-                        width: 30,
-                        height: 30,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                          color: ProjectColors.ThemeColor,
-                        ),
+                      )
+                  ),
+                  isExpanded2
+                      ?  new FlatButton(
+                      child: Container(
+                          width: 30,
+                          height: 30,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50),
+                            color: ProjectColors.ThemeColor,
+                          ),
 
-                        child: const Icon(Icons.keyboard_arrow_up,color: Colors.white,)),
-                    onPressed: () => setState(() => isExpanded2 = false))
+                          child: const Icon(Icons.keyboard_arrow_up,color: Colors.white,)),
+                      onPressed: () => setState(() => isExpanded2 = false))
 
-                    : new FlatButton(
-                    child: Container(
-                        width: 30,
-                        height: 30,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                          color: ProjectColors.ThemeColor,
-                        ),
+                      : new FlatButton(
+                      child: Container(
+                          width: 30,
+                          height: 30,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50),
+                            color: ProjectColors.ThemeColor,
+                          ),
 
-                        child: const Icon(Icons.keyboard_arrow_down,color: Colors.white,)),
-                    onPressed: () => setState(() => isExpanded2 = true))
-                ,
-              ],
+                          child: const Icon(Icons.keyboard_arrow_down,color: Colors.white,)),
+                      onPressed: () => setState(() => isExpanded2 = true))
+                  ,
+                ],
+              ),
             ),
-          ),
-    );
+    ),
+        );
   }
 
 
