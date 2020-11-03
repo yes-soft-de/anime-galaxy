@@ -5,153 +5,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="949cf1e4-ee88-43fb-8374-6a66b1c9c391" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/module_episode/episode_module.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/module_episode/episode_routes.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/module_episode/manager/episode_details/episode_details.manager.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/module_episode/model/episode_model/episode_model.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/module_episode/repository/episode_details/episode_details.repository.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/module_episode/request/comment_request/comment_request.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/module_episode/request/comment_request/comment_request.inject.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/module_episode/request/comment_request/comment_request.inject.summary" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/module_episode/response/comment_response/comment_response.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/module_episode/response/comment_response/comment_response.inject.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/module_episode/response/comment_response/comment_response.inject.summary" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/module_episode/response/episode_response/episode_response.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/module_episode/response/episode_response/episode_response.inject.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/module_episode/response/episode_response/episode_response.inject.summary" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/module_episode/service/episode_details/episode_details.service.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/module_episode/state/episode_details/episode_details.state.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/module_episode/state_manager/episode_details/episode_details.state_manager.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/module_episode/ui/screen/episode_details_screen/episode_details_screen.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/module_episode/ui/widget/comment_card/comment_card.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/module_episode/ui/widget/comment_card/comment_card.inject.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/module_episode/ui/widget/comment_card/comment_card.inject.summary" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/module_episode/ui/widget/episode_details_widget/episode_details_widget.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_auth/auth_module.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_auth/auth_module.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_auth/auth_routes.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_auth/auth_routes.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_auth/style_auth.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_auth/style_auth.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_auth/ui/screen/sign_in/sign_in.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_auth/ui/screen/sign_in/sign_in.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_auth/ui/screen/sign_up/sign_up.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_auth/ui/screen/sign_up/sign_up.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_auth/ui/screen/sign_up/sign_up.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_auth/ui/screen/sign_up/sign_up.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_auth/ui/widget/custome_button/custome_button.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_auth/ui/widget/custome_button/custome_button.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_auth/ui/widget/social_icon/social_icon.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_auth/ui/widget/social_icon/social_icon.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_auth/ui/widget/social_icon/social_icon.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_auth/ui/widget/social_icon/social_icon.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_explor_list/anime_explor_list_repository/anime_explor_list_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_explor_list/anime_explor_list_repository/anime_explor_list_repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_explor_list/anime_explor_list_repository/anime_explor_list_repository.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_explor_list/anime_explor_list_repository/anime_explor_list_repository.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_explor_list/manager/anime_explor_list_manager.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_explor_list/manager/anime_explor_list_manager.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_explor_list/model/AllAnimeData.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_explor_list/model/AllAnimeData.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_explor_list/model/AllAnimeModel.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_explor_list/model/AllAnimeModel.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_explor_list/model/Interaction.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_explor_list/model/Interaction.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_explor_list/routes/explor_list_module.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_explor_list/routes/explor_list_module.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_explor_list/routes/explor_list_route.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_explor_list/routes/explor_list_route.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_explor_list/services/anime_explor_list_services.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_explor_list/services/anime_explor_list_services.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_explor_list/state/anime_explore_list_state.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_explor_list/state/anime_explore_list_state.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_explor_list/state_manager/anime_explore_list_state_manager.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_explor_list/state_manager/anime_explore_list_state_manager.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_explor_list/style_explore_list.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_explor_list/style_explore_list.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_explor_list/ui/screen/explor_list_1/explor_list.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_explor_list/ui/screen/explor_list_1/explor_list.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_explor_list/ui/widget/card_members/card_series.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_explor_list/ui/widget/card_members/card_series.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_explor_list/ui/widget/card_series/card_series.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_explor_list/ui/widget/card_series/card_series.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_explor_list/ui/widget/card_series_favorite/card_series.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_explor_list/ui/widget/card_series_favorite/card_series.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_explor_list/ui/widget/circular_image/circular_image.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_explor_list/ui/widget/circular_image/circular_image.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_explor_list/ui/widget/custome_button/custome_button.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_explor_list/ui/widget/custome_button/custome_button.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_setting/routes/setting_module.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_setting/routes/setting_module.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_setting/routes/setting_route.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_setting/routes/setting_route.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_setting/ui/screen/anim_setting.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_setting/ui/screen/anim_setting.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_setting/ui/screen/anim_setting.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_setting/ui/screen/anim_setting.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_setting/ui/style_app.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_setting/ui/style_app.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_setting/ui/widget/card_setting/card_setting.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_setting/ui/widget/card_setting/card_setting.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_setting/ui/widget/circular_setting/circular_image.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_setting/ui/widget/circular_setting/circular_image.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_setting/ui/widget/custome_button/custome_button.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_setting/ui/widget/custome_button/custome_button.inject.summary" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/consts/urls.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/consts/urls.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/di/components/app.component.inject.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/di/components/app.component.inject.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/generated/intl/messages_all.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/intl/messages_all.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/generated/intl/messages_ar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/intl/messages_ar.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/generated/intl/messages_en.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/intl/messages_en.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/generated/l10n.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/l10n.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/l10n/intl_ar.arb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/l10n/intl_ar.arb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/l10n/intl_en.arb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/l10n/intl_en.arb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main_screen/main_screen_module.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main_screen/main_screen_module.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main_screen/main_screen_routes.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main_screen/main_screen_routes.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main_screen/ui/screen/main_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main_screen/ui/screen/main_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main_screen/ui/screen/main_screen.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main_screen/ui/screen/main_screen.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/anime_module.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/anime_module.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/anime_routes.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/anime_routes.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/manager/anime_details/anime_details.manager.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/manager/anime_details/anime_details.manager.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/model/anime_model/anime_model.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/model/anime_model/anime_model.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/repository/anime_details/anime_details.repository.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/repository/anime_details/anime_details.repository.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/request/comment_request/comment_request.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/request/comment_request/comment_request.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/response/anime_response/anime_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/response/anime_response/anime_response.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/response/comment_response/comment_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/response/comment_response/comment_response.inject.summary" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_anime/model/anime_model/anime_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/model/anime_model/anime_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_anime/repository/anime_details/anime_details.repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/repository/anime_details/anime_details.repository.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/module_anime/response/episode_response/episode_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/response/episode_response/episode_response.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/response/episode_response/episode_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/response/episode_response/episode_response.inject.summary" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/module_anime/service/anime_details/anime_details.service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/service/anime_details/anime_details.service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/service/anime_details/anime_details.service.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/service/anime_details/anime_details.service.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/state/anime_details/anime_details.state.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/state/anime_details/anime_details.state.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/state_manager/anime_details/anime_details.state_manager.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/state_manager/anime_details/anime_details.state_manager.inject.summary" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/ui/widget/anime_details_widget/ainme_details_widget.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/ui/widget/anime_details_widget/ainme_details_widget.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/ui/widget/comment_card/comment_card.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/ui/widget/comment_card/comment_card.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/ui/widget/episode_card/episode_card.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/ui/widget/episode_card/episode_card.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/explore_module.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/explore_module.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/explore_routes.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/explore_routes.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/manager/explore/explore.manager.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/manager/explore/explore.manager.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/model/explore/explore_model.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/model/explore/explore_model.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/repository/explore/explore.repositry.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/repository/explore/explore.repositry.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/repository/explore/explore.repositry.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/repository/explore/explore.repositry.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/response/active_users_response/active_users_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/response/active_users_response/active_users_response.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/response/anime_response/anime_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/response/anime_response/anime_response.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/response/anime_response/anime_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/response/anime_response/anime_response.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/response/expolre_response/explore_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/response/expolre_response/explore_response.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/service/explore/explore.service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/service/explore/explore.service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/service/explore/explore.service.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/service/explore/explore.service.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/state/explore/explore.state.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/state/explore/explore.state.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/state_manager/explore/explore.state_manager.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/state_manager/explore/explore.state_manager.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/style/style_explore_list.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/style/style_explore_list.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/ui/screen/explore_screen/explore_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/ui/screen/explore_screen/explore_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/ui/screen/explore_screen/explore_screen.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/ui/screen/explore_screen/explore_screen.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/ui/widget/circular_image/circular_image.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/ui/widget/circular_image/circular_image.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/ui/widget/custome_button/custome_button.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/ui/widget/custome_button/custome_button.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/ui/widget/favourite_series_card/favourite_series_card.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/ui/widget/favourite_series_card/favourite_series_card.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/ui/widget/member_card/member_card.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/ui/widget/member_card/member_card.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/ui/widget/series_card/card_series.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/ui/widget/series_card/card_series.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/ui/widget/series_card/card_series.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/ui/widget/series_card/card_series.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/manager/home/home.manager.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/manager/home/home.manager.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/model/home_model/home_model.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/model/home_model/home_model.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/repository/home/home.repository.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/repository/home/home.repository.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/response/anime_response/anime_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/response/anime_response/anime_response.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/response/coming_soon_episodes/coming_soon_episodes.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/response/coming_soon_episodes/coming_soon_episodes.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/response/home_response/home_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/response/home_response/home_response.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/response/points/points_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/response/points/points_response.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/service/home/home.service.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/service/home/home.service.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/state/home/home.state.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/state/home/home.state.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/state_manager/home/home.state_manager.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/state_manager/home/home.state_manager.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/ui/screens/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/ui/screens/home_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/ui/screens/home_screen.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/ui/screens/home_screen.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/ui/widget/points_widget/points_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/ui/widget/points_widget/points_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/ui/widget/points_widget/points_widget.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/ui/widget/points_widget/points_widget.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/ui/widget/series_card/episode_card.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/ui/widget/series_card/episode_card.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/ui/widget/series_card/series_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/ui/widget/series_card/series_card.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/ui/widget/series_card/series_card.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/ui/widget/series_card/series_card.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_init_account/account_module.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_init_account/account_module.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_init_account/init_account_routes.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_init_account/init_account_routes.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_init_account/manager/init_account/init_account.manager.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_init_account/manager/init_account/init_account.manager.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_init_account/model/init_account_model.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_init_account/model/init_account_model.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_init_account/repository/init_account/init_account.repository.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_init_account/repository/init_account/init_account.repository.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_init_account/request/favourite_request/favourite_request.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_init_account/request/favourite_request/favourite_request.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_init_account/response/category_respponse/category_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_init_account/response/category_respponse/category_response.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_init_account/response/series_response/series_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_init_account/response/series_response/series_response.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_init_account/service/init_account/init_account.service.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_init_account/service/init_account/init_account.service.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_init_account/state/init_account/init_account.state.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_init_account/state/init_account/init_account.state.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_init_account/state_manager/init_account/init_account.state_manager.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_init_account/state_manager/init_account/init_account.state_manager.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_init_account/ui/screen/init_account_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_init_account/ui/screen/init_account_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_init_account/ui/screen/init_account_screen.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_init_account/ui/screen/init_account_screen.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_init_account/ui/widget/anime_category_Card/anime_category_card.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_init_account/ui/widget/anime_category_Card/anime_category_card.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_init_account/ui/widget/series_card/series_card.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_init_account/ui/widget/series_card/series_card.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_navigation/ui/widget/navigation_drawer/anime_navigation_drawer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_navigation/ui/widget/navigation_drawer/anime_navigation_drawer.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_navigation/ui/widget/navigation_drawer/anime_navigation_drawer.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_navigation/ui/widget/navigation_drawer/anime_navigation_drawer.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_notification/manager/notification/notification.manager.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_notification/manager/notification/notification.manager.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_notification/model/notification_model/notification_model.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_notification/model/notification_model/notification_model.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_notification/notification_module.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_notification/notification_module.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_notification/notification_routes.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_notification/notification_routes.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_notification/repository/notification/notification.repository.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_notification/repository/notification/notification.repository.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_notification/service/notification/notification.service.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_notification/service/notification/notification.service.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_notification/state/notification/notification.state.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_notification/state/notification/notification.state.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_notification/state_manager/notification/notification.state_manager.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_notification/state_manager/notification/notification.state_manager.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_notification/ui/screen/notification_screen/notification_screen.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_notification/ui/screen/notification_screen/notification_screen.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_notification/ui/widget/circular_image/circular_image.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_notification/ui/widget/circular_image/circular_image.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_notification/ui/widget/notification_card/notification_card.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_notification/ui/widget/notification_card/notification_card.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/ui/my_profile/my_profile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/ui/my_profile/my_profile.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_rating/ui/widget/rating_bar.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_rating/ui/widget/rating_bar.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_settings/ui/ui/settings_page/settings_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_settings/ui/ui/settings_page/settings_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/app_bar/anime_galaxy_app_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/app_bar/anime_galaxy_app_bar.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/app_bar/anime_galaxy_app_bar.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/app_bar/anime_galaxy_app_bar.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/loading_indicator/loading_indicator.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/loading_indicator/loading_indicator.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/project_color/project_color.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/project_color/project_color.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/project_colors/project_color.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/project_colors/project_color.inject.summary" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -166,78 +52,112 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="42004dd8ceeea43d" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/di/components/app.component.dart">
+        <entry file="file://$PROJECT_DIR$/lib/module_episode/state_manager/episode_details/episode_details.state_manager.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-40">
+              <caret line="29" column="45" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="45" />
+              <folding>
+                <element signature="e#2#52#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/module_episode/ui/widget/episode_details_widget/episode_details_widget.dart">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
-              <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+              <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+              <folding>
+                <element signature="e#1#51#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/consts/urls.dart">
+        <entry file="file://$PROJECT_DIR$/lib/module_episode/ui/screen/episode_details_screen/episode_details_screen.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="4" column="24" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="24" />
+            <state relative-caret-position="9880">
+              <caret line="494" column="48" selection-start-line="494" selection-start-column="37" selection-end-line="494" selection-end-column="48" />
+              <folding>
+                <element signature="e#2#52#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/module_init_account/ui/screen/init_account_screen.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
-              <caret line="197" column="61" selection-start-line="197" selection-start-column="61" selection-end-line="197" selection-end-column="61" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/watch-code.bat">
+        <entry file="file://$PROJECT_DIR$/lib/module_episode/episode_routes.dart">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret selection-end-line="1" />
+              <caret column="19" selection-start-column="6" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/anime_galaxy.iml">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/inject_generator.build.yaml">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/analysis_options.yaml">
+        <entry file="file://$PROJECT_DIR$/lib/module_episode/episode_module.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+            <state relative-caret-position="278">
+              <caret line="18" column="3" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
+              <folding>
+                <element signature="e#2#65#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pubspec.yaml">
+        <entry file="file://$PROJECT_DIR$/lib/main.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
+            <state relative-caret-position="125">
+              <caret line="60" column="21" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="21" />
+              <folding>
+                <element signature="e#0#66#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="295">
+              <caret line="460" column="41" lean-forward="true" selection-start-line="460" selection-start-column="41" selection-end-line="460" selection-end-column="41" />
+              <folding>
+                <element signature="e#0#50#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/module_anime/model/anime_model/anime_model.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="286">
+              <caret line="49" column="12" selection-start-line="49" selection-start-column="12" selection-end-line="49" selection-end-column="12" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/anime_explor_list/anime_explor_list_repository/anime_explor_list_repository.dart">
+        <entry file="file://$PROJECT_DIR$/lib/module_anime/service/anime_details/anime_details.service.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+            <state relative-caret-position="140">
+              <caret line="46" column="22" selection-start-line="46" selection-start-column="22" selection-end-line="46" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/di/components/app.component.inject.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="128" column="39" selection-start-line="128" selection-start-column="39" selection-end-line="128" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -253,10 +173,8 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>listv</find>
       <find>anima</find>
       <find>hidden</find>
-      <find>grid</find>
       <find>دكتور ستون-Dr.Stone</find>
       <find>about</find>
       <find>hoho</find>
@@ -283,6 +201,8 @@
       <find>fav</find>
       <find>day</find>
       <find>16</find>
+      <find>Anime</find>
+      <find>grid</find>
     </findStrings>
     <replaceStrings>
       <replace>AnimeDetailsScreen</replace>
@@ -293,6 +213,7 @@
       <replace>ExploreScreen</replace>
       <replace>ExploreState</replace>
       <replace>14</replace>
+      <replace>Episode</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -306,32 +227,14 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/lib/module_init_account/ui/widget/series_card/series_card.dart" />
-        <option value="$PROJECT_DIR$/lib/module_init_account/model/init_account_model.dart" />
-        <option value="$PROJECT_DIR$/lib/anime_explor_list/ui/screen/explor_list_1/explor_list.dart" />
-        <option value="$PROJECT_DIR$/lib/anime_auth/ui/screen/sign_in/sign_in.dart" />
-        <option value="$PROJECT_DIR$/lib/anime_auth/ui/screen/sign_up/sign_up.dart" />
-        <option value="$PROJECT_DIR$/lib/module_explore/anime_explor_list_repository/anime_explor_list_repository.dart" />
-        <option value="$PROJECT_DIR$/lib/module_explore/routes/explor_list_module.dart" />
-        <option value="$PROJECT_DIR$/lib/module_explore/services/anime_explor_list_services.dart" />
-        <option value="$PROJECT_DIR$/lib/module_explore/state/anime_explore_list_state.dart" />
-        <option value="$PROJECT_DIR$/lib/module_explore/explor_list_module.dart" />
-        <option value="$PROJECT_DIR$/lib/module_explore2/ui/widget/card_members/card_series.dart" />
-        <option value="$PROJECT_DIR$/lib/module_explore2/ui/widget/card_series/card_series.dart" />
-        <option value="$PROJECT_DIR$/lib/module_explore2/ui/widget/card_series_favorite/card_series.dart" />
-        <option value="$PROJECT_DIR$/lib/module_home/response/episode_coming_soon/episodes_coming_soon_response.dart" />
-        <option value="$PROJECT_DIR$/lib/module_home/response/anime_response/anime_response.dart" />
-        <option value="$PROJECT_DIR$/lib/module_home/manager/home/home.manager.dart" />
         <option value="$PROJECT_DIR$/lib/module_home/response/points/points_response.dart" />
         <option value="$PROJECT_DIR$/lib/module_home/response/home_response/home_response.dart" />
         <option value="$PROJECT_DIR$/lib/module_home/response/coming_soon_episodes/coming_soon_episodes.dart" />
         <option value="$PROJECT_DIR$/lib/module_explore/ui/widget/card_members/card_series.dart" />
         <option value="$PROJECT_DIR$/lib/module_explore/ui/widget/card_series/card_series.dart" />
         <option value="$PROJECT_DIR$/lib/module_explore/ui/widget/card_series_favorite/card_series.dart" />
-        <option value="$PROJECT_DIR$/lib/consts/urls.dart" />
         <option value="$PROJECT_DIR$/lib/module_home/ui/widget/series_card/series_card.dart" />
         <option value="$PROJECT_DIR$/lib/module_explore/style/style_explore_list.dart" />
-        <option value="$PROJECT_DIR$/lib/module_anime/service/anime_details/anime_details.service.dart" />
         <option value="$PROJECT_DIR$/lib/utils/app_bar/anime_galaxy_app_bar.dart" />
         <option value="$PROJECT_DIR$/lib/module_init_account/ui/screen/init_account_screen.dart" />
         <option value="$PROJECT_DIR$/lib/module_navigation/ui/widget/navigation_drawer/anime_navigation_drawer.dart" />
@@ -350,13 +253,31 @@
         <option value="$PROJECT_DIR$/lib/module_explore/ui/widget/member_card/member_card.dart" />
         <option value="$PROJECT_DIR$/lib/module_explore/ui/widget/favourite_series_card/favourite_series_card.dart" />
         <option value="$PROJECT_DIR$/lib/module_explore/ui/screen/explore_screen/explore_screen.dart" />
-        <option value="$PROJECT_DIR$/lib/main.dart" />
         <option value="$PROJECT_DIR$/lib/module_home/model/home_model/home_model.dart" />
         <option value="$PROJECT_DIR$/lib/module_home/service/home/home.service.dart" />
         <option value="$PROJECT_DIR$/lib/module_home/ui/screens/home_screen.dart" />
         <option value="$PROJECT_DIR$/lib/module_home/repository/home/home.repository.dart" />
-        <option value="$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.dart" />
         <option value="$PROJECT_DIR$/lib/anime_explor_list/anime_explor_list_repository/anime_explor_list_repository.dart" />
+        <option value="$PROJECT_DIR$/lib/module_anime/response/episode_response/episode_response.dart" />
+        <option value="$PROJECT_DIR$/lib/consts/urls.dart" />
+        <option value="$PROJECT_DIR$/lib/module_episode/request/comment_request/comment_request.dart" />
+        <option value="$PROJECT_DIR$/lib/module_episode/repository/episode_details/episode_details.repository.dart" />
+        <option value="$PROJECT_DIR$/lib/module_anime/repository/anime_details/anime_details.repository.dart" />
+        <option value="$PROJECT_DIR$/lib/module_episode/model/episode_model/episode_model.dart" />
+        <option value="$PROJECT_DIR$/lib/module_episode/manager/episode_details/episode_details.manager.dart" />
+        <option value="$PROJECT_DIR$/lib/module_episode/response/comment_response/comment_response.dart" />
+        <option value="$PROJECT_DIR$/lib/module_episode/service/episode_details/episode_details.service.dart" />
+        <option value="$PROJECT_DIR$/lib/module_episode/response/episode_response/episode_response.dart" />
+        <option value="$PROJECT_DIR$/lib/module_episode/state/episode_details/episode_details.state.dart" />
+        <option value="$PROJECT_DIR$/lib/module_episode/state_manager/episode_details/episode_details.state_manager.dart" />
+        <option value="$PROJECT_DIR$/lib/module_episode/ui/widget/episode_details_widget/episode_details_widget.dart" />
+        <option value="$PROJECT_DIR$/lib/module_episode/ui/screen/episode_details_screen/episode_details_screen.dart" />
+        <option value="$PROJECT_DIR$/lib/module_episode/episode_routes.dart" />
+        <option value="$PROJECT_DIR$/lib/module_episode/episode_module.dart" />
+        <option value="$PROJECT_DIR$/lib/main.dart" />
+        <option value="$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.dart" />
+        <option value="$PROJECT_DIR$/lib/module_anime/model/anime_model/anime_model.dart" />
+        <option value="$PROJECT_DIR$/lib/module_anime/service/anime_details/anime_details.service.dart" />
       </list>
     </option>
   </component>
@@ -388,22 +309,174 @@
               <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
               <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="module_init_account" type="462c0819:PsiDirectoryNode" />
+              <item name="consts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
               <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="module_init_account" type="462c0819:PsiDirectoryNode" />
+              <item name="module_anime" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="module_anime" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="module_anime" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="anime_details" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="module_anime" type="462c0819:PsiDirectoryNode" />
               <item name="ui" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
               <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="module_init_account" type="462c0819:PsiDirectoryNode" />
+              <item name="module_anime" type="462c0819:PsiDirectoryNode" />
               <item name="ui" type="462c0819:PsiDirectoryNode" />
               <item name="screen" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="module_anime" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="screen" type="462c0819:PsiDirectoryNode" />
+              <item name="anime_details_screen" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="module_episode" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="module_episode" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="module_episode" type="462c0819:PsiDirectoryNode" />
+              <item name="response" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="module_episode" type="462c0819:PsiDirectoryNode" />
+              <item name="response" type="462c0819:PsiDirectoryNode" />
+              <item name="comment_response" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="module_episode" type="462c0819:PsiDirectoryNode" />
+              <item name="response" type="462c0819:PsiDirectoryNode" />
+              <item name="episode_response" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="module_episode" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="module_episode" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="episode_details" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="module_episode" type="462c0819:PsiDirectoryNode" />
+              <item name="state" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="module_episode" type="462c0819:PsiDirectoryNode" />
+              <item name="state" type="462c0819:PsiDirectoryNode" />
+              <item name="episode_details" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="module_episode" type="462c0819:PsiDirectoryNode" />
+              <item name="state_manager" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="module_episode" type="462c0819:PsiDirectoryNode" />
+              <item name="state_manager" type="462c0819:PsiDirectoryNode" />
+              <item name="episode_details" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="module_episode" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="module_episode" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="screen" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="module_episode" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="screen" type="462c0819:PsiDirectoryNode" />
+              <item name="episode_details_screen" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="module_episode" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="widget" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="module_episode" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="widget" type="462c0819:PsiDirectoryNode" />
+              <item name="episode_details_widget" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -417,24 +490,24 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib" />
     <property name="settings.editor.selected.configurable" value="experimental" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\YesSoft projects\anime-galaxy1\anime-flutter\anime_galaxy\lib" />
+      <recent name="D:\YesSoft projects\anime-galaxy1\anime-flutter\anime_galaxy" />
+      <recent name="D:\YesSoft projects\anime-galaxy1\anime-flutter\anime_galaxy\lib\module_explore\model" />
+      <recent name="D:\YesSoft projects\anime-galaxy1\anime-flutter\anime_galaxy\lib\module_home\response" />
+      <recent name="D:\YesSoft projects\anime-galaxy1\anime-flutter\anime_galaxy\lib\utils" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\YesSoft projects\anime-galaxy1\anime-flutter\anime_galaxy\lib\module_explore" />
       <recent name="D:\YesSoft projects\anime-galaxy1\anime-flutter\anime_galaxy\lib\module_explore\style" />
       <recent name="D:\YesSoft projects\anime-galaxy\anime-flutter\anime_galaxy\lib\module_anime\response\anime_response" />
       <recent name="D:\YesSoft projects\anime-galaxy\anime-flutter\anime_galaxy\lib\module_init_account\manager\init_account" />
       <recent name="D:\YesSoft projects\anime-galaxy\anime-flutter\anime_galaxy\lib\module_init_account\ui\widget\anime_category_Card" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\YesSoft projects\anime-galaxy1\anime-flutter\anime_galaxy" />
-      <recent name="D:\YesSoft projects\anime-galaxy1\anime-flutter\anime_galaxy\lib\module_explore\model" />
-      <recent name="D:\YesSoft projects\anime-galaxy1\anime-flutter\anime_galaxy\lib\module_home\response" />
-      <recent name="D:\YesSoft projects\anime-galaxy1\anime-flutter\anime_galaxy\lib" />
-      <recent name="D:\YesSoft projects\anime-galaxy1\anime-flutter\anime_galaxy\lib\utils" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -676,7 +749,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603918899808</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="new branch">
+      <created>1604267787631</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1604267787631</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TodoView">
@@ -690,8 +770,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22919819" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24054463" />
       <window_info id="Captures" order="1" side_tool="true" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
@@ -700,13 +781,13 @@
       <window_info id="Resources Explorer" order="6" weight="0.32980332" />
       <window_info id="Capture Tool" order="7" />
       <window_info id="Favorites" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Dart Analysis" order="0" weight="0.3453355" />
-      <window_info active="true" anchor="bottom" id="Run" order="1" sideWeight="0.4969743" visible="true" weight="0.4680851" />
+      <window_info anchor="bottom" id="Dart Analysis" order="0" weight="0.34697217" />
+      <window_info anchor="bottom" id="Run" order="1" sideWeight="0.4969743" weight="0.4680851" />
       <window_info anchor="bottom" id="TODO" order="2" weight="0.34697217" />
       <window_info anchor="bottom" id="Android Profiler" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Logcat" order="4" sideWeight="0.49924356" weight="0.34860885" />
       <window_info anchor="bottom" id="Debug" order="5" />
-      <window_info anchor="bottom" id="Terminal" order="6" weight="0.38952535" />
+      <window_info anchor="bottom" id="Terminal" order="6" visible="true" weight="0.24222586" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5030257" side_tool="true" weight="0.42880523" />
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.4969743" weight="0.32569557" />
       <window_info anchor="bottom" id="Find" order="9" weight="0.3289689" />
@@ -761,7 +842,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="implement notification and home screen design" />
     <MESSAGE value="add slider to home screen" />
     <MESSAGE value="add custom rating bar widget" />
     <MESSAGE value="add translation" />
@@ -786,160 +866,10 @@
     <MESSAGE value="create app bar" />
     <MESSAGE value="edit drawer" />
     <MESSAGE value="implement explore screen full structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="implement explore screen full structure" />
+    <MESSAGE value="new branch" />
+    <option name="LAST_COMMIT_MESSAGE" value="new branch" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/module_home/response/points/points_response.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="20" selection-start-column="6" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_home/response/home_response/home_response.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="13" column="2" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_home/response/coming_soon_episodes/coming_soon_episodes.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_explore/response/anime_response/anime_response.dart">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_home/ui/widget/series_card/series_card.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-435">
-          <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
-          <folding>
-            <element signature="e#1#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_profile/ui/my_profile/my_profile.dart">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_profile/ui/profile_screen/profile_screen.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-396">
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_settings/ui/ui/settings_page/settings_page.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4016">
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_anime/ui/widget/comment_card/comment_card.dart">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_anime/ui/widget/anime_details_widget/ainme_details_widget.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#1#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_anime/service/anime_details/anime_details.service.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="64" column="20" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="2841" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/anime_auth/ui/screen/sign_in/sign_in.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="88" column="18" lean-forward="true" selection-start-line="69" selection-start-column="10" selection-end-line="88" selection-end-column="18" />
-          <folding>
-            <element signature="e#2066#2764#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_navigation/ui/widget/navigation_drawer/anime_navigation_drawer.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="266" column="35" lean-forward="true" selection-start-line="266" selection-start-column="35" selection-end-line="266" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#80#0" expanded="true" />
-            <element signature="e#3948#9209#0" />
-            <element signature="e#4059#5045#0" />
-            <element signature="e#5082#6072#0" />
-            <element signature="e#6109#7039#0" />
-            <element signature="e#7076#8037#0" />
-            <element signature="e#8074#9169#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_explore/response/expolre_response/explore_response.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="21" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#103#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_explore/response/active_users_response/active_users_response.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="6" selection-start-column="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_explore/manager/explore/explore.manager.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="12" column="3" lean-forward="true" selection-start-line="10" selection-start-column="2" selection-end-line="12" selection-end-column="3" />
-          <folding>
-            <element signature="e#1#88#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_explore/model/explore/explore_model.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="27" column="2" selection-start-line="21" selection-start-column="1" selection-end-line="27" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_home/state/home/home.state.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="16" selection-start-line="16" selection-end-line="16" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_home/state_manager/home/home.state_manager.dart">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_explore/state/explore/explore.state.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/module_explore/service/explore/explore.service.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="106">
@@ -1068,16 +998,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/main.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2440">
-          <caret line="150" column="44" selection-start-line="150" selection-start-column="44" selection-end-line="150" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#66#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/module_home/service/home/home.service.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
@@ -1113,16 +1033,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="124" column="56" selection-start-line="124" selection-start-column="56" selection-end-line="124" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.flutter-plugins">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
@@ -1144,29 +1054,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/watch-code.bat">
+    <entry file="file://$PROJECT_DIR$/lib/module_init_account/ui/screen/init_account_screen.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="1" />
+        <state relative-caret-position="3700">
+          <caret line="197" column="61" selection-start-line="197" selection-start-column="61" selection-end-line="197" selection-end-column="61" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/anime_galaxy.iml">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/inject_generator.build.yaml">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/consts/urls.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="24" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="24" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/analysis_options.yaml">
       <provider selected="true" editor-type-id="text-editor">
@@ -1175,13 +1074,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/anime_galaxy.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_init_account/ui/screen/init_account_screen.dart">
+    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="197" column="61" selection-start-line="197" selection-start-column="61" selection-end-line="197" selection-end-column="61" />
+        <state relative-caret-position="60">
+          <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_anime/response/episode_response/episode_response.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" column="21" lean-forward="true" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -1189,6 +1092,192 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_episode/manager/episode_details/anime_details.manager.inject.dart">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/watch-code.bat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_profile/repository/my_profile/my_profile.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/consts/urls.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="21" column="70" selection-start-line="21" selection-start-column="55" selection-end-line="21" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_episode/request/comment_request/comment_request.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_episode/repository/episode_details/episode_details.repository.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="24" column="48" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />
+          <folding>
+            <element signature="e#3#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_anime/repository/anime_details/anime_details.repository.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="27" column="16" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_episode/model/episode_model/episode_model.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_episode/manager/episode_details/episode_details.manager.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" column="43" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+          <folding>
+            <element signature="e#2#106#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_episode/response/comment_response/comment_response.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3400">
+          <caret line="170" selection-start-line="170" selection-end-line="170" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_episode/response/episode_response/episode_response.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4082">
+          <caret line="29" column="9" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_episode/service/episode_details/episode_details.service.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-456">
+          <caret line="28" column="59" selection-start-line="28" selection-start-column="59" selection-end-line="28" selection-end-column="59" />
+          <folding>
+            <element signature="e#2#100#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_episode/state/episode_details/episode_details.state.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="10" column="20" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_episode/state_manager/episode_details/episode_details.state_manager.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-40">
+          <caret line="29" column="45" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="45" />
+          <folding>
+            <element signature="e#2#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_episode/ui/widget/episode_details_widget/episode_details_widget.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+          <folding>
+            <element signature="e#1#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_episode/ui/screen/episode_details_screen/episode_details_screen.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9880">
+          <caret line="494" column="48" selection-start-line="494" selection-start-column="37" selection-end-line="494" selection-end-column="48" />
+          <folding>
+            <element signature="e#2#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_episode/episode_routes.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="19" selection-start-column="6" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_episode/episode_module.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="18" column="3" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
+          <folding>
+            <element signature="e#2#65#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/di/components/app.component.inject.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="128" column="39" selection-start-line="128" selection-start-column="39" selection-end-line="128" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/main.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="60" column="21" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#66#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="460" column="41" lean-forward="true" selection-start-line="460" selection-start-column="41" selection-end-line="460" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_anime/model/anime_model/anime_model.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="49" column="12" selection-start-line="49" selection-start-column="12" selection-end-line="49" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_anime/service/anime_details/anime_details.service.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="46" column="22" selection-start-line="46" selection-start-column="22" selection-end-line="46" selection-end-column="22" />
         </state>
       </provider>
     </entry>

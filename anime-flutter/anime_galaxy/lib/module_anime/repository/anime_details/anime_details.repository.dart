@@ -25,15 +25,15 @@ class AnimeDetailsRepository{
 
     AnimeResponse anime = new AnimeResponse();
     anime = AnimeResponse.fromJson(response['Data']);
-    anime.episodes = await getEpisodes(animeId);
-    anime.comments = await getComments(animeId);
+    anime.episodes = await _getEpisodes(animeId);
+    anime.comments = await _getComments(animeId);
 
     return anime;
 
   }
 
 
-  Future<List<EpisodeResponse>> getEpisodes(int animeId) async{
+  Future<List<EpisodeResponse>> _getEpisodes(int animeId) async{
     dynamic response = await _httpClient.get(Urls.API_ANIME_EPISODES+'$animeId');
     List<EpisodeResponse> episodes = [];
     dynamic res = response['Data'];
@@ -45,7 +45,7 @@ class AnimeDetailsRepository{
     return episodes;
   }
 
-  Future<List<CommentResponse>> getComments(int animeId) async{
+  Future<List<CommentResponse>> _getComments(int animeId) async{
     dynamic response = await _httpClient.get(Urls.API_ALL_COMMENTS+'$animeId');
     List<CommentResponse> comments = [];
     dynamic res = response['Data'];

@@ -99,6 +99,17 @@ import '../../anime_auth/ui/screen/sign_up/sign_up.dart' as _i72;
 import '../../anime_auth/style_auth.dart' as _i73;
 import '../../anime_auth/ui/screen/sign_in/sign_in.dart' as _i74;
 import '../../module_explore/explore_module.dart' as _i75;
+import '../../module_episode/episode_module.dart' as _i76;
+import '../../module_episode/ui/screen/episode_details_screen/episode_details_screen.dart'
+    as _i77;
+import '../../module_episode/state_manager/episode_details/episode_details.state_manager.dart'
+    as _i78;
+import '../../module_episode/service/episode_details/episode_details.service.dart'
+    as _i79;
+import '../../module_episode/manager/episode_details/episode_details.manager.dart'
+    as _i80;
+import '../../module_episode/repository/episode_details/episode_details.repository.dart'
+    as _i81;
 
 class AppComponent$Injector implements _i1.AppComponent {
   AppComponent$Injector._();
@@ -129,7 +140,8 @@ class AppComponent$Injector implements _i1.AppComponent {
       _createMainScreenModule(),
       _createSettingModule(),
       _createAuthModuleAnime(),
-      _createExploreModule());
+      _createExploreModule(),
+      _createEpisodeModlue());
   _i7.ChatModule _createChatModule() =>
       _i7.ChatModule(_createChatPage(), _createAuthGuard());
   _i8.ChatPage _createChatPage() => _i8.ChatPage(_createChatPageBloc());
@@ -271,6 +283,18 @@ class AppComponent$Injector implements _i1.AppComponent {
   _i74.SignIn _createSignIn() => _i74.SignIn(_createStyleAuth());
   _i75.ExploreModule _createExploreModule() =>
       _i75.ExploreModule(_createExploreScreen());
+  _i76.EpisodeModlue _createEpisodeModlue() =>
+      _i76.EpisodeModlue(_createEpisodeDetailsScreen());
+  _i77.EpisodeDetailsScreen _createEpisodeDetailsScreen() =>
+      _i77.EpisodeDetailsScreen(_createEpisodeDetailsStateManager());
+  _i78.EpisodeDetailsStateManager _createEpisodeDetailsStateManager() =>
+      _i78.EpisodeDetailsStateManager(_createEpisodeDetailsService());
+  _i79.EpisodeDetailsService _createEpisodeDetailsService() =>
+      _i79.EpisodeDetailsService(_createEpisodeDetailsManager());
+  _i80.EpisodeDetailsManager _createEpisodeDetailsManager() =>
+      _i80.EpisodeDetailsManager(_createEpisodeDetailsRepository());
+  _i81.EpisodeDetailsRepository _createEpisodeDetailsRepository() =>
+      _i81.EpisodeDetailsRepository(_createApiClient());
   @override
   _i6.MyApp get app => _createMyApp();
 }

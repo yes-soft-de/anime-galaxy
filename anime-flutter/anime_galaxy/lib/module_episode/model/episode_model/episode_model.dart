@@ -1,4 +1,4 @@
-class AnimeModel{
+class EpisodeModel{
     String name;
     String showYear;
     double rate;
@@ -8,9 +8,8 @@ class AnimeModel{
     String about;
     String  classification;
     List<Comment> comments;
-    List<Episode> episodes;
 
-    AnimeModel({
+    EpisodeModel({
       this.commentsNumber,
       this.name,
       this.image,
@@ -20,7 +19,6 @@ class AnimeModel{
       this.classification,
       this.showYear,
       this.comments,
-      this.episodes,
 });
 }
 
@@ -37,19 +35,5 @@ class Comment{
       this.userName,
       this.userImage,
       this.content,
-});
-}
-
-class Episode{
-  int id;
-  int episodeNumber;
-  String image;
-   String  classification;
-
-  Episode({
-    this.id,
-    this.classification,
-    this.episodeNumber,
-    this.image
 });
 }

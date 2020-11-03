@@ -1,61 +1,41 @@
 
-import 'package:anime_galaxy/module_anime/manager/anime_details/anime_details.manager.dart';
-import 'package:anime_galaxy/module_anime/model/anime_model/anime_model.dart';
-import 'package:anime_galaxy/module_anime/request/comment_request/comment_request.dart';
-import 'package:anime_galaxy/module_anime/response/anime_response/anime_response.dart';
-import 'package:anime_galaxy/module_anime/response/comment_response/comment_response.dart';
-import 'package:anime_galaxy/module_anime/response/episode_response/episode_response.dart';
- import 'package:inject/inject.dart';
 
-
-
+import 'package:anime_galaxy/module_episode/manager/episode_details/episode_details.manager.dart';
+import 'package:anime_galaxy/module_episode/model/episode_model/episode_model.dart';
+import 'package:anime_galaxy/module_episode/request/comment_request/comment_request.dart';
+import 'package:anime_galaxy/module_episode/response/comment_response/comment_response.dart';
+import 'package:anime_galaxy/module_episode/response/episode_response/episode_response.dart';
+import 'package:inject/inject.dart';
 
 @provide
-class AnimeDetailsService{
-  final AnimeDetailsManager _detailsManager;
+class EpisodeDetailsService{
+  final EpisodeDetailsManager _detailsManager;
 
-  AnimeDetailsService(this._detailsManager);
+  EpisodeDetailsService(this._detailsManager);
 
-  Future<AnimeModel> getAnimeDetails(int animeId) async{
-    AnimeResponse response = await _detailsManager.getAnimeDetails(animeId);
-    AnimeModel anime = new AnimeModel();
+  Future<EpisodeModel> getEpisodeDetails(int episodeId) async{
+    EpisodeResponse response = await _detailsManager.getEpisodeDetails(episodeId);
+    EpisodeModel episode = new EpisodeModel();
 
-    anime.name = response.name;
+    episode.name = response.animeName;
     //TODO : change this
-    String image = response.mainImage.substring(response.mainImage.lastIndexOf('http'));
-  anime.image = image;
-    anime.classification = response.categoryName;
-    anime.rate = response.rating;
-    anime.likesNumber = response.interactions.like;
-    anime.commentsNumber = response.comments.length;
-    anime.comments = getComments(response.comments);
+    String image = response.image.substring(response.image.lastIndexOf('http'));
+    episode.image = image;
+    //TODO : category should be added to response from backend
+    episode.classification = 'شاونين';
+    episode.rate = response.rating;
+    episode.likesNumber = response.interactions.like;
+    episode.commentsNumber = response.comments.length;
+    episode.comments = getComments(response.episodeComments);
     //TODO : change showYear to dynamic data from backend when it added
-    anime.showYear = '2020';
-    anime.about = response.description;
+    episode.showYear = '2020';
+    episode.about = response.description;
 
-    anime.episodes = getEpisodes(response.episodes);
 
-    return anime;
+    return episode;
   }
 
 
-  List<Episode> getEpisodes(List<EpisodeResponse> episodesResponse){
-    List<Episode> episodes =[];
-
-    episodesResponse.forEach((element) {
-      Episode episode = new Episode(
-        id: element.id,
-        episodeNumber: element.episodeNumber,
-          //TODO : change this later
-        image: element.image.substring(element.image.lastIndexOf('http')),
-        //TODO : change this later
-        classification: 'أكشن-شاونين'
-      );
-      episodes.add(episode);
-
-    });
-    return episodes;
-  }
   List<Comment> getComments(List<CommentResponse> commentResponse){
     List<Comment> comments =[];
 
@@ -73,10 +53,10 @@ class AnimeDetailsService{
     return comments;
   }
 
-  Future<bool> addComment(String comment,int animeId,bool spoilerAlert )async{
+  Future<bool> addComment(String comment,int episodeId,bool spoilerAlert )async{
     CommentRequest commentRequest = new CommentRequest(
       comment: comment,
-      animeID: animeId.toString(),
+      episodeID: episodeId.toString(),
       spoilerAlert: spoilerAlert,
       //TODO : change this when implement auth
       userID: 'zoz'

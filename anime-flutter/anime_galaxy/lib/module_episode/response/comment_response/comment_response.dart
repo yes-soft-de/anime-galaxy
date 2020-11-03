@@ -1,88 +1,48 @@
-class EpisodeResponse {
-  int id;
-  String animeName;
-  int seasonNumber;
-  int episodeNumber;
-  String description;
-  String image;
-  Duration duration;
-  Duration publishDate;
-  Duration createdAt;
-  EpisodInteraction episodInteraction;
-  String comments;
-  double rating;
+class CommentResponse {
+  String comment;
+  bool spoilerAlert;
+  CreationDate creationDate;
+  CommentInteractions commentInteractions;
 
-  EpisodeResponse(
-      {this.id,
-        this.animeName,
-        this.seasonNumber,
-        this.episodeNumber,
-        this.description,
-        this.image,
-        this.duration,
-        this.publishDate,
-        this.createdAt,
-        this.episodInteraction,
-        this.comments,
-        this.rating});
+  CommentResponse(
+      {this.comment,
+        this.spoilerAlert,
+        this.creationDate,
+        this.commentInteractions});
 
-  EpisodeResponse.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    animeName = json['animeName'];
-    seasonNumber = json['seasonNumber'];
-    episodeNumber = json['episodeNumber'];
-    description = json['description'];
-    image = json['image'];
-    duration = json['duration'] != null
-        ? new Duration.fromJson(json['duration'])
+  CommentResponse.fromJson(Map<String, dynamic> json) {
+    comment = json['comment'];
+    spoilerAlert = json['spoilerAlert'];
+    creationDate = json['creationDate'] != null
+        ? new CreationDate.fromJson(json['creationDate'])
         : null;
-    publishDate = json['publishDate'] != null
-        ? new Duration.fromJson(json['publishDate'])
+    commentInteractions = json['commentInteractions'] != null
+        ? new CommentInteractions.fromJson(json['commentInteractions'])
         : null;
-    createdAt = json['createdAt'] != null
-        ? new Duration.fromJson(json['createdAt'])
-        : null;
-    episodInteraction = json['episodInteraction'] != null
-        ? new EpisodInteraction.fromJson(json['episodInteraction'])
-        : null;
-    comments = json['comments'];
-    rating = json['rating'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['animeName'] = this.animeName;
-    data['seasonNumber'] = this.seasonNumber;
-    data['episodeNumber'] = this.episodeNumber;
-    data['description'] = this.description;
-    data['image'] = this.image;
-    if (this.duration != null) {
-      data['duration'] = this.duration.toJson();
+    data['comment'] = this.comment;
+    data['spoilerAlert'] = this.spoilerAlert;
+    if (this.creationDate != null) {
+      data['creationDate'] = this.creationDate.toJson();
     }
-    if (this.publishDate != null) {
-      data['publishDate'] = this.publishDate.toJson();
+    if (this.commentInteractions != null) {
+      data['commentInteractions'] = this.commentInteractions.toJson();
     }
-    if (this.createdAt != null) {
-      data['createdAt'] = this.createdAt.toJson();
-    }
-    if (this.episodInteraction != null) {
-      data['episodInteraction'] = this.episodInteraction.toJson();
-    }
-    data['comments'] = this.comments;
-    data['rating'] = this.rating;
     return data;
   }
 }
 
-class Duration {
+class CreationDate {
   Timezone timezone;
   int offset;
   int timestamp;
 
-  Duration({this.timezone, this.offset, this.timestamp});
+  CreationDate({this.timezone, this.offset, this.timestamp});
 
-  Duration.fromJson(Map<String, dynamic> json) {
+  CreationDate.fromJson(Map<String, dynamic> json) {
     timezone = json['timezone'] != null
         ? new Timezone.fromJson(json['timezone'])
         : null;
@@ -187,14 +147,14 @@ class Location {
   }
 }
 
-class EpisodInteraction {
+class CommentInteractions {
   String love;
   String like;
   String dislike;
 
-  EpisodInteraction({this.love, this.like, this.dislike});
+  CommentInteractions({this.love, this.like, this.dislike});
 
-  EpisodInteraction.fromJson(Map<String, dynamic> json) {
+  CommentInteractions.fromJson(Map<String, dynamic> json) {
     love = json['love'];
     like = json['like'];
     dislike = json['dislike'];

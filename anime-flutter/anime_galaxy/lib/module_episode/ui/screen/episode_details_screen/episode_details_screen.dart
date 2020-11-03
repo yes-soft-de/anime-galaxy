@@ -1,41 +1,38 @@
+
 import 'package:anime_galaxy/generated/l10n.dart';
-import 'package:anime_galaxy/module_anime/model/anime_model/anime_model.dart';
-import 'package:anime_galaxy/module_anime/state/anime_details/anime_details.state.dart';
-import 'package:anime_galaxy/module_anime/state_manager/anime_details/anime_details.state_manager.dart';
-import 'package:anime_galaxy/module_anime/ui/widget/anime_details_widget/ainme_details_widget.dart';
-import 'package:anime_galaxy/module_anime/ui/widget/comment_card/comment_card.dart';
-import 'package:anime_galaxy/module_anime/ui/widget/episode_card/episode_card.dart';
-import 'package:anime_galaxy/module_episode/episode_routes.dart';
+import 'package:anime_galaxy/module_episode/model/episode_model/episode_model.dart';
+import 'package:anime_galaxy/module_episode/state/episode_details/episode_details.state.dart';
+import 'package:anime_galaxy/module_episode/state_manager/episode_details/episode_details.state_manager.dart';
+import 'package:anime_galaxy/module_episode/ui/widget/comment_card/comment_card.dart';
+import 'package:anime_galaxy/module_episode/ui/widget/episode_details_widget/episode_details_widget.dart';
 import 'package:anime_galaxy/module_navigation/ui/widget/navigation_drawer/anime_navigation_drawer.dart';
 import 'package:anime_galaxy/module_rating/ui/widget/rating_bar.dart';
 import 'package:anime_galaxy/utils/app_bar/anime_galaxy_app_bar.dart';
 import 'package:anime_galaxy/utils/loading_indicator/loading_indicator.dart';
-import 'package:anime_galaxy/utils/project_colors/project_color.dart'; 
+import 'package:anime_galaxy/utils/project_color/project_color.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:inject/inject.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
-import 'package:shimmer/shimmer.dart';
 
 @provide
-class AnimeDetailsScreen extends StatefulWidget {
-  final AnimeDetailsStateManager _stateManager;
+class EpisodeDetailsScreen extends StatefulWidget {
+  final EpisodeDetailsStateManager _stateManager;
 
-  AnimeDetailsScreen(this._stateManager);
+  EpisodeDetailsScreen(this._stateManager);
   @override
-  _AnimeDetailsScreenState createState() => _AnimeDetailsScreenState();
+  _EpisodeDetailsScreenState createState() => _EpisodeDetailsScreenState();
 }
 
-class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProviderStateMixin<AnimeDetailsScreen> {
+class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen> with TickerProviderStateMixin<EpisodeDetailsScreen> {
   double screenWidth;
    bool isExpanded = false; 
   double rating = 3.5;
   bool  loading =true;
-  AnimeDetailsState  currentState = AnimeDetailsStateInit();
-  AnimeModel anime = new AnimeModel();
+  EpisodeDetailsState  currentState = EpisodeDetailsStateInit();
+  EpisodeModel episode = new EpisodeModel();
   bool isSwitched = false;
-  int animeId ;
+  int episodeId ;
   final TextEditingController _commentController = TextEditingController();
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
@@ -53,16 +50,16 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
   }
 
   void processEvent() {
-    if (currentState is AnimeDetailsStateFetchingSuccess) {
-      AnimeDetailsStateFetchingSuccess state = currentState;
-      anime = state.data;
+    if (currentState is EpisodeDetailsStateFetchingSuccess) {
+      EpisodeDetailsStateFetchingSuccess state = currentState;
+      episode = state.data;
       loading = false;
       if (this.mounted) {
         setState(() {});
       }
     }
-    if (currentState is AnimeDetailsStateCommentingSuccess) {
-      anime.comments.insert(0,
+    if (currentState is EpisodeDetailsStateCommentingSuccess) {
+      episode.comments.insert(0,
         new Comment(
           content: _commentController.text,
           //TODO : use logged in user information
@@ -81,11 +78,11 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
 
   @override
   Widget build(BuildContext context) {
-    animeId = ModalRoute.of(context).settings.arguments;
+    episodeId = ModalRoute.of(context).settings.arguments;
     screenWidth = MediaQuery.of(context).size.width;
 
-    if (currentState is AnimeDetailsStateInit) {
-      widget._stateManager.getAnimeDetails(animeId);
+    if (currentState is EpisodeDetailsStateInit) {
+      widget._stateManager.getEpisodeDetails(episodeId);
       if(this.mounted){
         setState(() {});
       }
@@ -129,7 +126,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
         OutlineButton(
           onPressed: () {
             loading = true;
-            widget._stateManager.getAnimeDetails(animeId);
+            widget._stateManager.getEpisodeDetails(episodeId);
           },
           child: Text(S.of(context).retry),
         )
@@ -181,13 +178,13 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
     return Container(
       child: Column(
           children:[
-            AnimeDetailsWidget(
-                name: anime.name,
-                comments: anime.commentsNumber,
-                likes: anime.likesNumber,
-                rate: anime.rate,
-                showYear: anime.showYear,
-                image : anime.image
+            EpisodeDetailsWidget(
+                name: episode.name,
+                comments: episode.commentsNumber,
+                likes: episode.likesNumber,
+                rate: episode.rate,
+                showYear: episode.showYear,
+                image : episode.image
             ),
             //rating the series
             Row(
@@ -312,7 +309,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
 
                       ),
                       child: Text(
-                        '${anime.about}',
+                        '${episode.about}',
                         textDirection: TextDirection.rtl,
                         style: TextStyle(
                           fontSize: 10,
@@ -392,7 +389,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
                           child: RotatedBox(
                           quarterTurns: 2,
                                 child: Text(
-                                '${anime.classification}',
+                                '${episode.classification}',
                                 style: TextStyle(
                                 fontSize: 10
                                 ),
@@ -434,49 +431,6 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
               color: Colors.black38,
             ),
 
-            Container(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 5, 0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Text(
-                      S.of(context).LastEpisodes,
-                      textDirection: TextDirection.rtl,
-                      style: TextStyle(
-                          fontSize: 12
-                      ),
-                    ),
-                  ],
-                )
-            ),
-            // last episodes
-            GridView.builder(
-              physics: NeverScrollableScrollPhysics(),
-              itemBuilder: (BuildContext context, int index){
-
-              return  GestureDetector(
-                onTap: ()=> Navigator.pushNamed(
-                    context,
-                    EpisodeRoutes.ROUTE_EPISODE_DETAILS_SCREEN,
-                    arguments:anime.episodes[index].id
-                ),
-                child: EpisodeCard(
-                  image: anime.episodes[index].image,
-                  episodeNumber: anime.episodes[index].episodeNumber,
-                  classification: anime.episodes[index].classification,
-                ),
-              );
-            },
-              padding: EdgeInsets.symmetric(horizontal: 10),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3,
-                  mainAxisSpacing: 20,
-                  crossAxisSpacing: 20,
-                  childAspectRatio: (2.3/4)
-              ),
-              itemCount:anime.episodes.length,
-
-              shrinkWrap: true,),
 
             Container(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 0, 5, 0),
@@ -496,13 +450,13 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
             ListView.builder(
               physics: NeverScrollableScrollPhysics(),
               shrinkWrap: true,
-              itemCount: anime.comments.length,
+              itemCount: episode.comments.length,
               itemBuilder: (BuildContext context , int index){
                 return  CommentCard(
-                  userImage: anime.comments[index].userImage,
-                  userName: anime.comments[index].userName,
-                  date: anime.comments[index].date,
-                  comment: anime.comments[index].content,
+                  userImage: episode.comments[index].userImage,
+                  userName: episode.comments[index].userName,
+                  date: episode.comments[index].date,
+                  comment: episode.comments[index].content,
                 );
               },
             ),
@@ -602,7 +556,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
 
                       FlatButton(
                           onPressed: (){
-                            widget._stateManager.addComment(_commentController.text.trim(), animeId, isSwitched);
+                            widget._stateManager.addComment(_commentController.text.trim(), episodeId, isSwitched);
                             Navigator.pop(context, true);
                           },
 
