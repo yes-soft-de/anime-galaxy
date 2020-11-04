@@ -8,8 +8,7 @@ class HomeResponse{
   List<AnimeResponse> watchedSeries;
   List<ComingSoonEpisodesResponse> comingSoonEpisodes;
   PointsResponse points;
-  //TODO : change this to the right response
-  List<Series> mayLikedSeries;
+  List<AnimeResponse> mayLikedSeries;
 
   HomeResponse({
     this.watchedSeries,

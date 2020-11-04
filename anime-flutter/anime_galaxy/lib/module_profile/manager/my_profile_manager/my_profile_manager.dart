@@ -8,12 +8,12 @@ class MyProfileManager {
   final MyProfileRepository _repository;
   MyProfileManager(this._repository);
 
-  Future<ProfileResponse> getMyProfile() {
-    return _repository.getMyProfile();
+  Future<ProfileResponse> getProfile(String userId) {
+    return _repository.getProfile(userId);
   }
 
-  Future<ProfileResponse> createMyProfile(
-      CreateProfileRequest createProfileRequest) {
-    return _repository.createMyProfile(createProfileRequest);
-  }
+//  Future<ProfileResponse> createMyProfile(
+//      CreateProfileRequest createProfileRequest) {
+//    return _repository.createMyProfile(createProfileRequest);
+//  }
 }

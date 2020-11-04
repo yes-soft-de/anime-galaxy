@@ -33,32 +33,32 @@ class MyProfileService {
     );
   }
 
-  Future<ProfileResponse> createProfile(
-    String username,
-    String userImage,
-    String story,
-  ) async {
-    String userId = await _authService.userID;
-
-    CreateProfileRequest request = CreateProfileRequest(
-        userName: username,
-        image: userImage,
-        location: 'Saudi Arabia',
-        story: story,
-        userID: userId);
-
-    ProfileResponse response = await _manager.createMyProfile(request);
-    if (response == null) return null;
-    await _preferencesHelper.setUserName(response.data.userName);
-    await _preferencesHelper.setUserImage(response.data.image);
-    await _preferencesHelper.setUserLocation(response.data.location);
-    await _preferencesHelper.setUserStory(response.data.story);
-    await _generalProfileService.setUserProfile(
-        userId,
-        ProfileModel(
-          name: response.data.userName,
-          image: response.data.image,
-        ));
-    return response;
-  }
+//  Future<ProfileResponse> createProfile(
+//    String username,
+//    String userImage,
+//    String story,
+//  ) async {
+//    String userId = await _authService.userID;
+//
+//    CreateProfileRequest request = CreateProfileRequest(
+//        userName: username,
+//        image: userImage,
+//        location: 'Saudi Arabia',
+//        story: story,
+//        userID: userId);
+//
+//    ProfileResponse response = await _manager.createMyProfile(request);
+//    if (response == null) return null;
+//    await _preferencesHelper.setUserName(response.data.userName);
+//    await _preferencesHelper.setUserImage(response.data.image);
+//    await _preferencesHelper.setUserLocation(response.data.location);
+//    await _preferencesHelper.setUserStory(response.data.story);
+//    await _generalProfileService.setUserProfile(
+//        userId,
+//        ProfileModel(
+//          name: response.data.userName,
+//          image: response.data.image,
+//        ));
+//    return response;
+//  }
 }

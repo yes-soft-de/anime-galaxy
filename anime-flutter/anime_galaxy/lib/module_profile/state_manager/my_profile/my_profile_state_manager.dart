@@ -1,3 +1,4 @@
+import 'package:anime_galaxy/module_profile/service/profile/profile.service.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:inject/inject.dart';
 import 'package:rxdart/rxdart.dart';
@@ -13,26 +14,35 @@ class MyProfileStateManager {
 
   final ImageUploadService _uploadService;
   final MyProfileService _myProfileService;
+  final ProfileService _profileService;
 
-  MyProfileStateManager(this._uploadService, this._myProfileService);
+  MyProfileStateManager(
+      this._uploadService,
+      this._myProfileService,
+      this._profileService
+      );
 
-  void setMyProfile(String username, String about, String image) {
-    _myProfileService.createProfile(username, image, about).then((value) {
-      if (value == null) {
-        Fluttertoast.showToast(msg: 'Error Submitting Profile');
-      } else {
-        _stateSubject.add(MyProfileStateUpdateSuccess());
-      }
-    });
+  void getProfile(String userId){
+
   }
 
-  void upload(String imagePath) {
-    this._uploadService.uploadImage(imagePath).then((value) {
-      if (value == null) {
-        Fluttertoast.showToast(msg: 'Error Uploading Image');
-      } else {
-        _stateSubject.add(MyProfileStateImageUploadSuccess(value));
-      }
-    });
-  }
+//  void setMyProfile(String username, String about, String image) {
+//    _myProfileService.createProfile(username, image, about).then((value) {
+//      if (value == null) {
+//        Fluttertoast.showToast(msg: 'Error Submitting Profile');
+//      } else {
+//        _stateSubject.add(MyProfileStateUpdateSuccess());
+//      }
+//    });
+//  }
+//
+//  void upload(String imagePath) {
+//    this._uploadService.uploadImage(imagePath).then((value) {
+//      if (value == null) {
+//        Fluttertoast.showToast(msg: 'Error Uploading Image');
+//      } else {
+//        _stateSubject.add(MyProfileStateImageUploadSuccess(value));
+//      }
+//    });
+//  }
 }

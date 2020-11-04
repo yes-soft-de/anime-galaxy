@@ -9,17 +9,17 @@ class MyProfileRepository {
   final ApiClient _apiClient;
   MyProfileRepository(this._apiClient);
 
-  Future<ProfileResponse> getMyProfile() async {
-    Map<String, dynamic> response = await _apiClient.get(Urls.API_PROFILE);
+  Future<ProfileResponse> getProfile(String userId) async {
+    Map<String, dynamic> response = await _apiClient.get(Urls.API_PROFILE+userId);
 
     return response ?? ProfileResponse.fromJson(response);
   }
 
-  Future<ProfileResponse> createMyProfile(
-      CreateProfileRequest profileRequest) async {
-    Map<String, dynamic> response =
-        await _apiClient.post(Urls.API_PROFILE, profileRequest.toJson());
-
-    return response == null ? null : ProfileResponse.fromJson(response);
-  }
+//  Future<ProfileResponse> createMyProfile(
+//      CreateProfileRequest profileRequest) async {
+//    Map<String, dynamic> response =
+//        await _apiClient.post(Urls.API_PROFILE, profileRequest.toJson());
+//
+//    return response == null ? null : ProfileResponse.fromJson(response);
+//  }
 }
