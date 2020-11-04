@@ -76,7 +76,7 @@ class HomeRepository{
      List<AnimeResponse> series = [];
      dynamic res = response['Data'];
      for(int i = 0; i<res.length; i++){
-       series.add(await getAnime(res[i]['animeID']));
+       series.add(await getAnime(res[i]['id']));
      }
 
      return series;
