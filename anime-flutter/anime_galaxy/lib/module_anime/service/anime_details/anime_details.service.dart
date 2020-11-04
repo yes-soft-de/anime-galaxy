@@ -2,6 +2,7 @@
 import 'package:anime_galaxy/module_anime/manager/anime_details/anime_details.manager.dart';
 import 'package:anime_galaxy/module_anime/model/anime_model/anime_model.dart';
 import 'package:anime_galaxy/module_anime/request/comment_request/comment_request.dart';
+import 'package:anime_galaxy/module_anime/request/favourite_request/favourite_request.dart';
 import 'package:anime_galaxy/module_anime/response/anime_response/anime_response.dart';
 import 'package:anime_galaxy/module_anime/response/comment_response/comment_response.dart';
 import 'package:anime_galaxy/module_anime/response/episode_response/episode_response.dart';
@@ -33,7 +34,7 @@ class AnimeDetailsService{
     anime.showYear = '2020';
     anime.about = response.description;
     anime.isFollowed = response.isFollowed;
-
+    anime.categoryID = response.categoryID;
     anime.episodes = getEpisodes(response.episodes);
 
     return anime;
@@ -84,5 +85,16 @@ class AnimeDetailsService{
     );
 
     return await _detailsManager.addComment(commentRequest);
+  }
+
+  Future<bool> addToFavourite(int animeId, int categoryId)async{
+    FavouriteRequest request = new FavouriteRequest(
+      categoryID: categoryId.toString(),
+      animeID: animeId.toString(),
+      //TODO : change it to real logged in userId
+      userID: 'zoz'
+    );
+
+    return await _detailsManager.addToFavourite(request);
   }
 }

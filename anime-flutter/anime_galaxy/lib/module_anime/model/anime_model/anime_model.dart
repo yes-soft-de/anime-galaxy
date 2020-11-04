@@ -10,6 +10,7 @@ class AnimeModel{
     List<Comment> comments;
     List<Episode> episodes;
     bool isFollowed;
+    int categoryID;
 
     AnimeModel({
       this.commentsNumber,
@@ -23,6 +24,7 @@ class AnimeModel{
       this.comments,
       this.episodes,
       this.isFollowed,
+      this.categoryID,
 });
 }
 

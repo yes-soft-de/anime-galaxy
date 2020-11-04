@@ -10,6 +10,7 @@ class AnimeResponse {
   double rating;
   Interactions interactions;
   String description;
+  int categoryID;
   List<EpisodeResponse> episodes;
   List<CommentResponse> comments;
   bool isFollowed;
@@ -26,11 +27,13 @@ class AnimeResponse {
         this.description,
         this.comments,
         this.isFollowed,
+        this.categoryID,
       });
 
   AnimeResponse.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
+    categoryID = json['categoryID'];
     mainImage = json['mainImage'];
     images = json['images'].cast<String>();
     categoryName = json['categoryName'];
@@ -45,6 +48,7 @@ class AnimeResponse {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['id'] = this.id;
     data['name'] = this.name;
+    data['categoryID'] = this.categoryID;
     data['mainImage'] = this.mainImage;
     data['images'] = this.images;
     data['categoryName'] = this.categoryName;

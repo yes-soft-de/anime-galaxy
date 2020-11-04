@@ -98,6 +98,8 @@ class AnimeDetailsRepository{
      });
 
      if(response == null) return null;
+
+     return true;
    }
 
 
