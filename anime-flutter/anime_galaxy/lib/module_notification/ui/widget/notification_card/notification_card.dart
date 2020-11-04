@@ -35,31 +35,31 @@ class NotificationCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
 
+                    Row(
 
+              children: [
+                        CircularImage(w: 50,h:50,linkImg: image),
+
+
+
+                        SizedBox(width: 10,),
+
+                        Text(
+                          content,
+                          style: TextStyle(
+                              fontSize: 8,
+                              fontWeight: FontWeight.bold
+                          ),
+                        ),
+              ],
+            ),
                     Text(
                         date,
                       style: TextStyle(
                       fontSize: 7
                    ),
                     ),
-                     Row(
 
-                       children: [
-
-
-                              Text(
-                               content,
-                               style: TextStyle(
-                                   fontSize: 8,
-                                 fontWeight: FontWeight.bold
-                               ),
-                             ),
-
-                              SizedBox(width: 10,),
-
-                         CircularImage(w: 50,h:50,linkImg: image)
-                       ],
-                     )
           ],
         ),
       ),

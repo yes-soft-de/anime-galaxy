@@ -29,7 +29,7 @@ class AnimeCategoryCard extends StatelessWidget {
       ),
 
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
             Text(
                 name,

@@ -45,7 +45,7 @@ class HomeRepository{
   Future<List<AnimeResponse>> getWatchedSeries(String userId)async{
    dynamic response = await _httpClient.get(Urls.API_FAVOURITE_ANIMES +'$userId');
 
-   if(response == null) return null;
+   if(response == null) return [];
    
    List<AnimeResponse> series = [];
    dynamic res = response['Data'];
@@ -77,7 +77,7 @@ class HomeRepository{
   Future<List<ComingSoonEpisodesResponse>> getEpisodesComingSoon()async{
     dynamic response = await _httpClient.get(Urls.API_EPISODES_COMING_SOON);
 
-    if(response == null) return null;
+    if(response == null) return [];
 
     List<ComingSoonEpisodesResponse> episodes = [];
 
@@ -91,6 +91,8 @@ class HomeRepository{
 
   Future<PointsResponse> getUserPoints(String userId)async{
     dynamic response = await _httpClient.get(Urls.API_USER_POINTS+userId);
+    if(response == null ) return null;
+
     dynamic res = response['Data'];
     return PointsResponse.fromJson(res);
   }

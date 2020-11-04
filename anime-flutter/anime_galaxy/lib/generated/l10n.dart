@@ -1074,6 +1074,36 @@ class S {
       args: [],
     );
   }
+
+  /// `متابع`
+  String get isFollowed {
+    return Intl.message(
+      'متابع',
+      name: 'isFollowed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `مساعدة`
+  String get help {
+    return Intl.message(
+      'مساعدة',
+      name: 'help',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تعديل`
+  String get edit {
+    return Intl.message(
+      'تعديل',
+      name: 'edit',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

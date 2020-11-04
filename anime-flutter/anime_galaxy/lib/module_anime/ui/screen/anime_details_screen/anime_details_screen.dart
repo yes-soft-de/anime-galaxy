@@ -5,6 +5,7 @@ import 'package:anime_galaxy/module_anime/state_manager/anime_details/anime_deta
 import 'package:anime_galaxy/module_anime/ui/widget/anime_details_widget/ainme_details_widget.dart';
 import 'package:anime_galaxy/module_anime/ui/widget/comment_card/comment_card.dart';
 import 'package:anime_galaxy/module_anime/ui/widget/episode_card/episode_card.dart';
+import 'package:anime_galaxy/module_episode/episode_routes.dart';
 import 'package:anime_galaxy/module_navigation/ui/widget/navigation_drawer/anime_navigation_drawer.dart';
 import 'package:anime_galaxy/module_rating/ui/widget/rating_bar.dart';
 import 'package:anime_galaxy/utils/app_bar/anime_galaxy_app_bar.dart';
@@ -62,15 +63,22 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
     }
     if (currentState is AnimeDetailsStateCommentingSuccess) {
       anime.comments.insert(0,
-        new Comment(
-          content: _commentController.text,
-          //TODO : use logged in user information
-          userName:'zoz',
-          userImage:'https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=100&q=60 100w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=60 200w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=60 300w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60 400w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60 500w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60 600w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60 700w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60 800w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60 900w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60 1000w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=60 1100w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1200&q=60 1200w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1296&q=60 1296w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60 1400w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=60 1600w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1800&q=60 1800w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=60 2000w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2200&q=60 2200w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2400&q=60 2400w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2592&q=60 2592w' ,
-          date: '21 Jun'
-        )
+          new Comment(
+              content: _commentController.text,
+              //TODO : use logged in user information
+              userName:'zoz',
+              userImage:'https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=100&q=60 100w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=60 200w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=60 300w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60 400w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60 500w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60 600w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60 700w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60 800w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60 900w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60 1000w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=60 1100w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1200&q=60 1200w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1296&q=60 1296w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60 1400w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=60 1600w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1800&q=60 1800w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=60 2000w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2200&q=60 2200w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2400&q=60 2400w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2592&q=60 2592w' ,
+              date: '21 Jun'
+          )
       ) ;
       _commentController.text='';
+
+      if (this.mounted) {
+        setState(() {});
+      }
+    }
+    if (currentState is AnimeDetailsStateAddToFavouriteSuccess) {
+       anime.isFollowed = true;
 
       if (this.mounted) {
         setState(() {});
@@ -171,7 +179,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
           ),
 
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
+//      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
     );
   }
 
@@ -186,50 +194,67 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
                 likes: anime.likesNumber,
                 rate: anime.rate,
                 showYear: anime.showYear,
-                image : anime.image
+                image : anime.image,
+                isFollowed : anime.isFollowed,
+                onFollow:()=>  widget._stateManager.addToFavourite(animeId,anime.categoryID),
             ),
             //rating the series
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                AnimeRatingBar(
-                  rating: rating,
-                  fillIcon: Icon(Icons.favorite,color: ProjectColors.ThemeColor,  ),
-                  halfFillIcon: Icon(Icons.favorite_border,color: ProjectColors.ThemeColor,  ),
-                  emptyIcon: Icon(Icons.favorite_border,color: ProjectColors.ThemeColor, ),
-                  onRatingChanged: (rating) => setState(() => this.rating = rating),
-                  itemSize:25,
-                  itemCount: 10,
-                ),
-//                RatingBar(
-//                initialRating: 2,
-//                direction: Axis.horizontal,
-//                itemSize: 30,
-////                allowHalfRating: true,
-//                itemCount: 5,
-//                ratingWidget: RatingWidget(
-//                  full: Icon(Icons.favorite,color: ProjectColors.ThemeColor,  ),
-////                  half: _image('assets/heart_half.png'),
-//                  empty: Icon(Icons.favorite_border,color: ProjectColors.ThemeColor, ),
-//                ),
-//                itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-//                onRatingUpdate: (rating) {
-//                  print(rating);
-//                },
-//              ),
                 Text(
                   S.of(context).RateSeries,
                   style: TextStyle(
                       fontSize: 14
                   ),
-                )
+                ),
+                RotatedBox(
+                  quarterTurns: 2,
+                  child: AnimeRatingBar(
+                    rating: rating,
+                    fillIcon: Icon(Icons.favorite,color: ProjectColors.ThemeColor,  ),
+                    halfFillIcon: Icon(Icons.favorite_border,color: ProjectColors.ThemeColor,  ),
+                    emptyIcon: Icon(Icons.favorite_border,color: ProjectColors.ThemeColor, ),
+                    onRatingChanged: (rating) => setState(() => this.rating = rating),
+                    itemSize:25,
+                    itemCount: 10,
+                  ),
+                ),
+
+
+//                RotatedBox(
+//                  quarterTurns: 2,
+//                  child: RatingBar(
+//                  initialRating: 2,
+//                  direction: Axis.horizontal,
+//                  itemSize: 16,
+////                allowHalfRating: true,
+//                  itemCount: 10,
+//                  ratingWidget: RatingWidget(
+//                    full: RotatedBox(
+//                        quarterTurns: 2,
+//                        child: Icon(Icons.favorite,color: ProjectColors.ThemeColor,  )
+//                    ),
+////                  half: _image('assets/heart_half.png'),
+//                    empty: RotatedBox(
+//                      quarterTurns: 2,
+//                        child: Icon(Icons.favorite_border,color: ProjectColors.ThemeColor, )
+//                    ),
+//                  ),
+//                  itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+//                  onRatingUpdate: (rating) {
+//                    print(rating);
+//                  },
+//              ),
+//                ),
+
 
               ],
             ),
 
             //Statistics
             Row(
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(S.of(context).statics),
                 SizedBox(width: 10,)
@@ -238,6 +263,13 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+
+                Text(
+                  S.of(context).generalEvaluation,
+                  style: TextStyle(
+                      fontSize: 14
+                  ),
+                ),
                 LinearPercentIndicator(
                   width: MediaQuery.of(context).size.width *0.5,
                   animation: true,
@@ -246,18 +278,19 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
                   percent: 0.8 ,
                   linearStrokeCap: LinearStrokeCap.roundAll,
                   progressColor: Color(0xfff77f00),
-                ),
-                Text(
-                    S.of(context).generalEvaluation,
-                  style: TextStyle(
-                    fontSize: 14
-                  ),
                 ),
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+
+                Text(
+                  S.of(context).monthlyComments,
+                  style: TextStyle(
+                      fontSize: 14
+                  ),
+                ),
                 LinearPercentIndicator(
                   width: MediaQuery.of(context).size.width *0.5,
                   animation: true,
@@ -266,12 +299,6 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
                   percent: 0.8 ,
                   linearStrokeCap: LinearStrokeCap.roundAll,
                   progressColor: Color(0xfff77f00),
-                ),
-                Text(
-                    S.of(context).monthlyComments,
-                  style: TextStyle(
-                      fontSize: 14
-                  ),
                 ),
               ],
             ),
@@ -281,7 +308,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
             Container(
               padding: EdgeInsetsDirectional.fromSTEB(0, 5, 5, 5),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
                     S.of(context).About,
@@ -359,26 +386,25 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                   Text(
+                    S.of(context).Classification,
+                    style: TextStyle(
+                        fontSize: 10
+                    ),
+                  ),
                   Text(
                     S.of(context).More,
                     style: TextStyle(
                         fontSize: 10
                     ),
                   ),
-                  Text(
-                    S.of(context).Classification,
-                    style: TextStyle(
-                        fontSize: 10
-                    ),
-                  ),
+
                 ],
               ),
             ),
 
             //classifications
-            RotatedBox(
-              quarterTurns: 2,
-              child: Row(
+              Row(
                 children: [
                   Container(
                     padding: EdgeInsetsDirectional.fromSTEB(10, 5, 10, 5),
@@ -388,15 +414,12 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
                     border: Border.all(color: Colors.black38)
                   ),
                       child: Center(
-                          child: RotatedBox(
-                          quarterTurns: 2,
-                                child: Text(
+                           child: Text(
                                 '${anime.classification}',
                                 style: TextStyle(
                                 fontSize: 10
                                 ),
                                 )
-                          )
                       )
                   ),
                 ],
@@ -423,7 +446,6 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
                   );
                 }),*/
               ),
-            ),
 
             //divider
             Container(
@@ -436,7 +458,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
             Container(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 0, 5, 0),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
                       S.of(context).LastEpisodes,
@@ -453,10 +475,17 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
               physics: NeverScrollableScrollPhysics(),
               itemBuilder: (BuildContext context, int index){
 
-              return  EpisodeCard(
-                image: anime.episodes[index].image,
-                episodeNumber: anime.episodes[index].episodeNumber,
-                classification: anime.episodes[index].classification,
+              return  GestureDetector(
+                onTap: ()=> Navigator.pushNamed(
+                    context,
+                    EpisodeRoutes.ROUTE_EPISODE_DETAILS_SCREEN,
+                    arguments:anime.episodes[index].id
+                ),
+                child: EpisodeCard(
+                  image: anime.episodes[index].image,
+                  episodeNumber: anime.episodes[index].episodeNumber,
+                  classification: anime.episodes[index].classification,
+                ),
               );
             },
               padding: EdgeInsets.symmetric(horizontal: 10),
@@ -473,7 +502,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
             Container(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 0, 5, 0),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
                       S.of(context).LastReplaysAndComments,

@@ -111,7 +111,7 @@ class _InitAccountScreenState extends State<InitAccountScreen> with TickerProvid
                 Container(
                   padding: EdgeInsetsDirectional.fromSTEB(0, 5, 5, 5),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
                         S.of(context).startWachingSeries,
