@@ -39,6 +39,10 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>We Need to Access The Camera to Take Pics Please :)</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>We Need to Access The Mic to record videos :)</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 </dict>
