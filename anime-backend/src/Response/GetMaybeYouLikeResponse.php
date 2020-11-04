@@ -11,6 +11,7 @@ class GetMaybeYouLikeResponse
     public $animeMainImage;
     public $rating;    
     public $categoryName;    
+    public $categoryID;    
 
 
     /**

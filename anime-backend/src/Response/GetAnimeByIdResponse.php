@@ -11,6 +11,7 @@ class GetAnimeByIdResponse
     public $mainImage;
     public $images;
     public $categoryName;
+    public $categoryID;
     public $interactions;
     public $comments;
     public $rating;
