@@ -4,7 +4,7 @@ class Urls {
   static const API_PROFILE = BASE_API + '/userprofile';
   static const API_ANIME = BASE_API + '/anime';
   static const API_CATEGORY = BASE_API + '/category';
-  static const API_EPISODE = BASE_API + '/episode';
+  static const API_EPISODE = BASE_API + '/episode/';
   static const API_ANIME_EPISODES = BASE_API + '/animeEpisodes/';
   static const API_ALL_COMMENTS = BASE_API +'/comments/';
   static const API_COMMENT = BASE_API+ '/comment';
@@ -18,6 +18,9 @@ class Urls {
   static const API_USER_POINTS = BASE_API + '/grade/';
   static const API_EPISODES_COMING_SOON = BASE_API + '/episodesComingSoon';
   static const API_ACTIVE_USERS = BASE_API + '/top50';
+  static const API_EPISODE_COMMENT = BASE_API + '/commentEpisode';
+  static const API_ALL_EPISODE_COMMENTS = BASE_API + '/commentsEpisode/';
+
 
   static const API_SIGN_UP = BASE_API + '/register';
   static const API_CREATE_TOKEN = BASE_API + '/login_check';

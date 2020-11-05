@@ -116,6 +116,13 @@
                 "qualifier": null
               },
               "isProvider": false
+            },
+            {
+              "lookupKey": {
+                "root": "asset:anime_galaxy/lib/module_episode/episode_module.dart#EpisodeModlue",
+                "qualifier": null
+              },
+              "isProvider": false
             }
           ]
         }

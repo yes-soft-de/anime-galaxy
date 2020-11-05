@@ -1,8 +1,8 @@
+import 'package:anime_galaxy/anime_setting/ui/screen/anim_setting.dart';
 import 'package:anime_galaxy/module_explore/ui/screen/explore_screen/explore_screen.dart';
 import 'package:anime_galaxy/module_home/ui/screens/home_screen.dart';
 import 'package:anime_galaxy/module_navigation/ui/widget/navigation_drawer/anime_navigation_drawer.dart';
 import 'package:anime_galaxy/module_notification/ui/screen/notification_screen/notification_screen.dart';
-import 'package:anime_galaxy/module_settings/ui/ui/settings_page/settings_page.dart';
 import 'package:anime_galaxy/utils/app_bar/anime_galaxy_app_bar.dart';
 import 'package:anime_galaxy/utils/project_colors/project_color.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +13,7 @@ class MainScreen extends StatefulWidget {
 
   final HomeScreen _homeScreen;
   final NotificationScreen _notificationScreen;
-  final SettingsPage _settingsScreen;
+  final AnimSetting _settingsScreen;
   final ExploreScreen _exploreScreen;
 
   MainScreen(
@@ -30,7 +30,8 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
-  int _pageIndex = 0;
+  //TODO : change it to 4 after adding profile screen to the BottomNavigationBar
+  int _pageIndex = 3;
   PageController _pageController;
 
 
@@ -66,10 +67,10 @@ class _MainScreenState extends State<MainScreen> {
             fixedColor: Colors.white,
             unselectedItemColor: Colors.grey,
             items: <BottomNavigationBarItem>[
-              BottomNavigationBarItem( icon: Icon(Icons.dashboard),title: Container(height: 0.0)),
-              BottomNavigationBarItem(icon: Icon(Icons.notifications), title: Container(height: 0.0)),
-              BottomNavigationBarItem(icon: Icon(Icons.explore), title: Container(height: 0.0)),
               BottomNavigationBarItem(icon: Icon(Icons.settings), title: Container(height: 0.0)),
+              BottomNavigationBarItem(icon: Icon(Icons.explore), title: Container(height: 0.0)),
+              BottomNavigationBarItem(icon: Icon(Icons.notifications), title: Container(height: 0.0)),
+              BottomNavigationBarItem( icon: Icon(Icons.dashboard),title: Container(height: 0.0)),
             ],
 
           ),
@@ -77,10 +78,10 @@ class _MainScreenState extends State<MainScreen> {
       ),
       body: PageView(
         children: [
-          widget._homeScreen,
-          widget._notificationScreen,
-          widget._exploreScreen,
           widget._settingsScreen,
+          widget._exploreScreen,
+          widget._notificationScreen,
+          widget._homeScreen,
 
         ],
         onPageChanged: onPageChanged,

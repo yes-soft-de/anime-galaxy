@@ -45,4 +45,18 @@ class AnimeDetailsStateManager {
     });
   }
 
+  void addToFavourite(int animeId, int categoryId){
+    this._stateSubject.add(AnimeDetailsStateAddToFavouriteInProgress());
+
+    this._animeDetailsService.addToFavourite(animeId,categoryId ).then((value) {
+      if(value == null || value == false){
+        Fluttertoast.showToast(msg: S.current.ommentingError);
+        this._stateSubject.add(AnimeDetailsStateAddToFavouriteError());
+      }else{
+        this._stateSubject.add(AnimeDetailsStateAddToFavouriteSuccess());
+      }
+    });
+
+  }
+
 }

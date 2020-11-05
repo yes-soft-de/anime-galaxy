@@ -82,6 +82,7 @@ import '../../module_init_account/service/init_account/init_account.service.dart
 import '../../module_init_account/manager/init_account/init_account.manager.dart'
     as _i60;
 import '../../module_init_account/repository/init_account/init_account.repository.dart'
+
     as _i61;
 import '../../main_screen/main_screen_module.dart' as _i62;
 import '../../main_screen/ui/screen/main_screen.dart' as _i63;
@@ -101,6 +102,7 @@ import '../../anime_auth/ui/screen/sign_up/sign_up.dart' as _i74;
 import '../../anime_auth/style_auth.dart' as _i75;
 import '../../anime_auth/ui/screen/sign_in/sign_in.dart' as _i76;
 import '../../module_explore/explore_module.dart' as _i77;
+
 
 class AppComponent$Injector implements _i1.AppComponent {
   AppComponent$Injector._();
@@ -131,7 +133,8 @@ class AppComponent$Injector implements _i1.AppComponent {
       _createMainScreenModule(),
       _createSettingModule(),
       _createAuthModuleAnime(),
-      _createExploreModule());
+      _createExploreModule(),
+      _createEpisodeModlue());
   _i7.ChatModule _createChatModule() =>
       _i7.ChatModule(_createChatPage(), _createAuthGuard());
   _i8.ChatPage _createChatPage() => _i8.ChatPage(_createChatPageBloc());
@@ -249,7 +252,7 @@ class AppComponent$Injector implements _i1.AppComponent {
   _i63.MainScreen _createMainScreen() => _i63.MainScreen(
       _createNotificationScreen(),
       _createHomeScreen(),
-      _createSettingsPage(),
+      _createAnimSetting(),
       _createExploreScreen());
   _i64.SettingsPage _createSettingsPage() => _i64.SettingsPage(
       _createAuthService(),

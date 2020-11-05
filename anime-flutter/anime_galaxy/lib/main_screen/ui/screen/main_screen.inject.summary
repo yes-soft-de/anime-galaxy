@@ -35,7 +35,7 @@
             },
             {
               "lookupKey": {
-                "root": "asset:anime_galaxy/lib/module_settings/ui/ui/settings_page/settings_page.dart#SettingsPage",
+                "root": "asset:anime_galaxy/lib/anime_setting/ui/screen/anim_setting.dart#AnimSetting",
                 "qualifier": null
               },
               "isProvider": false
