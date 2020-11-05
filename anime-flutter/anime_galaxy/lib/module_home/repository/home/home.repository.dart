@@ -8,14 +8,14 @@ import 'package:anime_galaxy/module_network/http_client/http_client.dart';
 import 'package:inject/inject.dart';
 
 
-List<Series> mayLikedSeries =[
-  new Series(id :1 ,name: 'دكتور ستون-Dr.Stone',image: 'https://i.pinimg.com/236x/5b/27/06/5b2706b1d6459ca81b4576a122844fdc.jpg',classification: 'أكشن شاونين'),
-  new Series(id :1 ,name: 'دكتور ستون-Dr.Stone',image: 'https://i.pinimg.com/236x/5b/27/06/5b2706b1d6459ca81b4576a122844fdc.jpg',classification: 'أكشن شاونين'),
-  new Series(id :1 ,name: 'دكتور ستون-Dr.Stone',image: 'https://i.pinimg.com/236x/5b/27/06/5b2706b1d6459ca81b4576a122844fdc.jpg',classification: 'أكشن شاونين'),
-  new Series(id :1 ,name: 'دكتور ستون-Dr.Stone',image: 'https://i.pinimg.com/236x/5b/27/06/5b2706b1d6459ca81b4576a122844fdc.jpg',classification: 'أكشن شاونين'),
-  new Series(id :1 ,name: 'دكتور ستون-Dr.Stone',image: 'https://i.pinimg.com/236x/5b/27/06/5b2706b1d6459ca81b4576a122844fdc.jpg',classification: 'أكشن شاونين'),
-  new Series(id :1 ,name: 'دكتور ستون-Dr.Stone',image: 'https://i.pinimg.com/236x/5b/27/06/5b2706b1d6459ca81b4576a122844fdc.jpg',classification: 'أكشن شاونين'),];
-
+//List<Series> mayLikedSeries =[
+//  new Series(id :1 ,name: 'دكتور ستون-Dr.Stone',image: 'https://i.pinimg.com/236x/5b/27/06/5b2706b1d6459ca81b4576a122844fdc.jpg',classification: 'أكشن شاونين'),
+//  new Series(id :1 ,name: 'دكتور ستون-Dr.Stone',image: 'https://i.pinimg.com/236x/5b/27/06/5b2706b1d6459ca81b4576a122844fdc.jpg',classification: 'أكشن شاونين'),
+//  new Series(id :1 ,name: 'دكتور ستون-Dr.Stone',image: 'https://i.pinimg.com/236x/5b/27/06/5b2706b1d6459ca81b4576a122844fdc.jpg',classification: 'أكشن شاونين'),
+//  new Series(id :1 ,name: 'دكتور ستون-Dr.Stone',image: 'https://i.pinimg.com/236x/5b/27/06/5b2706b1d6459ca81b4576a122844fdc.jpg',classification: 'أكشن شاونين'),
+//  new Series(id :1 ,name: 'دكتور ستون-Dr.Stone',image: 'https://i.pinimg.com/236x/5b/27/06/5b2706b1d6459ca81b4576a122844fdc.jpg',classification: 'أكشن شاونين'),
+//  new Series(id :1 ,name: 'دكتور ستون-Dr.Stone',image: 'https://i.pinimg.com/236x/5b/27/06/5b2706b1d6459ca81b4576a122844fdc.jpg',classification: 'أكشن شاونين'),];
+//
 
 
 @provide
@@ -29,7 +29,7 @@ class HomeRepository{
     PointsResponse points = await getUserPoints(userId);
     List<ComingSoonEpisodesResponse> episodes = await getEpisodesComingSoon();
     List<AnimeResponse> watchedSeries = await getWatchedSeries(userId);
-    List<Series> mayLikedSeries = await getMayLikedSeries();
+    List<AnimeResponse> mayLikedSeries = await getMayLikedSeries(userId);
 
 
     HomeResponse result = new HomeResponse(
@@ -68,9 +68,19 @@ class HomeRepository{
     return anime;
   }
 
-  //TODO : change this when there is a result from the backend
-  Future<List<Series>> getMayLikedSeries()async{
-    return mayLikedSeries;
+
+  Future<List<AnimeResponse>> getMayLikedSeries(String userId)async{
+     dynamic response = await _httpClient.get(Urls.API_ANIME_YOU_MAY_LIKE+'$userId');
+     if(response == null) return [];
+
+     List<AnimeResponse> series = [];
+     dynamic res = response['Data'];
+     for(int i = 0; i<res.length; i++){
+       series.add(await getAnime(res[i]['id']));
+     }
+
+     return series;
+
   }
 
 

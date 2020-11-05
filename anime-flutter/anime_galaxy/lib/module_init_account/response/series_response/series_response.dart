@@ -2,7 +2,7 @@ class SeriesResponse {
   int id;
   String name;
   String mainImage;
-  Null rating;
+  double rating;
   String comments;
   Interaction interaction;
 
@@ -18,7 +18,7 @@ class SeriesResponse {
     id = json['id'];
     name = json['name'];
     mainImage = json['mainImage'];
-    rating = json['rating'];
+    rating   != null ? json['rating'] :0.0;
     comments = json['comments'];
     interaction = json['interaction'] != null
         ? new Interaction.fromJson(json['interaction'])

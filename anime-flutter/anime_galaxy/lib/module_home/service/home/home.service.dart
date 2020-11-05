@@ -16,21 +16,19 @@ class HomeService{
     //TODO : change the passed id to real id of logged in user
     HomeResponse response = await _homeManager.getHomePageDetails('zoz');
 
-    response.watchedSeries.forEach((element) {
-      print('soso + ${element.name}');
-    });
 
     HomeModel homeModel = new HomeModel(
-      watchedSeries: getWatchedSeries(response.watchedSeries),
+      watchedSeries: getSeries(response.watchedSeries),
       points: response.points.points,
-      //TODO : change this to real data
-      mayLikeSeries: response.mayLikedSeries,
+      mayLikeSeries: getSeries(response.mayLikedSeries),
       newEpisodes: getEpisodes(response.comingSoonEpisodes)
     );
     return homeModel;
   }
 
-  List<Series> getWatchedSeries(List<AnimeResponse> animeResponses){
+
+
+  List<Series> getSeries(List<AnimeResponse> animeResponses){
     List<Series> seriesList =[];
 
     animeResponses.forEach((element) {

@@ -5,7 +5,7 @@ class AnimeResponse {
   String mainImage;
   List<String> images;
   String categoryName;
-  double rating;
+//  double rating;
   Interactions interactions;
   String description;
 
@@ -16,7 +16,7 @@ class AnimeResponse {
         this.mainImage,
         this.images,
         this.categoryName,
-        this.rating,
+//        this.rating,
         this.interactions,
         this.description,
       });
@@ -28,7 +28,7 @@ class AnimeResponse {
     images = json['images'].cast<String>();
     categoryName = json['categoryName'];
     description = json['description'];
-    rating = json['rating'];
+//    rating = json['rating'];
     interactions = json['interactions'] != null
         ? new Interactions.fromJson(json['interactions'])
         : null;
@@ -42,7 +42,7 @@ class AnimeResponse {
     data['images'] = this.images;
     data['categoryName'] = this.categoryName;
     data['description'] = this.description;
-    data['rating'] = this.rating;
+//    data['rating'] = this.rating;
     if (this.interactions != null) {
       data['interactions'] = this.interactions.toJson();
     }

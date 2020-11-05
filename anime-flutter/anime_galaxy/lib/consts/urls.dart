@@ -14,7 +14,7 @@ class Urls {
   static const API_HIGHEST_RATED_ANIMES = BASE_API +'/getHighestRatedAnime';
   static const API_HIGHEST_RATED_ANIMES_BY_USER = BASE_API +'/getHighestRatedAnime/';
   static const API_COMING_SOON_ANIMES = BASE_API + '/animeCommingSoon';
-  static const API_ANIME_YOU_MAY_LIKE = BASE_API + '/getMaybeYouLike';
+  static const API_ANIME_YOU_MAY_LIKE = BASE_API + '/getMaybeYouLike/';
   static const API_USER_POINTS = BASE_API + '/grade/';
   static const API_EPISODES_COMING_SOON = BASE_API + '/episodesComingSoon';
   static const API_ACTIVE_USERS = BASE_API + '/top50';
