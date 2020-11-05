@@ -1,13 +1,17 @@
+import 'dart:io';
+
+import 'package:anime_galaxy/utils/app_bar/anime_galaxy_app_bar.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:inject/inject.dart';
+import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import 'package:anime_galaxy/generated/l10n.dart';
 import 'package:anime_galaxy/module_auth/state_manager/auth_state_manager/auth_state_manager.dart';
 import 'package:anime_galaxy/module_auth/states/auth_states/auth_states.dart';
 import 'package:anime_galaxy/module_profile/profile_routes.dart';
 import 'package:anime_galaxy/module_theme/service/theme_service/theme_service.dart';
-import 'package:anime_galaxy/utils/app_bar/anime_galaxy_app_bar.dart';
 
 @provide
 class AuthScreen extends StatefulWidget {
@@ -39,10 +43,8 @@ class _AuthScreenState extends State<AuthScreen> {
     redirectTo =
         redirectTo == null ? redirectTo : ProfileRoutes.MY_ROUTE_PROFILE;
 
-    Future.delayed(Duration(seconds: 1)).then((value) {
-      widget.manager.isSignedIn().then((value) {
-        if (value) Navigator.of(context).pushReplacementNamed(redirectTo);
-      });
+    widget.manager.isSignedIn().then((value) {
+      if (value) Navigator.of(context).pushReplacementNamed(redirectTo);
     });
 
     widget.manager.stateStream.listen((event) {
@@ -66,7 +68,6 @@ class _AuthScreenState extends State<AuthScreen> {
   void _getUI() {
     if (_currentState is AuthStateCodeSent) {
       pageLayout = Scaffold(
-          resizeToAvoidBottomInset: false,
           appBar: AnimeGalaxyAppBar.getBackEnabledAppBar(),
           body: _getCodeSetter());
       if (mounted) setState(() {});
@@ -75,7 +76,6 @@ class _AuthScreenState extends State<AuthScreen> {
       if (mounted) setState(() {});
     } else {
       pageLayout = Scaffold(
-        resizeToAvoidBottomInset: false,
         appBar: AnimeGalaxyAppBar.getBackEnabledAppBar(),
         body: _getPhoneSetter(),
       );
@@ -94,7 +94,9 @@ class _AuthScreenState extends State<AuthScreen> {
           Flex(
             direction: Axis.vertical,
             children: [
-              SvgPicture.asset('assets/images/logo.svg'),
+              MediaQuery.of(context).viewInsets.bottom == 0
+                  ? Image.asset('assets/images/logo_dark.png')
+                  : Container(),
               Text(_phoneController.text.trim()),
             ],
           ),
@@ -103,13 +105,13 @@ class _AuthScreenState extends State<AuthScreen> {
             child: TextFormField(
                 controller: _confirmationController,
                 decoration: InputDecoration(
-                  labelText: 'Confirmation Code',
+                  labelText:'Confirmation Code',
                   hintText: '12345',
                 ),
                 keyboardType: TextInputType.number,
                 validator: (v) {
                   if (v.isEmpty) {
-                    return 'Please Input Phone Number';
+                    return S.of(context).pleaseInputPhoneNumber;
                   }
                   return null;
                 }),
@@ -129,7 +131,9 @@ class _AuthScreenState extends State<AuthScreen> {
                   Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Text(
-                      loading == false ? S.of(context).confirm : 'Loading!',
+                      loading == false
+                          ? S.of(context).confirm
+                          : S.of(context).loading,
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
@@ -156,30 +160,66 @@ class _AuthScreenState extends State<AuthScreen> {
         children: [
           Flex(
             direction: Axis.vertical,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               MediaQuery.of(context).viewInsets.bottom == 0
-                  ? SvgPicture.asset('assets/images/logo.svg')
+                  ? Container(
+                      height: 144,
+                      child: Image.asset('assets/images/logo_dark.png'),)
                   : Container(),
               Flex(direction: Axis.vertical, children: [
-                // GestureDetector(
-                //   onTap: () {
-                //     widget.manager.authWithGoogle();
-                //   },
-                //   child: Container(
-                //       height: 36,
-                //       decoration: BoxDecoration(
-                //         borderRadius: BorderRadius.all(Radius.circular(8)),
-                //         border: Border.all(width: 0.5),
-                //       ),
-                //       child: Flex(
-                //         direction: Axis.horizontal,
-                //         children: [
-                //           Image.asset('assets/images/google_logo.png'),
-                //           Container(width: 8),
-                //           Text('Sign in with Google')
-                //         ],
-                //       )),
-                // ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    height: 44,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Theme.of(context).brightness == Brightness.light
+                            ? Colors.black
+                            : Colors.white,
+                      ),
+                      borderRadius: BorderRadius.all(Radius.circular(8)),
+                    ),
+                    child: GestureDetector(
+                      onTap: () {
+                        widget.manager.authWithGoogle();
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: 36,
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: SvgPicture.asset(
+                                'assets/images/google_logo.svg',
+                                fit: BoxFit.contain,
+                              ),
+                            ),
+                          ),
+                          Text(
+                            'Sign in with Google',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Platform.isIOS
+                      ? SignInWithAppleButton(
+                          style: SignInWithAppleButtonStyle.whiteOutlined,
+                          onPressed: () {
+                            widget.manager.signInWithApple();
+                          },
+                        )
+                      : Container(),
+                ),
               ]),
               Padding(
                 padding: const EdgeInsets.all(16.0),

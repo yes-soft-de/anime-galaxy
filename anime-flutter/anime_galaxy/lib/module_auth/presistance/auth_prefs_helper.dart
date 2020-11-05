@@ -26,8 +26,16 @@ class AuthPrefsHelper {
   }
 
   Future<bool> isSignedIn() async {
-    String uid = await getUserId();
-    return uid != null;
+    String uid = await getToken();
+    if (uid == null) {
+      return false;
+    }
+    SharedPreferences preferencesHelper = await SharedPreferences.getInstance();
+    String date = await preferencesHelper.getString('token_date');
+    if (DateTime.parse(date).difference(DateTime.now()).inMinutes > 50) {
+      return false;
+    }
+    return true;
   }
 
   Future<AUTH_SOURCE> getAuthSource() async {
@@ -41,6 +49,34 @@ class AuthPrefsHelper {
       'auth_source',
       authSource == null ? null : authSource.index,
     );
+  }
+
+  Future<void> setToken(String token) async {
+    if (token == null) {
+      return;
+    }
+    SharedPreferences preferencesHelper = await SharedPreferences.getInstance();
+    await preferencesHelper.setString(
+      'token',
+      token,
+    );
+    await preferencesHelper.setString(
+        'token_date', DateTime.now().toIso8601String());
+  }
+
+  Future<String> getToken() async {
+    SharedPreferences preferencesHelper = await SharedPreferences.getInstance();
+    var tokenDateString = preferencesHelper.getString('token_date');
+    if (tokenDateString == null) {
+      return null;
+    }
+    if (DateTime.parse(tokenDateString).difference(DateTime.now()) >
+        Duration(minutes: 55)) {
+      await preferencesHelper.remove('token');
+      await preferencesHelper.remove('token_date');
+      return null;
+    }
+    return preferencesHelper.getString('token');
   }
 
   Future<void> clearPrefs() async {

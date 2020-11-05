@@ -19,4 +19,6 @@ class Urls {
   static const API_EPISODES_COMING_SOON = BASE_API + '/episodesComingSoon';
   static const API_ACTIVE_USERS = BASE_API + '/top50';
 
+  static const API_SIGN_UP = BASE_API + '/register';
+  static const API_CREATE_TOKEN = BASE_API + '/login_check';
 }
