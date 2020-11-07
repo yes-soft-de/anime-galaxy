@@ -43,9 +43,9 @@ class _AuthScreenState extends State<AuthScreen> {
     redirectTo =
         redirectTo == null ? redirectTo : ProfileRoutes.MY_ROUTE_PROFILE;
 
-    widget.manager.isSignedIn().then((value) {
-      if (value) Navigator.of(context).pushReplacementNamed(redirectTo);
-    });
+//    widget.manager.isSignedIn().then((value) {
+//      if (value) Navigator.of(context).pushReplacementNamed(redirectTo);
+//    });
 
     widget.manager.stateStream.listen((event) {
       _currentState = event;
@@ -123,7 +123,7 @@ class _AuthScreenState extends State<AuthScreen> {
               onTap: () {
                 loading = true;
                 if (mounted) setState(() {});
-                widget.manager.confirmWithCode(_phoneController.text);
+//                widget.manager.confirmWithCode(_phoneController.text);
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -182,7 +182,7 @@ class _AuthScreenState extends State<AuthScreen> {
                     ),
                     child: GestureDetector(
                       onTap: () {
-                        widget.manager.authWithGoogle();
+//                        widget.manager.authWithGoogle();
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -215,7 +215,7 @@ class _AuthScreenState extends State<AuthScreen> {
                       ? SignInWithAppleButton(
                           style: SignInWithAppleButtonStyle.whiteOutlined,
                           onPressed: () {
-                            widget.manager.signInWithApple();
+//                            widget.manager.signInWithApple();
                           },
                         )
                       : Container(),
@@ -283,8 +283,8 @@ class _AuthScreenState extends State<AuthScreen> {
               }
               loading = true;
               if (mounted) setState(() {});
-              widget.manager
-                  .SignInWithPhone(countryCode + _phoneController.text);
+//              widget.manager
+//                  .SignInWithPhone(countryCode + _phoneController.text);
             },
             child: Container(
               decoration:

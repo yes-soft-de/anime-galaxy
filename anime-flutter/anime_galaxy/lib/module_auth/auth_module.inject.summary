@@ -25,6 +25,13 @@
                 "qualifier": null
               },
               "isProvider": false
+            },
+            {
+              "lookupKey": {
+                "root": "asset:anime_galaxy/lib/module_auth/ui/screen/sign_in_and_sign_up/sign_in_and_sign_up.dart#LoginRegisterScreen",
+                "qualifier": null
+              },
+              "isProvider": false
             }
           ]
         }

@@ -22,6 +22,8 @@ class Urls {
   static const API_ALL_EPISODE_COMMENTS = BASE_API + '/commentsEpisode/';
 
 
-  static const API_SIGN_UP = BASE_API + '/register';
+  static const API_SIGN_UP = BASE_API + '/user';
+  static const API_CREATE_PROFILE = BASE_API + '/userprofile';
+
   static const API_CREATE_TOKEN = BASE_API + '/login_check';
 }

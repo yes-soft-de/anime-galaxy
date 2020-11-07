@@ -5,13 +5,13 @@
     "module": [],
     "injectable": [
       {
-        "name": "AnimeModlue",
+        "name": "AnimeModule",
         "constructor": {
           "name": "",
           "kind": "constructor",
           "injectedType": {
             "lookupKey": {
-              "root": "asset:anime_galaxy/lib/module_anime/anime_module.dart#AnimeModlue",
+              "root": "asset:anime_galaxy/lib/module_anime/anime_module.dart#AnimeModule",
               "qualifier": null
             },
             "isProvider": false
