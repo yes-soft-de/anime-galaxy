@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="949cf1e4-ee88-43fb-8374-6a66b1c9c391" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/images/logo_dark.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/logo_dark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,8 +86,14 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
+  <component name="ProjectId" id="1k1P665UJozgLfR9Cku1sgKHO93" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
@@ -412,7 +420,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604859507813</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="icons changed">
+      <created>1604859779947</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1604859779947</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TodoView">
@@ -453,7 +468,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="implement full architecture for notifications screen" />
     <MESSAGE value="translate home,anime details and notification screens" />
     <MESSAGE value="add real APIs to anime details screen" />
     <MESSAGE value="add init account screen design" />
@@ -478,33 +492,38 @@
     <MESSAGE value="fetch real data for maybe like series in home screen" />
     <MESSAGE value="implement login and register" />
     <MESSAGE value="build is working" />
-    <option name="LAST_COMMIT_MESSAGE" value="build is working" />
+    <MESSAGE value="icons changed" />
+    <option name="LAST_COMMIT_MESSAGE" value="icons changed" />
   </component>
   <component name="WindowStateProjectService">
     <state x="574" y="148" key="#com.intellij.ide.util.MemberChooser" timestamp="1604858990387">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="574" y="148" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1604858990387" />
-    <state x="316" y="19" key="CommitChangelistDialog2" timestamp="1604859502730">
+    <state x="316" y="19" key="CommitChangelistDialog2" timestamp="1604859777935">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="316" y="19" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1604859502730" />
-    <state width="1491" height="223" key="GridCell.Tab.0.bottom" timestamp="1604859616591">
+    <state x="316" y="19" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1604859777935" />
+    <state width="1491" height="223" key="GridCell.Tab.0.bottom" timestamp="1604860315860">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="223" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1604859616591" />
-    <state width="1491" height="223" key="GridCell.Tab.0.center" timestamp="1604859616591">
+    <state width="1491" height="223" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1604860315860" />
+    <state width="1491" height="223" key="GridCell.Tab.0.center" timestamp="1604860315860">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="223" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1604859616591" />
-    <state width="1491" height="223" key="GridCell.Tab.0.left" timestamp="1604859616591">
+    <state width="1491" height="223" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1604860315860" />
+    <state width="1491" height="223" key="GridCell.Tab.0.left" timestamp="1604860315860">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="223" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1604859616591" />
-    <state width="1491" height="223" key="GridCell.Tab.0.right" timestamp="1604859616591">
+    <state width="1491" height="223" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1604860315860" />
+    <state width="1491" height="223" key="GridCell.Tab.0.right" timestamp="1604860315860">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="223" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1604859616591" />
+    <state width="1491" height="223" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1604860315860" />
+    <state x="361" y="165" key="Vcs.Push.Dialog.v2" timestamp="1604865145281">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="361" y="165" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1604865145281" />
     <state width="300" height="96" key="javadoc.popup.new" timestamp="1604859042440">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
