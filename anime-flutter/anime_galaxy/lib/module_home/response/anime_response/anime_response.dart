@@ -4,7 +4,7 @@ class AnimeResponse {
   String mainImage;
   List<String> images;
   String categoryName;
-  double rating;
+//  double rating;
   Interactions interactions;
   String description;
 
@@ -18,7 +18,6 @@ class AnimeResponse {
     this.interactions,
     this.description,
   });
-
   AnimeResponse.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
@@ -44,7 +43,7 @@ class AnimeResponse {
     data['images'] = this.images;
     data['categoryName'] = this.categoryName;
     data['description'] = this.description;
-    data['rating'] = this.rating;
+//    data['rating'] = this.rating;
     if (this.interactions != null) {
       data['interactions'] = this.interactions.toJson();
     }

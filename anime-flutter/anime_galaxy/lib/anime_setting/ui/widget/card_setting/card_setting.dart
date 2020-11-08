@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 
 
 class CardSetting extends StatelessWidget {
-  VoidCallback press;
-  String name;
-  String desc;
-  Widget icon;
+  final VoidCallback press;
+  final String name;
+  final String desc;
+  final Widget icon;
 
 
   CardSetting({this.press, this.name, this.desc, this.icon});
@@ -33,11 +33,12 @@ class CardSetting extends StatelessWidget {
             IconButton(icon:icon,onPressed:press,),
 
             SizedBox(width: 10,),
+            // ignore: prefer_single_quotes
             Expanded(flex: 2,child: Text("$desc",style: TextStyle(color: Colors.white,fontSize: 14,fontWeight: FontWeight.w600),
                 textAlign: TextAlign.start)),
 
             Flexible(
-              child: Text("$name",style: TextStyle(color: Colors.white,fontSize: 14),
+              child: Text('$name',style: TextStyle(color: Colors.white,fontSize: 14),
                   textAlign: TextAlign.start),
             )
           ],

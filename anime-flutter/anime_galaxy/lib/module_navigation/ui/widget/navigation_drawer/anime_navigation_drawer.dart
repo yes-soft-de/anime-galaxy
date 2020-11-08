@@ -1,4 +1,4 @@
-import 'package:anime_galaxy/anime_auth/ui/widget/social_icon/social_icon.dart';
+
 import 'package:anime_galaxy/anime_setting/routes/setting_route.dart';
 import 'package:anime_galaxy/module_notification/notification_routes.dart';
 import 'package:anime_galaxy/utils/project_color/project_color.dart';

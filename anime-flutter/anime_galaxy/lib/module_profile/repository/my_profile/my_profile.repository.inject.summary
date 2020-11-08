@@ -1,17 +1,17 @@
 {
-  "asset": "asset:anime_galaxy/lib/module_episode/episode_module.dart",
+  "asset": "asset:anime_galaxy/lib/module_profile/repository/my_profile/my_profile.repository.dart",
   "summary": {
     "injector": [],
     "module": [],
     "injectable": [
       {
-        "name": "EpisodeModule",
+        "name": "MyProfileRepository",
         "constructor": {
           "name": "",
           "kind": "constructor",
           "injectedType": {
             "lookupKey": {
-              "root": "asset:anime_galaxy/lib/module_episode/episode_module.dart#EpisodeModule",
+              "root": "asset:anime_galaxy/lib/module_profile/repository/my_profile/my_profile.repository.dart#MyProfileRepository",
               "qualifier": null
             },
             "isProvider": false
@@ -21,7 +21,7 @@
           "dependencies": [
             {
               "lookupKey": {
-                "root": "asset:anime_galaxy/lib/module_episode/ui/screen/episode_details_screen/episode_details_screen.dart#EpisodeDetailsScreen",
+                "root": "asset:anime_galaxy/lib/module_network/http_client/http_client.dart#ApiClient",
                 "qualifier": null
               },
               "isProvider": false

@@ -1,3 +1,6 @@
+import 'package:anime_galaxy/module_anime/response/favourite_response/favourite_response.dart';
+import 'package:anime_galaxy/module_auth/presistance/auth_prefs_helper.dart';
+import 'package:anime_galaxy/module_profile/response/following_activities_response/following_activities_response.dart';
 import 'package:inject/inject.dart';
 import 'package:anime_galaxy/module_auth/service/auth_service/auth_service.dart';
 import 'package:anime_galaxy/module_profile/manager/my_profile_manager/my_profile_manager.dart';
@@ -13,13 +16,64 @@ class MyProfileService {
   final ProfileSharedPreferencesHelper _preferencesHelper;
   final AuthService _authService;
   final GeneralProfileService _generalProfileService;
+  final  AuthPrefsHelper _authPrefsHelper;
 
   MyProfileService(
     this._manager,
     this._preferencesHelper,
     this._authService,
     this._generalProfileService,
+    this._authPrefsHelper,
   );
+
+  Future<ProfileModel> getProfile()async{
+    String userId = await _authPrefsHelper.getUserId();
+    ProfileResponse response = await _manager.getProfile(userId);
+    ProfileModel result = new ProfileModel(
+      name: response.data.userName,
+      image: response.data.image,
+      followingNumber: response.followingNumber,
+      about: response.data.story,
+      seriesNumber: response.favourites.length,
+      watchedSeries: _getSeries(response.favourites),
+      followingActivities: _getActivities(response.followingActivitiesResponse),
+    );
+  }
+
+  List<Activity>   _getActivities(List<FollowingActivitiesResponse> followingActivitiesResponse){
+    List<Activity> activities =[];
+
+    followingActivitiesResponse.forEach((element) {
+
+      activities.add(
+          new Activity(
+              userName: element.userName,
+            action: element.animeName,
+          )
+      );
+    });
+    return activities;
+
+  }
+
+  List<Series> _getSeries(List<FavouriteResponse> favouriteResponses){
+    List<Series> seriesList =[];
+
+    favouriteResponses.forEach((element) {
+
+      seriesList.add(
+          new Series(
+              id: element.id,
+              name: element.animeName,
+              image :element.mainImage,
+              //TODO : change this to real data
+              classification: 'شاونين'
+          )
+      );
+    });
+    return seriesList;
+  }
+
 
   Future<bool> hasProfile() async {
     String userImage = await _preferencesHelper.getImage();

@@ -6,14 +6,14 @@ import 'package:flutter/material.dart';
 
 
 class CustomeButton extends StatelessWidget {
-  String txt;
-  Color borderColor;
-  Color splashColor;
-  double borderWidth;
-  TextStyle textStyle;
-  VoidCallback press;
-  Color buttonColor;
-  double raduis;
+  final String txt;
+  final Color borderColor;
+  final Color splashColor;
+  final double borderWidth;
+  final TextStyle textStyle;
+  final VoidCallback press;
+  final Color buttonColor;
+  final double raduis;
 
 
 

@@ -2,13 +2,9 @@
 
 import 'package:anime_galaxy/anime_setting/ui/style_app.dart';
 import 'package:anime_galaxy/anime_setting/ui/widget/circular_setting/circular_image.dart';
-import 'package:anime_galaxy/anime_setting/ui/widget/custome_button/custome_button.dart';
 import 'package:anime_galaxy/generated/l10n.dart';
 import 'package:anime_galaxy/utils/project_color/project_color.dart';
 
-
-
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:inject/inject.dart';
 
@@ -70,7 +66,6 @@ class _AnimSettingState extends State<AnimSetting> {
 
 
     double hight=MediaQuery.of(context).size.height;
-    double width=MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
 
@@ -120,8 +115,8 @@ class _AnimSettingState extends State<AnimSetting> {
 
                     children: [
 
-                      Text("محمد الكلاليب",style: TextStyle(fontWeight: FontWeight.w600,fontSize: 20),),
-                      Text("مغامرات - مغامرات",style: TextStyle(fontSize: 16),)
+                      Text('محمد الكلاليب',style: TextStyle(fontWeight: FontWeight.w600,fontSize: 20),),
+                      Text('مغامرات - مغامرات',style: TextStyle(fontSize: 16),)
                     ],
 
                   ),

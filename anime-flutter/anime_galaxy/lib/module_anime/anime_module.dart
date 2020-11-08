@@ -5,10 +5,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:inject/inject.dart';
 
 @provide
-class AnimeModlue extends YesModule{
+class AnimeModule extends YesModule{
   final AnimeDetailsScreen _animeDetailsScreen;
 
-  AnimeModlue(this._animeDetailsScreen);
+  AnimeModule(this._animeDetailsScreen);
 
   @override
   Map<String, WidgetBuilder> getRoutes(){

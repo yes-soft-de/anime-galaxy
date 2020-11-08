@@ -6,10 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:inject/inject.dart';
 
 @provide
-class EpisodeModlue extends YesModule{
+class EpisodeModule extends YesModule{
   final EpisodeDetailsScreen _episodeDetailsScreen;
 
-  EpisodeModlue(this._episodeDetailsScreen);
+  EpisodeModule(this._episodeDetailsScreen);
 
   @override
   Map<String, WidgetBuilder> getRoutes(){

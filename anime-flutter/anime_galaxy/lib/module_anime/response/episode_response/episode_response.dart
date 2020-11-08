@@ -50,7 +50,7 @@ class EpisodeResponse {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = this.id;
     data['animeName'] = this.animeName;
     data['seasonNumber'] = this.seasonNumber;
@@ -91,7 +91,7 @@ class Duration {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     if (this.timezone != null) {
       data['timezone'] = this.timezone.toJson();
     }
