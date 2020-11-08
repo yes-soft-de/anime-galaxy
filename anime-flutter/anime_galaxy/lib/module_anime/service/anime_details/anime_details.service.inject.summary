@@ -1,0 +1,34 @@
+{
+  "asset": "asset:anime_galaxy/lib/module_anime/service/anime_details/anime_details.service.dart",
+  "summary": {
+    "injector": [],
+    "module": [],
+    "injectable": [
+      {
+        "name": "AnimeDetailsService",
+        "constructor": {
+          "name": "",
+          "kind": "constructor",
+          "injectedType": {
+            "lookupKey": {
+              "root": "asset:anime_galaxy/lib/module_anime/service/anime_details/anime_details.service.dart#AnimeDetailsService",
+              "qualifier": null
+            },
+            "isProvider": false
+          },
+          "singleton": false,
+          "asynchronous": false,
+          "dependencies": [
+            {
+              "lookupKey": {
+                "root": "asset:anime_galaxy/lib/module_anime/manager/anime_details/anime_details.manager.dart#AnimeDetailsManager",
+                "qualifier": null
+              },
+              "isProvider": false
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
