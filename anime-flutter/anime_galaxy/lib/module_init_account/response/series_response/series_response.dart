@@ -2,23 +2,27 @@ class SeriesResponse {
   int id;
   String name;
   String mainImage;
-  Null rating;
+  double rating;
   String comments;
   Interaction interaction;
 
   SeriesResponse(
       {this.id,
-        this.name,
-        this.mainImage,
-        this.rating,
-        this.comments,
-        this.interaction});
+      this.name,
+      this.mainImage,
+      this.rating,
+      this.comments,
+      this.interaction});
 
   SeriesResponse.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     mainImage = json['mainImage'];
-    rating = json['rating'];
+    try {
+      rating = double.parse(json['rating'].toString());
+    } catch (e) {
+      rating = 10;
+    }
     comments = json['comments'];
     interaction = json['interaction'] != null
         ? new Interaction.fromJson(json['interaction'])

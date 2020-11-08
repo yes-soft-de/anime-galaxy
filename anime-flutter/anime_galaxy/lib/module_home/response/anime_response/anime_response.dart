@@ -1,4 +1,3 @@
-
 class AnimeResponse {
   int id;
   String name;
@@ -9,17 +8,16 @@ class AnimeResponse {
   Interactions interactions;
   String description;
 
-
-  AnimeResponse(
-      {this.id,
-        this.name,
-        this.mainImage,
-        this.images,
-        this.categoryName,
-        this.rating,
-        this.interactions,
-        this.description,
-      });
+  AnimeResponse({
+    this.id,
+    this.name,
+    this.mainImage,
+    this.images,
+    this.categoryName,
+    this.rating,
+    this.interactions,
+    this.description,
+  });
 
   AnimeResponse.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -28,7 +26,11 @@ class AnimeResponse {
     images = json['images'].cast<String>();
     categoryName = json['categoryName'];
     description = json['description'];
-    rating = json['rating'];
+    try {
+      rating = double.parse(json['rating'].toString());
+    } catch (e) {
+      rating = 10;
+    }
     interactions = json['interactions'] != null
         ? new Interactions.fromJson(json['interactions'])
         : null;
