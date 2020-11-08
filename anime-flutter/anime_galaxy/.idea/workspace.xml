@@ -5,33 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="949cf1e4-ee88-43fb-8374-6a66b1c9c391" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/images/logo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/module_profile/response/favourite_response/anime_response.inject.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/module_profile/response/following_activities_response/following_activities_response.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/logo_dark.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_explor_list/ui/widget/custome_button/custome_button.inject.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/di/components/app.component.inject.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/di/components/app.component.inject.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/anime_module.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/anime_module.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_auth/auth_module.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/auth_module.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_auth/request/login/login_request.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/request/login/login_request.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_auth/request/register/registerRequest.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/request/register/registerRequest.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_auth/style/style_auth.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/style/style_auth.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_auth/ui/screen/sign_in_and_sign_up/sign_in_and_sign_up.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/ui/screen/sign_in_and_sign_up/sign_in_and_sign_up.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_auth/ui/widget/custome_button/custome_button.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/ui/widget/custome_button/custome_button.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_auth/ui/widget/social_icon/social_icon.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/ui/widget/social_icon/social_icon.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_episode/episode_module.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/episode_module.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/response/anime_response/anime_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/response/anime_response/anime_response.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/manager/my_profile_manager/my_profile_manager.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/manager/my_profile_manager/my_profile_manager.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/repository/my_profile/my_profile.repository.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/repository/my_profile/my_profile.repository.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/response/favourite_response/anime_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/response/favourite_response/anime_response.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/response/following_activities_response/following_activities_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/response/following_activities_response/following_activities_response.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/service/my_profile/my_profile.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/service/my_profile/my_profile.inject.summary" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/logo_dark.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -429,7 +405,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604779427793</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="build is working">
+      <created>1604859507813</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1604859507813</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TodoView">
@@ -470,7 +453,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="add state manager to home screen" />
     <MESSAGE value="implement full architecture for notifications screen" />
     <MESSAGE value="translate home,anime details and notification screens" />
     <MESSAGE value="add real APIs to anime details screen" />
@@ -495,29 +477,34 @@
     <MESSAGE value="handle empty responses" />
     <MESSAGE value="fetch real data for maybe like series in home screen" />
     <MESSAGE value="implement login and register" />
-    <option name="LAST_COMMIT_MESSAGE" value="implement login and register" />
+    <MESSAGE value="build is working" />
+    <option name="LAST_COMMIT_MESSAGE" value="build is working" />
   </component>
   <component name="WindowStateProjectService">
     <state x="574" y="148" key="#com.intellij.ide.util.MemberChooser" timestamp="1604858990387">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="574" y="148" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1604858990387" />
-    <state width="1491" height="223" key="GridCell.Tab.0.bottom" timestamp="1604859058358">
+    <state x="316" y="19" key="CommitChangelistDialog2" timestamp="1604859502730">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="223" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1604859058358" />
-    <state width="1491" height="223" key="GridCell.Tab.0.center" timestamp="1604859058358">
+    <state x="316" y="19" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1604859502730" />
+    <state width="1491" height="223" key="GridCell.Tab.0.bottom" timestamp="1604859616591">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="223" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1604859058358" />
-    <state width="1491" height="223" key="GridCell.Tab.0.left" timestamp="1604859058358">
+    <state width="1491" height="223" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1604859616591" />
+    <state width="1491" height="223" key="GridCell.Tab.0.center" timestamp="1604859616591">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="223" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1604859058358" />
-    <state width="1491" height="223" key="GridCell.Tab.0.right" timestamp="1604859058358">
+    <state width="1491" height="223" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1604859616591" />
+    <state width="1491" height="223" key="GridCell.Tab.0.left" timestamp="1604859616591">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="223" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1604859058358" />
+    <state width="1491" height="223" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1604859616591" />
+    <state width="1491" height="223" key="GridCell.Tab.0.right" timestamp="1604859616591">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1491" height="223" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1604859616591" />
     <state width="300" height="96" key="javadoc.popup.new" timestamp="1604859042440">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
