@@ -50,6 +50,7 @@ class HomeRepository{
    List<AnimeResponse> series = [];
    dynamic res = response['Data'];
    for(int i = 0; i<res.length; i++){
+     //TODO : fetch it directly from response
      series.add(await getAnime(res[i]['animeID']));
    }
 
@@ -76,6 +77,7 @@ class HomeRepository{
      List<AnimeResponse> series = [];
      dynamic res = response['Data'];
      for(int i = 0; i<res.length; i++){
+       //TODO : fetch it directly from response
        series.add(await getAnime(res[i]['id']));
      }
 

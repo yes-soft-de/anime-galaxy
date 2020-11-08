@@ -38,7 +38,8 @@ import '../../module_upload/repository/upload_repository/upload_repository.dart'
 import '../../module_profile/service/my_profile/my_profile.dart' as _i31;
 import '../../module_profile/manager/my_profile_manager/my_profile_manager.dart'
     as _i32;
-import '../../module_profile/repository/my_profile/my_profile.dart' as _i33;
+import '../../module_profile/repository/my_profile/my_profile.repository.dart'
+    as _i33;
 import '../../module_profile/presistance/profile_shared_preferences.dart'
     as _i34;
 import '../../module_profile/service/general_profile/general_profile.dart'
@@ -190,7 +191,8 @@ class AppComponent$Injector implements _i1.AppComponent {
       _createMyProfileManager(),
       _createProfileSharedPreferencesHelper(),
       _createAuthService(),
-      _createGeneralProfileService());
+      _createGeneralProfileService(),
+      _createAuthPrefsHelper());
   _i32.MyProfileManager _createMyProfileManager() =>
       _i32.MyProfileManager(_createMyProfileRepository());
   _i33.MyProfileRepository _createMyProfileRepository() =>

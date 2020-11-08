@@ -16,7 +16,10 @@ class AuthService {
 
 
   Future<bool> login(LoginRequest request)async{
-    return await _authManager.login(request) ;
+    bool result = await _authManager.login(request) ;
+    await _prefsHelper.setUserId(request.userId);
+
+    return result;
   }
 
   Future<bool> register(RegisterRequest request/*, AUTH_SOURCE authSource*/) async {

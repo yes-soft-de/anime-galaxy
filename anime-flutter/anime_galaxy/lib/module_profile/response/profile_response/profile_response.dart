@@ -1,9 +1,22 @@
+import 'package:anime_galaxy/module_anime/response/favourite_response/favourite_response.dart';
+import 'package:anime_galaxy/module_profile/response/following_activities_response/following_activities_response.dart';
+
 class ProfileResponse {
   String statusCode;
   String msg;
   Data data;
+  int followingNumber;
+  List<FollowingActivitiesResponse> followingActivitiesResponse;
+  List<FavouriteResponse> favourites;
 
-  ProfileResponse({this.statusCode, this.msg, this.data});
+  ProfileResponse({
+    this.statusCode,
+    this.msg,
+    this.data  ,
+    this.followingActivitiesResponse,
+    this.favourites,
+    this.followingNumber,
+  });
 
   ProfileResponse.fromJson(Map<String, dynamic> json) {
     statusCode = json['status_code'];

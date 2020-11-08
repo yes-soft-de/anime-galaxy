@@ -18,7 +18,8 @@ class AuthRepository {
     if(result == null ) return false;
 
     var createProfileResult = await createProfile(request.userId,request.userName);
-
+    //TODO : what if it doesn't initiate user points to 0
+    await _registerPointsForUser(request.userId);
     return result != null && createProfileResult != null;
   }
 
@@ -38,6 +39,13 @@ class AuthRepository {
    });
    return result != null;
 
+  }
+
+  Future<bool> _registerPointsForUser(String userId)async{
+     dynamic response = await _apiClient.post(Urls.API_REGISTER_POINTS, {
+       "userID":userId,
+       "points":0
+     });
   }
 
   Future<bool> login(LoginRequest request) async {

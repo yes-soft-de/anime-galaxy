@@ -1,5 +1,5 @@
 {
-  "asset": "asset:anime_galaxy/lib/module_profile/repository/my_profile/my_profile.dart",
+  "asset": "asset:anime_galaxy/lib/module_profile/repository/my_profile/my_profile.repository.dart",
   "summary": {
     "injector": [],
     "module": [],
@@ -11,7 +11,7 @@
           "kind": "constructor",
           "injectedType": {
             "lookupKey": {
-              "root": "asset:anime_galaxy/lib/module_profile/repository/my_profile/my_profile.dart#MyProfileRepository",
+              "root": "asset:anime_galaxy/lib/module_profile/repository/my_profile/my_profile.repository.dart#MyProfileRepository",
               "qualifier": null
             },
             "isProvider": false

@@ -20,10 +20,12 @@ class Urls {
   static const API_ACTIVE_USERS = BASE_API + '/top50';
   static const API_EPISODE_COMMENT = BASE_API + '/commentEpisode';
   static const API_ALL_EPISODE_COMMENTS = BASE_API + '/commentsEpisode/';
-
+  static const API_FOLLOWING_ACTIVITIES = BASE_API + '/followersActivities/';
+  static const API_FOLLOWING_USERS = BASE_API + '/following/';
+  static const API_REGISTER_POINTS = BASE_API + '/register-point';
 
   static const API_SIGN_UP = BASE_API + '/user';
-  static const API_CREATE_PROFILE = BASE_API + '/userprofile';
+  static const API_CREATE_PROFILE = BASE_API + '/userprofile/';
 
   static const API_CREATE_TOKEN = BASE_API + '/login_check';
 }
