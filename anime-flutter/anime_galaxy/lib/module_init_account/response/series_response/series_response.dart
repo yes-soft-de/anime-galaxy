@@ -8,17 +8,21 @@ class SeriesResponse {
 
   SeriesResponse(
       {this.id,
-        this.name,
-        this.mainImage,
-        this.rating,
-        this.comments,
-        this.interaction});
+      this.name,
+      this.mainImage,
+      this.rating,
+      this.comments,
+      this.interaction});
 
   SeriesResponse.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     mainImage = json['mainImage'];
-    rating   != null ? json['rating'] :0.0;
+    try {
+      rating = double.parse(json['rating'].toString());
+    } catch (e) {
+      rating = 10;
+    }
     comments = json['comments'];
     interaction = json['interaction'] != null
         ? new Interaction.fromJson(json['interaction'])

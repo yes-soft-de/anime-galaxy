@@ -16,6 +16,7 @@
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_macos-0.0.4+6" />
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/camera-0.5.8+11" />
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_macos-0.0.1+9" />
+      <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/video_player-0.11.1+5" />
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-0.14.2" />
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences-0.5.12+4" />
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth_web-0.3.1+2" />
@@ -30,7 +31,6 @@
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-1.6.24" />
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher-5.7.6" />
       <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_linux-0.0.2+4" />
-      <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/video_player-0.11.1+5" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
