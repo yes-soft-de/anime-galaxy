@@ -1,3 +1,4 @@
+import 'package:anime_galaxy/generated/l10n.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:inject/inject.dart';
 import 'package:rxdart/rxdart.dart';
@@ -15,6 +16,20 @@ class MyProfileStateManager {
   final MyProfileService _myProfileService;
 
   MyProfileStateManager(this._uploadService, this._myProfileService);
+
+  void getMyProfile(){
+     _stateSubject.add(ProfileFetchingData());
+     _myProfileService.getProfile().then((value) {
+       if(value == null){
+           Fluttertoast.showToast(msg: S.current.errorHappened);
+           _stateSubject.add(ProfileFetchingDataError());
+       }else{
+         _stateSubject.add(ProfileFetchingDataSuccess(value));
+       }
+     });
+  }
+
+
 
   void setMyProfile(String username, String about, String image) {
     _myProfileService.createProfile(username, image, about).then((value) {

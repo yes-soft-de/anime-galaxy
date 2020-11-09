@@ -6,6 +6,7 @@ import 'package:anime_galaxy/module_init_account/account_module.dart';
 import 'package:anime_galaxy/module_init_account/init_account_routes.dart';
 import 'package:anime_galaxy/module_notification/notification_module.dart';
 import 'package:anime_galaxy/module_notification/notification_routes.dart';
+import 'package:anime_galaxy/module_profile/profile_routes.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -158,7 +159,7 @@ class _MyAppState extends State<MyApp> {
         supportedLocales: S.delegate.supportedLocales,
         title: 'Anime Galaxy',
         routes: fullRoutesList,
-        initialRoute:AuthRoutes.ROUTE_LOGIN
+        initialRoute:ProfileRoutes.ROUTE_PROFILE
     );
   }
 }

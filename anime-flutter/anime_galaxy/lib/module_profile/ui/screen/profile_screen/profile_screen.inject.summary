@@ -1,5 +1,5 @@
 {
-  "asset": "asset:anime_galaxy/lib/module_profile/ui/profile_screen/profile_screen.dart",
+  "asset": "asset:anime_galaxy/lib/module_profile/ui/screen/profile_screen/profile_screen.dart",
   "summary": {
     "injector": [],
     "module": [],
@@ -11,7 +11,7 @@
           "kind": "constructor",
           "injectedType": {
             "lookupKey": {
-              "root": "asset:anime_galaxy/lib/module_profile/ui/profile_screen/profile_screen.dart#ProfileScreen",
+              "root": "asset:anime_galaxy/lib/module_profile/ui/screen/profile_screen/profile_screen.dart#ProfileScreen",
               "qualifier": null
             },
             "isProvider": false

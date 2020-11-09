@@ -41,7 +41,7 @@ class _AuthScreenState extends State<AuthScreen> {
   Widget build(BuildContext context) {
     String redirectTo = ModalRoute.of(context).settings.arguments.toString();
     redirectTo =
-        redirectTo == null ? redirectTo : ProfileRoutes.MY_ROUTE_PROFILE;
+        redirectTo == null ? redirectTo : ProfileRoutes.ROUTE_PROFILE;
 
 //    widget.manager.isSignedIn().then((value) {
 //      if (value) Navigator.of(context).pushReplacementNamed(redirectTo);

@@ -26,8 +26,8 @@ class MyProfileService {
     this._authPrefsHelper,
   );
 
-  Future<ProfileModel> getProfile()async{
-    String userId = await _authPrefsHelper.getUserId();
+  Future<ProfileModel> getProfile({String id})async{
+    String userId = id ?? await _authPrefsHelper.getUserId();
     ProfileResponse response = await _manager.getProfile(userId);
     ProfileModel result = new ProfileModel(
       name: response.data.userName,

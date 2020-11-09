@@ -190,8 +190,6 @@ class ExploreScreen extends StatefulWidget {
                       );
                     },
                       itemCount:explore.worldRecommendedSeries.length ,
-
-
                       scrollDirection: Axis.horizontal,),
                   ),
 
