@@ -32,10 +32,10 @@ class MyProfileService {
     String userId = id ?? await _authPrefsHelper.getUserId();
     ProfileResponse response = await _manager.getProfile(userId);
     ProfileModel result = new ProfileModel(
-      name: response.data.userName,
-      image: response.data.image,
+      name: response.userName,
+      image: response.image,
       followingNumber: response.followingNumber,
-      about: response.data.story,
+      about: response.story,
       seriesNumber: response.favourites.length,
       watchedSeries: _getSeries(response.favourites),
       followingActivities: _getActivities(response.followingActivitiesResponse),
@@ -107,15 +107,15 @@ class MyProfileService {
 
     ProfileResponse response = await _manager.createMyProfile(request);
     if (response == null) return null;
-    await _preferencesHelper.setUserName(response.data.userName);
-    await _preferencesHelper.setUserImage(response.data.image);
-    await _preferencesHelper.setUserLocation(response.data.location);
-    await _preferencesHelper.setUserStory(response.data.story);
+    await _preferencesHelper.setUserName(response.userName);
+    await _preferencesHelper.setUserImage(response.image);
+    await _preferencesHelper.setUserLocation(response.location);
+    await _preferencesHelper.setUserStory(response.story);
     await _generalProfileService.setUserProfile(
         userId,
         ProfileModel(
-          name: response.data.userName,
-          image: response.data.image,
+          name: response.userName,
+          image: response.image,
         ));
     return response;
   }
