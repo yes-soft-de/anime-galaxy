@@ -5,11 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="949cf1e4-ee88-43fb-8374-6a66b1c9c391" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/di/components/app.component.inject.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/di/components/app.component.inject.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/generated/l10n.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/l10n.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_auth/auth_module.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/auth_module.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_auth/auth_module.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/auth_module.inject.summary" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_auth/auth_routes.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/auth_routes.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_auth/enums/auth_source.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/enums/auth_source.inject.summary" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_auth/manager/auth/auth_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/manager/auth/auth_manager.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_auth/presistance/auth_prefs_helper.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/presistance/auth_prefs_helper.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_auth/repository/auth/auth_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/repository/auth/auth_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_auth/service/auth_service/auth_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/service/auth_service/auth_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_auth/state_manager/auth_state_manager/auth_state_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/state_manager/auth_state_manager/auth_state_manager.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_auth/states/auth_states/auth_states.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/states/auth_states/auth_states.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_auth/ui/screen/auth_screen/auth_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/ui/screen/auth_screen/auth_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_auth/ui/screen/sign_in_and_sign_up/sign_in_and_sign_up.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_auth/ui/screen/sign_in_and_sign_up/sign_in_and_sign_up.inject.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_auth/ui/screen/sign_in_and_sign_up/sign_in_and_sign_up.inject.summary" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_home/service/home/home.service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/service/home/home.service.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -504,30 +521,30 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="316" y="19" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1604859777935" />
-    <state width="1491" height="223" key="GridCell.Tab.0.bottom" timestamp="1604860315860">
+    <state width="1491" height="223" key="GridCell.Tab.0.bottom" timestamp="1604921442619">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="223" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1604860315860" />
-    <state width="1491" height="223" key="GridCell.Tab.0.center" timestamp="1604860315860">
+    <state width="1491" height="223" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1604921442619" />
+    <state width="1491" height="223" key="GridCell.Tab.0.center" timestamp="1604921442619">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="223" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1604860315860" />
-    <state width="1491" height="223" key="GridCell.Tab.0.left" timestamp="1604860315860">
+    <state width="1491" height="223" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1604921442619" />
+    <state width="1491" height="223" key="GridCell.Tab.0.left" timestamp="1604921442619">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="223" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1604860315860" />
-    <state width="1491" height="223" key="GridCell.Tab.0.right" timestamp="1604860315860">
+    <state width="1491" height="223" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1604921442619" />
+    <state width="1491" height="223" key="GridCell.Tab.0.right" timestamp="1604921442619">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="223" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1604860315860" />
+    <state width="1491" height="223" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1604921442619" />
     <state x="361" y="165" key="Vcs.Push.Dialog.v2" timestamp="1604865145281">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="361" y="165" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1604865145281" />
-    <state width="300" height="96" key="javadoc.popup.new" timestamp="1604859042440">
+    <state width="300" height="96" key="javadoc.popup.new" timestamp="1604921888338">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="300" height="96" key="javadoc.popup.new/0.0.1536.864@0.0.1536.864" timestamp="1604859042440" />
+    <state width="300" height="96" key="javadoc.popup.new/0.0.1536.864@0.0.1536.864" timestamp="1604921888338" />
   </component>
   <component name="masterDetails">
     <states>

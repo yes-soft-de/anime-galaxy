@@ -1,8 +1,6 @@
-import 'package:anime_galaxy/module_auth/request/login/login_request.dart';
-import 'package:anime_galaxy/module_auth/request/register/registerRequest.dart';
-import 'package:inject/inject.dart';
 import 'package:anime_galaxy/consts/urls.dart';
 import 'package:anime_galaxy/module_network/http_client/http_client.dart';
+import 'package:inject/inject.dart';
 
 @provide
 class AuthRepository {
@@ -10,56 +8,28 @@ class AuthRepository {
 
   AuthRepository(this._apiClient);
 
-  Future<bool> register(RegisterRequest request) async {
+  Future<bool> createUser(String uid) async {
     var result = await _apiClient.post(Urls.API_SIGN_UP, {
-      'userID': request.userId,
-      'password': request.password,
+      'userID': uid,
+      'password': uid,
+      'roles': ['USER']
     });
-    if(result == null ) return false;
 
-    var createProfileResult = await createProfile(request.userId,request.userName);
-    //TODO : what if it doesn't initiate user points to 0
-    await _registerPointsForUser(request.userId);
-    return result != null && createProfileResult != null;
+    return result != null;
   }
 
-  Future<bool> createProfile(String userId,String userName) async{
-   var result = await _apiClient.post(Urls.API_CREATE_PROFILE, {
-
-       'userID': userId,
-
-       'userName': userName,
-
-       'location': '',
-
-       'story': '',
-
-       'image': ''
-
-   });
-   return result != null;
-
-  }
-
-  Future<bool> _registerPointsForUser(String userId)async{
-     dynamic response = await _apiClient.post(Urls.API_REGISTER_POINTS, {
-       "userID":userId,
-       "points":0
-     });
-  }
-
-  Future<bool> login(LoginRequest request) async {
+  Future<String> getToken(String username, String password) async {
     var result = await _apiClient.post(
       Urls.API_CREATE_TOKEN,
       {
-        'username': request.userId,
-        'password': request.password,
+        'username': username,
+        'password': password,
       },
     );
 
     if (result == null) {
       return null;
     }
-    return true;
+    return result['token'];
   }
 }

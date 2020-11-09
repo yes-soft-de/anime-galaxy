@@ -1,6 +1,6 @@
+import 'package:anime_galaxy/module_auth/enums/auth_source.dart';
 import 'package:inject/inject.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:anime_galaxy/module_auth/enums/auth_source.dart';
 
 @provide
 class AuthPrefsHelper {
@@ -27,15 +27,7 @@ class AuthPrefsHelper {
 
   Future<bool> isSignedIn() async {
     String uid = await getToken();
-    if (uid == null) {
-      return false;
-    }
-    SharedPreferences preferencesHelper = await SharedPreferences.getInstance();
-    String date = await preferencesHelper.getString('token_date');
-    if (DateTime.parse(date).difference(DateTime.now()).inMinutes > 50) {
-      return false;
-    }
-    return true;
+    return uid != null;
   }
 
   Future<AUTH_SOURCE> getAuthSource() async {
