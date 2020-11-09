@@ -16,18 +16,15 @@ class HomeService {
     HomeResponse response = await _homeManager.getHomePageDetails('zoz');
 
     HomeModel homeModel = new HomeModel(
-      watchedSeries: getSeries(response.watchedSeries),
-      points: response.points.points,
-      mayLikeSeries: getSeries(response.mayLikedSeries),
-      newEpisodes: getEpisodes(response.comingSoonEpisodes)
-    );
+        watchedSeries: getSeries(response.watchedSeries),
+        points: response.points != null ? response.points.points : 0,
+        mayLikeSeries: getSeries(response.mayLikedSeries),
+        newEpisodes: getEpisodes(response.comingSoonEpisodes));
     return homeModel;
   }
 
-
-
-  List<Series> getSeries(List<AnimeResponse> animeResponses){
-    List<Series> seriesList =[];
+  List<Series> getSeries(List<AnimeResponse> animeResponses) {
+    List<Series> seriesList = [];
 
     animeResponses.forEach((element) {
       seriesList.add(new Series(
