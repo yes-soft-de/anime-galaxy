@@ -1,3 +1,4 @@
+import 'package:anime_galaxy/module_auth/presistance/auth_prefs_helper.dart';
 import 'package:anime_galaxy/module_home/manager/home/home.manager.dart';
 import 'package:anime_galaxy/module_home/model/home_model/home_model.dart';
 import 'package:anime_galaxy/module_home/response/anime_response/anime_response.dart';
@@ -8,12 +9,13 @@ import 'package:inject/inject.dart';
 @provide
 class HomeService {
   final HomeManager _homeManager;
-
-  HomeService(this._homeManager);
+  final  AuthPrefsHelper _authPrefsHelper;
+  HomeService(this._homeManager,this._authPrefsHelper);
 
   Future<HomeModel> getHomePageDetails() async {
-    //TODO : change the passed id to real id of logged in user
-    HomeResponse response = await _homeManager.getHomePageDetails('zoz');
+    String userId = await _authPrefsHelper.getUserId();
+
+    HomeResponse response = await _homeManager.getHomePageDetails(userId);
 
     HomeModel homeModel = new HomeModel(
       watchedSeries: getSeries(response.watchedSeries),
@@ -33,12 +35,8 @@ class HomeService {
       seriesList.add(new Series(
           id: element.id,
           name: element.name,
-          //TODO : change this to real data
-          image:
-              'https://i.pinimg.com/236x/ab/46/ae/ab46ae9f35056e9a34072295fd974e9c.jpg',
-          /*  image: element.mainImage,*/
-          //TODO : change this to real data
-          classification: 'شاونين'));
+          image: element.mainImage,
+          classification: element.categoryName));
     });
     return seriesList;
   }

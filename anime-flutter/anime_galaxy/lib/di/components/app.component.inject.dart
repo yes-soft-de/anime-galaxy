@@ -219,7 +219,7 @@ class AppComponent$Injector implements _i1.AppComponent {
   _i41.HomeStateManager _createHomeStateManager() =>
       _i41.HomeStateManager(_createHomeService());
   _i42.HomeService _createHomeService() =>
-      _i42.HomeService(_createHomeManager());
+      _i42.HomeService(_createHomeManager(), _createAuthPrefsHelper());
   _i43.HomeManager _createHomeManager() =>
       _i43.HomeManager(_createHomeRepository());
   _i44.HomeRepository _createHomeRepository() =>
@@ -227,15 +227,17 @@ class AppComponent$Injector implements _i1.AppComponent {
   _i45.AnimeModule _createAnimeModule() =>
       _i45.AnimeModule(_createAnimeDetailsScreen());
   _i46.AnimeDetailsScreen _createAnimeDetailsScreen() =>
-      _i46.AnimeDetailsScreen(_createAnimeDetailsStateManager());
+      _i46.AnimeDetailsScreen(
+          _createAnimeDetailsStateManager(), _createAuthPrefsHelper());
   _i47.AnimeDetailsStateManager _createAnimeDetailsStateManager() =>
       _i47.AnimeDetailsStateManager(_createAnimeDetailsService());
   _i48.AnimeDetailsService _createAnimeDetailsService() =>
-      _i48.AnimeDetailsService(_createAnimeDetailsManager());
+      _i48.AnimeDetailsService(
+          _createAnimeDetailsManager(), _createAuthPrefsHelper());
   _i49.AnimeDetailsManager _createAnimeDetailsManager() =>
       _i49.AnimeDetailsManager(_createAnimeDetailsRepository());
   _i50.AnimeDetailsRepository _createAnimeDetailsRepository() =>
-      _i50.AnimeDetailsRepository(_createApiClient());
+      _i50.AnimeDetailsRepository(_createApiClient(), _createAuthPrefsHelper());
   _i51.NotificationModule _createNotificationModule() =>
       _i51.NotificationModule(_createNotificationScreen());
   _i52.NotificationScreen _createNotificationScreen() =>
@@ -288,11 +290,13 @@ class AppComponent$Injector implements _i1.AppComponent {
   _i74.EpisodeModule _createEpisodeModule() =>
       _i74.EpisodeModule(_createEpisodeDetailsScreen());
   _i75.EpisodeDetailsScreen _createEpisodeDetailsScreen() =>
-      _i75.EpisodeDetailsScreen(_createEpisodeDetailsStateManager());
+      _i75.EpisodeDetailsScreen(
+          _createEpisodeDetailsStateManager(), _createAuthPrefsHelper());
   _i76.EpisodeDetailsStateManager _createEpisodeDetailsStateManager() =>
       _i76.EpisodeDetailsStateManager(_createEpisodeDetailsService());
   _i77.EpisodeDetailsService _createEpisodeDetailsService() =>
-      _i77.EpisodeDetailsService(_createEpisodeDetailsManager());
+      _i77.EpisodeDetailsService(
+          _createEpisodeDetailsManager(), _createAuthPrefsHelper());
   _i78.EpisodeDetailsManager _createEpisodeDetailsManager() =>
       _i78.EpisodeDetailsManager(_createEpisodeDetailsRepository());
   _i79.EpisodeDetailsRepository _createEpisodeDetailsRepository() =>

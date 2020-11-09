@@ -1,12 +1,12 @@
 
 import 'package:anime_galaxy/consts/urls.dart';
-import 'package:anime_galaxy/module_anime/model/anime_model/anime_model.dart';
 import 'package:anime_galaxy/module_anime/request/comment_request/comment_request.dart';
 import 'package:anime_galaxy/module_anime/request/favourite_request/favourite_request.dart';
 import 'package:anime_galaxy/module_anime/response/anime_response/anime_response.dart';
 import 'package:anime_galaxy/module_anime/response/comment_response/comment_response.dart';
 import 'package:anime_galaxy/module_anime/response/episode_response/episode_response.dart';
 import 'package:anime_galaxy/module_anime/response/favourite_response/favourite_response.dart';
+import 'package:anime_galaxy/module_auth/presistance/auth_prefs_helper.dart';
 import 'package:anime_galaxy/module_network/http_client/http_client.dart';
 import 'package:inject/inject.dart';
 
@@ -15,8 +15,8 @@ import 'package:inject/inject.dart';
 @provide
 class AnimeDetailsRepository{
   final ApiClient _httpClient;
-
-  AnimeDetailsRepository(this._httpClient);
+  final AuthPrefsHelper _authPrefsHelper;
+  AnimeDetailsRepository(this._httpClient,this._authPrefsHelper);
 
   Future<AnimeResponse> getAnimeDetails(int animeId) async{
 
@@ -24,13 +24,13 @@ class AnimeDetailsRepository{
 
     if(response == null) return null;
 
+    String userId = await _authPrefsHelper.getUserId();
 
     AnimeResponse anime = new AnimeResponse();
     anime = AnimeResponse.fromJson(response['Data']);
     anime.episodes = await _getEpisodes(animeId);
     anime.comments = await _getComments(animeId);
-    //TODO : change userId to logged in userId
-    anime.isFollowed = await _isFollowed(animeId , 'zoz');
+    anime.isFollowed = await _isFollowed(animeId , userId);
 
     return anime;
 
@@ -104,3 +104,4 @@ class AnimeDetailsRepository{
 
 
 }
+

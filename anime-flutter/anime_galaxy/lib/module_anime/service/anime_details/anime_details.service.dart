@@ -6,6 +6,7 @@ import 'package:anime_galaxy/module_anime/request/favourite_request/favourite_re
 import 'package:anime_galaxy/module_anime/response/anime_response/anime_response.dart';
 import 'package:anime_galaxy/module_anime/response/comment_response/comment_response.dart';
 import 'package:anime_galaxy/module_anime/response/episode_response/episode_response.dart';
+import 'package:anime_galaxy/module_auth/presistance/auth_prefs_helper.dart';
  import 'package:inject/inject.dart';
 
 
@@ -14,16 +15,16 @@ import 'package:anime_galaxy/module_anime/response/episode_response/episode_resp
 @provide
 class AnimeDetailsService{
   final AnimeDetailsManager _detailsManager;
+  final AuthPrefsHelper _authPrefsHelper;
 
-  AnimeDetailsService(this._detailsManager);
+  AnimeDetailsService(this._detailsManager,this._authPrefsHelper);
 
   Future<AnimeModel> getAnimeDetails(int animeId) async{
     AnimeResponse response = await _detailsManager.getAnimeDetails(animeId);
     AnimeModel anime = new AnimeModel();
 
     anime.name = response.name;
-    //TODO : change this
-    String image = response.mainImage.substring(response.mainImage.lastIndexOf('http'));
+    String image = response.mainImage;
   anime.image = image;
     anime.classification = response.categoryName;
     anime.rate = response.rating;
@@ -48,8 +49,7 @@ class AnimeDetailsService{
       Episode episode = new Episode(
         id: element.id,
         episodeNumber: element.episodeNumber,
-          //TODO : change this later
-        image: element.image.substring(element.image.lastIndexOf('http')),
+        image: element.image ,
         //TODO : change this later
         classification: 'أكشن-شاونين'
       );
@@ -76,23 +76,25 @@ class AnimeDetailsService{
   }
 
   Future<bool> addComment(String comment,int animeId,bool spoilerAlert )async{
+    String userId = await _authPrefsHelper.getUserId();
+
     CommentRequest commentRequest = new CommentRequest(
       comment: comment,
       animeID: animeId.toString(),
       spoilerAlert: spoilerAlert,
-      //TODO : change this when implement auth
-      userID: 'zoz'
+      userID: userId
     );
 
     return await _detailsManager.addComment(commentRequest);
   }
 
   Future<bool> addToFavourite(int animeId, int categoryId)async{
+    String userId = await _authPrefsHelper.getUserId();
+
     FavouriteRequest request = new FavouriteRequest(
       categoryID: categoryId.toString(),
       animeID: animeId.toString(),
-      //TODO : change it to real logged in userId
-      userID: 'zoz'
+      userID: userId
     );
 
     return await _detailsManager.addToFavourite(request);

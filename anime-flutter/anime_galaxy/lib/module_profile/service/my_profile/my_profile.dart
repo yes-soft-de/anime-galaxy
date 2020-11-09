@@ -30,6 +30,7 @@ class MyProfileService {
 
   Future<ProfileModel> getProfile({String id})async{
     String userId = id ?? await _authPrefsHelper.getUserId();
+
     ProfileResponse response = await _manager.getProfile(userId);
     ProfileModel result = new ProfileModel(
       name: response.userName,

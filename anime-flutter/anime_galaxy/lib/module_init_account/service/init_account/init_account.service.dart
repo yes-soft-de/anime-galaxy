@@ -48,8 +48,7 @@ class InitAccountService{
         new Series(
           id: element.id,
           classification: classification,
-            //TODO : chang this to real image from backend
-          image: 'https://i.pinimg.com/236x/5b/27/06/5b2706b1d6459ca81b4576a122844fdc.jpg',
+          image: element.mainImage,
           name: element.name
         )
       );
