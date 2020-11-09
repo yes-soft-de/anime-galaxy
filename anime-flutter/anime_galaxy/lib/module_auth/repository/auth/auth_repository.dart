@@ -12,7 +12,6 @@ class AuthRepository {
     var result = await _apiClient.post(Urls.API_SIGN_UP, {
       'userID': uid,
       'password': uid,
-      'roles': ['USER']
     });
 
     return result != null;
