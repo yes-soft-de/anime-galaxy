@@ -6,8 +6,6 @@ class FollowingActivitiesResponse {
   int commentID;
   String comment;
   Date date;
-  Null ratingID;
-  Null favouriteID;
 
   FollowingActivitiesResponse(
       {this.userName,
@@ -16,9 +14,7 @@ class FollowingActivitiesResponse {
         this.animeID,
         this.commentID,
         this.comment,
-        this.date,
-        this.ratingID,
-        this.favouriteID});
+        this.date, });
 
   FollowingActivitiesResponse.fromJson(Map<String, dynamic> json) {
     userName = json['userName'];
@@ -28,8 +24,6 @@ class FollowingActivitiesResponse {
     commentID = json['commentID'];
     comment = json['comment'];
     date = json['date'] != null ? new Date.fromJson(json['date']) : null;
-    ratingID = json['RatingID'];
-    favouriteID = json['favouriteID'];
   }
 
   Map<String, dynamic> toJson() {
@@ -43,8 +37,6 @@ class FollowingActivitiesResponse {
     if (this.date != null) {
       data['date'] = this.date.toJson();
     }
-    data['RatingID'] = this.ratingID;
-    data['favouriteID'] = this.favouriteID;
     return data;
   }
 }

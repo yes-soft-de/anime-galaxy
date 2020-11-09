@@ -1,6 +1,7 @@
 import 'package:anime_galaxy/module_anime/response/favourite_response/favourite_response.dart';
 import 'package:anime_galaxy/module_auth/presistance/auth_prefs_helper.dart';
 import 'package:anime_galaxy/module_profile/response/following_activities_response/following_activities_response.dart';
+import 'package:anime_galaxy/module_profile/state/my_profile_state.dart';
 import 'package:inject/inject.dart';
 import 'package:anime_galaxy/module_auth/service/auth_service/auth_service.dart';
 import 'package:anime_galaxy/module_profile/manager/my_profile_manager/my_profile_manager.dart';
@@ -9,6 +10,7 @@ import 'package:anime_galaxy/module_profile/presistance/profile_shared_preferenc
 import 'package:anime_galaxy/module_profile/request/create_profile.dart';
 import 'package:anime_galaxy/module_profile/response/profile_response/profile_response.dart';
 import 'package:anime_galaxy/module_profile/service/general_profile/general_profile.dart';
+import 'package:rxdart/rxdart.dart';
 
 @provide
 class MyProfileService {
@@ -38,6 +40,8 @@ class MyProfileService {
       watchedSeries: _getSeries(response.favourites),
       followingActivities: _getActivities(response.followingActivitiesResponse),
     );
+
+    return result;
   }
 
   List<Activity>   _getActivities(List<FollowingActivitiesResponse> followingActivitiesResponse){

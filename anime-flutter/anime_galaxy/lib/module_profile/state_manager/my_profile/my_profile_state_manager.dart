@@ -17,16 +17,27 @@ class MyProfileStateManager {
 
   MyProfileStateManager(this._uploadService, this._myProfileService);
 
-  void getMyProfile(){
+
+  void getMyProfile({String userId}){
      _stateSubject.add(ProfileFetchingData());
-     _myProfileService.getProfile().then((value) {
-       if(value == null){
-           Fluttertoast.showToast(msg: S.current.errorHappened);
-           _stateSubject.add(ProfileFetchingDataError());
-       }else{
-         _stateSubject.add(ProfileFetchingDataSuccess(value));
-       }
-     });
+     (userId == null) ?
+         _myProfileService.getProfile().then((value) {
+           if(value == null){
+               Fluttertoast.showToast(msg: S.current.errorHappened);
+               _stateSubject.add(ProfileFetchingDataError());
+           }else{
+             _stateSubject.add(ProfileFetchingDataSuccess(value));
+           }
+         }):
+         _myProfileService.getProfile(id: userId).then((value) {
+           if(value == null){
+             Fluttertoast.showToast(msg: S.current.errorHappened);
+             _stateSubject.add(ProfileFetchingDataError());
+           }else{
+             _stateSubject.add(ProfileFetchingDataSuccess(value));
+           }
+         })
+     ;
   }
 
 

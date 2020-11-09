@@ -7,10 +7,10 @@ import 'package:anime_galaxy/module_explore/response/expolre_response/explore_re
 import 'package:inject/inject.dart';
 
 List<Series> comingSoonSeries = [
-  new Series( id:1,name:'wind',image:'https://i.pinimg.com/236x/8e/99/52/8e995276505cdc0b02d44cedb2043933--anime-scenery-environment-design.jpg',rating:1.5,category:'شاونين'),
-  new Series( id:1,name:'wind',image:'https://i.pinimg.com/236x/8e/99/52/8e995276505cdc0b02d44cedb2043933--anime-scenery-environment-design.jpg',rating:1.5,category:'شاونين'),
-  new Series( id:1,name:'wind',image:'https://i.pinimg.com/236x/8e/99/52/8e995276505cdc0b02d44cedb2043933--anime-scenery-environment-design.jpg',rating:1.5,category:'شاونين'),
-  new Series( id:1,name:'wind',image:'https://i.pinimg.com/236x/8e/99/52/8e995276505cdc0b02d44cedb2043933--anime-scenery-environment-design.jpg',rating:1.5,category:'شاونين'),
+  new Series( id:1,name:'wind',image:'https://i.pinimg.com/236x/8e/99/52/8e995276505cdc0b02d44cedb2043933--anime-scenery-environment-design.jpg', category:'شاونين'),
+  new Series( id:1,name:'wind',image:'https://i.pinimg.com/236x/8e/99/52/8e995276505cdc0b02d44cedb2043933--anime-scenery-environment-design.jpg', category:'شاونين'),
+  new Series( id:1,name:'wind',image:'https://i.pinimg.com/236x/8e/99/52/8e995276505cdc0b02d44cedb2043933--anime-scenery-environment-design.jpg', category:'شاونين'),
+  new Series( id:1,name:'wind',image:'https://i.pinimg.com/236x/8e/99/52/8e995276505cdc0b02d44cedb2043933--anime-scenery-environment-design.jpg' ,category:'شاونين'),
 
 ];
 @provide
@@ -55,7 +55,6 @@ class ExploreService{
         id: element.id,
         image: element.mainImage,
         category: element.categoryName,
-        rating: element.rating
       ));
     });
     return series;

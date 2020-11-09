@@ -15,7 +15,6 @@ class ExploreModel{
 class Series{
   int id;
   String name;
-  double rating;
   String image;
   String category;
 
@@ -23,7 +22,6 @@ class Series{
     this.id,
     this.name,
     this.image,
-    this.rating,
     this.category,
 });
 }

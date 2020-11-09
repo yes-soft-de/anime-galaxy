@@ -2,7 +2,6 @@
 import 'package:anime_galaxy/utils/project_colors/project_color.dart';
 import 'package:flutter/material.dart';
 
-typedef FollowCallBack = void Function();
 
 class PersonalInfoWidget extends StatelessWidget {
   final String name;
@@ -11,14 +10,10 @@ class PersonalInfoWidget extends StatelessWidget {
   final String seriesNumber;
   final String commentsNumber;
   final String image;
-  final FollowCallBack onFollow;
-  final bool isFollowed;
 
   PersonalInfoWidget({
    this.name,
     this.image,
-    this.isFollowed,
-    this.onFollow,
     this.followingNumber,
     this.seriesNumber,
     this.category,
