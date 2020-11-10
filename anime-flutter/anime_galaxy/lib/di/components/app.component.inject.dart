@@ -30,87 +30,87 @@ import '../../module_profile/profile_module.dart' as _i25;
 import '../../module_profile/ui/screen/profile_screen/profile_screen.dart'
     as _i26;
 import '../../module_profile/state_manager/my_profile/my_profile_state_manager.dart'
-    as _i27;
+    as _i26;
 import '../../module_upload/service/image_upload/image_upload_service.dart'
-    as _i28;
-import '../../module_upload/manager/upload_manager/upload_manager.dart' as _i29;
+    as _i27;
+import '../../module_upload/manager/upload_manager/upload_manager.dart' as _i28;
 import '../../module_upload/repository/upload_repository/upload_repository.dart'
-    as _i30;
-import '../../module_profile/service/my_profile/my_profile.dart' as _i31;
+    as _i29;
+import '../../module_profile/service/my_profile/my_profile.dart' as _i30;
 import '../../module_profile/manager/my_profile_manager/my_profile_manager.dart'
-    as _i32;
+    as _i31;
 import '../../module_profile/repository/my_profile/my_profile.repository.dart'
-    as _i33;
+    as _i32;
 import '../../module_profile/presistance/profile_shared_preferences.dart'
-    as _i34;
+    as _i33;
 import '../../module_profile/service/general_profile/general_profile.dart'
-    as _i35;
+    as _i34;
 import '../../module_localization/presistance/localization_preferences_helper/localization_preferences_helper.dart'
-    as _i36;
-import '../../module_theme/service/theme_service/theme_service.dart' as _i37;
-import '../../module_theme/pressistance/theme_preferences_helper.dart' as _i38;
-import '../../module_home/home.module.dart' as _i39;
-import '../../module_home/ui/screens/home_screen.dart' as _i40;
-import '../../module_home/state_manager/home/home.state_manager.dart' as _i41;
-import '../../module_home/service/home/home.service.dart' as _i42;
-import '../../module_home/manager/home/home.manager.dart' as _i43;
-import '../../module_home/repository/home/home.repository.dart' as _i44;
-import '../../module_anime/anime_module.dart' as _i45;
+    as _i35;
+import '../../module_theme/service/theme_service/theme_service.dart' as _i36;
+import '../../module_theme/pressistance/theme_preferences_helper.dart' as _i37;
+import '../../module_home/home.module.dart' as _i38;
+import '../../module_home/ui/screens/home_screen.dart' as _i39;
+import '../../module_home/state_manager/home/home.state_manager.dart' as _i40;
+import '../../module_home/service/home/home.service.dart' as _i41;
+import '../../module_home/manager/home/home.manager.dart' as _i42;
+import '../../module_home/repository/home/home.repository.dart' as _i43;
+import '../../module_anime/anime_module.dart' as _i44;
 import '../../module_anime/ui/screen/anime_details_screen/anime_details_screen.dart'
-    as _i46;
+    as _i45;
 import '../../module_anime/state_manager/anime_details/anime_details.state_manager.dart'
-    as _i47;
+    as _i46;
 import '../../module_anime/service/anime_details/anime_details.service.dart'
-    as _i48;
+    as _i47;
 import '../../module_anime/manager/anime_details/anime_details.manager.dart'
-    as _i49;
+    as _i48;
 import '../../module_anime/repository/anime_details/anime_details.repository.dart'
-    as _i50;
-import '../../module_notification/notification_module.dart' as _i51;
+    as _i49;
+import '../../module_notification/notification_module.dart' as _i50;
 import '../../module_notification/ui/screen/notification_screen/notification_screen.dart'
-    as _i52;
+    as _i51;
 import '../../module_notification/state_manager/notification/notification.state_manager.dart'
-    as _i53;
+    as _i52;
 import '../../module_notification/service/notification/notification.service.dart'
-    as _i54;
+    as _i53;
 import '../../module_notification/manager/notification/notification.manager.dart'
-    as _i55;
+    as _i54;
 import '../../module_notification/repository/notification/notification.repository.dart'
-    as _i56;
-import '../../module_init_account/account_module.dart' as _i57;
-import '../../module_init_account/ui/screen/init_account_screen.dart' as _i58;
+    as _i55;
+import '../../module_init_account/account_module.dart' as _i56;
+import '../../module_init_account/ui/screen/init_account_screen.dart' as _i57;
 import '../../module_init_account/state_manager/init_account/init_account.state_manager.dart'
-    as _i59;
+    as _i58;
 import '../../module_init_account/service/init_account/init_account.service.dart'
-    as _i60;
+    as _i59;
 import '../../module_init_account/manager/init_account/init_account.manager.dart'
-    as _i61;
+    as _i60;
 import '../../module_init_account/repository/init_account/init_account.repository.dart'
-    as _i62;
-import '../../main_screen/main_screen_module.dart' as _i63;
-import '../../main_screen/ui/screen/main_screen.dart' as _i64;
-import '../../anime_setting/ui/screen/anim_setting.dart' as _i65;
-import '../../anime_setting/ui/style_app.dart' as _i66;
+    as _i61;
+import '../../main_screen/main_screen_module.dart' as _i62;
+import '../../main_screen/ui/screen/main_screen.dart' as _i63;
+import '../../anime_setting/ui/screen/anim_setting.dart' as _i64;
+import '../../anime_setting/ui/style_app.dart' as _i65;
 import '../../module_explore/ui/screen/explore_screen/explore_screen.dart'
-    as _i67;
+    as _i66;
 import '../../module_explore/state_manager/explore/explore.state_manager.dart'
-    as _i68;
-import '../../module_explore/service/explore/explore.service.dart' as _i69;
-import '../../module_explore/manager/explore/explore.manager.dart' as _i70;
-import '../../module_explore/repository/explore/explore.repositry.dart' as _i71;
-import '../../anime_setting/routes/setting_module.dart' as _i72;
-import '../../module_explore/explore_module.dart' as _i73;
-import '../../module_episode/episode_module.dart' as _i74;
+    as _i67;
+import '../../module_explore/service/explore/explore.service.dart' as _i68;
+import '../../module_explore/manager/explore/explore.manager.dart' as _i69;
+import '../../module_explore/repository/explore/explore.repositry.dart' as _i70;
+import '../../anime_setting/routes/setting_module.dart' as _i71;
+import '../../module_explore/explore_module.dart' as _i72;
+import '../../module_episode/episode_module.dart' as _i73;
 import '../../module_episode/ui/screen/episode_details_screen/episode_details_screen.dart'
-    as _i75;
+    as _i74;
 import '../../module_episode/state_manager/episode_details/episode_details.state_manager.dart'
-    as _i76;
+    as _i75;
 import '../../module_episode/service/episode_details/episode_details.service.dart'
-    as _i77;
+    as _i76;
 import '../../module_episode/manager/episode_details/episode_details.manager.dart'
-    as _i78;
+    as _i77;
 import '../../module_episode/repository/episode_details/episode_details.repository.dart'
-    as _i79;
+    as _i78;
 
 class AppComponent$Injector implements _i1.AppComponent {
   AppComponent$Injector._();
@@ -159,8 +159,7 @@ class AppComponent$Injector implements _i1.AppComponent {
   _i14.CameraModule _createCameraModule() =>
       _i14.CameraModule(_createCameraScreen());
   _i15.CameraScreen _createCameraScreen() => _i15.CameraScreen();
-  _i16.AuthModule _createAuthModule() =>
-      _i16.AuthModule(_createAuthScreen(), _createLoginRegisterScreen());
+  _i16.AuthModule _createAuthModule() => _i16.AuthModule(_createAuthScreen());
   _i17.AuthScreen _createAuthScreen() =>
       _i17.AuthScreen(_createAuthStateManager());
   _i18.AuthStateManager _createAuthStateManager() =>
@@ -185,25 +184,25 @@ class AppComponent$Injector implements _i1.AppComponent {
   _i27.MyProfileStateManager _createMyProfileStateManager() =>
       _i27.MyProfileStateManager(
           _createImageUploadService(), _createMyProfileService());
-  _i28.ImageUploadService _createImageUploadService() =>
-      _i28.ImageUploadService(_createUploadManager());
-  _i29.UploadManager _createUploadManager() =>
-      _i29.UploadManager(_createUploadRepository());
-  _i30.UploadRepository _createUploadRepository() => _i30.UploadRepository();
-  _i31.MyProfileService _createMyProfileService() => _i31.MyProfileService(
+  _i27.ImageUploadService _createImageUploadService() =>
+      _i27.ImageUploadService(_createUploadManager());
+  _i28.UploadManager _createUploadManager() =>
+      _i28.UploadManager(_createUploadRepository());
+  _i29.UploadRepository _createUploadRepository() => _i29.UploadRepository();
+  _i30.MyProfileService _createMyProfileService() => _i30.MyProfileService(
       _createMyProfileManager(),
       _createProfileSharedPreferencesHelper(),
       _createAuthService(),
       _createGeneralProfileService(),
       _createAuthPrefsHelper());
-  _i32.MyProfileManager _createMyProfileManager() =>
-      _i32.MyProfileManager(_createMyProfileRepository());
-  _i33.MyProfileRepository _createMyProfileRepository() =>
-      _i33.MyProfileRepository(_createApiClient());
-  _i34.ProfileSharedPreferencesHelper _createProfileSharedPreferencesHelper() =>
-      _i34.ProfileSharedPreferencesHelper();
-  _i35.GeneralProfileService _createGeneralProfileService() =>
-      _i35.GeneralProfileService();
+  _i31.MyProfileManager _createMyProfileManager() =>
+      _i31.MyProfileManager(_createMyProfileRepository());
+  _i32.MyProfileRepository _createMyProfileRepository() =>
+      _i32.MyProfileRepository(_createApiClient());
+  _i33.ProfileSharedPreferencesHelper _createProfileSharedPreferencesHelper() =>
+      _i33.ProfileSharedPreferencesHelper();
+  _i34.GeneralProfileService _createGeneralProfileService() =>
+      _i34.GeneralProfileService();
   _i4.LocalizationService _createLocalizationService() =>
       _singletonLocalizationService ??=
           _i4.LocalizationService(_createLocalizationPreferencesHelper());

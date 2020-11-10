@@ -1,9 +1,6 @@
 import 'package:anime_galaxy/main_screen/main_screen_module.dart';
-import 'package:anime_galaxy/main_screen/main_screen_routes.dart';
-import 'package:anime_galaxy/module_anime/anime_routes.dart';
 import 'package:anime_galaxy/module_home/home.module.dart';
 import 'package:anime_galaxy/module_init_account/account_module.dart';
-import 'package:anime_galaxy/module_init_account/init_account_routes.dart';
 import 'package:anime_galaxy/module_notification/notification_module.dart';
 import 'package:anime_galaxy/module_notification/notification_routes.dart';
 import 'package:anime_galaxy/module_profile/profile_routes.dart';
@@ -25,7 +22,6 @@ import 'module_auth/auth_routes.dart';
 import 'module_chat/chat_module.dart';
 import 'module_episode/episode_module.dart';
 import 'module_explore/explore_module.dart';
-import 'module_home/home.routes.dart';
 import 'module_localization/service/localization_service/localization_service.dart';
 import 'module_profile/profile_module.dart';
 import 'module_theme/service/theme_service/theme_service.dart';

@@ -1,17 +1,16 @@
 import 'dart:io';
 
+import 'package:anime_galaxy/generated/l10n.dart';
+import 'package:anime_galaxy/module_auth/state_manager/auth_state_manager/auth_state_manager.dart';
+import 'package:anime_galaxy/module_auth/states/auth_states/auth_states.dart';
+import 'package:anime_galaxy/module_init_account/init_account_routes.dart';
+import 'package:anime_galaxy/module_theme/service/theme_service/theme_service.dart';
 import 'package:anime_galaxy/utils/app_bar/anime_galaxy_app_bar.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:inject/inject.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
-import 'package:anime_galaxy/generated/l10n.dart';
-import 'package:anime_galaxy/module_auth/state_manager/auth_state_manager/auth_state_manager.dart';
-import 'package:anime_galaxy/module_auth/states/auth_states/auth_states.dart';
-import 'package:anime_galaxy/module_profile/profile_routes.dart';
-import 'package:anime_galaxy/module_theme/service/theme_service/theme_service.dart';
 
 @provide
 class AuthScreen extends StatefulWidget {
@@ -41,11 +40,11 @@ class _AuthScreenState extends State<AuthScreen> {
   Widget build(BuildContext context) {
     String redirectTo = ModalRoute.of(context).settings.arguments.toString();
     redirectTo =
-        redirectTo == null ? redirectTo : ProfileRoutes.ROUTE_PROFILE;
+        redirectTo == null ? redirectTo : InitAccountRoutes.INIT_ACCOUNT_ROUTE;
 
-//    widget.manager.isSignedIn().then((value) {
-//      if (value) Navigator.of(context).pushReplacementNamed(redirectTo);
-//    });
+    widget.manager.isSignedIn().then((value) {
+      if (value) Navigator.of(context).pushReplacementNamed(redirectTo);
+    });
 
     widget.manager.stateStream.listen((event) {
       _currentState = event;
@@ -95,7 +94,7 @@ class _AuthScreenState extends State<AuthScreen> {
             direction: Axis.vertical,
             children: [
               MediaQuery.of(context).viewInsets.bottom == 0
-                  ? Image.asset('assets/images/logo_dark.png')
+                  ? SvgPicture.asset('assets/images/logo.svg')
                   : Container(),
               Text(_phoneController.text.trim()),
             ],
@@ -105,7 +104,7 @@ class _AuthScreenState extends State<AuthScreen> {
             child: TextFormField(
                 controller: _confirmationController,
                 decoration: InputDecoration(
-                  labelText:'Confirmation Code',
+                  labelText: 'Confirmation Code',
                   hintText: '12345',
                 ),
                 keyboardType: TextInputType.number,
@@ -123,7 +122,7 @@ class _AuthScreenState extends State<AuthScreen> {
               onTap: () {
                 loading = true;
                 if (mounted) setState(() {});
-//                widget.manager.confirmWithCode(_phoneController.text);
+                widget.manager.confirmWithCode(_phoneController.text);
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -165,7 +164,7 @@ class _AuthScreenState extends State<AuthScreen> {
               MediaQuery.of(context).viewInsets.bottom == 0
                   ? Container(
                       height: 144,
-                      child: Image.asset('assets/images/logo_dark.png'),)
+                      child: SvgPicture.asset('assets/images/logo.svg'))
                   : Container(),
               Flex(direction: Axis.vertical, children: [
                 Padding(
@@ -182,7 +181,7 @@ class _AuthScreenState extends State<AuthScreen> {
                     ),
                     child: GestureDetector(
                       onTap: () {
-//                        widget.manager.authWithGoogle();
+                        widget.manager.authWithGoogle();
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -215,7 +214,7 @@ class _AuthScreenState extends State<AuthScreen> {
                       ? SignInWithAppleButton(
                           style: SignInWithAppleButtonStyle.whiteOutlined,
                           onPressed: () {
-//                            widget.manager.signInWithApple();
+                            widget.manager.signInWithApple();
                           },
                         )
                       : Container(),
@@ -283,8 +282,8 @@ class _AuthScreenState extends State<AuthScreen> {
               }
               loading = true;
               if (mounted) setState(() {});
-//              widget.manager
-//                  .SignInWithPhone(countryCode + _phoneController.text);
+              widget.manager
+                  .SignInWithPhone(countryCode + _phoneController.text);
             },
             child: Container(
               decoration:
