@@ -89,8 +89,7 @@ class ExploreScreen extends StatefulWidget {
                          new Container(
                            decoration: new BoxDecoration(
                              image: new DecorationImage(
-                               //TODO : change this when real images provided from backend
-                           image:NetworkImage('https://i.pinimg.com/236x/8e/99/52/8e995276505cdc0b02d44cedb2043933--anime-scenery-environment-design.jpg'),
+                           image:NetworkImage(item.image),
                            fit: BoxFit.cover,
                          ),
                        ),
@@ -190,8 +189,6 @@ class ExploreScreen extends StatefulWidget {
                       );
                     },
                       itemCount:explore.worldRecommendedSeries.length ,
-
-
                       scrollDirection: Axis.horizontal,),
                   ),
 

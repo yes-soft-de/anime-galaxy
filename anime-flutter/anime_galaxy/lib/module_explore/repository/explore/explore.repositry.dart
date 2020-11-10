@@ -28,7 +28,7 @@ class ExploreRepository{
   }
 
   Future<List<AnimeResponse>> getWorldRecommendedSeries()async {
-    //TODO : check if this the right API
+
     dynamic response = await _httpClient.get(Urls.API_HIGHEST_RATED_ANIMES);
     if(response == null) return [];
 
@@ -42,7 +42,7 @@ class ExploreRepository{
   }
 
   Future<List<AnimeResponse>> getRecommendedSeriesByYourFavourites()async {
-    //TODO : check if this the right API
+
     dynamic response = await _httpClient.get(Urls.API_HIGHEST_RATED_ANIMES_BY_USER+'zoz');
     if(response == null) return [];
 

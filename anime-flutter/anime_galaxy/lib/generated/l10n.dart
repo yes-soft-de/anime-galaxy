@@ -1102,6 +1102,56 @@ class S {
       args: [],
     );
   }
+
+  /// `التعليقات`
+  String get comments {
+    return Intl.message(
+      'التعليقات',
+      name: 'comments',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `متابعات`
+  String get following {
+    return Intl.message(
+      'متابعات',
+      name: 'following',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `مسلسل`
+  String get series {
+    return Intl.message(
+      'مسلسل',
+      name: 'series',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `عني`
+  String get aboutMe {
+    return Intl.message(
+      'عني',
+      name: 'aboutMe',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `نشاطات`
+  String get activities {
+    return Intl.message(
+      'نشاطات',
+      name: 'activities',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -105,5 +105,10 @@
   "explore": "اكتشف",
   "isFollowed": "متابع",
   "help": "مساعدة",
-  "edit": "تعديل"
+  "edit": "تعديل",
+  "comments": "التعليقات",
+  "following": "متابعات",
+  "series": "مسلسل",
+  "aboutMe": "عني",
+  "activities": "نشاطات"
 }

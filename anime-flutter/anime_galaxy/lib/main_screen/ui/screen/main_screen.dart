@@ -3,6 +3,7 @@ import 'package:anime_galaxy/module_explore/ui/screen/explore_screen/explore_scr
 import 'package:anime_galaxy/module_home/ui/screens/home_screen.dart';
 import 'package:anime_galaxy/module_navigation/ui/widget/navigation_drawer/anime_navigation_drawer.dart';
 import 'package:anime_galaxy/module_notification/ui/screen/notification_screen/notification_screen.dart';
+import 'package:anime_galaxy/module_profile/ui/screen/profile_screen/profile_screen.dart';
 import 'package:anime_galaxy/utils/app_bar/anime_galaxy_app_bar.dart';
 import 'package:anime_galaxy/utils/project_colors/project_color.dart';
 import 'package:flutter/material.dart';
@@ -15,12 +16,14 @@ class MainScreen extends StatefulWidget {
   final NotificationScreen _notificationScreen;
   final AnimSetting _settingsScreen;
   final ExploreScreen _exploreScreen;
+  final ProfileScreen _profileScreen;
 
   MainScreen(
       this._notificationScreen,
       this._homeScreen,
       this._settingsScreen,
       this._exploreScreen,
+      this._profileScreen,
       );
 
   @override
@@ -30,8 +33,7 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
-  //TODO : change it to 4 after adding profile screen to the BottomNavigationBar
-  int _pageIndex = 3;
+  int _pageIndex = 4;
   PageController _pageController;
 
 
@@ -68,6 +70,7 @@ class _MainScreenState extends State<MainScreen> {
             unselectedItemColor: Colors.grey,
             items: <BottomNavigationBarItem>[
               BottomNavigationBarItem(icon: Icon(Icons.settings), title: Container(height: 0.0)),
+              BottomNavigationBarItem(icon: Icon(Icons.person), title: Container(height: 0.0)),
               BottomNavigationBarItem(icon: Icon(Icons.explore), title: Container(height: 0.0)),
               BottomNavigationBarItem(icon: Icon(Icons.notifications), title: Container(height: 0.0)),
               BottomNavigationBarItem( icon: Icon(Icons.dashboard),title: Container(height: 0.0)),
@@ -79,6 +82,7 @@ class _MainScreenState extends State<MainScreen> {
       body: PageView(
         children: [
           widget._settingsScreen,
+          widget._profileScreen,
           widget._exploreScreen,
           widget._notificationScreen,
           widget._homeScreen,

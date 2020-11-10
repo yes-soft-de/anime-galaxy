@@ -46,6 +46,13 @@
                 "qualifier": null
               },
               "isProvider": false
+            },
+            {
+              "lookupKey": {
+                "root": "asset:anime_galaxy/lib/module_profile/ui/screen/profile_screen/profile_screen.dart#ProfileScreen",
+                "qualifier": null
+              },
+              "isProvider": false
             }
           ]
         }
