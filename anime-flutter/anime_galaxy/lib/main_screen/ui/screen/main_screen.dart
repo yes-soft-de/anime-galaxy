@@ -4,6 +4,7 @@ import 'package:anime_galaxy/module_home/ui/screens/home_screen.dart';
 import 'package:anime_galaxy/module_navigation/ui/widget/navigation_drawer/anime_navigation_drawer.dart';
 import 'package:anime_galaxy/module_notification/ui/screen/notification_screen/notification_screen.dart';
 import 'package:anime_galaxy/module_profile/ui/screen/profile_screen/profile_screen.dart';
+import 'package:anime_galaxy/module_settings/ui/ui/settings_page/settings_page.dart';
 import 'package:anime_galaxy/utils/app_bar/anime_galaxy_app_bar.dart';
 import 'package:anime_galaxy/utils/project_colors/project_color.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,7 @@ class MainScreen extends StatefulWidget {
 
   final HomeScreen _homeScreen;
   final NotificationScreen _notificationScreen;
-  final AnimSetting _settingsScreen;
+  final SettingsPage _settingsScreen;
   final ExploreScreen _exploreScreen;
   final ProfileScreen _profileScreen;
 

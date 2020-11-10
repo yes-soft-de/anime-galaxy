@@ -15,10 +15,10 @@ class SettingsPage extends StatefulWidget {
   final SwapThemeDataService _themeDataService;
 
   SettingsPage(
-    this._authService,
-    this._localizationService,
-    this._themeDataService,
-  );
+      this._authService,
+      this._localizationService,
+      this._themeDataService,
+      );
 
   @override
   State<StatefulWidget> createState() => _SettingsPageState();
@@ -47,9 +47,9 @@ class _SettingsPageState extends State<SettingsPage> {
                   FutureBuilder(
                     future: ProfileSharedPreferencesHelper().getUsername(),
                     builder: (
-                      BuildContext context,
-                      AsyncSnapshot<String> snapshot,
-                    ) {
+                        BuildContext context,
+                        AsyncSnapshot<String> snapshot,
+                        ) {
                       return Text(snapshot.data ?? S.of(context).notLoggedIn);
                     },
                   ),
@@ -76,12 +76,12 @@ class _SettingsPageState extends State<SettingsPage> {
                     stream: widget._themeDataService.darkModeStream,
                     initialData: false,
                     builder: (
-                      BuildContext context,
-                      AsyncSnapshot<bool> snapshot,
-                    ) {
+                        BuildContext context,
+                        AsyncSnapshot<bool> snapshot,
+                        ) {
                       return Switch(
                           value:
-                              Theme.of(context).brightness == Brightness.dark,
+                          Theme.of(context).brightness == Brightness.dark,
                           onChanged: (mode) {
                             widget._themeDataService
                                 .switchDarkMode(mode)
@@ -94,75 +94,75 @@ class _SettingsPageState extends State<SettingsPage> {
             ),
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(8)),
-              color: Colors.black12,
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Flex(
-                direction: Axis.horizontal,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(S.of(context).location),
-                  FutureBuilder(
-                    future: ProfileSharedPreferencesHelper().getUserLocation(),
-                    builder:
-                        (BuildContext context, AsyncSnapshot<String> snapshot) {
-                      if (snapshot.hasData) {
-                        return Text(snapshot.data);
-                      }
-                      return Text('');
-                    },
-                  )
-                ],
-              ),
-            ),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(8)),
-              color: Colors.black12,
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Flex(
-                direction: Axis.horizontal,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(S.of(context).language),
-                  FutureBuilder(
-                    future: widget._localizationService.getLanguage(),
-                    builder:
-                        (BuildContext context, AsyncSnapshot<String> snapshot) {
-                      return DropdownButton(
-                          value: snapshot.data,
-                          items: [
-                            DropdownMenuItem(
-                              child: Text('العربية'),
-                              value: 'ar',
-                            ),
-                            DropdownMenuItem(
-                              child: Text('English'),
-                              value: 'en',
-                            ),
-                          ],
-                          onChanged: (String newLang) {
-                            widget._localizationService.setLanguage(newLang);
-                          });
-                    },
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
+//        Padding(
+//          padding: const EdgeInsets.all(8.0),
+//          child: Container(
+//            decoration: BoxDecoration(
+//              borderRadius: BorderRadius.all(Radius.circular(8)),
+//              color: Colors.black12,
+//            ),
+//            child: Padding(
+//              padding: const EdgeInsets.all(8.0),
+//              child: Flex(
+//                direction: Axis.horizontal,
+//                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                children: [
+//                  Text(S.of(context).location),
+//                  FutureBuilder(
+//                    future: ProfileSharedPreferencesHelper().getUserLocation(),
+//                    builder:
+//                        (BuildContext context, AsyncSnapshot<String> snapshot) {
+//                      if (snapshot.hasData) {
+//                        return Text(snapshot.data);
+//                      }
+//                      return Text('');
+//                    },
+//                  )
+//                ],
+//              ),
+//            ),
+//          ),
+//        ),
+//        Padding(
+//          padding: const EdgeInsets.all(8.0),
+//          child: Container(
+//            decoration: BoxDecoration(
+//              borderRadius: BorderRadius.all(Radius.circular(8)),
+//              color: Colors.black12,
+//            ),
+//            child: Padding(
+//              padding: const EdgeInsets.all(8.0),
+//              child: Flex(
+//                direction: Axis.horizontal,
+//                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                children: [
+//                  Text(S.of(context).language),
+//                  FutureBuilder(
+//                    future: widget._localizationService.getLanguage(),
+//                    builder:
+//                        (BuildContext context, AsyncSnapshot<String> snapshot) {
+//                      return DropdownButton(
+//                          value: snapshot.data,
+//                          items: [
+//                            DropdownMenuItem(
+//                              child: Text('العربية'),
+//                              value: 'ar',
+//                            ),
+//                            DropdownMenuItem(
+//                              child: Text('English'),
+//                              value: 'en',
+//                            ),
+//                          ],
+//                          onChanged: (String newLang) {
+//                            widget._localizationService.setLanguage(newLang);
+//                          });
+//                    },
+//                  ),
+//                ],
+//              ),
+//            ),
+//          ),
+//        ),
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: Container(
