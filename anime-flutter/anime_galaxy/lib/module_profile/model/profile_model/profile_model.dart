@@ -6,6 +6,7 @@ class ProfileModel {
   int followingNumber;
   int seriesNumber;
   List<Activity> followingActivities;
+  bool isFollowed;
 
   ProfileModel({
     this.name,
@@ -15,6 +16,7 @@ class ProfileModel {
     this.followingNumber,
     this.seriesNumber,
     this.followingActivities,
+    this.isFollowed,
   });
 
 

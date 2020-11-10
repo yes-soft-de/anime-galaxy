@@ -7,7 +7,7 @@ class AnimeResponse {
   String mainImage;
   List<String> images;
   String categoryName;
-  double rating;
+  String rating;
   Interactions interactions;
   String description;
   int categoryID;

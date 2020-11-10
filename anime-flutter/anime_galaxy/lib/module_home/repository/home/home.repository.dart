@@ -1,5 +1,4 @@
 import 'package:anime_galaxy/consts/urls.dart';
-import 'package:anime_galaxy/module_home/model/home_model/home_model.dart';
 import 'package:anime_galaxy/module_home/response/anime_response/anime_response.dart';
 import 'package:anime_galaxy/module_home/response/coming_soon_episodes/coming_soon_episodes.dart';
 import 'package:anime_galaxy/module_home/response/home_response/home_response.dart';

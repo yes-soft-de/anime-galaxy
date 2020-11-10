@@ -14,6 +14,7 @@ class ProfileResponse {
   int followingNumber;
   List<FollowingActivitiesResponse> followingActivitiesResponse;
   List<FavouriteResponse> favourites;
+  bool isFollowed;
 
   ProfileResponse(
       {this.id,
@@ -26,6 +27,7 @@ class ProfileResponse {
         this.followingNumber,
         this.followingActivitiesResponse,
         this.favourites,
+        this.isFollowed,
       });
 
   ProfileResponse.fromJson(Map<String, dynamic> json) {

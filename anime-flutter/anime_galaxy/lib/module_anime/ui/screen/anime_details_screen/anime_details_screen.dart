@@ -42,13 +42,12 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   String userId;
 
-
   @override
-  void initState() async{
+  void initState() {
 
     super.initState();
+    _getUserId();
 
-     userId = await widget._authPrefsHelper.getUserId();
 
     widget._stateManager.stateStream.listen((event) {
       currentState = event;
@@ -56,6 +55,9 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
     });
   }
 
+  void _getUserId()async{
+    userId = await widget._authPrefsHelper.getUserId();
+  }
   void processEvent() {
     if (currentState is AnimeDetailsStateFetchingSuccess) {
       AnimeDetailsStateFetchingSuccess state = currentState;
@@ -153,7 +155,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen> with TickerProv
   Widget getPageLayout(){
     return Scaffold(
       key: _scaffoldKey,
-      appBar : AnimeGalaxyAppBar.getAnimeGalaxyAppBar( _scaffoldKey),
+      appBar : AnimeGalaxyAppBar.getAnimeGalaxyAppBar( _scaffoldKey,userId),
       drawer: AnimeNavigationDrawer(),
       body : Container(
         padding: EdgeInsets.all(5),

@@ -26,3 +26,7 @@ class ProfileFetchingDataSuccess extends MyProfileState{
 }
 
 class ProfileFetchingDataError extends MyProfileState{}
+///-------------------------------------------
+class ProfileFollowSuccess extends MyProfileState{}
+
+class ProfileFollowError extends MyProfileState{}
