@@ -17,6 +17,8 @@ class GetEpisodeByIdResponse
     public $comments;
     public $interactions;
     public $rating;
+    public $categoryName;
+    public $animePublishDate;
 
     /**
      * @return mixed
