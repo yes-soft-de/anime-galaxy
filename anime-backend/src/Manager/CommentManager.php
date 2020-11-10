@@ -71,6 +71,11 @@ class CommentManager
         return $this->commentRepository->getAll($animeId);
     }
 
+    public function commentsNumber($userID)
+    {
+        return $this->commentRepository->commentsNumber($userID);
+    }
+
     public function getCommentsByAnimeId(GetByIdRequest $request)
     {
         return $this->commentRepository->getCommentsByAnimeId($request->getId());

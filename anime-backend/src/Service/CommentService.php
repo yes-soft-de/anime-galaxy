@@ -10,6 +10,7 @@ use App\Response\CreateCommentResponse;
 use App\Response\GetCommentByIdResponse;
 use App\Response\GetCommentsResponse;
 use App\Response\UpdateCommentResponse;
+use App\Response\GetcommentsNumberResponse;
 
 class CommentService
 {
@@ -97,6 +98,15 @@ class CommentService
             $response[] = $this->autoMapping->map('array', GetCommentsResponse::class, $row);
         }
 
+        return $response;
+    }
+    public function commentsNumber($userID)
+    {
+        $response = [];
+        $result = $this->commentManager->commentsNumber($userID);
+        foreach ($result as $row) {
+             $response = $this->autoMapping->map('array', GetcommentsNumberResponse::class, $row);
+        }
         return $response;
     }
 
