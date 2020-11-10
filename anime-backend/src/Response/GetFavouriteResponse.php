@@ -9,6 +9,7 @@ class GetFavouriteResponse
     public $mainImage;
     public $AnimeName;
     public $categoryID;
+    public $categoryName;
     public $date;
    
 

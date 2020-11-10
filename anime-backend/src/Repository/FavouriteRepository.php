@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Favourite;
 use App\Entity\Anime;
+use App\Entity\Category;
 use App\Entity\UserProfile;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -34,12 +35,18 @@ class FavouriteRepository extends ServiceEntityRepository
     public function getAllFavouritesByUserID($id)
     {
         return  $this->createQueryBuilder('Favourite')
-             ->addSelect('Favourite.id','Favourite.creationDate as date','Favourite.categoryID as categoryID','Favourite.animeID','Anime.name as AnimeName','Anime.mainImage')
+             ->addSelect('Favourite.id','Favourite.creationDate as date','Favourite.categoryID as categoryID','category.name as categoryName','Favourite.animeID','Anime.name as AnimeName','Anime.mainImage')
              ->leftJoin(
                 Anime::class,
                 'Anime',
                  Join::WITH,
                 'Favourite.animeID = Anime.id'
+            )
+             ->leftJoin(
+                Category::class,
+                'category',
+                 Join::WITH,
+                'Favourite.categoryID = category.id'
             )
              ->andWhere('Favourite.userID = :id')
              ->setParameter('id', $id)
