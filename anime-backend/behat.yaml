@@ -1,0 +1,6 @@
+default:
+  suites:
+    query:
+      paths:
+        - "%paths.base%/features/query"
+      contexts: [ QueryContext ]
