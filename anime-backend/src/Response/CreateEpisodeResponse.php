@@ -21,4 +21,6 @@ class CreateEpisodeResponse
     public $publishDate;
 
     public $createdAt;
+
+    public $categoyID;
 }

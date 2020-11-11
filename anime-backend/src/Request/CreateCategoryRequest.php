@@ -6,6 +6,7 @@ class CreateCategoryRequest
 {
     public $name;
     public $description;
+    public $image;
 
     /**
      * @return mixed

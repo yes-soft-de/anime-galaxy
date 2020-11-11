@@ -9,6 +9,7 @@ use App\Entity\Favourite;
 use App\Manager\FavouriteManager;
 use App\Request\UpdateGradeRequest;
 use App\Response\CreateFavouriteResponse;
+use App\Response\GetFavouriteByIdResponse;
 use App\Response\GetFavouriteResponse;
 use App\Response\UpdateFavouriteResponse;
 
@@ -83,5 +84,17 @@ class FavouriteService
     {
         return  $this->favouriteManager->getFollowersFavourites($friendID); 
     
+    }
+
+    public function delete($request)
+    {
+        $favouriteResult = $this->favouriteManager->delete($request);
+
+        if ($favouriteResult == null)
+        {
+            return null;
+        }
+
+        return $this->autoMapping->map(Favourite::class, GetFavouriteByIdResponse::class, $favouriteResult);
     }
 }
