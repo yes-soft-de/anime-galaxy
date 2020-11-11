@@ -5,6 +5,7 @@ use App\AutoMapping;
 use App\Entity\Favourite;
 use App\Repository\FavouriteRepository;
 use App\Request\CreateFavouriteRequest;
+use App\Request\DeleteRequest;
 use App\Request\UpdateFavouriteRequest;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -67,5 +68,20 @@ class FavouriteManager
         }
 
         return $result = $this->favouriteRepository->getFollowersFavourites($userID, $date);
+    }
+
+    public function delete(DeleteRequest $request)
+    {
+        $favourite = $this->favouriteRepository->find($request->getId());
+        if(!$favourite)
+        {
+            return null;
+        }
+        else
+        {
+            $this->entityManager->remove($favourite);
+            $this->entityManager->flush();
+        }
+        return $favourite;
     }
 }
