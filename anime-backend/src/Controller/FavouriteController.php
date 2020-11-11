@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\AutoMapping;
 use App\Request\CreateFavouriteRequest;
+use App\Request\DeleteRequest;
 use App\Service\FavouriteService;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -83,5 +84,17 @@ class FavouriteController extends BaseController
         return $this->response($result, self::FETCH);
     }
 
+    /**
+     * @Route("favourite/{id}", name="deleteFavourite", methods={"DELETE"})
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function delete(Request $request)
+    {
+        $request = new DeleteRequest($request->get('id'));
 
+        $result = $this->favouriteService->delete($request);
+
+        return $this->response("", self::DELETE);
+    }
 }
