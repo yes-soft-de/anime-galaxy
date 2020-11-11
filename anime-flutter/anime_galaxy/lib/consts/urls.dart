@@ -24,6 +24,7 @@ class Urls {
   static const API_FOLLOWING_USERS = BASE_API + '/following/';
   static const API_FOLLOW = BASE_API + '/following';
   static const API_REGISTER_POINTS = BASE_API + '/register-point';
+  static const API_RATING_EPISODE = BASE_API + '/ratingEpisode';
 
   static const API_SIGN_UP = BASE_API + '/user';
   static const API_CREATE_PROFILE = BASE_API + '/userprofile/';

@@ -81,6 +81,12 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen> with Ticker
         setState(() {});
       }
     }
+
+    if (currentState is EpisodeDetailsStateRatingSuccess) {
+           if (this.mounted) {
+        setState(() {});
+      }
+    }
   }
 
   @override
@@ -99,28 +105,6 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen> with Ticker
             LoadingIndicatorWidget():
             getPageLayout();
 
-
-
-//    switch (currentState.runtimeType) {
-//      case AnimeDetailsStateInit:
-//        {
-//          widget._stateManager.getAnimeDetails(1);
-//          return getPageLayout();
-//        }
-//        break;
-//      case AnimeDetailsStateFetchingSuccess:
-//        return getPageLayout();
-//        break;
-//      case AnimeDetailsStateFetchingError:{
-//        loading = false;
-//        return setErrorUI();
-//      }
-//
-//        break;
-//
-//      default:
-//        return Container();
-//    }
 
 
   }
@@ -210,7 +194,9 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen> with Ticker
                     fillIcon: Icon(Icons.favorite,color: ProjectColors.ThemeColor,  ),
                     halfFillIcon: Icon(Icons.favorite_border,color: ProjectColors.ThemeColor,  ),
                     emptyIcon: Icon(Icons.favorite_border,color: ProjectColors.ThemeColor, ),
-                    onRatingChanged: (rating) => setState(() => this.rating = rating),
+                    onRatingChanged: (rating) {
+                       widget._stateManager.rateEpisode(episodeId, rating);
+                       this.rating = rating;},
                     itemSize:25,
                     itemCount: 10,
                   ),

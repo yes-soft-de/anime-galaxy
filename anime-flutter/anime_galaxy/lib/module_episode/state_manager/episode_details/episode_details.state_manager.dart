@@ -45,4 +45,16 @@ class EpisodeDetailsStateManager {
     });
   }
 
+  void rateEpisode(int episodeId,double rateValue){
+
+    this._animeDetailsService.rateEpisode(episodeId, rateValue).then((value) {
+      if(value == null || value == false){
+        Fluttertoast.showToast(msg: S.current.ommentingError);
+        this._stateSubject.add(EpisodeDetailsStateRatingError());
+      }else{
+        this._stateSubject.add(EpisodeDetailsStateRatingSuccess());
+      }
+    });
+  }
+
 }

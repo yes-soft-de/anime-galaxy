@@ -15,9 +15,15 @@ class EpisodeDetailsStateFetchingSuccess extends EpisodeDetailsState{
 }
 
 class EpisodeDetailsStateFetchingError extends EpisodeDetailsState{}
-
+///----------------------------------------------
 class EpisodeDetailsStateCommentingInProgress extends EpisodeDetailsState{}
 
 class EpisodeDetailsStateCommentingSuccess extends EpisodeDetailsState{}
 
 class EpisodeDetailsStateCommentingError extends EpisodeDetailsState{}
+
+///----------------------------------------------
+
+class EpisodeDetailsStateRatingSuccess extends EpisodeDetailsState{}
+
+class EpisodeDetailsStateRatingError extends EpisodeDetailsState{}
