@@ -13,7 +13,7 @@ class Urls {
   static const API_FAVOURITE_ANIMES = BASE_API + '/favouriteUser/';
   static const API_HIGHEST_RATED_ANIMES = BASE_API +'/getHighestRatedAnime';
   static const API_HIGHEST_RATED_ANIMES_BY_USER = BASE_API +'/getHighestRatedAnime/';
-  static const API_COMING_SOON_ANIMES = BASE_API + '/animeCommingSoon';
+  static const API_COMING_SOON_ANIMES = BASE_API + '/animeComingSoon';
   static const API_ANIME_YOU_MAY_LIKE = BASE_API + '/getMaybeYouLike/';
   static const API_USER_POINTS = BASE_API + '/grade/';
   static const API_EPISODES_COMING_SOON = BASE_API + '/episodesComingSoon';
@@ -22,7 +22,9 @@ class Urls {
   static const API_ALL_EPISODE_COMMENTS = BASE_API + '/commentsEpisode/';
   static const API_FOLLOWING_ACTIVITIES = BASE_API + '/followersActivities/';
   static const API_FOLLOWING_USERS = BASE_API + '/following/';
+  static const API_FOLLOW = BASE_API + '/following';
   static const API_REGISTER_POINTS = BASE_API + '/register-point';
+  static const API_RATING_EPISODE = BASE_API + '/ratingEpisode';
 
   static const API_SIGN_UP = BASE_API + '/user';
   static const API_CREATE_PROFILE = BASE_API + '/userprofile/';

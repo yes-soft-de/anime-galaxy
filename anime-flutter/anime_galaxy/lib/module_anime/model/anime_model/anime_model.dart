@@ -1,7 +1,7 @@
 class AnimeModel{
     String name;
     String showYear;
-    double rate;
+    String rate;
     String likesNumber;
     int commentsNumber;
     String image;

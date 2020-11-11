@@ -10,7 +10,7 @@ class EpisodeResponse {
   Duration createdAt;
   EpisodInteraction episodInteraction;
   String comments;
-  double rating;
+  String rating;
 
   EpisodeResponse(
       {this.id,

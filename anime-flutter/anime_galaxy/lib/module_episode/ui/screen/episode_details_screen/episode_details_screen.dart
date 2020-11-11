@@ -39,17 +39,21 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen> with Ticker
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   String userId;
 
-
   @override
-  void initState() async {
+  void initState()  {
 
     super.initState();
-    userId = await widget._authPrefsHelper.getUserId();
+
+    _getUserId();
 
     widget._stateManager.stateStream.listen((event) {
       currentState = event;
       processEvent();
     });
+  }
+
+  void _getUserId()async{
+    userId = await widget._authPrefsHelper.getUserId();
   }
 
   void processEvent() {
@@ -77,6 +81,12 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen> with Ticker
         setState(() {});
       }
     }
+
+    if (currentState is EpisodeDetailsStateRatingSuccess) {
+           if (this.mounted) {
+        setState(() {});
+      }
+    }
   }
 
   @override
@@ -95,28 +105,6 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen> with Ticker
             LoadingIndicatorWidget():
             getPageLayout();
 
-
-
-//    switch (currentState.runtimeType) {
-//      case AnimeDetailsStateInit:
-//        {
-//          widget._stateManager.getAnimeDetails(1);
-//          return getPageLayout();
-//        }
-//        break;
-//      case AnimeDetailsStateFetchingSuccess:
-//        return getPageLayout();
-//        break;
-//      case AnimeDetailsStateFetchingError:{
-//        loading = false;
-//        return setErrorUI();
-//      }
-//
-//        break;
-//
-//      default:
-//        return Container();
-//    }
 
 
   }
@@ -142,7 +130,7 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen> with Ticker
   Widget getPageLayout(){
     return Scaffold(
       key: _scaffoldKey,
-      appBar : AnimeGalaxyAppBar.getAnimeGalaxyAppBar( _scaffoldKey),
+      appBar : AnimeGalaxyAppBar.getAnimeGalaxyAppBar( _scaffoldKey,userId),
       drawer: AnimeNavigationDrawer(),
       body : Container(
         padding: EdgeInsets.all(5),
@@ -206,7 +194,9 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen> with Ticker
                     fillIcon: Icon(Icons.favorite,color: ProjectColors.ThemeColor,  ),
                     halfFillIcon: Icon(Icons.favorite_border,color: ProjectColors.ThemeColor,  ),
                     emptyIcon: Icon(Icons.favorite_border,color: ProjectColors.ThemeColor, ),
-                    onRatingChanged: (rating) => setState(() => this.rating = rating),
+                    onRatingChanged: (rating) {
+                       widget._stateManager.rateEpisode(episodeId, rating);
+                       this.rating = rating;},
                     itemSize:25,
                     itemCount: 10,
                   ),

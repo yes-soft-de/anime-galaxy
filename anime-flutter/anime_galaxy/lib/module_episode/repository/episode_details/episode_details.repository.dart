@@ -2,6 +2,7 @@
 
 import 'package:anime_galaxy/consts/urls.dart';
 import 'package:anime_galaxy/module_episode/request/comment_request/comment_request.dart';
+import 'package:anime_galaxy/module_episode/request/rating_request/rating_request.dart';
 import 'package:anime_galaxy/module_episode/response/comment_response/comment_response.dart';
 import 'package:anime_galaxy/module_episode/response/episode_response/episode_response.dart';
 import 'package:anime_galaxy/module_network/http_client/http_client.dart';
@@ -59,4 +60,18 @@ class EpisodeDetailsRepository{
             false;
 
    }
+
+  Future<bool> rateEpisode(RatingRequest ratingRequest) async{
+    dynamic response = await _httpClient.post(Urls.API_RATING_EPISODE, {
+      'userID':ratingRequest.userId,
+      'episodeID':ratingRequest.episodeId,
+      'rateValue':ratingRequest.rateValue
+    });
+    return response == null ?
+    null:
+    response['status_code']=='201'?
+    true:
+    false;
+
+  }
 }

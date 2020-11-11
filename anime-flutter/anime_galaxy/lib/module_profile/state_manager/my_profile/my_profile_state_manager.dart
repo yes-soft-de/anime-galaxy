@@ -40,6 +40,33 @@ class MyProfileStateManager {
      ;
   }
 
+  void follow(String friendId){
+    _myProfileService.follow(friendId).then((value) {
+      if(value == null || value == false){
+        _stateSubject.add(ProfileFollowError());
+        Fluttertoast.showToast(msg: S.current.errorHappened);
+      }
+      else{
+        _stateSubject.add( ProfileFollowSuccess());
+
+      }
+    });
+
+  }
+
+  void unFollow(String friendId){
+    _myProfileService.unFollow(friendId).then((value) {
+      if(value == null || value == false){
+        _stateSubject.add(ProfileUnFollowError());
+        Fluttertoast.showToast(msg: S.current.errorHappened);
+      }
+      else{
+        _stateSubject.add( ProfileUnFollowSuccess());
+
+      }
+    });
+
+  }
 
 
   void setMyProfile(String username, String about, String image) {

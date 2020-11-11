@@ -7,6 +7,7 @@ import 'package:anime_galaxy/module_profile/ui/widget/activity_card/activity_car
 import 'package:anime_galaxy/module_profile/ui/widget/personal_info_widget/personal_info_widget.dart';
 import 'package:anime_galaxy/module_profile/ui/widget/series_card/card_series.dart';
 import 'package:anime_galaxy/utils/loading_indicator/loading_indicator.dart';
+import 'package:anime_galaxy/utils/project_color/project_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:inject/inject.dart';
@@ -56,7 +57,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
         setState(() {});
       }
     }
-
+    if (currentState is ProfileFollowSuccess ) {
+      _profileModel.isFollowed =  true;
+      if (this.mounted) {
+        setState(() {});
+      }
+    }
+    if (currentState is ProfileUnFollowSuccess ) {
+      _profileModel.isFollowed =  false;
+      if (this.mounted) {
+        setState(() {});
+      }
+    }
   }
 
   @override
@@ -103,6 +115,28 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         followingNumber: _profileModel.followingNumber.toString(),
                         seriesNumber: _profileModel.seriesNumber.toString(),
                       ),
+
+                  if(userId != null) FlatButton(
+                                    color: _profileModel.isFollowed?Colors.grey: ProjectColors.ThemeColor,
+                                      shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(15.0)),
+
+                                      onPressed: ()=>
+                                      _profileModel.isFollowed?
+                                            widget._stateManager.unFollow(userId) :
+                                            widget._stateManager.follow(userId),
+                                      child:Container(
+                                        width: MediaQuery.of(context).size.width*0.8,
+                                        child: Center(
+                                          child: Text(
+                                            _profileModel.isFollowed? S.of(context).isFollowed: S.of(context).Follow,
+                                            style: TextStyle(
+                                                fontSize: 14,
+                                                color: Colors.white
+                                            ),
+                                          ),
+                                        ),
+                                      ) ,
+                                    ),
                   //about me
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,

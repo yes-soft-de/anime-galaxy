@@ -1,5 +1,7 @@
 import 'package:anime_galaxy/module_anime/response/favourite_response/favourite_response.dart';
+import 'package:anime_galaxy/module_auth/presistance/auth_prefs_helper.dart';
 import 'package:anime_galaxy/module_profile/response/following_activities_response/following_activities_response.dart';
+import 'package:anime_galaxy/module_profile/response/follwoing_response/following_response.dart';
 import 'package:inject/inject.dart';
 import 'package:anime_galaxy/consts/urls.dart';
 import 'package:anime_galaxy/module_network/http_client/http_client.dart';
@@ -9,15 +11,22 @@ import 'package:anime_galaxy/module_profile/response/profile_response/profile_re
 @provide
 class MyProfileRepository {
   final ApiClient _apiClient;
-  MyProfileRepository(this._apiClient);
+  final AuthPrefsHelper _authPrefsHelper;
+
+  MyProfileRepository(this._apiClient,this._authPrefsHelper);
 
   Future<ProfileResponse> getProfile(String userId)async{
+    String loggedUser = await _authPrefsHelper.getUserId();
+
     dynamic response = await _apiClient.get(Urls.API_PROFILE+userId);
     if(response == null ) return null;
     ProfileResponse result = ProfileResponse.fromJson(response['Data']);
     result.followingActivitiesResponse = await _getFollowingActivities(userId);
     result.favourites = await _getWatchedSeries(userId);
     result.followingNumber = await _getFollowingNumber(userId);
+
+
+    result.isFollowed = await _isFollowed(loggedUser,userId );
 
     return result;
 
@@ -58,6 +67,41 @@ class MyProfileRepository {
     return series;
   }
 
+  Future<bool> follow(String userId,String friendId) async{
+    dynamic response = await _apiClient.post(Urls.API_FOLLOW, {
+      'userID':userId,
+      'friendID':friendId
+    });
+
+    return response == null ?
+    null:
+    response['status_code']=='201'?
+    true:
+    false;
+  }
+
+  Future<bool> unFollow(String userId,String friendId)async{
+     dynamic response = await _apiClient.delete(Urls.API_FOLLOW+'/$userId/$friendId');
+     return response == null ?
+     null:
+     response['status_code']=='401'?
+     true:
+     false;
+
+  }
+
+  Future<bool> _isFollowed(String userId , String friendId)async{
+    dynamic following = await _apiClient.get(Urls.API_FOLLOWING_USERS+userId);
+    if(following == null ) return false;
+
+    dynamic res = following['Data'];
+    for(int i=0 ; i <res.length ; i++){
+      FollowingUsersResponse follow = FollowingUsersResponse.fromJson(res[i]);
+      if(friendId == follow.friendID ) return true;
+    }
+
+    return false;
+  }
   
   Future<ProfileResponse> getMyProfile() async {
     Map<String, dynamic> response = await _apiClient.get(Urls.API_PROFILE);

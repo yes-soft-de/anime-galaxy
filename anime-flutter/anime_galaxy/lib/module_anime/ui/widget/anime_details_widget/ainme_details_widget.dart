@@ -7,7 +7,7 @@ typedef FollowCallBack = void Function();
 class AnimeDetailsWidget extends StatelessWidget {
   final String name;
   final String showYear;
-  final double rate;
+  final String rate;
   final String likes;
   final int comments;
   final String image;

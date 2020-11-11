@@ -1,70 +1,48 @@
-import 'package:anime_galaxy/module_anime/response/favourite_response/favourite_response.dart';
-import 'package:anime_galaxy/module_profile/response/following_activities_response/following_activities_response.dart';
+class CommingSoonResponse {
+  String name;
+  String mainImage;
+  String categoryName;
+  int categoryID;
+  PublishDate publishDate;
 
+  CommingSoonResponse(
+      {this.name,
+        this.mainImage,
+        this.categoryName,
+        this.categoryID,
+        this.publishDate});
 
-
-class ProfileResponse {
-  Null id;
-  String userID;
-  String userName;
-  String location;
-  String story;
-  String image;
-  CreatedAt createdAt;
-  int followingNumber;
-  List<FollowingActivitiesResponse> followingActivitiesResponse;
-  List<FavouriteResponse> favourites;
-  bool isFollowed;
-
-  ProfileResponse(
-      {this.id,
-        this.userID,
-        this.userName,
-        this.location,
-        this.story,
-        this.image,
-        this.createdAt,
-        this.followingNumber,
-        this.followingActivitiesResponse,
-        this.favourites,
-        this.isFollowed,
-      });
-
-  ProfileResponse.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    userID = json['userID'];
-    userName = json['userName'];
-    location = json['location'];
-    story = json['story'];
-    image = json['image'];
-    createdAt = json['createdAt'] != null
-        ? new CreatedAt.fromJson(json['createdAt'])
+  CommingSoonResponse.fromJson(Map<String, dynamic> json) {
+    name = json['name'];
+    mainImage = json['mainImage'];
+    categoryName = json['categoryName'];
+    categoryID = json['categoryID'];
+    publishDate = json['publishDate'] != null
+        ? new PublishDate.fromJson(json['publishDate'])
         : null;
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['userID'] = this.userID;
-    data['userName'] = this.userName;
-    data['location'] = this.location;
-    data['story'] = this.story;
-    data['image'] = this.image;
-    if (this.createdAt != null) {
-      data['createdAt'] = this.createdAt.toJson();
+    data['name'] = this.name;
+    data['mainImage'] = this.mainImage;
+    data['categoryName'] = this.categoryName;
+    data['categoryID'] = this.categoryID;
+    if (this.publishDate != null) {
+      data['publishDate'] = this.publishDate.toJson();
     }
     return data;
   }
 }
 
-class CreatedAt {
+class PublishDate {
   Timezone timezone;
   int offset;
   int timestamp;
 
-  CreatedAt({this.timezone, this.offset, this.timestamp});
+  PublishDate({this.timezone, this.offset, this.timestamp});
 
-  CreatedAt.fromJson(Map<String, dynamic> json) {
+  PublishDate.fromJson(Map<String, dynamic> json) {
     timezone = json['timezone'] != null
         ? new Timezone.fromJson(json['timezone'])
         : null;

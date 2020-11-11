@@ -40,9 +40,21 @@ class MyProfileService {
       seriesNumber: response.favourites.length,
       watchedSeries: _getSeries(response.favourites),
       followingActivities: _getActivities(response.followingActivitiesResponse),
+      isFollowed: response.isFollowed,
     );
 
     return result;
+  }
+
+  Future<bool> follow(String friendId) async{
+    String userId = await _authPrefsHelper.getUserId();
+
+    return await _manager.follow(userId, friendId);
+  }
+  Future<bool> unFollow(String friendId)async{
+    String userId = await _authPrefsHelper.getUserId();
+
+    return await _manager.unFollow(userId, friendId);
   }
 
   List<Activity>   _getActivities(List<FollowingActivitiesResponse> followingActivitiesResponse){

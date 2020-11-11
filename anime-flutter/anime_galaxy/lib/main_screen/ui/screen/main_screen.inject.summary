@@ -35,7 +35,7 @@
             },
             {
               "lookupKey": {
-                "root": "asset:anime_galaxy/lib/anime_setting/ui/screen/anim_setting.dart#AnimSetting",
+                "root": "asset:anime_galaxy/lib/module_settings/ui/ui/settings_page/settings_page.dart#SettingsPage",
                 "qualifier": null
               },
               "isProvider": false
@@ -50,6 +50,13 @@
             {
               "lookupKey": {
                 "root": "asset:anime_galaxy/lib/module_profile/ui/screen/profile_screen/profile_screen.dart#ProfileScreen",
+                "qualifier": null
+              },
+              "isProvider": false
+            },
+            {
+              "lookupKey": {
+                "root": "asset:anime_galaxy/lib/module_auth/presistance/auth_prefs_helper.dart#AuthPrefsHelper",
                 "qualifier": null
               },
               "isProvider": false

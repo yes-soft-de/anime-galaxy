@@ -1,7 +1,7 @@
 class ExploreModel{
   List<Series> worldRecommendedSeries;
   List<Series> recommendedSeriesByUser;
-  List<Series> comingSoonSeries;
+  List<ComingSoonSeries> comingSoonSeries;
   List<ActiveUser> activeUsers;
 
   ExploreModel({
@@ -23,7 +23,22 @@ class Series{
     this.name,
     this.image,
     this.category,
-});
+  });
+
+
+}
+class ComingSoonSeries{
+  String name;
+  String image;
+  String category;
+
+  ComingSoonSeries({
+    this.name,
+    this.image,
+    this.category,
+  });
+
+
 }
 
 class ActiveUser{
