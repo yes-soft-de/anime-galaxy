@@ -1,9 +1,14 @@
 import 'package:anime_galaxy/anime_setting/ui/widget/circular_setting/circular_image.dart';
 import 'package:anime_galaxy/module_notification/notification_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:inject/inject.dart';
+
 
 class AnimeGalaxyAppBar {
-  static AppBar getAnimeGalaxyAppBar(GlobalKey<ScaffoldState> drawerKey) {
+
+
+
+  static AppBar getAnimeGalaxyAppBar(GlobalKey<ScaffoldState> drawerKey,String userName) {
     return
       AppBar(
         elevation: 0,
@@ -32,7 +37,7 @@ class AnimeGalaxyAppBar {
                             fontSize: 14,
 
                 )),
-                Text('محمد',
+                Text('$userName',
                     style: TextStyle(
                              fontSize: 18,
                              fontWeight: FontWeight.bold,

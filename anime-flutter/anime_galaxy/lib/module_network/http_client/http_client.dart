@@ -52,6 +52,32 @@ class ApiClient {
     }
   }
 
+  Future<Map<String, dynamic>> delete(String url,
+      {Map<String, String> queryParams}) async {
+    _logger.info(tag, 'DELETE $url');
+    try {
+      Response response = await _client.delete(
+        url,
+        queryParameters: queryParams,
+        options: buildCacheOptions(Duration(seconds: 15)),
+      );
+
+      if (response.statusCode >= 200 && response.statusCode < 500) {
+        _logger.info(tag, response.data.toString());
+        return response.data;
+      } else {
+        _logger.error(tag, response.statusCode.toString() + ' for link ' + url);
+
+        return null;
+      }
+    } catch (e) {
+      _logger.error(tag, e.toString());
+      await Fluttertoast.showToast(msg: e.toString());
+      return null;
+    }
+  }
+
+
   Future<Map<String, dynamic>> post(
       String url, Map<String, dynamic> payLoad) async {
     try {
