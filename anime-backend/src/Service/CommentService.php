@@ -10,6 +10,7 @@ use App\Response\CreateCommentResponse;
 use App\Response\GetCommentByIdResponse;
 use App\Response\GetCommentsResponse;
 use App\Response\UpdateCommentResponse;
+use App\Response\GetcommentsNumberResponse;
 
 class CommentService
 {
@@ -75,10 +76,11 @@ class CommentService
         foreach ($result as $row) {
             $response = $this->autoMapping->map('array', GetCommentByIdResponse::class, $row);
         }
-        $response->interactions['love'] = $love;
-        $response->interactions['like'] = $like;
-        $response->interactions['dislike'] = $dislike;
-
+        if($response){
+            $response->interactions['love'] = $love;
+            $response->interactions['like'] = $like;
+            $response->interactions['dislike'] = $dislike;
+        }
         return $response;
     }
 
@@ -98,6 +100,15 @@ class CommentService
 
         return $response;
     }
+    public function commentsNumber($userID)
+    {
+        $response = [];
+        $result = $this->commentManager->commentsNumber($userID);
+        foreach ($result as $row) {
+             $response = $this->autoMapping->map('array', GetcommentsNumberResponse::class, $row);
+        }
+        return $response;
+    }
 
     public function getCommentsByAnimeId($request)
     {
@@ -114,5 +125,11 @@ class CommentService
             $response[] = $this->autoMapping->map('array', GetCommentsResponse::class, $row);
         }
         return $response;
+    }
+
+    public function getFollowersComments($friendID)
+    {
+        return  $this->commentManager->getFollowersComments($friendID); 
+    
     }
 }

@@ -30,16 +30,14 @@ class CommentController extends BaseController
     }
 
     /**
-     * @Route("comment", name="comment", name="createComment",methods={"POST"})
+     * @Route("/comment", name="comment", name="createComment",methods={"POST"})
      * @param Request $request
      * @return JsonResponse
      */
     public function create(Request $request)
     {
-        dd($this->getUser());
         $data = json_decode($request->getContent(), true);
         $request = $this->autoMapping->map(\stdClass::class, CreateCommentRequest::class, (object) $data);
-        $request->setUserID($this->getUser()->getUsername());
 
         $violations = $this->validator->validate($request);
         if (\count($violations) > 0) {
@@ -109,6 +107,18 @@ class CommentController extends BaseController
     public function getAll($animeID)
     {
         $result = $this->commentService->getAll($animeID);
+
+        return $this->response($result, self::FETCH);
+    }
+
+    /**
+     * @Route("/commentsNumber/{userID}", name="commentsNumberForEachUser",methods={"GET"})
+     * @param $userID
+     * @return JsonResponse
+     */
+    public function commentsNumber($userID)
+    {
+        $result = $this->commentService->commentsNumber($userID);
 
         return $this->response($result, self::FETCH);
     }

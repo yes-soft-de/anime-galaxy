@@ -78,7 +78,7 @@ methods: GET
 ##### Get all anime. 
 `Method: GET. Path: /anime`
 ##### Get all anime of specific category. 
-`Method: GET. Path: /category/ID`
+`Method: GET. Path: /animeByCategory/{categoryID}`
 ##### Delete existing anime by ID. 
 `Method: DELET. Path: /anime`
 ##### Get Highest Rated Anime
@@ -97,9 +97,11 @@ methods: GET
 ##### Get an episode by ID.
 `Method: Get. Path: /episode/id.`
 ##### Get episodes of specific anime.
-`Method: Get. Path: /episode/animeID.`
+`Method: Get. Path: /animeEpisodes/{animeID}.`
 ##### Get episodes of specific anime and specific season.
 `Method: Get. Path: /episode/animeID/seasonNumber.`
+##### Get All Episodes ComingSoon.
+`Method: Get. Path: /episodesComingSoon.`
 ##### Update an existing episode by ID.
 `Method: PUT. Path: /episode.`
 ##### Delete an existing episode by ID.
@@ -114,6 +116,7 @@ methods: GET
 `Method: PUT. Path: / category`
 ##### Delete specific category. 
 `Method: DELETE. Path: / category`
+
 
 ### Image APIs
 ##### Insert new image. 
@@ -133,6 +136,8 @@ methods: GET
 `Method: GET. Path: /following/userID/friendID`
 ##### Get all followings. 
 `Method: GET. Path: /following`
+##### Get Followers Activities. 
+`Method: GET. Path: /followersActivities/{userID}`
 ##### Delete an existing following by ID.
 `Method: DELETE. Path: /following/ID`
 ##### Delete an existing following by userID and friendID.

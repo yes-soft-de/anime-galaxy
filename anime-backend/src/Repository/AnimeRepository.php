@@ -29,7 +29,7 @@ class AnimeRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('anime')
     
-        ->select('anime.id','anime.name', 'anime.mainImage','category.name as categoryName',
+        ->select('anime.id','anime.name', 'anime.mainImage','anime.description','category.name as categoryName','category.id as categoryID',
             'avg(rate.rateValue) as rating', 'anime.specialLink')
         
             ->leftJoin(
@@ -58,7 +58,7 @@ class AnimeRepository extends ServiceEntityRepository
     public function getAll()
     {
         return $this->createQueryBuilder('anime')
-            ->select('anime.id', 'anime.name', 'anime.mainImage', 'category.name as categoryName',
+            ->select('anime.id', 'anime.name', 'anime.mainImage', 'category.name as categoryName','category.id as categoryID',
                 'avg(rate.rateValue) as rating',
                 'count(DISTINCT comment.id) as comments', 'anime.specialLink')
             ->leftJoin(
@@ -113,7 +113,7 @@ class AnimeRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('anime')
             ->select('anime.id', 'anime.name as animeName', 'anime.mainImage as animeMainImage',
-                'category.name as categoryName', 'avg(rate.rateValue) as rating', 'anime.specialLink'
+                'category.name as categoryName','category.id as categoryID', 'avg(rate.rateValue) as rating', 'anime.specialLink'
                 )
             ->leftjoin(
                 Category::class,
@@ -129,8 +129,8 @@ class AnimeRepository extends ServiceEntityRepository
             )
             ->setMaxResults(10)   
             ->addOrderBy('rating','DESC')
-            ->groupBy('category.name')
-            ->groupBy('animeName')
+            ->groupBy('categoryID')
+            ->groupBy('anime.id')
             ->getQuery()
             ->getResult();
     }
@@ -140,7 +140,7 @@ class AnimeRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('anime')
         ->select('anime.id','anime.name as animeName', 'anime.mainImage as animeMainImage',
             'avg(rate.rateValue) as rating', 'anime.specialLink')
-        ->addSelect('category.name as categoryName')
+        ->addSelect('category.name as categoryName','category.id as categoryID')
        
         ->leftJoin(
             Favourite::class,
@@ -172,14 +172,14 @@ class AnimeRepository extends ServiceEntityRepository
     public function getAllComingSoon($date)
     {        
         return $this->createQueryBuilder('anime')
-            ->select('anime.id', 'anime.name', 'anime.mainImage', 'category.name as categoryName', 'anime.specialLink')
+            ->select('anime.id', 'anime.name', 'anime.mainImage', 'category.name as categoryName','category.id as categoryID','anime.specialLink', 'anime.publishDate')
             ->leftJoin(
                 Category::class,
                 'category',
                 Join::WITH,
                 'category.id = anime.categoryID'
             )
-            ->andWhere( 'anime.creationDate > :date')
+            ->andWhere( 'anime.publishDate > :date')
             ->setParameter('date',$date)
             ->groupBy('anime.id')
             ->getQuery()
@@ -190,7 +190,7 @@ class AnimeRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('anime')
         ->select('anime.id','anime.name as animeName', 'anime.mainImage as animeMainImage', 'anime.specialLink')
-        ->addSelect('category.name as categoryName')
+        ->addSelect('category.name as categoryName','category.id as categoryID')
        
         ->join(
             Favourite::class,
@@ -216,7 +216,7 @@ class AnimeRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('anime')
         ->select('anime.id','anime.name as animeName', 'anime.mainImage as animeMainImage',
             'avg(rate.rateValue) as rating', 'anime.specialLink')
-        ->addSelect('category.name as categoryName')
+        ->addSelect('category.name as categoryName','category.id as categoryID')
         ->leftjoin(
             Category::class,
             'category',

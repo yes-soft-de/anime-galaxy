@@ -62,6 +62,11 @@ class Episode
      */
     private $specialLink;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $categoyID;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -139,14 +144,14 @@ class Episode
         return $this;
     }
 
-    public function getPublishDate(): ?\DateTimeInterface
+    public function getPublishDate()
     {
         return $this->publishDate;
     }
 
-    public function setPublishDate(?\DateTimeInterface $publishDate): self
+    public function setPublishDate( $publishDate): self
     {
-        $this->publishDate = $publishDate;
+        $this->publishDate = new \DateTime($publishDate);
 
         return $this;
     }
@@ -171,6 +176,18 @@ class Episode
     public function setSpecialLink(?bool $specialLink): self
     {
         $this->specialLink = $specialLink;
+
+        return $this;
+    }
+
+    public function getCategoyID(): ?string
+    {
+        return $this->categoyID;
+    }
+
+    public function setCategoyID(string $categoyID): self
+    {
+        $this->categoyID = $categoyID;
 
         return $this;
     }

@@ -6,6 +6,8 @@ namespace App\Response;
 
 class GetEpisodeResponse
 {
+    public $id;
+    
     public $animeName;
 
     public $seasonNumber;
@@ -23,5 +25,9 @@ class GetEpisodeResponse
     public $createdAt;
     
     public $episodInteraction;
+
+    public $comments;
+    
+    public $rating;
 
 }

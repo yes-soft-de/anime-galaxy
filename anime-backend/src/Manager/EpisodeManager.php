@@ -32,6 +32,7 @@ class EpisodeManager
         $episodeEntity = $this->autoMapping->map(CreateEpisodeRequest::class, Episode::class, $request);
         $episodeEntity->setCreatedAt();
         $episodeEntity->setDuration();
+        $episodeEntity->setPublishDate($episodeEntity->getPublishDate());
 
         $this->entityManager->persist($episodeEntity);
         $this->entityManager->flush();
@@ -73,7 +74,7 @@ class EpisodeManager
 
     public function delete(DeleteRequest $request)
     {
-        $episode = $this->episodeRepository->getEpisodeById($request->getId());
+        $episode = $this->episodeRepository->find($request->getId());
         if(!$episode)
         {
             return null;

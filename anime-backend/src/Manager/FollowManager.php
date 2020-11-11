@@ -44,14 +44,12 @@ class FollowManager
 
     public function getAll()
     {
-        $data = $this->followRepository->getAll();
-
-        return $data;
+        return $this->followRepository->getAll();
     }
 
     public function getFollowByUserId($request)
     {
-        return $result = $this->followRepository->getFollowsByUserId($request->get('userID'));
+        return $this->followRepository->getFollowsByUserId($request->get('userID'));
     }
 
 
@@ -81,10 +79,16 @@ class FollowManager
         }
         else
         {
-
             $this->entityManager->remove($follow);
             $this->entityManager->flush();
         }
         return $follow;
     }
+
+    public function getFollowers($userID)
+    {
+        
+        return $this->followRepository->getFollowers($userID);
+    }
+
 }

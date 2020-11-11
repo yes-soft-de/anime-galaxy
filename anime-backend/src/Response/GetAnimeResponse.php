@@ -10,6 +10,7 @@ class GetAnimeResponse
     public $name;
     public $mainImage;
     public $categoryName;
+    public $categoryID;
     public $rating;
     public $comments;
     public $interaction;

@@ -4,10 +4,10 @@ namespace App\Response;
 
 class UpdateInteractionResponse
 {
-    private $id;
-    private $userID;
-    private $animeID;
-    private $type;
+    public $id;
+    public $userID;
+    public $animeID;
+    public $type;
 
     /**
      * @return mixed

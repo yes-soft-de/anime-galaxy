@@ -73,10 +73,15 @@ class FavouriteService
 
         foreach ($result as $row)
         {
-            $response[] = $this->autoMapping->map(Favourite::class, GetFavouriteResponse::class, $row);
+            $response[] = $this->autoMapping->map("array", GetFavouriteResponse::class, $row);
         }
 
         return $response;
     }
 
+    public function getFollowersFavourites($friendID)
+    {
+        return  $this->favouriteManager->getFollowersFavourites($friendID); 
+    
+    }
 }

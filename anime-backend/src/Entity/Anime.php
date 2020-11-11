@@ -42,6 +42,16 @@ class Anime
      */
     private $specialLink;
 
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $publishDate;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -106,4 +116,29 @@ class Anime
 
         return $this;
     }
+    
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getPublishDate()
+    {
+        return $this->publishDate;
+    }
+
+    public function setPublishDate( $publishDate): self
+    {
+        $this->publishDate = new \DateTime($publishDate);
+
+        return $this;
+    }
+
 }

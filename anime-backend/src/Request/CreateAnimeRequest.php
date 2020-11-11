@@ -12,6 +12,8 @@ class CreateAnimeRequest
     private $mainImage;
     private $categoryID;
     private $creationDate;
+    private $description;
+    public  $publishDate;
 
     public function __construct()
     {
@@ -65,5 +67,19 @@ class CreateAnimeRequest
         $this->mainImage = $mainImage;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
 
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description): void
+    {
+        $this->description = $description;
+    }
 }

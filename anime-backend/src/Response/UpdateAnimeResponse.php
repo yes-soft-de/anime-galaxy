@@ -10,6 +10,7 @@ class UpdateAnimeResponse
     private $name;
     private $mainImage;
     private $categoryID;
+    private $description;
 
     /**
      * @return mixed
@@ -73,5 +74,21 @@ class UpdateAnimeResponse
     public function setCategoryID($categoryID): void
     {
         $this->categoryID = $categoryID;
+    }
+    
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description): void
+    {
+        $this->description = $description;
     }
 }

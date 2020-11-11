@@ -32,6 +32,10 @@ App\Request\CreateAnimeRequest:
       - NotBlank: ~
     mainImage:
       - NotBlank: ~
+    description:
+      - NotBlank: ~
+    publishDate:
+      - NotBlank: ~
 
 App\Request\CreateCategoryRequest:
   properties:
@@ -156,6 +160,8 @@ App\Request\UpdateAnimeRequest:
     categoryID:
       - NotBlank: ~
     mainImage:
+      - NotBlank: ~
+    description:
       - NotBlank: ~
 
 App\Request\UpdateCategoryRequest:

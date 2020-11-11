@@ -1,24 +1,20 @@
 <?php
 
-
 namespace App\Service;
-
 
 use App\AutoMapping;
 use App\Entity\Anime;
 use App\Manager\AnimeManager;
 use App\Response\CreateAnimeResponse;
-use App\Response\GetAnimeByIdResponse;
-use App\Response\GetAnimeResponse;
 use App\Response\GetAnimeByCategoryResponse;
-use App\Response\UpdateAnimeResponse;
-use App\Response\GetHighestRatedAnimeResponse;
-use App\Response\GetHighestRatedAnimeByUserResponse;
+use App\Response\GetAnimeByIdResponse;
 use App\Response\GetAnimeCommingSoonResponse;
+use App\Response\GetAnimeResponse;
+use App\Response\GetHighestRatedAnimeByUserResponse;
+use App\Response\GetHighestRatedAnimeResponse;
 use App\Response\GetMaybeYouLikeResponse;
+use App\Response\UpdateAnimeResponse;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
-use Symfony\Component\Validator\Constraints\Length;
-use Doctrine\Common\Collections\ArrayCollection;
 
 class AnimeService
 {
@@ -29,17 +25,15 @@ class AnimeService
     private $interactionService;
     private $params;
 
-
     public function __construct(AnimeManager $animeManager, AutoMapping $autoMapping, ImageService $imageService, CommentService $commentService,
-                        InteractionService $interactionService, ParameterBagInterface $params)
-    {
+        InteractionService $interactionService, ParameterBagInterface $params) {
         $this->animeManager = $animeManager;
         $this->autoMapping = $autoMapping;
         $this->imageService = $imageService;
         $this->commentService = $commentService;
         $this->interactionService = $interactionService;
 
-        $this->params = $params->get('upload_base_url').'/';
+        $this->params = $params->get('upload_base_url') . '/';
     }
 
     public function createAnime($request)
@@ -67,13 +61,13 @@ class AnimeService
 
             $response = $this->autoMapping->map('array', GetAnimeByIdResponse::class, $row);
         }
-
+        if($result){
         $response->setImages($resultImg);
         $response->setComments($resultComments);
         $response->interactions['love'] = $love;
         $response->interactions['like'] = $like;
         $response->interactions['dislike'] = $dislike;
-
+        }
         return $response;
     }
 
@@ -93,7 +87,7 @@ class AnimeService
             'dislike' => $this->interactionService->dislikeAll($row['id'])
             ];
             $response[] = $this->autoMapping->map('array', GetAnimeResponse::class, $row);
-          
+
         }
         return $response;
     }
@@ -110,7 +104,7 @@ class AnimeService
             $row['interaction']=[
                 'love' => $this->interactionService->lovedAll($row['id']),
                 'like' => $this->interactionService->likeAll($row['id']),
-                'dislike' => $this->interactionService->dislikeAll($row['id'])
+                'dislike' => $this->interactionService->dislikeAll($row['id']),
             ];
             $response[] = $this->autoMapping->map('array', GetAnimeByCategoryResponse::class, $row);
         }
@@ -129,12 +123,11 @@ class AnimeService
     public function deleteAnime($request)
     {
         $animeResult = $this->animeManager->delete($request);
-        if($animeResult == null)
-        {
+        if ($animeResult == null) {
             return null;
         }
-        return  $this->autoMapping->map(Anime::class, GetAnimeByIdResponse::class, $animeResult);
-        
+        return $this->autoMapping->map(Anime::class, GetAnimeByIdResponse::class, $animeResult);
+
     }
 
     public function getHighestRatedAnime()
@@ -163,7 +156,7 @@ class AnimeService
 
             $response[] = $this->autoMapping->map('array', GetHighestRatedAnimeByUserResponse::class, $row);
         }
-      
+
         return $response;
     }
 
@@ -179,7 +172,7 @@ class AnimeService
             $row['mainImage'] = $this->specialLinkCheck($row['specialLink']).$row['mainImage'];
 
             $response[] = $this->autoMapping->map('array', GetAnimeCommingSoonResponse::class, $row);
-          
+
         }
         return $response;
     }
@@ -187,16 +180,18 @@ class AnimeService
     public function searchMyArray($arrays, $key, $search)
     {       
         $count = 0;
-     
-        foreach($arrays as $object)
-         {
-            if(is_object($object)) {
-               $object = get_object_vars($object);
+
+        foreach ($arrays as $object) {
+            if (is_object($object)) {
+                $object = get_object_vars($object);
             }
-            if(array_key_exists($key, $object) && $object[$key] == $search) $count++;
+            if (array_key_exists($key, $object) && $object[$key] == $search) {
+                $count++;
+            }
+
         }
         return $count;
-     }   
+    }
 
     public function getMaybeYouLike($userID)
     {
@@ -221,8 +216,7 @@ class AnimeService
 
     public function specialLinkCheck($bool)
     {
-        if (!$bool)
-        {
+        if (!$bool) {
             return $this->params;
         }
     }

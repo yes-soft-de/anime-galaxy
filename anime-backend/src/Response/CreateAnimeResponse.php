@@ -10,7 +10,8 @@ class CreateAnimeResponse
     public $mainImage;
     public $categoryID;
     public $creationDate;
-    
+    public $description;
+    public $publishDate;
     /**
      * @return mixed
      */
@@ -73,5 +74,21 @@ class CreateAnimeResponse
     public function setCreationDate($creationDate): void
     {
         $this->creationDate = $creationDate;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description): void
+    {
+        $this->description = $description;
     }
 }

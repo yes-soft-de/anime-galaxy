@@ -5,8 +5,13 @@ namespace App\Response;
 class GetFavouriteResponse
 {
     public $id;
-    public $userID;
     public $animeID;
+    public $mainImage;
+    public $AnimeName;
+    public $categoryID;
+    public $categoryName;
+    public $date;
+   
 
      /**
      * @return mixed
