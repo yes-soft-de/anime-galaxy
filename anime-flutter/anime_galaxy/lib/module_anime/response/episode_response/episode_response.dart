@@ -5,26 +5,26 @@ class EpisodeResponse {
   int episodeNumber;
   String description;
   String image;
-  Duration duration;
-  Duration publishDate;
-  Duration createdAt;
+  ResponseDuration duration;
+  ResponseDuration publishDate;
+  ResponseDuration createdAt;
   EpisodInteraction episodInteraction;
   String comments;
   String rating;
 
   EpisodeResponse(
       {this.id,
-        this.animeName,
-        this.seasonNumber,
-        this.episodeNumber,
-        this.description,
-        this.image,
-        this.duration,
-        this.publishDate,
-        this.createdAt,
-        this.episodInteraction,
-        this.comments,
-        this.rating});
+      this.animeName,
+      this.seasonNumber,
+      this.episodeNumber,
+      this.description,
+      this.image,
+      this.duration,
+      this.publishDate,
+      this.createdAt,
+      this.episodInteraction,
+      this.comments,
+      this.rating});
 
   EpisodeResponse.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -34,13 +34,13 @@ class EpisodeResponse {
     description = json['description'];
     image = json['image'];
     duration = json['duration'] != null
-        ? new Duration.fromJson(json['duration'])
+        ? new ResponseDuration.fromJson(json['duration'])
         : null;
     publishDate = json['publishDate'] != null
-        ? new Duration.fromJson(json['publishDate'])
+        ? new ResponseDuration.fromJson(json['publishDate'])
         : null;
     createdAt = json['createdAt'] != null
-        ? new Duration.fromJson(json['createdAt'])
+        ? new ResponseDuration.fromJson(json['createdAt'])
         : null;
     episodInteraction = json['episodInteraction'] != null
         ? new EpisodInteraction.fromJson(json['episodInteraction'])
@@ -75,14 +75,14 @@ class EpisodeResponse {
   }
 }
 
-class Duration {
+class ResponseDuration {
   Timezone timezone;
   int offset;
   int timestamp;
 
-  Duration({this.timezone, this.offset, this.timestamp});
+  ResponseDuration({this.timezone, this.offset, this.timestamp});
 
-  Duration.fromJson(Map<String, dynamic> json) {
+  ResponseDuration.fromJson(Map<String, dynamic> json) {
     timezone = json['timezone'] != null
         ? new Timezone.fromJson(json['timezone'])
         : null;

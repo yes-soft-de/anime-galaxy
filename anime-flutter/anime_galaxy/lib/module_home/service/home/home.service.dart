@@ -9,8 +9,8 @@ import 'package:inject/inject.dart';
 @provide
 class HomeService {
   final HomeManager _homeManager;
-  final  AuthPrefsHelper _authPrefsHelper;
-  HomeService(this._homeManager,this._authPrefsHelper);
+  final AuthPrefsHelper _authPrefsHelper;
+  HomeService(this._homeManager, this._authPrefsHelper);
 
   Future<HomeModel> getHomePageDetails() async {
     String userId = await _authPrefsHelper.getUserId();
@@ -18,18 +18,15 @@ class HomeService {
     HomeResponse response = await _homeManager.getHomePageDetails(userId);
 
     HomeModel homeModel = new HomeModel(
-      watchedSeries: getSeries(response.watchedSeries),
-      points: response.points.points,
-      mayLikeSeries: getSeries(response.mayLikedSeries),
-      newEpisodes: getEpisodes(response.comingSoonEpisodes)
-    );
+        watchedSeries: getSeries(response.watchedSeries),
+        points: response.points != null ? response.points.points : 0,
+        mayLikeSeries: getSeries(response.mayLikedSeries),
+        newEpisodes: getEpisodes(response.comingSoonEpisodes));
     return homeModel;
   }
 
-
-
-  List<Series> getSeries(List<AnimeResponse> animeResponses){
-    List<Series> seriesList =[];
+  List<Series> getSeries(List<AnimeResponse> animeResponses) {
+    List<Series> seriesList = [];
 
     animeResponses.forEach((element) {
       seriesList.add(new Series(

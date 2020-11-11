@@ -94,7 +94,10 @@ class _AuthScreenState extends State<AuthScreen> {
             direction: Axis.vertical,
             children: [
               MediaQuery.of(context).viewInsets.bottom == 0
-                  ? SvgPicture.asset('assets/images/logo.svg')
+                  ? Image.asset(
+                      'assets/images/logo.jpg',
+                      height: 120,
+                    )
                   : Container(),
               Text(_phoneController.text.trim()),
             ],
@@ -163,8 +166,7 @@ class _AuthScreenState extends State<AuthScreen> {
             children: [
               MediaQuery.of(context).viewInsets.bottom == 0
                   ? Container(
-                      height: 144,
-                      child: SvgPicture.asset('assets/images/logo.svg'))
+                      height: 144, child: Image.asset('assets/images/logo.jpg'))
                   : Container(),
               Flex(direction: Axis.vertical, children: [
                 Padding(
@@ -186,23 +188,23 @@ class _AuthScreenState extends State<AuthScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Container(
-                            width: 36,
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: SvgPicture.asset(
-                                'assets/images/google_logo.svg',
-                                fit: BoxFit.contain,
-                              ),
-                            ),
-                          ),
                           Text(
                             'Sign in with Google',
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w400,
                             ),
-                          )
+                          ),
+                          Container(
+                            width: 36,
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: SvgPicture.asset(
+                                'assets/images/google-plus.svg',
+                                fit: BoxFit.contain,
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ),

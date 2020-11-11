@@ -1,3 +1,5 @@
+import 'package:anime_galaxy/consts/urls.dart';
+
 class SeriesResponse {
   int id;
   String name;
@@ -18,6 +20,7 @@ class SeriesResponse {
     id = json['id'];
     name = json['name'];
     mainImage = json['mainImage'];
+    mainImage.replaceFirst('http://localhost:8000', Urls.DOMAIN);
     try {
       rating = double.parse(json['rating'].toString());
     } catch (e) {

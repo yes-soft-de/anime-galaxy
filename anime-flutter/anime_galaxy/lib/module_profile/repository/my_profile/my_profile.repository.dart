@@ -109,8 +109,6 @@ class MyProfileRepository {
     return response ?? ProfileResponse.fromJson(response);
   }
 
-  
-  
   Future<ProfileResponse> createMyProfile(
       CreateProfileRequest profileRequest) async {
     Map<String, dynamic> response =
