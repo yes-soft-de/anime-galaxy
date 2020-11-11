@@ -9,6 +9,7 @@ class CreateCategoryResponse
     public $id;
     public $name;
     public $description;
+    public $image;
 
     /**
      * @return mixed

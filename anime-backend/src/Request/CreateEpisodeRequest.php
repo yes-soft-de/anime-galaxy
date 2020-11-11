@@ -16,6 +16,7 @@ class CreateEpisodeRequest
     private $duration;
     private $publishDate;
     private $createdAt;
+    private $categoyID;
 
     /**
      * CreateArticleRequest constructor.
