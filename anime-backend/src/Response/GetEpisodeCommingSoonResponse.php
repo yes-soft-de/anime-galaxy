@@ -21,5 +21,7 @@ class GetEpisodeCommingSoonResponse
     public $publishDate;
 
     public $createdAt;
+    
+    public $categoryName;
 
 }

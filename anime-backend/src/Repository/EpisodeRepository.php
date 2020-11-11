@@ -6,6 +6,7 @@ use App\Entity\Episode;
 use App\Entity\Anime;
 use App\Entity\RatingEpisode;
 use App\Entity\CommentEpisode;
+use App\Entity\Category;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\ORM\Query\Expr\Join;
@@ -92,7 +93,7 @@ class EpisodeRepository extends ServiceEntityRepository
     {
        return $this->createQueryBuilder('episode')
         ->select('episode.id','episode.seasonNumber', 'episode.episodeNumber', 'episode.description', 'episode.image',
-            'episode.duration', 'episode.publishDate', 'episode.createdAt', 'anime.name as animeName', 'episode.specialLink','anime.publishDate as animePublishDate',
+            'episode.duration', 'episode.publishDate', 'episode.createdAt', 'anime.name as animeName', 'episode.specialLink','anime.publishDate as animePublishDate','category.name as categoryName',
         'avg(rate.rateValue) as rating')
     
         ->leftJoin(
@@ -100,6 +101,12 @@ class EpisodeRepository extends ServiceEntityRepository
             'anime',
             Join::WITH,
             'anime.id = episode.animeID'
+        )
+        ->leftJoin(
+            Category::class,
+            'category',
+            Join::WITH,
+            'category.id = episode.categoyID'
         )
         ->leftJoin(
             RatingEpisode::class,            
@@ -123,12 +130,18 @@ class EpisodeRepository extends ServiceEntityRepository
     {        
         return $this->createQueryBuilder('episode')
             ->select('episode.id', 'episode.description', 'episode.episodeNumber', 'episode.image', 'episode.duration',
-                'episode.publishDate', 'episode.createdAt', 'episode.seasonNumber', 'anime.name as animeName', 'episode.specialLink')
+                'episode.publishDate', 'episode.createdAt', 'episode.seasonNumber', 'anime.name as animeName', 'episode.specialLink','category.name as categoryName')
             ->leftJoin(
                 Anime::class,
                 'anime',
                 Join::WITH,
                 'anime.id = episode.animeID'
+            )
+            ->leftJoin(
+                Category::class,
+                'category',
+                Join::WITH,
+                'category.id = episode.categoyID'
             )
             ->andWhere( 'episode.publishDate > :date')
             ->setParameter('date',$date)
