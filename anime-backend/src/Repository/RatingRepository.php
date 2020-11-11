@@ -51,7 +51,7 @@ class RatingRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('Rating')
             ->select('Rating.userID','Rating.id as RatingID','Rating.rateValue ','Rating.creationDate as date')
-            ->addSelect('Anime.id as animeID','Anime.name as AnimeName','UserProfile.userName')
+            ->addSelect('Anime.id as animeID','Anime.name as AnimeName','UserProfile.userName','UserProfile.image as userImage')
 
             ->leftJoin(
                 Anime::class,

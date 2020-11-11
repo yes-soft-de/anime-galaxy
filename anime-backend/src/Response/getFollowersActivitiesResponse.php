@@ -14,6 +14,7 @@ class getFollowersActivitiesResponse
     public $date;    
     public $RatingID;
     public $favouriteID;
+    public $userImage;
 
     
 
