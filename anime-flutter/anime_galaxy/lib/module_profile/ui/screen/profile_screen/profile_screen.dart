@@ -63,6 +63,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
         setState(() {});
       }
     }
+    if (currentState is ProfileUnFollowSuccess ) {
+      _profileModel.isFollowed =  false;
+      if (this.mounted) {
+        setState(() {});
+      }
+    }
   }
 
   @override
@@ -113,8 +119,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   if(userId != null) FlatButton(
                                     color: _profileModel.isFollowed?Colors.grey: ProjectColors.ThemeColor,
                                       shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(15.0)),
-                                      //TODO : implement un follow
-                                      onPressed: ()=>_profileModel.isFollowed?(){} : widget._stateManager.follow(userId),
+
+                                      onPressed: ()=>
+                                      _profileModel.isFollowed?
+                                            widget._stateManager.unFollow(userId) :
+                                            widget._stateManager.follow(userId),
                                       child:Container(
                                         width: MediaQuery.of(context).size.width*0.8,
                                         child: Center(

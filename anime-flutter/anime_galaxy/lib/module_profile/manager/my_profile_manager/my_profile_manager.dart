@@ -15,6 +15,9 @@ class MyProfileManager {
   Future<bool> follow(String userId,String friendId) async{
     return await _repository.follow(userId, friendId);
   }
+  Future<bool> unFollow(String userId,String friendId)async{
+    return await _repository.unFollow(userId, friendId);
+  }
 
   Future<ProfileResponse> getMyProfile() {
     return _repository.getMyProfile();

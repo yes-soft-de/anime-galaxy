@@ -51,6 +51,11 @@ class MyProfileService {
 
     return await _manager.follow(userId, friendId);
   }
+  Future<bool> unFollow(String friendId)async{
+    String userId = await _authPrefsHelper.getUserId();
+
+    return await _manager.unFollow(userId, friendId);
+  }
 
   List<Activity>   _getActivities(List<FollowingActivitiesResponse> followingActivitiesResponse){
     List<Activity> activities =[];

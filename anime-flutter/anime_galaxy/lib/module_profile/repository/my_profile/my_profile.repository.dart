@@ -80,6 +80,16 @@ class MyProfileRepository {
     false;
   }
 
+  Future<bool> unFollow(String userId,String friendId)async{
+     dynamic response = await _apiClient.delete(Urls.API_FOLLOW+'/$userId/$friendId');
+     return response == null ?
+     null:
+     response['status_code']=='401'?
+     true:
+     false;
+
+  }
+
   Future<bool> _isFollowed(String userId , String friendId)async{
     dynamic following = await _apiClient.get(Urls.API_FOLLOWING_USERS+userId);
     if(following == null ) return false;
