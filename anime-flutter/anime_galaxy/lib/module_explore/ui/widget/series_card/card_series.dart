@@ -20,7 +20,7 @@ class SeriesCard extends StatelessWidget {
             child: Card(
               child: FadeInImage.assetNetwork(
                 fit: BoxFit.cover,
-                image: url_image ?? '',
+                image: url_image,
                 placeholder: 'assets/images/logo.jpg',
                 width: 140,
               ),

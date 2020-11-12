@@ -1,8 +1,7 @@
+import 'package:anime_galaxy/generated/l10n.dart';
 import 'package:anime_galaxy/module_notification/model/notification_model/notification_model.dart';
 import 'package:anime_galaxy/module_notification/state/notification/notification.state.dart';
 import 'package:anime_galaxy/module_notification/state_manager/notification/notification.state_manager.dart';
-import 'package:anime_galaxy/module_notification/ui/widget/notification_card/notification_card.dart';
-import 'package:anime_galaxy/utils/loading_indicator/loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:inject/inject.dart';
 
@@ -19,7 +18,7 @@ class NotificationScreen extends StatefulWidget {
 class _NotificationScreenState extends State<NotificationScreen> {
   List<NotificationModel> notifications;
   NotificationState currentState = new NotificationStateInit();
-  bool  loading = true;
+  bool loading = true;
 
   @override
   void initState() {
@@ -29,49 +28,41 @@ class _NotificationScreenState extends State<NotificationScreen> {
       processEvent();
     });
   }
-  void processEvent(){
-    if(currentState is NotificationStateFetchingSuccess){
+
+  void processEvent() {
+    if (currentState is NotificationStateFetchingSuccess) {
       NotificationStateFetchingSuccess state = currentState;
       notifications = state.data;
       loading = false;
-      if(this.mounted){
-        setState(() {
-
-        });
+      if (this.mounted) {
+        setState(() {});
       }
     }
   }
+
   @override
   Widget build(BuildContext context) {
     if (currentState is NotificationStateInit) {
       widget._stateManager.getNotifications();
-      if(this.mounted){
+      if (this.mounted) {
         setState(() {});
       }
     }
 
-
-
-    return loading?
-            LoadingIndicatorWidget():
-            getPageLayout();
-
+    return Center(
+      child: Text(S.of(context).noNotificationsYet),
+    );
   }
 
-  Widget getPageLayout(){
+  Widget getPageLayout() {
     return Scaffold(
       body: Container(
         child: ListView.builder(
-             itemCount: notifications.length,
-            padding: EdgeInsetsDirectional.fromSTEB(10,20 ,10, 10),
-            itemBuilder: (BuildContext context,int index){
-              return Container(
-                margin: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
-                  child: NotificationCard(
-                    image: notifications[index].image,
-                    content: notifications[index].content,
-                    date: notifications[index].date,
-                  )
+            itemCount: notifications.length,
+            padding: EdgeInsetsDirectional.fromSTEB(10, 20, 10, 10),
+            itemBuilder: (BuildContext context, int index) {
+              return Center(
+                child: Text(S.of(context).noNotificationsYet),
               );
             }),
       ),

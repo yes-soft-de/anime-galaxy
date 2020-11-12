@@ -19,16 +19,10 @@ class CircularImage extends StatelessWidget {
         width: width,
         height: height,
         child: ClipOval(
-            child: linkImg != null
-                ? FadeInImage.assetNetwork(
-                    fit: BoxFit.cover,
-                    image: linkImg,
-                    placeholder: 'assets/images/logo.jpg',
-                  )
-                : fileImg != null
-                    ? Image.file(fileImg)
-                    : Container(
-                        color: Colors.blue,
-                      )));
+            child: FadeInImage.assetNetwork(
+          fit: BoxFit.cover,
+          image: linkImg,
+          placeholder: 'assets/images/logo.jpg',
+        )));
   }
 }

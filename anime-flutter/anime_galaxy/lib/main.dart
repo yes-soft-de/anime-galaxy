@@ -159,7 +159,6 @@ class _MyAppState extends State<MyApp> {
       title: 'Anime Galaxy',
       routes: fullRoutesList,
       initialRoute: MainScreenRoute.MAIN_SCREEN_ROUTE,
-      // initialRoute: AuthRoutes.ROUTE_AUTHORIZE,
     );
   }
 }

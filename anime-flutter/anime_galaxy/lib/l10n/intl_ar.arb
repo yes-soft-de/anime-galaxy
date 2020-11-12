@@ -111,5 +111,6 @@
   "series": "مسلسل",
   "aboutMe": "عني",
   "activities": "نشاطات",
-  "noNewEpisodes": "No New Episodes"
+  "noNewEpisodes": "لا يوجد حلقات جديدة",
+  "noNotificationsYet": "لا يوجد اشعارات بعد!"
 }

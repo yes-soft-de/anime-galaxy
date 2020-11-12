@@ -37,7 +37,10 @@ class SeriesCard extends StatelessWidget {
                 child: Text(
                   '${series_name}',
                   style: StyleExploreList.getTextSyle(
-                      size: 12, fontWeight: FontWeight.w400, day: true),
+                    size: 12,
+                    fontWeight: FontWeight.w400,
+                    day: true,
+                  ),
                   overflow: TextOverflow.ellipsis,
                 ),
               ),

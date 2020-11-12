@@ -1,4 +1,3 @@
-
 class AnimeResponse {
   int id;
   String animeName;
@@ -8,21 +7,20 @@ class AnimeResponse {
   Interactions interactions;
   String description;
 
-
-  AnimeResponse(
-      {this.id,
-        this.animeName,
-        this.mainImage,
+  AnimeResponse({
+    this.id,
+    this.animeName,
+    this.mainImage,
 //        this.images,
-        this.categoryName,
-        this.interactions,
-        this.description,
-      });
+    this.categoryName,
+    this.interactions,
+    this.description,
+  });
 
   AnimeResponse.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     animeName = json['animeName'];
-    mainImage = json['mainImage'];
+    mainImage = json['animeMainImage'];
 //    images = json['images'].cast<String>();
     categoryName = json['categoryName'];
     description = json['description'];

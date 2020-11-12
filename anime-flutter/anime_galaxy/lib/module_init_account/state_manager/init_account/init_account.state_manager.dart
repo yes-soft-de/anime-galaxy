@@ -32,7 +32,7 @@ class InitAccountStateManager {
   void addAnimesToWatch(List<FavouriteRequest> favouriteRequests) {
     _initAccountService.addAnimesToWatch(favouriteRequests).then((value) {
       if (value == null) {
-        Fluttertoast.showToast(msg: S.current.errorHappened);
+        
         _stateSubject.add(InitAccountStateAddFavouritesError());
       } else {
         _stateSubject.add(InitAccountStateAddFavouritesSuccess());

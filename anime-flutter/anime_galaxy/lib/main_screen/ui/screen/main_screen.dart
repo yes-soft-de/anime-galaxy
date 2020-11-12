@@ -96,7 +96,11 @@ class _MainScreenState extends State<MainScreen> {
             label: '',
             backgroundColor: ProjectColors.ThemeColor,
           ),
-//              BottomNavigationBarItem(icon: Icon(Icons.notifications), title: Container(height: 0.0)),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.notifications),
+            label: '',
+            backgroundColor: ProjectColors.ThemeColor,
+          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.dashboard),
             label: '',
@@ -109,7 +113,7 @@ class _MainScreenState extends State<MainScreen> {
           widget._settingsScreen,
           widget._profileScreen,
           widget._exploreScreen,
-//          widget._notificationScreen,
+          widget._notificationScreen,
           widget._homeScreen,
         ],
         onPageChanged: onPageChanged,

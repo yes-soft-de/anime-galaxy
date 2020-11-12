@@ -79,8 +79,7 @@ class MyProfileService {
           id: element.id,
           name: element.animeName,
           image: element.mainImage,
-          //TODO : change this to real data
-          classification: 'شاونين'));
+          classification: ' '));
     });
     return seriesList;
   }

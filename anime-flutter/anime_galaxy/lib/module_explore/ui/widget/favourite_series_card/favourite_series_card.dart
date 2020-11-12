@@ -36,9 +36,11 @@ class FavouriteSeriesCard extends StatelessWidget {
             children: [
               Expanded(
                 child: Text(
-                  "${series_name}",
+                  '${series_name}',
                   style: StyleExploreList.getTextSyle(
-                      size: 14, fontWeight: FontWeight.w400, day: true),
+                    size: 14,
+                    fontWeight: FontWeight.w400,
+                  ),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -49,8 +51,8 @@ class FavouriteSeriesCard extends StatelessWidget {
             children: [
               Expanded(
                 child: Text(
-                  "${series_category}",
-                  style: StyleExploreList.getTextSyle(size: 14, day: true),
+                  '${series_category}',
+                  style: StyleExploreList.getTextSyle(size: 14),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
