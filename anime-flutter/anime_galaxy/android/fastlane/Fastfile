@@ -11,7 +11,7 @@ platform :android do
       track: "alpha",
       aab:"../build/app/outputs/bundle/release/app-release.aab",
             skip_upload_metadata,
-      package_name: 'de.yes_soft.anime_galaxy'
+      package_name: 'de.yes_soft.anime_galaxy',
       skip_upload_changelogs: true,
       skip_upload_images: true,
       skip_upload_screenshots: true,
