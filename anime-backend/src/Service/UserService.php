@@ -53,7 +53,11 @@ class UserService
     public function getUserProfileByUserID($userID)
     {
         $item = $this->userManager->getProfileByUserID($userID);
-        $item['image'] = $this->params.$item['image'];
+
+        if($item['image'] != null)
+        {
+            $item['image'] = $this->params . $item['image'];
+        }
 
         return $this->autoMapping->map('array', UserProfileResponse::class, $item);
     }
