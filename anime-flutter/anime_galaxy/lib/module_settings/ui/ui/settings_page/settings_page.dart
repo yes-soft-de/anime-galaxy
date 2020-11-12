@@ -1,12 +1,12 @@
-import 'package:flutter/material.dart';
-import 'package:inject/inject.dart';
 import 'package:anime_galaxy/generated/l10n.dart';
+import 'package:anime_galaxy/main_screen/main_screen_routes.dart';
 import 'package:anime_galaxy/module_auth/auth_routes.dart';
 import 'package:anime_galaxy/module_auth/service/auth_service/auth_service.dart';
-import 'package:anime_galaxy/module_home/home.routes.dart';
 import 'package:anime_galaxy/module_localization/service/localization_service/localization_service.dart';
 import 'package:anime_galaxy/module_profile/presistance/profile_shared_preferences.dart';
 import 'package:anime_galaxy/module_theme/service/theme_service/theme_service.dart';
+import 'package:flutter/material.dart';
+import 'package:inject/inject.dart';
 
 @provide
 class SettingsPage extends StatefulWidget {
@@ -187,8 +187,11 @@ class _SettingsPageState extends State<SettingsPage> {
                             icon: Icon(Icons.arrow_drop_down_circle),
                             onPressed: () {
                               widget._authService.logout().then((value) {
-                                Navigator.pushNamedAndRemoveUntil(context,
-                                    HomeRoutes.ROUTE_HOME, (route) => false);
+                                Navigator.pushNamedAndRemoveUntil(
+                                  context,
+                                  MainScreenRoute.MAIN_SCREEN_ROUTE,
+                                  (route) => false,
+                                );
                               });
                             })
                       ],

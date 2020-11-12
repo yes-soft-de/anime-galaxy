@@ -24,24 +24,24 @@ import '../../module_auth/presistance/auth_prefs_helper.dart' as _i20;
 import '../../module_auth/manager/auth/auth_manager.dart' as _i21;
 import '../../module_auth/repository/auth/auth_repository.dart' as _i22;
 import '../../module_network/http_client/http_client.dart' as _i23;
-import '../../module_profile/profile_module.dart' as _i24;
-import '../../module_profile/ui/screen/profile_screen/profile_screen.dart'
-    as _i25;
-import '../../module_profile/state_manager/my_profile/my_profile_state_manager.dart'
-    as _i26;
-import '../../module_upload/service/image_upload/image_upload_service.dart'
-    as _i27;
-import '../../module_upload/manager/upload_manager/upload_manager.dart' as _i28;
-import '../../module_upload/repository/upload_repository/upload_repository.dart'
-    as _i29;
-import '../../module_profile/service/my_profile/my_profile.dart' as _i30;
 import '../../module_profile/manager/my_profile_manager/my_profile_manager.dart'
-    as _i31;
+    as _i24;
 import '../../module_profile/repository/my_profile/my_profile.repository.dart'
-    as _i32;
+    as _i25;
+import '../../module_profile/service/my_profile/my_profile.dart' as _i26;
 import '../../module_profile/presistance/profile_shared_preferences.dart'
-    as _i33;
+    as _i27;
 import '../../module_profile/service/general_profile/general_profile.dart'
+    as _i28;
+import '../../module_profile/profile_module.dart' as _i29;
+import '../../module_profile/ui/screen/profile_screen/profile_screen.dart'
+    as _i30;
+import '../../module_profile/state_manager/my_profile/my_profile_state_manager.dart'
+    as _i31;
+import '../../module_upload/service/image_upload/image_upload_service.dart'
+    as _i32;
+import '../../module_upload/manager/upload_manager/upload_manager.dart' as _i33;
+import '../../module_upload/repository/upload_repository/upload_repository.dart'
     as _i34;
 import '../../module_localization/presistance/localization_preferences_helper/localization_preferences_helper.dart'
     as _i35;
@@ -133,6 +133,7 @@ class AppComponent$Injector implements _i1.AppComponent {
       _createProfileModule(),
       _createLocalizationService(),
       _createSwapThemeDataService(),
+      _createAuthService(),
       _createHomeModule(),
       _createAnimeModule(),
       _createNotificationModule(),
@@ -162,9 +163,11 @@ class AppComponent$Injector implements _i1.AppComponent {
   _i17.AuthScreen _createAuthScreen() =>
       _i17.AuthScreen(_createAuthStateManager());
   _i18.AuthStateManager _createAuthStateManager() =>
-      _i18.AuthStateManager(_createAuthService());
-  _i19.AuthService _createAuthService() =>
-      _i19.AuthService(_createAuthPrefsHelper(), _createAuthManager());
+      _i18.AuthStateManager(_createAuthService(), _createMyProfileService());
+  _i19.AuthService _createAuthService() => _i19.AuthService(
+      _createAuthPrefsHelper(),
+      _createAuthManager(),
+      _createMyProfileManager());
   _i20.AuthPrefsHelper _createAuthPrefsHelper() => _i20.AuthPrefsHelper();
   _i21.AuthManager _createAuthManager() =>
       _i21.AuthManager(_createAuthRepository());
@@ -172,34 +175,33 @@ class AppComponent$Injector implements _i1.AppComponent {
       _i22.AuthRepository(_createApiClient());
   _i23.ApiClient _createApiClient() => _i23.ApiClient(_createLogger());
   _i3.Logger _createLogger() => _singletonLogger ??= _i3.Logger();
-  _i24.ProfileModule _createProfileModule() =>
-      _i24.ProfileModule(_createProfileScreen());
-  _i25.ProfileScreen _createProfileScreen() => _i25.ProfileScreen(
-      _createAuthService(),
-      _createMyProfileStateManager(),
-      _createProfileSharedPreferencesHelper());
-  _i26.MyProfileStateManager _createMyProfileStateManager() =>
-      _i26.MyProfileStateManager(
-          _createImageUploadService(), _createMyProfileService());
-  _i27.ImageUploadService _createImageUploadService() =>
-      _i27.ImageUploadService(_createUploadManager());
-  _i28.UploadManager _createUploadManager() =>
-      _i28.UploadManager(_createUploadRepository());
-  _i29.UploadRepository _createUploadRepository() => _i29.UploadRepository();
-  _i30.MyProfileService _createMyProfileService() => _i30.MyProfileService(
+  _i24.MyProfileManager _createMyProfileManager() =>
+      _i24.MyProfileManager(_createMyProfileRepository());
+  _i25.MyProfileRepository _createMyProfileRepository() =>
+      _i25.MyProfileRepository(_createApiClient(), _createAuthPrefsHelper());
+  _i26.MyProfileService _createMyProfileService() => _i26.MyProfileService(
       _createMyProfileManager(),
       _createProfileSharedPreferencesHelper(),
       _createAuthService(),
-      _createGeneralProfileService(),
-      _createAuthPrefsHelper());
-  _i31.MyProfileManager _createMyProfileManager() =>
-      _i31.MyProfileManager(_createMyProfileRepository());
-  _i32.MyProfileRepository _createMyProfileRepository() =>
-      _i32.MyProfileRepository(_createApiClient(), _createAuthPrefsHelper());
-  _i33.ProfileSharedPreferencesHelper _createProfileSharedPreferencesHelper() =>
-      _i33.ProfileSharedPreferencesHelper();
-  _i34.GeneralProfileService _createGeneralProfileService() =>
-      _i34.GeneralProfileService();
+      _createGeneralProfileService());
+  _i27.ProfileSharedPreferencesHelper _createProfileSharedPreferencesHelper() =>
+      _i27.ProfileSharedPreferencesHelper();
+  _i28.GeneralProfileService _createGeneralProfileService() =>
+      _i28.GeneralProfileService();
+  _i29.ProfileModule _createProfileModule() =>
+      _i29.ProfileModule(_createProfileScreen());
+  _i30.ProfileScreen _createProfileScreen() => _i30.ProfileScreen(
+      _createAuthService(),
+      _createMyProfileStateManager(),
+      _createProfileSharedPreferencesHelper());
+  _i31.MyProfileStateManager _createMyProfileStateManager() =>
+      _i31.MyProfileStateManager(
+          _createImageUploadService(), _createMyProfileService());
+  _i32.ImageUploadService _createImageUploadService() =>
+      _i32.ImageUploadService(_createUploadManager());
+  _i33.UploadManager _createUploadManager() =>
+      _i33.UploadManager(_createUploadRepository());
+  _i34.UploadRepository _createUploadRepository() => _i34.UploadRepository();
   _i4.LocalizationService _createLocalizationService() =>
       _singletonLocalizationService ??=
           _i4.LocalizationService(_createLocalizationPreferencesHelper());
@@ -224,12 +226,12 @@ class AppComponent$Injector implements _i1.AppComponent {
       _i44.AnimeModule(_createAnimeDetailsScreen());
   _i45.AnimeDetailsScreen _createAnimeDetailsScreen() =>
       _i45.AnimeDetailsScreen(
-          _createAnimeDetailsStateManager(), _createAuthPrefsHelper());
+          _createAnimeDetailsStateManager(), _createAuthService());
   _i46.AnimeDetailsStateManager _createAnimeDetailsStateManager() =>
       _i46.AnimeDetailsStateManager(_createAnimeDetailsService());
   _i47.AnimeDetailsService _createAnimeDetailsService() =>
       _i47.AnimeDetailsService(
-          _createAnimeDetailsManager(), _createAuthPrefsHelper());
+          _createAnimeDetailsManager(), _createAuthService());
   _i48.AnimeDetailsManager _createAnimeDetailsManager() =>
       _i48.AnimeDetailsManager(_createAnimeDetailsRepository());
   _i49.AnimeDetailsRepository _createAnimeDetailsRepository() =>
@@ -253,7 +255,8 @@ class AppComponent$Injector implements _i1.AppComponent {
   _i58.InitAccountStateManager _createInitAccountStateManager() =>
       _i58.InitAccountStateManager(_createInitAccountService());
   _i59.InitAccountService _createInitAccountService() =>
-      _i59.InitAccountService(_createInitAccountManager());
+      _i59.InitAccountService(
+          _createInitAccountManager(), _createAuthService());
   _i60.InitAccountManager _createInitAccountManager() =>
       _i60.InitAccountManager(_createInitAccountRepository());
   _i61.InitAccountRepository _createInitAccountRepository() =>
@@ -266,7 +269,7 @@ class AppComponent$Injector implements _i1.AppComponent {
       _createSettingsPage(),
       _createExploreScreen(),
       _createProfileScreen(),
-      _createAuthPrefsHelper());
+      _createAuthService());
   _i64.SettingsPage _createSettingsPage() => _i64.SettingsPage(
       _createAuthService(),
       _createLocalizationService(),

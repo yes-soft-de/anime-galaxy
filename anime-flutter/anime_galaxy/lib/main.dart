@@ -1,4 +1,6 @@
 import 'package:anime_galaxy/main_screen/main_screen_module.dart';
+import 'package:anime_galaxy/main_screen/main_screen_routes.dart';
+import 'package:anime_galaxy/module_auth/service/auth_service/auth_service.dart';
 import 'package:anime_galaxy/module_home/home.module.dart';
 import 'package:anime_galaxy/module_init_account/account_module.dart';
 import 'package:anime_galaxy/module_notification/notification_module.dart';
@@ -16,7 +18,6 @@ import 'di/components/app.component.dart';
 import 'generated/l10n.dart';
 import 'module_anime/anime_module.dart';
 import 'module_auth/auth_module.dart';
-import 'module_auth/auth_routes.dart';
 import 'module_chat/chat_module.dart';
 import 'module_episode/episode_module.dart';
 import 'module_explore/explore_module.dart';
@@ -42,6 +43,7 @@ class MyApp extends StatefulWidget {
   final ChatModule _chatModule;
   final CameraModule _cameraModule;
   final AuthModule _authModule;
+  final AuthService _authService;
   final ProfileModule _profileModule;
   final LocalizationService _localizationService;
   final SwapThemeDataService _swapThemeService;
@@ -61,6 +63,7 @@ class MyApp extends StatefulWidget {
     this._profileModule,
     this._localizationService,
     this._swapThemeService,
+    this._authService,
     this._homeModule,
     this._animeModule,
     this._notificationModule,
@@ -82,6 +85,7 @@ class _MyAppState extends State<MyApp> {
 
   String lang;
   bool isDarkMode;
+  bool authorized = false;
 
   @override
   void initState() {
@@ -129,31 +133,33 @@ class _MyAppState extends State<MyApp> {
       Map<String, WidgetBuilder> fullRoutesList) async {
     lang ??= await widget._localizationService.getLanguage();
     isDarkMode ??= await widget._swapThemeService.isDarkMode();
+    authorized ??= await widget._authService.isLoggedIn;
     print(isDarkMode.toString());
 
     return MaterialApp(
-        navigatorObservers: <NavigatorObserver>[observer],
-        locale: Locale.fromSubtags(
-          languageCode: 'ar' /* lang ?? 'en'*/,
-        ),
-        localizationsDelegates: [
-          S.delegate,
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-        ],
-        theme: isDarkMode == true
-            ? ThemeData(
-                brightness: Brightness.dark,
-              )
-            : ThemeData(
-                brightness: Brightness.light,
-                primaryColor: Colors.white,
-              ),
-        supportedLocales: S.delegate.supportedLocales,
-        title: 'Anime Galaxy',
-        routes: fullRoutesList,
-        initialRoute: AuthRoutes.ROUTE_AUTHORIZE
+      navigatorObservers: <NavigatorObserver>[observer],
+      locale: Locale.fromSubtags(
+        languageCode: 'ar' /* lang ?? 'en'*/,
+      ),
+      localizationsDelegates: [
+        S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      theme: isDarkMode == true
+          ? ThemeData(
+              brightness: Brightness.dark,
+            )
+          : ThemeData(
+              brightness: Brightness.light,
+              primaryColor: Colors.white,
+            ),
+      supportedLocales: S.delegate.supportedLocales,
+      title: 'Anime Galaxy',
+      routes: fullRoutesList,
+      initialRoute: MainScreenRoute.MAIN_SCREEN_ROUTE,
+      // initialRoute: AuthRoutes.ROUTE_AUTHORIZE,
     );
   }
 }

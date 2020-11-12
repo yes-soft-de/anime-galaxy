@@ -1,5 +1,5 @@
-import 'package:anime_galaxy/anime_setting/ui/screen/anim_setting.dart';
-import 'package:anime_galaxy/module_auth/presistance/auth_prefs_helper.dart';
+import 'package:anime_galaxy/module_auth/auth_routes.dart';
+import 'package:anime_galaxy/module_auth/service/auth_service/auth_service.dart';
 import 'package:anime_galaxy/module_explore/ui/screen/explore_screen/explore_screen.dart';
 import 'package:anime_galaxy/module_home/ui/screens/home_screen.dart';
 import 'package:anime_galaxy/module_navigation/ui/widget/navigation_drawer/anime_navigation_drawer.dart';
@@ -13,25 +13,24 @@ import 'package:inject/inject.dart';
 
 @provide
 class MainScreen extends StatefulWidget {
-
   final HomeScreen _homeScreen;
   final NotificationScreen _notificationScreen;
   final SettingsPage _settingsScreen;
   final ExploreScreen _exploreScreen;
   final ProfileScreen _profileScreen;
-  final AuthPrefsHelper _authPrefsHelper;
+  final AuthService _authService;
 
   MainScreen(
-      this._notificationScreen,
-      this._homeScreen,
-      this._settingsScreen,
-      this._exploreScreen,
-      this._profileScreen,
-      this._authPrefsHelper,
-      );
+    this._notificationScreen,
+    this._homeScreen,
+    this._settingsScreen,
+    this._exploreScreen,
+    this._profileScreen,
+    this._authService,
+  );
 
   @override
-  _MainScreenState createState() => _MainScreenState( );
+  _MainScreenState createState() => _MainScreenState();
 }
 
 class _MainScreenState extends State<MainScreen> {
@@ -39,13 +38,12 @@ class _MainScreenState extends State<MainScreen> {
 
   int _pageIndex = 3;
   PageController _pageController;
-  String userName;
-
+  String username;
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
-     getName();
+    getName();
     _pageController = PageController(initialPage: _pageIndex);
   }
 
@@ -55,41 +53,56 @@ class _MainScreenState extends State<MainScreen> {
     super.dispose();
   }
 
-  void getName() async{
-    userName = await widget._authPrefsHelper.getUserId();
-    setState(() {
-
-    });
+  void getName() async {
+    username = await widget._authService.username;
+    if (username == null) {
+      username = await widget._authService.userID;
+      if (username != null) username = username.substring(0, 6);
+    }
+    setState(() {});
   }
+
   @override
   Widget build(BuildContext context) {
-
+    widget._authService.isLoggedIn.then((value) {
+      if (value != true) {
+        Navigator.of(context).pushNamedAndRemoveUntil(
+            AuthRoutes.ROUTE_AUTHORIZE, (route) => false);
+      }
+    });
     return Scaffold(
       key: _scaffoldKey,
-      appBar : AnimeGalaxyAppBar.getAnimeGalaxyAppBar( _scaffoldKey,userName),
+      appBar: AnimeGalaxyAppBar.getAnimeGalaxyAppBar(_scaffoldKey, username),
       drawer: AnimeNavigationDrawer(),
-      bottomNavigationBar: SizedBox(
-        height: 55,
-        child: Theme(
-          data: ThemeData(
-            canvasColor: ProjectColors.ThemeColor,
-          ),
-          child: BottomNavigationBar(
-            currentIndex: _pageIndex,
-            onTap: onTabTapped,
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _pageIndex,
+        onTap: onTabTapped,
+        backgroundColor: ProjectColors.ThemeColor,
+        fixedColor: Colors.white,
+        unselectedItemColor: Colors.white54,
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
             backgroundColor: ProjectColors.ThemeColor,
-            fixedColor: Colors.white,
-            unselectedItemColor: Colors.grey,
-            items: <BottomNavigationBarItem>[
-              BottomNavigationBarItem(icon: Icon(Icons.settings), title: Container(height: 0.0)),
-              BottomNavigationBarItem(icon: Icon(Icons.person), title: Container(height: 0.0)),
-              BottomNavigationBarItem(icon: Icon(Icons.explore), title: Container(height: 0.0)),
-//              BottomNavigationBarItem(icon: Icon(Icons.notifications), title: Container(height: 0.0)),
-              BottomNavigationBarItem( icon: Icon(Icons.dashboard),title: Container(height: 0.0)),
-            ],
-
+            icon: Icon(Icons.settings),
+            label: '',
           ),
-        ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: '',
+            backgroundColor: ProjectColors.ThemeColor,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.explore),
+            label: '',
+            backgroundColor: ProjectColors.ThemeColor,
+          ),
+//              BottomNavigationBarItem(icon: Icon(Icons.notifications), title: Container(height: 0.0)),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.dashboard),
+            label: '',
+            backgroundColor: ProjectColors.ThemeColor,
+          ),
+        ],
       ),
       body: PageView(
         children: [
@@ -98,13 +111,13 @@ class _MainScreenState extends State<MainScreen> {
           widget._exploreScreen,
 //          widget._notificationScreen,
           widget._homeScreen,
-
         ],
         onPageChanged: onPageChanged,
         controller: _pageController,
       ),
     );
   }
+
   void onPageChanged(int page) {
     setState(() {
       this._pageIndex = page;
@@ -112,6 +125,7 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   void onTabTapped(int index) {
-    this._pageController.animateToPage(index,duration: const Duration(milliseconds: 500),curve: Curves.easeInOut);
+    this._pageController.animateToPage(index,
+        duration: const Duration(milliseconds: 500), curve: Curves.easeInOut);
   }
 }

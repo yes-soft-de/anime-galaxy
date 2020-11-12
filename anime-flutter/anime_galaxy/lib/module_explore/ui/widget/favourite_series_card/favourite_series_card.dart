@@ -21,7 +21,7 @@ class FavouriteSeriesCard extends StatelessWidget {
               clipBehavior: Clip.hardEdge,
               child: FadeInImage.assetNetwork(
                 fit: BoxFit.cover,
-                image: url_image,
+                image: url_image ?? '',
                 placeholder: 'assets/images/logo.jpg',
                 width: 88,
               ),

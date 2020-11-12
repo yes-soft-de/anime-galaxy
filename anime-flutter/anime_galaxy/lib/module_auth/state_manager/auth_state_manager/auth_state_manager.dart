@@ -5,6 +5,7 @@ import 'dart:math';
 import 'package:anime_galaxy/module_auth/enums/auth_source.dart';
 import 'package:anime_galaxy/module_auth/service/auth_service/auth_service.dart';
 import 'package:anime_galaxy/module_auth/states/auth_states/auth_states.dart';
+import 'package:anime_galaxy/module_profile/service/my_profile/my_profile.dart';
 import 'package:crypto/crypto.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -17,8 +18,12 @@ import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 class AuthStateManager {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final AuthService _authService;
+  final MyProfileService _profileService;
 
-  AuthStateManager(this._authService);
+  AuthStateManager(
+    this._authService,
+    this._profileService,
+  );
 
   final PublishSubject<AuthState> _stateSubject = PublishSubject();
 
@@ -92,6 +97,9 @@ class AuthStateManager {
         result.user.email,
         AUTH_SOURCE.APPLE,
       );
+
+      await _profileService.createProfile(
+          result.user.displayName, result.user.photoURL, ' ');
       if (loginSuccess) {
         _stateSubject.add(AuthStateSuccess());
       }

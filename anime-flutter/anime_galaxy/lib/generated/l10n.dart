@@ -1152,6 +1152,16 @@ class S {
       args: [],
     );
   }
+
+  /// `No New Episodes`
+  String get noNewEpisodes {
+    return Intl.message(
+      'No New Episodes',
+      name: 'noNewEpisodes',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

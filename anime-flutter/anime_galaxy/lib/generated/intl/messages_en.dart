@@ -85,6 +85,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "newEpisodes" : MessageLookupByLibrary.simpleMessage("حلقات جديدة"),
     "newInteraction" : MessageLookupByLibrary.simpleMessage("تفاعل جديد"),
     "noCameraFound" : MessageLookupByLibrary.simpleMessage("No camera found"),
+    "noNewEpisodes" : MessageLookupByLibrary.simpleMessage("No New Episodes"),
     "notLoggedIn" : MessageLookupByLibrary.simpleMessage("Not Logged in!"),
     "notifications" : MessageLookupByLibrary.simpleMessage("Notifications"),
     "ommentingError" : MessageLookupByLibrary.simpleMessage("هناك مشكلة ما أعد التعليق لاحقا"),

@@ -200,15 +200,19 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   ],
                 ),
               ),
-              CarouselSlider(
-                options: CarouselOptions(
-                    autoPlay: true,
-                    aspectRatio: 2.0,
-                    autoPlayInterval: Duration(seconds: 4),
-                    enlargeCenterPage: false,
-                    viewportFraction: 1),
-                items: imageSliders,
-              ),
+              imageSliders.isNotEmpty
+                  ? CarouselSlider(
+                      options: CarouselOptions(
+                          autoPlay: true,
+                          aspectRatio: 2.0,
+                          autoPlayInterval: Duration(seconds: 4),
+                          enlargeCenterPage: false,
+                          viewportFraction: 1),
+                      items: imageSliders,
+                    )
+                  : Center(
+                      child: Text('No New Episodes'),
+                    ),
               Container(
                 margin: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 20),
                 child: Row(
@@ -304,41 +308,42 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   ],
                 ),
               ),
-              AnimatedSize(
-                  vsync: this,
-                  duration: Duration(milliseconds: 500),
-                  child: ConstrainedBox(
-                    constraints: isExpanded2
-                        ? BoxConstraints()
-                        : BoxConstraints(maxHeight: 180.0),
-                    child: GridView.builder(
-                      physics: NeverScrollableScrollPhysics(),
-                      itemBuilder: (BuildContext context, int index) {
-                        return GestureDetector(
-                          onTap: () => Navigator.pushNamed(
-                              context, AnimeRoutes.ROUTE_ANIME_DETAILS_SCREEN,
-                              arguments: anime.mayLikeSeries[index].id),
-                          child: SeriesCard(
-                            image: anime.mayLikeSeries[index].image,
-                            name: anime.mayLikeSeries[index].name,
-                            classification:
-                                anime.mayLikeSeries[index].classification,
-                          ),
-                        );
-                      },
-                      padding: EdgeInsets.symmetric(horizontal: 10),
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 3,
-                          mainAxisSpacing: 20,
-                          crossAxisSpacing: 20,
-                          childAspectRatio: (2.0 / 4)),
-                      itemCount: anime.mayLikeSeries.length,
-                      shrinkWrap: true,
-                    ),
-
-                    //
-                  )),
-              isExpanded2
+              anime.mayLikeSeries.isNotEmpty
+                  ? AnimatedSize(
+                      vsync: this,
+                      duration: Duration(milliseconds: 500),
+                      child: ConstrainedBox(
+                        constraints: isExpanded2
+                            ? BoxConstraints()
+                            : BoxConstraints(maxHeight: 180.0),
+                        child: GridView.builder(
+                          physics: NeverScrollableScrollPhysics(),
+                          itemBuilder: (BuildContext context, int index) {
+                            return GestureDetector(
+                              onTap: () => Navigator.pushNamed(context,
+                                  AnimeRoutes.ROUTE_ANIME_DETAILS_SCREEN,
+                                  arguments: anime.mayLikeSeries[index].id),
+                              child: SeriesCard(
+                                image: anime.mayLikeSeries[index].image,
+                                name: anime.mayLikeSeries[index].name,
+                                classification:
+                                    anime.mayLikeSeries[index].classification,
+                              ),
+                            );
+                          },
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 3,
+                                  mainAxisSpacing: 20,
+                                  crossAxisSpacing: 20,
+                                  childAspectRatio: (2.0 / 4)),
+                          itemCount: anime.mayLikeSeries.length,
+                          shrinkWrap: true,
+                        ),
+                      ))
+                  : Text('Not Enough Data'),
+              isExpanded2 && anime.mayLikeSeries.isNotEmpty
                   ? FlatButton(
                       child: Container(
                           width: 30,
