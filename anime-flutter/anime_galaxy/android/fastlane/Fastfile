@@ -1,0 +1,17 @@
+default_platform(:android)
+platform :android do
+  desc "Submit a new build to alpha Track on Play"
+  lane :alpha do
+    gradle(
+      gradle_path: "/usr/bin/gradle",
+      task: "bundle",
+      build_type: 'Release'
+    )
+    supply(
+      track: "alpha",
+      aab:"../build/app/outputs/bundle/release/app-release.aab",
+      skip_upload_apk: true
+    )
+    upload_to_play_store(track:'alpha')
+  end
+end
