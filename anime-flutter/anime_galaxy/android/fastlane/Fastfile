@@ -10,8 +10,15 @@ platform :android do
     supply(
       track: "alpha",
       aab:"../build/app/outputs/bundle/release/app-release.aab",
+            skip_upload_metadata,
+      package_name: 'de.yes_soft.anime_galaxy'
+      skip_upload_changelogs: true,
+      skip_upload_images: true,
+      skip_upload_screenshots: true,
       skip_upload_apk: true
     )
-    upload_to_play_store(track:'alpha')
+    upload_to_play_store(
+      track:'alpha',
+    )
   end
 end
