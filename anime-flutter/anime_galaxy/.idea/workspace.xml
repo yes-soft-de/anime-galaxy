@@ -4,7 +4,11 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="949cf1e4-ee88-43fb-8374-6a66b1c9c391" name="Default Changelist" comment="" />
+    <list default="true" id="949cf1e4-ee88-43fb-8374-6a66b1c9c391" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/lib/generated/intl/messages_ar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/intl/messages_ar.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/generated/intl/messages_en.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/intl/messages_en.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/generated/l10n.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/l10n.dart" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,19 +57,19 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\TEC-GATE\Documents\Servers\anime-galaxy\anime-flutter\anime_galaxy\android" />
+      <recent name="D:\anime-galaxy3\anime-galaxy\anime-flutter\anime_galaxy\lib\utils" />
+      <recent name="D:\anime-galaxy3\anime-galaxy\anime-flutter\anime_galaxy\lib" />
+      <recent name="D:\anime-galaxy3\anime-galaxy\anime-flutter\anime_galaxy\android\app" />
+      <recent name="D:\New folder\anime-galaxy\anime-flutter\anime_galaxy\lib\module_profile\response" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\YesSoft projects\anime-galaxy1\anime-flutter\anime_galaxy\lib\module_explore" />
       <recent name="D:\YesSoft projects\anime-galaxy1\anime-flutter\anime_galaxy\lib\module_explore\style" />
       <recent name="D:\YesSoft projects\anime-galaxy\anime-flutter\anime_galaxy\lib\module_anime\response\anime_response" />
       <recent name="D:\YesSoft projects\anime-galaxy\anime-flutter\anime_galaxy\lib\module_init_account\manager\init_account" />
       <recent name="D:\YesSoft projects\anime-galaxy\anime-flutter\anime_galaxy\lib\module_init_account\ui\widget\anime_category_Card" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\anime-galaxy3\anime-galaxy\anime-flutter\anime_galaxy\lib\utils" />
-      <recent name="D:\anime-galaxy3\anime-galaxy\anime-flutter\anime_galaxy\lib" />
-      <recent name="D:\anime-galaxy3\anime-galaxy\anime-flutter\anime_galaxy\android\app" />
-      <recent name="D:\New folder\anime-galaxy\anime-flutter\anime_galaxy\lib\module_profile\response" />
-      <recent name="D:\New folder\anime-galaxy\anime-flutter\anime_galaxy\lib\module_auth\style" />
     </key>
   </component>
   <component name="RunManager">
