@@ -5,14 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="949cf1e4-ee88-43fb-8374-6a66b1c9c391" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main_screen/ui/screen/main_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main_screen/ui/screen/main_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/repository/my_profile/my_profile.repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/repository/my_profile/my_profile.repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/ui/widget/personal_info_widget/personal_info_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/ui/widget/personal_info_widget/personal_info_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/app_bar/anime_galaxy_app_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/app_bar/anime_galaxy_app_bar.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_auth/service/auth_service/auth_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/service/auth_service/auth_service.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,19 +57,19 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\TEC-GATE\Documents\Servers\anime-galaxy\anime-flutter\anime_galaxy\android" />
-      <recent name="D:\anime-galaxy3\anime-galaxy\anime-flutter\anime_galaxy\lib\utils" />
-      <recent name="D:\anime-galaxy3\anime-galaxy\anime-flutter\anime_galaxy\lib" />
-      <recent name="D:\anime-galaxy3\anime-galaxy\anime-flutter\anime_galaxy\android\app" />
-      <recent name="D:\New folder\anime-galaxy\anime-flutter\anime_galaxy\lib\module_profile\response" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\YesSoft projects\anime-galaxy1\anime-flutter\anime_galaxy\lib\module_explore" />
       <recent name="D:\YesSoft projects\anime-galaxy1\anime-flutter\anime_galaxy\lib\module_explore\style" />
       <recent name="D:\YesSoft projects\anime-galaxy\anime-flutter\anime_galaxy\lib\module_anime\response\anime_response" />
       <recent name="D:\YesSoft projects\anime-galaxy\anime-flutter\anime_galaxy\lib\module_init_account\manager\init_account" />
       <recent name="D:\YesSoft projects\anime-galaxy\anime-flutter\anime_galaxy\lib\module_init_account\ui\widget\anime_category_Card" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\TEC-GATE\Documents\Servers\anime-galaxy\anime-flutter\anime_galaxy\android" />
+      <recent name="D:\anime-galaxy3\anime-galaxy\anime-flutter\anime_galaxy\lib\utils" />
+      <recent name="D:\anime-galaxy3\anime-galaxy\anime-flutter\anime_galaxy\lib" />
+      <recent name="D:\anime-galaxy3\anime-galaxy\anime-flutter\anime_galaxy\android\app" />
+      <recent name="D:\New folder\anime-galaxy\anime-flutter\anime_galaxy\lib\module_profile\response" />
     </key>
   </component>
   <component name="RunManager">
@@ -484,6 +479,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="added lazy loading for multiple widgets" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="522" y="235" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605284647206">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="522" y="235" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.864@0.0.1536.864" timestamp="1605284647206" />
     <state x="253" y="19" key="CommitChangelistDialog2" timestamp="1605184393461">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -516,10 +515,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="452" y="145" key="git4idea.branch.GitSmartOperationDialog/0.0.1536.864@0.0.1536.864" timestamp="1605214761607" />
-    <state width="300" height="96" key="javadoc.popup.new" timestamp="1605253299408">
+    <state width="300" height="96" key="javadoc.popup.new" timestamp="1605284297603">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="300" height="96" key="javadoc.popup.new/0.0.1536.864@0.0.1536.864" timestamp="1605253299408" />
+    <state width="300" height="96" key="javadoc.popup.new/0.0.1536.864@0.0.1536.864" timestamp="1605284297603" />
     <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1605122738998">
       <screen x="0" y="0" width="1536" height="864" />
     </state>

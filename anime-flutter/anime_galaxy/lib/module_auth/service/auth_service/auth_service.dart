@@ -51,12 +51,31 @@ class AuthService {
       String uid, String name, String email, String image) async {
     String userId = await userID;
 
-    CreateProfileRequest request = CreateProfileRequest(
+    CreateProfileRequest request;
+
+    if (name == null) {
+      request = CreateProfileRequest(
+          userName: userId.substring(0, 6),
+          image: null,
+          location: 'Saudi Arabia',
+          story: ' ',
+          userID: userId);
+    } else if (name.isEmpty) {
+      request = CreateProfileRequest(
+          userName: userId.substring(0, 6),
+          image: null,
+          location: 'Saudi Arabia',
+          story: ' ',
+          userID: userId);
+    } else {
+      request = CreateProfileRequest(
         userName: name,
-        image: image,
+        image: null,
         location: 'Saudi Arabia',
         story: ' ',
-        userID: userId);
+        userID: userId,
+      );
+    }
 
     await _profileManager.createMyProfile(request);
   }
