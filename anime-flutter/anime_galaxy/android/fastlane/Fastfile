@@ -9,7 +9,7 @@ platform :android do
       build_type: 'Release'
     )
     supply(
-      track: "alpha",
+      track: "internal",
       aab:"../build/app/outputs/bundle/release/app-release.aab",
       skip_upload_metadata: true,
       package_name: "de.yes_soft.anime_galaxy",
@@ -19,7 +19,7 @@ platform :android do
       skip_upload_apk: true
     )
     upload_to_play_store(
-      track:'alpha',
+      track:'internal',
     )
   end
 end

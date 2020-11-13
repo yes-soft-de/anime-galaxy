@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="949cf1e4-ee88-43fb-8374-6a66b1c9c391" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/fastlane/Fastfile" beforeDir="false" afterPath="$PROJECT_DIR$/android/fastlane/Fastfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/generated/intl/messages_all.inject.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/generated/intl/messages_ar.inject.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/generated/intl/messages_en.inject.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_profile/request/create_profile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/request/create_profile.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -482,22 +487,22 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="253" y="19" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1605184393461" />
-    <state width="1491" height="200" key="GridCell.Tab.0.bottom" timestamp="1605225698358">
+    <state width="1491" height="200" key="GridCell.Tab.0.bottom" timestamp="1605232627119">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="200" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1605225698358" />
-    <state width="1491" height="200" key="GridCell.Tab.0.center" timestamp="1605225698358">
+    <state width="1491" height="200" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1605232627119" />
+    <state width="1491" height="200" key="GridCell.Tab.0.center" timestamp="1605232627119">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="200" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1605225698358" />
-    <state width="1491" height="200" key="GridCell.Tab.0.left" timestamp="1605225698358">
+    <state width="1491" height="200" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1605232627119" />
+    <state width="1491" height="200" key="GridCell.Tab.0.left" timestamp="1605232627074">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="200" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1605225698358" />
-    <state width="1491" height="200" key="GridCell.Tab.0.right" timestamp="1605225698358">
+    <state width="1491" height="200" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1605232627074" />
+    <state width="1491" height="200" key="GridCell.Tab.0.right" timestamp="1605232627119">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="200" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1605225698358" />
+    <state width="1491" height="200" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1605232627119" />
     <state x="277" y="74" key="SettingsEditor" timestamp="1605101908975">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -510,10 +515,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="452" y="145" key="git4idea.branch.GitSmartOperationDialog/0.0.1536.864@0.0.1536.864" timestamp="1605214761607" />
-    <state width="300" height="96" key="javadoc.popup.new" timestamp="1605225312540">
+    <state width="300" height="96" key="javadoc.popup.new" timestamp="1605232172840">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="300" height="96" key="javadoc.popup.new/0.0.1536.864@0.0.1536.864" timestamp="1605225312540" />
+    <state width="300" height="96" key="javadoc.popup.new/0.0.1536.864@0.0.1536.864" timestamp="1605232172840" />
     <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1605122738998">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
