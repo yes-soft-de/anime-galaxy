@@ -43,7 +43,13 @@ class GradeManager
 
         if(!$gradeEntity)
         {
-            return null;
+            $createFirstGrade = new CreateGradeRequest();
+            $createFirstGrade->setUserID($request->getUserID());
+            $createFirstGrade->setPoints(0);
+
+            $this->create($createFirstGrade);
+
+            $this->update($request);
         }
         else
         {

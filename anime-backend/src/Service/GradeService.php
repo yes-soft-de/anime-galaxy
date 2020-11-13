@@ -71,12 +71,10 @@ class GradeService
         }
 
         $gradeResult = $this->gradeManager->update($request);
-        $response = $this->autoMapping->map(Grade::class, UpdateGradeResponse::class, $gradeResult);
+        return $this->autoMapping->map(Grade::class, UpdateGradeResponse::class, $gradeResult);
 
-        $response->setPoints($request->getPoints());
-        $response->setUserID($request->getUserID());
-
-        return $response;
+//        $response->setPoints($request->getPoints());
+//        $response->setUserID($request->getUserID());
     }
 
     public function delete($request)
