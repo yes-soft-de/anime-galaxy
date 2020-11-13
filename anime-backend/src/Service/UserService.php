@@ -69,7 +69,7 @@ class UserService
 
         foreach ($result as $row)
         {
-            $response[] = $this->autoMapping->map('array', UserProfileResponse::class, $row);
+            $response[] = $this->autoMapping->map(UserProfile::class, UserProfileResponse::class, $row);
         }
         return $response;
     }
