@@ -54,7 +54,7 @@ class UserService
     {
         $item = $this->userManager->getProfileByUserID($userID);
 
-        if($item['image'] != null)
+        if(isset($item['image']))
         {
             $item['image'] = $this->params . $item['image'];
         }
