@@ -43,7 +43,7 @@ class UserProfileRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('profile')
 
-            ->andWhere('profile.userID=:userID')
+            ->andWhere('profile.id=:userID')
             ->setParameter('userID', $userID)
 
             ->getQuery()
