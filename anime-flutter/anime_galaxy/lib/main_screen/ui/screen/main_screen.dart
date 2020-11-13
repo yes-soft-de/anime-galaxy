@@ -36,20 +36,17 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
-  int _pageIndex = 3;
-  PageController _pageController;
+  int _pageIndex = 0;
   String username;
 
   @override
   void initState() {
     super.initState();
     getName();
-    _pageController = PageController(initialPage: _pageIndex);
   }
 
   @override
   void dispose() {
-    _pageController.dispose();
     super.dispose();
   }
 
@@ -70,13 +67,25 @@ class _MainScreenState extends State<MainScreen> {
             AuthRoutes.ROUTE_AUTHORIZE, (route) => false);
       }
     });
+
+    var pages = [
+      widget._settingsScreen,
+      widget._profileScreen,
+      widget._exploreScreen,
+      widget._notificationScreen,
+      widget._homeScreen,
+    ];
+
     return Scaffold(
       key: _scaffoldKey,
       appBar: AnimeGalaxyAppBar.getAnimeGalaxyAppBar(_scaffoldKey, username),
       drawer: AnimeNavigationDrawer(),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _pageIndex,
-        onTap: onTabTapped,
+        onTap: (newPos) {
+          _pageIndex = newPos;
+          setState(() {});
+        },
         backgroundColor: ProjectColors.ThemeColor,
         fixedColor: Colors.white,
         unselectedItemColor: Colors.white54,
@@ -108,17 +117,7 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ],
       ),
-      body: PageView(
-        children: [
-          widget._settingsScreen,
-          widget._profileScreen,
-          widget._exploreScreen,
-          widget._notificationScreen,
-          widget._homeScreen,
-        ],
-        onPageChanged: onPageChanged,
-        controller: _pageController,
-      ),
+      body: pages[_pageIndex],
     );
   }
 
@@ -126,10 +125,5 @@ class _MainScreenState extends State<MainScreen> {
     setState(() {
       this._pageIndex = page;
     });
-  }
-
-  void onTabTapped(int index) {
-    this._pageController.animateToPage(index,
-        duration: const Duration(milliseconds: 500), curve: Curves.easeInOut);
   }
 }

@@ -35,116 +35,104 @@ class PersonalInfoWidget extends StatelessWidget {
               ),
             ),
           ),
-          Container(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 5, 5, 5),
-            width: MediaQuery.of(context).size.width * 0.6,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      '$name',
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                    ),
-                    Text(
-                      //TODO : change this
-                      'منذ 16 يوم',
-                      style: TextStyle(
-                        fontSize: 12,
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    '$name',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        '$category',
+                        style: TextStyle(
+                          fontSize: 12,
+                        ),
                       ),
-                    )
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      '$category',
-                      style: TextStyle(
-                        fontSize: 12,
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 25,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: MediaQuery.of(context).size.width * 0.55,
-                      padding: EdgeInsets.all(5),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        color: Color(0xff7e7f9a),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            children: [
-                              Text(
-                                S.of(context).comments,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 12,
+                    ],
+                  ),
+                  SizedBox(
+                    height: 25,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.55,
+                        padding: EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: Color(0xff7e7f9a),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Column(
+                              children: [
+                                Text(
+                                  S.of(context).comments,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 12,
+                                  ),
                                 ),
-                              ),
-                              Text(
-                                '$commentsNumber',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16,
+                                Text(
+                                  '$commentsNumber',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                  ),
                                 ),
-                              ),
-                            ],
-                          ),
-                          Column(
-                            children: [
-                              Text(
-                                S.of(context).following,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 12,
+                              ],
+                            ),
+                            Column(
+                              children: [
+                                Text(
+                                  S.of(context).following,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 12,
+                                  ),
                                 ),
-                              ),
-                              Text(
-                                '$followingNumber',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16,
+                                Text(
+                                  '$followingNumber',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                  ),
                                 ),
-                              ),
-                            ],
-                          ),
-                          Column(
-                            children: [
-                              Text(
-                                S.of(context).series,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 12,
+                              ],
+                            ),
+                            Column(
+                              children: [
+                                Text(
+                                  S.of(context).series,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 12,
+                                  ),
                                 ),
-                              ),
-                              Text(
-                                '$seriesNumber',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16,
+                                Text(
+                                  '$seriesNumber',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                  ),
                                 ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-              ],
+                              ],
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ],

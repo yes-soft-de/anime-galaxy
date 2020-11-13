@@ -7,10 +7,11 @@
     <list default="true" id="949cf1e4-ee88-43fb-8374-6a66b1c9c391" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/generated/intl/messages_all.inject.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/generated/intl/messages_ar.inject.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/generated/intl/messages_en.inject.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/request/create_profile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/request/create_profile.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main_screen/ui/screen/main_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main_screen/ui/screen/main_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_profile/repository/my_profile/my_profile.repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/repository/my_profile/my_profile.repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_profile/ui/widget/personal_info_widget/personal_info_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/ui/widget/personal_info_widget/personal_info_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/app_bar/anime_galaxy_app_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/app_bar/anime_galaxy_app_bar.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -487,22 +488,22 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="253" y="19" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1605184393461" />
-    <state width="1491" height="200" key="GridCell.Tab.0.bottom" timestamp="1605232627119">
+    <state width="1491" height="271" key="GridCell.Tab.0.bottom" timestamp="1605257546296">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="200" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1605232627119" />
-    <state width="1491" height="200" key="GridCell.Tab.0.center" timestamp="1605232627119">
+    <state width="1491" height="271" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1605257546296" />
+    <state width="1491" height="271" key="GridCell.Tab.0.center" timestamp="1605257546296">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="200" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1605232627119" />
-    <state width="1491" height="200" key="GridCell.Tab.0.left" timestamp="1605232627074">
+    <state width="1491" height="271" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1605257546296" />
+    <state width="1491" height="271" key="GridCell.Tab.0.left" timestamp="1605257546266">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="200" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1605232627074" />
-    <state width="1491" height="200" key="GridCell.Tab.0.right" timestamp="1605232627119">
+    <state width="1491" height="271" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1605257546266" />
+    <state width="1491" height="271" key="GridCell.Tab.0.right" timestamp="1605257546296">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="200" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1605232627119" />
+    <state width="1491" height="271" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1605257546296" />
     <state x="277" y="74" key="SettingsEditor" timestamp="1605101908975">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -515,10 +516,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="452" y="145" key="git4idea.branch.GitSmartOperationDialog/0.0.1536.864@0.0.1536.864" timestamp="1605214761607" />
-    <state width="300" height="96" key="javadoc.popup.new" timestamp="1605232172840">
+    <state width="300" height="96" key="javadoc.popup.new" timestamp="1605253299408">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="300" height="96" key="javadoc.popup.new/0.0.1536.864@0.0.1536.864" timestamp="1605232172840" />
+    <state width="300" height="96" key="javadoc.popup.new/0.0.1536.864@0.0.1536.864" timestamp="1605253299408" />
     <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1605122738998">
       <screen x="0" y="0" width="1536" height="864" />
     </state>

@@ -1,5 +1,4 @@
 import 'package:anime_galaxy/anime_setting/ui/widget/circular_setting/circular_image.dart';
-import 'package:anime_galaxy/module_notification/notification_routes.dart';
 import 'package:flutter/material.dart';
 
 class AnimeGalaxyAppBar {
@@ -50,16 +49,16 @@ class AnimeGalaxyAppBar {
         ],
       ),
       actions: <Widget>[
-        GestureDetector(
-            onTap: () {
-              Navigator.pushNamed(drawerKey.currentContext,
-                  NotificationRoutes.ROUTE_NOTIFICATION_SCREEN);
-            },
-            child: Icon(Icons.notifications)),
-        SizedBox(
-          width: 5,
-        ),
-        GestureDetector(onTap: () {}, child: Icon(Icons.search))
+        // GestureDetector(
+        //     onTap: () {
+        //       Navigator.pushNamed(drawerKey.currentContext,
+        //           NotificationRoutes.ROUTE_NOTIFICATION_SCREEN);
+        //     },
+        //     child: Icon(Icons.notifications)),
+        // SizedBox(
+        //   width: 5,
+        // ),
+        // GestureDetector(onTap: () {}, child: Icon(Icons.search))
         //Add more icon here
       ],
     );
