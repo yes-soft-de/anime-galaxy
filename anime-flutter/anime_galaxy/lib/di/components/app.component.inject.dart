@@ -295,7 +295,7 @@ class AppComponent$Injector implements _i1.AppComponent {
       _i74.EpisodeModule(_createEpisodeDetailsScreen());
   _i75.EpisodeDetailsScreen _createEpisodeDetailsScreen() =>
       _i75.EpisodeDetailsScreen(
-          _createEpisodeDetailsStateManager(), _createAuthPrefsHelper());
+          _createEpisodeDetailsStateManager(), _createAuthService());
   _i76.EpisodeDetailsStateManager _createEpisodeDetailsStateManager() =>
       _i76.EpisodeDetailsStateManager(_createEpisodeDetailsService());
   _i77.EpisodeDetailsService _createEpisodeDetailsService() =>

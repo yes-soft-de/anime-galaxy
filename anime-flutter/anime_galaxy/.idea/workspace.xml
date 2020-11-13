@@ -5,8 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="949cf1e4-ee88-43fb-8374-6a66b1c9c391" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/android/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/fastlane/Fastfile" beforeDir="false" afterPath="$PROJECT_DIR$/android/fastlane/Fastfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/di/components/app.component.inject.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/di/components/app.component.inject.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.inject.summary" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main_screen/ui/screen/main_screen.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main_screen/ui/screen/main_screen.inject.summary" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_anime/anime_module.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/anime_module.inject.summary" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_anime/service/anime_details/anime_details.service.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/service/anime_details/anime_details.service.inject.summary" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_anime/state_manager/anime_details/anime_details.state_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/state_manager/anime_details/anime_details.state_manager.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.inject.summary" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_auth/service/auth_service/auth_service.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/service/auth_service/auth_service.inject.summary" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_auth/state_manager/auth_state_manager/auth_state_manager.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/state_manager/auth_state_manager/auth_state_manager.inject.summary" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_episode/episode_module.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/episode_module.inject.summary" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_episode/manager/episode_details/episode_details.manager.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/manager/episode_details/episode_details.manager.inject.summary" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_episode/repository/episode_details/episode_details.repository.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/repository/episode_details/episode_details.repository.inject.summary" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_episode/response/episode_response/episode_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/response/episode_response/episode_response.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_episode/response/episode_response/episode_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/response/episode_response/episode_response.inject.summary" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_episode/service/episode_details/episode_details.service.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/service/episode_details/episode_details.service.inject.summary" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_episode/state_manager/episode_details/episode_details.state_manager.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/state_manager/episode_details/episode_details.state_manager.inject.summary" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_episode/ui/screen/episode_details_screen/episode_details_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/ui/screen/episode_details_screen/episode_details_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_episode/ui/screen/episode_details_screen/episode_details_screen.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/ui/screen/episode_details_screen/episode_details_screen.inject.summary" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_episode/ui/widget/episode_details_widget/episode_details_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/ui/widget/episode_details_widget/episode_details_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_episode/ui/widget/episode_details_widget/episode_details_widget.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/ui/widget/episode_details_widget/episode_details_widget.inject.summary" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_explore/repository/explore/explore.repositry.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/repository/explore/explore.repositry.inject.summary" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_init_account/service/init_account/init_account.service.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_init_account/service/init_account/init_account.service.inject.summary" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_profile/profile_module.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/profile_module.inject.summary" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_profile/ui/screen/my_profile/my_profile.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/ui/screen/my_profile/my_profile.inject.summary" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_profile/ui/screen/profile_screen/profile_screen.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/ui/screen/profile_screen/profile_screen.inject.summary" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_profile/ui/widget/personal_info_widget/personal_info_widget.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/ui/widget/personal_info_widget/personal_info_widget.inject.summary" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_profile/ui/widget/series_card/card_series.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/ui/widget/series_card/card_series.inject.summary" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -482,22 +510,22 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="253" y="19" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1605184393461" />
-    <state width="1491" height="200" key="GridCell.Tab.0.bottom" timestamp="1605205766391">
+    <state width="1491" height="200" key="GridCell.Tab.0.bottom" timestamp="1605225698358">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="200" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1605205766391" />
-    <state width="1491" height="200" key="GridCell.Tab.0.center" timestamp="1605205766391">
+    <state width="1491" height="200" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1605225698358" />
+    <state width="1491" height="200" key="GridCell.Tab.0.center" timestamp="1605225698358">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="200" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1605205766391" />
-    <state width="1491" height="200" key="GridCell.Tab.0.left" timestamp="1605205766391">
+    <state width="1491" height="200" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1605225698358" />
+    <state width="1491" height="200" key="GridCell.Tab.0.left" timestamp="1605225698358">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="200" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1605205766391" />
-    <state width="1491" height="200" key="GridCell.Tab.0.right" timestamp="1605205766391">
+    <state width="1491" height="200" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1605225698358" />
+    <state width="1491" height="200" key="GridCell.Tab.0.right" timestamp="1605225698358">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="200" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1605205766391" />
+    <state width="1491" height="200" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1605225698358" />
     <state x="277" y="74" key="SettingsEditor" timestamp="1605101908975">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -510,10 +538,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="452" y="145" key="git4idea.branch.GitSmartOperationDialog/0.0.1536.864@0.0.1536.864" timestamp="1605214761607" />
-    <state width="300" height="96" key="javadoc.popup.new" timestamp="1605205900650">
+    <state width="300" height="96" key="javadoc.popup.new" timestamp="1605225312540">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="300" height="96" key="javadoc.popup.new/0.0.1536.864@0.0.1536.864" timestamp="1605205900650" />
+    <state width="300" height="96" key="javadoc.popup.new/0.0.1536.864@0.0.1536.864" timestamp="1605225312540" />
     <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1605122738998">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
