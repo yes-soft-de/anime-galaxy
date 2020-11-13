@@ -88,4 +88,11 @@ class UserManager
     {
         return $this->userProfileRepository->getProfileByUSerID($userID);
     }
+
+    public function getAllProfiles()
+    {
+        return $this->userProfileRepository->getAllProfiles();
+    }
+
+
 }
