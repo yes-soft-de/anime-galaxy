@@ -56,4 +56,12 @@ class UserProfileRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
+    public function deleteAllProfiles()
+    {
+        return $this->createQueryBuilder('profile')
+            ->delete()
+            ->getQuery()
+            ->execute();
+    }
 }

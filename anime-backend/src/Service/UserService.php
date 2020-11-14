@@ -14,6 +14,7 @@ use App\Request\UserRegisterRequest;
 use App\Response\UserProfileCreateResponse;
 use App\Response\UserProfileResponse;
 use App\Response\UserRegisterResponse;
+use phpDocumentor\Reflection\Types\Array_;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 class UserService
@@ -40,7 +41,14 @@ class UserService
     {
         $userProfile = $this->userManager->userProfileCreate($request);
 
-        return $this->autoMapping->map(UserProfile::class,UserProfileCreateResponse::class, $userProfile);
+        if($userProfile instanceof UserProfile)
+        {
+            return $this->autoMapping->map(UserProfile::class, UserProfileCreateResponse::class, $userProfile);
+        }
+        else if($userProfile == 1)
+        {
+            return $this->getUserProfileByUserID($request->getUserID());
+        }
     }
 
     public function userProfileUpdate(UserProfileUpdateRequest $request)
@@ -72,5 +80,10 @@ class UserService
             $response[] = $this->autoMapping->map(UserProfile::class, UserProfileResponse::class, $row);
         }
         return $response;
+    }
+
+    public function deleteAllProfiles()
+    {
+        return $this->userManager->deleteAllProfiles();
     }
 }

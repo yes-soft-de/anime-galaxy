@@ -114,4 +114,14 @@ class UserController extends BaseController
 
         return $this->response($response,self::FETCH);
     }
+
+    /**
+     * @Route("allprofiles", name="deleteAllProfiles", methods={"DELETE"})
+     */
+    public function deleteAllProfiles()
+    {
+        $response = $this->userService->deleteAllProfiles();
+
+        return $this->json('Number of profiles deleted: ' . $response);
+    }
 }

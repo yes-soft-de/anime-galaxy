@@ -59,13 +59,22 @@ class UserManager
 
     public function userProfileCreate(UserProfileCreateRequest $request)
     {
-        $userProfile = $this->autoMapping->map(UserProfileCreateRequest::class, UserProfile::class, $request);
+        $userProfile = $this->getProfileByUserID($request->getUserID());
+        //dd($userProfile);
+        if($userProfile == null)
+        {
+            $userProfile = $this->autoMapping->map(UserProfileCreateRequest::class, UserProfile::class, $request);
 
-        $this->entityManager->persist($userProfile);
-        $this->entityManager->flush();
-        $this->entityManager->clear();
+            $this->entityManager->persist($userProfile);
+            $this->entityManager->flush();
+            $this->entityManager->clear();
 
-        return $userProfile;
+            return $userProfile;
+        }
+        else
+        {
+            return 1;
+        }
     }
 
     public function userProfileUpdate(UserProfileUpdateRequest $request)
@@ -94,5 +103,13 @@ class UserManager
         return $this->userProfileRepository->getAllProfiles();
     }
 
+    public function deleteAllProfiles()
+    {
+        $res = $this->userProfileRepository->deleteAllProfiles();
 
+        $this->entityManager->flush();
+        $this->entityManager->clear();
+
+        return $res;
+    }
 }
