@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:anime_galaxy/generated/l10n.dart';
 import 'package:anime_galaxy/module_anime/anime_routes.dart';
+import 'package:anime_galaxy/module_auth/service/auth_service/auth_service.dart';
 import 'package:anime_galaxy/module_home/model/home_model/home_model.dart';
 import 'package:anime_galaxy/module_home/state/home/home.state.dart';
 import 'package:anime_galaxy/module_home/state_manager/home/home.state_manager.dart';
@@ -16,9 +17,11 @@ import 'package:inject/inject.dart';
 @provide
 class HomeScreen extends StatefulWidget {
   final HomeStateManager _stateManger;
+  final AuthService _authService;
 
   HomeScreen(
     this._stateManger,
+    this._authService,
   );
 
   @override
@@ -57,10 +60,11 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     screenWidth = MediaQuery.of(context).size.width;
     if (currentState is HomeStateInit) {
-      widget._stateManger.getHomeDetails();
-      if (this.mounted) {
-        setState(() {});
-      }
+      widget._authService.isLoggedIn.then((value) {
+        if (value) {
+          widget._stateManger.getHomeDetails();
+        }
+      });
     }
 
     return loading ? LoadingIndicatorWidget() : getPageLayout();
@@ -172,7 +176,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     });
 
     return RefreshIndicator(
-      onRefresh: _refresh,
+      onRefresh: () {
+        return _refresh();
+      },
       child: SingleChildScrollView(
         child: Container(
           padding: EdgeInsetsDirectional.fromSTEB(7, 0, 7, 10),

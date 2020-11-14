@@ -6,8 +6,10 @@ import 'package:anime_galaxy/module_auth/enums/auth_source.dart';
 import 'package:anime_galaxy/module_auth/service/auth_service/auth_service.dart';
 import 'package:anime_galaxy/module_auth/states/auth_states/auth_states.dart';
 import 'package:anime_galaxy/module_profile/service/my_profile/my_profile.dart';
+import 'package:anime_galaxy/utils/logger/logger.dart';
 import 'package:crypto/crypto.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:inject/inject.dart';
@@ -29,6 +31,7 @@ class AuthStateManager {
 
   Stream<AuthState> get stateStream => _stateSubject.stream;
 
+  Stream<String> get status => _authService.authServiceStateSubject.stream;
   String _verificationId;
 
   void SignInWithPhone(String phone) {
@@ -39,7 +42,7 @@ class AuthStateManager {
               _auth.signInWithCredential(credentials).then((value) async {
                 await _authService.loginUser(
                   _auth.currentUser.uid,
-                  _auth.currentUser.displayName,
+                  _auth.currentUser.displayName ?? _auth.currentUser.uid,
                   null,
                   AUTH_SOURCE.PHONE,
                 );
@@ -67,6 +70,10 @@ class AuthStateManager {
     // Trigger the authentication flow
     final GoogleSignInAccount googleUser = await GoogleSignIn().signIn();
 
+    if (googleUser == null) {
+      return;
+    }
+
     // Obtain the auth details from the request
     final GoogleSignInAuthentication googleAuth =
         await googleUser.authentication;
@@ -93,13 +100,15 @@ class AuthStateManager {
     if (result != null) {
       bool loginSuccess = await _authService.loginUser(
         result.user.uid,
-        result.user.displayName,
-        result.user.email,
+        result.user.displayName ?? result.user.uid.substring(0, 6),
+        result.user.email ?? result.user.uid.substring(0, 6),
         AUTH_SOURCE.APPLE,
       );
 
       await _profileService.createProfile(
-          result.user.displayName, result.user.photoURL, ' ');
+          result.user.displayName ?? result.user.uid.substring(0, 6),
+          null,
+          ' ');
       if (loginSuccess) {
         _stateSubject.add(AuthStateSuccess());
       }
@@ -108,13 +117,24 @@ class AuthStateManager {
   }
 
   void confirmWithCode(String code) {
+    Fluttertoast.showToast(
+        msg: 'Confirming Code', toastLength: Toast.LENGTH_LONG);
     AuthCredential credential = PhoneAuthProvider.credential(
       verificationId: _verificationId,
       smsCode: code,
     );
 
+    if (credential == null) {
+      Logger().error('Auth State Manager', 'Error Getting Credentials');
+    }
     _auth.signInWithCredential(credential).then((result) async {
-      await _loginUser(result);
+      if (result != null) {
+        await _loginUser(result);
+      } else {
+        await Fluttertoast.showToast(msg: 'Error Signing in');
+      }
+    }).catchError((err, stack) {
+      FirebaseCrashlytics.instance.recordError(err, stack);
     });
   }
 

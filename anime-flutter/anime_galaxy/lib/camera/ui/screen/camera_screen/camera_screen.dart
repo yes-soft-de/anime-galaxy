@@ -1,12 +1,13 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:anime_galaxy/generated/l10n.dart';
+import 'package:anime_galaxy/module_home/home.routes.dart';
+import 'package:anime_galaxy/utils/logger/logger.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:inject/inject.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:anime_galaxy/generated/l10n.dart';
-import 'package:anime_galaxy/module_home/home.routes.dart';
 import 'package:video_player/video_player.dart';
 
 @provide
@@ -30,8 +31,8 @@ IconData getCameraLensIcon(CameraLensDirection direction) {
   throw ArgumentError('Unknown lens direction');
 }
 
-void logError(String code, String message) =>
-    print('Error: $code\nError Message: $message');
+void logError(String code, String message) => Logger()
+    .warn('camear_screen.dart', 'Error: $code\nError Message: $message');
 
 class _CameraScreenState extends State<CameraScreen>
     with WidgetsBindingObserver {
@@ -78,7 +79,6 @@ class _CameraScreenState extends State<CameraScreen>
   Widget build(BuildContext context) {
     redirectTo = ModalRoute.of(context).settings.arguments;
     redirectTo ??= HomeRoutes.ROUTE_HOME;
-    print('Redirect To: ' + redirectTo);
 
     if (cameras == null) {
       _allocateCameras();

@@ -29,6 +29,8 @@ dependencies:
   # Camera
   camera: ^0.5.8+7
 
+  firebase_crashlytics: ^0.2.3
+
   # Video
   video_player: ^0.11.0
 

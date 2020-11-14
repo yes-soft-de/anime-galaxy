@@ -6,6 +6,7 @@ import 'package:anime_galaxy/module_anime/response/anime_response/anime_response
 import 'package:anime_galaxy/module_anime/response/comment_response/comment_response.dart';
 import 'package:anime_galaxy/module_anime/response/episode_response/episode_response.dart';
 import 'package:anime_galaxy/module_auth/service/auth_service/auth_service.dart';
+import 'package:anime_galaxy/utils/logger/logger.dart';
 import 'package:inject/inject.dart';
 
 @provide
@@ -83,7 +84,7 @@ class AnimeDetailsService {
 
   Future<bool> addToFavourite(int animeId, int categoryId) async {
     String userId = await _authService.userID;
-    print('Favorate UID: $userId');
+    Logger().info('anime_details.service', 'Favorate UID: $userId');
     FavouriteRequest request = new FavouriteRequest(
         categoryID: categoryId.toString(),
         animeID: animeId.toString(),

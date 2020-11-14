@@ -54,7 +54,6 @@ class _ExploreScreenState extends State<ExploreScreen> {
   Future<String> _refresh() async {
     loading = true;
     widget._stateManager.getExploreScreenContent();
-    await Future.delayed(Duration(milliseconds: 100));
     setState(() {});
     return 'success';
   }
@@ -131,7 +130,9 @@ class _ExploreScreenState extends State<ExploreScreen> {
     return SafeArea(
       child: Scaffold(
         body: RefreshIndicator(
-          onRefresh: _refresh,
+          onRefresh: () {
+            return _refresh();
+          },
           child: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),

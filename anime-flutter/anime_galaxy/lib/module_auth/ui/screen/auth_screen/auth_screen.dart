@@ -68,7 +68,23 @@ class _AuthScreenState extends State<AuthScreen> {
     if (_currentState is AuthStateCodeSent) {
       pageLayout = Scaffold(
           appBar: AnimeGalaxyAppBar.getBackEnabledAppBar(),
-          body: _getCodeSetter());
+          body: Column(
+            children: [
+              StreamBuilder(
+                stream: widget.manager.status,
+                builder:
+                    (BuildContext context, AsyncSnapshot<String> snapshot) {
+                  return Text(
+                    snapshot.data ?? '',
+                    style: TextStyle(
+                      color: Colors.black38,
+                    ),
+                  );
+                },
+              ),
+              Expanded(child: _getCodeSetter()),
+            ],
+          ));
       if (mounted) setState(() {});
     } else if (_currentState is AuthStateLoading) {
       loading = true;
@@ -99,7 +115,16 @@ class _AuthScreenState extends State<AuthScreen> {
                       height: 120,
                     )
                   : Container(),
-              Text(_phoneController.text.trim()),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  _phoneController.text.trim(),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 12,
+                  ),
+                ),
+              ),
             ],
           ),
           Padding(
@@ -125,7 +150,7 @@ class _AuthScreenState extends State<AuthScreen> {
               onTap: () {
                 loading = true;
                 if (mounted) setState(() {});
-                widget.manager.confirmWithCode(_phoneController.text);
+                widget.manager.confirmWithCode(_confirmationController.text);
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,

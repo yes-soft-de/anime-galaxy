@@ -5,7 +5,9 @@ import 'package:anime_galaxy/module_profile/manager/my_profile_manager/my_profil
 import 'package:anime_galaxy/module_profile/request/create_profile.dart';
 import 'package:anime_galaxy/utils/logger/logger.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:inject/inject.dart';
+import 'package:rxdart/rxdart.dart';
 
 @provide
 class AuthService {
@@ -13,6 +15,8 @@ class AuthService {
   final AuthManager _authManager;
   final MyProfileManager _profileManager;
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+
+  final PublishSubject<String> authServiceStateSubject = PublishSubject();
 
   AuthService(
     this._prefsHelper,
@@ -23,61 +27,44 @@ class AuthService {
   Future<bool> loginUser(
       String uid, String name, String email, AUTH_SOURCE authSource,
       [String image]) async {
+    authServiceStateSubject.add('User is Verified, Creating a user in our DB');
     try {
       await _authManager.createUser(uid);
-      await _createProfile(
-        uid,
-        name,
-        email,
-        image,
-      );
     } catch (e) {
       Logger().info('AuthService', 'User Already Exists');
     }
+    await _createProfile(
+      uid,
+      name,
+      email,
+      image,
+    );
 
-    String token = await _authManager.getToken(uid, uid);
-
-    if (token == null) {
-      return false;
-    }
     await _prefsHelper.setUserId(uid);
     await _prefsHelper.setUsername(name);
     await _prefsHelper.setAuthSource(authSource);
-    await _prefsHelper.setToken(token);
     return true;
   }
 
   Future<void> _createProfile(
       String uid, String name, String email, String image) async {
+    authServiceStateSubject
+        .add('User is Created, Starting a new profile for you');
     String userId = await userID;
 
-    CreateProfileRequest request;
+    var profile = await _profileManager.createMyProfile(CreateProfileRequest(
+      userName: name ?? ' ',
+      image: null,
+      location: 'Saudi Arabia',
+      story: ' ',
+      userID: userId,
+    ));
 
-    if (name == null) {
-      request = CreateProfileRequest(
-          userName: userId.substring(0, 6),
-          image: null,
-          location: 'Saudi Arabia',
-          story: ' ',
-          userID: userId);
-    } else if (name.isEmpty) {
-      request = CreateProfileRequest(
-          userName: userId.substring(0, 6),
-          image: null,
-          location: 'Saudi Arabia',
-          story: ' ',
-          userID: userId);
-    } else {
-      request = CreateProfileRequest(
-        userName: name,
-        image: null,
-        location: 'Saudi Arabia',
-        story: ' ',
-        userID: userId,
-      );
+    if (profile == null) {
+      authServiceStateSubject.add('Error Creating Profile');
+      Logger().error('Auth Error', 'Error Creating Profile');
+      FirebaseCrashlytics.instance.crash();
     }
-
-    await _profileManager.createMyProfile(request);
   }
 
   Future<String> getToken() async {

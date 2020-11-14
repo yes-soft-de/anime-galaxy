@@ -42,6 +42,13 @@
             },
             {
               "lookupKey": {
+                "root": "asset:anime_galaxy/lib/module_error/error_module.dart#ErrorModule",
+                "qualifier": null
+              },
+              "isProvider": false
+            },
+            {
+              "lookupKey": {
                 "root": "asset:anime_galaxy/lib/module_profile/profile_module.dart#ProfileModule",
                 "qualifier": null
               },

@@ -1,17 +1,17 @@
 {
-  "asset": "asset:anime_galaxy/lib/module_home/ui/screens/home_screen.dart",
+  "asset": "asset:anime_galaxy/lib/module_error/error_module.dart",
   "summary": {
     "injector": [],
     "module": [],
     "injectable": [
       {
-        "name": "HomeScreen",
+        "name": "ErrorModule",
         "constructor": {
           "name": "",
           "kind": "constructor",
           "injectedType": {
             "lookupKey": {
-              "root": "asset:anime_galaxy/lib/module_home/ui/screens/home_screen.dart#HomeScreen",
+              "root": "asset:anime_galaxy/lib/module_error/error_module.dart#ErrorModule",
               "qualifier": null
             },
             "isProvider": false
@@ -21,14 +21,7 @@
           "dependencies": [
             {
               "lookupKey": {
-                "root": "asset:anime_galaxy/lib/module_home/state_manager/home/home.state_manager.dart#HomeStateManager",
-                "qualifier": null
-              },
-              "isProvider": false
-            },
-            {
-              "lookupKey": {
-                "root": "asset:anime_galaxy/lib/module_auth/service/auth_service/auth_service.dart#AuthService",
+                "root": "asset:anime_galaxy/lib/module_error/ui/screen/error_screen.dart#ErrorScreen",
                 "qualifier": null
               },
               "isProvider": false

@@ -1,12 +1,15 @@
 import 'package:anime_galaxy/main_screen/main_screen_module.dart';
 import 'package:anime_galaxy/main_screen/main_screen_routes.dart';
 import 'package:anime_galaxy/module_auth/service/auth_service/auth_service.dart';
+import 'package:anime_galaxy/module_error/error_module.dart';
 import 'package:anime_galaxy/module_home/home.module.dart';
 import 'package:anime_galaxy/module_init_account/account_module.dart';
 import 'package:anime_galaxy/module_notification/notification_module.dart';
+import 'package:anime_galaxy/utils/logger/logger.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -55,11 +58,13 @@ class MyApp extends StatefulWidget {
   final SettingModule _settingModule;
   final ExploreModule _exploreModule;
   final EpisodeModule _episodeModule;
+  final ErrorModule _errorModule;
 
   MyApp(
     this._chatModule,
     this._cameraModule,
     this._authModule,
+    this._errorModule,
     this._profileModule,
     this._localizationService,
     this._swapThemeService,
@@ -98,7 +103,7 @@ class _MyAppState extends State<MyApp> {
 
     widget._swapThemeService.darkModeStream.listen((event) {
       isDarkMode = event;
-      print('Dark Mode: ' + isDarkMode.toString());
+      Logger().info('Main.dart', 'Dark Mode: ' + isDarkMode.toString());
       setState(() {});
     });
   }
@@ -119,6 +124,7 @@ class _MyAppState extends State<MyApp> {
     fullRoutesList.addAll(widget._settingModule.getRoutes());
     fullRoutesList.addAll(widget._exploreModule.getRoutes());
     fullRoutesList.addAll(widget._episodeModule.getRoutes());
+    fullRoutesList.addAll(widget._errorModule.getRoutes());
 
     return FutureBuilder(
       future: getConfiguratedApp(fullRoutesList),
@@ -131,10 +137,11 @@ class _MyAppState extends State<MyApp> {
 
   Future<Widget> getConfiguratedApp(
       Map<String, WidgetBuilder> fullRoutesList) async {
+    await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
     lang ??= await widget._localizationService.getLanguage();
     isDarkMode ??= await widget._swapThemeService.isDarkMode();
     authorized ??= await widget._authService.isLoggedIn;
-    print(isDarkMode.toString());
+    Logger().info('main.dart', isDarkMode.toString());
 
     return MaterialApp(
       navigatorObservers: <NavigatorObserver>[observer],

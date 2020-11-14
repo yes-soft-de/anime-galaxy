@@ -38,11 +38,11 @@ class _MainScreenState extends State<MainScreen> {
 
   int _pageIndex = 0;
   String username;
+  bool authorized = false;
 
   @override
   void initState() {
     super.initState();
-    getName();
   }
 
   @override
@@ -52,10 +52,6 @@ class _MainScreenState extends State<MainScreen> {
 
   void getName() async {
     username = await widget._authService.username;
-    if (username == null) {
-      username = await widget._authService.userID;
-      if (username != null) username = username.substring(0, 6);
-    }
     setState(() {});
   }
 
@@ -65,60 +61,66 @@ class _MainScreenState extends State<MainScreen> {
       if (value != true) {
         Navigator.of(context).pushNamedAndRemoveUntil(
             AuthRoutes.ROUTE_AUTHORIZE, (route) => false);
+      } else {
+        authorized = true;
+        getName();
       }
     });
 
     var pages = [
-      widget._settingsScreen,
-      widget._profileScreen,
-      widget._exploreScreen,
-      widget._notificationScreen,
       widget._homeScreen,
+      widget._notificationScreen,
+      widget._exploreScreen,
+      widget._profileScreen,
+      widget._settingsScreen,
     ];
 
-    return Scaffold(
-      key: _scaffoldKey,
-      appBar: AnimeGalaxyAppBar.getAnimeGalaxyAppBar(_scaffoldKey, username),
-      drawer: AnimeNavigationDrawer(),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _pageIndex,
-        onTap: (newPos) {
-          _pageIndex = newPos;
-          setState(() {});
-        },
-        backgroundColor: ProjectColors.ThemeColor,
-        fixedColor: Colors.white,
-        unselectedItemColor: Colors.white54,
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            backgroundColor: ProjectColors.ThemeColor,
-            icon: Icon(Icons.settings),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: '',
-            backgroundColor: ProjectColors.ThemeColor,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.explore),
-            label: '',
-            backgroundColor: ProjectColors.ThemeColor,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
-            label: '',
-            backgroundColor: ProjectColors.ThemeColor,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.dashboard),
-            label: '',
-            backgroundColor: ProjectColors.ThemeColor,
-          ),
-        ],
-      ),
-      body: pages[_pageIndex],
-    );
+    return authorized
+        ? Scaffold(
+            key: _scaffoldKey,
+            appBar:
+                AnimeGalaxyAppBar.getAnimeGalaxyAppBar(_scaffoldKey, username),
+            drawer: AnimeNavigationDrawer(),
+            bottomNavigationBar: BottomNavigationBar(
+              currentIndex: _pageIndex,
+              onTap: (newPos) {
+                _pageIndex = newPos;
+                setState(() {});
+              },
+              backgroundColor: ProjectColors.ThemeColor,
+              fixedColor: Colors.white,
+              unselectedItemColor: Colors.white54,
+              items: <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.dashboard),
+                  label: '',
+                  backgroundColor: ProjectColors.ThemeColor,
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.notifications),
+                  label: '',
+                  backgroundColor: ProjectColors.ThemeColor,
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.explore),
+                  label: '',
+                  backgroundColor: ProjectColors.ThemeColor,
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.person),
+                  label: '',
+                  backgroundColor: ProjectColors.ThemeColor,
+                ),
+                BottomNavigationBarItem(
+                  backgroundColor: ProjectColors.ThemeColor,
+                  icon: Icon(Icons.settings),
+                  label: '',
+                ),
+              ],
+            ),
+            body: pages[_pageIndex],
+          )
+        : Scaffold();
   }
 
   void onPageChanged(int page) {
