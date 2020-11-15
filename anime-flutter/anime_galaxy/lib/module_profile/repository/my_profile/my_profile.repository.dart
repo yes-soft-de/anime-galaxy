@@ -114,4 +114,13 @@ class MyProfileRepository {
 
     return response == null ? null : ProfileResponse.fromJson(response);
   }
+
+  Future<ProfileResponse> updateMyProfile(
+      CreateProfileRequest profileRequest) async {
+    Map<String, dynamic> response = await _apiClient.put(
+        Urls.API_PROFILE.substring(0, Urls.API_PROFILE.length - 1),
+        profileRequest.toJson());
+
+    return response == null ? null : ProfileResponse.fromJson(response);
+  }
 }

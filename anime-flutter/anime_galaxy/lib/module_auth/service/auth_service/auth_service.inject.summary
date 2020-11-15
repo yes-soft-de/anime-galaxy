@@ -32,13 +32,6 @@
                 "qualifier": null
               },
               "isProvider": false
-            },
-            {
-              "lookupKey": {
-                "root": "asset:anime_galaxy/lib/module_profile/manager/my_profile_manager/my_profile_manager.dart#MyProfileManager",
-                "qualifier": null
-              },
-              "isProvider": false
             }
           ]
         }

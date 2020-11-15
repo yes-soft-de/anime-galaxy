@@ -1,11 +1,8 @@
 import 'package:anime_galaxy/module_auth/enums/auth_source.dart';
 import 'package:anime_galaxy/module_auth/manager/auth/auth_manager.dart';
 import 'package:anime_galaxy/module_auth/presistance/auth_prefs_helper.dart';
-import 'package:anime_galaxy/module_profile/manager/my_profile_manager/my_profile_manager.dart';
-import 'package:anime_galaxy/module_profile/request/create_profile.dart';
 import 'package:anime_galaxy/utils/logger/logger.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:inject/inject.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -13,7 +10,6 @@ import 'package:rxdart/rxdart.dart';
 class AuthService {
   final AuthPrefsHelper _prefsHelper;
   final AuthManager _authManager;
-  final MyProfileManager _profileManager;
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
   final PublishSubject<String> authServiceStateSubject = PublishSubject();
@@ -21,50 +17,32 @@ class AuthService {
   AuthService(
     this._prefsHelper,
     this._authManager,
-    this._profileManager,
   );
 
   Future<bool> loginUser(
       String uid, String name, String email, AUTH_SOURCE authSource,
       [String image]) async {
     authServiceStateSubject.add('User is Verified, Creating a user in our DB');
+    var userExists = false;
+
     try {
-      await _authManager.createUser(uid);
+      var token = await _authManager.getToken(uid, uid);
+      userExists = token != null;
+    } catch (e) {
+      Logger().info('Auth Service', e);
+    }
+
+    try {
+      if (!userExists) await _authManager.createUser(uid);
     } catch (e) {
       Logger().info('AuthService', 'User Already Exists');
     }
-    await _createProfile(
-      uid,
-      name,
-      email,
-      image,
-    );
 
     await _prefsHelper.setUserId(uid);
     await _prefsHelper.setUsername(name);
     await _prefsHelper.setAuthSource(authSource);
+    await _prefsHelper.setToken(uid);
     return true;
-  }
-
-  Future<void> _createProfile(
-      String uid, String name, String email, String image) async {
-    authServiceStateSubject
-        .add('User is Created, Starting a new profile for you');
-    String userId = await userID;
-
-    var profile = await _profileManager.createMyProfile(CreateProfileRequest(
-      userName: name ?? ' ',
-      image: null,
-      location: 'Saudi Arabia',
-      story: ' ',
-      userID: userId,
-    ));
-
-    if (profile == null) {
-      authServiceStateSubject.add('Error Creating Profile');
-      Logger().error('Auth Error', 'Error Creating Profile');
-      FirebaseCrashlytics.instance.crash();
-    }
   }
 
   Future<String> getToken() async {
@@ -83,7 +61,12 @@ class AuthService {
     await _prefsHelper.setToken(token);
   }
 
-  Future<bool> get isLoggedIn => _prefsHelper.isSignedIn();
+  Future<bool> get isLoggedIn async {
+    var user = await _firebaseAuth.currentUser;
+    var savedLogin = await _prefsHelper.isSignedIn();
+
+    return user != null && savedLogin;
+  }
 
   Future<String> get userID => _prefsHelper.getUserId();
 

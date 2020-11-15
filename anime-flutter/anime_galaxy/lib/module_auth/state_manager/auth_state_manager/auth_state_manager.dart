@@ -25,7 +25,12 @@ class AuthStateManager {
   AuthStateManager(
     this._authService,
     this._profileService,
-  );
+  ) {
+    var user = _auth.currentUser;
+    if (user != null) {
+      _continueInterruptedLogin(user);
+    }
+  }
 
   final PublishSubject<AuthState> _stateSubject = PublishSubject();
 
@@ -35,6 +40,7 @@ class AuthStateManager {
   String _verificationId;
 
   void SignInWithPhone(String phone) {
+    _authService.authServiceStateSubject.add('Sending SMS to this number');
     _auth
         .verifyPhoneNumber(
             phoneNumber: phone,
@@ -62,6 +68,7 @@ class AuthStateManager {
               _verificationId = verificationId;
             })
         .catchError((err) {
+      _authService.authServiceStateSubject.add(err.toString());
       _stateSubject.add(AuthStateError(err.toString()));
     });
   }
@@ -109,6 +116,22 @@ class AuthStateManager {
           result.user.displayName ?? result.user.uid.substring(0, 6),
           null,
           ' ');
+      if (loginSuccess) {
+        _stateSubject.add(AuthStateSuccess());
+      }
+    }
+    _stateSubject.add(AuthStateError('Can\'t Sign in!'));
+  }
+
+  Future<void> _continueInterruptedLogin(User result) async {
+    if (result != null) {
+      bool loginSuccess = await _authService.loginUser(
+        result.uid,
+        result.displayName ?? result.uid.substring(0, 6),
+        result.email ?? result.uid.substring(0, 6),
+        AUTH_SOURCE.APPLE,
+      );
+
       if (loginSuccess) {
         _stateSubject.add(AuthStateSuccess());
       }

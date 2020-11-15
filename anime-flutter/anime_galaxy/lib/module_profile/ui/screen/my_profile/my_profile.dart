@@ -1,239 +1,145 @@
-
+import 'package:anime_galaxy/generated/l10n.dart';
+import 'package:anime_galaxy/module_profile/profile_routes.dart';
+import 'package:anime_galaxy/module_profile/state_manager/edit_profile_state_manager/edit_profile_state_manager.dart';
+import 'package:anime_galaxy/module_theme/service/theme_service/theme_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:inject/inject.dart';
-import 'package:anime_galaxy/module_profile/state_manager/my_profile/my_profile_state_manager.dart';
+
 @provide
 class MyProfileScreen extends StatefulWidget {
-  final MyProfileStateManager _stateManager;
+  final EditProfileStateManager manager;
 
-  MyProfileScreen(this._stateManager);
+  MyProfileScreen(this.manager);
 
   @override
   State<StatefulWidget> createState() => _MyProfileScreenState();
 }
 
 class _MyProfileScreenState extends State<MyProfileScreen> {
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _storyController = TextEditingController();
+
+  String _errorMsg;
+  bool loading = false;
+
   @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+  void initState() {
+    super.initState();
+    widget.manager.stateStream.stream.listen((event) {
+      // Null means no errors
+      if (event == null) {
+        Navigator.of(context).pushNamed(ProfileRoutes.ROUTE_PROFILE);
+      } else {
+        _errorMsg = event;
+        setState(() {});
+      }
+    });
   }
 
-
-  Widget pageLaout(){
+  @override
+  Widget build(BuildContext context) {
+    String redirectTo = ModalRoute.of(context).settings.arguments.toString();
+    redirectTo = redirectTo == null ? redirectTo : ProfileRoutes.ROUTE_PROFILE;
     return Scaffold(
-      body: ListView(
-        scrollDirection: Axis.vertical,
-        children: <Widget>[
-          SizedBox(
-            height: 20,
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: <Widget>[
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
-                            child: RichText(
-                              text: TextSpan(
-                                text: 'محمد',
-                                style: TextStyle(
-                                    color: Colors.black, fontSize: 20),
-                                children: <TextSpan>[
-                                  TextSpan(
-                                    text: '\n',
-                                  ),
-                                  TextSpan(
-                                    text: "فانتزي - شونين",
-                                    style: TextStyle(fontSize: 15),
-                                  ),
-                                ],
-                              ),
-                              textDirection: TextDirection.rtl,
-                            ),
-                          )
-                        ],
-                      ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Container(
-                        height: 70,
-                        width: 200,
-                        decoration: BoxDecoration(
-                            color: Colors.blue,
-                            borderRadius: BorderRadius.circular(17)),
-                        child: Row(),
-                      )
-                    ],
-                  ),
-                  Container(
-                    width: 150,
-                    height: 150,
-                    decoration: BoxDecoration(
-                        color: Colors.amber,
-                        borderRadius: BorderRadius.circular(17)),
-                  )
-                ],
-              )
+      body: _getProfileEditScreen(),
+    );
+  }
+
+  Widget _getProfileEditScreen() {
+    return Form(
+      child: Flex(
+        direction: Axis.vertical,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(),
+          Flex(
+            direction: Axis.vertical,
+            children: [
+              MediaQuery.of(context).viewInsets.bottom == 0
+                  ? Image.asset(
+                      'assets/images/logo.jpg',
+                      height: 120,
+                    )
+                  : Container(),
             ],
-          ),
-          SizedBox(
-            height: 20,
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(0, 0, 30, 0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: <Widget>[
-                Container(
+            padding: const EdgeInsets.all(16.0),
+            child: TextFormField(
+                controller: _nameController,
+                decoration: InputDecoration(
+                  labelText: S.of(context).yourName,
+                  hintText: S.of(context).nameHint,
+                ),
+                keyboardType: TextInputType.text,
+                maxLines: 1,
+                validator: (v) {
+                  if (v.isEmpty) {
+                    return S.of(context).pleaseInputPhoneNumber;
+                  }
+                  return null;
+                }),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: TextFormField(
+                controller: _storyController,
+                decoration: InputDecoration(
+                  labelText: S.of(context).aboutMe,
+                  hintText: S.of(context).aboutMe,
+                ),
+                maxLines: 3,
+                keyboardType: TextInputType.text,
+                validator: (v) {
+                  if (v.isEmpty) {
+                    return S.of(context).pleaseInputPhoneNumber;
+                  }
+                  return null;
+                }),
+          ),
+          _errorMsg != null ? Text(_errorMsg) : Container(),
+          Container(
+            decoration: BoxDecoration(color: SwapThemeDataService.getAccent()),
+            child: GestureDetector(
+              onTap: () {
+                if (_nameController.text.isEmpty) {
+                  Fluttertoast.showToast(msg: S.of(context).nameIsEmpty);
+                  return null;
+                }
+                if (_storyController.text.isEmpty) {
+                  Fluttertoast.showToast(
+                      msg: S.of(context).pleaseTellUsAboutYourSelf);
+                  return null;
+                }
+
+                loading = true;
+                if (mounted) setState(() {});
+                widget.manager.saveProfile(
+                    _nameController.text.trim(), _storyController.text.trim());
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
                     child: Text(
-                      'عني',
-                      style: TextStyle(fontSize: 28),
-                    )),
-                Text('مرحبا انا احب الانمي')
-              ],
+                      loading == false
+                          ? S.of(context).saveProfile
+                          : S.of(context).loading,
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
-          SizedBox(
-            height: 20,
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 30, 0),
-                child: Text(
-                  'نشاطات',
-                  style: TextStyle(fontSize: 28),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(10, 0, 20, 0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                      height: 70,
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                          color: Colors.blue,
-                          borderRadius: BorderRadius.circular(17)),
-                    ),
-                    SizedBox(height: 13),
-                    Container(
-                      height: 70,
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                          color: Colors.blue,
-                          borderRadius: BorderRadius.circular(17)),
-                    ),
-                    SizedBox(height: 13),
-                    Container(
-                      height: 70,
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                          color: Colors.blue,
-                          borderRadius: BorderRadius.circular(17)),
-                    ),
-                  ],
-                ),
-              )
-            ],
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 0, 30, 0),
-                  child: Text(
-                    'مسلسلات متابعة',
-                    style: TextStyle(fontSize: 28),
-                  ),
-                ),
-                Container(
-                  height: 200,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: <Widget>[
-                      Column(
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.all(15),
-                            child: Container(
-                              width: 150,
-                              height: 150,
-                              color: Colors.blue,
-                            ),
-                          ),
-                          Text('Name')
-                        ],
-                      ),
-                      Column(
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.all(15),
-                            child: Container(
-                              width: 150,
-                              height: 150,
-                              color: Colors.blue,
-                            ),
-                          ),
-                          Text('Name')
-                        ],
-                      ),
-                      Column(
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.all(15),
-                            child: Container(
-                              width: 150,
-                              height: 150,
-                              color: Colors.blue,
-                            ),
-                          ),
-                          Text('Name')
-                        ],
-                      ),
-                      Column(
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.all(15),
-                            child: Container(
-                              width: 150,
-                              height: 150,
-                              color: Colors.blue,
-                            ),
-                          ),
-                          Text('Name')
-                        ],
-                      ),
-                    ],
-                  ),
-                )
-              ]),
-          SizedBox(
-            height: 60,
-          )
         ],
       ),
     );

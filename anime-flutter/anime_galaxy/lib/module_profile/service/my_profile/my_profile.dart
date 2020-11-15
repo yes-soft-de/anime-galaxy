@@ -103,6 +103,8 @@ class MyProfileService {
   ) async {
     String userId = await _authService.userID;
 
+    var profileExists = await _manager.getProfile(userId);
+
     CreateProfileRequest request = CreateProfileRequest(
         userName: username,
         image: userImage,
@@ -110,7 +112,9 @@ class MyProfileService {
         story: story,
         userID: userId);
 
-    ProfileResponse response = await _manager.createMyProfile(request);
+    ProfileResponse response = profileExists == null
+        ? await _manager.createMyProfile(request)
+        : _manager.updateMyProfile(request);
     if (response == null) return null;
     await _preferencesHelper.setUserName(response.userName);
     await _preferencesHelper.setUserImage(response.image);

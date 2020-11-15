@@ -1172,6 +1172,56 @@ class S {
       args: [],
     );
   }
+
+  /// `Your Name`
+  String get yourName {
+    return Intl.message(
+      'Your Name',
+      name: 'yourName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `name_hont`
+  String get name_hont {
+    return Intl.message(
+      'name_hont',
+      name: 'name_hont',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name Hint`
+  String get nameHint {
+    return Intl.message(
+      'Name Hint',
+      name: 'nameHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name is empty`
+  String get nameIsEmpty {
+    return Intl.message(
+      'Name is empty',
+      name: 'nameIsEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please tell us about your self`
+  String get pleaseTellUsAboutYourSelf {
+    return Intl.message(
+      'Please tell us about your self',
+      name: 'pleaseTellUsAboutYourSelf',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

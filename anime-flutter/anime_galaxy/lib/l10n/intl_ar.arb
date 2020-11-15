@@ -64,7 +64,7 @@
   "anime": "Anime",
   "EvaluteSerise": "قيم المسلسل",
   "about": "حول",
-  "confirm": "Confirm!",
+  "confirm": "تأكيد الرقم!",
   "RateSeries": "قيم المسلسل",
   "About": "حول",
   "More": "المزيد",
@@ -112,5 +112,10 @@
   "aboutMe": "عني",
   "activities": "نشاطات",
   "noNewEpisodes": "لا يوجد حلقات جديدة",
-  "noNotificationsYet": "لا يوجد اشعارات بعد!"
+  "noNotificationsYet": "لا يوجد اشعارات بعد!",
+  "yourName": "اسمي",
+  "name_hont": "اسمي",
+  "nameHint": "اسمي",
+  "nameIsEmpty": "الرجاء تعبئة الاسم",
+  "pleaseTellUsAboutYourSelf": "رجاءا اخبرنا عن نفسك"
 }

@@ -76,7 +76,8 @@ class ApiClient {
         _logger.info(tag, response.data.toString());
         return response.data;
       } else {
-        _logger.error(tag, url + response.statusCode.toString());
+        _logger.error(tag,
+            url + response.statusCode.toString() + '\n' + payLoad.toString());
         _logger.error(tag, url + response.data.toString());
         return null;
       }

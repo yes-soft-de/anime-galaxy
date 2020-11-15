@@ -114,5 +114,10 @@
   "aboutMe": "عني",
   "activities": "نشاطات",
   "noNewEpisodes": "No New Episodes",
-  "noNotificationsYet": "No Notifications Yet!"
+  "noNotificationsYet": "No Notifications Yet!",
+  "yourName": "Your Name",
+  "name_hont": "name_hont",
+  "nameHint": "Name Hint",
+  "nameIsEmpty": "Name is empty",
+  "pleaseTellUsAboutYourSelf": "Please tell us about your self"
 }
