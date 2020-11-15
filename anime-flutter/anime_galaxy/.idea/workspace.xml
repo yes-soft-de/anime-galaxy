@@ -5,64 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="949cf1e4-ee88-43fb-8374-6a66b1c9c391" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/module_error/error_module.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/module_error/error_routes.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/module_error/ui/screen/error_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/module_profile/state_manager/edit_profile_state_manager/edit_profile_state_manager.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/camera/ui/screen/camera_screen/camera_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/camera/ui/screen/camera_screen/camera_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/di/components/app.component.inject.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/di/components/app.component.inject.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/generated_plugin_registrant.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated_plugin_registrant.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main_screen/ui/screen/main_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main_screen/ui/screen/main_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/repository/anime_details/anime_details.repository.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/repository/anime_details/anime_details.repository.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/request/favourite_request/favourite_request.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/request/favourite_request/favourite_request.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/response/favourite_response/favourite_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/response/favourite_response/favourite_response.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/service/anime_details/anime_details.service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/service/anime_details/anime_details.service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_auth/enums/auth_source.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/enums/auth_source.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_auth/manager/auth/auth_manager.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/manager/auth/auth_manager.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_auth/repository/auth/auth_repository.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/repository/auth/auth_repository.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_auth/request/login/login_request.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/request/login/login_request.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_auth/request/register/registerRequest.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/request/register/registerRequest.inject.summary" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/generated/intl/messages_all.inject.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/generated/intl/messages_ar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/intl/messages_ar.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/generated/intl/messages_ar.inject.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/generated/intl/messages_en.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/intl/messages_en.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/generated/intl/messages_en.inject.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/generated/l10n.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/l10n.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/l10n/intl_ar.arb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/l10n/intl_ar.arb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/l10n/intl_en.arb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/l10n/intl_en.arb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/module_auth/service/auth_service/auth_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/service/auth_service/auth_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_auth/service/auth_service/auth_service.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/service/auth_service/auth_service.inject.summary" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/module_auth/state_manager/auth_state_manager/auth_state_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/state_manager/auth_state_manager/auth_state_manager.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_auth/style/style_auth.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/style/style_auth.inject.summary" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/module_auth/ui/screen/auth_screen/auth_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/ui/screen/auth_screen/auth_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_auth/ui/widget/custome_button/custome_button.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/ui/widget/custome_button/custome_button.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_auth/ui/widget/social_icon/social_icon.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/ui/widget/social_icon/social_icon.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_chat/service/chat/char_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_chat/service/chat/char_service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_chat/ui/screens/chat_page/chat_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_chat/ui/screens/chat_page/chat_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_episode/episode_routes.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/episode_routes.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_episode/model/episode_model/episode_model.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/model/episode_model/episode_model.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_episode/request/comment_request/comment_request.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/request/comment_request/comment_request.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_episode/request/rating_request/rating_request.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/request/rating_request/rating_request.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_episode/response/comment_response/comment_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/response/comment_response/comment_response.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_episode/state/episode_details/episode_details.state.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/state/episode_details/episode_details.state.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_episode/ui/widget/comment_card/comment_card.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/ui/widget/comment_card/comment_card.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/manager/explore/explore.manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/manager/explore/explore.manager.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/response/comming_soon_response/comming_soon_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/response/comming_soon_response/comming_soon_response.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/ui/screen/explore_screen/explore_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/ui/screen/explore_screen/explore_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/service/home/home.service.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/service/home/home.service.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/ui/screens/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/ui/screens/home_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/ui/screens/home_screen.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/ui/screens/home_screen.inject.summary" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/module_network/http_client/http_client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_network/http_client/http_client.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/manager/my_profile_manager/my_profile_manager.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/manager/my_profile_manager/my_profile_manager.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/repository/my_profile/my_profile.repository.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/repository/my_profile/my_profile.repository.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/response/favourite_response/anime_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/response/favourite_response/anime_response.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/response/following_activities_response/following_activities_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/response/following_activities_response/following_activities_response.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/response/follwoing_response/following_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/response/follwoing_response/following_response.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/ui/widget/activity_card/activity_card.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/ui/widget/activity_card/activity_card.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_theme/pressistance/theme_preferences_helper.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_theme/pressistance/theme_preferences_helper.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_theme/service/theme_service/theme_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_theme/service/theme_service/theme_service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/logger/logger.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/logger/logger.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_profile/manager/my_profile_manager/my_profile_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/manager/my_profile_manager/my_profile_manager.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_profile/profile_module.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/profile_module.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_profile/profile_module.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/profile_module.inject.summary" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_profile/profile_routes.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/profile_routes.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_profile/repository/my_profile/my_profile.repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/repository/my_profile/my_profile.repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_profile/service/my_profile/my_profile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/service/my_profile/my_profile.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_profile/ui/screen/my_profile/my_profile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/ui/screen/my_profile/my_profile.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_profile/ui/screen/my_profile/my_profile.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/ui/screen/my_profile/my_profile.inject.summary" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +76,7 @@
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/images" />
-    <property name="settings.editor.selected.configurable" value="flutter.settings" />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -546,26 +514,26 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="253" y="19" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1605184393461" />
-    <state width="1491" height="271" key="GridCell.Tab.0.bottom" timestamp="1605347674475">
+    <state width="1491" height="271" key="GridCell.Tab.0.bottom" timestamp="1605368603245">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="271" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1605347674475" />
-    <state width="1491" height="271" key="GridCell.Tab.0.center" timestamp="1605347674475">
+    <state width="1491" height="271" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1605368603245" />
+    <state width="1491" height="271" key="GridCell.Tab.0.center" timestamp="1605368603245">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="271" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1605347674475" />
-    <state width="1491" height="271" key="GridCell.Tab.0.left" timestamp="1605347674475">
+    <state width="1491" height="271" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1605368603245" />
+    <state width="1491" height="271" key="GridCell.Tab.0.left" timestamp="1605368603245">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="271" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1605347674475" />
-    <state width="1491" height="271" key="GridCell.Tab.0.right" timestamp="1605347674475">
+    <state width="1491" height="271" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1605368603245" />
+    <state width="1491" height="271" key="GridCell.Tab.0.right" timestamp="1605368603245">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="271" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1605347674475" />
-    <state x="277" y="74" key="SettingsEditor" timestamp="1605101908975">
+    <state width="1491" height="271" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1605368603245" />
+    <state x="26" y="69" key="SettingsEditor" timestamp="1605355415655">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="277" y="74" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1605101908975" />
+    <state x="26" y="69" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1605355415655" />
     <state x="361" y="165" key="Vcs.Push.Dialog.v2" timestamp="1605214785703">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -574,10 +542,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="452" y="145" key="git4idea.branch.GitSmartOperationDialog/0.0.1536.864@0.0.1536.864" timestamp="1605214761607" />
-    <state width="300" height="96" key="javadoc.popup.new" timestamp="1605347611094">
+    <state width="300" height="96" key="javadoc.popup.new" timestamp="1605367106041">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="300" height="96" key="javadoc.popup.new/0.0.1536.864@0.0.1536.864" timestamp="1605347611094" />
+    <state width="300" height="96" key="javadoc.popup.new/0.0.1536.864@0.0.1536.864" timestamp="1605367106041" />
     <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1605122738998">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
