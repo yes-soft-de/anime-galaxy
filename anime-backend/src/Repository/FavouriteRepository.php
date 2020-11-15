@@ -35,7 +35,8 @@ class FavouriteRepository extends ServiceEntityRepository
     public function getAllFavouritesByUserID($id)
     {
         return  $this->createQueryBuilder('Favourite')
-             ->addSelect('Favourite.id','Favourite.creationDate as date','Favourite.categoryID as categoryID','category.name as categoryName','Favourite.animeID','Anime.name as AnimeName','Anime.mainImage')
+             ->addSelect('Favourite.id','Favourite.creationDate as date','Favourite.categoryID as categoryID','category.name as categoryName','Favourite.animeID',
+                 'Anime.name as AnimeName','Anime.mainImage', 'Anime.specialLink')
              ->leftJoin(
                 Anime::class,
                 'Anime',

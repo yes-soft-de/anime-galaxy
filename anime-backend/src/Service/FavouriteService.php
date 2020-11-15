@@ -12,6 +12,7 @@ use App\Response\CreateFavouriteResponse;
 use App\Response\GetFavouriteByIdResponse;
 use App\Response\GetFavouriteResponse;
 use App\Response\UpdateFavouriteResponse;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 class FavouriteService
 {
@@ -19,14 +20,17 @@ class FavouriteService
     private $autoMapping;
     private $gradeService;
     private $updateGradeRequest;
+    private $params;
 
     public function __construct(FavouriteManager $favouriteManager, AutoMapping $autoMapping,
-                                GradeService $gradeService, UpdateGradeRequest $updateGradeRequest)
+                                GradeService $gradeService, UpdateGradeRequest $updateGradeRequest, ParameterBagInterface $params)
     {
         $this->favouriteManager = $favouriteManager;
         $this->autoMapping = $autoMapping;
         $this->gradeService = $gradeService;
         $this->updateGradeRequest = $updateGradeRequest;
+
+        $this->params = $params->get('upload_base_url') . '/';
     }
   
     public function create($request)
@@ -74,6 +78,8 @@ class FavouriteService
 
         foreach ($result as $row)
         {
+            $row['mainImage'] = $this->specialLinkCheck($row['specialLink']).$row['mainImage'];
+            
             $response[] = $this->autoMapping->map("array", GetFavouriteResponse::class, $row);
         }
 
@@ -96,5 +102,12 @@ class FavouriteService
         }
 
         return $this->autoMapping->map(Favourite::class, GetFavouriteByIdResponse::class, $favouriteResult);
+    }
+
+    public function specialLinkCheck($bool)
+    {
+        if (!$bool) {
+            return $this->params;
+        }
     }
 }
