@@ -2,24 +2,15 @@ default_platform(:android)
 platform :android do
   desc "Submit a new build to alpha Track on Play"
   lane :alpha do
-    validate_play_store_json_key
+    gradle(
+      gradle_path: "/usr/bin/gradle",
+      task: "assemble",
+      build_type: 'Release'
+    )
     gradle(
       gradle_path: "/usr/bin/gradle",
       task: "bundle",
       build_type: 'Release'
-    )
-    supply(
-      track: "internal",
-      aab:"../build/app/outputs/bundle/release/app-release.aab",
-      skip_upload_metadata: true,
-      package_name: "de.yes_soft.anime_galaxy",
-      skip_upload_changelogs: true,
-      skip_upload_images: true,
-      skip_upload_screenshots: true,
-      skip_upload_apk: true
-    )
-    upload_to_play_store(
-      track:'internal',
     )
   end
 end
