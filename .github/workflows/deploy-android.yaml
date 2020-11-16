@@ -3,11 +3,7 @@ name: Android Deploy
 on:
   push:
     branches: 
-      - android-deploy
       - 'release-v*'
-  pull_request:
-    branches: 
-      - android-deploy
 
 jobs:
   deploy-android:
