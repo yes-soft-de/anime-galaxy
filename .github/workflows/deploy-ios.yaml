@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - dev-mobile
-      - deploy-ios
+      - 'release-v*'
   pull_request:
     branches:
     - dev-mobile

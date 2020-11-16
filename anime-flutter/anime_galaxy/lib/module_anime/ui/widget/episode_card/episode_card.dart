@@ -1,4 +1,4 @@
- import 'package:anime_galaxy/generated/l10n.dart';
+import 'package:anime_galaxy/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class EpisodeCard extends StatelessWidget {
@@ -6,59 +6,38 @@ class EpisodeCard extends StatelessWidget {
   final int episodeNumber;
   final String classification;
 
-  EpisodeCard({
-    this.episodeNumber,
-    this.classification,
-    this.image
-  });
+  EpisodeCard({this.episodeNumber, this.classification, this.image});
 
   @override
   Widget build(BuildContext context) {
-    return   Container(
-          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-
-          height: 160,
-          child: Column(
-            children: [
-              Container(
-                width: MediaQuery.of(context).size.width,
-
-                margin: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
-                 height: 110,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  image: DecorationImage(
-                    fit: BoxFit.fill,
-                    image: NetworkImage(image),
-                  ),
-                ),
-
-//
+    return Container(
+        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+        height: 160,
+        child: Column(
+          children: [
+            FadeInImage.assetNetwork(
+              width: MediaQuery.of(context).size.width,
+              height: 110,
+              placeholder: 'assets/images/logo.jpg',
+              image: image,
+              fit: BoxFit.fill,
+            ),
+            Container(
+              height: 5,
+            ),
+            Center(
+                child: Text(
+              S.of(context).Episode + ' $episodeNumber ',
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
               ),
-              Center(
-
-                  child: Text(
-                   S.of(context).Episode + '$episodeNumber' ,
-                    textDirection: TextDirection.rtl,
-                    style: TextStyle(
-                        fontSize: 10,
-                        fontWeight: FontWeight.bold
-                    ),
-                  )
-              ),
-
-                    Text(
-                      classification,
-                      style: TextStyle(
-                          fontSize: 9,
-                        color: Colors.black38
-                      ),
-                    ),
-
-
-
-            ],
-          )
-      ) ;
+            )),
+            Text(
+              classification,
+              style: TextStyle(fontSize: 9, color: Colors.black38),
+            ),
+          ],
+        ));
   }
 }

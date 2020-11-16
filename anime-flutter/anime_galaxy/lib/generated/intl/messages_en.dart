@@ -82,9 +82,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "member" : MessageLookupByLibrary.simpleMessage("عضو"),
     "monthlyComments" : MessageLookupByLibrary.simpleMessage("التعليقات الشهرية"),
     "name" : MessageLookupByLibrary.simpleMessage("الاسم"),
+    "nameHint" : MessageLookupByLibrary.simpleMessage("Name Hint"),
+    "nameIsEmpty" : MessageLookupByLibrary.simpleMessage("Name is empty"),
+    "name_hont" : MessageLookupByLibrary.simpleMessage("name_hont"),
     "newEpisodes" : MessageLookupByLibrary.simpleMessage("حلقات جديدة"),
     "newInteraction" : MessageLookupByLibrary.simpleMessage("تفاعل جديد"),
     "noCameraFound" : MessageLookupByLibrary.simpleMessage("No camera found"),
+    "noNewEpisodes" : MessageLookupByLibrary.simpleMessage("No New Episodes"),
+    "noNotificationsYet" : MessageLookupByLibrary.simpleMessage("No Notifications Yet!"),
     "notLoggedIn" : MessageLookupByLibrary.simpleMessage("Not Logged in!"),
     "notifications" : MessageLookupByLibrary.simpleMessage("Notifications"),
     "ommentingError" : MessageLookupByLibrary.simpleMessage("هناك مشكلة ما أعد التعليق لاحقا"),
@@ -94,6 +99,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "pleaseInputPhoneNumber" : MessageLookupByLibrary.simpleMessage("Please Input Phone Number"),
     "pleaseProvideAShortStoryAboutYou" : MessageLookupByLibrary.simpleMessage("Please Provide a short story about you :)"),
     "pleaseProvideYourName" : MessageLookupByLibrary.simpleMessage("Please Provide your Name :)"),
+    "pleaseTellUsAboutYourSelf" : MessageLookupByLibrary.simpleMessage("Please tell us about your self"),
     "pleaseUploadTheImage" : MessageLookupByLibrary.simpleMessage("Please Upload the Image"),
     "pleaseUploadYourImage" : MessageLookupByLibrary.simpleMessage("Please Upload your Image :)"),
     "point" : MessageLookupByLibrary.simpleMessage("نقطة"),
@@ -132,6 +138,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "usa" : MessageLookupByLibrary.simpleMessage("USA"),
     "username" : MessageLookupByLibrary.simpleMessage("Username:"),
     "watchedSeries" : MessageLookupByLibrary.simpleMessage("مسلسلات متابعة"),
-    "worldWideSeries" : MessageLookupByLibrary.simpleMessage("المسلسلات الموصى بها عالميا")
+    "worldWideSeries" : MessageLookupByLibrary.simpleMessage("المسلسلات الموصى بها عالميا"),
+    "yourName" : MessageLookupByLibrary.simpleMessage("Your Name")
   };
 }

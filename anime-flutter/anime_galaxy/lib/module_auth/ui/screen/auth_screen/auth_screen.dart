@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:anime_galaxy/generated/l10n.dart';
 import 'package:anime_galaxy/module_auth/state_manager/auth_state_manager/auth_state_manager.dart';
 import 'package:anime_galaxy/module_auth/states/auth_states/auth_states.dart';
-import 'package:anime_galaxy/module_init_account/init_account_routes.dart';
+import 'package:anime_galaxy/module_profile/profile_routes.dart';
 import 'package:anime_galaxy/module_theme/service/theme_service/theme_service.dart';
 import 'package:anime_galaxy/utils/app_bar/anime_galaxy_app_bar.dart';
 import 'package:flutter/material.dart';
@@ -40,7 +40,7 @@ class _AuthScreenState extends State<AuthScreen> {
   Widget build(BuildContext context) {
     String redirectTo = ModalRoute.of(context).settings.arguments.toString();
     redirectTo =
-        redirectTo == null ? redirectTo : InitAccountRoutes.INIT_ACCOUNT_ROUTE;
+        redirectTo == null ? redirectTo : ProfileRoutes.ROUTE_EDIT_PROFILE;
 
     widget.manager.isSignedIn().then((value) {
       if (value) Navigator.of(context).pushReplacementNamed(redirectTo);
@@ -68,7 +68,23 @@ class _AuthScreenState extends State<AuthScreen> {
     if (_currentState is AuthStateCodeSent) {
       pageLayout = Scaffold(
           appBar: AnimeGalaxyAppBar.getBackEnabledAppBar(),
-          body: _getCodeSetter());
+          body: Column(
+            children: [
+              StreamBuilder(
+                stream: widget.manager.status,
+                builder:
+                    (BuildContext context, AsyncSnapshot<String> snapshot) {
+                  return Text(
+                    snapshot.data ?? '',
+                    style: TextStyle(
+                      color: Colors.black38,
+                    ),
+                  );
+                },
+              ),
+              Expanded(child: _getCodeSetter()),
+            ],
+          ));
       if (mounted) setState(() {});
     } else if (_currentState is AuthStateLoading) {
       loading = true;
@@ -76,7 +92,22 @@ class _AuthScreenState extends State<AuthScreen> {
     } else {
       pageLayout = Scaffold(
         appBar: AnimeGalaxyAppBar.getBackEnabledAppBar(),
-        body: _getPhoneSetter(),
+        body: Column(
+          children: [
+            StreamBuilder(
+              stream: widget.manager.status,
+              builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
+                return Text(
+                  snapshot.data ?? '',
+                  style: TextStyle(
+                    color: Colors.black38,
+                  ),
+                );
+              },
+            ),
+            Expanded(child: _getPhoneSetter()),
+          ],
+        ),
       );
       if (mounted) setState(() {});
     }
@@ -94,9 +125,21 @@ class _AuthScreenState extends State<AuthScreen> {
             direction: Axis.vertical,
             children: [
               MediaQuery.of(context).viewInsets.bottom == 0
-                  ? SvgPicture.asset('assets/images/logo.svg')
+                  ? Image.asset(
+                      'assets/images/logo.jpg',
+                      height: 120,
+                    )
                   : Container(),
-              Text(_phoneController.text.trim()),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  _phoneController.text.trim(),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 12,
+                  ),
+                ),
+              ),
             ],
           ),
           Padding(
@@ -115,14 +158,14 @@ class _AuthScreenState extends State<AuthScreen> {
                   return null;
                 }),
           ),
-          _errorMsg != null ? Text(_errorMsg) : Container(),
+          // _errorMsg != null ? Text(_errorMsg) : Container(),
           Container(
             decoration: BoxDecoration(color: SwapThemeDataService.getAccent()),
             child: GestureDetector(
               onTap: () {
                 loading = true;
                 if (mounted) setState(() {});
-                widget.manager.confirmWithCode(_phoneController.text);
+                widget.manager.confirmWithCode(_confirmationController.text);
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -163,8 +206,7 @@ class _AuthScreenState extends State<AuthScreen> {
             children: [
               MediaQuery.of(context).viewInsets.bottom == 0
                   ? Container(
-                      height: 144,
-                      child: SvgPicture.asset('assets/images/logo.svg'))
+                      height: 144, child: Image.asset('assets/images/logo.jpg'))
                   : Container(),
               Flex(direction: Axis.vertical, children: [
                 Padding(
@@ -186,23 +228,23 @@ class _AuthScreenState extends State<AuthScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Container(
-                            width: 36,
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: SvgPicture.asset(
-                                'assets/images/google_logo.svg',
-                                fit: BoxFit.contain,
-                              ),
-                            ),
-                          ),
                           Text(
                             'Sign in with Google',
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w400,
                             ),
-                          )
+                          ),
+                          Container(
+                            width: 36,
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: SvgPicture.asset(
+                                'assets/images/google-plus.svg',
+                                fit: BoxFit.contain,
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ),
@@ -273,7 +315,7 @@ class _AuthScreenState extends State<AuthScreen> {
               ),
             ],
           ),
-          _errorMsg != null ? Text(_errorMsg) : Container(),
+          // _errorMsg != null ? Text(_errorMsg) : Container(),
           GestureDetector(
             onTap: () {
               String phone = _phoneController.text;

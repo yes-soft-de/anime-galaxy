@@ -46,7 +46,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "close" : MessageLookupByLibrary.simpleMessage("الغاء"),
     "comment" : MessageLookupByLibrary.simpleMessage("تعليق"),
     "comments" : MessageLookupByLibrary.simpleMessage("التعليقات"),
-    "confirm" : MessageLookupByLibrary.simpleMessage("Confirm!"),
+    "confirm" : MessageLookupByLibrary.simpleMessage("تأكيد الرقم!"),
     "continueUsingApp" : MessageLookupByLibrary.simpleMessage("تابع استخدام التطبيق"),
     "darkMode" : MessageLookupByLibrary.simpleMessage("الوضع الليلي"),
     "edit" : MessageLookupByLibrary.simpleMessage("تعديل"),
@@ -82,9 +82,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "member" : MessageLookupByLibrary.simpleMessage("عضو"),
     "monthlyComments" : MessageLookupByLibrary.simpleMessage("التعليقات الشهرية"),
     "name" : MessageLookupByLibrary.simpleMessage("الاسم"),
+    "nameHint" : MessageLookupByLibrary.simpleMessage("اسمي"),
+    "nameIsEmpty" : MessageLookupByLibrary.simpleMessage("الرجاء تعبئة الاسم"),
+    "name_hont" : MessageLookupByLibrary.simpleMessage("اسمي"),
     "newEpisodes" : MessageLookupByLibrary.simpleMessage("حلقات جديدة"),
     "newInteraction" : MessageLookupByLibrary.simpleMessage("تفاعل جديد"),
     "noCameraFound" : MessageLookupByLibrary.simpleMessage("لا يوجد كاميرا"),
+    "noNewEpisodes" : MessageLookupByLibrary.simpleMessage("لا يوجد حلقات جديدة"),
+    "noNotificationsYet" : MessageLookupByLibrary.simpleMessage("لا يوجد اشعارات بعد!"),
     "notLoggedIn" : MessageLookupByLibrary.simpleMessage("غير مسجل دخول!"),
     "notifications" : MessageLookupByLibrary.simpleMessage("الإشعارات"),
     "ommentingError" : MessageLookupByLibrary.simpleMessage("هناك مشكلة ما أعد التعليق لاحقا"),
@@ -94,6 +99,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "pleaseInputPhoneNumber" : MessageLookupByLibrary.simpleMessage("ادخل رقم الهاتف"),
     "pleaseProvideAShortStoryAboutYou" : MessageLookupByLibrary.simpleMessage("الرجاء كتابة القليل عن نفسك :)"),
     "pleaseProvideYourName" : MessageLookupByLibrary.simpleMessage("الرجاء ادخال اسمك :)"),
+    "pleaseTellUsAboutYourSelf" : MessageLookupByLibrary.simpleMessage("رجاءا اخبرنا عن نفسك"),
     "pleaseUploadTheImage" : MessageLookupByLibrary.simpleMessage("الرجاء حفظ الصورة"),
     "pleaseUploadYourImage" : MessageLookupByLibrary.simpleMessage("الرجاء رفع صورتك :)"),
     "point" : MessageLookupByLibrary.simpleMessage("نقطة"),
@@ -130,6 +136,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "usa" : MessageLookupByLibrary.simpleMessage("الولايات المتحدة"),
     "username" : MessageLookupByLibrary.simpleMessage("اسم المستخدم:"),
     "watchedSeries" : MessageLookupByLibrary.simpleMessage("مسلسلات متابعة"),
-    "worldWideSeries" : MessageLookupByLibrary.simpleMessage("المسلسلات الموصى بها عالميا")
+    "worldWideSeries" : MessageLookupByLibrary.simpleMessage("المسلسلات الموصى بها عالميا"),
+    "yourName" : MessageLookupByLibrary.simpleMessage("اسمي")
   };
 }

@@ -1,11 +1,9 @@
 import 'dart:convert';
 
+import 'package:anime_galaxy/utils/logger/logger.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_http_cache/dio_http_cache.dart';
-import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:inject/inject.dart';
-import 'package:anime_galaxy/utils/logger/logger.dart';
 
 @provide
 class ApiClient {
@@ -15,7 +13,7 @@ class ApiClient {
   final String tag = 'ApiClient';
 
   ApiClient(this._logger) {
-    _client = new Dio(BaseOptions(connectTimeout: 20000, receiveTimeout: 25000));
+    _client = new Dio(BaseOptions());
     _client.interceptors.add(DioCacheManager(CacheConfig()).interceptor);
   }
 
@@ -33,21 +31,11 @@ class ApiClient {
         _logger.info(tag, response.data.toString());
         return response.data;
       } else {
-        _logger.error(tag, response.statusCode.toString() + ' for link ' + url);
-        await Fluttertoast.showToast(
-            msg: 'Error Code ' +
-                response.statusCode.toString() +
-                ' Please Retry',
-            toastLength: Toast.LENGTH_SHORT,
-            timeInSecForIosWeb: 1,
-            backgroundColor: Colors.red,
-            textColor: Colors.white,
-            fontSize: 16.0);
+        _logger.error(tag, url + '\t' + response.statusCode.toString());
         return null;
       }
     } catch (e) {
-      _logger.error(tag, e.toString());
-      await Fluttertoast.showToast(msg: e.toString());
+      _logger.error(tag, url + '\t' + e.toString());
       return null;
     }
   }
@@ -66,17 +54,16 @@ class ApiClient {
         _logger.info(tag, response.data.toString());
         return response.data;
       } else {
-        _logger.error(tag, response.statusCode.toString() + ' for link ' + url);
+        _logger.error(
+            tag, url + response.statusCode.toString() + ' for link ' + url);
 
         return null;
       }
     } catch (e) {
-      _logger.error(tag, e.toString());
-      await Fluttertoast.showToast(msg: e.toString());
+      _logger.error(tag, url + e.toString());
       return null;
     }
   }
-
 
   Future<Map<String, dynamic>> post(
       String url, Map<String, dynamic> payLoad) async {
@@ -89,13 +76,13 @@ class ApiClient {
         _logger.info(tag, response.data.toString());
         return response.data;
       } else {
-        _logger.error(tag, response.statusCode.toString());
-        _logger.error(tag, response.data.toString());
+        _logger.error(tag,
+            url + response.statusCode.toString() + '\n' + payLoad.toString());
+        _logger.error(tag, url + response.data.toString());
         return null;
       }
     } catch (e) {
-      _logger.error(tag, e.toString());
-      await Fluttertoast.showToast(msg: e.toString());
+      _logger.error(tag, url + e.toString());
       return null;
     }
   }
@@ -111,12 +98,11 @@ class ApiClient {
         _logger.info(tag, response.data.toString());
         return response.data;
       } else {
-        _logger.error(tag, response.statusCode.toString());
+        _logger.error(tag, url + response.statusCode.toString());
         return null;
       }
     } catch (e) {
-      _logger.error(tag, e.toString());
-      await Fluttertoast.showToast(msg: e.toString());
+      _logger.error(tag, url + e.toString());
       return null;
     }
   }

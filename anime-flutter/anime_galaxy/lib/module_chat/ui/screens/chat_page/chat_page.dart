@@ -1,13 +1,13 @@
-import 'dart:convert';
 import 'dart:developer';
 
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
-import 'package:inject/inject.dart';
 import 'package:anime_galaxy/generated/l10n.dart';
 import 'package:anime_galaxy/module_chat/bloc/chat_page/chat_page.bloc.dart';
 import 'package:anime_galaxy/module_chat/model/chat/chat_model.dart';
 import 'package:anime_galaxy/module_chat/ui/widget/chat_bubble/chat_bubble.dart';
+import 'package:anime_galaxy/utils/logger/logger.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:inject/inject.dart';
 
 @provide
 class ChatPage extends StatefulWidget {
@@ -33,13 +33,12 @@ class ChatPageState extends State<ChatPage> {
     chatRoomId = ModalRoute.of(context).settings.arguments.toString();
 
     if (currentState == ChatPageBloc.STATUS_CODE_INIT) {
-      print('Chat Room: ' + chatRoomId);
+      Logger().info('chat_page.dart', 'Chat Room: ' + chatRoomId);
       widget._chatPageBloc.getMessages(chatRoomId);
     }
 
     widget._chatPageBloc.chatBlocStream.listen((event) {
       currentState = event.first;
-      print('Got Event');
       if (event.first == ChatPageBloc.STATUS_CODE_GOT_DATA) {
         _chatMessagesList = event.last;
         if (chatsMessagesWidgets.length == _chatMessagesList.length) {
@@ -111,7 +110,6 @@ class ChatPageState extends State<ChatPage> {
     FirebaseAuth auth = await FirebaseAuth.instance;
     User user = auth.currentUser;
     chatList.forEach((element) {
-      print(jsonEncode(element));
       newMessagesList.add(ChatBubbleWidget(
         message: element.msg,
         me: element.sender == user.uid ? true : false,

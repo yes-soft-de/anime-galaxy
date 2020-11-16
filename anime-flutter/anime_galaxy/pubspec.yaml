@@ -3,7 +3,7 @@ description: A new Flutter project.
 
 publish_to: 'none'
 
-version: 1.0.0+1
+version: 1.0.1+3
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -28,6 +28,8 @@ dependencies:
 
   # Camera
   camera: ^0.5.8+7
+
+  firebase_crashlytics: ^0.2.3
 
   # Video
   video_player: ^0.11.0

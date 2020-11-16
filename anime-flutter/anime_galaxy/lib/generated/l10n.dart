@@ -9,6 +9,8 @@ import 'intl/messages_all.dart';
 // **************************************************************************
 
 // ignore_for_file: non_constant_identifier_names, lines_longer_than_80_chars
+// ignore_for_file: join_return_with_assignment, prefer_final_in_for_each
+// ignore_for_file: avoid_redundant_argument_values
 
 class S {
   S();
@@ -1148,6 +1150,76 @@ class S {
     return Intl.message(
       'نشاطات',
       name: 'activities',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No New Episodes`
+  String get noNewEpisodes {
+    return Intl.message(
+      'No New Episodes',
+      name: 'noNewEpisodes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No Notifications Yet!`
+  String get noNotificationsYet {
+    return Intl.message(
+      'No Notifications Yet!',
+      name: 'noNotificationsYet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your Name`
+  String get yourName {
+    return Intl.message(
+      'Your Name',
+      name: 'yourName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `name_hont`
+  String get name_hont {
+    return Intl.message(
+      'name_hont',
+      name: 'name_hont',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name Hint`
+  String get nameHint {
+    return Intl.message(
+      'Name Hint',
+      name: 'nameHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name is empty`
+  String get nameIsEmpty {
+    return Intl.message(
+      'Name is empty',
+      name: 'nameIsEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please tell us about your self`
+  String get pleaseTellUsAboutYourSelf {
+    return Intl.message(
+      'Please tell us about your self',
+      name: 'pleaseTellUsAboutYourSelf',
       desc: '',
       args: [],
     );

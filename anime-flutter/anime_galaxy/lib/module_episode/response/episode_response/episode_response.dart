@@ -2,30 +2,30 @@ import 'package:anime_galaxy/module_episode/response/comment_response/comment_re
 
 class EpisodeResponse {
   List<Comments> comments;
-  Null rating;
+  double rating;
   String animeName;
   int seasonNumber;
   int episodeNumber;
   String description;
   String image;
   CreationDate duration;
-  Null publishDate;
+  String publishDate;
   CreationDate createdAt;
   CommentInteractions interactions;
   List<CommentResponse> episodeComments;
 
   EpisodeResponse(
       {this.comments,
-        this.rating,
-        this.animeName,
-        this.seasonNumber,
-        this.episodeNumber,
-        this.description,
-        this.image,
-        this.duration,
-        this.publishDate,
-        this.createdAt,
-        this.interactions});
+      this.rating,
+      this.animeName,
+      this.seasonNumber,
+      this.episodeNumber,
+      this.description,
+      this.image,
+      this.duration,
+      this.publishDate,
+      this.createdAt,
+      this.interactions});
 
   EpisodeResponse.fromJson(Map<String, dynamic> json) {
     if (json['comments'] != null) {
@@ -43,7 +43,7 @@ class EpisodeResponse {
     duration = json['duration'] != null
         ? new CreationDate.fromJson(json['duration'])
         : null;
-    publishDate = json['publishDate'];
+    // publishDate = json['publishDate'];
     createdAt = json['createdAt'] != null
         ? new CreationDate.fromJson(json['createdAt'])
         : null;
@@ -85,9 +85,9 @@ class Comments {
 
   Comments(
       {this.comment,
-        this.spoilerAlert,
-        this.creationDate,
-        this.commentInteractions});
+      this.spoilerAlert,
+      this.creationDate,
+      this.commentInteractions});
 
   Comments.fromJson(Map<String, dynamic> json) {
     comment = json['comment'];

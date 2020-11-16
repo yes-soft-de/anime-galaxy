@@ -21,7 +21,7 @@
           "dependencies": [
             {
               "lookupKey": {
-                "root": "asset:anime_galaxy/lib/module_profile/state_manager/my_profile/my_profile_state_manager.dart#MyProfileStateManager",
+                "root": "asset:anime_galaxy/lib/module_profile/state_manager/edit_profile_state_manager/edit_profile_state_manager.dart#EditProfileStateManager",
                 "qualifier": null
               },
               "isProvider": false

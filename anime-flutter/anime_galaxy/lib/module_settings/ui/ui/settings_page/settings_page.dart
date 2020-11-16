@@ -1,12 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:inject/inject.dart';
 import 'package:anime_galaxy/generated/l10n.dart';
+import 'package:anime_galaxy/main_screen/main_screen_routes.dart';
 import 'package:anime_galaxy/module_auth/auth_routes.dart';
 import 'package:anime_galaxy/module_auth/service/auth_service/auth_service.dart';
-import 'package:anime_galaxy/module_home/home.routes.dart';
 import 'package:anime_galaxy/module_localization/service/localization_service/localization_service.dart';
-import 'package:anime_galaxy/module_profile/presistance/profile_shared_preferences.dart';
 import 'package:anime_galaxy/module_theme/service/theme_service/theme_service.dart';
+import 'package:flutter/material.dart';
+import 'package:inject/inject.dart';
 
 @provide
 class SettingsPage extends StatefulWidget {
@@ -45,7 +44,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 children: [
                   Text(S.of(context).username),
                   FutureBuilder(
-                    future: ProfileSharedPreferencesHelper().getUsername(),
+                    future: widget._authService.username,
                     builder: (
                       BuildContext context,
                       AsyncSnapshot<String> snapshot,
@@ -94,75 +93,6 @@ class _SettingsPageState extends State<SettingsPage> {
             ),
           ),
         ),
-//        Padding(
-//          padding: const EdgeInsets.all(8.0),
-//          child: Container(
-//            decoration: BoxDecoration(
-//              borderRadius: BorderRadius.all(Radius.circular(8)),
-//              color: Colors.black12,
-//            ),
-//            child: Padding(
-//              padding: const EdgeInsets.all(8.0),
-//              child: Flex(
-//                direction: Axis.horizontal,
-//                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                children: [
-//                  Text(S.of(context).location),
-//                  FutureBuilder(
-//                    future: ProfileSharedPreferencesHelper().getUserLocation(),
-//                    builder:
-//                        (BuildContext context, AsyncSnapshot<String> snapshot) {
-//                      if (snapshot.hasData) {
-//                        return Text(snapshot.data);
-//                      }
-//                      return Text('');
-//                    },
-//                  )
-//                ],
-//              ),
-//            ),
-//          ),
-//        ),
-//        Padding(
-//          padding: const EdgeInsets.all(8.0),
-//          child: Container(
-//            decoration: BoxDecoration(
-//              borderRadius: BorderRadius.all(Radius.circular(8)),
-//              color: Colors.black12,
-//            ),
-//            child: Padding(
-//              padding: const EdgeInsets.all(8.0),
-//              child: Flex(
-//                direction: Axis.horizontal,
-//                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                children: [
-//                  Text(S.of(context).language),
-//                  FutureBuilder(
-//                    future: widget._localizationService.getLanguage(),
-//                    builder:
-//                        (BuildContext context, AsyncSnapshot<String> snapshot) {
-//                      return DropdownButton(
-//                          value: snapshot.data,
-//                          items: [
-//                            DropdownMenuItem(
-//                              child: Text('العربية'),
-//                              value: 'ar',
-//                            ),
-//                            DropdownMenuItem(
-//                              child: Text('English'),
-//                              value: 'en',
-//                            ),
-//                          ],
-//                          onChanged: (String newLang) {
-//                            widget._localizationService.setLanguage(newLang);
-//                          });
-//                    },
-//                  ),
-//                ],
-//              ),
-//            ),
-//          ),
-//        ),
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: Container(
@@ -183,12 +113,15 @@ class _SettingsPageState extends State<SettingsPage> {
                       children: [
                         Text(S.of(context).signOut),
                         IconButton(
-//                            icon: Icon(Icons.logout),
-                            icon: Icon(Icons.arrow_drop_down_circle),
+                            icon: Icon(Icons.logout),
+//                             icon: Icon(Icons.arrow_drop_down_circle),
                             onPressed: () {
                               widget._authService.logout().then((value) {
-                                Navigator.pushNamedAndRemoveUntil(context,
-                                    HomeRoutes.ROUTE_HOME, (route) => false);
+                                Navigator.pushNamedAndRemoveUntil(
+                                  context,
+                                  MainScreenRoute.MAIN_SCREEN_ROUTE,
+                                  (route) => false,
+                                );
                               });
                             })
                       ],

@@ -1,37 +1,40 @@
+import 'package:anime_galaxy/consts/urls.dart';
+
 class ComingSoonEpisodesResponse {
   String animeName;
   int seasonNumber;
   int episodeNumber;
   String description;
   String image;
-  Duration duration;
-  Duration publishDate;
-  Duration createdAt;
+  ResponseDuration duration;
+  ResponseDuration publishDate;
+  ResponseDuration createdAt;
 
   ComingSoonEpisodesResponse(
       {this.animeName,
-        this.seasonNumber,
-        this.episodeNumber,
-        this.description,
-        this.image,
-        this.duration,
-        this.publishDate,
-        this.createdAt});
+      this.seasonNumber,
+      this.episodeNumber,
+      this.description,
+      this.image,
+      this.duration,
+      this.publishDate,
+      this.createdAt});
 
   ComingSoonEpisodesResponse.fromJson(Map<String, dynamic> json) {
-    animeName =   json['animeName'];
+    animeName = json['animeName'];
     seasonNumber = json['seasonNumber'];
     episodeNumber = json['episodeNumber'];
     description = json['description'];
     image = json['image'];
+    image.replaceFirst('http://localhost:8000', Urls.DOMAIN);
     duration = json['duration'] != null
-        ? new Duration.fromJson(json['duration'])
+        ? new ResponseDuration.fromJson(json['duration'])
         : null;
     publishDate = json['publishDate'] != null
-        ? new Duration.fromJson(json['publishDate'])
+        ? new ResponseDuration.fromJson(json['publishDate'])
         : null;
     createdAt = json['createdAt'] != null
-        ? new Duration.fromJson(json['createdAt'])
+        ? new ResponseDuration.fromJson(json['createdAt'])
         : null;
   }
 
@@ -55,14 +58,14 @@ class ComingSoonEpisodesResponse {
   }
 }
 
-class Duration {
+class ResponseDuration {
   Timezone timezone;
   int offset;
   int timestamp;
 
-  Duration({this.timezone, this.offset, this.timestamp});
+  ResponseDuration({this.timezone, this.offset, this.timestamp});
 
-  Duration.fromJson(Map<String, dynamic> json) {
+  ResponseDuration.fromJson(Map<String, dynamic> json) {
     timezone = json['timezone'] != null
         ? new Timezone.fromJson(json['timezone'])
         : null;

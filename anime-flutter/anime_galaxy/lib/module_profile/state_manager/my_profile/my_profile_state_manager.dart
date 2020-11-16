@@ -23,7 +23,7 @@ class MyProfileStateManager {
      (userId == null) ?
          _myProfileService.getProfile().then((value) {
            if(value == null){
-               Fluttertoast.showToast(msg: S.current.errorHappened);
+               
                _stateSubject.add(ProfileFetchingDataError());
            }else{
              _stateSubject.add(ProfileFetchingDataSuccess(value));
@@ -31,7 +31,7 @@ class MyProfileStateManager {
          }):
          _myProfileService.getProfile(id: userId).then((value) {
            if(value == null){
-             Fluttertoast.showToast(msg: S.current.errorHappened);
+             
              _stateSubject.add(ProfileFetchingDataError());
            }else{
              _stateSubject.add(ProfileFetchingDataSuccess(value));
@@ -44,7 +44,7 @@ class MyProfileStateManager {
     _myProfileService.follow(friendId).then((value) {
       if(value == null || value == false){
         _stateSubject.add(ProfileFollowError());
-        Fluttertoast.showToast(msg: S.current.errorHappened);
+        
       }
       else{
         _stateSubject.add( ProfileFollowSuccess());
@@ -58,7 +58,7 @@ class MyProfileStateManager {
     _myProfileService.unFollow(friendId).then((value) {
       if(value == null || value == false){
         _stateSubject.add(ProfileUnFollowError());
-        Fluttertoast.showToast(msg: S.current.errorHappened);
+        
       }
       else{
         _stateSubject.add( ProfileUnFollowSuccess());

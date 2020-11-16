@@ -1,10 +1,11 @@
 import 'dart:convert';
 
+import 'package:anime_galaxy/module_chat/manager/chat/chat_manager.dart';
+import 'package:anime_galaxy/module_chat/model/chat/chat_model.dart';
+import 'package:anime_galaxy/utils/logger/logger.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:inject/inject.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:anime_galaxy/module_chat/manager/chat/chat_manager.dart';
-import 'package:anime_galaxy/module_chat/model/chat/chat_model.dart';
 
 @provide
 class ChatService {
@@ -23,7 +24,7 @@ class ChatService {
       List<ChatModel> chatMessagesList = [];
       event.docs.forEach((element) {
         chatMessagesList.add(new ChatModel.fromJson(element.data()));
-        print(jsonEncode(element.data()));
+        Logger().info('char_service.dart', jsonEncode(element.data()));
       });
 
       _chatPublishSubject.add(chatMessagesList);
