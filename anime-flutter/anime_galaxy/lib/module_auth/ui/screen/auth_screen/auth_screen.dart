@@ -4,7 +4,7 @@ import 'package:anime_galaxy/generated/l10n.dart';
 import 'package:anime_galaxy/main_screen/main_screen_routes.dart';
 import 'package:anime_galaxy/module_auth/state_manager/auth_state_manager/auth_state_manager.dart';
 import 'package:anime_galaxy/module_auth/states/auth_states/auth_states.dart';
-import 'package:anime_galaxy/module_profile/profile_routes.dart';
+import 'package:anime_galaxy/module_init_account/init_account_routes.dart';
 import 'package:anime_galaxy/module_theme/service/theme_service/theme_service.dart';
 import 'package:anime_galaxy/utils/app_bar/anime_galaxy_app_bar.dart';
 import 'package:flutter/material.dart';
@@ -41,7 +41,7 @@ class _AuthScreenState extends State<AuthScreen> {
   Widget build(BuildContext context) {
     String redirectTo = ModalRoute.of(context).settings.arguments.toString();
     redirectTo =
-    redirectTo == null ? redirectTo : MainScreenRoute.MAIN_SCREEN_ROUTE;
+    redirectTo == null ? redirectTo :InitAccountRoutes.INIT_ACCOUNT_ROUTE;
 
     widget.manager.isSignedIn().then((value) {
       if (value) Navigator.of(context).pushReplacementNamed(redirectTo);
