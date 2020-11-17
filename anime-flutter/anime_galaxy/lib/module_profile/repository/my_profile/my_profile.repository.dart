@@ -8,6 +8,11 @@ import 'package:anime_galaxy/module_profile/response/follwoing_response/followin
 import 'package:anime_galaxy/module_profile/response/profile_response/profile_response.dart';
 import 'package:inject/inject.dart';
 
+int followingNumber1 = 0;
+List<FollowingActivitiesResponse> followingActivitiesResponse1 = [];
+List<FavouriteResponse> favourites1 = [];
+bool isFollowed1 = false;
+
 @provide
 class MyProfileRepository {
   final ApiClient _apiClient;
@@ -21,23 +26,31 @@ class MyProfileRepository {
     dynamic response = await _apiClient.get(Urls.API_PROFILE + userId);
     if (response == null) return null;
     ProfileResponse result = ProfileResponse.fromJson(response['Data']);
-    result.followingActivitiesResponse = await _getFollowingActivities(userId);
-    result.favourites = await _getWatchedSeries(userId);
-    result.followingNumber = await _getFollowingNumber(userId);
 
-    result.isFollowed = await _isFollowed(loggedUser, userId);
+    await Future.wait([
+      _getFollowingActivities(userId),
+      _getWatchedSeries(userId),
+      _getFollowingNumber(userId),
+      _isFollowed(loggedUser, userId)
+    ]) ;
+
+    result.followingActivitiesResponse = followingActivitiesResponse1;
+    result.favourites = favourites1;
+    result.followingNumber = followingNumber1;
+    result.isFollowed = isFollowed1;
 
     return result;
   }
 
-  Future<int> _getFollowingNumber(String userId) async {
+  Future<void> _getFollowingNumber(String userId) async {
     dynamic response = await _apiClient.get(Urls.API_FOLLOWING_USERS + userId);
     if (response == null) return 0;
 
-    return response['Data'].length;
+    followingNumber1 = response['Data'].length;
+
   }
 
-  Future<List<FollowingActivitiesResponse>> _getFollowingActivities(
+  Future<void> _getFollowingActivities(
       String userId) async {
     dynamic response =
         await _apiClient.get(Urls.API_FOLLOWING_ACTIVITIES + userId);
@@ -48,10 +61,10 @@ class MyProfileRepository {
     for (int i = 0; i < res.length; i++) {
       result.add(FollowingActivitiesResponse.fromJson(res[i]));
     }
-    return result;
+   followingActivitiesResponse1 = result;
   }
 
-  Future<List<FavouriteResponse>> _getWatchedSeries(String userId) async {
+  Future<void> _getWatchedSeries(String userId) async {
     dynamic response =
         await _apiClient.get(Urls.API_FAVOURITE_ANIMES + '$userId');
 
@@ -63,7 +76,7 @@ class MyProfileRepository {
       series.add(FavouriteResponse.fromJson(res[i]));
     }
 
-    return series;
+    favourites1 = series;
   }
 
   Future<bool> follow(String userId, String friendId) async {
@@ -87,17 +100,17 @@ class MyProfileRepository {
             : false;
   }
 
-  Future<bool> _isFollowed(String userId, String friendId) async {
+  Future<void> _isFollowed(String userId, String friendId) async {
     dynamic following = await _apiClient.get(Urls.API_FOLLOWING_USERS + userId);
     if (following == null) return false;
 
     dynamic res = following['Data'];
     for (int i = 0; i < res.length; i++) {
       FollowingUsersResponse follow = FollowingUsersResponse.fromJson(res[i]);
-      if (friendId == follow.friendID) return true;
+      if (friendId == follow.friendID) isFollowed1 =  true;
     }
 
-    return false;
+    isFollowed1 = false;
   }
 
   Future<ProfileResponse> getMyProfile() async {
