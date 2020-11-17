@@ -6,6 +6,7 @@ namespace App\Response;
 
 class GetGradeResponse
 {
+    public $userID;
     public $points;
     public $username;
     public $image;

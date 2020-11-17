@@ -42,7 +42,7 @@ class GradeRepository extends ServiceEntityRepository
     public function getTopUsers()
     {
         return $this->createQueryBuilder('grade')
-            ->select('grade.points, userprofile.userName as username, userprofile.image as image')
+            ->select('grade.userID, grade.points, userprofile.userName as username, userprofile.image as image')
             ->leftJoin(
                 UserProfile::class,
                 "userprofile",
