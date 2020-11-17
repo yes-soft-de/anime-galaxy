@@ -3,12 +3,16 @@ class CommentResponse {
   bool spoilerAlert;
   CreationDate creationDate;
   CommentInteractions commentInteractions;
+  String userName;
+  String image;
 
   CommentResponse(
       {this.comment,
         this.spoilerAlert,
         this.creationDate,
-        this.commentInteractions});
+        this.commentInteractions,
+        this.userName,
+        this.image});
 
   CommentResponse.fromJson(Map<String, dynamic> json) {
     comment = json['comment'];
@@ -19,10 +23,12 @@ class CommentResponse {
     commentInteractions = json['commentInteractions'] != null
         ? new CommentInteractions.fromJson(json['commentInteractions'])
         : null;
+    userName = json['userName'];
+    image = json['image'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
+    final Map<String, dynamic> data = new Map<String, dynamic>();
     data['comment'] = this.comment;
     data['spoilerAlert'] = this.spoilerAlert;
     if (this.creationDate != null) {
@@ -31,6 +37,8 @@ class CommentResponse {
     if (this.commentInteractions != null) {
       data['commentInteractions'] = this.commentInteractions.toJson();
     }
+    data['userName'] = this.userName;
+    data['image'] = this.image;
     return data;
   }
 }
@@ -51,7 +59,7 @@ class CreationDate {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
+    final Map<String, dynamic> data = new Map<String, dynamic>();
     if (this.timezone != null) {
       data['timezone'] = this.timezone.toJson();
     }
@@ -71,7 +79,7 @@ class Timezone {
   Timezone.fromJson(Map<String, dynamic> json) {
     name = json['name'];
     if (json['transitions'] != null) {
-      transitions = <Transitions>[];
+      transitions = new List<Transitions>();
       json['transitions'].forEach((v) {
         transitions.add(new Transitions.fromJson(v));
       });
@@ -82,7 +90,7 @@ class Timezone {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
+    final Map<String, dynamic> data = new Map<String, dynamic>();
     data['name'] = this.name;
     if (this.transitions != null) {
       data['transitions'] = this.transitions.map((v) => v.toJson()).toList();
@@ -112,7 +120,7 @@ class Transitions {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
+    final Map<String, dynamic> data = new Map<String, dynamic>();
     data['ts'] = this.ts;
     data['time'] = this.time;
     data['offset'] = this.offset;
@@ -138,7 +146,7 @@ class Location {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
+    final Map<String, dynamic> data = new Map<String, dynamic>();
     data['country_code'] = this.countryCode;
     data['latitude'] = this.latitude;
     data['longitude'] = this.longitude;
@@ -161,7 +169,7 @@ class CommentInteractions {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
+    final Map<String, dynamic> data = new Map<String, dynamic>();
     data['love'] = this.love;
     data['like'] = this.like;
     data['dislike'] = this.dislike;

@@ -46,20 +46,21 @@ class EpisodeDetailsRepository{
 
 
 
-   Future<bool> addComment(CommentRequest commentRequest) async{
-    dynamic response = await _httpClient.post(Urls.API_COMMENT, {
+  Future<bool> addComment(CommentRequest commentRequest) async{
+    dynamic response = await _httpClient.post(Urls.API_EPISODE_COMMENT, {
       'userID':commentRequest.userID,
       'episodeID':commentRequest.episodeID,
       'comment':commentRequest.comment,
       'spoilerAlert':commentRequest.spoilerAlert
     });
+    print('$response');
     return response == null ?
-        null:
-        response['status_code']=='201'?
-            true:
-            false;
+    null:
+    response['status_code']=='201'?
+    true:
+    false;
 
-   }
+  }
 
   Future<bool> rateEpisode(RatingRequest ratingRequest) async{
     dynamic response = await _httpClient.post(Urls.API_RATING_EPISODE, {

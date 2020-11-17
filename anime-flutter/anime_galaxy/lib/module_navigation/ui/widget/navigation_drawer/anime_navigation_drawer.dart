@@ -1,6 +1,6 @@
 
-import 'package:anime_galaxy/anime_setting/routes/setting_route.dart';
 import 'package:anime_galaxy/module_notification/notification_routes.dart';
+import 'package:anime_galaxy/module_settings/setting_routes.dart';
 import 'package:anime_galaxy/utils/project_color/project_color.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -29,19 +29,19 @@ class AnimeNavigationDrawer extends StatelessWidget {
 
           Positioned.fill(
               child: Container(
-            color: Colors.black54,
-          )),
+                color: Colors.black54,
+              )),
 
           // Foreground
           Positioned.fill(
               child: Container(
-            color: ProjectColors.ThemeColor,
-              child: Flex(
-                direction: Axis.vertical,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  // region Header
-                  /* Profile
+                color: ProjectColors.ThemeColor,
+                child: Flex(
+                  direction: Axis.vertical,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    // region Header
+                    /* Profile
                   FutureBuilder(
                     future: profileService.getProfile(),
                     builder: (BuildContext context,
@@ -98,229 +98,229 @@ class AnimeNavigationDrawer extends StatelessWidget {
                     },
                   ),
                   */
-                  // region Sections
-                  Flex(
-                    direction: Axis.vertical,
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.of(context)
-                              .pushNamed(HomeRoutes.ROUTE_HOME, arguments: 0);
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.fromLTRB(32, 8.0, 0, 8),
-                          child: Flex(
-                            direction: Axis.horizontal,
-                            children: [
-                              Icon(
-                                Icons.dashboard,
-                                color: Colors.white,
-                              ),
-                              Container(
-                                width: 16,
-                              ),
-                              Text(
-                                S.of(context).feed,
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-//                          Navigator.of(context)
-//                              .pushNamed(HomeRoutes.ROUTE_HOME, arguments: 0);
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.fromLTRB(32, 8.0, 0, 8),
-                          child: Flex(
-                            direction: Axis.horizontal,
-                            children: [
-                              Icon(
-                                Icons.explore,
-                                color: Colors.white,
-                              ),
-                              Container(
-                                width: 16,
-                              ),
-                              Text(
-                                S.of(context).explore,
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.of(context).pushNamed(
-                            NotificationRoutes.ROUTE_NOTIFICATION_SCREEN,
-                            arguments: 1,
-                          );
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.fromLTRB(32, 8.0, 0, 8),
-                          child: Flex(
-                            direction: Axis.horizontal,
-                            children: [
-                              Icon(
-                                Icons.notifications,
-                                color: Colors.white,
-                              ),
-                              Container(
-                                width: 16,
-                              ),
-                              Text(S.of(context).notifications,
-                                  style: TextStyle(color: Colors.white)),
-                            ],
-                          ),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.of(context)
-                              .pushNamed(SettingRoutes.ROUTE_SETTING_PAGE, arguments: 4);
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.fromLTRB(32, 8.0, 0, 8),
-                          child: Flex(
-                            direction: Axis.horizontal,
-                            children: [
-                              Icon(
-                                Icons.settings,
-                                color: Colors.white,
-                              ),
-                              Container(
-                                width: 16,
-                              ),
-                              Text(S.of(context).settings,
-                                  style: TextStyle(color: Colors.white)),
-                            ],
-                          ),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          canLaunch('https://www.google.com').then((value) {
-                            launch('https://www.google.com');
-                          });
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.fromLTRB(32, 8.0, 0, 8),
-                          child: Flex(
-                            direction: Axis.horizontal,
-                            children: [
-                              Icon(
-                                Icons.info,
-                                color: Colors.white,
-                              ),
-                              Container(
-                                width: 16,
-                              ),
-                              Text(S.of(context).tos,
-                                  style: TextStyle(color: Colors.white)),
-                            ],
-                          ),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          canLaunch('https://www.google.com').then((value) {
-                            launch('https://www.google.com');
-                          });
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.fromLTRB(32, 8.0, 0, 8),
-                          child: Flex(
-                            direction: Axis.horizontal,
-                            children: [
-                              Icon(
-                                Icons.lock,
-                                color: Colors.white,
-                              ),
-                              Container(
-                                width: 16,
-                              ),
-                              Text(
-                                S.of(context).privacyPolicy,
-                                style: TextStyle(
+                    // region Sections
+                    Flex(
+                      direction: Axis.vertical,
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.of(context)
+                                .pushNamed(HomeRoutes.ROUTE_HOME, arguments: 0);
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(32, 8.0, 0, 8),
+                            child: Flex(
+                              direction: Axis.horizontal,
+                              children: [
+                                Icon(
+                                  Icons.dashboard,
                                   color: Colors.white,
                                 ),
-                              ),
-                            ],
+                                Container(
+                                  width: 16,
+                                ),
+                                Text(
+                                  S.of(context).feed,
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                  // endregion
+                        GestureDetector(
+                          onTap: () {
+//                          Navigator.of(context)
+//                              .pushNamed(HomeRoutes.ROUTE_HOME, arguments: 0);
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(32, 8.0, 0, 8),
+                            child: Flex(
+                              direction: Axis.horizontal,
+                              children: [
+                                Icon(
+                                  Icons.explore,
+                                  color: Colors.white,
+                                ),
+                                Container(
+                                  width: 16,
+                                ),
+                                Text(
+                                  S.of(context).explore,
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).pushNamed(
+                              NotificationRoutes.ROUTE_NOTIFICATION_SCREEN,
+                              arguments: 1,
+                            );
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(32, 8.0, 0, 8),
+                            child: Flex(
+                              direction: Axis.horizontal,
+                              children: [
+                                Icon(
+                                  Icons.notifications,
+                                  color: Colors.white,
+                                ),
+                                Container(
+                                  width: 16,
+                                ),
+                                Text(S.of(context).notifications,
+                                    style: TextStyle(color: Colors.white)),
+                              ],
+                            ),
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.of(context)
+                                .pushNamed( SettingRoutes.SETTING_SCREEN_ROUTE);
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(32, 8.0, 0, 8),
+                            child: Flex(
+                              direction: Axis.horizontal,
+                              children: [
+                                Icon(
+                                  Icons.settings,
+                                  color: Colors.white,
+                                ),
+                                Container(
+                                  width: 16,
+                                ),
+                                Text(S.of(context).settings,
+                                    style: TextStyle(color: Colors.white)),
+                              ],
+                            ),
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            canLaunch('https://www.google.com').then((value) {
+                              launch('https://www.google.com');
+                            });
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(32, 8.0, 0, 8),
+                            child: Flex(
+                              direction: Axis.horizontal,
+                              children: [
+                                Icon(
+                                  Icons.info,
+                                  color: Colors.white,
+                                ),
+                                Container(
+                                  width: 16,
+                                ),
+                                Text(S.of(context).tos,
+                                    style: TextStyle(color: Colors.white)),
+                              ],
+                            ),
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            canLaunch('https://www.google.com').then((value) {
+                              launch('https://www.google.com');
+                            });
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(32, 8.0, 0, 8),
+                            child: Flex(
+                              direction: Axis.horizontal,
+                              children: [
+                                Icon(
+                                  Icons.lock,
+                                  color: Colors.white,
+                                ),
+                                Container(
+                                  width: 16,
+                                ),
+                                Text(
+                                  S.of(context).privacyPolicy,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    // endregion
 
-                  // region Social Links
-                  //TODO : add these images to assets
-                  Flex(
-                    direction: Axis.horizontal,
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
+                    // region Social Links
+                    //TODO : add these images to assets
+                    Flex(
+                      direction: Axis.horizontal,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
 
-                      GestureDetector(
-                        onTap: () {
-                          canLaunch('https://www.google.com').then((value) {
-                            launch('https://www.google.com');
-                          });
-                        },
-                        child: Container(
+                        GestureDetector(
+                          onTap: () {
+                            canLaunch('https://www.google.com').then((value) {
+                              launch('https://www.google.com');
+                            });
+                          },
+                          child: Container(
+                              height: 24,
+                              width: 24,
+                              child: SvgPicture.asset(
+                                'assets/images/twitter.svg',
+                                color: Colors.white,
+                              )),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            canLaunch('https://www.google.com').then((value) {
+                              launch('https://www.google.com');
+                            });
+                          },
+                          child: Container(
                             height: 24,
                             width: 24,
                             child: SvgPicture.asset(
-                              'assets/images/twitter.svg',
+                              'assets/images/facebook.svg',
                               color: Colors.white,
-                            )),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          canLaunch('https://www.google.com').then((value) {
-                            launch('https://www.google.com');
-                          });
-                        },
-                        child: Container(
-                          height: 24,
-                          width: 24,
-                          child: SvgPicture.asset(
-                            'assets/images/facebook.svg',
-                            color: Colors.white,
+                            ),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                  // endregion
+                      ],
+                    ),
+                    // endregion
 
-                  // region Feedback Button
-                  GestureDetector(
-                    onTap: () {
-                      canLaunch('https://www.google.com').then((value) {
-                        if (value) {
-                          launch('https://www.google.com');
-                        }
-                      });
-                    },
-                    child: Container(
-                      width: 252,
-                      height: 48,
-                      alignment: Alignment.center,
-                      color: Colors.black26,
+                    // region Feedback Button
+                    GestureDetector(
+                      onTap: () {
+                        canLaunch('https://www.google.com').then((value) {
+                          if (value) {
+                            launch('https://www.google.com');
+                          }
+                        });
+                      },
+                      child: Container(
+                        width: 252,
+                        height: 48,
+                        alignment: Alignment.center,
+                        color: Colors.black26,
 //                      color: Theme.of(context).brightness == Brightness.dark
 //                          ? Colors.black
 //                          : Colors.white,
-                      child: Text(S.of(context).feedback),
+                        child: Text(S.of(context).feedback),
+                      ),
                     ),
-                  ),
-                  // endregion
-                ],
-              ),
-            ))
-          ],
+                    // endregion
+                  ],
+                ),
+              ))
+        ],
       ),
     );
   }

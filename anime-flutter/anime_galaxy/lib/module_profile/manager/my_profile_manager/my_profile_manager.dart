@@ -25,12 +25,12 @@ class MyProfileManager {
   }
 
   Future<ProfileResponse> createMyProfile(
-      CreateProfileRequest createProfileRequest) {
-    return _repository.createMyProfile(createProfileRequest);
+      CreateProfileRequest createProfileRequest) async {
+    return await _repository.createMyProfile(createProfileRequest);
   }
 
   Future<ProfileResponse> updateMyProfile(
-      CreateProfileRequest createProfileRequest) {
-    return _repository.updateMyProfile(createProfileRequest);
+      CreateProfileRequest createProfileRequest) async {
+    return await _repository.updateMyProfile(createProfileRequest);
   }
 }

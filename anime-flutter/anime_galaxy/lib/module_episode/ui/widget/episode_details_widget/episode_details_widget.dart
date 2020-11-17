@@ -5,18 +5,18 @@ import 'package:flutter/material.dart';
 class EpisodeDetailsWidget extends StatelessWidget {
   final String name;
   final String showYear;
-  final double rate;
+  final String rate;
   final String likes;
   final int comments;
   final String image;
 
   EpisodeDetailsWidget(
       {this.name,
-      this.likes,
-      this.rate,
-      this.showYear,
-      this.comments,
-      this.image});
+        this.likes,
+        this.rate,
+        this.showYear,
+        this.comments,
+        this.image});
   @override
   Widget build(BuildContext context) {
     return Container(
