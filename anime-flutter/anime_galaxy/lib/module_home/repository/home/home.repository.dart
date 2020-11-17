@@ -7,7 +7,10 @@ import 'package:anime_galaxy/module_home/response/watched_series_response/watche
 import 'package:anime_galaxy/module_network/http_client/http_client.dart';
 import 'package:inject/inject.dart';
 
-
+PointsResponse points1 = new PointsResponse();
+List<ComingSoonEpisodesResponse> episodes1 = [];
+List<WatchedSeriesResponse> watchedSeries1 = [];
+List<AnimeResponse> mayLikedSeries1 = [];
 
 @provide
 class HomeRepository {
@@ -16,21 +19,29 @@ class HomeRepository {
   HomeRepository(this._httpClient);
 
   Future<HomeResponse> getHomePageDetails(String userId) async {
-    PointsResponse points = await getUserPoints(userId);
-    List<ComingSoonEpisodesResponse> episodes = await getEpisodesComingSoon();
-    List<WatchedSeriesResponse> watchedSeries = await getWatchedSeries(userId);
-    List<AnimeResponse> mayLikedSeries = await getMayLikedSeries(userId);
+//    PointsResponse points = await getUserPoints(userId);
+//    List<ComingSoonEpisodesResponse> episodes = await getEpisodesComingSoon();
+//    List<WatchedSeriesResponse> watchedSeries = await getWatchedSeries(userId);
+//    List<AnimeResponse> mayLikedSeries = await getMayLikedSeries(userId);
+
+    await Future.wait([
+      getUserPoints(userId),
+      getEpisodesComingSoon(),
+      getWatchedSeries(userId),
+      getMayLikedSeries(userId)
+    ]);
 
     HomeResponse result = new HomeResponse(
-        watchedSeries: watchedSeries,
-        comingSoonEpisodes: episodes,
-        mayLikedSeries: mayLikedSeries,
-        points: points);
+        watchedSeries: watchedSeries1,
+        comingSoonEpisodes: episodes1,
+        mayLikedSeries: mayLikedSeries1,
+        points: points1
+    );
 
     return result;
   }
 
-  Future<List<WatchedSeriesResponse>> getWatchedSeries(String userId) async {
+  Future<void> getWatchedSeries(String userId) async {
     dynamic response =
         await _httpClient.get(Urls.API_FAVOURITE_ANIMES + '$userId');
 
@@ -42,7 +53,7 @@ class HomeRepository {
       series.add(WatchedSeriesResponse.fromJson(res[i]));
     }
 
-    return series;
+    watchedSeries1 = series;
   }
 
   Future<AnimeResponse> getAnime(int animeId) async {
@@ -56,7 +67,7 @@ class HomeRepository {
     return anime;
   }
 
-  Future<List<AnimeResponse>> getMayLikedSeries(String userId) async {
+  Future<void> getMayLikedSeries(String userId) async {
     dynamic response =
         await _httpClient.get(Urls.API_ANIME_YOU_MAY_LIKE + '$userId');
     if (response == null) return [];
@@ -68,10 +79,10 @@ class HomeRepository {
       series.add(await getAnime(res[i]['id']));
     }
 
-    return series;
+    mayLikedSeries1 = series;
   }
 
-  Future<List<ComingSoonEpisodesResponse>> getEpisodesComingSoon() async {
+  Future<void> getEpisodesComingSoon() async {
     dynamic response = await _httpClient.get(Urls.API_EPISODES_COMING_SOON);
 
     if (response == null) return [];
@@ -83,10 +94,10 @@ class HomeRepository {
       episodes.add(ComingSoonEpisodesResponse.fromJson(res[i]));
     }
 
-    return episodes;
+    episodes1 = episodes;
   }
 
-  Future<PointsResponse> getUserPoints(String userId) async {
+  Future<void> getUserPoints(String userId) async {
     if (userId == null) {
       return null;
     }
@@ -94,6 +105,7 @@ class HomeRepository {
     if (response == null) return null;
 
     dynamic res = response['Data'];
-    return PointsResponse.fromJson(res);
+    points1 = PointsResponse.fromJson(res);
+
   }
 }
