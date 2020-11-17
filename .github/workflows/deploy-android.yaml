@@ -86,5 +86,4 @@ jobs:
           asset_path: anime-flutter/anime_galaxy/build/app/outputs/flutter-apk/app-release.apk
           asset_name: AnimeGalaxy.apk
           asset_content_type: application/zip
-          tag_name: Release ${{ github.ref }}
-
+          tag_name: ${{ github.ref }}
