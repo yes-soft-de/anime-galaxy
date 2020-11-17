@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="949cf1e4-ee88-43fb-8374-6a66b1c9c391" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/repository/my_profile/my_profile.repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/repository/my_profile/my_profile.repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_anime/repository/anime_details/anime_details.repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/repository/anime_details/anime_details.repository.dart" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.pub/" />
@@ -22,23 +21,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/module_profile/repository/my_profile/my_profile.repository.dart">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/module_anime/repository/anime_details/anime_details.repository.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="104" column="39" selection-start-line="104" selection-start-column="34" selection-end-line="104" selection-end-column="39" />
-              <folding>
-                <element signature="e#0#47#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-218">
+              <caret line="84" column="17" selection-start-line="84" selection-start-column="17" selection-end-line="84" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/module_episode/repository/episode_details/episode_details.repository.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="640">
+              <caret line="77" column="1" selection-start-line="77" selection-start-column="1" selection-end-line="77" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/module_profile/response/profile_response/profile_response.dart">
+        <entry file="file://$PROJECT_DIR$/lib/module_anime/response/anime_response/anime_response.dart">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
-              <caret line="13" column="22" lean-forward="true" selection-start-line="13" selection-end-line="13" selection-end-column="22" />
+              <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="15" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -57,6 +62,7 @@
     <findStrings>
       <find>naviga</find>
       <find>active</find>
+      <find>com</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -88,13 +94,14 @@
         <option value="$PROJECT_DIR$/lib/module_home/response/home_response/home_response.dart" />
         <option value="$PROJECT_DIR$/lib/module_home/service/home/home.service.dart" />
         <option value="$PROJECT_DIR$/lib/module_init_account/repository/init_account/init_account.repository.dart" />
-        <option value="$PROJECT_DIR$/lib/module_home/repository/home/home.repository.dart" />
         <option value="$PROJECT_DIR$/lib/module_explore/model/explore/explore_model.dart" />
         <option value="$PROJECT_DIR$/lib/module_explore/service/explore/explore.service.dart" />
         <option value="$PROJECT_DIR$/lib/module_explore/ui/screen/explore_screen/explore_screen.dart" />
         <option value="$PROJECT_DIR$/lib/module_explore/response/active_users_response/active_users_response.dart" />
         <option value="$PROJECT_DIR$/lib/module_explore/repository/explore/explore.repositry.dart" />
         <option value="$PROJECT_DIR$/lib/module_profile/repository/my_profile/my_profile.repository.dart" />
+        <option value="$PROJECT_DIR$/lib/module_home/repository/home/home.repository.dart" />
+        <option value="$PROJECT_DIR$/lib/module_anime/repository/anime_details/anime_details.repository.dart" />
       </list>
     </option>
   </component>
@@ -129,22 +136,22 @@
               <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
               <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="module_explore" type="462c0819:PsiDirectoryNode" />
+              <item name="module_episode" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
               <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="module_explore" type="462c0819:PsiDirectoryNode" />
+              <item name="module_episode" type="462c0819:PsiDirectoryNode" />
               <item name="repository" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
               <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="module_explore" type="462c0819:PsiDirectoryNode" />
+              <item name="module_episode" type="462c0819:PsiDirectoryNode" />
               <item name="repository" type="462c0819:PsiDirectoryNode" />
-              <item name="explore" type="462c0819:PsiDirectoryNode" />
+              <item name="episode_details" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -214,20 +221,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1602006469330</updated>
-    </task>
-    <task id="LOCAL-00003" summary="add anime details screen design">
-      <created>1602096598144</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1602096598144</updated>
-    </task>
-    <task id="LOCAL-00004" summary="implement notification and home screen design">
-      <created>1602166859449</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1602166859449</updated>
     </task>
     <task id="LOCAL-00005" summary="add slider to home screen">
       <created>1602344123586</created>
@@ -558,7 +551,21 @@
       <option name="project" value="LOCAL" />
       <updated>1605643192968</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="enhance profile screen response">
+      <created>1605644399914</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1605644399914</updated>
+    </task>
+    <task id="LOCAL-00053" summary="enhance home screen response">
+      <created>1605645589768</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1605645589768</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TodoView">
@@ -572,7 +579,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.19894099" />
@@ -583,7 +589,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Dart Analysis" order="0" weight="0.3289689" />
-      <window_info active="true" anchor="bottom" id="Run" order="1" visible="true" weight="0.20785597" />
+      <window_info active="true" anchor="bottom" id="Run" order="1" visible="true" weight="0.7855974" />
       <window_info anchor="bottom" id="TODO" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" />
       <window_info anchor="bottom" id="Terminal" order="4" weight="0.5695581" />
@@ -632,7 +638,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add comment popup to anime screen" />
     <MESSAGE value="implement adding comments to anime details screen" />
     <MESSAGE value="add main screen" />
     <MESSAGE value="edit init account screen" />
@@ -654,10 +659,11 @@
     <MESSAGE value="edit appbar , add follow button to profile,edit settings screen" />
     <MESSAGE value="added lazy loading for multiple widgets" />
     <MESSAGE value="fix some pugs" />
-    <MESSAGE value="enhance home screen response" />
     <MESSAGE value="edit explore screen" />
     <MESSAGE value="enhance explore screen response" />
-    <option name="LAST_COMMIT_MESSAGE" value="enhance explore screen response" />
+    <MESSAGE value="enhance profile screen response" />
+    <MESSAGE value="enhance home screen response" />
+    <option name="LAST_COMMIT_MESSAGE" value="enhance home screen response" />
   </component>
   <component name="WindowStateProjectService">
     <state x="522" y="235" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605284647206">
@@ -825,20 +831,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_episode/repository/episode_details/episode_details.repository.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="77" column="1" selection-start-line="77" selection-start-column="1" selection-end-line="77" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_anime/repository/anime_details/anime_details.repository.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1014">
-          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/module_auth/ui/screen/auth_screen/auth_screen.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
@@ -927,16 +919,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_home/repository/home/home.repository.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="40" column="42" selection-start-line="40" selection-start-column="42" selection-end-line="40" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#47#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/module_explore/model/explore/explore_model.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
@@ -991,11 +973,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/module_profile/repository/my_profile/my_profile.repository.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
+        <state relative-caret-position="35">
           <caret line="104" column="39" selection-start-line="104" selection-start-column="34" selection-end-line="104" selection-end-column="39" />
           <folding>
             <element signature="e#0#47#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_home/repository/home/home.repository.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" column="46" lean-forward="true" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_anime/response/anime_response/anime_response.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="15" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_anime/repository/anime_details/anime_details.repository.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-218">
+          <caret line="84" column="17" selection-start-line="84" selection-start-column="17" selection-end-line="84" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_episode/repository/episode_details/episode_details.repository.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="640">
+          <caret line="77" column="1" selection-start-line="77" selection-start-column="1" selection-end-line="77" selection-end-column="1" />
         </state>
       </provider>
     </entry>
