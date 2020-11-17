@@ -3,7 +3,9 @@
 namespace App\Repository;
 
 use App\Entity\Grade;
+use App\Entity\UserProfile;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query\Expr\Join;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -40,7 +42,13 @@ class GradeRepository extends ServiceEntityRepository
     public function getTopUsers()
     {
         return $this->createQueryBuilder('grade')
-            ->select('grade.userID, grade.points')
+            ->select('grade.points, userprofile.userName as username, userprofile.image as image')
+            ->leftJoin(
+                UserProfile::class,
+                "userprofile",
+                Join::WITH,
+                'grade.userID = userprofile.userID'
+            )
             ->orderBy('grade.points','DESC')
             ->setMaxResults(50)
             ->getQuery()
