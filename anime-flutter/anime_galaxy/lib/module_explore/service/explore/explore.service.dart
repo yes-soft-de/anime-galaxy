@@ -35,7 +35,8 @@ class ExploreService{
     usersResponse.forEach((element) {
       activeUsers.add(new ActiveUser(
         id: element.userID,
-        name: element.userID,
+        name: element.username,
+        image: element.image
       ));
     });
     return activeUsers;
