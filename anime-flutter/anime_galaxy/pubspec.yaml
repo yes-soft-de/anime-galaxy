@@ -3,7 +3,7 @@ description: A new Flutter project.
 
 publish_to: 'none'
 
-version: 1.0.1+3
+version: 1.0.1+4
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -47,6 +47,7 @@ dependencies:
   dio: ^3.0.10
   dio_flutter_transformer: ^3.0.2
   dio_http_cache: ^0.2.11
+  dio_firebase_performance: ^0.2.0
 
   # Pair and Other Types
   analyzer_plugin: ^0.3.0

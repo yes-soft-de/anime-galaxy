@@ -2,19 +2,21 @@ import 'dart:convert';
 
 import 'package:anime_galaxy/utils/logger/logger.dart';
 import 'package:dio/dio.dart';
+import 'package:dio_firebase_performance/dio_firebase_performance.dart';
 import 'package:dio_http_cache/dio_http_cache.dart';
 import 'package:inject/inject.dart';
 
 @provide
 class ApiClient {
-  Dio _client;
+  final Dio _client = Dio(BaseOptions());
   final Logger _logger;
+  final performanceInterceptor = DioFirebasePerformanceInterceptor();
 
   final String tag = 'ApiClient';
 
   ApiClient(this._logger) {
-    _client = new Dio(BaseOptions());
     _client.interceptors.add(DioCacheManager(CacheConfig()).interceptor);
+    _client.interceptors.add(performanceInterceptor);
   }
 
   Future<Map<String, dynamic>> get(String url,
