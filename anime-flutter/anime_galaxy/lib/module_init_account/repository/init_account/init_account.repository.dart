@@ -18,7 +18,10 @@ class InitAccountRepository{
 
     dynamic res = response['Data'];
 
-    List<CategoryResponse> availableCategories = new List();
+    List<CategoryResponse> availableCategories = [];
+
+
+
     for(int i = 0 ;i < res.length ; i ++){
       availableCategories.add(CategoryResponse.fromJson(res[i]));
       availableCategories[i].series = await getCategorySeries(availableCategories[i].id);
@@ -34,6 +37,7 @@ class InitAccountRepository{
       if(response == null ) return [];
 
       List<SeriesResponse> series = [];
+
 
       for (int i =0; i< response['Data'].length ; i++){
         series.add(SeriesResponse.fromJson(response['Data'][i]));

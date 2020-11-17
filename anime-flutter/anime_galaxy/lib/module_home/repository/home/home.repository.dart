@@ -39,7 +39,7 @@ class HomeRepository {
     List<WatchedSeriesResponse> series = [];
     dynamic res = response['Data'];
     for (int i = 0; i < res.length; i++) {
-      series.add(WatchedSeriesResponse.fromJson(res[i]['animeID']));
+      series.add(WatchedSeriesResponse.fromJson(res[i]));
     }
 
     return series;
