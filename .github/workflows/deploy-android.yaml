@@ -78,17 +78,6 @@ jobs:
           cd anime-flutter/anime_galaxy/android
           bundle exec fastlane alpha
 
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          draft: false
-          prerelease: false
-
       - name: Create release and upload apk
         uses: underwindfall/create-release-with-debugapk@v2.0.0
         env:
@@ -97,5 +86,5 @@ jobs:
           asset_path: anime-flutter/anime_galaxy/build/app/outputs/flutter-apk/app-release.apk
           asset_name: AnimeGalaxy.apk
           asset_content_type: application/zip
-          tag_name: APK_${{ github.ref }}
+          tag_name: Release ${{ github.ref }}
 
