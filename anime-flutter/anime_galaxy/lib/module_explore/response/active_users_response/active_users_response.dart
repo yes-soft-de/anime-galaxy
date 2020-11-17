@@ -1,8 +1,8 @@
 class ActiveUsersResponse {
   int points;
   String userID;
-  Null username;
-  Null image;
+  String username;
+  String image;
 
   ActiveUsersResponse({this.points, this.userID, this.username, this.image});
 
