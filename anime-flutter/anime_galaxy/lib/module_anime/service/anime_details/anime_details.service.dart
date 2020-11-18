@@ -56,14 +56,15 @@ class AnimeDetailsService {
 
   List<Comment> getComments(List<CommentResponse> commentResponse) {
     List<Comment> comments = [];
+    List months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
     commentResponse.forEach((element) {
+      var date = new DateTime.fromMicrosecondsSinceEpoch(element.creationDate.timestamp);
       Comment comment = new Comment(
           content: element.comment,
           userName:element.userName,
           userImage:element.image,
-          //TODO : change these below
-          date: '21 Jun'
+          date:' ${months[date.month+1]} ${date.day} ' ,
       );
       comments.add(comment);
     });
