@@ -1,12 +1,12 @@
 import 'dart:io';
 
 import 'package:anime_galaxy/generated/l10n.dart';
-import 'package:anime_galaxy/main_screen/main_screen_routes.dart';
 import 'package:anime_galaxy/module_auth/state_manager/auth_state_manager/auth_state_manager.dart';
 import 'package:anime_galaxy/module_auth/states/auth_states/auth_states.dart';
 import 'package:anime_galaxy/module_init_account/init_account_routes.dart';
 import 'package:anime_galaxy/module_theme/service/theme_service/theme_service.dart';
 import 'package:anime_galaxy/utils/app_bar/anime_galaxy_app_bar.dart';
+import 'package:anime_galaxy/utils/project_color/project_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -30,7 +30,7 @@ class _AuthScreenState extends State<AuthScreen> {
 
   final GlobalKey _signUpFormKey = GlobalKey<FormState>();
   final TextEditingController _phoneController = TextEditingController();
-  String countryCode = '+963';
+  String countryCode = '+966';
 
   final GlobalKey _confirmCodeKey = GlobalKey<FormState>();
   final TextEditingController _confirmationController = TextEditingController();
@@ -207,13 +207,14 @@ class _AuthScreenState extends State<AuthScreen> {
             children: [
               MediaQuery.of(context).viewInsets.bottom == 0
                   ? Container(
-                  height: 144, child: Image.asset('assets/images/logo.jpg'))
+                  height: 120, child: Image.asset('assets/images/logo.jpg'))
                   : Container(),
+              SizedBox(height: 30,),
               Flex(direction: Axis.vertical, children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
-                    height: 44,
+                    height: 40,
                     decoration: BoxDecoration(
                       border: Border.all(
                         color: Theme.of(context).brightness == Brightness.light
@@ -232,14 +233,14 @@ class _AuthScreenState extends State<AuthScreen> {
                           Text(
                             'Sign in with Google',
                             style: TextStyle(
-                              fontSize: 18,
+                              fontSize: 16,
                               fontWeight: FontWeight.w400,
                             ),
                           ),
                           Container(
-                            width: 36,
+                            width: 40,
                             child: Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(6.0),
                               child: SvgPicture.asset(
                                 'assets/images/google-plus.svg',
                                 fit: BoxFit.contain,
@@ -269,6 +270,7 @@ class _AuthScreenState extends State<AuthScreen> {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     DropdownButton(
+
                       onChanged: (v) {
                         countryCode = v;
                         if (mounted) setState(() {});
@@ -277,19 +279,57 @@ class _AuthScreenState extends State<AuthScreen> {
                       items: [
                         DropdownMenuItem(
                           value: '+966',
-                          child: Text(S.of(context).saudiArabia),
+                          child: Row(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 10),
+                                child: Image.asset('assets/images/saudi-arabia.png',height: 20,),
+                              ),
+                              Text(S.of(context).saudiArabia),
+
+                            ],
+                          ),
                         ),
                         DropdownMenuItem(
                           value: '+1',
-                          child: Text(S.of(context).usa),
+                          child: Row(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 10),
+                                child: Image.asset('assets/images/united-states.png',height: 20,),
+                              ),
+                              Text(S.of(context).usa),
+
+                            ],
+                          ),
+
                         ),
                         DropdownMenuItem(
                           value: '+961',
-                          child: Text(S.of(context).lebanon),
+                          child:  Row(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 10),
+                                child: Image.asset('assets/images/lebanon.png',height: 20,),
+                              ),
+                                Text(S.of(context).lebanon),
+
+                            ],
+                          ),
+
                         ),
                         DropdownMenuItem(
                           value: '+963',
-                          child: Text(S.of(context).syria),
+                          child:  Row(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 10),
+                                child: Image.asset('assets/images/syria.png',height: 20,),
+                              ),
+                              Text(S.of(context).syria),
+
+                            ],
+                          ),
                         ),
                       ],
                     ),
@@ -329,10 +369,11 @@ class _AuthScreenState extends State<AuthScreen> {
                   .SignInWithPhone(countryCode + _phoneController.text);
             },
             child: Container(
+              height: 50,
               decoration:
-              BoxDecoration(color: SwapThemeDataService.getAccent()),
+              BoxDecoration(color: ProjectColors.ThemeColor),
               child: Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: const EdgeInsets.all(5.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -341,7 +382,7 @@ class _AuthScreenState extends State<AuthScreen> {
                           ? S.of(context).loading
                           : S.of(context).sendMeACode,
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 16,
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
                       ),

@@ -20,8 +20,8 @@ class AnimeNavigationDrawer extends StatelessWidget {
         children: [
           // Background
           Positioned.fill(
-            child: SvgPicture.asset(
-              'assets/images/logo.svg',
+            child: Image.asset(
+              'assets/images/logo.jpg',
               fit: BoxFit.cover,
               colorBlendMode: BlendMode.softLight,
             ),
