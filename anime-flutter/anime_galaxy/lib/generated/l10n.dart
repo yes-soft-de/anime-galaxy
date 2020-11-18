@@ -1232,6 +1232,36 @@ class S {
       args: [],
     );
   }
+
+  /// `قيم الحلقة`
+  String get RateEpisode {
+    return Intl.message(
+      'قيم الحلقة',
+      name: 'RateEpisode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `صباح الخير`
+  String get GoodMorning {
+    return Intl.message(
+      'صباح الخير',
+      name: 'GoodMorning',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `مساء الخير`
+  String get GoodEvining {
+    return Intl.message(
+      'مساء الخير',
+      name: 'GoodEvining',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

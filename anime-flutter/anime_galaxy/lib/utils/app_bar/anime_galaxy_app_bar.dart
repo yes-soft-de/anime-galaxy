@@ -1,9 +1,15 @@
 import 'package:anime_galaxy/anime_setting/ui/widget/circular_setting/circular_image.dart';
+import 'package:anime_galaxy/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class AnimeGalaxyAppBar {
+
+
   static AppBar getAnimeGalaxyAppBar(
+
       GlobalKey<ScaffoldState> drawerKey, String userName) {
+    final df = new DateFormat('a');
     return AppBar(
       elevation: 0,
       centerTitle: false,
@@ -34,7 +40,11 @@ class AnimeGalaxyAppBar {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('صباح الخير',
+                
+                Text(
+                    df.format(DateTime.now())== 'ص'|| df.format(DateTime.now())== 'am'?
+                    S.current.GoodMorning:
+                    S.current.GoodEvining,
                     style: TextStyle(
                       fontSize: 14,
                     )),

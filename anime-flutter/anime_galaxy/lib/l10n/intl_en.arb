@@ -120,5 +120,8 @@
   "nameHint": "Name Hint",
   "nameIsEmpty": "Name is empty",
   "pleaseTellUsAboutYourSelf": "Please tell us about your self",
-  "ratingSuccessfully": "تم التقييم بنجاح"
+  "ratingSuccessfully": "تم التقييم بنجاح",
+  "RateEpisode": "قيم الحلقة",
+  "GoodMorning": "صباح الخير",
+  "GoodEvining": "مساء الخير"
 }

@@ -171,7 +171,7 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              S.of(context).RateSeries,
+              S.of(context).RateEpisode,
               style: TextStyle(fontSize: 14),
             ),
             RotatedBox(
@@ -247,6 +247,7 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
                 S.of(context).generalEvaluation,
                 style: TextStyle(fontSize: 14),
               ),
+              //TODO : change it with real data
               LinearPercentIndicator(
                 width: MediaQuery.of(context).size.width * 0.5,
                 animation: true,
@@ -266,6 +267,7 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
               S.of(context).monthlyComments,
               style: TextStyle(fontSize: 14),
             ),
+            //TODO : change it with real data
             LinearPercentIndicator(
               width: MediaQuery.of(context).size.width * 0.5,
               animation: true,
