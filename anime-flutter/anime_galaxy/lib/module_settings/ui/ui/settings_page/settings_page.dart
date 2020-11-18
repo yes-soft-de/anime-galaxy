@@ -14,10 +14,10 @@ class SettingsPage extends StatefulWidget {
   final SwapThemeDataService _themeDataService;
 
   SettingsPage(
-    this._authService,
-    this._localizationService,
-    this._themeDataService,
-  );
+      this._authService,
+      this._localizationService,
+      this._themeDataService,
+      );
 
   @override
   State<StatefulWidget> createState() => _SettingsPageState();
@@ -46,9 +46,9 @@ class _SettingsPageState extends State<SettingsPage> {
                   FutureBuilder(
                     future: widget._authService.username,
                     builder: (
-                      BuildContext context,
-                      AsyncSnapshot<String> snapshot,
-                    ) {
+                        BuildContext context,
+                        AsyncSnapshot<String> snapshot,
+                        ) {
                       return Text(snapshot.data ?? S.of(context).notLoggedIn);
                     },
                   ),
@@ -75,12 +75,12 @@ class _SettingsPageState extends State<SettingsPage> {
                     stream: widget._themeDataService.darkModeStream,
                     initialData: false,
                     builder: (
-                      BuildContext context,
-                      AsyncSnapshot<bool> snapshot,
-                    ) {
+                        BuildContext context,
+                        AsyncSnapshot<bool> snapshot,
+                        ) {
                       return Switch(
                           value:
-                              Theme.of(context).brightness == Brightness.dark,
+                          Theme.of(context).brightness == Brightness.dark,
                           onChanged: (mode) {
                             widget._themeDataService
                                 .switchDarkMode(mode)
@@ -113,14 +113,14 @@ class _SettingsPageState extends State<SettingsPage> {
                       children: [
                         Text(S.of(context).signOut),
                         IconButton(
-                            icon: Icon(Icons.logout),
+                            icon: Icon(Icons.power_settings_new),
 //                             icon: Icon(Icons.arrow_drop_down_circle),
                             onPressed: () {
                               widget._authService.logout().then((value) {
                                 Navigator.pushNamedAndRemoveUntil(
                                   context,
                                   MainScreenRoute.MAIN_SCREEN_ROUTE,
-                                  (route) => false,
+                                      (route) => false,
                                 );
                               });
                             })

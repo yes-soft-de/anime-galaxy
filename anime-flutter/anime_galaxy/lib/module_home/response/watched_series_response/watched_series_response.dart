@@ -1,56 +1,54 @@
-class CommentResponse {
-  String comment;
-  bool spoilerAlert;
-  CreationDate creationDate;
-  CommentInteractions commentInteractions;
-  String userName;
-  String image;
+class WatchedSeriesResponse {
+  int id;
+  int animeID;
+  String mainImage;
+  String animeName;
+  int categoryID;
+  String categoryName;
+  Date date;
 
-  CommentResponse(
-      {this.comment,
-        this.spoilerAlert,
-        this.creationDate,
-        this.commentInteractions,
-        this.userName,
-        this.image});
+  WatchedSeriesResponse(
+      {this.id,
+        this.animeID,
+        this.mainImage,
+        this.animeName,
+        this.categoryID,
+        this.categoryName,
+        this.date});
 
-  CommentResponse.fromJson(Map<String, dynamic> json) {
-    comment = json['comment'];
-    spoilerAlert = json['spoilerAlert'];
-    creationDate = json['creationDate'] != null
-        ? new CreationDate.fromJson(json['creationDate'])
-        : null;
-    commentInteractions = json['commentInteractions'] != null
-        ? new CommentInteractions.fromJson(json['commentInteractions'])
-        : null;
-    userName = json['userName'];
-    image = json['image'];
+  WatchedSeriesResponse.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    animeID = json['animeID'];
+    mainImage = json['mainImage'];
+    animeName = json['AnimeName'];
+    categoryID = json['categoryID'];
+    categoryName = json['categoryName'];
+    date = json['date'] != null ? new Date.fromJson(json['date']) : null;
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['comment'] = this.comment;
-    data['spoilerAlert'] = this.spoilerAlert;
-    if (this.creationDate != null) {
-      data['creationDate'] = this.creationDate.toJson();
+    data['id'] = this.id;
+    data['animeID'] = this.animeID;
+    data['mainImage'] = this.mainImage;
+    data['AnimeName'] = this.animeName;
+    data['categoryID'] = this.categoryID;
+    data['categoryName'] = this.categoryName;
+    if (this.date != null) {
+      data['date'] = this.date.toJson();
     }
-    if (this.commentInteractions != null) {
-      data['commentInteractions'] = this.commentInteractions.toJson();
-    }
-    data['userName'] = this.userName;
-    data['image'] = this.image;
     return data;
   }
 }
 
-class CreationDate {
+class Date {
   Timezone timezone;
   int offset;
   int timestamp;
 
-  CreationDate({this.timezone, this.offset, this.timestamp});
+  Date({this.timezone, this.offset, this.timestamp});
 
-  CreationDate.fromJson(Map<String, dynamic> json) {
+  Date.fromJson(Map<String, dynamic> json) {
     timezone = json['timezone'] != null
         ? new Timezone.fromJson(json['timezone'])
         : null;
@@ -151,28 +149,6 @@ class Location {
     data['latitude'] = this.latitude;
     data['longitude'] = this.longitude;
     data['comments'] = this.comments;
-    return data;
-  }
-}
-
-class CommentInteractions {
-  String love;
-  String like;
-  String dislike;
-
-  CommentInteractions({this.love, this.like, this.dislike});
-
-  CommentInteractions.fromJson(Map<String, dynamic> json) {
-    love = json['love'];
-    like = json['like'];
-    dislike = json['dislike'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['love'] = this.love;
-    data['like'] = this.like;
-    data['dislike'] = this.dislike;
     return data;
   }
 }

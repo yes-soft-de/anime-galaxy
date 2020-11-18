@@ -21,13 +21,13 @@ class MainScreen extends StatefulWidget {
   final AuthService _authService;
 
   MainScreen(
-    this._notificationScreen,
-    this._homeScreen,
-    this._settingsScreen,
-    this._exploreScreen,
-    this._profileScreen,
-    this._authService,
-  );
+      this._notificationScreen,
+      this._homeScreen,
+      this._settingsScreen,
+      this._exploreScreen,
+      this._profileScreen,
+      this._authService,
+      );
 
   @override
   _MainScreenState createState() => _MainScreenState();
@@ -77,49 +77,54 @@ class _MainScreenState extends State<MainScreen> {
 
     return authorized
         ? Scaffold(
-            key: _scaffoldKey,
-            appBar:
-                AnimeGalaxyAppBar.getAnimeGalaxyAppBar(_scaffoldKey, username),
-            drawer: AnimeNavigationDrawer(),
-            bottomNavigationBar: BottomNavigationBar(
-              currentIndex: _pageIndex,
-              onTap: (newPos) {
-                _pageIndex = newPos;
-                setState(() {});
-              },
-              backgroundColor: ProjectColors.ThemeColor,
-              fixedColor: Colors.white,
-              unselectedItemColor: Colors.white54,
-              items: <BottomNavigationBarItem>[
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.dashboard),
-                  label: '',
-                  backgroundColor: ProjectColors.ThemeColor,
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.notifications),
-                  label: '',
-                  backgroundColor: ProjectColors.ThemeColor,
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.explore),
-                  label: '',
-                  backgroundColor: ProjectColors.ThemeColor,
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.person),
-                  label: '',
-                  backgroundColor: ProjectColors.ThemeColor,
-                ),
-                BottomNavigationBarItem(
-                  backgroundColor: ProjectColors.ThemeColor,
-                  icon: Icon(Icons.settings),
-                  label: '',
-                ),
-              ],
-            ),
-            body: pages[_pageIndex],
-          )
+      key: _scaffoldKey,
+      appBar:
+      AnimeGalaxyAppBar.getAnimeGalaxyAppBar(_scaffoldKey, username),
+      drawer: AnimeNavigationDrawer(),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _pageIndex,
+        onTap: (newPos) {
+          _pageIndex = newPos;
+          setState(() {});
+        },
+        backgroundColor: ProjectColors.ThemeColor,
+        fixedColor: Colors.white,
+        unselectedItemColor: Colors.white54,
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.dashboard),
+//                  label: '',
+            title: Text(''),
+            backgroundColor: ProjectColors.ThemeColor,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.notifications),
+//                  label: '',
+            title: Text(''),
+            backgroundColor: ProjectColors.ThemeColor,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.explore),
+//                  label: '',
+            title: Text(''),
+            backgroundColor: ProjectColors.ThemeColor,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+//                  label: '',
+            title: Text(''),
+            backgroundColor: ProjectColors.ThemeColor,
+          ),
+          BottomNavigationBarItem(
+            backgroundColor: ProjectColors.ThemeColor,
+            icon: Icon(Icons.settings),
+//                  label: '',
+            title: Text(''),
+          ),
+        ],
+      ),
+      body: pages[_pageIndex],
+    )
         : Scaffold();
   }
 

@@ -8,6 +8,10 @@ import 'package:anime_galaxy/module_explore/response/expolre_response/explore_re
 import 'package:anime_galaxy/module_network/http_client/http_client.dart';
 import 'package:inject/inject.dart';
 
+List<AnimeResponse> worldRecommendedSeries1 = [];
+List<AnimeResponse> recommendedSeriesByYourFavourites1 = [];
+List<ActiveUsersResponse> activeUsers1 = [];
+List<CommingSoonResponse> comingSoon1 = [];
 
 @provide
 class ExploreRepository{
@@ -17,22 +21,26 @@ class ExploreRepository{
   ExploreRepository(this._httpClient,this._authPrefsHelper);
 
   Future<ExploreResponse> getExploreScreenContent()async{
-    List<AnimeResponse> worldRecommendedSeries = await  _getWorldRecommendedSeries();
-    List<AnimeResponse> recommendedSeriesByYourFavourites = await  _getRecommendedSeriesByYourFavourites();
-    List<ActiveUsersResponse> activeUsers = await _getActiveUsers();
-    List<CommingSoonResponse> comingSoon = await _getCommingSoonSeries();
+
+
+    await Future.wait([
+       _getWorldRecommendedSeries(),
+        _getRecommendedSeriesByYourFavourites(),
+      _getActiveUsers(),
+      _getCommingSoonSeries()
+    ]) ;
 
     ExploreResponse result = new ExploreResponse(
-      activeUsers: activeUsers,
-      recommendedSeriesByYourFavourites: recommendedSeriesByYourFavourites,
-      worldRecommendedSeries: worldRecommendedSeries,
-      comingSoonSeries: comingSoon,
+      activeUsers: activeUsers1,
+      recommendedSeriesByYourFavourites: recommendedSeriesByYourFavourites1,
+      worldRecommendedSeries: worldRecommendedSeries1,
+      comingSoonSeries: comingSoon1,
     );
 
     return result;
   }
 
-  Future<List<AnimeResponse>> _getWorldRecommendedSeries()async {
+  Future<void> _getWorldRecommendedSeries()async {
 
     dynamic response = await _httpClient.get(Urls.API_HIGHEST_RATED_ANIMES);
     if(response == null) return [];
@@ -42,11 +50,10 @@ class ExploreRepository{
     for(int i=0 ; i<res.length ; i++){
       worldRecommendedSeries.add(AnimeResponse.fromJson(res[i]));
     }
-
-    return worldRecommendedSeries;
+    worldRecommendedSeries1 = worldRecommendedSeries;
   }
 
-  Future<List<AnimeResponse>> _getRecommendedSeriesByYourFavourites()async {
+  Future<void> _getRecommendedSeriesByYourFavourites()async {
     String userId = await _authPrefsHelper.getUserId();
 
     dynamic response = await _httpClient.get(Urls.API_HIGHEST_RATED_ANIMES_BY_USER+userId);
@@ -57,13 +64,12 @@ class ExploreRepository{
     for(int i=0 ; i<res.length ; i++){
       recommendedSeriesByYourFavourites.add(AnimeResponse.fromJson(res[i]));
     }
-
-    return recommendedSeriesByYourFavourites;
+    recommendedSeriesByYourFavourites1 = recommendedSeriesByYourFavourites;
   }
 
 
 
-  Future<List<ActiveUsersResponse>> _getActiveUsers()async{
+  Future<void> _getActiveUsers()async{
    dynamic response = await _httpClient.get(Urls.API_ACTIVE_USERS);
 
    if(response == null) return [];
@@ -73,23 +79,21 @@ class ExploreRepository{
    for(int i=0 ; i<res.length ; i++){
      activeUsers.add(ActiveUsersResponse.fromJson(res[i]));
    }
-
-   return activeUsers;
+   activeUsers1 = activeUsers;
   }
 
 
-  Future<List<CommingSoonResponse>> _getCommingSoonSeries()async {
+  Future<void> _getCommingSoonSeries()async {
 
     dynamic response = await _httpClient.get(Urls.API_COMING_SOON_ANIMES);
     if(response == null) return [];
 
-    List<CommingSoonResponse> recommendedSeriesByYourFavourites = [];
+    List<CommingSoonResponse> comingSoon = [];
     dynamic res = response['Data'];
     for(int i=0 ; i<res.length ; i++){
-      recommendedSeriesByYourFavourites.add(CommingSoonResponse.fromJson(res[i]));
+      comingSoon.add(CommingSoonResponse.fromJson(res[i]));
     }
-
-    return recommendedSeriesByYourFavourites;
+    comingSoon1 = comingSoon;
   }
 
 }

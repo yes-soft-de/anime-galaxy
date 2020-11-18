@@ -44,9 +44,11 @@ class ComingSoonSeries{
 class ActiveUser{
   String id;
   String name;
+  String image;
 
   ActiveUser({
     this.name,
     this.id,
+    this.image,
 });
 }

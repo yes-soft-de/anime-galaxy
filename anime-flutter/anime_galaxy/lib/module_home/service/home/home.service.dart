@@ -4,6 +4,7 @@ import 'package:anime_galaxy/module_home/model/home_model/home_model.dart';
 import 'package:anime_galaxy/module_home/response/anime_response/anime_response.dart';
 import 'package:anime_galaxy/module_home/response/coming_soon_episodes/coming_soon_episodes.dart';
 import 'package:anime_galaxy/module_home/response/home_response/home_response.dart';
+import 'package:anime_galaxy/module_home/response/watched_series_response/watched_series_response.dart';
 import 'package:inject/inject.dart';
 
 @provide
@@ -20,12 +21,24 @@ class HomeService {
     HomeModel homeModel = new HomeModel(
         watchedSeries: getSeries(response.watchedSeries),
         points: response.points != null ? response.points.points : 0,
-        mayLikeSeries: getSeries(response.mayLikedSeries),
+        mayLikeSeries: getComingSoonSeries(response.mayLikedSeries),
         newEpisodes: getEpisodes(response.comingSoonEpisodes));
     return homeModel;
   }
 
-  List<Series> getSeries(List<AnimeResponse> animeResponses) {
+  List<Series> getSeries(List<WatchedSeriesResponse> animeResponses) {
+    List<Series> seriesList = [];
+
+    animeResponses.forEach((element) {
+      seriesList.add(new Series(
+          id: element.animeID,
+          name: element.animeName,
+          image: element.mainImage,
+          classification: element.categoryName));
+    });
+    return seriesList;
+  }
+  List<Series> getComingSoonSeries(List<AnimeResponse> animeResponses) {
     List<Series> seriesList = [];
 
     animeResponses.forEach((element) {

@@ -19,11 +19,11 @@ class MyProfileService {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
   MyProfileService(
-    this._manager,
-    this._preferencesHelper,
-    this._authService,
-    this._generalProfileService,
-  );
+      this._manager,
+      this._preferencesHelper,
+      this._authService,
+      this._generalProfileService,
+      );
 
   Future<ProfileModel> getProfile({String id}) async {
     String userId = id ?? await _authService.userID;
@@ -38,7 +38,7 @@ class MyProfileService {
         seriesNumber: response.favourites.length,
         watchedSeries: _getSeries(response.favourites),
         followingActivities:
-            _getActivities(response.followingActivitiesResponse),
+        _getActivities(response.followingActivitiesResponse),
         isFollowed: response.isFollowed,
       );
       return result;
@@ -76,7 +76,7 @@ class MyProfileService {
 
     favouriteResponses.forEach((element) {
       seriesList.add(new Series(
-          id: element.id,
+          id: element.animeID,
           name: element.animeName,
           image: element.mainImage,
           classification: ' '));
@@ -97,10 +97,10 @@ class MyProfileService {
   }
 
   Future<ProfileResponse> createProfile(
-    String username,
-    String userImage,
-    String story,
-  ) async {
+      String username,
+      String userImage,
+      String story,
+      ) async {
     String userId = await _authService.userID;
 
     var profileExists = await _manager.getProfile(userId);
@@ -112,9 +112,10 @@ class MyProfileService {
         story: story,
         userID: userId);
 
-    ProfileResponse response = profileExists == null
+
+    ProfileResponse response = (profileExists == null)
         ? await _manager.createMyProfile(request)
-        : _manager.updateMyProfile(request);
+        :await _manager.updateMyProfile(request);
     if (response == null) return null;
     await _preferencesHelper.setUserName(response.userName);
     await _preferencesHelper.setUserImage(response.image);
