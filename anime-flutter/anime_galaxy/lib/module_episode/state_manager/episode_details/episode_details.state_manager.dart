@@ -52,6 +52,7 @@ class EpisodeDetailsStateManager {
         Fluttertoast.showToast(msg: S.current.ommentingError);
         this._stateSubject.add(EpisodeDetailsStateRatingError());
       }else{
+        Fluttertoast.showToast(msg : S.current.ratingSuccessfully);
         this._stateSubject.add(EpisodeDetailsStateRatingSuccess());
       }
     });

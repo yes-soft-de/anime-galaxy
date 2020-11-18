@@ -117,5 +117,6 @@
   "name_hont": "اسمي",
   "nameHint": "اسمي",
   "nameIsEmpty": "الرجاء تعبئة الاسم",
-  "pleaseTellUsAboutYourSelf": "رجاءا اخبرنا عن نفسك"
+  "pleaseTellUsAboutYourSelf": "رجاءا اخبرنا عن نفسك",
+  "ratingSuccessfully": "تم التقييم بنجاح"
 }

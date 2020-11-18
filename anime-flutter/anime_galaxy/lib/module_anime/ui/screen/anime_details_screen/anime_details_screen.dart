@@ -97,6 +97,11 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
         setState(() {});
       }
     }
+    if (currentState is AnimeDetailsStateRatingSuccess) {
+      if (this.mounted) {
+        setState(() {});
+      }
+    }
   }
 
   @override
@@ -193,8 +198,11 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                     Icons.favorite_border,
                     color: ProjectColors.ThemeColor,
                   ),
-                  onRatingChanged: (rating) =>
-                      setState(() => this.rating = rating),
+                  onRatingChanged: (rating) {
+                    widget._stateManager.rateAnime(animeId, rating);
+                    this.rating = rating;
+                  }
+                   ,
                   itemSize: 25,
                   itemCount: 10,
                 ),

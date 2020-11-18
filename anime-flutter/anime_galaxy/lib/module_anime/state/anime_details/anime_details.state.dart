@@ -29,3 +29,9 @@ class AnimeDetailsStateAddToFavouriteInProgress extends AnimeDetailsState{}
 class AnimeDetailsStateAddToFavouriteSuccess extends AnimeDetailsState{}
 
 class AnimeDetailsStateAddToFavouriteError extends AnimeDetailsState{}
+
+///----------------------------------------------
+
+class AnimeDetailsStateRatingSuccess extends AnimeDetailsState{}
+
+class AnimeDetailsStateRatingError extends AnimeDetailsState{}

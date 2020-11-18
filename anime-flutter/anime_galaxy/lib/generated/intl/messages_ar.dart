@@ -107,6 +107,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "privacyPolicy" : MessageLookupByLibrary.simpleMessage("شروط الخصوصية"),
     "profile" : MessageLookupByLibrary.simpleMessage("الشخصية"),
     "pronze" : MessageLookupByLibrary.simpleMessage("برونزي"),
+    "ratingSuccessfully" : MessageLookupByLibrary.simpleMessage("تم التقييم بنجاح"),
     "recomendationByFavorite" : MessageLookupByLibrary.simpleMessage("المسلسلات الموصى بها حسب تفضيلاتك"),
     "requestASwap" : MessageLookupByLibrary.simpleMessage("اطلب مبادلة!"),
     "retry" : MessageLookupByLibrary.simpleMessage("اعادة المحاولة"),

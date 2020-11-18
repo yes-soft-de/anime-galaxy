@@ -2,6 +2,7 @@ import 'package:anime_galaxy/module_anime/manager/anime_details/anime_details.ma
 import 'package:anime_galaxy/module_anime/model/anime_model/anime_model.dart';
 import 'package:anime_galaxy/module_anime/request/comment_request/comment_request.dart';
 import 'package:anime_galaxy/module_anime/request/favourite_request/favourite_request.dart';
+import 'package:anime_galaxy/module_anime/request/rating_request/rating_request.dart';
 import 'package:anime_galaxy/module_anime/response/anime_response/anime_response.dart';
 import 'package:anime_galaxy/module_anime/response/comment_response/comment_response.dart';
 import 'package:anime_galaxy/module_anime/response/episode_response/episode_response.dart';
@@ -91,5 +92,17 @@ class AnimeDetailsService {
         userID: userId);
 
     return await _detailsManager.addToFavourite(request);
+  }
+
+  Future<bool> rateAnime(int animeId, double rateValue) async{
+    String userId = await _authService.userID;
+
+    RatingRequest request = new RatingRequest(
+        userId: userId,
+        animeId: animeId,
+        rateValue: rateValue
+    );
+
+    return await _detailsManager.rateAnime(request);
   }
 }

@@ -58,4 +58,17 @@ class AnimeDetailsStateManager {
 
   }
 
+  void rateAnime(int animeId,double rateValue){
+
+    this._animeDetailsService.rateAnime(animeId, rateValue).then((value) {
+      if(value == null || value == false){
+        Fluttertoast.showToast(msg: S.current.ommentingError);
+        this._stateSubject.add(AnimeDetailsStateRatingError());
+      }else{
+        Fluttertoast.showToast(msg : S.current.ratingSuccessfully);
+        this._stateSubject.add(AnimeDetailsStateRatingSuccess());
+      }
+    });
+  }
+
 }

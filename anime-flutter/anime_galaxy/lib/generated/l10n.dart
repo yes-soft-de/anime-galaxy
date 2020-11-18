@@ -1222,6 +1222,16 @@ class S {
       args: [],
     );
   }
+
+  /// `تم التقييم بنجاح`
+  String get ratingSuccessfully {
+    return Intl.message(
+      'تم التقييم بنجاح',
+      name: 'ratingSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

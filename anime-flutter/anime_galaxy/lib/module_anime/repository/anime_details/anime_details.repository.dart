@@ -2,6 +2,7 @@
 import 'package:anime_galaxy/consts/urls.dart';
 import 'package:anime_galaxy/module_anime/request/comment_request/comment_request.dart';
 import 'package:anime_galaxy/module_anime/request/favourite_request/favourite_request.dart';
+import 'package:anime_galaxy/module_anime/request/rating_request/rating_request.dart';
 import 'package:anime_galaxy/module_anime/response/anime_response/anime_response.dart';
 import 'package:anime_galaxy/module_anime/response/comment_response/comment_response.dart';
 import 'package:anime_galaxy/module_anime/response/episode_response/episode_response.dart';
@@ -112,6 +113,19 @@ class AnimeDetailsRepository{
      return true;
    }
 
+  Future<bool> rateAnime(RatingRequest ratingRequest) async{
+    dynamic response = await _httpClient.post(Urls.API_RATING_ANIME, {
+      'userID':ratingRequest.userId,
+      'animeID':ratingRequest.animeId,
+      'rateValue':ratingRequest.rateValue
+    });
+    return response == null ?
+    null:
+    response['status_code']=='201'?
+    true:
+    false;
+
+  }
 
 }
 
