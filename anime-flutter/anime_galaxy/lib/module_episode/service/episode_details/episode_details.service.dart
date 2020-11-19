@@ -32,6 +32,7 @@ class EpisodeDetailsService{
     //TODO : change showYear to dynamic data from backend when it added
     episode.showYear = '2020';
     episode.about = response.description;
+    episode.previousRate = response.previousRate;
 
 
     return episode;

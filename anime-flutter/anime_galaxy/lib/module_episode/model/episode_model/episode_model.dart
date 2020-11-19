@@ -8,6 +8,7 @@ class EpisodeModel{
   String about;
   String  classification;
   List<Comment> comments;
+  int previousRate;
 
   EpisodeModel({
     this.commentsNumber,
@@ -19,6 +20,7 @@ class EpisodeModel{
     this.classification,
     this.showYear,
     this.comments,
+    this.previousRate,
   });
 }
 

@@ -1,6 +1,7 @@
 
 
 import 'package:anime_galaxy/consts/urls.dart';
+import 'package:anime_galaxy/module_auth/presistance/auth_prefs_helper.dart';
 import 'package:anime_galaxy/module_episode/request/comment_request/comment_request.dart';
 import 'package:anime_galaxy/module_episode/request/rating_request/rating_request.dart';
 import 'package:anime_galaxy/module_episode/response/comment_response/comment_response.dart';
@@ -8,11 +9,15 @@ import 'package:anime_galaxy/module_episode/response/episode_response/episode_re
 import 'package:anime_galaxy/module_network/http_client/http_client.dart';
 import 'package:inject/inject.dart';
 
+List<CommentResponse> comments1 = [];
+int previousRate1 ;
+
 @provide
 class EpisodeDetailsRepository{
   final ApiClient _httpClient;
+  final AuthPrefsHelper _authPrefsHelper;
 
-  EpisodeDetailsRepository(this._httpClient);
+  EpisodeDetailsRepository(this._httpClient,this._authPrefsHelper);
 
   Future<EpisodeResponse> getEpisodeDetails(int episodeId) async{
 
@@ -20,10 +25,17 @@ class EpisodeDetailsRepository{
 
     if(response == null) return null;
 
+    String userId = await _authPrefsHelper.getUserId();
 
     EpisodeResponse episode = new EpisodeResponse();
     episode = EpisodeResponse.fromJson(response['Data']);
-    episode.episodeComments = await _getComments(episodeId);
+    await Future.wait([
+      _getComments(episodeId),
+      _getPreviousRate(episodeId, userId)
+    ]);
+
+    episode.episodeComments = comments1;
+    episode.previousRate = previousRate1;
 
     return episode;
 
@@ -32,16 +44,16 @@ class EpisodeDetailsRepository{
 
 
 
-  Future<List<CommentResponse>> _getComments(int episodeId) async{
+  Future<void> _getComments(int episodeId) async{
     dynamic response = await _httpClient.get(Urls.API_ALL_EPISODE_COMMENTS+'$episodeId');
-    if(response == null ) return [];
+    if(response == null ) return  ;
 
     List<CommentResponse> comments = [];
     dynamic res = response['Data'];
     for(int i=0; i<res.length ; i++){
       comments.add(CommentResponse.fromJson(response['Data'][i]));
     }
-    return comments;
+    comments1 = comments;
   }
 
 
@@ -73,6 +85,24 @@ class EpisodeDetailsRepository{
     response['status_code']=='201'?
     true:
     false;
+
+  }
+
+  Future<void> _getPreviousRate(int episodeId,String userId)async{
+    dynamic response = await _httpClient.get(Urls.API_RATING_EPISODE+'/$episodeId/'+userId);
+
+    if(response == null ) {
+      previousRate1 = 0;
+      return;
+    }
+
+    String stringRate = response['Data']['avgRating'][0]['rating'];
+    if( stringRate == null){
+      previousRate1 = 0 ;
+      return;
+    }
+
+    previousRate1 = double.parse(stringRate).round();
 
   }
 }

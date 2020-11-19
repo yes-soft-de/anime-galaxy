@@ -100,6 +100,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
       }
     }
     if (currentState is AnimeDetailsStateRatingSuccess) {
+      anime.previousRate = rating;
       if (this.mounted) {
         setState(() {});
       }

@@ -315,7 +315,8 @@ class AppComponent$Injector implements _i1.AppComponent {
   _i82.EpisodeDetailsManager _createEpisodeDetailsManager() =>
       _i82.EpisodeDetailsManager(_createEpisodeDetailsRepository());
   _i83.EpisodeDetailsRepository _createEpisodeDetailsRepository() =>
-      _i83.EpisodeDetailsRepository(_createApiClient());
+      _i83.EpisodeDetailsRepository(
+          _createApiClient(), _createAuthPrefsHelper());
   @override
   _i6.MyApp get app => _createMyApp();
 }

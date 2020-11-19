@@ -1,5 +1,5 @@
 {
-  "asset": "asset:anime_galaxy/lib/module_episode/request/rating_request/rating_request.dart",
+  "asset": "asset:anime_galaxy/lib/module_anime/request/rating_request/rating_request.dart",
   "summary": {
     "injector": [],
     "module": [],

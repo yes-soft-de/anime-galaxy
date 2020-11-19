@@ -124,5 +124,6 @@
   "RateEpisode": "قيم الحلقة",
   "GoodMorning": "صباح الخير",
   "GoodEvining": "مساء الخير",
-  "YouHaveRatedThisAnime": "لقد قمت بتقييم هذا الأنمي مسبقا"
+  "YouHaveRatedThisAnime": "لقد قمت بتقييم هذا الأنمي مسبقا",
+  "YouHaveRatedThisEpisode": "لقد قمت بتقييم هذه الحلقة مسبقا"
 }

@@ -11,6 +11,7 @@ import 'package:anime_galaxy/utils/app_bar/anime_galaxy_app_bar.dart';
 import 'package:anime_galaxy/utils/loading_indicator/loading_indicator.dart';
 import 'package:anime_galaxy/utils/project_color/project_color.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:inject/inject.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
@@ -29,7 +30,7 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
     with TickerProviderStateMixin<EpisodeDetailsScreen> {
   double screenWidth;
   bool isExpanded = false;
-  int rating = 3;
+  int rating = 0;
   bool loading = true;
   EpisodeDetailsState currentState = EpisodeDetailsStateInit();
   EpisodeModel episode = new EpisodeModel();
@@ -63,6 +64,7 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
     if (currentState is EpisodeDetailsStateFetchingSuccess) {
       EpisodeDetailsStateFetchingSuccess state = currentState;
       episode = state.data;
+      rating = episode.previousRate;
       loading = false;
       if (this.mounted) {
         setState(() {});
@@ -86,6 +88,7 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
     }
 
     if (currentState is EpisodeDetailsStateRatingSuccess) {
+      episode.previousRate = rating;
       if (this.mounted) {
         setState(() {});
       }
@@ -191,11 +194,17 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
                   color: ProjectColors.ThemeColor,
                 ),
                 onRatingChanged: (rating) {
-                  widget._stateManager.rateEpisode(episodeId, rating);
-                  this.rating = rating;
-                  setState(() {
+                  if(episode.previousRate == 0 ){
+                    widget._stateManager.rateEpisode(episodeId, rating);
+                    this.rating = rating;
+                    setState(() {
 
-                  });
+                    });
+                  }else{
+                    Fluttertoast.showToast(msg:S.of(context).YouHaveRatedThisEpisode );
+                  }
+
+
                 },
                 itemSize: 25,
                 itemCount: 10,

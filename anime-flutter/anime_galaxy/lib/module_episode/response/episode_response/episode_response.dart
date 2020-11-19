@@ -13,6 +13,7 @@ class EpisodeResponse {
   CreationDate createdAt;
   CommentInteractions interactions;
   List<CommentResponse> episodeComments;
+  int previousRate;
 
   EpisodeResponse(
       {this.comments,
@@ -25,7 +26,10 @@ class EpisodeResponse {
         this.duration,
         this.publishDate,
         this.createdAt,
-        this.interactions});
+        this.interactions,
+        this.previousRate,
+        this.episodeComments,
+      });
 
   EpisodeResponse.fromJson(Map<String, dynamic> json) {
     if (json['comments'] != null) {
