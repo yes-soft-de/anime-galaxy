@@ -56,8 +56,7 @@ class HomeService {
 
     episodesList.forEach((element) {
       episodes.add(new Episode(
-          //TODO : change this to real data
-          classification: 'شاونين',
+          classification: element.categoryName,
           image: element.image,
           episodeNumber: element.episodeNumber,
           season: element.seasonNumber,

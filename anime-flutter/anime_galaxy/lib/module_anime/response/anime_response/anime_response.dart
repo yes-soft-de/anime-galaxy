@@ -21,6 +21,7 @@ class AnimeResponse {
   List<EpisodeResponse> episodes;
   bool isFollowed;
   int previousRate;
+  CreationDate publishDate;
 
   AnimeResponse(
       {this.id,
@@ -38,6 +39,7 @@ class AnimeResponse {
         this.previousRate,
         this.episodes,
         this.isFollowed,
+        this.publishDate,
       });
 
   AnimeResponse.fromJson(Map<String, dynamic> json) {
@@ -56,6 +58,9 @@ class AnimeResponse {
     categoryID = json['categoryID'];
     interactions = json['interactions'] != null
         ? new CommentInteractions.fromJson(json['interactions'])
+        : null;
+    publishDate = json['publishDate'] != null
+        ? new CreationDate.fromJson(json['publishDate'])
         : null;
     description = json['description'];
     episodesCount = json['episodesCount'];
@@ -76,6 +81,9 @@ class AnimeResponse {
     data['categoryID'] = this.categoryID;
     if (this.interactions != null) {
       data['interactions'] = this.interactions.toJson();
+    }
+    if (this.publishDate != null) {
+      data['publishDate'] = this.publishDate.toJson();
     }
     data['description'] = this.description;
     data['episodesCount'] = this.episodesCount;

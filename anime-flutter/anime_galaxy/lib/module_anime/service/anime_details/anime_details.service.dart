@@ -8,6 +8,7 @@ import 'package:anime_galaxy/module_anime/response/episode_response/episode_resp
 import 'package:anime_galaxy/module_auth/service/auth_service/auth_service.dart';
 import 'package:anime_galaxy/utils/logger/logger.dart';
 import 'package:inject/inject.dart';
+import 'package:intl/intl.dart';
 
 @provide
 class AnimeDetailsService {
@@ -29,12 +30,11 @@ class AnimeDetailsService {
     anime.commentsNumber = response.comments.length;
     anime.comments = getComments(response.comments);
 
-//    var df = new DateFormat('yyyy');
-//    var date = new DateTime.fromMicrosecondsSinceEpoch(response.publishDate.timestamp);
-//    anime.showYear = df.format(date).toString();
-//
-    //TODO : change this when it return from backend
-    anime.showYear = '2020';
+    var df = new DateFormat('yyyy');
+    var date = new DateTime.fromMicrosecondsSinceEpoch(response.publishDate.timestamp);
+    anime.showYear = df.format(date).toString();
+
+
     anime.about = response.description;
     anime.isFollowed = response.isFollowed;
     anime.categoryID = response.categoryID;
