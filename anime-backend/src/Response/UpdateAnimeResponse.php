@@ -11,6 +11,8 @@ class UpdateAnimeResponse
     private $mainImage;
     private $categoryID;
     private $description;
+    public $episodesCount;
+    public $trailerVideo;
 
     /**
      * @return mixed

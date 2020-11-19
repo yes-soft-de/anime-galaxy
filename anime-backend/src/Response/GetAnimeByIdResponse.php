@@ -16,7 +16,8 @@ class GetAnimeByIdResponse
     public $comments;
     public $rating;
     public $description;
-    
+    public $episodesCount;
+    public $trailerVideo;
 
     /**
      * @return mixed

@@ -11,6 +11,40 @@ class UpdateAnimeRequest
     private $mainImage;
     private $categoryID;
     private $description;
+    private $episodesCount;
+    private $trailerVideo;
+
+    /**
+     * @return mixed
+     */
+    public function getTrailerVideo()
+    {
+        return $this->trailerVideo;
+    }
+
+    /**
+     * @param mixed $trailerVideo
+     */
+    public function setTrailerVideo($trailerVideo): void
+    {
+        $this->trailerVideo = $trailerVideo;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEpisodesCount()
+    {
+        return $this->episodesCount;
+    }
+
+    /**
+     * @param mixed $episodesCount
+     */
+    public function setEpisodesCount($episodesCount): void
+    {
+        $this->episodesCount = $episodesCount;
+    }
 
     /**
      * @return mixed

@@ -52,6 +52,16 @@ class Anime
      */
     private $publishDate;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $episodesCount;
+
+    /**
+     * @ORM\Column(type="string", length=500, nullable=true)
+     */
+    private $trailerVideo;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -137,6 +147,30 @@ class Anime
     public function setPublishDate( $publishDate): self
     {
         $this->publishDate = new \DateTime($publishDate);
+
+        return $this;
+    }
+
+    public function getEpisodesCount(): ?int
+    {
+        return $this->episodesCount;
+    }
+
+    public function setEpisodesCount(?int $episodesCount): self
+    {
+        $this->episodesCount = $episodesCount;
+
+        return $this;
+    }
+
+    public function getTrailerVideo(): ?string
+    {
+        return $this->trailerVideo;
+    }
+
+    public function setTrailerVideo(?string $trailerVideo): self
+    {
+        $this->trailerVideo = $trailerVideo;
 
         return $this;
     }

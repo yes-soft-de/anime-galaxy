@@ -14,6 +14,8 @@ class CreateAnimeRequest
     private $creationDate;
     private $description;
     public  $publishDate;
+    public $episodesCount;
+    public $trailerVideo;
 
     public function __construct()
     {

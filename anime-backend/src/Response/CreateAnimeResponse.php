@@ -12,6 +12,9 @@ class CreateAnimeResponse
     public $creationDate;
     public $description;
     public $publishDate;
+    public $episodesCount;
+    public $trailerVideo;
+
     /**
      * @return mixed
      */
