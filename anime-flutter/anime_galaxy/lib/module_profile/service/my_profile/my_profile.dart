@@ -9,6 +9,7 @@ import 'package:anime_galaxy/module_profile/response/profile_response/profile_re
 import 'package:anime_galaxy/module_profile/service/general_profile/general_profile.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:inject/inject.dart';
+import 'package:intl/intl.dart';
 
 @provide
 class MyProfileService {
@@ -61,11 +62,17 @@ class MyProfileService {
   List<Activity> _getActivities(
       List<FollowingActivitiesResponse> followingActivitiesResponse) {
     List<Activity> activities = [];
+    var df = DateFormat('d m yyyy');
 
     followingActivitiesResponse.forEach((element) {
+      var date = new DateTime.fromMicrosecondsSinceEpoch(element.date.timestamp);
+
       activities.add(new Activity(
         userName: element.userName,
         action: element.animeName,
+        userImage: element.userImage,
+        date: df.format(date).toString(),
+
       ));
     });
     return activities;

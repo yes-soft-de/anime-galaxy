@@ -8,6 +8,7 @@ import 'package:anime_galaxy/module_episode/request/rating_request/rating_reques
 import 'package:anime_galaxy/module_episode/response/comment_response/comment_response.dart';
 import 'package:anime_galaxy/module_episode/response/episode_response/episode_response.dart';
 import 'package:inject/inject.dart';
+import 'package:intl/intl.dart';
 
 @provide
 class EpisodeDetailsService{
@@ -23,14 +24,16 @@ class EpisodeDetailsService{
     episode.name = response.animeName;
     String image = response.image ;
     episode.image = image;
-    //TODO : category should be added to response from backend
-    episode.classification = 'شاونين';
+    episode.classification = response.categoryName;
     episode.rate = response.rating;
     episode.likesNumber = response.interactions.like;
     episode.commentsNumber = response.comments.length;
     episode.comments = await getComments(response.comments);
-    //TODO : change showYear to dynamic data from backend when it added
-    episode.showYear = '2020';
+
+     var df = new DateFormat('yyyy');
+    var date = new DateTime.fromMicrosecondsSinceEpoch(response.publishDate.timestamp);
+
+    episode.showYear = df.format(date).toString();
     episode.about = response.description;
     episode.previousRate = response.previousRate;
 

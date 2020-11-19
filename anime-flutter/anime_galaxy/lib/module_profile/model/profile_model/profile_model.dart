@@ -51,10 +51,14 @@ class Series{
 class Activity{
   String userName;
   String action;
+  String userImage;
+  String date;
 
   Activity({
     this.userName,
     this.action,
+    this.date,
+    this.userImage,
 });
 
 }

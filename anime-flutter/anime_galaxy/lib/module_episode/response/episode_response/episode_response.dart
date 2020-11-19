@@ -1,4 +1,6 @@
 
+
+
 class EpisodeResponse {
   List<Comments> comments;
   String rating;
@@ -8,9 +10,11 @@ class EpisodeResponse {
   String description;
   String image;
   CreationDate duration;
-  String publishDate;
+  CreationDate publishDate;
   CreationDate createdAt;
   CommentInteractions interactions;
+  String categoryName;
+  CreationDate animePublishDate;
   int previousRate;
 
   EpisodeResponse(
@@ -25,8 +29,9 @@ class EpisodeResponse {
         this.publishDate,
         this.createdAt,
         this.interactions,
-        this.previousRate,
-
+        this.categoryName,
+        this.animePublishDate,
+        this.previousRate
       });
 
   EpisodeResponse.fromJson(Map<String, dynamic> json) {
@@ -45,12 +50,18 @@ class EpisodeResponse {
     duration = json['duration'] != null
         ? new CreationDate.fromJson(json['duration'])
         : null;
-    // publishDate = json['publishDate'];
+    publishDate = json['publishDate'] != null
+        ? new CreationDate.fromJson(json['publishDate'])
+        : null;
     createdAt = json['createdAt'] != null
         ? new CreationDate.fromJson(json['createdAt'])
         : null;
     interactions = json['interactions'] != null
         ? new CommentInteractions.fromJson(json['interactions'])
+        : null;
+    categoryName = json['categoryName'];
+    animePublishDate = json['animePublishDate'] != null
+        ? new CreationDate.fromJson(json['animePublishDate'])
         : null;
   }
 
@@ -68,12 +79,18 @@ class EpisodeResponse {
     if (this.duration != null) {
       data['duration'] = this.duration.toJson();
     }
-    data['publishDate'] = this.publishDate;
+    if (this.publishDate != null) {
+      data['publishDate'] = this.publishDate.toJson();
+    }
     if (this.createdAt != null) {
       data['createdAt'] = this.createdAt.toJson();
     }
     if (this.interactions != null) {
       data['interactions'] = this.interactions.toJson();
+    }
+    data['categoryName'] = this.categoryName;
+    if (this.animePublishDate != null) {
+      data['animePublishDate'] = this.animePublishDate.toJson();
     }
     return data;
   }
@@ -85,7 +102,7 @@ class Comments {
   CreationDate creationDate;
   CommentInteractions commentInteractions;
   String userName;
-  String image;
+  Null image;
 
   Comments(
       {this.comment,

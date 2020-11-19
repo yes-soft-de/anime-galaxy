@@ -28,18 +28,23 @@ class AnimeDetailsService {
     anime.likesNumber = response.interactions.like;
     anime.commentsNumber = response.comments.length;
     anime.comments = getComments(response.comments);
-    //TODO : change showYear to dynamic data from backend when it added
+
+//    var df = new DateFormat('yyyy');
+//    var date = new DateTime.fromMicrosecondsSinceEpoch(response.publishDate.timestamp);
+//    anime.showYear = df.format(date).toString();
+//
+    //TODO : change this when it return from backend
     anime.showYear = '2020';
     anime.about = response.description;
     anime.isFollowed = response.isFollowed;
     anime.categoryID = response.categoryID;
-    anime.episodes = getEpisodes(response.episodes);
+    anime.episodes = getEpisodes(response.episodes,response.categoryName);
     anime.previousRate = response.previousRate;
 
     return anime;
   }
 
-  List<Episode> getEpisodes(List<EpisodeResponse> episodesResponse) {
+  List<Episode> getEpisodes(List<EpisodeResponse> episodesResponse,String category) {
     List<Episode> episodes = [];
 
     episodesResponse.forEach((element) {
@@ -48,7 +53,7 @@ class AnimeDetailsService {
           episodeNumber: element.episodeNumber,
           image: element.image,
           //TODO : change this later
-          classification: 'أكشن-شاونين');
+          classification:category );
       episodes.add(episode);
     });
     return episodes;

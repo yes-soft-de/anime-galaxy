@@ -183,11 +183,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     return Container(
                       margin: EdgeInsets.only(bottom: 10),
                       child: ActivityCard(
-                        //TODO : change it
-                        date: 'منذ ساعتين',
+                        date:  _profileModel.followingActivities[index].date,
                         userName:
                             _profileModel.followingActivities[index].userName,
-                        userImage: '',
+                        userImage:  _profileModel.followingActivities[index].userImage,
                         activity:
                             _profileModel.followingActivities[index].action,
                       ),

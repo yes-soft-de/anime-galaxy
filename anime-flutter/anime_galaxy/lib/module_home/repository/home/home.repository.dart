@@ -1,8 +1,8 @@
 import 'package:anime_galaxy/consts/urls.dart';
-import 'package:anime_galaxy/module_home/response/anime_response/anime_response.dart';
 import 'package:anime_galaxy/module_home/response/coming_soon_episodes/coming_soon_episodes.dart';
 import 'package:anime_galaxy/module_home/response/home_response/home_response.dart';
 import 'package:anime_galaxy/module_home/response/points/points_response.dart';
+import 'package:anime_galaxy/module_home/response/series_you_may_like_response/series_you_may_like_response.dart';
 import 'package:anime_galaxy/module_home/response/watched_series_response/watched_series_response.dart';
 import 'package:anime_galaxy/module_network/http_client/http_client.dart';
 import 'package:inject/inject.dart';
@@ -10,7 +10,7 @@ import 'package:inject/inject.dart';
 PointsResponse points1 = new PointsResponse();
 List<ComingSoonEpisodesResponse> episodes1 = [];
 List<WatchedSeriesResponse> watchedSeries1 = [];
-List<AnimeResponse> mayLikedSeries1 = [];
+List<SeriesYouMayLikeResponse> mayLikedSeries1 = [];
 
 @provide
 class HomeRepository {
@@ -56,27 +56,16 @@ class HomeRepository {
     watchedSeries1 = series;
   }
 
-  Future<AnimeResponse> getAnime(int animeId) async {
-    dynamic response = await _httpClient.get(Urls.API_ANIME + '/$animeId');
-
-    if (response == null) return null;
-
-    AnimeResponse anime = new AnimeResponse();
-    anime = AnimeResponse.fromJson(response['Data']);
-
-    return anime;
-  }
 
   Future<void> getMayLikedSeries(String userId) async {
     dynamic response =
         await _httpClient.get(Urls.API_ANIME_YOU_MAY_LIKE + '$userId');
     if (response == null) return [];
 
-    List<AnimeResponse> series = [];
+    List<SeriesYouMayLikeResponse> series = [];
     dynamic res = response['Data'];
     for (int i = 0; i < res.length; i++) {
-      //TODO : fetch it directly from response
-      series.add(await getAnime(res[i]['id']));
+      series.add(SeriesYouMayLikeResponse.fromJson(res[i]));
     }
 
     mayLikedSeries1 = series;
