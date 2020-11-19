@@ -18,6 +18,7 @@ class GetAnimeByIdResponse
     public $description;
     public $episodesCount;
     public $trailerVideo;
+    public $publishDate;
 
     /**
      * @return mixed
