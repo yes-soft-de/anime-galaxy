@@ -4,7 +4,6 @@ import 'package:anime_galaxy/module_anime/request/comment_request/comment_reques
 import 'package:anime_galaxy/module_anime/request/favourite_request/favourite_request.dart';
 import 'package:anime_galaxy/module_anime/request/rating_request/rating_request.dart';
 import 'package:anime_galaxy/module_anime/response/anime_response/anime_response.dart';
-import 'package:anime_galaxy/module_anime/response/comment_response/comment_response.dart';
 import 'package:anime_galaxy/module_anime/response/episode_response/episode_response.dart';
 import 'package:anime_galaxy/module_auth/service/auth_service/auth_service.dart';
 import 'package:anime_galaxy/utils/logger/logger.dart';
@@ -55,7 +54,7 @@ class AnimeDetailsService {
     return episodes;
   }
 
-  List<Comment> getComments(List<CommentResponse> commentResponse) {
+  List<Comment> getComments(List<Comments> commentResponse) {
     List<Comment> comments = [];
     List months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 

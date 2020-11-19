@@ -36,13 +36,11 @@ class AnimeDetailsRepository{
 
     await Future.wait([
       _getEpisodes(animeId),
-      _getComments(animeId),
       _isFollowed(animeId , userId),
       _getPreviousRate(animeId,userId),
     ]);
 
     anime.episodes = episodes1;
-    anime.comments = comments1;
     anime.isFollowed = isFollowed1;
     anime.previousRate = previousRate1;
 
@@ -64,17 +62,17 @@ class AnimeDetailsRepository{
     episodes1 = episodes;
   }
 
-  Future<void> _getComments(int animeId) async{
-    dynamic response = await _httpClient.get(Urls.API_ALL_COMMENTS+'$animeId');
-    if(response == null) return [];
-
-    List<CommentResponse> comments = [];
-    dynamic res = response['Data'];
-    for(int i=0; i<res.length ; i++){
-      comments.add(CommentResponse.fromJson(response['Data'][i]));
-    }
-   comments1 = comments;
-  }
+//  Future<void> _getComments(int animeId) async{
+//    dynamic response = await _httpClient.get(Urls.API_ALL_COMMENTS+'$animeId');
+//    if(response == null) return [];
+//
+//    List<CommentResponse> comments = [];
+//    dynamic res = response['Data'];
+//    for(int i=0; i<res.length ; i++){
+//      comments.add(CommentResponse.fromJson(response['Data'][i]));
+//    }
+//   comments1 = comments;
+//  }
 
   Future<void> _isFollowed(int animeId , String userId)async{
     dynamic favourites = await _httpClient.get(Urls.API_FAVOURITE_ANIMES+userId);
