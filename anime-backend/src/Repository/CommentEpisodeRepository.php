@@ -46,7 +46,7 @@ class CommentEpisodeRepository extends ServiceEntityRepository
     public function getCommentsByEpisodeId($episodeID)
     {
         return $this->createQueryBuilder('CommentEpisode')
-            ->select('CommentEpisode.id','CommentEpisode.comment, CommentEpisode.spoilerAlert, CommentEpisode.creationDate')
+            ->select('CommentEpisode.id', 'Comment.userID', 'CommentEpisode.comment', 'CommentEpisode.spoilerAlert', 'CommentEpisode.creationDate')
             ->addSelect('userProfile.userName','userProfile.image')
             ->from('App:Episode','episode')
 
@@ -54,7 +54,7 @@ class CommentEpisodeRepository extends ServiceEntityRepository
                 UserProfile::class,
                 'userProfile',
                 Join::WITH,
-                'userProfile.userID = comment.userID'
+                'userProfile.userID = Comment.userID'
             )
 
             ->andWhere('episode.id=CommentEpisode.episodeID')
