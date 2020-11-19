@@ -95,7 +95,7 @@ class AnimeDetailsService {
     return await _detailsManager.addToFavourite(request);
   }
 
-  Future<bool> rateAnime(int animeId, double rateValue) async{
+  Future<bool> rateAnime(int animeId, int rateValue) async{
     String userId = await _authService.userID;
 
     RatingRequest request = new RatingRequest(

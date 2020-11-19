@@ -45,7 +45,7 @@ class EpisodeDetailsStateManager {
     });
   }
 
-  void rateEpisode(int episodeId,double rateValue){
+  void rateEpisode(int episodeId,int rateValue){
 
     this._animeDetailsService.rateEpisode(episodeId, rateValue).then((value) {
       if(value == null || value == false){

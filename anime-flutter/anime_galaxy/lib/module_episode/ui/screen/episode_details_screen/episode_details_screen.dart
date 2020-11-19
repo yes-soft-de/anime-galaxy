@@ -29,7 +29,7 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
     with TickerProviderStateMixin<EpisodeDetailsScreen> {
   double screenWidth;
   bool isExpanded = false;
-  double rating = 3.5;
+  int rating = 3;
   bool loading = true;
   EpisodeDetailsState currentState = EpisodeDetailsStateInit();
   EpisodeModel episode = new EpisodeModel();
@@ -193,6 +193,9 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
                 onRatingChanged: (rating) {
                   widget._stateManager.rateEpisode(episodeId, rating);
                   this.rating = rating;
+                  setState(() {
+
+                  });
                 },
                 itemSize: 25,
                 itemCount: 10,

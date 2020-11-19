@@ -35,7 +35,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
     with TickerProviderStateMixin<AnimeDetailsScreen> {
   double screenWidth;
   bool isExpanded = false;
-  double rating = 3.5;
+  int rating = 3;
   bool loading = true;
   AnimeDetailsState currentState = AnimeDetailsStateInit();
   AnimeModel anime = new AnimeModel();
@@ -201,6 +201,9 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                   onRatingChanged: (rating) {
                     widget._stateManager.rateAnime(animeId, rating);
                     this.rating = rating;
+                    setState(() {
+
+                    });
                   }
                    ,
                   itemSize: 25,

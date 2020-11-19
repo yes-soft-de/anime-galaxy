@@ -58,7 +58,7 @@ class AnimeDetailsStateManager {
 
   }
 
-  void rateAnime(int animeId,double rateValue){
+  void rateAnime(int animeId,int rateValue){
 
     this._animeDetailsService.rateAnime(animeId, rateValue).then((value) {
       if(value == null || value == false){

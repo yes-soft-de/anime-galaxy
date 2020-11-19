@@ -14,7 +14,7 @@ import 'package:inject/inject.dart';
 
 List<EpisodeResponse> episodes1 = [];
 List<CommentResponse> comments1 = [];
-bool isFollowed = false;
+bool isFollowed ;
 
 @provide
 class AnimeDetailsRepository{
@@ -80,7 +80,10 @@ class AnimeDetailsRepository{
     dynamic res = favourites['Data'];
     for(int i=0 ; i <res.length ; i++){
       FavouriteResponse favourite = FavouriteResponse.fromJson(res[i]);
-      if(animeId == favourite.animeID ) isFollowed1 = true;
+      if(animeId == favourite.animeID ) {
+        isFollowed1 = true;
+        return;
+      }
     }
 
     isFollowed1 = false;

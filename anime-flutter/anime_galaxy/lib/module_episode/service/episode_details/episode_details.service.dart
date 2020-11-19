@@ -70,7 +70,7 @@ class EpisodeDetailsService{
     return await _detailsManager.addComment(commentRequest);
   }
 
-  Future<bool> rateEpisode(int episodeId, double rateValue) async{
+  Future<bool> rateEpisode(int episodeId, int rateValue) async{
     String userId = await _authPrefsHelper.getUserId();
 
     RatingRequest request = new RatingRequest(
