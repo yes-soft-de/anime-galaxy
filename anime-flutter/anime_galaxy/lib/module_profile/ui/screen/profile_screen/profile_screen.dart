@@ -156,7 +156,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ),
               ),
+
+
               //activities
+              //display following activities only for me
+              if( userId == null)
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -170,6 +174,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ],
               ),
 
+             if ( userId == null)
               ListView.builder(
                   physics: NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
@@ -187,7 +192,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             _profileModel.followingActivities[index].action,
                       ),
                     );
-                  }),
+                  }) ,
 
               SizedBox(
                 height: 20,

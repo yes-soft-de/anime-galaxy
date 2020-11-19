@@ -48,7 +48,7 @@ class _InitAccountScreenState extends State<InitAccountScreen>
       }
     }
     if (currentState is InitAccountStateAddFavouritesSuccess) {
-      Navigator.pushNamed(context, MainScreenRoute.MAIN_SCREEN_ROUTE);
+      Navigator.pushReplacementNamed (context, MainScreenRoute.MAIN_SCREEN_ROUTE);
     }
   }
 
