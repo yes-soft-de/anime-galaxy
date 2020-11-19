@@ -8,6 +8,8 @@ class GetCommentsEpisodeResponse
     public $spoilerAlert;
     public $creationDate;
     public $commentInteractions;
+    public $userName;
+    public $image;
 
     /**
      * @return mixed

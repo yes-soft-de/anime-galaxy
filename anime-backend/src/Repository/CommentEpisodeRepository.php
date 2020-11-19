@@ -4,7 +4,9 @@ namespace App\Repository;
 
 use App\Entity\CommentEpisode;
 use App\Entity\Episode;
+use App\Entity\UserProfile;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query\Expr\Join;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -45,7 +47,16 @@ class CommentEpisodeRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('CommentEpisode')
             ->select('CommentEpisode.id','CommentEpisode.comment, CommentEpisode.spoilerAlert, CommentEpisode.creationDate')
+            ->addSelect('userProfile.userName','userProfile.image')
             ->from('App:Episode','episode')
+
+            ->leftJoin(
+                UserProfile::class,
+                'userProfile',
+                Join::WITH,
+                'userProfile.userID = comment.userID'
+            )
+
             ->andWhere('episode.id=CommentEpisode.episodeID')
             ->andWhere('episode.id=:episodeID')
             ->setParameter('episodeID', $episodeID)
