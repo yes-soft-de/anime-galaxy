@@ -14,6 +14,7 @@ class AnimeResponse {
   List<EpisodeResponse> episodes;
   List<CommentResponse> comments;
   bool isFollowed;
+  int previousRate;
 
   AnimeResponse(
       {this.id,

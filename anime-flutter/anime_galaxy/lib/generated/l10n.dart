@@ -1262,6 +1262,16 @@ class S {
       args: [],
     );
   }
+
+  /// `لقد قمت بتقييم هذا الأنمي مسبقا`
+  String get YouHaveRatedThisAnime {
+    return Intl.message(
+      'لقد قمت بتقييم هذا الأنمي مسبقا',
+      name: 'YouHaveRatedThisAnime',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

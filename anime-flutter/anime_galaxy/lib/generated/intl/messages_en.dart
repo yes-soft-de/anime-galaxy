@@ -36,6 +36,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "RateSeries" : MessageLookupByLibrary.simpleMessage("قيم المسلسل"),
     "Season" : MessageLookupByLibrary.simpleMessage("الموسم"),
     "Share" : MessageLookupByLibrary.simpleMessage("مشاركة"),
+    "YouHaveRatedThisAnime" : MessageLookupByLibrary.simpleMessage("لقد قمت بتقييم هذا الأنمي مسبقا"),
     "about" : MessageLookupByLibrary.simpleMessage("حول"),
     "aboutMe" : MessageLookupByLibrary.simpleMessage("عني"),
     "account" : MessageLookupByLibrary.simpleMessage("الحساب"),

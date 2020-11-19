@@ -15,6 +15,7 @@ import 'package:inject/inject.dart';
 List<EpisodeResponse> episodes1 = [];
 List<CommentResponse> comments1 = [];
 bool isFollowed ;
+int previousRate1 ;
 
 @provide
 class AnimeDetailsRepository{
@@ -36,12 +37,14 @@ class AnimeDetailsRepository{
     await Future.wait([
       _getEpisodes(animeId),
       _getComments(animeId),
-      _isFollowed(animeId , userId)
+      _isFollowed(animeId , userId),
+      _getPreviousRate(animeId,userId),
     ]);
 
     anime.episodes = episodes1;
     anime.comments = comments1;
     anime.isFollowed = isFollowed1;
+    anime.previousRate = previousRate1;
 
     return anime;
 
@@ -130,5 +133,22 @@ class AnimeDetailsRepository{
 
   }
 
+  Future<void> _getPreviousRate(int animeId,String userId)async{
+    dynamic response = await _httpClient.get(Urls.API_RATING_ANIME+'/$animeId/'+userId);
+
+    if(response == null ) {
+      previousRate1 = 0;
+      return;
+    }
+
+    String stringRate = response['Data']['avgRating'][0]['rating'];
+     if( stringRate == null){
+       previousRate1 = 0 ;
+       return;
+    }
+
+    previousRate1 = double.parse(stringRate).round();
+
+  }
 }
 

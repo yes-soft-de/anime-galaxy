@@ -13,6 +13,7 @@ import 'package:anime_galaxy/utils/app_bar/anime_galaxy_app_bar.dart';
 import 'package:anime_galaxy/utils/loading_indicator/loading_indicator.dart';
 import 'package:anime_galaxy/utils/project_colors/project_color.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:inject/inject.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
@@ -35,7 +36,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
     with TickerProviderStateMixin<AnimeDetailsScreen> {
   double screenWidth;
   bool isExpanded = false;
-  int rating = 3;
+  int rating = 0;
   bool loading = true;
   AnimeDetailsState currentState = AnimeDetailsStateInit();
   AnimeModel anime = new AnimeModel();
@@ -69,6 +70,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
     if (currentState is AnimeDetailsStateFetchingSuccess) {
       AnimeDetailsStateFetchingSuccess state = currentState;
       anime = state.data;
+      rating = anime.previousRate;
       loading = false;
       if (this.mounted) {
         setState(() {});
@@ -199,11 +201,16 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                     color: ProjectColors.ThemeColor,
                   ),
                   onRatingChanged: (rating) {
-                    widget._stateManager.rateAnime(animeId, rating);
-                    this.rating = rating;
-                    setState(() {
+                    if(anime.previousRate == 0 ){
+                      widget._stateManager.rateAnime(animeId, rating);
+                      this.rating = rating;
+                      setState(() {
 
-                    });
+                      });
+                    }else{
+                      Fluttertoast.showToast(msg: S.of(context).YouHaveRatedThisAnime);
+                    }
+
                   }
                    ,
                   itemSize: 25,
