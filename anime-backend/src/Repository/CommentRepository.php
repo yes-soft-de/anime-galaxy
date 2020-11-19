@@ -54,9 +54,19 @@ class CommentRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('comment')
             ->select('comment.id,comment.comment, comment.spoilerAlert, comment.creationDate')
+            ->addSelect('userProfile.userName','userProfile.image')
             ->from('App:Anime','anime')
+
+            ->leftJoin(
+                UserProfile::class,
+                'userProfile',
+                Join::WITH,
+                'userProfile.userID = comment.userID'
+            )
+
             ->andWhere('anime.id=comment.animeID')
             ->andWhere('anime.id=:animeID')
+
             ->setParameter('animeID', $animeID)
             ->getQuery()
             ->getResult();
