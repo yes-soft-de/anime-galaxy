@@ -23,7 +23,7 @@ class CategoryRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('category')
             ->getQuery()
-            ->getResult();
+            ->getArrayResult();
     }
 
     public function getCategoryById($id): ?Category
