@@ -53,7 +53,10 @@ class EpisodeDetailsWidget extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                              '$rate',
+                            rate != null
+                                ? ((double.parse(rate) * 10).floor() / 10)
+                                .toString()
+                                : 0.toString(),
                             style: TextStyle(
                               fontFamily:'Roboto',
                             ),

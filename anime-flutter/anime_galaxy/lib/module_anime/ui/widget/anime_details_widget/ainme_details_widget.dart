@@ -13,6 +13,7 @@ class AnimeDetailsWidget extends StatelessWidget {
   final String image;
   final FollowCallBack onFollow;
   final bool isFollowed;
+  final int episodesNumber;
 
   AnimeDetailsWidget({
     this.name,
@@ -23,6 +24,7 @@ class AnimeDetailsWidget extends StatelessWidget {
     this.image,
     this.isFollowed,
     this.onFollow,
+    this.episodesNumber,
   });
 
   @override
@@ -54,7 +56,7 @@ class AnimeDetailsWidget extends StatelessWidget {
                   Text(
                     showYear,
                     style: TextStyle(
-                      fontSize: 12,
+                      fontSize: 13,
                       fontFamily:'Roboto',
                     ),
                   ),
@@ -65,18 +67,38 @@ class AnimeDetailsWidget extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            Icon(Icons.star_border,
-                                color: ProjectColors.ThemeColor),
-                            Text(
-                              rate != null
-                                  ? ((double.parse(rate) * 10).floor() / 10)
+                            Row(
+                              children: [
+                                Icon(Icons.star_border,
+                                    color: ProjectColors.ThemeColor),
+                                Text(
+                                  rate != null
+                                      ? ((double.parse(rate) * 10).floor() / 10)
                                       .toString()
-                                  : 10.toString(),
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontFamily:'Roboto',
-                              ),
+                                      : 0.toString(),
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontFamily:'Roboto',
+                                  ),
+                                ),
+                              ],
                             ),
+                            SizedBox(
+                              width: 13,
+                            ),
+                            Row(
+                              children: [
+                                 Text(
+                                   '$episodesNumberحلقات',
+                                   style: TextStyle(
+                                   fontSize: 16,
+                                   color: ProjectColors.ThemeColor,
+                                   fontFamily:'Roboto',
+                                 ),
+                                 )
+                              ],
+                            ),
+
                           ],
                         ),
                         Row(

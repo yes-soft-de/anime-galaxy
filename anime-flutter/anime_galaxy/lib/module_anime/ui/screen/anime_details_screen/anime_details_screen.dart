@@ -170,9 +170,10 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
             name: anime.name,
             comments: anime.commentsNumber,
             likes: anime.likesNumber,
-            rate: anime.rate ?? '10',
+            rate: anime.rate ?? '0',
             showYear: anime.showYear,
             image: anime.image,
+            episodesNumber: anime.episodes.length,
             isFollowed: anime.isFollowed,
             onFollow: () =>
                 widget._stateManager.addToFavourite(animeId, anime.categoryID),
