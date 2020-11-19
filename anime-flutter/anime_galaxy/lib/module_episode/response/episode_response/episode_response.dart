@@ -1,4 +1,3 @@
-import 'package:anime_galaxy/module_episode/response/comment_response/comment_response.dart';
 
 class EpisodeResponse {
   List<Comments> comments;
@@ -12,7 +11,6 @@ class EpisodeResponse {
   String publishDate;
   CreationDate createdAt;
   CommentInteractions interactions;
-  List<CommentResponse> episodeComments;
   int previousRate;
 
   EpisodeResponse(
@@ -28,7 +26,7 @@ class EpisodeResponse {
         this.createdAt,
         this.interactions,
         this.previousRate,
-        this.episodeComments,
+
       });
 
   EpisodeResponse.fromJson(Map<String, dynamic> json) {
@@ -86,12 +84,16 @@ class Comments {
   bool spoilerAlert;
   CreationDate creationDate;
   CommentInteractions commentInteractions;
+  String userName;
+  String image;
 
   Comments(
       {this.comment,
         this.spoilerAlert,
         this.creationDate,
-        this.commentInteractions});
+        this.commentInteractions,
+        this.userName,
+        this.image});
 
   Comments.fromJson(Map<String, dynamic> json) {
     comment = json['comment'];
@@ -102,6 +104,8 @@ class Comments {
     commentInteractions = json['commentInteractions'] != null
         ? new CommentInteractions.fromJson(json['commentInteractions'])
         : null;
+    userName = json['userName'];
+    image = json['image'];
   }
 
   Map<String, dynamic> toJson() {
@@ -114,6 +118,8 @@ class Comments {
     if (this.commentInteractions != null) {
       data['commentInteractions'] = this.commentInteractions.toJson();
     }
+    data['userName'] = this.userName;
+    data['image'] = this.image;
     return data;
   }
 }

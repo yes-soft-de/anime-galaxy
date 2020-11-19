@@ -9,7 +9,7 @@ import 'package:anime_galaxy/module_episode/response/episode_response/episode_re
 import 'package:anime_galaxy/module_network/http_client/http_client.dart';
 import 'package:inject/inject.dart';
 
-List<CommentResponse> comments1 = [];
+//List<CommentResponse> comments1 = [];
 int previousRate1 ;
 
 @provide
@@ -30,11 +30,11 @@ class EpisodeDetailsRepository{
     EpisodeResponse episode = new EpisodeResponse();
     episode = EpisodeResponse.fromJson(response['Data']);
     await Future.wait([
-      _getComments(episodeId),
+//      _getComments(episodeId),
       _getPreviousRate(episodeId, userId)
     ]);
 
-    episode.episodeComments = comments1;
+
     episode.previousRate = previousRate1;
 
     return episode;
@@ -44,17 +44,17 @@ class EpisodeDetailsRepository{
 
 
 
-  Future<void> _getComments(int episodeId) async{
-    dynamic response = await _httpClient.get(Urls.API_ALL_EPISODE_COMMENTS+'$episodeId');
-    if(response == null ) return  ;
-
-    List<CommentResponse> comments = [];
-    dynamic res = response['Data'];
-    for(int i=0; i<res.length ; i++){
-      comments.add(CommentResponse.fromJson(response['Data'][i]));
-    }
-    comments1 = comments;
-  }
+//  Future<void> _getComments(int episodeId) async{
+//    dynamic response = await _httpClient.get(Urls.API_ALL_EPISODE_COMMENTS+'$episodeId');
+//    if(response == null ) return  ;
+//
+//    List<CommentResponse> comments = [];
+//    dynamic res = response['Data'];
+//    for(int i=0; i<res.length ; i++){
+//      comments.add(CommentResponse.fromJson(response['Data'][i]));
+//    }
+//    comments1 = comments;
+//  }
 
 
 
