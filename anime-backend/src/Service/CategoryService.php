@@ -11,17 +11,20 @@ use App\Response\CreateCategoryResponse;
 use App\Response\GetCategoryByIdResponse;
 use App\Response\GetCategoryResponse;
 use App\Response\UpdateCategoryResponse;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 class CategoryService
 
 {
     private $categoryManager;
     private $autoMapping;
+    private $params;
 
-    public function __construct(CategoryManager $categoryManager, AutoMapping $autoMapping)
+    public function __construct(CategoryManager $categoryManager, AutoMapping $autoMapping, ParameterBagInterface $params)
     {
         $this->categoryManager =$categoryManager;
         $this->autoMapping = $autoMapping;
+        $this->params = $params->get('upload_base_url') . '/';
     }
 
     public function create($request)
@@ -39,6 +42,8 @@ class CategoryService
 
         foreach ($result as $row)
         {
+            $row['image'] = $this->params.$row['image'];
+
             $response[] = $this->autoMapping->map(Category::class, GetCategoryResponse::class, $row);
         }
 
