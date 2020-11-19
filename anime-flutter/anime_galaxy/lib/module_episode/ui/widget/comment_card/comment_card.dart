@@ -36,7 +36,8 @@ class CommentCard extends StatelessWidget {
                   Text(
                     userName,
                     style: TextStyle(
-                        fontSize: 10
+                        fontFamily:'Roboto',
+                        fontSize: 10,
                     ),
                   ),
 
@@ -45,7 +46,8 @@ class CommentCard extends StatelessWidget {
               Text(
                 date,
                 style: TextStyle(
-                    fontSize: 8
+                    fontSize: 8,
+                  fontFamily:'Roboto',
                 ),
               ),
 
@@ -58,7 +60,8 @@ class CommentCard extends StatelessWidget {
               comment,
               textDirection: TextDirection.rtl,
               style: TextStyle(
-                  fontSize: 10
+                  fontSize: 10,
+                fontFamily:'Roboto',
               ),
             ),
           )

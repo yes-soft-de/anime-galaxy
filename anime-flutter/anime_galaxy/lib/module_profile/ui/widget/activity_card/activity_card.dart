@@ -43,6 +43,7 @@ class ActivityCard extends StatelessWidget {
                 child: Text(
                   'قام $userName بالتعليق على المسلسل $activity',
                   style: TextStyle(
+                      fontFamily:'Roboto',
                       fontSize: 10
                   ),
                 ),
@@ -50,6 +51,7 @@ class ActivityCard extends StatelessWidget {
               Text(
                 date,
                 style: TextStyle(
+                    fontFamily:'Roboto',
                     fontSize: 8
                 ),
               ),

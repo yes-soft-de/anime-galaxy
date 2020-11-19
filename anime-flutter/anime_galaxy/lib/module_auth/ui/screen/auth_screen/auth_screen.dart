@@ -137,6 +137,7 @@ class _AuthScreenState extends State<AuthScreen> {
                   _phoneController.text.trim(),
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
+                    fontFamily:'Roboto',
                     fontSize: 12,
                   ),
                 ),
@@ -180,6 +181,7 @@ class _AuthScreenState extends State<AuthScreen> {
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
+                        fontFamily:'Roboto',
                         color: Colors.white,
                       ),
                     ),
@@ -234,6 +236,7 @@ class _AuthScreenState extends State<AuthScreen> {
                             'Sign in with Google',
                             style: TextStyle(
                               fontSize: 16,
+                              fontFamily:'Roboto',
                               fontWeight: FontWeight.w400,
                             ),
                           ),
@@ -285,7 +288,12 @@ class _AuthScreenState extends State<AuthScreen> {
                                 padding: const EdgeInsets.symmetric(horizontal: 10),
                                 child: Image.asset('assets/images/saudi-arabia.png',height: 20,),
                               ),
-                              Text(S.of(context).saudiArabia),
+                              Text(
+                                  S.of(context).saudiArabia,
+                                style: TextStyle(
+                                  fontFamily:'Roboto',
+                                ),
+                              ),
 
                             ],
                           ),
@@ -298,7 +306,12 @@ class _AuthScreenState extends State<AuthScreen> {
                                 padding: const EdgeInsets.symmetric(horizontal: 10),
                                 child: Image.asset('assets/images/united-states.png',height: 20,),
                               ),
-                              Text(S.of(context).usa),
+                              Text(
+                                  S.of(context).usa,
+                                style: TextStyle(
+                                  fontFamily:'Roboto',
+                                ),
+                              ),
 
                             ],
                           ),
@@ -312,7 +325,12 @@ class _AuthScreenState extends State<AuthScreen> {
                                 padding: const EdgeInsets.symmetric(horizontal: 10),
                                 child: Image.asset('assets/images/lebanon.png',height: 20,),
                               ),
-                                Text(S.of(context).lebanon),
+                                Text(
+                                    S.of(context).lebanon,
+                                  style: TextStyle(
+                                    fontFamily:'Roboto',
+                                  ),
+                                ),
 
                             ],
                           ),
@@ -326,7 +344,12 @@ class _AuthScreenState extends State<AuthScreen> {
                                 padding: const EdgeInsets.symmetric(horizontal: 10),
                                 child: Image.asset('assets/images/syria.png',height: 20,),
                               ),
-                              Text(S.of(context).syria),
+                              Text(
+                                  S.of(context).syria,
+                                style: TextStyle(
+                                  fontFamily:'Roboto',
+                                ),
+                              ),
 
                             ],
                           ),
@@ -385,6 +408,7 @@ class _AuthScreenState extends State<AuthScreen> {
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
+                        fontFamily:'Roboto',
                       ),
                     ),
                   ],

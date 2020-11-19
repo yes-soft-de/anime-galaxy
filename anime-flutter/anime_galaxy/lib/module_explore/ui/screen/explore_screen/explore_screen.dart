@@ -112,7 +112,9 @@ class _ExploreScreenState extends State<ExploreScreen> {
                                   '${item.name}',
                                   style: TextStyle(
                                       color: Colors.grey,
-                                      fontWeight: FontWeight.bold),
+                                      fontFamily:'Roboto',
+                                      fontWeight: FontWeight.bold
+                                  ),
                                 ),
                               ],
                             ),
@@ -286,7 +288,14 @@ class _ExploreScreenState extends State<ExploreScreen> {
                             scrollDirection: Axis.horizontal,
                           )
                         : ListView(
-                            children: [Text('No Active Users Yet!')],
+                            children: [
+                              Text(
+                                  'No Active Users Yet!',
+                                style: TextStyle(
+                                  fontFamily:'Roboto',
+                                ),
+                              )
+                            ],
                           ),
                   ),
                   Container(

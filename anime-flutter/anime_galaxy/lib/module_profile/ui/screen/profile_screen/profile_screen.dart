@@ -124,7 +124,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         _profileModel.isFollowed
                             ? S.of(context).isFollowed
                             : S.of(context).Follow,
-                        style: TextStyle(fontSize: 14, color: Colors.white),
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontFamily:'Roboto',
+                            color: Colors.white
+                        ),
                       ),
                     ),
                   ),
@@ -135,7 +139,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 children: [
                   Text(
                     S.of(context).aboutMe,
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        fontFamily:'Roboto',
+                        fontWeight: FontWeight.bold
+                    ),
                   ),
                 ],
               ),
@@ -144,6 +151,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 width: MediaQuery.of(context).size.width * 0.8,
                 child: Text(
                   '${_profileModel.about}',
+                  style: TextStyle(
+                    fontFamily:'Roboto',
+                  ),
                 ),
               ),
               //activities
@@ -152,7 +162,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 children: [
                   Text(
                     S.of(context).activities,
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      fontFamily:'Roboto',
+                    ),
                   ),
                 ],
               ),
@@ -185,7 +198,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 children: [
                   Text(
                     S.of(context).watchedSeries,
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      fontFamily:'Roboto',
+                    ),
                   ),
                 ],
               ),

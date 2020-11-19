@@ -42,14 +42,24 @@ class _SettingsPageState extends State<SettingsPage> {
                 direction: Axis.horizontal,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(S.of(context).username),
+                  Text(
+                      S.of(context).username,
+                          style: TextStyle(
+                            fontFamily:'Roboto',
+                          ),
+                  ),
                   FutureBuilder(
                     future: widget._authService.username,
                     builder: (
                         BuildContext context,
                         AsyncSnapshot<String> snapshot,
                         ) {
-                      return Text(snapshot.data ?? S.of(context).notLoggedIn);
+                      return Text(
+                          snapshot.data ?? S.of(context).notLoggedIn,
+                        style: TextStyle(
+                          fontFamily:'Roboto',
+                        ),
+                      );
                     },
                   ),
                 ],
@@ -70,7 +80,12 @@ class _SettingsPageState extends State<SettingsPage> {
                 direction: Axis.horizontal,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(S.of(context).darkMode),
+                  Text(
+                      S.of(context).darkMode,
+                    style: TextStyle(
+                      fontFamily:'Roboto',
+                    ),
+                  ),
                   StreamBuilder(
                     stream: widget._themeDataService.darkModeStream,
                     initialData: false,
@@ -111,7 +126,12 @@ class _SettingsPageState extends State<SettingsPage> {
                       direction: Axis.horizontal,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(S.of(context).signOut),
+                        Text(
+                            S.of(context).signOut,
+                          style: TextStyle(
+                            fontFamily:'Roboto',
+                          ),
+                        ),
                         IconButton(
                             icon: Icon(Icons.power_settings_new),
 //                             icon: Icon(Icons.arrow_drop_down_circle),
@@ -131,7 +151,12 @@ class _SettingsPageState extends State<SettingsPage> {
                       direction: Axis.horizontal,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(S.of(context).login),
+                        Text(
+                            S.of(context).login,
+                          style: TextStyle(
+                            fontFamily:'Roboto',
+                          ),
+                        ),
                         IconButton(
 //                            icon: Icon(Icons.login),
                             icon: Icon(Icons.radio),

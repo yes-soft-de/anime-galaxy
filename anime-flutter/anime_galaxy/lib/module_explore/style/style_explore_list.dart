@@ -125,6 +125,7 @@ class StyleExploreList {
 
     return TextStyle(
         fontSize: size,
+        fontFamily:'Roboto',
         fontWeight: fontWeight ?? FontWeight.normal,
         decoration: underLine ? TextDecoration.underline : TextDecoration.none);
   }

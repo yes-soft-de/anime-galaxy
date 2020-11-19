@@ -126,7 +126,10 @@ class AnimeNavigationDrawer extends StatelessWidget {
                                 ),
                                 Text(
                                   S.of(context).feed,
-                                  style: TextStyle(color: Colors.white),
+                                  style: TextStyle(
+                                      fontFamily:'Roboto',
+                                      color: Colors.white
+                                  ),
                                 ),
                               ],
                             ),
@@ -151,7 +154,10 @@ class AnimeNavigationDrawer extends StatelessWidget {
                                 ),
                                 Text(
                                   S.of(context).explore,
-                                  style: TextStyle(color: Colors.white),
+                                  style: TextStyle(
+                                      fontFamily:'Roboto',
+                                      color: Colors.white
+                                  ),
                                 ),
                               ],
                             ),
@@ -176,8 +182,13 @@ class AnimeNavigationDrawer extends StatelessWidget {
                                 Container(
                                   width: 16,
                                 ),
-                                Text(S.of(context).notifications,
-                                    style: TextStyle(color: Colors.white)),
+                                Text(
+                                    S.of(context).notifications,
+                                    style: TextStyle(
+                                        fontFamily:'Roboto',
+                                        color: Colors.white
+                                    )
+                                ),
                               ],
                             ),
                           ),
@@ -199,8 +210,13 @@ class AnimeNavigationDrawer extends StatelessWidget {
                                 Container(
                                   width: 16,
                                 ),
-                                Text(S.of(context).settings,
-                                    style: TextStyle(color: Colors.white)),
+                                Text(
+                                    S.of(context).settings,
+                                    style: TextStyle(
+                                        fontFamily:'Roboto',
+                                        color: Colors.white
+                                    )
+                                ),
                               ],
                             ),
                           ),
@@ -223,8 +239,13 @@ class AnimeNavigationDrawer extends StatelessWidget {
                                 Container(
                                   width: 16,
                                 ),
-                                Text(S.of(context).tos,
-                                    style: TextStyle(color: Colors.white)),
+                                Text(
+                                    S.of(context).tos,
+                                    style: TextStyle(
+                                        fontFamily:'Roboto',
+                                        color: Colors.white
+                                    )
+                                ),
                               ],
                             ),
                           ),
@@ -250,6 +271,7 @@ class AnimeNavigationDrawer extends StatelessWidget {
                                 Text(
                                   S.of(context).privacyPolicy,
                                   style: TextStyle(
+                                    fontFamily:'Roboto',
                                     color: Colors.white,
                                   ),
                                 ),
@@ -317,7 +339,12 @@ class AnimeNavigationDrawer extends StatelessWidget {
 //                      color: Theme.of(context).brightness == Brightness.dark
 //                          ? Colors.black
 //                          : Colors.white,
-                        child: Text(S.of(context).feedback),
+                        child: Text(
+                            S.of(context).feedback,
+                          style: TextStyle(
+                            fontFamily:'Roboto',
+                          ),
+                        ),
                       ),
                     ),
                     // endregion

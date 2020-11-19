@@ -30,7 +30,12 @@ class MemberCard extends StatelessWidget {
 
             children: [
               Expanded(
-                child: Text("${series_name}",style: StyleExploreList.getTextSyle(size: 14,fontWeight: FontWeight.w400,day:true),
+                child: Text('${series_name}',
+                  style: StyleExploreList.getTextSyle(
+                      size: 14,
+                      fontWeight: FontWeight.w400,
+                      day:true
+                  ),
                   maxLines: 1,overflow: TextOverflow.ellipsis,textAlign: TextAlign.center,),
               ),
             ],

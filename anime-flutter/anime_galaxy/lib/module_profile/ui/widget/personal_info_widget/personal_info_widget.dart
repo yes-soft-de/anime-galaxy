@@ -43,7 +43,11 @@ class PersonalInfoWidget extends StatelessWidget {
                 children: [
                   Text(
                     '$name',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontFamily:'Roboto',
+                        fontWeight: FontWeight.bold
+                    ),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -52,6 +56,7 @@ class PersonalInfoWidget extends StatelessWidget {
                         '$category',
                         style: TextStyle(
                           fontSize: 12,
+                          fontFamily:'Roboto',
                         ),
                       ),
                     ],
@@ -78,12 +83,14 @@ class PersonalInfoWidget extends StatelessWidget {
                                   S.of(context).comments,
                                   style: TextStyle(
                                     color: Colors.white,
+                                    fontFamily:'Roboto',
                                     fontSize: 12,
                                   ),
                                 ),
                                 Text(
                                   '$commentsNumber',
                                   style: TextStyle(
+                                    fontFamily:'Roboto',
                                     color: Colors.white,
                                     fontSize: 16,
                                   ),
@@ -95,6 +102,7 @@ class PersonalInfoWidget extends StatelessWidget {
                                 Text(
                                   S.of(context).following,
                                   style: TextStyle(
+                                    fontFamily:'Roboto',
                                     color: Colors.white,
                                     fontSize: 12,
                                   ),
@@ -102,6 +110,7 @@ class PersonalInfoWidget extends StatelessWidget {
                                 Text(
                                   '$followingNumber',
                                   style: TextStyle(
+                                    fontFamily:'Roboto',
                                     color: Colors.white,
                                     fontSize: 16,
                                   ),
@@ -113,6 +122,7 @@ class PersonalInfoWidget extends StatelessWidget {
                                 Text(
                                   S.of(context).series,
                                   style: TextStyle(
+                                    fontFamily:'Roboto',
                                     color: Colors.white,
                                     fontSize: 12,
                                   ),
@@ -120,6 +130,7 @@ class PersonalInfoWidget extends StatelessWidget {
                                 Text(
                                   '$seriesNumber',
                                   style: TextStyle(
+                                    fontFamily:'Roboto',
                                     color: Colors.white,
                                     fontSize: 16,
                                   ),

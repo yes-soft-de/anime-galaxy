@@ -47,10 +47,12 @@ class AnimeGalaxyAppBar {
                     S.current.GoodEvining,
                     style: TextStyle(
                       fontSize: 14,
+                      fontFamily:'Roboto',
                     )),
                 Text('$userName',
                     style: TextStyle(
                       fontSize: 18,
+                      fontFamily:'Roboto',
                       fontWeight: FontWeight.bold,
                     )),
               ],

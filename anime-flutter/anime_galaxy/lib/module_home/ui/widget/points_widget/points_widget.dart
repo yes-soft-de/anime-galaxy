@@ -31,7 +31,8 @@ class PointsWidget extends StatelessWidget {
               Text(
                 S.of(context).member+' $memberType',
                 style: TextStyle(
-                    fontSize: 10
+                    fontSize: 10,
+                  fontFamily:'Roboto',
                 ),
               ),
               Container(
@@ -64,7 +65,8 @@ class PointsWidget extends StatelessWidget {
                   '$points '+ S.of(context).point,
                   textDirection: TextDirection.rtl,
                   style: TextStyle(
-                      fontSize: 10
+                      fontSize: 10,
+                    fontFamily:'Roboto',
                   ),
                 ),
               ),

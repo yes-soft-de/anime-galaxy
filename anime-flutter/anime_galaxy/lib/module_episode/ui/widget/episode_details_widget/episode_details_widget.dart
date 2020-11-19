@@ -37,16 +37,27 @@ class EpisodeDetailsWidget extends StatelessWidget {
                 children: [
                   Text(
                     name,
+                    style: TextStyle(
+                      fontFamily:'Roboto',
+                    ),
                   ),
                   Text(
                     showYear,
+                    style: TextStyle(
+                      fontFamily:'Roboto',
+                    ),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Row(
                         children: [
-                          Text('$rate'),
+                          Text(
+                              '$rate',
+                            style: TextStyle(
+                              fontFamily:'Roboto',
+                            ),
+                          ),
                           Icon(Icons.star_border,
                               color: ProjectColors.ThemeColor)
                         ],
@@ -55,7 +66,12 @@ class EpisodeDetailsWidget extends StatelessWidget {
                         children: [
                           Row(
                             children: [
-                              Text('$likes'),
+                              Text(
+                                  '$likes',
+                                style: TextStyle(
+                                  fontFamily:'Roboto',
+                                ),
+                              ),
                               Icon(Icons.favorite,
                                   color: ProjectColors.ThemeColor)
                             ],
@@ -65,7 +81,12 @@ class EpisodeDetailsWidget extends StatelessWidget {
                           ),
                           Row(
                             children: [
-                              Text('$comments'),
+                              Text(
+                                  '$comments',
+                                style: TextStyle(
+                                  fontFamily:'Roboto',
+                                ),
+                              ),
                               Icon(Icons.comment,
                                   color: ProjectColors.ThemeColor)
                             ],
@@ -85,7 +106,10 @@ class EpisodeDetailsWidget extends StatelessWidget {
                           ),
                           Text(
                             S.of(context).Like,
-                            style: TextStyle(fontSize: 10),
+                            style: TextStyle(
+                                fontSize: 10,
+                              fontFamily:'Roboto',
+                            ),
                           ),
                         ],
                       ),
@@ -98,7 +122,10 @@ class EpisodeDetailsWidget extends StatelessWidget {
                           ),
                           Text(
                             S.of(context).Share,
-                            style: TextStyle(fontSize: 10),
+                            style: TextStyle(
+                                fontSize: 10,
+                              fontFamily:'Roboto',
+                            ),
                           ),
                         ],
                       ),

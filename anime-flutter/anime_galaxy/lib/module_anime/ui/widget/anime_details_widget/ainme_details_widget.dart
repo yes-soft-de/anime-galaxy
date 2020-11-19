@@ -48,12 +48,14 @@ class AnimeDetailsWidget extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
+                      fontFamily:'Roboto',
                     ),
                   ),
                   Text(
                     showYear,
                     style: TextStyle(
                       fontSize: 12,
+                      fontFamily:'Roboto',
                     ),
                   ),
                   Padding(
@@ -72,6 +74,7 @@ class AnimeDetailsWidget extends StatelessWidget {
                                   : 10.toString(),
                               style: TextStyle(
                                 fontSize: 16,
+                                fontFamily:'Roboto',
                               ),
                             ),
                           ],
@@ -80,7 +83,12 @@ class AnimeDetailsWidget extends StatelessWidget {
                           children: [
                             Row(
                               children: [
-                                Text('$likes'),
+                                Text(
+                                    '$likes',
+                                  style: TextStyle(
+                                    fontFamily:'Roboto',
+                                  ),
+                                ),
                                 Icon(
                                   Icons.favorite,
                                   color: ProjectColors.ThemeColor,
@@ -92,7 +100,12 @@ class AnimeDetailsWidget extends StatelessWidget {
                             ),
                             Row(
                               children: [
-                                Text('$comments'),
+                                Text(
+                                  '$comments',
+                                  style: TextStyle(
+                                    fontFamily:'Roboto',
+                                  ),
+                                ),
                                 Icon(Icons.comment,
                                     color: ProjectColors.ThemeColor)
                               ],
@@ -124,6 +137,7 @@ class AnimeDetailsWidget extends StatelessWidget {
                               style: TextStyle(
                                 fontSize: 14,
                                 color: Colors.white,
+                                fontFamily:'Roboto',
                               ),
                             ),
                           ),

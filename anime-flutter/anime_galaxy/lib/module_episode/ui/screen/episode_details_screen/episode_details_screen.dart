@@ -265,7 +265,10 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
           children: [
             Text(
               S.of(context).monthlyComments,
-              style: TextStyle(fontSize: 14),
+              style: TextStyle(
+                  fontSize: 14,
+                fontFamily:'Roboto',
+              ),
             ),
             //TODO : change it with real data
             LinearPercentIndicator(
@@ -288,7 +291,11 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
             children: [
               Text(
                 S.of(context).About,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  fontFamily:'Roboto',
+                ),
               ),
               SizedBox(
                 width: 10,
@@ -315,6 +322,7 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
                     '${episode.about}',
                     style: TextStyle(
                       fontSize: 16,
+                      fontFamily:'Roboto',
                     ),
                   ),
                 )
@@ -362,7 +370,11 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
             children: [
               Text(
                 S.of(context).Classification,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    fontSize: 18,
+                    fontFamily:'Roboto',
+                    fontWeight: FontWeight.bold
+                ),
               ),
             ],
           ),
@@ -380,7 +392,10 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
                 child: Center(
                     child: Text(
                   '${episode.classification}',
-                  style: TextStyle(fontSize: 12),
+                  style: TextStyle(
+                      fontFamily:'Roboto',
+                      fontSize: 12
+                  ),
                 ))),
           ],
           //in case of multiple classifications
@@ -422,7 +437,11 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
               children: [
                 Text(
                   S.of(context).LastReplaysAndComments,
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontFamily:'Roboto',
+                      fontWeight: FontWeight.bold
+                  ),
                 ),
               ],
             )),
@@ -464,8 +483,11 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          Text(S.of(context).newInteraction,
-                              style: GoogleFonts.roboto()),
+                          Text(
+                              S.of(context).newInteraction,
+                              style: TextStyle(
+                                fontFamily:'Roboto',
+                              )),
                         ],
                       ),
                       Container(
@@ -477,7 +499,11 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
                         width: MediaQuery.of(context).size.width * 0.6,
                         child: TextField(
                           controller: _commentController,
-                          style: TextStyle(color: Colors.white, fontSize: 14),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontFamily:'Roboto',
+                              fontSize: 14,
+                          ),
                           maxLines: 8,
                           decoration: InputDecoration.collapsed(
                             hintText: S.of(context).addYourComment,
@@ -508,7 +534,10 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
                             Text(S.of(context).spoilerAlert,
                                 style: GoogleFonts.roboto(
                                   textStyle: TextStyle(
-                                      fontSize: 10, color: Colors.white),
+                                      fontSize: 10,
+                                      color: Colors.white,
+                                    fontFamily:'Roboto',
+                                  ),
                                 ))
                           ],
                         ),
@@ -532,7 +561,10 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.roboto(
                                   textStyle: TextStyle(
-                                      fontSize: 10, color: Colors.white),
+                                      fontSize: 10,
+                                      fontFamily:'Roboto',
+                                      color: Colors.white
+                                  ),
                                 )),
                           )),
                     ],

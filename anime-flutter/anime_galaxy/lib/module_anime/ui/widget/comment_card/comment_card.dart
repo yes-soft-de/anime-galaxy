@@ -38,13 +38,20 @@ class CommentCard extends StatelessWidget {
                   ),
                   Text(
                     userName,
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        fontFamily:'Roboto',
+                    ),
                   ),
                 ],
               ),
               Text(
                 date,
-                style: TextStyle(fontSize: 12),
+                style: TextStyle(
+                    fontFamily:'Roboto',
+                    fontSize: 12,
+                ),
               ),
             ],
           ),
@@ -53,7 +60,10 @@ class CommentCard extends StatelessWidget {
             padding: EdgeInsetsDirectional.fromSTEB(60, 10, 0, 0),
             child: Text(
               comment,
-              style: TextStyle(fontSize: 16),
+              style: TextStyle(
+                  fontFamily:'Roboto',
+                  fontSize: 16
+              ),
             ),
           )
         ],

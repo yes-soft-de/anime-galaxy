@@ -244,7 +244,11 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
             children: [
               Text(
                 S.of(context).monthlyComments,
-                style: TextStyle(fontSize: 14),
+                style: TextStyle(
+                    fontSize: 14,
+                    fontFamily:'Roboto'
+                ),
+
               ),
               //TODO : change it with real data
               LinearPercentIndicator(
@@ -267,7 +271,10 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
               children: [
                 Text(
                   S.of(context).About,
-                  style: TextStyle(fontSize: 12),
+                  style: TextStyle(
+                      fontSize: 12,
+                      fontFamily:'Roboto'
+                  ),
                 ),
                 SizedBox(
                   width: 10,
@@ -294,6 +301,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                       '${anime.about}',
                       style: TextStyle(
                         fontSize: 12,
+                          fontFamily:'Roboto'
                       ),
                     ),
                   ))),
@@ -342,6 +350,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
+                      fontFamily:'Roboto'
                   ),
                 ),
               ],
@@ -360,7 +369,10 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                   child: Center(
                       child: Text(
                     '${anime.classification}',
-                    style: TextStyle(fontSize: 12),
+                    style: TextStyle(
+                        fontSize: 12,
+                        fontFamily:'Roboto'
+                    ),
                   ))),
             ],
           ),
@@ -385,6 +397,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
+                          fontFamily:'Roboto'
                       ),
                     ),
                   ],
@@ -415,7 +428,12 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                   itemCount: anime.episodes != null ? anime.episodes.length : 0,
                   shrinkWrap: true,
                 )
-              : Text(S.of(context).noNewEpisodes),
+              : Text(
+              S.of(context).noNewEpisodes,
+                style: TextStyle(
+                    fontFamily:'Roboto'
+                ),
+          ),
 
           Container(
               padding: EdgeInsetsDirectional.fromSTEB(0, 0, 5, 0),
@@ -429,6 +447,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
+                          fontFamily:'Roboto'
                       ),
                     ),
                   ),
@@ -448,7 +467,12 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                     );
                   },
                 )
-              : Text(S.of(context).beTheFirstToComment),
+              : Text(
+              S.of(context).beTheFirstToComment,
+                style: TextStyle(
+                    fontFamily:'Roboto'
+                ),
+          ),
 
           SizedBox(
             height: 60,
@@ -476,7 +500,10 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Text(S.of(context).newInteraction,
-                              style: GoogleFonts.roboto()),
+                              style: TextStyle(
+                                  fontFamily:'Roboto'
+                              )
+                          ),
                         ],
                       ),
                       Container(
@@ -488,11 +515,18 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                         width: MediaQuery.of(context).size.width * 0.6,
                         child: TextField(
                           controller: _commentController,
-                          style: TextStyle(color: Colors.white, fontSize: 14),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontFamily:'Roboto',
+                              fontSize: 14,
+                          ),
                           maxLines: 8,
                           decoration: InputDecoration.collapsed(
                             hintText: S.of(context).addYourComment,
-                            hintStyle: TextStyle(color: Colors.white),
+                            hintStyle: TextStyle(
+                                color: Colors.white,
+                              fontFamily:'Roboto',
+                            ),
                           ),
                         ),
                       ),
@@ -519,7 +553,10 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                             Text(S.of(context).spoilerAlert,
                                 style: GoogleFonts.roboto(
                                   textStyle: TextStyle(
-                                      fontSize: 10, color: Colors.white),
+                                      fontFamily:'Roboto',
+                                      fontSize: 10,
+                                      color: Colors.white
+                                  ),
                                 ))
                           ],
                         ),
@@ -543,7 +580,9 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.roboto(
                                   textStyle: TextStyle(
-                                      fontSize: 10, color: Colors.white),
+                                      fontFamily:'Roboto',
+                                      fontSize: 10,
+                                      color: Colors.white),
                                 )),
                           )),
                     ],

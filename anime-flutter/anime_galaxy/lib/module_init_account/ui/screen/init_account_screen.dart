@@ -86,7 +86,12 @@ class _InitAccountScreenState extends State<InitAccountScreen>
           onPressed: () {
             widget._stateManager.getCategories();
           },
-          child: Text(S.of(context).retry),
+          child: Text(
+              S.of(context).retry,
+            style: TextStyle(
+              fontFamily:'Roboto',
+            ),
+          ),
         )
       ],
     );
@@ -108,6 +113,9 @@ class _InitAccountScreenState extends State<InitAccountScreen>
                     children: [
                       Text(
                         S.of(context).startWachingSeries,
+                        style: TextStyle(
+                          fontFamily:'Roboto',
+                        ),
                       )
                     ],
                   ),
@@ -229,7 +237,10 @@ class _InitAccountScreenState extends State<InitAccountScreen>
                     child: Center(
                       child: Text(
                         S.of(context).continueUsingApp,
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(
+                            color: Colors.white,
+                          fontFamily:'Roboto',
+                        ),
                       ),
                     ),
                   )))),
@@ -246,7 +257,10 @@ class _InitAccountScreenState extends State<InitAccountScreen>
             child: FlatButton(
               child: Text(
                 S.of(context).continueUsingApp,
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(
+                    fontFamily:'Roboto',
+                    color: Colors.white
+                ),
               ),
               onPressed: () {
                 widget._stateManager.addAnimesToWatch(favoriteAnimes);
