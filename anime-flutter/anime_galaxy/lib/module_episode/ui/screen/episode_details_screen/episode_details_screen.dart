@@ -181,16 +181,16 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
               quarterTurns: 2,
               child: AnimeRatingBar(
                 rating: rating,
-                fillIcon: Icon(
-                  Icons.favorite,
+                fillIcon: ImageIcon(
+                  AssetImage('assets/images/full_flame.png'),
                   color: ProjectColors.ThemeColor,
                 ),
-                halfFillIcon: Icon(
-                  Icons.favorite_border,
+                halfFillIcon: ImageIcon(
+                  AssetImage('assets/images/full_flame.png'),
                   color: ProjectColors.ThemeColor,
                 ),
-                emptyIcon: Icon(
-                  Icons.favorite_border,
+                emptyIcon: ImageIcon(
+                  AssetImage('assets/images/flame.png'),
                   color: ProjectColors.ThemeColor,
                 ),
                 onRatingChanged: (rating) {

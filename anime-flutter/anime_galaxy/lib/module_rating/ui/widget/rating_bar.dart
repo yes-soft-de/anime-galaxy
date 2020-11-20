@@ -6,9 +6,9 @@ class  AnimeRatingBar extends StatelessWidget {
   final int itemCount;
   final int rating;
   final RatingChangeCallback onRatingChanged;
-  final Icon fillIcon;
-  final Icon emptyIcon;
-  final Icon halfFillIcon;
+  final ImageIcon fillIcon;
+  final ImageIcon emptyIcon;
+  final ImageIcon halfFillIcon;
   final Color color;
   final double itemSize;
 
@@ -26,7 +26,7 @@ class  AnimeRatingBar extends StatelessWidget {
       );
 
   Widget buildStar(BuildContext context, int index) {
-    Icon icon;
+    ImageIcon icon;
     if (index >= rating) {
       icon = emptyIcon;
     }

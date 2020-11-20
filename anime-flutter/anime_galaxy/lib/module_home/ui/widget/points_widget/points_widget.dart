@@ -1,4 +1,5 @@
 
+import 'package:anime_galaxy/utils/project_color/project_color.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:anime_galaxy/generated/l10n.dart';
@@ -55,9 +56,9 @@ class PointsWidget extends StatelessWidget {
           ),
           Column(
             children: [
-              Icon(
-                Icons.star,
-                color: Color(0xfff77f00),
+              ImageIcon(
+                AssetImage('assets/images/trophy.png'),
+                color: ProjectColors.ThemeColor,
               ),
               Container(
                 margin: EdgeInsets.only(top: 10),
