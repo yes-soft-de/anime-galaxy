@@ -34,7 +34,7 @@ class ActivityCard extends StatelessWidget {
                     width: 50,
                     child: CircleAvatar(
                       radius: 50,
-                      backgroundImage:NetworkImage(userImage),
+                      backgroundImage:NetworkImage('$date'),
                     ),
                   ),
 
@@ -49,7 +49,7 @@ class ActivityCard extends StatelessWidget {
                 ),
               ),
               Text(
-                date,
+                '$date',
                 style: TextStyle(
                     fontFamily:'Roboto',
                     fontSize: 8

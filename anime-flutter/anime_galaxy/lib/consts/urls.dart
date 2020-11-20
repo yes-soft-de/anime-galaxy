@@ -28,6 +28,8 @@ class Urls {
   static const API_REGISTER_POINTS = BASE_API + '/register-point';
   static const API_RATING_EPISODE = BASE_API + '/ratingEpisode';
   static const API_RATING_ANIME = BASE_API + '/rating';
+  static const API_ANIME_INTERACTION = BASE_API + '/interaction';
+  static const API_EPISODE_INTERACTION = BASE_API + '/interactionEpisode';
 
   static const API_SIGN_UP = BASE_API + '/user';
   static const API_CREATE_PROFILE = BASE_API + '/userprofile/';

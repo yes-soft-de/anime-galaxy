@@ -46,7 +46,7 @@ class AnimeDetailsWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    name,
+                    name ?? '',
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -54,7 +54,7 @@ class AnimeDetailsWidget extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    showYear,
+                    showYear ?? '',
                     style: TextStyle(
                       fontSize: 13,
                       fontFamily:'Roboto',

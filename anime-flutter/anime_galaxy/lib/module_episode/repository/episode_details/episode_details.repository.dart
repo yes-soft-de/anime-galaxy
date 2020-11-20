@@ -105,4 +105,18 @@ class EpisodeDetailsRepository{
     previousRate1 = double.parse(stringRate).round();
 
   }
+
+  Future<bool> loveEpisode(int episodeId)async{
+    String userId = await _authPrefsHelper.getUserId();
+    dynamic response = await _httpClient.post(Urls.API_EPISODE_INTERACTION, {
+      'userID': userId,
+      'episodeID':episodeId,
+      'type':1
+    });
+    return response == null ?
+    null:
+    response['status_code']=='201'?
+    true:
+    false;
+  }
 }

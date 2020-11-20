@@ -148,5 +148,19 @@ class AnimeDetailsRepository{
     previousRate1 = double.parse(stringRate).round();
 
   }
+
+  Future<bool> loveAnime(int animeId)async{
+    String userId = await _authPrefsHelper.getUserId();
+    dynamic response = await _httpClient.post(Urls.API_ANIME_INTERACTION, {
+      'userID': userId,
+      'animeID':animeId,
+      'type':1
+    });
+    return response == null ?
+    null:
+    response['status_code']=='201'?
+    true:
+    false;
+  }
 }
 
