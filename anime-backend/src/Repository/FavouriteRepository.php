@@ -83,4 +83,15 @@ class FavouriteRepository extends ServiceEntityRepository
             ->getResult();
             
     }
+
+    public function getFavouriteByAnimeIdAndUserId($animeID, $userID): ?Favourite
+    {
+        return $this->createQueryBuilder('Favourite')
+            ->andWhere('Favourite.animeID = :animeID')
+            ->andWhere('Favourite.userID = :userID')
+            ->setParameter('animeID', $animeID)
+            ->setParameter('userID', $userID)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
 }

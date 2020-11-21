@@ -85,15 +85,14 @@ class FavouriteController extends BaseController
     }
 
     /**
-     * @Route("favourite/{id}", name="deleteFavourite", methods={"DELETE"})
-     * @param Request $request
+     * @Route("favourite/{animeID}/{userID}", name="deleteFavourite", methods={"DELETE"})
+     * @param $animeID
+     * @param $userID
      * @return JsonResponse
      */
-    public function delete(Request $request)
+    public function delete($animeID, $userID)
     {
-        $request = new DeleteRequest($request->get('id'));
-
-        $result = $this->favouriteService->delete($request);
+        $result = $this->favouriteService->delete($animeID, $userID);
 
         return $this->response("", self::DELETE);
     }

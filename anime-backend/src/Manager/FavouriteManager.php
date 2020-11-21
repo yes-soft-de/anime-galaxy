@@ -70,9 +70,10 @@ class FavouriteManager
         return $result = $this->favouriteRepository->getFollowersFavourites($userID, $date);
     }
 
-    public function delete(DeleteRequest $request)
+    public function delete($animeID, $userID)
     {
-        $favourite = $this->favouriteRepository->find($request->getId());
+        $favourite = $this->favouriteRepository->getFavouriteByAnimeIdAndUserId($animeID, $userID);
+
         if(!$favourite)
         {
             return null;
@@ -82,6 +83,7 @@ class FavouriteManager
             $this->entityManager->remove($favourite);
             $this->entityManager->flush();
         }
+
         return $favourite;
     }
 }

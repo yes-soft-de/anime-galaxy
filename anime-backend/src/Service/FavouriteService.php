@@ -92,9 +92,9 @@ class FavouriteService
     
     }
 
-    public function delete($request)
+    public function delete($animeID, $userID)
     {
-        $favouriteResult = $this->favouriteManager->delete($request);
+        $favouriteResult = $this->favouriteManager->delete($animeID, $userID);
 
         if ($favouriteResult == null)
         {
