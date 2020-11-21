@@ -44,7 +44,7 @@ class CategoryService
         {
             $row['image'] = $this->params.$row['image'];
 
-            $response[] = $this->autoMapping->map('array'::class, GetCategoryResponse::class, $row);
+            $response[] = $this->autoMapping->map('array', GetCategoryResponse::class, $row);
         }
 
         return $response;
