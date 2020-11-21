@@ -497,9 +497,12 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                   physics: NeverScrollableScrollPhysics(),
                   itemBuilder: (BuildContext context, int index) {
                     return GestureDetector(
-                      onTap: () => Navigator.pushNamed(
-                          context, EpisodeRoutes.ROUTE_EPISODE_DETAILS_SCREEN,
-                          arguments: anime.episodes[index].id),
+                      onTap: () {
+                        controller.pause();
+                        Navigator.pushNamed(
+                            context, EpisodeRoutes.ROUTE_EPISODE_DETAILS_SCREEN,
+                            arguments: anime.episodes[index].id);
+                      },
                       child: EpisodeCard(
                         image: anime.episodes[index].image,
                         episodeNumber: anime.episodes[index].episodeNumber,
