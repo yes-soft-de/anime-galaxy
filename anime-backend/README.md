@@ -90,7 +90,6 @@ methods: GET
 ##### Get Anime Maybe You Like
 `Method: GET. Path: /getMaybeYouLike/{userID}`
 
-
 ### Episode APIs
 ##### Insert new episode.
 `Method: POST. Path: /episode.`
@@ -117,6 +116,9 @@ methods: GET
 ##### Delete specific category. 
 `Method: DELETE. Path: / category`
 
+### File Upload APIs
+##### Upload a new image
+`Method: POST. Path: /uploadfile`
 
 ### Image APIs
 ##### Insert new image. 
@@ -127,7 +129,6 @@ methods: GET
 `Method: GET. Path: /image/animeID`
 ##### Delete an existing image by ID. 
 `Method: DELETE. Path: / image`
-
 
 ### Follow APIs
 ##### Add new following. 
@@ -154,7 +155,6 @@ methods: GET
 `Method: GET. Path: /comment/ID`
 ##### Get all comments by animeID. 
 `Method: GET. Path: /comments/animeID`
-
 
 ### Interaction APIs
 ##### Create new Interaction. 
@@ -210,6 +210,26 @@ methods: GET
 `Method: GET. Path: /commentEpisode/ID`
 ##### Get all comments by episodeID. 
 `Method: GET. Path: /commentsEpisode/{episodeID}`
+
+### Interaction Comment APIs
+##### Create new interaction for comment. 
+`Method: POST. Path: /interactionComment`
+##### Update existing interaction for comment. 
+`Method: PUT. Path: /interactionComment`
+##### Get all interactions of comment by comment ID. 
+`Method: GET. Path: /interactionComment/commentID`
+##### Get all interactions of comment by comment ID and user ID. 
+`Method: GET. Path: /interactionComment/{commentID}/{userID}`
+
+### Interaction Comment Episode APIs
+##### Create new interaction for comment of episode. 
+`Method: POST. Path: /interactionCommentEpisode`
+##### Update existing interaction for comment of episode. 
+`Method: PUT. Path: /interactionCommentEpisode`
+##### Get all interactions of comment for episode by comment ID. 
+`Method: GET. Path: /interactionCommentEpisode/commentID`
+##### Get all interactions of comment for episode by comment ID and user ID. 
+`Method: GET. Path: /interactionCommentEpisode/{commentID}/{userID}`
 
 ### Interaction Episode APIs
 ##### Create new Interaction Episode. 
