@@ -17,6 +17,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:inject/inject.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
+import 'package:video_player/video_player.dart';
 
 @provide
 class AnimeDetailsScreen extends StatefulWidget {
@@ -45,16 +46,24 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
   final TextEditingController _commentController = TextEditingController();
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   String username;
+  VideoPlayerController controller; // used to controller videos
+  Future<void> futureController;
 
   @override
   void initState() {
     super.initState();
     _getUserId();
 
+
     widget._stateManager.stateStream.listen((event) {
       currentState = event;
       processEvent();
     });
+  }
+
+  void dispose() {
+    controller.dispose();  // when app is been closed destroyed the controller
+    super.dispose();
   }
 
   void _getUserId() async {
@@ -71,6 +80,13 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
       AnimeDetailsStateFetchingSuccess state = currentState;
       anime = state.data;
       rating = anime.previousRate;
+
+      controller = VideoPlayerController.network(anime.trailerVideo??'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4');
+      futureController = controller.initialize();
+      controller.setLooping(true);  // this will keep video looping active, means video will keep on playing
+      controller.setVolume(25.0);
+      controller.play();
+
       loading = false;
       if (this.mounted) {
         setState(() {});
@@ -101,6 +117,15 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
     }
     if (currentState is AnimeDetailsStateRatingSuccess) {
       anime.previousRate = rating;
+      if (this.mounted) {
+        setState(() {});
+      }
+    }
+    if (currentState is AnimeDetailsStateLoveSuccess) {
+
+      int likes = int.parse(anime.likesNumber);
+      likes+=1;
+      anime.likesNumber = likes.toString() ;
       if (this.mounted) {
         setState(() {});
       }
@@ -399,6 +424,46 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
             color: Colors.black38,
           ),
 
+          //Trailer video
+          FutureBuilder(
+            future: futureController,
+            builder: (context,snapshot){
+              // if video to ready to play, else show a progress bar to the user
+              if(snapshot.connectionState == ConnectionState.done)
+              {
+                return AspectRatio(
+                    aspectRatio: controller.value.aspectRatio,
+                    child: VideoPlayer(controller)
+                );
+              }else{
+                return Center(child: CircularProgressIndicator(),);
+              }
+
+            },
+          ),
+
+          //button to play/pause the video
+          RaisedButton(
+            color: Colors.transparent,
+            child: Icon(
+                controller.value.isPlaying? Icons.pause : Icons.play_arrow
+            ),
+            onPressed: (){
+              setState(() {
+                if(controller.value.isPlaying)
+                {
+                  controller.pause();
+                }
+                else
+                {
+                  controller.play();
+                }
+              });
+            },
+          ),
+
+
+          //last episodes
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(

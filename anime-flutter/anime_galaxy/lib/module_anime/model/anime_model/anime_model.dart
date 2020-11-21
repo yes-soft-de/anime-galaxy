@@ -12,6 +12,7 @@ class AnimeModel{
     bool isFollowed;
     int categoryID;
     int previousRate;
+    String trailerVideo;
 
     AnimeModel({
       this.commentsNumber,
@@ -27,6 +28,7 @@ class AnimeModel{
       this.isFollowed,
       this.categoryID,
       this.previousRate,
+      this.trailerVideo,
 });
 }
 

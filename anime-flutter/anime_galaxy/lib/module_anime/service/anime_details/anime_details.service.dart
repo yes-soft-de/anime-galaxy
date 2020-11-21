@@ -40,6 +40,7 @@ class AnimeDetailsService {
     anime.categoryID = response.categoryID;
     anime.episodes = getEpisodes(response.episodes,response.categoryName);
     anime.previousRate = response.previousRate;
+    anime.trailerVideo = response.trailerVideo;
 
     return anime;
   }
