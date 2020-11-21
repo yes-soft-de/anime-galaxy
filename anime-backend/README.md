@@ -30,6 +30,7 @@ php bin/console doctrine:migration:migrate
 * [Anime APIs](#anime-apis)
 * [Episode APIs](#episode-apis)
 * [Category APIs](#category-apis)
+* [File Upload API](#file-upload-apis)
 * [Image APIs](#image-apis)
 * [Follow APIS](#follow-apis)
 * [Comment APIs](#comment-apis)
@@ -38,6 +39,8 @@ php bin/console doctrine:migration:migrate
 * [Favourite APIs](#favourite-apis) 
 * [Grade APIs](#grade-apis)
 * [Comment Episode APIs](#comment-episode-apis)
+* [Interaction Comment Episode APIs](#interaction-comment-episode-apis)
+* [Interaction Comment](#interaction-comment-apis)
 * [Interaction Episode APIs](#Interaction-episode-apis)
 * [Rating APIs](#rating-apis)
 
