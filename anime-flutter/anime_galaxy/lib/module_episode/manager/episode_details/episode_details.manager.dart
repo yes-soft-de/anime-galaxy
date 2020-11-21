@@ -24,4 +24,7 @@ class EpisodeDetailsManager{
   Future<bool> loveEpisode(int episodeId)async{
     return await _episodeDetailsRepository.loveEpisode(episodeId);
   }
+  Future<bool> loveComment(int commentId)async{
+    return await _episodeDetailsRepository.loveComment(commentId);
+  }
 }

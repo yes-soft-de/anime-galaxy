@@ -119,4 +119,18 @@ class EpisodeDetailsRepository{
     true:
     false;
   }
+
+  Future<bool> loveComment(int commentId)async{
+    String userId = await _authPrefsHelper.getUserId();
+    dynamic response = await _httpClient.post(Urls.API_EPISODE_COMMENT_INTERACTION, {
+      'userID': userId,
+      'commentID':commentId,
+      'type':1
+    });
+    return response == null ?
+    null:
+    response['status_code']=='201'?
+    true:
+    false;
+  }
 }

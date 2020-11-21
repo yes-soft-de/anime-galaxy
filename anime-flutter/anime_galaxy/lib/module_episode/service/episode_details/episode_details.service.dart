@@ -88,4 +88,7 @@ class EpisodeDetailsService{
   Future<bool> loveEpisode(int episodeId)async{
     return await _detailsManager.loveEpisode(episodeId);
   }
+  Future<bool> loveComment(int commentId)async{
+    return await _detailsManager.loveComment(commentId);
+  }
 }

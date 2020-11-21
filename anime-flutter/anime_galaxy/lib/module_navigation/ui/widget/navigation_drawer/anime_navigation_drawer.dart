@@ -1,4 +1,5 @@
 
+import 'package:anime_galaxy/module_explore/explore_routes.dart';
 import 'package:anime_galaxy/module_notification/notification_routes.dart';
 import 'package:anime_galaxy/module_settings/setting_routes.dart';
 import 'package:anime_galaxy/utils/project_color/project_color.dart';
@@ -9,8 +10,11 @@ import 'package:anime_galaxy/generated/l10n.dart';
 import 'package:anime_galaxy/module_home/home.routes.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+
+
 class AnimeNavigationDrawer extends StatelessWidget {
   AnimeNavigationDrawer();
+
 
   @override
   Widget build(BuildContext context) {
@@ -137,8 +141,8 @@ class AnimeNavigationDrawer extends StatelessWidget {
                         ),
                         GestureDetector(
                           onTap: () {
-//                          Navigator.of(context)
-//                              .pushNamed(HomeRoutes.ROUTE_HOME, arguments: 0);
+                          Navigator.of(context)
+                              .pushNamed(ExploreRoutes.EXPLORE_SCREEN);
                           },
                           child: Padding(
                             padding: const EdgeInsets.fromLTRB(32, 8.0, 0, 8),
@@ -196,7 +200,7 @@ class AnimeNavigationDrawer extends StatelessWidget {
                         GestureDetector(
                           onTap: () {
                             Navigator.of(context)
-                                .pushNamed( SettingRoutes.SETTING_SCREEN_ROUTE);
+                                .pushNamed( SettingRoutes.SETTING_SCREEN_ROUTE, arguments: 1);
                           },
                           child: Padding(
                             padding: const EdgeInsets.fromLTRB(32, 8.0, 0, 8),

@@ -116,4 +116,7 @@ class AnimeDetailsService {
   Future<bool> loveAnime(int animeId)async{
     return await _detailsManager.loveAnime(animeId);
   }
+  Future<bool> loveComment(int commentId)async{
+    return await _detailsManager.loveComment(commentId);
+  }
 }

@@ -140,6 +140,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "thisGameIsGreat" : MessageLookupByLibrary.simpleMessage("This Game is Great"),
     "toMyCollection" : MessageLookupByLibrary.simpleMessage("to my collection"),
     "tos" : MessageLookupByLibrary.simpleMessage("TOS"),
+    "unFollow" : MessageLookupByLibrary.simpleMessage("الغاء المتابعة"),
     "uploadImage" : MessageLookupByLibrary.simpleMessage("Upload Image"),
     "uploading" : MessageLookupByLibrary.simpleMessage("Uploading"),
     "usa" : MessageLookupByLibrary.simpleMessage("USA"),

@@ -122,7 +122,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     child: Center(
                       child: Text(
                         _profileModel.isFollowed
-                            ? S.of(context).isFollowed
+                            ? S.of(context).unFollow
                             : S.of(context).Follow,
                         style: TextStyle(
                             fontSize: 14,

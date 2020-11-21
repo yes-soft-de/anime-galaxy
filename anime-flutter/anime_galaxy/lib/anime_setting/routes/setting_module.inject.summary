@@ -5,13 +5,13 @@
     "module": [],
     "injectable": [
       {
-        "name": "SettingModule",
+        "name": "SettingsModule",
         "constructor": {
           "name": "",
           "kind": "constructor",
           "injectedType": {
             "lookupKey": {
-              "root": "asset:anime_galaxy/lib/anime_setting/routes/setting_module.dart#SettingModule",
+              "root": "asset:anime_galaxy/lib/anime_setting/routes/setting_module.dart#SettingsModule",
               "qualifier": null
             },
             "isProvider": false

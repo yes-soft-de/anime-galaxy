@@ -20,13 +20,14 @@ class ApiClient {
   }
 
   Future<Map<String, dynamic>> get(String url,
-      {Map<String, String> queryParams}) async {
+      [Map<String, String> queryMap, Map<String, String> headers]) async {
     _logger.info(tag, 'GET $url');
     try {
+      _client.options.headers = headers;
       Response response = await _client.get(
         url,
-        queryParameters: queryParams,
-        options: buildCacheOptions(Duration(seconds: 15)),
+        queryParameters: queryMap,
+        options:  buildCacheOptions(Duration(seconds: 15)),
       );
 
       if (response.statusCode >= 200 && response.statusCode < 300) {

@@ -40,3 +40,8 @@ class AnimeDetailsStateRatingError extends AnimeDetailsState{}
 class AnimeDetailsStateLoveSuccess extends AnimeDetailsState{}
 
 class AnimeDetailsStateLoveError extends AnimeDetailsState{}
+///----------------------------------------------
+
+class AnimeDetailsStateLoveCommentSuccess extends AnimeDetailsState{}
+
+class AnimeDetailsStateLoveCommentError extends AnimeDetailsState{}

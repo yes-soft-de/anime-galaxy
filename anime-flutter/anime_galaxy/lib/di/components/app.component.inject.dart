@@ -100,21 +100,19 @@ import '../../module_explore/state_manager/explore/explore.state_manager.dart'
 import '../../module_explore/service/explore/explore.service.dart' as _i71;
 import '../../module_explore/manager/explore/explore.manager.dart' as _i72;
 import '../../module_explore/repository/explore/explore.repositry.dart' as _i73;
-import '../../anime_setting/routes/setting_module.dart' as _i74;
-import '../../anime_setting/ui/screen/anim_setting.dart' as _i75;
-import '../../anime_setting/ui/style_app.dart' as _i76;
-import '../../module_explore/explore_module.dart' as _i77;
-import '../../module_episode/episode_module.dart' as _i78;
+import '../../module_settings/setting_module.dart' as _i74;
+import '../../module_explore/explore_module.dart' as _i75;
+import '../../module_episode/episode_module.dart' as _i76;
 import '../../module_episode/ui/screen/episode_details_screen/episode_details_screen.dart'
-    as _i79;
+    as _i77;
 import '../../module_episode/state_manager/episode_details/episode_details.state_manager.dart'
-    as _i80;
+    as _i78;
 import '../../module_episode/service/episode_details/episode_details.service.dart'
-    as _i81;
+    as _i79;
 import '../../module_episode/manager/episode_details/episode_details.manager.dart'
-    as _i82;
+    as _i80;
 import '../../module_episode/repository/episode_details/episode_details.repository.dart'
-    as _i83;
+    as _i81;
 
 class AppComponent$Injector implements _i1.AppComponent {
   AppComponent$Injector._();
@@ -296,26 +294,23 @@ class AppComponent$Injector implements _i1.AppComponent {
   _i73.ExploreRepository _createExploreRepository() =>
       _i73.ExploreRepository(_createApiClient(), _createAuthPrefsHelper());
   _i74.SettingModule _createSettingModule() =>
-      _i74.SettingModule(_createAnimSetting());
-  _i75.AnimSetting _createAnimSetting() =>
-      _i75.AnimSetting(_createStyleSetting());
-  _i76.StyleSetting _createStyleSetting() => _i76.StyleSetting();
-  _i77.ExploreModule _createExploreModule() =>
-      _i77.ExploreModule(_createExploreScreen());
-  _i78.EpisodeModule _createEpisodeModule() =>
-      _i78.EpisodeModule(_createEpisodeDetailsScreen());
-  _i79.EpisodeDetailsScreen _createEpisodeDetailsScreen() =>
-      _i79.EpisodeDetailsScreen(
+      _i74.SettingModule(_createSettingsPage());
+  _i75.ExploreModule _createExploreModule() =>
+      _i75.ExploreModule(_createExploreScreen());
+  _i76.EpisodeModule _createEpisodeModule() =>
+      _i76.EpisodeModule(_createEpisodeDetailsScreen());
+  _i77.EpisodeDetailsScreen _createEpisodeDetailsScreen() =>
+      _i77.EpisodeDetailsScreen(
           _createEpisodeDetailsStateManager(), _createAuthService());
-  _i80.EpisodeDetailsStateManager _createEpisodeDetailsStateManager() =>
-      _i80.EpisodeDetailsStateManager(_createEpisodeDetailsService());
-  _i81.EpisodeDetailsService _createEpisodeDetailsService() =>
-      _i81.EpisodeDetailsService(
+  _i78.EpisodeDetailsStateManager _createEpisodeDetailsStateManager() =>
+      _i78.EpisodeDetailsStateManager(_createEpisodeDetailsService());
+  _i79.EpisodeDetailsService _createEpisodeDetailsService() =>
+      _i79.EpisodeDetailsService(
           _createEpisodeDetailsManager(), _createAuthPrefsHelper());
-  _i82.EpisodeDetailsManager _createEpisodeDetailsManager() =>
-      _i82.EpisodeDetailsManager(_createEpisodeDetailsRepository());
-  _i83.EpisodeDetailsRepository _createEpisodeDetailsRepository() =>
-      _i83.EpisodeDetailsRepository(
+  _i80.EpisodeDetailsManager _createEpisodeDetailsManager() =>
+      _i80.EpisodeDetailsManager(_createEpisodeDetailsRepository());
+  _i81.EpisodeDetailsRepository _createEpisodeDetailsRepository() =>
+      _i81.EpisodeDetailsRepository(
           _createApiClient(), _createAuthPrefsHelper());
   @override
   _i6.MyApp get app => _createMyApp();

@@ -69,5 +69,16 @@ class EpisodeDetailsStateManager {
       }
     });
   }
+  void loveComment(int commentId){
+    this._animeDetailsService.loveComment(commentId).then((value) {
+      if(value == null || value == false){
+        Fluttertoast.showToast(msg: S.current.ommentingError);
+        this._stateSubject.add(EpisodeDetailsStateLoveCommentError());
+      }else{
+        Fluttertoast.showToast(msg : S.current.ThanksYourExcitement);
+        this._stateSubject.add(EpisodeDetailsStateLoveCommentSuccess());
+      }
+    });
+  }
 
 }

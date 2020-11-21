@@ -1292,6 +1292,16 @@ class S {
       args: [],
     );
   }
+
+  /// `الغاء المتابعة`
+  String get unFollow {
+    return Intl.message(
+      'الغاء المتابعة',
+      name: 'unFollow',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

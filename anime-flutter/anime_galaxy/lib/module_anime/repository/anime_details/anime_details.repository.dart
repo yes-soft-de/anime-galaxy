@@ -25,7 +25,8 @@ class AnimeDetailsRepository{
 
   Future<AnimeResponse> getAnimeDetails(int animeId) async{
 
-    dynamic response = await _httpClient.get(Urls.API_ANIME+'/$animeId');
+    String token = await _authPrefsHelper.getToken();
+    dynamic response = await _httpClient.get(Urls.API_ANIME+'/$animeId',{'Authorization': 'Bearer $token'});
 
     if(response == null) return null;
 
@@ -162,5 +163,32 @@ class AnimeDetailsRepository{
     true:
     false;
   }
+  Future<bool> loveComment(int commentId)async{
+    String userId = await _authPrefsHelper.getUserId();
+    dynamic response = await _httpClient.post(Urls.API_ANIME_COMMENT_INTERACTION, {
+      'userID': userId,
+      'commentID':commentId,
+      'type':1
+    });
+    return response == null ?
+    null:
+    response['status_code']=='201'?
+    true:
+    false;
+  }
+
+//  Future<bool> unFollowAnime(int animeId)async{
+//    String userId = await _authPrefsHelper.getUserId();
+//    dynamic response = await _httpClient.post(Urls.API_ANIME_INTERACTION, {
+//      'userID': userId,
+//      'animeID':animeId,
+//      'type':1
+//    });
+//    return response == null ?
+//    null:
+//    response['status_code']=='201'?
+//    true:
+//    false;
+//  }
 }
 

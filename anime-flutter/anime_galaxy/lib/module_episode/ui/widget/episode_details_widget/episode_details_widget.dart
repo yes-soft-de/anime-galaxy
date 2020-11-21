@@ -108,8 +108,10 @@ class EpisodeDetailsWidget extends StatelessWidget {
                       Row(
                         children: [
                           IconButton(
-                            icon: Icon(Icons.favorite),
-
+                            icon:   ImageIcon(
+                                    AssetImage('assets/images/flame.png'),
+                                    color: ProjectColors.ThemeColor,
+                                  ),
                             onPressed:  onLove,
                           ),
                           Text(

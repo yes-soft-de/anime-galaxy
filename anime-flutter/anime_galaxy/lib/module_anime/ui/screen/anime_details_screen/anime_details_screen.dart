@@ -61,6 +61,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
     });
   }
 
+  @override
   void dispose() {
     controller.dispose();  // when app is been closed destroyed the controller
     super.dispose();
@@ -425,6 +426,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
           ),
 
           //Trailer video
+
           FutureBuilder(
             future: futureController,
             builder: (context,snapshot){
@@ -443,24 +445,31 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
           ),
 
           //button to play/pause the video
-          RaisedButton(
-            color: Colors.transparent,
-            child: Icon(
-                controller.value.isPlaying? Icons.pause : Icons.play_arrow
+          ButtonTheme(
+            height: 12,
+            child: FlatButton(
+                color: ProjectColors.ThemeColor,
+              shape: RoundedRectangleBorder(
+                borderRadius: new BorderRadius.circular(20.0),
+              ),
+             child: Icon(
+                  controller.value.isPlaying? Icons.pause : Icons.play_arrow
+              ),
+              onPressed: (){
+                setState(() {
+                  if(controller.value.isPlaying)
+                  {
+                    controller.pause();
+                  }
+                  else
+                  {
+                    controller.play();
+                  }
+                });
+              },
             ),
-            onPressed: (){
-              setState(() {
-                if(controller.value.isPlaying)
-                {
-                  controller.pause();
-                }
-                else
-                {
-                  controller.play();
-                }
-              });
-            },
           ),
+
 
 
           //last episodes
