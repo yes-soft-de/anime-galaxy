@@ -555,6 +555,8 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                       userName: '${anime.comments[index].userName}',
                       date:'${ anime.comments[index].date}',
                       comment: '${anime.comments[index].content}',
+                      likesNumber: anime.comments[index].likesNumber,
+                      onLove:()=> widget._stateManager.loveComment(anime.comments[index].id),
                     );
                   },
                 )

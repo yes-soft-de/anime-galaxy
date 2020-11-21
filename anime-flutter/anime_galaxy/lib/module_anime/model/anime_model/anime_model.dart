@@ -36,15 +36,19 @@ class AnimeModel{
 
 class Comment{
     String userImage;
+    int id;
     String content;
     String date;
     String userName;
+    String likesNumber;
 
     Comment({
       this.date,
       this.userName,
+      this.id,
       this.userImage,
       this.content,
+      this.likesNumber,
 });
 }
 

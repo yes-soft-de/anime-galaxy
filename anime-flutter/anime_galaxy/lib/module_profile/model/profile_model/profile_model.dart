@@ -7,6 +7,7 @@ class ProfileModel {
   int seriesNumber;
   List<Activity> followingActivities;
   bool isFollowed;
+  String createDate;
 
   ProfileModel({
     this.name,
@@ -17,6 +18,7 @@ class ProfileModel {
     this.seriesNumber,
     this.followingActivities,
     this.isFollowed,
+    this.createDate,
   });
 
 

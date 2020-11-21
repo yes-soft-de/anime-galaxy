@@ -114,10 +114,10 @@ class AnimeDetailsWidget extends StatelessWidget {
                                     fontFamily:'Roboto',
                                   ),
                                 ),
-                                Icon(
-                                  Icons.favorite,
+                                ImageIcon(
+                                  AssetImage('assets/images/full_flame.png'),
                                   color: ProjectColors.ThemeColor,
-                                )
+                                ),
                               ],
                             ),
                             SizedBox(

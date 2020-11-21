@@ -80,8 +80,10 @@ class EpisodeDetailsWidget extends StatelessWidget {
                                   fontFamily:'Roboto',
                                 ),
                               ),
-                              Icon(Icons.favorite,
-                                  color: ProjectColors.ThemeColor)
+                              ImageIcon(
+                                AssetImage('assets/images/full_flame.png'),
+                                color: ProjectColors.ThemeColor,
+                              ),
                             ],
                           ),
                           SizedBox(

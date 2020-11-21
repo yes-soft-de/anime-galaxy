@@ -31,6 +31,9 @@ class MyProfileService {
 
     ProfileResponse response = await _manager.getProfile(userId);
     if (response != null) {
+      var df = new DateFormat('d-M-yyyy');
+      var date = new DateTime.fromMicrosecondsSinceEpoch(response.createdAt.timestamp);
+
       ProfileModel result = new ProfileModel(
         name: response.userName,
         image: response.image,
@@ -38,9 +41,9 @@ class MyProfileService {
         about: response.story,
         seriesNumber: response.favourites.length,
         watchedSeries: _getSeries(response.favourites),
-        followingActivities:
-        _getActivities(response.followingActivitiesResponse),
+        followingActivities: _getActivities(response.followingActivitiesResponse),
         isFollowed: response.isFollowed,
+        createDate: df.format(date).toString(),
       );
       return result;
     }

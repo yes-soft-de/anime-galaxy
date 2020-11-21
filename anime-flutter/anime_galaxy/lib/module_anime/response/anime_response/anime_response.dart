@@ -95,6 +95,7 @@ class AnimeResponse {
 class Comments {
   String comment;
   bool spoilerAlert;
+  int id;
   CreationDate creationDate;
   CommentInteractions commentInteractions;
   String userName;
@@ -104,12 +105,14 @@ class Comments {
       {this.comment,
         this.spoilerAlert,
         this.creationDate,
+        this.id,
         this.commentInteractions,
         this.userName,
         this.image});
 
   Comments.fromJson(Map<String, dynamic> json) {
     comment = json['comment'];
+    id = json['id'];
     spoilerAlert = json['spoilerAlert'];
     creationDate = json['creationDate'] != null
         ? new CreationDate.fromJson(json['creationDate'])
@@ -124,6 +127,7 @@ class Comments {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['comment'] = this.comment;
+    data['id'] = this.id;
     data['spoilerAlert'] = this.spoilerAlert;
     if (this.creationDate != null) {
       data['creationDate'] = this.creationDate.toJson();

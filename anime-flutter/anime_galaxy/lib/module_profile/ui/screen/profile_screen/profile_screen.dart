@@ -99,6 +99,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               PersonalInfoWidget(
                 image: _profileModel.image,
                 name: _profileModel.name,
+                createDate: _profileModel.createDate,
                 //TODO : change it
                 category: 'شونين-فانتازي',
                 //TODO : change it when it available at backend

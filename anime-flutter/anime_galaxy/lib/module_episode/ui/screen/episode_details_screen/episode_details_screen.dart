@@ -477,7 +477,9 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
               userImage:'${ episode.comments[index].userImage}',
               userName: '${ episode.comments[index].userName}',
               date: '${episode.comments[index].date}',
+              likesNumber: episode.comments[index].likesNumber,
               comment: '${episode.comments[index].content}',
+              onLove: ()=> widget._stateManager.loveComment(episode.comments[index].id),
             );
           },
         ),

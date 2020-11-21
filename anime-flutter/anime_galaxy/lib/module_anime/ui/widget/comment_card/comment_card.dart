@@ -1,16 +1,23 @@
+import 'package:anime_galaxy/utils/project_color/project_color.dart';
 import 'package:flutter/material.dart';
+
+typedef LoveCommentCallBack = void Function();
 
 class CommentCard extends StatelessWidget {
   final String userImage;
   final String comment;
   final String date;
   final String userName;
+  final String likesNumber;
+  final LoveCommentCallBack onLove;
 
   CommentCard({
     this.comment,
     this.date,
     this.userImage,
     this.userName,
+    this.likesNumber,
+    this.onLove,
   });
 
   @override
@@ -55,17 +62,40 @@ class CommentCard extends StatelessWidget {
               ),
             ],
           ),
-          Container(
-            width: MediaQuery.of(context).size.width * 0.8,
-            padding: EdgeInsetsDirectional.fromSTEB(60, 10, 0, 0),
-            child: Text(
-              comment,
-              style: TextStyle(
-                  fontFamily:'Roboto',
-                  fontSize: 16
-              ),
-            ),
-          )
+         Row(
+           children: [
+             Container
+               (
+               width: MediaQuery.of(context).size.width * 0.6,
+               padding: EdgeInsetsDirectional.fromSTEB(60, 10, 0, 0),
+               child: Text(
+                 '$comment',
+                 style: TextStyle(
+                     fontFamily:'Roboto',
+                     fontSize: 16
+                 ),
+               ),
+             ),
+             Row(
+               children: [
+                 IconButton(
+                   onPressed: onLove,
+                   icon: ImageIcon(
+                     AssetImage('assets/images/full_flame.png'),
+                     color: ProjectColors.ThemeColor,
+                   ),
+                 ),
+                 Text(
+                   '${likesNumber??0}',
+                   style: TextStyle(
+                       fontFamily:'Roboto',
+                       fontSize: 12
+                   ),
+                 ),
+               ],
+             ),
+           ],
+         )
         ],
       ),
     );

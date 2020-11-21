@@ -69,6 +69,8 @@ class AnimeDetailsService {
       Comment comment = new Comment(
           content: element.comment,
           userName:element.userName,
+          id: element.id,
+          likesNumber: element.commentInteractions.like,
           userImage:element.image,
           date:' ${months[date.month+1]} ${date.day} ' ,
       );
