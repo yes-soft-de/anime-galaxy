@@ -1282,6 +1282,16 @@ class S {
       args: [],
     );
   }
+
+  /// `شكرا لحماسك`
+  String get ThanksYourExcitement {
+    return Intl.message(
+      'شكرا لحماسك',
+      name: 'ThanksYourExcitement',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

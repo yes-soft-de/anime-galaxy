@@ -3,6 +3,7 @@ import 'package:anime_galaxy/utils/project_colors/project_color.dart';
 import 'package:flutter/material.dart';
 
 typedef FollowCallBack = void Function();
+typedef LoveCallBack = void Function();
 
 class AnimeDetailsWidget extends StatelessWidget {
   final String name;
@@ -14,6 +15,7 @@ class AnimeDetailsWidget extends StatelessWidget {
   final FollowCallBack onFollow;
   final bool isFollowed;
   final int episodesNumber;
+  final LoveCallBack onLove;
 
   AnimeDetailsWidget({
     this.name,
@@ -25,6 +27,7 @@ class AnimeDetailsWidget extends StatelessWidget {
     this.isFollowed,
     this.onFollow,
     this.episodesNumber,
+    this.onLove,
   });
 
   @override
@@ -168,8 +171,8 @@ class AnimeDetailsWidget extends StatelessWidget {
                           children: [
                             IconButton(
                               icon: Icon(Icons.favorite),
-                              //TODO : implement this
-                              onPressed: () {},
+
+                              onPressed: onLove ,
                             ),
                             IconButton(
                               icon: Icon(Icons.share),

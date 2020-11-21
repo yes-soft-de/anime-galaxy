@@ -111,4 +111,8 @@ class AnimeDetailsService {
 
     return await _detailsManager.rateAnime(request);
   }
+
+  Future<bool> loveAnime(int animeId)async{
+    return await _detailsManager.loveAnime(animeId);
+  }
 }

@@ -2,6 +2,8 @@ import 'package:anime_galaxy/generated/l10n.dart';
 import 'package:anime_galaxy/utils/project_colors/project_color.dart';
 import 'package:flutter/material.dart';
 
+typedef LoveCallBack = void Function();
+
 class EpisodeDetailsWidget extends StatelessWidget {
   final String name;
   final String showYear;
@@ -9,6 +11,7 @@ class EpisodeDetailsWidget extends StatelessWidget {
   final String likes;
   final int comments;
   final String image;
+  final LoveCallBack onLove;
 
   EpisodeDetailsWidget(
       {this.name,
@@ -16,7 +19,9 @@ class EpisodeDetailsWidget extends StatelessWidget {
         this.rate,
         this.showYear,
         this.comments,
-        this.image});
+        this.image,
+        this.onLove,
+      });
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -104,8 +109,8 @@ class EpisodeDetailsWidget extends StatelessWidget {
                         children: [
                           IconButton(
                             icon: Icon(Icons.favorite),
-                            //TODO : implement this
-                            onPressed: () {},
+
+                            onPressed:  onLove,
                           ),
                           Text(
                             S.of(context).Like,

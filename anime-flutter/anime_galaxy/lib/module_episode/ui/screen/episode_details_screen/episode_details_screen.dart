@@ -93,6 +93,15 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
         setState(() {});
       }
     }
+    if (currentState is EpisodeDetailsStateLoveSuccess) {
+
+      int likes = int.parse(episode.likesNumber);
+      likes+=1;
+      episode.likesNumber = likes.toString() ;
+      if (this.mounted) {
+        setState(() {});
+      }
+    }
   }
 
   @override
@@ -168,7 +177,9 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
             likes: episode.likesNumber,
             rate: episode.rate,
             showYear: episode.showYear,
-            image: episode.image),
+            image: episode.image,
+            onLove: ()=> widget._stateManager.loveEpisode(episodeId),
+        ),
         //rating the series
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

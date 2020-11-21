@@ -26,4 +26,8 @@ class AnimeDetailsManager{
   Future<bool> rateAnime(RatingRequest ratingRequest) async{
     return await _animeDetailsRepository.rateAnime(ratingRequest);
   }
+
+  Future<bool> loveAnime(int animeId)async{
+    return await _animeDetailsRepository.loveAnime(animeId);
+  }
 }

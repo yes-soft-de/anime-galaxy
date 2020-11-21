@@ -71,4 +71,16 @@ class AnimeDetailsStateManager {
     });
   }
 
+  void loveAnime(int animeId){
+
+    this._animeDetailsService.loveAnime(animeId).then((value) {
+      if(value == null || value == false){
+        Fluttertoast.showToast(msg: S.current.ommentingError);
+        this._stateSubject.add(AnimeDetailsStateLoveError());
+      }else{
+        Fluttertoast.showToast(msg : S.current.ThanksYourExcitement);
+        this._stateSubject.add(AnimeDetailsStateLoveSuccess());
+      }
+    });
+  }
 }

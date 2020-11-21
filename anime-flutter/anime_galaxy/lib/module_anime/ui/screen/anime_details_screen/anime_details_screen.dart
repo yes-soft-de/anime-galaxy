@@ -177,6 +177,8 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
             isFollowed: anime.isFollowed,
             onFollow: () =>
                 widget._stateManager.addToFavourite(animeId, anime.categoryID),
+            onLove: ()=>
+                widget._stateManager.loveAnime(animeId),
           ),
           //rating the series
           Row(

@@ -35,3 +35,8 @@ class AnimeDetailsStateAddToFavouriteError extends AnimeDetailsState{}
 class AnimeDetailsStateRatingSuccess extends AnimeDetailsState{}
 
 class AnimeDetailsStateRatingError extends AnimeDetailsState{}
+///----------------------------------------------
+
+class AnimeDetailsStateLoveSuccess extends AnimeDetailsState{}
+
+class AnimeDetailsStateLoveError extends AnimeDetailsState{}

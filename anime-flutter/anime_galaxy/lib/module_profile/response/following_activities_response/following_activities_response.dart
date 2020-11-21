@@ -3,10 +3,10 @@ class FollowingActivitiesResponse {
   String userID;
   String animeName;
   int animeID;
-  String commentID;
+  int commentID;
   String comment;
   Date date;
-  String ratingID;
+  int ratingID;
   int favouriteID;
   String userImage;
 

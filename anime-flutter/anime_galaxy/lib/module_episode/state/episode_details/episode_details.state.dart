@@ -27,3 +27,8 @@ class EpisodeDetailsStateCommentingError extends EpisodeDetailsState{}
 class EpisodeDetailsStateRatingSuccess extends EpisodeDetailsState{}
 
 class EpisodeDetailsStateRatingError extends EpisodeDetailsState{}
+///----------------------------------------------
+
+class EpisodeDetailsStateLoveSuccess extends EpisodeDetailsState{}
+
+class EpisodeDetailsStateLoveError extends EpisodeDetailsState{}
