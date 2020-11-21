@@ -182,9 +182,13 @@ methods: GET
 ##### Create a new favourite. 
 `Method: POST. Path: /favourite`
 ##### Get a favourite by animeID. 
-`Method: GET. Path: /favouriteAnime/{animeID}`
-##### Get a favourite by userID. 
+`Method: GET. Path: /favouriteAnime/animeID`
+##### Get all favourites by userID. 
 `Method: GET. Path: /favouriteUser/userID`
+##### Get maybe you like anime by userID. 
+`Method: GET. Path: /getMayLikeItF/userID`
+##### Delete an anime from favourite by ID. 
+`Method: GET. Path: /favourite/{id}`
 
 ### Grade APIs
 ##### Create a new recorde with grade equals to 0. 
