@@ -19,7 +19,7 @@ class GetAnimeByIdResponse
     public $episodesCount;
     public $trailerVideo;
     public $publishDate;
-    public $isLoved;
+//    public $isLoved;
 
     /**
      * @return mixed
