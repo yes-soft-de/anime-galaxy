@@ -80,7 +80,10 @@ class EpisodeController extends BaseController
     public function getEpisodeById(Request $request)
     {
         $request = new GetByIdRequest($request->get('id'));
+        $request->setUserID($this->getUserId());
+
         $result = $this->episodeService->getEpisodeById($request);
+
         return $this->response($result, self::FETCH);
     }
 

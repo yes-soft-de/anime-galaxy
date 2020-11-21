@@ -8,6 +8,7 @@ use App\AutoMapping;
 use App\Entity\InteractionEpisode;
 use App\Manager\InteractionEpisodeManager;
 use App\Request\CreateInteractionEpisodeRequest;
+use App\Request\GetByIdRequest;
 use App\Request\UpdateGradeRequest;
 use App\Response\CreateInteractionEpisodeResponse;
 use App\Response\UpdateInteractionEpisodeResponse;
@@ -63,6 +64,11 @@ class InteractionEpisodeService
         }
 
         return $response;
+    }
+
+    public function checkUserLoved(GetByIdRequest $request)
+    {
+        return $this->interactionManager->checkUserLoved($request->getId(), $request->getUserID());
     }
 
     public function getInteractionWithUser($episodeID, $userID)

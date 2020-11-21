@@ -6,6 +6,7 @@ use App\AutoMapping;
 use App\Entity\InteractionCommentEpisode;
 use App\Manager\InteractionCommentEpisodeManager;
 use App\Request\CreateInteractionCommentEpisodeRequest;
+use App\Request\GetByIdRequest;
 use App\Response\CreateInteractionCommentEpisodeResponse;
 use App\Response\GetInteractionCommentEpisodeResponse;
 use App\Response\UpdateInteractionCommentEpisodeResponse;
@@ -34,6 +35,11 @@ class InteractionCommentEpisodeService
         $interactionResult = $this->interactionManager->update($request);
 
         return $this->autoMapping->map(InteractionCommentEpisode::class, UpdateInteractionCommentEpisodeResponse::class, $interactionResult);
+    }
+
+    public function checkUserLoved(GetByIdRequest $request)
+    {
+        return $this->interactionManager->checkUserLoved($request->getId(), $request->getUserID());
     }
 
     public function getAll($commentID)

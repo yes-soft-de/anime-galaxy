@@ -8,6 +8,7 @@ use App\AutoMapping;
 use App\Entity\Interaction;
 use App\Manager\InteractionManager;
 use App\Request\CreateInteractionRequest;
+use App\Request\GetByIdRequest;
 use App\Request\UpdateGradeRequest;
 use App\Response\CreateInteractionResponse;
 use App\Response\UpdateInteractionResponse;
@@ -73,6 +74,11 @@ class InteractionService
         }
 
         return $response;
+    }
+
+    public function checkUserLoved(GetByIdRequest $request)
+    {
+        return $this->interactionManager->checkUserLoved($request->getId(), $request->getUserID());
     }
 
     public function countInteractions($request)

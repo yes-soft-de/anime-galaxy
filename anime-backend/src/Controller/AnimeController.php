@@ -58,6 +58,8 @@ class AnimeController extends BaseController
     public function getAnimeById(Request $request)
     {
         $request = new GetByIdRequest($request->get('id'));
+        $request->setUserID($this->getUserId());
+
         $result = $this->animeService->getAnimeById($request);
 
         return $this->response($result, self::FETCH);

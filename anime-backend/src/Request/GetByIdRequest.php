@@ -7,6 +7,23 @@ namespace App\Request;
 class GetByIdRequest
 {
 public $id;
+private $userID;
+
+    /**
+     * @return mixed
+     */
+    public function getUserID()
+    {
+        return $this->userID;
+    }
+
+    /**
+     * @param mixed $userID
+     */
+    public function setUserID($userID): void
+    {
+        $this->userID = $userID;
+    }
 
     /**
      * GetByIdRequest constructor.

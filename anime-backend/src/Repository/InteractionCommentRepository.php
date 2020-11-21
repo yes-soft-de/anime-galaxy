@@ -132,4 +132,20 @@ class InteractionCommentRepository extends ServiceEntityRepository
        ->getOneOrNullResult();
     }
 
+    public function checkUserLoved($itemID, $userID)
+    {
+        return $this->createQueryBuilder('interaction')
+            ->select('count(interaction.type)')
+
+            ->andWhere('interaction.commentID = :itemID')
+            ->andWhere('interaction.userID = :userID')
+            ->andWhere('interaction.type = 3')
+
+            ->setParameter('itemID', $itemID)
+            ->setParameter('userID', $userID)
+
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+
 }

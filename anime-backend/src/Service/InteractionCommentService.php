@@ -6,6 +6,7 @@ use App\AutoMapping;
 use App\Entity\InteractionComment;
 use App\Manager\InteractionCommentManager;
 use App\Request\CreateInteractionCommentRequest;
+use App\Request\GetByIdRequest;
 use App\Response\CreateInteractionCommentResponse;
 use App\Response\GetInteractionCommentResponse;
 use App\Response\UpdateInteractionCommentResponse;
@@ -58,7 +59,11 @@ class InteractionCommentService
         return $response;
     }
 
-    
+    public function checkUserLoved(GetByIdRequest $request)
+    {
+        return $this->interactionManager->checkUserLoved($request->getId(), $request->getUserID());
+    }
+
     public function loved($request)
     {
        return $this->interactionManager->loved($request)[1];

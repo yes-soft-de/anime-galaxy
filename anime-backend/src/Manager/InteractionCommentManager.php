@@ -32,6 +32,20 @@ class InteractionCommentManager
         return $interactionEntity;
     }
 
+    public function checkUserLoved($itemID, $userID)
+    {
+        $loved = $this->interactionRepository->checkUserLoved($itemID, $userID);
+
+        if ($loved[1] > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     public function update(UpdateInteractionCommentRequest $request)
     {
         $interaction = $this->interactionRepository->find($request->getId());

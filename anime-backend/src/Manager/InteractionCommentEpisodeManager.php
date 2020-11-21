@@ -32,6 +32,20 @@ class InteractionCommentEpisodeManager
         return $interactionEntity;
     }
 
+    public function checkUserLoved($itemID, $userID)
+    {
+        $loved = $this->interactionRepository->checkUserLoved($itemID, $userID);
+
+        if ($loved[1] > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     public function update(UpdateInteractionCommentEpisodeRequest $request)
     {
         $interaction = $this->interactionRepository->find($request->getId());

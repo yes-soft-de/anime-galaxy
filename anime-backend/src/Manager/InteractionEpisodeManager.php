@@ -53,6 +53,20 @@ class InteractionEpisodeManager
         return $interaction;
     }
 
+    public function checkUserLoved($itemID, $userID)
+    {
+        $loved = $this->interactionRepository->checkUserLoved($itemID, $userID);
+
+        if ($loved[1] > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     public function getAll($episode)
     {
         $interactions = $this->interactionRepository->getAll($episode);

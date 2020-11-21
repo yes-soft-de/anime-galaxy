@@ -50,6 +50,20 @@ class InteractionManager
         return $this->interactionRepository->getAll($animeID);
     }
 
+    public function checkUserLoved($itemID, $userID)
+    {
+        $loved = $this->interactionRepository->checkUserLoved($itemID, $userID);
+
+        if ($loved[1] > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     public function getInteractionWithUser($animeID, $userID)
     {
         return $this->interactionRepository->getInteractionWithUser($animeID, $userID);

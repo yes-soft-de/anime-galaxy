@@ -112,6 +112,7 @@ class EpisodeService
         $response->interactions['love'] = $love;
         $response->interactions['like'] = $like;
         $response->interactions['dislike'] = $dislike;
+        $response->interactions['isLoved'] = $this->interactionService->checkUserLoved($request);
         }
         return $response;
     }

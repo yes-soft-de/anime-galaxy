@@ -44,6 +44,16 @@ class BaseController extends AbstractController
         $this->statusCode = $statusCode;
     }
 
+    public function getUserId()
+    {
+        $userID = 0;
+
+        if ($this->getUser()) {
+            $userID = $this->getUser()->getUsername();
+        }
+
+        return $userID;
+    }
 
     /**
      * Returns a JSON response
