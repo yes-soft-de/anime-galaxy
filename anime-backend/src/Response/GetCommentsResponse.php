@@ -4,6 +4,7 @@ namespace App\Response;
 
 class GetCommentsResponse
 {
+    public $id;
     public $comment;
     public $spoilerAlert;
     public $creationDate;
