@@ -4,6 +4,7 @@ import 'package:anime_galaxy/module_auth/auth_routes.dart';
 import 'package:anime_galaxy/module_auth/service/auth_service/auth_service.dart';
 import 'package:anime_galaxy/module_localization/service/localization_service/localization_service.dart';
 import 'package:anime_galaxy/module_profile/presistance/profile_shared_preferences.dart';
+import 'package:anime_galaxy/module_profile/profile_routes.dart';
 import 'package:anime_galaxy/module_theme/service/theme_service/theme_service.dart';
 import 'package:anime_galaxy/utils/project_color/project_color.dart';
 import 'package:flutter/material.dart';
@@ -119,8 +120,9 @@ class _SettingsPageState extends State<SettingsPage> {
                    child: FlatButton(
                      color:ProjectColors.ThemeColor,
                      shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(5.0)),
-                     //TODO : implement this
-                     onPressed: (){},
+                     onPressed: (){
+                       Navigator.pushNamed(context, ProfileRoutes.ROUTE_EDIT_PROFILE);
+                     },
                      child:Text(
                        S.of(context).edit,
                        style: TextStyle(
@@ -217,40 +219,40 @@ class _SettingsPageState extends State<SettingsPage> {
                ),
              ),
              // account
-             Padding(
-               padding: const EdgeInsets.all(4.0),
-               child: Container(
-                 decoration: BoxDecoration(
-                   borderRadius: BorderRadius.all(Radius.circular(4)),
-                   color: Colors.black12,
-                 ),
-                 child: Padding(
-                   padding: const EdgeInsets.all(4.0),
-                   child: GestureDetector(
-                     onTap: (){},
-                     child: Flex(
-                       direction: Axis.horizontal,
-                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                       children: [
-                         Row(
-                           children: [
-                             Icon(Icons.person, size: 18,),
-                             Text(
-                               S.of(context).account,
-                               style: TextStyle(
-                                 fontFamily:'Roboto',
-                               ),
-                             ),
-                           ],
-                         ),
-
-
-                       ],
-                     ),
-                   ),
-                 ),
-               ),
-             ),
+//             Padding(
+//               padding: const EdgeInsets.all(4.0),
+//               child: Container(
+//                 decoration: BoxDecoration(
+//                   borderRadius: BorderRadius.all(Radius.circular(4)),
+//                   color: Colors.black12,
+//                 ),
+//                 child: Padding(
+//                   padding: const EdgeInsets.all(4.0),
+//                   child: GestureDetector(
+//                     onTap: (){},
+//                     child: Flex(
+//                       direction: Axis.horizontal,
+//                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                       children: [
+//                         Row(
+//                           children: [
+//                             Icon(Icons.person, size: 18,),
+//                             Text(
+//                               S.of(context).account,
+//                               style: TextStyle(
+//                                 fontFamily:'Roboto',
+//                               ),
+//                             ),
+//                           ],
+//                         ),
+//
+//
+//                       ],
+//                     ),
+//                   ),
+//                 ),
+//               ),
+//             ),
              // privacy
              Padding(
                padding: const EdgeInsets.all(4.0),
