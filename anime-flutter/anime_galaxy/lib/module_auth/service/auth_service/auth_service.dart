@@ -34,6 +34,7 @@ class AuthService {
 
     try {
       if (!userExists) await _authManager.createUser(uid);
+
     } catch (e) {
       Logger().info('AuthService', 'User Already Exists');
     }

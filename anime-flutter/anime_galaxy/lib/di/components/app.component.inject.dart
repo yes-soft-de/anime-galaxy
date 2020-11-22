@@ -282,7 +282,8 @@ class AppComponent$Injector implements _i1.AppComponent {
   _i68.SettingsPage _createSettingsPage() => _i68.SettingsPage(
       _createAuthService(),
       _createLocalizationService(),
-      _createSwapThemeDataService());
+      _createSwapThemeDataService(),
+      _createProfileSharedPreferencesHelper());
   _i69.ExploreScreen _createExploreScreen() =>
       _i69.ExploreScreen(_createExploreStateManager());
   _i70.ExploreStateManager _createExploreStateManager() =>
