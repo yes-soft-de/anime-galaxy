@@ -12,6 +12,7 @@ use App\Response\CreateFavouriteResponse;
 use App\Response\GetFavouriteByIdResponse;
 use App\Response\GetFavouriteResponse;
 use App\Response\UpdateFavouriteResponse;
+use App\Response\GetNotifacationsResponse;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 class FavouriteService
@@ -109,5 +110,20 @@ class FavouriteService
         if (!$bool) {
             return $this->params;
         }
+    }
+
+    public function notifacations($userID)
+    {
+        $result = $this->favouriteManager->notifacations($userID);
+        $response = [];
+
+        foreach ($result as $row)
+        {
+            $row['mainImage'] = $this->specialLinkCheck($row['specialLink']).$row['mainImage'];
+            
+            $response[] = $this->autoMapping->map("array", GetNotifacationsResponse::class, $row);
+        }
+
+        return $response;
     }
 }
