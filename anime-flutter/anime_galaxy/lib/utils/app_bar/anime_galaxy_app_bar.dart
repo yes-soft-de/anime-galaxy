@@ -1,16 +1,20 @@
 import 'package:anime_galaxy/anime_setting/ui/widget/circular_setting/circular_image.dart';
 import 'package:anime_galaxy/generated/l10n.dart';
+import 'package:anime_galaxy/module_theme/service/theme_service/theme_service.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class AnimeGalaxyAppBar {
-
-
   static AppBar getAnimeGalaxyAppBar(
-
-      GlobalKey<ScaffoldState> drawerKey, String userName) {
+    GlobalKey<ScaffoldState> drawerKey,
+    String userName,
+  ) {
     final df = new DateFormat('a');
     return AppBar(
+      backgroundColor:
+          Theme.of(drawerKey.currentContext).brightness == Brightness.dark
+              ? SwapThemeDataService.getDarkBGColor()
+              : Colors.white,
       elevation: 0,
       centerTitle: false,
       automaticallyImplyLeading: false,
@@ -40,19 +44,19 @@ class AnimeGalaxyAppBar {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                
                 Text(
-                    df.format(DateTime.now())== 'ص'|| df.format(DateTime.now())== 'am'?
-                    S.current.GoodMorning:
-                    S.current.GoodEvining,
+                    df.format(DateTime.now()) == 'ص' ||
+                            df.format(DateTime.now()) == 'am'
+                        ? S.current.GoodMorning
+                        : S.current.GoodEvining,
                     style: TextStyle(
                       fontSize: 14,
-                      fontFamily:'Roboto',
+                      fontFamily: 'Roboto',
                     )),
                 Text('$userName',
                     style: TextStyle(
                       fontSize: 18,
-                      fontFamily:'Roboto',
+                      fontFamily: 'Roboto',
                       fontWeight: FontWeight.bold,
                     )),
               ],

@@ -103,24 +103,47 @@ class AuthStateManager {
     await _loginUser(result);
   }
 
-  Future<void> _loginUser(UserCredential result) async {
+  void signWithEmailAndPassword(String email, String password) {
+    _auth
+        .signInWithEmailAndPassword(email: email, password: password)
+        .then((value) {
+      _loginUser(value);
+    }).catchError((e) {
+      _stateSubject.add(AuthStateError(e));
+    });
+  }
+
+  void registerWithEmailAndPassword(
+      String email, String password, String username) {
+    _auth
+        .createUserWithEmailAndPassword(email: email, password: password)
+        .then((value) {
+      signWithEmailAndPassword(email, password);
+    }).catchError((e) {
+      _stateSubject.add(AuthStateError(e.toString()));
+    });
+  }
+
+  Future<void> _loginUser(UserCredential result, [String username]) async {
     if (result != null) {
       bool loginSuccess = await _authService.loginUser(
         result.user.uid,
-        result.user.displayName ?? result.user.uid.substring(0, 6),
+        result.user.displayName ?? username ?? result.user.uid.substring(0, 6),
         result.user.email ?? result.user.uid.substring(0, 6),
         AUTH_SOURCE.APPLE,
       );
 
       await _profileService.createProfile(
-          result.user.displayName ?? result.user.uid.substring(0, 6),
+          result.user.displayName ??
+              username ??
+              result.user.uid.substring(0, 6),
           null,
           ' ');
       if (loginSuccess) {
         _stateSubject.add(AuthStateSuccess());
       }
     }
-    _stateSubject.add(AuthStateError('Can\'t Sign in!'));
+    _stateSubject.add(AuthStateError('Error logging in'));
   }
 
   Future<void> _continueInterruptedLogin(User result) async {

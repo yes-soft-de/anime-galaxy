@@ -1302,6 +1302,66 @@ class S {
       args: [],
     );
   }
+
+  /// `لدي حساب`
+  String get iHaveAnAccount {
+    return Intl.message(
+      'لدي حساب',
+      name: 'iHaveAnAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `سجل حسابا جديدا`
+  String get registerNewAccount {
+    return Intl.message(
+      'سجل حسابا جديدا',
+      name: 'registerNewAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `لا املك حسابا`
+  String get iDontHaveAnAccount {
+    return Intl.message(
+      'لا املك حسابا',
+      name: 'iDontHaveAnAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ca not Sign in!`
+  String get caNotSignIn {
+    return Intl.message(
+      'Ca not Sign in!',
+      name: 'caNotSignIn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create new account`
+  String get createNewAccount {
+    return Intl.message(
+      'Create new account',
+      name: 'createNewAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select an Image`
+  String get selectAnImage {
+    return Intl.message(
+      'Select an Image',
+      name: 'selectAnImage',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

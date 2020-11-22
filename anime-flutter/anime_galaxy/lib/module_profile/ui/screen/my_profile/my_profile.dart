@@ -2,6 +2,7 @@ import 'package:anime_galaxy/generated/l10n.dart';
 import 'package:anime_galaxy/module_profile/profile_routes.dart';
 import 'package:anime_galaxy/module_profile/state_manager/edit_profile_state_manager/edit_profile_state_manager.dart';
 import 'package:anime_galaxy/module_theme/service/theme_service/theme_service.dart';
+import 'package:anime_galaxy/module_upload/service/image_upload/image_upload_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -10,19 +11,21 @@ import 'package:inject/inject.dart';
 @provide
 class MyProfileScreen extends StatefulWidget {
   final EditProfileStateManager manager;
+  final ImageUploadService imageUploadService;
 
-  MyProfileScreen(this.manager);
+  MyProfileScreen(this.manager, this.imageUploadService);
 
   @override
   State<StatefulWidget> createState() => _MyProfileScreenState();
 }
 
 class _MyProfileScreenState extends State<MyProfileScreen> {
-  final TextEditingController _nameController = TextEditingController();
   final TextEditingController _storyController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
 
   String _errorMsg;
   bool loading = false;
+  String userImage;
 
   @override
   void initState() {
@@ -66,19 +69,50 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
                   : Container(),
             ],
           ),
+          // Container(
+          //   height: 240,
+          //   child: Stack(
+          //     children: [
+          //       userImage == null
+          //           ? Positioned.fill(
+          //               child: Center(
+          //               child: GestureDetector(
+          //                 onTap: () {
+          //                   ImagePicker ip = ImagePicker();
+          //                   ip
+          //                       .getImage(source: ImageSource.gallery)
+          //                       .then((value) {
+          //                     widget.imageUploadService
+          //                         .uploadImage(value.path)
+          //                         .then((value) {
+          //                       userImage = value;
+          //                     });
+          //                   });
+          //                 },
+          //                 child: Text(S.of(context).selectAnImage),
+          //               ),
+          //             ))
+          //           : Positioned.fill(
+          //               child: Image.network(
+          //                 userImage,
+          //                 fit: BoxFit.cover,
+          //               ),
+          //             ),
+          //     ],
+          //   ),
+          // ),
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: TextFormField(
                 controller: _nameController,
                 decoration: InputDecoration(
-                  labelText: S.of(context).yourName,
-                  hintText: S.of(context).nameHint,
+                  labelText: S.of(context).name,
+                  hintText: S.of(context).name,
                 ),
                 keyboardType: TextInputType.text,
-                maxLines: 1,
                 validator: (v) {
                   if (v.isEmpty) {
-                    return S.of(context).pleaseInputPhoneNumber;
+                    return S.of(context).pleaseProvideYourName;
                   }
                   return null;
                 }),
@@ -105,10 +139,6 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
             decoration: BoxDecoration(color: SwapThemeDataService.getAccent()),
             child: GestureDetector(
               onTap: () {
-                if (_nameController.text.isEmpty) {
-                  Fluttertoast.showToast(msg: S.of(context).nameIsEmpty);
-                  return null;
-                }
                 if (_storyController.text.isEmpty) {
                   Fluttertoast.showToast(
                       msg: S.of(context).pleaseTellUsAboutYourSelf);
@@ -118,7 +148,9 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
                 loading = true;
                 if (mounted) setState(() {});
                 widget.manager.saveProfile(
-                    _nameController.text.trim(), _storyController.text.trim());
+                  _nameController.text.trim(),
+                  _storyController.text.trim(),
+                );
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,

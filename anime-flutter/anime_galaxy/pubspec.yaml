@@ -103,6 +103,7 @@ dependencies:
 
 #  google fonts
   google_fonts: ^1.1.1
+  image_picker: ^0.6.7+14
 
 dev_dependencies:
   flutter_test:

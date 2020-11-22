@@ -48,7 +48,10 @@ class _InitAccountScreenState extends State<InitAccountScreen>
       }
     }
     if (currentState is InitAccountStateAddFavouritesSuccess) {
-      Navigator.pushReplacementNamed (context, MainScreenRoute.MAIN_SCREEN_ROUTE  );
+      Navigator.pushReplacementNamed(
+        context,
+        MainScreenRoute.MAIN_SCREEN_ROUTE,
+      );
     }
   }
 
@@ -87,9 +90,9 @@ class _InitAccountScreenState extends State<InitAccountScreen>
             widget._stateManager.getCategories();
           },
           child: Text(
-              S.of(context).retry,
+            S.of(context).retry,
             style: TextStyle(
-              fontFamily:'Roboto',
+              fontFamily: 'Roboto',
             ),
           ),
         )
@@ -114,7 +117,7 @@ class _InitAccountScreenState extends State<InitAccountScreen>
                       Text(
                         S.of(context).startWachingSeries,
                         style: TextStyle(
-                          fontFamily:'Roboto',
+                          fontFamily: 'Roboto',
                         ),
                       )
                     ],
@@ -238,8 +241,8 @@ class _InitAccountScreenState extends State<InitAccountScreen>
                       child: Text(
                         S.of(context).continueUsingApp,
                         style: TextStyle(
-                            color: Colors.white,
-                          fontFamily:'Roboto',
+                          color: Colors.white,
+                          fontFamily: 'Roboto',
                         ),
                       ),
                     ),
@@ -257,10 +260,7 @@ class _InitAccountScreenState extends State<InitAccountScreen>
             child: FlatButton(
               child: Text(
                 S.of(context).continueUsingApp,
-                style: TextStyle(
-                    fontFamily:'Roboto',
-                    color: Colors.white
-                ),
+                style: TextStyle(fontFamily: 'Roboto', color: Colors.white),
               ),
               onPressed: () {
                 widget._stateManager.addAnimesToWatch(favoriteAnimes);
