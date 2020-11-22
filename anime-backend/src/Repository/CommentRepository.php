@@ -71,6 +71,7 @@ class CommentRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
     public function commentsNumber($userID)
     {
         return $this->createQueryBuilder('comment')
@@ -108,5 +109,24 @@ class CommentRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
             
+    }
+
+    public function getCommentsByUserId($userID)
+    {
+        return $this->createQueryBuilder('comment')
+            ->select('comment.id, comment.comment, comment.spoilerAlert, comment.creationDate')
+            ->addSelect('userProfile.userName','userProfile.image')
+
+            ->leftJoin(
+                UserProfile::class,
+                'userProfile',
+                Join::WITH,
+                'userProfile.userID = comment.userID'
+            )
+
+            ->andWhere('comment.userID = :userID')
+            ->setParameter('userID', $userID)
+            ->getQuery()
+            ->getResult();
     }
 }

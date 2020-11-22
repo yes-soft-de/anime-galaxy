@@ -122,4 +122,16 @@ class CommentController extends BaseController
 
         return $this->response($result, self::FETCH);
     }
+
+    /**
+     * @Route("comments/{userID}", name="getCommentsByUserID", methods={""GET})
+     * @param $userID
+     * @return JsonResponse
+     */
+    public function getCommentsByUserId($userID)
+    {
+        $result = $this->commentService->getCommentsByUserId($userID);
+
+        return $this->response($result, self::FETCH);
+    }
 }

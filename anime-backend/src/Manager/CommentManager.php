@@ -90,4 +90,9 @@ class CommentManager
 
         return $result = $this->commentRepository->getFollowersComments($userID, $date);
     }
+
+    public function getCommentsByUserId(GetByIdRequest $request)
+    {
+        return $this->commentRepository->getCommentsByUserId($request->getId());
+    }
 }

@@ -135,4 +135,26 @@ class CommentService
         return  $this->commentManager->getFollowersComments($friendID); 
     
     }
+
+    public function getCommentsByUserId($request)
+    {
+        $response = [];
+
+        $result = $this->commentManager->getCommentsByUserId($request);
+
+        foreach ($result as $row)
+        {
+            //$request->setID($row['id']);
+            $row['commentInteractions'] = [
+                'love' => $this->interactionService->lovedAll($row['id']),
+                'like' => $this->interactionService->likeAll($row['id']),
+                'dislike' => $this->interactionService->dislikeAll($row['id']),
+                'isLoved' => $this->interactionService->checkUserLoved($request)
+            ];
+
+            $response[] = $this->autoMapping->map('array', GetCommentsResponse::class, $row);
+        }
+
+        return $response;
+    }
 }
