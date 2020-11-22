@@ -38,27 +38,30 @@ class NotificationCard extends StatelessWidget {
                     Row(
 
               children: [
-                        CircularImage(w: 50,h:50,linkImg: image),
+                        CircularImage(w: 50,h:50,linkImg: image??''),
 
 
 
                         SizedBox(width: 10,),
 
-                        Text(
-                          content,
-                          style: TextStyle(
-                              fontSize: 8,
-                              fontWeight: FontWeight.bold
+                       Container(
+                         width: MediaQuery.of(context).size.width*0.6,
+                          child: Text(
+                            'ستصدر قريبا حلقة جديدة من المسلسل $content',
+                            style: TextStyle(
+                                fontSize: 8,
+                                fontWeight: FontWeight.bold
+                            ),
                           ),
                         ),
               ],
             ),
-                    Text(
-                        date,
-                      style: TextStyle(
-                      fontSize: 7
-                   ),
-                    ),
+//                    Text(
+//                        date,
+//                      style: TextStyle(
+//                      fontSize: 7
+//                   ),
+//                    ),
 
           ],
         ),

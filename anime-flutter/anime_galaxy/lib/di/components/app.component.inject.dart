@@ -261,7 +261,7 @@ class AppComponent$Injector implements _i1.AppComponent {
   _i59.NotificationManager _createNotificationManager() =>
       _i59.NotificationManager(_createNotificationRepository());
   _i60.NotificationRepository _createNotificationRepository() =>
-      _i60.NotificationRepository();
+      _i60.NotificationRepository(_createApiClient(), _createAuthService());
   _i61.AccountModule _createAccountModule() =>
       _i61.AccountModule(_createInitAccountScreen());
   _i62.InitAccountScreen _createInitAccountScreen() =>

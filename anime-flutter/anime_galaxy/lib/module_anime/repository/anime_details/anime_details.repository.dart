@@ -155,7 +155,7 @@ class AnimeDetailsRepository{
     dynamic response = await _httpClient.post(Urls.API_ANIME_INTERACTION, {
       'userID': userId,
       'animeID':animeId,
-      'type':1
+      'type':3
     });
     return response == null ?
     null:
@@ -168,7 +168,7 @@ class AnimeDetailsRepository{
     dynamic response = await _httpClient.post(Urls.API_ANIME_COMMENT_INTERACTION, {
       'userID': userId,
       'commentID':commentId,
-      'type':1
+      'type':3
     });
     return response == null ?
     null:

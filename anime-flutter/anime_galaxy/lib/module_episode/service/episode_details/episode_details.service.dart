@@ -26,7 +26,7 @@ class EpisodeDetailsService{
     episode.image = image;
     episode.classification = response.categoryName;
     episode.rate = response.rating;
-    episode.likesNumber = response.interactions.like;
+    episode.likesNumber = response.interactions.love;
     episode.commentsNumber = response.comments.length;
     episode.comments = await getComments(response.comments);
 
@@ -52,7 +52,7 @@ class EpisodeDetailsService{
           content: element.comment,
           userName: element.userName,
           id: element.id,
-          likesNumber: element.commentInteractions.like,
+          likesNumber: element.commentInteractions.love,
           userImage:element.image,
         date:' ${months[date.month+1]} ${date.day} ' ,
       );
