@@ -62,7 +62,7 @@ class AnimeDetailsStateManager {
 
     this._animeDetailsService.rateAnime(animeId, rateValue).then((value) {
       if(value == null || value == false){
-        Fluttertoast.showToast(msg: S.current.ommentingError);
+        Fluttertoast.showToast(msg: S.current.errorHappened);
         this._stateSubject.add(AnimeDetailsStateRatingError());
       }else{
         Fluttertoast.showToast(msg : S.current.ratingSuccessfully);
@@ -75,7 +75,7 @@ class AnimeDetailsStateManager {
 
     this._animeDetailsService.loveAnime(animeId).then((value) {
       if(value == null || value == false){
-        Fluttertoast.showToast(msg: S.current.ommentingError);
+        Fluttertoast.showToast(msg: S.current.errorHappened);
         this._stateSubject.add(AnimeDetailsStateLoveError());
       }else{
         Fluttertoast.showToast(msg : S.current.ThanksYourExcitement);
@@ -87,7 +87,7 @@ class AnimeDetailsStateManager {
 
     this._animeDetailsService.loveComment(commentId).then((value) {
       if(value == null || value == false){
-        Fluttertoast.showToast(msg: S.current.ommentingError);
+        Fluttertoast.showToast(msg: S.current.errorHappened);
         this._stateSubject.add(AnimeDetailsStateLoveCommentError());
       }else{
         Fluttertoast.showToast(msg : S.current.ThanksYourExcitement);
@@ -100,7 +100,7 @@ class AnimeDetailsStateManager {
 
     this._animeDetailsService.unFollowAnime(animeId).then((value) {
       if(value == null || value == false){
-        Fluttertoast.showToast(msg: S.current.ommentingError);
+        Fluttertoast.showToast(msg: S.current.errorHappened);
         this._stateSubject.add(AnimeDetailsStateUnFollowError());
       }else{
         this._stateSubject.add(AnimeDetailsStateUnFollowSuccess());

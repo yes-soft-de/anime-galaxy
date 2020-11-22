@@ -32,7 +32,7 @@ class MyProfileService {
     ProfileResponse response = await _manager.getProfile(userId);
     if (response != null) {
       var df = new DateFormat('d-M-yyyy');
-      var date = new DateTime.fromMicrosecondsSinceEpoch(response.createdAt.timestamp);
+      var date = new DateTime.fromMillisecondsSinceEpoch(response.createdAt.timestamp);
 
       ProfileModel result = new ProfileModel(
         name: response.userName,
@@ -68,7 +68,7 @@ class MyProfileService {
     var df = DateFormat('d m yyyy');
 
     followingActivitiesResponse.forEach((element) {
-      var date = new DateTime.fromMicrosecondsSinceEpoch(element.date.timestamp);
+      var date = new DateTime.fromMillisecondsSinceEpoch(element.date.timestamp);
 
       activities.add(new Activity(
         userName: element.userName,
