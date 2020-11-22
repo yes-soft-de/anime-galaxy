@@ -118,9 +118,9 @@ class AuthStateManager {
     _auth
         .createUserWithEmailAndPassword(email: email, password: password)
         .then((value) {
-      _loginUser(value, username);
+      signWithEmailAndPassword(email, password);
     }).catchError((e) {
-      _stateSubject.add(AuthStateError(e));
+      _stateSubject.add(AuthStateError(e.toString()));
     });
   }
 

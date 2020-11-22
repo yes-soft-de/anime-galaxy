@@ -126,10 +126,10 @@
   "YouHaveRatedThisEpisode": "لقد قمت بتقييم هذه الحلقة مسبقا",
   "ThanksYourExcitement": "شكرا لحماسك",
   "unFollow": "الغاء المتابعة",
-  "iHaveAnAccount": "I have an account",
-  "registerNewAccount": "Register New Account",
-  "iDontHaveAnAccount": "I don't have an Account",
-  "caNotSignIn": "Ca not Sign in!",
-  "createNewAccount": "Create new account",
-  "selectAnImage": "Select an Image"
+  "iHaveAnAccount": "املك حسابا",
+  "registerNewAccount": "سجل حسابا جديدا",
+  "iDontHaveAnAccount": "لا املك حسابا",
+  "caNotSignIn": "حدث خطأ اثناء تسجيل الدخول!",
+  "createNewAccount": "سجل حسابا جديدا",
+  "selectAnImage": "اختر صورة"
 }

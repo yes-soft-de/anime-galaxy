@@ -78,6 +78,7 @@ class _MainScreenState extends State<MainScreen> {
       widget._profileScreen,
       widget._settingsScreen,
     ];
+
     // Title is Deprecated!, Not My Optional Call
     return Scaffold(
       key: _scaffoldKey,
@@ -98,25 +99,21 @@ class _MainScreenState extends State<MainScreen> {
           BottomNavigationBarItem(
             // Title is Deprecated!, Not My Optional Call
             icon: Icon(Icons.dashboard),
-            label: ' ',
             backgroundColor: ProjectColors.ThemeColor,
           ),
           BottomNavigationBarItem(
             // Title is Deprecated!, Not My Optional Call
             icon: Icon(Icons.notifications),
-            label: ' ',
             backgroundColor: ProjectColors.ThemeColor,
           ),
           BottomNavigationBarItem(
             // Title is Deprecated!, Not My Optional Call
             icon: Icon(Icons.explore),
-            label: ' ',
             backgroundColor: ProjectColors.ThemeColor,
           ),
           BottomNavigationBarItem(
             // Title is Deprecated!, Not My Optional Call
             icon: Icon(Icons.person),
-            label: ' ',
             backgroundColor: ProjectColors.ThemeColor,
           ),
           BottomNavigationBarItem(
@@ -126,7 +123,7 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ],
       ),
-      body: pages[_pageIndex],
+      body: pages[_pageIndex ?? 0],
     );
   }
 

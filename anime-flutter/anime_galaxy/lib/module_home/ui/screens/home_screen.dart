@@ -149,14 +149,14 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 18,
-                                      fontFamily:'Roboto',
+                                      fontFamily: 'Roboto',
                                       fontWeight: FontWeight.bold),
                                 ),
                                 Text(
                                   item.classification,
                                   style: TextStyle(
                                       color: Colors.white70,
-                                      fontFamily:'Roboto',
+                                      fontFamily: 'Roboto',
                                       fontSize: 14),
                                 ),
                                 Text(
@@ -165,10 +165,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                       S.of(context).Season +
                                       '${item.season}',
                                   style: TextStyle(
-                                      fontFamily:'Roboto',
+                                      fontFamily: 'Roboto',
                                       color: Colors.white70,
-                                      fontSize: 14
-                                  ),
+                                      fontSize: 14),
                                 ),
                               ],
                             ),
@@ -202,15 +201,15 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       S.of(context).newEpisodes,
                       style: TextStyle(
                         fontSize: 14,
-                        fontFamily:'Roboto',
+                        fontFamily: 'Roboto',
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     Text(
                       S.of(context).More,
                       style: TextStyle(
-                          fontSize: 14,
-                        fontFamily:'Roboto',
+                        fontSize: 14,
+                        fontFamily: 'Roboto',
                       ),
                     ),
                   ],
@@ -228,9 +227,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     )
                   : Center(
                       child: Text(
-                          'No New Episodes',
+                        'No New Episodes',
                         style: TextStyle(
-                          fontFamily:'Roboto',
+                          fontFamily: 'Roboto',
                         ),
                       ),
                     ),
@@ -243,15 +242,15 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       S.of(context).watchedSeries,
                       style: TextStyle(
                         fontSize: 14,
-                        fontFamily:'Roboto',
+                        fontFamily: 'Roboto',
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     Text(
                       S.of(context).More,
                       style: TextStyle(
-                          fontSize: 14,
-                        fontFamily:'Roboto',
+                        fontSize: 14,
+                        fontFamily: 'Roboto',
                       ),
                     ),
                   ],
@@ -323,18 +322,16 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   children: [
                     Text(
                       S.of(context).mayLikeSeries,
-                      style:
-                          TextStyle(
-                              fontSize: 14,
-                              fontFamily:'Roboto',
-                              fontWeight: FontWeight.bold
-                          ),
+                      style: TextStyle(
+                          fontSize: 14,
+                          fontFamily: 'Roboto',
+                          fontWeight: FontWeight.bold),
                     ),
                     Text(
                       S.of(context).More,
                       style: TextStyle(
-                          fontSize: 14,
-                        fontFamily:'Roboto',
+                        fontSize: 14,
+                        fontFamily: 'Roboto',
                       ),
                     ),
                   ],
@@ -375,11 +372,11 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                         ),
                       ))
                   : Text(
-                  'Not Enough Data',
-                style: TextStyle(
-                  fontFamily:'Roboto',
-                ),
-              ),
+                      'Not Enough Data',
+                      style: TextStyle(
+                        fontFamily: 'Roboto',
+                      ),
+                    ),
               isExpanded2 && anime.mayLikeSeries.isNotEmpty
                   ? FlatButton(
                       child: Container(

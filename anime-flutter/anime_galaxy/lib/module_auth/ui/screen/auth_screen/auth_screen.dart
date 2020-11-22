@@ -61,10 +61,7 @@ class _AuthScreenState extends State<AuthScreen> {
   }
 
   Widget _getUI() {
-    if (_currentState is AuthStateLoading) {
-    } else if (loginMode == false) {}
-
-    return getRegisterPage();
+    return loginMode ? getLoginPage() : getRegisterPage();
   }
 
   Widget getRegisterPage() {
@@ -76,10 +73,12 @@ class _AuthScreenState extends State<AuthScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(),
-            Image.asset(
-              'assets/images/logo.jpg',
-              height: 120,
-            ),
+            MediaQuery.of(context).viewInsets.bottom != 0
+                ? Container()
+                : Image.asset(
+                    'assets/images/logo.jpg',
+                    height: 120,
+                  ),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Flex(
@@ -205,19 +204,28 @@ class _AuthScreenState extends State<AuthScreen> {
               },
               child: Text(S.of(context).iHaveAnAccount),
             ),
-            Container(
-              color: Colors.red,
-              height: 44,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    S.of(context).registerNewAccount,
-                    style: TextStyle(
-                      color: Colors.white,
+            GestureDetector(
+              onTap: () {
+                widget.manager.registerWithEmailAndPassword(
+                  _emailController.text.trim(),
+                  _passwordController.text.trim(),
+                  _nameController.text.trim(),
+                );
+              },
+              child: Container(
+                color: Colors.red,
+                height: 44,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      S.of(context).registerNewAccount,
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ],
@@ -235,10 +243,12 @@ class _AuthScreenState extends State<AuthScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(),
-            Image.asset(
-              'assets/images/logo.jpg',
-              height: 120,
-            ),
+            MediaQuery.of(context).viewInsets.bottom != 0
+                ? Container()
+                : Image.asset(
+                    'assets/images/logo.jpg',
+                    height: 120,
+                  ),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Flex(
@@ -351,19 +361,27 @@ class _AuthScreenState extends State<AuthScreen> {
               },
               child: Text(S.of(context).createNewAccount),
             ),
-            Container(
-              color: Colors.red,
-              height: 44,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    S.of(context).login,
-                    style: TextStyle(
-                      color: Colors.white,
+            GestureDetector(
+              onTap: () {
+                widget.manager.signWithEmailAndPassword(
+                  _emailController.text.trim(),
+                  _passwordController.text.trim(),
+                );
+              },
+              child: Container(
+                color: Colors.red,
+                height: 44,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      S.of(context).login,
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ],
