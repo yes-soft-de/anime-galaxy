@@ -8,6 +8,8 @@ use App\Manager\CommentManager;
 use App\Request\UpdateGradeRequest;
 use App\Response\CreateCommentResponse;
 use App\Response\GetCommentByIdResponse;
+use App\Response\GetCommentsByUserResponse;
+use App\Response\GetCommentsOfUserResponse;
 use App\Response\GetCommentsResponse;
 use App\Response\UpdateCommentResponse;
 use App\Response\GetcommentsNumberResponse;
@@ -19,14 +21,17 @@ class CommentService
     private $gradeService;
     private $updateGradeRequest;
     private $interactionService;
+    private $commentEpisodeService;
 
     public function __construct(CommentManager $commentManager, AutoMapping $autoMapping, GradeService $gradeService,
-        UpdateGradeRequest $updateGradeRequest, InteractionCommentService $interactionService) {
+        UpdateGradeRequest $updateGradeRequest, InteractionCommentService $interactionService, CommentEpisodeService $commentEpisodeService)
+    {
         $this->commentManager = $commentManager;
         $this->autoMapping = $autoMapping;
         $this->gradeService = $gradeService;
         $this->updateGradeRequest = $updateGradeRequest;
         $this->interactionService = $interactionService;
+        $this->commentEpisodeService = $commentEpisodeService;
     }
 
     public function create($request)
@@ -136,25 +141,23 @@ class CommentService
     
     }
 
-    public function getCommentsByUserId($request)
+    public function getCommentsByUserId($userID)
     {
         $response = [];
+        $response2 = [];
 
-        $result = $this->commentManager->getCommentsByUserId($request);
+        $result = $this->commentManager->getCommentsByUserId($userID);
+
+        $commentsEpisode = $this->commentEpisodeService->getCommentsByUserId($userID);
 
         foreach ($result as $row)
         {
-            //$request->setID($row['id']);
-            $row['commentInteractions'] = [
-                'love' => $this->interactionService->lovedAll($row['id']),
-                'like' => $this->interactionService->likeAll($row['id']),
-                'dislike' => $this->interactionService->dislikeAll($row['id']),
-                'isLoved' => $this->interactionService->checkUserLoved($request)
-            ];
-
             $response[] = $this->autoMapping->map('array', GetCommentsResponse::class, $row);
         }
 
-        return $response;
+        $response2['animeComments'] = $response;
+        $response2['episodeComments'] = $commentsEpisode;
+
+        return $response2;
     }
 }

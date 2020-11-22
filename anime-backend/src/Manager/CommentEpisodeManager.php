@@ -76,4 +76,9 @@ class CommentEpisodeManager
     {
         return $this->commentEpisodeRepository->getCommentsByEpisodeId($request->getId());
     }
+
+    public function getCommentsByUserId($userID)
+    {
+        return $this->commentEpisodeRepository->getCommentsByUserId($userID);
+    }
 }

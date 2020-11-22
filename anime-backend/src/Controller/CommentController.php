@@ -124,7 +124,7 @@ class CommentController extends BaseController
     }
 
     /**
-     * @Route("comments/{userID}", name="getCommentsByUserID", methods={""GET})
+     * @Route("usercomments/{userID}", name="getCommentsByUserID", methods={"GET"})
      * @param $userID
      * @return JsonResponse
      */

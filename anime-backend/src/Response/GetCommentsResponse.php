@@ -11,6 +11,7 @@ class GetCommentsResponse
     public $commentInteractions;
     public $userName;
     public $image;
+    public $animeName;
 
     /**
      * @return mixed

@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Anime;
 use App\Entity\CommentEpisode;
 use App\Entity\Episode;
 use App\Entity\UserProfile;
@@ -60,6 +61,39 @@ class CommentEpisodeRepository extends ServiceEntityRepository
             ->andWhere('episode.id=CommentEpisode.episodeID')
             ->andWhere('episode.id=:episodeID')
             ->setParameter('episodeID', $episodeID)
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function getCommentsByUserId($userID)
+    {
+        return $this->createQueryBuilder('comment')
+            ->select('comment.id, comment.comment, anime.name as animeName, comment.spoilerAlert, comment.creationDate, episode.episodeNumber')
+            ->addSelect('userProfile.userName','userProfile.image')
+
+            ->leftJoin(
+                UserProfile::class,
+                'userProfile',
+                Join::WITH,
+                'userProfile.userID = comment.userID'
+            )
+
+            ->leftJoin(
+                Episode::class,
+                'episode',
+                Join::WITH,
+                'episode.id = comment.episodeID'
+            )
+
+            ->leftJoin(
+                Anime::class,
+                'anime',
+                Join::WITH,
+                'anime.id = episode.animeID'
+            )
+
+            ->andWhere('comment.userID = :userID')
+            ->setParameter('userID', $userID)
             ->getQuery()
             ->getResult();
     }

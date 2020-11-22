@@ -9,6 +9,7 @@ use App\Request\UpdateGradeRequest;
 use App\Response\CreateCommentEpisodeResponse;
 use App\Response\GetCommentEpisodeByIdResponse;
 use App\Response\GetCommentsEpisodeResponse;
+use App\Response\GetCommentsOfUserResponse;
 use App\Response\UpdateCommentEpisodeResponse;
 
 class CommentEpisodeService
@@ -115,6 +116,21 @@ class CommentEpisodeService
             ];
             $response[] = $this->autoMapping->map('array', GetCommentsEpisodeResponse::class, $row);
         }
+        return $response;
+    }
+
+    public function getCommentsByUserId($userID)
+    {
+        $response = [];
+
+        $result = $this->commentEpisodeManager->getCommentsByUserId($userID);
+
+        foreach ($result as $row)
+        {
+
+            $response[] = $this->autoMapping->map('array', GetCommentsOfUserResponse::class, $row);
+        }
+
         return $response;
     }
 }
