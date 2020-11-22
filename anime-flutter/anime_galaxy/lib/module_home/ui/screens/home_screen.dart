@@ -8,7 +8,6 @@ import 'package:anime_galaxy/module_home/state/home/home.state.dart';
 import 'package:anime_galaxy/module_home/state_manager/home/home.state_manager.dart';
 import 'package:anime_galaxy/module_home/ui/widget/points_widget/points_widget.dart';
 import 'package:anime_galaxy/module_home/ui/widget/series_card/series_card.dart';
-import 'package:anime_galaxy/utils/loading_indicator/loading_indicator.dart';
 import 'package:anime_galaxy/utils/project_colors/project_color.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -67,21 +66,13 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       });
     }
 
-    return loading ? LoadingIndicatorWidget() : getPageLayout();
+    return loading ? CircularProgressIndicator() : getPageLayout();
   }
 
   Widget getPageLayout() {
     return Scaffold(
-        body:
-            /*loading ?
-              Shimmer.fromColors(
-              baseColor: Colors.grey[300],
-              highlightColor: Colors.grey[100],
-              enabled:  true,
-
-              child: body()
-          ):*/
-            body());
+      body: body(),
+    );
   }
 
   Future<String> _refresh() async {

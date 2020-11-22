@@ -6,7 +6,6 @@ import 'package:anime_galaxy/module_navigation/ui/widget/navigation_drawer/anime
 import 'package:anime_galaxy/module_notification/ui/screen/notification_screen/notification_screen.dart';
 import 'package:anime_galaxy/module_profile/ui/screen/profile_screen/profile_screen.dart';
 import 'package:anime_galaxy/module_settings/ui/ui/settings_page/settings_page.dart';
-import 'package:anime_galaxy/module_theme/service/theme_service/theme_service.dart';
 import 'package:anime_galaxy/utils/app_bar/anime_galaxy_app_bar.dart';
 import 'package:anime_galaxy/utils/project_colors/project_color.dart';
 import 'package:flutter/material.dart';
@@ -20,15 +19,16 @@ class MainScreen extends StatefulWidget {
   final ExploreScreen _exploreScreen;
   final ProfileScreen _profileScreen;
   final AuthService _authService;
+  final AnimeNavigationDrawer _animeNavigationDrawer;
 
   MainScreen(
-    this._notificationScreen,
-    this._homeScreen,
-    this._settingsScreen,
-    this._exploreScreen,
-    this._profileScreen,
-    this._authService,
-  );
+      this._notificationScreen,
+      this._homeScreen,
+      this._settingsScreen,
+      this._exploreScreen,
+      this._profileScreen,
+      this._authService,
+      this._animeNavigationDrawer);
 
   @override
   _MainScreenState createState() => _MainScreenState();
@@ -82,38 +82,40 @@ class _MainScreenState extends State<MainScreen> {
     // Title is Deprecated!, Not My Optional Call
     return Scaffold(
       key: _scaffoldKey,
-      appBar: AnimeGalaxyAppBar.getAnimeGalaxyAppBar(_scaffoldKey, username),
-      drawer: AnimeNavigationDrawer(),
+      drawer: widget._animeNavigationDrawer,
+      appBar: AnimeGalaxyAppBar.getAnimeGalaxyAppBar(
+          context, _scaffoldKey, username),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _pageIndex ?? 0,
         onTap: (newPos) {
           _pageIndex = newPos;
           setState(() {});
         },
-        backgroundColor: Theme.of(context).brightness == Brightness.light
-            ? ProjectColors.ThemeColor
-            : SwapThemeDataService.getDarkBGColor(),
+        backgroundColor: ProjectColors.ThemeColor,
         fixedColor: Colors.white,
         unselectedItemColor: Colors.white54,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            // Title is Deprecated!, Not My Optional Call
             icon: Icon(Icons.dashboard),
+            label: ' ',
             backgroundColor: ProjectColors.ThemeColor,
           ),
           BottomNavigationBarItem(
             // Title is Deprecated!, Not My Optional Call
             icon: Icon(Icons.notifications),
+            label: ' ',
             backgroundColor: ProjectColors.ThemeColor,
           ),
           BottomNavigationBarItem(
             // Title is Deprecated!, Not My Optional Call
             icon: Icon(Icons.explore),
+            label: ' ',
             backgroundColor: ProjectColors.ThemeColor,
           ),
           BottomNavigationBarItem(
             // Title is Deprecated!, Not My Optional Call
             icon: Icon(Icons.person),
+            label: ' ',
             backgroundColor: ProjectColors.ThemeColor,
           ),
           BottomNavigationBarItem(

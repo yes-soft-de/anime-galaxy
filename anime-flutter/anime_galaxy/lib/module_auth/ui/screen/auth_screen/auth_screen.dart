@@ -34,6 +34,15 @@ class _AuthScreenState extends State<AuthScreen> {
   bool loading = false;
 
   @override
+  void initState() {
+    super.initState();
+    widget.manager.stateStream.listen((event) {
+      _currentState = event;
+      loading = false;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     String redirectTo = ModalRoute.of(context).settings.arguments.toString();
     redirectTo =
@@ -41,12 +50,6 @@ class _AuthScreenState extends State<AuthScreen> {
 
     widget.manager.isSignedIn().then((value) {
       if (value) Navigator.of(context).pushReplacementNamed(redirectTo);
-    });
-
-    widget.manager.stateStream.listen((event) {
-      _currentState = event;
-      loading = false;
-      _getUI();
     });
 
     if (_currentState is AuthStateSuccess) {
@@ -202,15 +205,19 @@ class _AuthScreenState extends State<AuthScreen> {
                 loginMode = true;
                 setState(() {});
               },
-              child: Text(S.of(context).iHaveAnAccount),
+              child: Text(loading
+                  ? S.of(context).loading
+                  : S.of(context).iHaveAnAccount),
             ),
             GestureDetector(
               onTap: () {
-                widget.manager.registerWithEmailAndPassword(
-                  _emailController.text.trim(),
-                  _passwordController.text.trim(),
-                  _nameController.text.trim(),
-                );
+                if (!loading) {
+                  widget.manager.registerWithEmailAndPassword(
+                    _emailController.text.trim(),
+                    _passwordController.text.trim(),
+                    _nameController.text.trim(),
+                  );
+                }
               },
               child: Container(
                 color: Colors.red,
@@ -219,7 +226,9 @@ class _AuthScreenState extends State<AuthScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      S.of(context).registerNewAccount,
+                      loading
+                          ? S.of(context).loading
+                          : S.of(context).registerNewAccount,
                       style: TextStyle(
                         color: Colors.white,
                       ),
@@ -325,7 +334,9 @@ class _AuthScreenState extends State<AuthScreen> {
                         ),
                       ),
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      Scaffold.of(context).showSnackBar(SnackBar(content: Text('Social App Id not provided'),))
+                    },
                   ),
                 ),
                 Padding(
@@ -359,14 +370,18 @@ class _AuthScreenState extends State<AuthScreen> {
                 loginMode = false;
                 setState(() {});
               },
-              child: Text(S.of(context).createNewAccount),
+              child: Text(loading
+                  ? S.of(context).loading
+                  : S.of(context).createNewAccount),
             ),
             GestureDetector(
               onTap: () {
-                widget.manager.signWithEmailAndPassword(
-                  _emailController.text.trim(),
-                  _passwordController.text.trim(),
-                );
+                if (!loading) {
+                  widget.manager.signWithEmailAndPassword(
+                    _emailController.text.trim(),
+                    _passwordController.text.trim(),
+                  );
+                }
               },
               child: Container(
                 color: Colors.red,
@@ -375,7 +390,7 @@ class _AuthScreenState extends State<AuthScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      S.of(context).login,
+                      loading ? S.of(context).loading : S.of(context).login,
                       style: TextStyle(
                         color: Colors.white,
                       ),

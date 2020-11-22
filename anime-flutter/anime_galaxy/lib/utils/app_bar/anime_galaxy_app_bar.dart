@@ -6,15 +6,15 @@ import 'package:intl/intl.dart';
 
 class AnimeGalaxyAppBar {
   static AppBar getAnimeGalaxyAppBar(
+    BuildContext context,
     GlobalKey<ScaffoldState> drawerKey,
     String userName,
   ) {
     final df = new DateFormat('a');
     return AppBar(
-      backgroundColor:
-          Theme.of(drawerKey.currentContext).brightness == Brightness.dark
-              ? SwapThemeDataService.getDarkBGColor()
-              : Colors.white,
+      backgroundColor: Theme.of(context).brightness == Brightness.dark
+          ? SwapThemeDataService.getDarkBGColor()
+          : Colors.white,
       elevation: 0,
       centerTitle: false,
       automaticallyImplyLeading: false,

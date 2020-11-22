@@ -133,12 +133,6 @@ class AuthStateManager {
         AUTH_SOURCE.APPLE,
       );
 
-      await _profileService.createProfile(
-          result.user.displayName ??
-              username ??
-              result.user.uid.substring(0, 6),
-          null,
-          ' ');
       if (loginSuccess) {
         _stateSubject.add(AuthStateSuccess());
       }

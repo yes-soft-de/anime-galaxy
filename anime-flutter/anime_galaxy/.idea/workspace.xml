@@ -8,14 +8,29 @@
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/di/components/app.component.inject.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/di/components/app.component.inject.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/generated/intl/messages_ar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/intl/messages_ar.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/l10n/intl_ar.arb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/l10n/intl_ar.arb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/generated/l10n.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/l10n.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main_screen/main_screen_module.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main_screen/main_screen_module.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main_screen/main_screen_routes.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main_screen/main_screen_routes.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main_screen/ui/screen/main_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main_screen/ui/screen/main_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main_screen/ui/screen/main_screen.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main_screen/ui/screen/main_screen.inject.summary" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main_screen/ui/screen/main_screen.inject.summary" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_anime/anime_module.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/anime_module.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/module_auth/state_manager/auth_state_manager/auth_state_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/state_manager/auth_state_manager/auth_state_manager.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/module_auth/ui/screen/auth_screen/auth_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/ui/screen/auth_screen/auth_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_episode/ui/screen/episode_details_screen/episode_details_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/ui/screen/episode_details_screen/episode_details_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_explore/explore_module.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/explore_module.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_home/home.module.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/home.module.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/module_home/ui/screens/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/ui/screens/home_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_init_account/ui/widget/anime_category_Card/anime_category_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_init_account/ui/widget/anime_category_Card/anime_category_card.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_navigation/ui/widget/navigation_drawer/anime_navigation_drawer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_navigation/ui/widget/navigation_drawer/anime_navigation_drawer.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_navigation/ui/widget/navigation_drawer/anime_navigation_drawer.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_navigation/ui/widget/navigation_drawer/anime_navigation_drawer.inject.summary" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_network/http_client/http_client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_network/http_client/http_client.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_profile/ui/screen/my_profile/my_profile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/ui/screen/my_profile/my_profile.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/app_bar/anime_galaxy_app_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/app_bar/anime_galaxy_app_bar.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +49,19 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$/../.." source="origin/dev-mobile" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
@@ -42,12 +70,6 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
     <option name="RESET_MODE" value="HARD" />
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="697" />
-    <option name="height" value="735" />
   </component>
   <component name="ProjectId" id="1k9X7D1DnNoINtnYTzbbRP4Ya4V" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -520,30 +542,30 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="522" y="235" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.864@0.0.1536.864" timestamp="1605284647206" />
-    <state x="574" y="148" key="#com.intellij.ide.util.MemberChooser" timestamp="1605338417127">
+    <state x="574" y="148" key="#com.intellij.ide.util.MemberChooser" timestamp="1606084345102">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="574" y="148" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1605338417127" />
+    <state x="574" y="148" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1606084345102" />
     <state x="0" y="19" key="CommitChangelistDialog2" timestamp="1606062903337">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="0" y="19" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1606062903337" />
-    <state width="1491" height="271" key="GridCell.Tab.0.bottom" timestamp="1606067264434">
+    <state width="1491" height="270" key="GridCell.Tab.0.bottom" timestamp="1606086672117">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="271" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1606067264434" />
-    <state width="1491" height="271" key="GridCell.Tab.0.center" timestamp="1606067264434">
+    <state width="1491" height="270" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1606086672117" />
+    <state width="1491" height="270" key="GridCell.Tab.0.center" timestamp="1606086672116">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="271" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1606067264434" />
-    <state width="1491" height="271" key="GridCell.Tab.0.left" timestamp="1606067264434">
+    <state width="1491" height="270" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1606086672116" />
+    <state width="1491" height="270" key="GridCell.Tab.0.left" timestamp="1606086672116">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="271" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1606067264434" />
-    <state width="1491" height="271" key="GridCell.Tab.0.right" timestamp="1606067264434">
+    <state width="1491" height="270" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1606086672116" />
+    <state width="1491" height="270" key="GridCell.Tab.0.right" timestamp="1606086672117">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="271" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1606067264434" />
+    <state width="1491" height="270" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1606086672117" />
     <state x="26" y="69" key="SettingsEditor" timestamp="1606056528485">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -556,10 +578,14 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="452" y="145" key="git4idea.branch.GitSmartOperationDialog/0.0.1536.864@0.0.1536.864" timestamp="1605214761607" />
-    <state width="300" height="96" key="javadoc.popup.new" timestamp="1606066134443">
+    <state width="300" height="96" key="javadoc.popup.new" timestamp="1606086733658">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="300" height="96" key="javadoc.popup.new/0.0.1536.864@0.0.1536.864" timestamp="1606066134443" />
+    <state width="300" height="96" key="javadoc.popup.new/0.0.1536.864@0.0.1536.864" timestamp="1606086733658" />
+    <state x="425" y="197" key="run.anything.popup" timestamp="1606084044559">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="425" y="197" key="run.anything.popup/0.0.1536.864@0.0.1536.864" timestamp="1606084044559" />
     <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1606062221049">
       <screen x="0" y="0" width="1536" height="864" />
     </state>

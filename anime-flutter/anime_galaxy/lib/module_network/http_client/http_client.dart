@@ -20,8 +20,7 @@ class ApiClient {
   }
 
   Future<Map<String, dynamic>> get(String url,
-      {Map<String, String> queryParams}
-      ) async {
+      {Map<String, String> queryParams}) async {
     _logger.info(tag, 'GET $url');
     try {
       Response response = await _client.get(
@@ -33,6 +32,9 @@ class ApiClient {
       if (response.statusCode >= 200 && response.statusCode < 300) {
         _logger.info(tag, response.data.toString());
         return response.data;
+      } else if (response.statusCode == 404) {
+        _logger.warn(tag, url + '\t' + response.statusCode.toString());
+        return null;
       } else {
         _logger.error(tag, url + '\t' + response.statusCode.toString());
         return null;

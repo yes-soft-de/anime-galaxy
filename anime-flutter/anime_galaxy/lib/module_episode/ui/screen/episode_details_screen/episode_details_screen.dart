@@ -94,10 +94,9 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
       }
     }
     if (currentState is EpisodeDetailsStateLoveSuccess) {
-
       int likes = int.parse(episode.likesNumber);
-      likes+=1;
-      episode.likesNumber = likes.toString() ;
+      likes += 1;
+      episode.likesNumber = likes.toString();
       if (this.mounted) {
         setState(() {});
       }
@@ -137,7 +136,8 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
   Widget getPageLayout() {
     return Scaffold(
       key: _scaffoldKey,
-      appBar: AnimeGalaxyAppBar.getAnimeGalaxyAppBar(_scaffoldKey, username),
+      appBar: AnimeGalaxyAppBar.getAnimeGalaxyAppBar(
+          context, _scaffoldKey, username),
       drawer: AnimeNavigationDrawer(),
       body: Container(
         padding: EdgeInsets.all(5),
@@ -172,13 +172,13 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
     return Container(
       child: Column(children: [
         EpisodeDetailsWidget(
-            name: episode.name,
-            comments: episode.commentsNumber,
-            likes: episode.likesNumber,
-            rate: episode.rate,
-            showYear: episode.showYear,
-            image: episode.image,
-            onLove: ()=> widget._stateManager.loveEpisode(episodeId),
+          name: episode.name,
+          comments: episode.commentsNumber,
+          likes: episode.likesNumber,
+          rate: episode.rate,
+          showYear: episode.showYear,
+          image: episode.image,
+          onLove: () => widget._stateManager.loveEpisode(episodeId),
         ),
         //rating the series
         Row(
@@ -205,17 +205,14 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
                   color: ProjectColors.ThemeColor,
                 ),
                 onRatingChanged: (rating) {
-                  if(episode.previousRate == 0 ){
+                  if (episode.previousRate == 0) {
                     widget._stateManager.rateEpisode(episodeId, rating);
                     this.rating = rating;
-                    setState(() {
-
-                    });
-                  }else{
-                    Fluttertoast.showToast(msg:S.of(context).YouHaveRatedThisEpisode );
+                    setState(() {});
+                  } else {
+                    Fluttertoast.showToast(
+                        msg: S.of(context).YouHaveRatedThisEpisode);
                   }
-
-
                 },
                 itemSize: 25,
                 itemCount: 10,
@@ -289,8 +286,8 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
             Text(
               S.of(context).monthlyComments,
               style: TextStyle(
-                  fontSize: 14,
-                fontFamily:'Roboto',
+                fontSize: 14,
+                fontFamily: 'Roboto',
               ),
             ),
             //TODO : change it with real data
@@ -315,9 +312,9 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
               Text(
                 S.of(context).About,
                 style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  fontFamily:'Roboto',
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Roboto',
                 ),
               ),
               SizedBox(
@@ -345,7 +342,7 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
                     '${episode.about}',
                     style: TextStyle(
                       fontSize: 16,
-                      fontFamily:'Roboto',
+                      fontFamily: 'Roboto',
                     ),
                   ),
                 )
@@ -395,9 +392,8 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
                 S.of(context).Classification,
                 style: TextStyle(
                     fontSize: 18,
-                    fontFamily:'Roboto',
-                    fontWeight: FontWeight.bold
-                ),
+                    fontFamily: 'Roboto',
+                    fontWeight: FontWeight.bold),
               ),
             ],
           ),
@@ -415,10 +411,7 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
                 child: Center(
                     child: Text(
                   '${episode.classification}',
-                  style: TextStyle(
-                      fontFamily:'Roboto',
-                      fontSize: 12
-                  ),
+                  style: TextStyle(fontFamily: 'Roboto', fontSize: 12),
                 ))),
           ],
           //in case of multiple classifications
@@ -462,9 +455,8 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
                   S.of(context).LastReplaysAndComments,
                   style: TextStyle(
                       fontSize: 18,
-                      fontFamily:'Roboto',
-                      fontWeight: FontWeight.bold
-                  ),
+                      fontFamily: 'Roboto',
+                      fontWeight: FontWeight.bold),
                 ),
               ],
             )),
@@ -474,12 +466,13 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
           itemCount: episode.comments.length,
           itemBuilder: (BuildContext context, int index) {
             return CommentCard(
-              userImage:'${ episode.comments[index].userImage}',
-              userName: '${ episode.comments[index].userName}',
+              userImage: '${episode.comments[index].userImage}',
+              userName: '${episode.comments[index].userName}',
               date: '${episode.comments[index].date}',
               likesNumber: episode.comments[index].likesNumber,
               comment: '${episode.comments[index].content}',
-              onLove: ()=> widget._stateManager.loveComment(episode.comments[index].id),
+              onLove: () =>
+                  widget._stateManager.loveComment(episode.comments[index].id),
             );
           },
         ),
@@ -508,10 +501,9 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          Text(
-                              S.of(context).newInteraction,
+                          Text(S.of(context).newInteraction,
                               style: TextStyle(
-                                fontFamily:'Roboto',
+                                fontFamily: 'Roboto',
                               )),
                         ],
                       ),
@@ -525,9 +517,9 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
                         child: TextField(
                           controller: _commentController,
                           style: TextStyle(
-                              color: Colors.white,
-                              fontFamily:'Roboto',
-                              fontSize: 14,
+                            color: Colors.white,
+                            fontFamily: 'Roboto',
+                            fontSize: 14,
                           ),
                           maxLines: 8,
                           decoration: InputDecoration.collapsed(
@@ -559,9 +551,9 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
                             Text(S.of(context).spoilerAlert,
                                 style: GoogleFonts.roboto(
                                   textStyle: TextStyle(
-                                      fontSize: 10,
-                                      color: Colors.white,
-                                    fontFamily:'Roboto',
+                                    fontSize: 10,
+                                    color: Colors.white,
+                                    fontFamily: 'Roboto',
                                   ),
                                 ))
                           ],
@@ -587,9 +579,8 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
                                 style: GoogleFonts.roboto(
                                   textStyle: TextStyle(
                                       fontSize: 10,
-                                      fontFamily:'Roboto',
-                                      color: Colors.white
-                                  ),
+                                      fontFamily: 'Roboto',
+                                      color: Colors.white),
                                 )),
                           )),
                     ],

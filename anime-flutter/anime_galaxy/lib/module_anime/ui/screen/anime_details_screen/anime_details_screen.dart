@@ -166,7 +166,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
   Widget getPageLayout() {
     return Scaffold(
       key: _scaffoldKey,
-      appBar: AnimeGalaxyAppBar.getAnimeGalaxyAppBar(_scaffoldKey, username),
+      appBar: AnimeGalaxyAppBar.getAnimeGalaxyAppBar(context, _scaffoldKey, username),
       drawer: AnimeNavigationDrawer(),
       body: Container(
         padding: EdgeInsets.all(5),

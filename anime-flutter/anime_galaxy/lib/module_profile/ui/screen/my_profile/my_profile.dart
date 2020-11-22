@@ -1,9 +1,9 @@
 import 'package:anime_galaxy/generated/l10n.dart';
+import 'package:anime_galaxy/main_screen/main_screen_routes.dart';
 import 'package:anime_galaxy/module_profile/profile_routes.dart';
 import 'package:anime_galaxy/module_profile/state_manager/edit_profile_state_manager/edit_profile_state_manager.dart';
 import 'package:anime_galaxy/module_theme/service/theme_service/theme_service.dart';
 import 'package:anime_galaxy/module_upload/service/image_upload/image_upload_service.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:inject/inject.dart';
@@ -36,7 +36,7 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
         Navigator.of(context).pushNamed(ProfileRoutes.ROUTE_PROFILE);
       } else {
         _errorMsg = event;
-        setState(() {});
+        if (mounted) setState(() {});
       }
     });
   }
@@ -44,7 +44,8 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
   @override
   Widget build(BuildContext context) {
     String redirectTo = ModalRoute.of(context).settings.arguments.toString();
-    redirectTo = redirectTo == null ? redirectTo : ProfileRoutes.ROUTE_PROFILE;
+    redirectTo =
+        redirectTo == null ? redirectTo : MainScreenRoute.MAIN_SCREEN_ROUTE;
     return Scaffold(
       body: _getProfileEditScreen(),
     );

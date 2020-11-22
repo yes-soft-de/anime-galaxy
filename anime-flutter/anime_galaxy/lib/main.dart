@@ -136,12 +136,11 @@ class _MyAppState extends State<MyApp> {
     await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
     lang ??= await widget._localizationService.getLanguage();
     isDarkMode ??= await widget._swapThemeService.isDarkMode();
-    authorized ??= await widget._authService.isLoggedIn;
 
     return MaterialApp(
       navigatorObservers: <NavigatorObserver>[observer],
       locale: Locale.fromSubtags(
-        languageCode: 'ar' /* lang ?? 'en'*/,
+        languageCode: 'ar',
       ),
       localizationsDelegates: [
         S.delegate,
