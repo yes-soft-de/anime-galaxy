@@ -86,4 +86,14 @@ class FavouriteManager
 
         return $favourite;
     }
+
+    public function notifacations($userID)
+    {
+        $date = [];
+        for ($i = 1; $i <= 10; $i++) {
+            $date[] = date('Y-m-d', strtotime('+' . $i . ' day'));
+        }
+    
+        return $this->favouriteRepository->notifacations($userID, $date);
+    }
 }
