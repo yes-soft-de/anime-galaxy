@@ -19,6 +19,10 @@ class SwapThemeDataService {
     return Color(0xFFD31640);
   }
 
+  static Color getDarkBGColor() {
+    return Color(0xFF272838);
+  }
+
   Future<bool> isDarkMode() async {
     return _preferencesHelper.isDarkMode();
   }

@@ -207,8 +207,8 @@ class AppComponent$Injector implements _i1.AppComponent {
   _i35.UploadManager _createUploadManager() =>
       _i35.UploadManager(_createUploadRepository());
   _i36.UploadRepository _createUploadRepository() => _i36.UploadRepository();
-  _i37.MyProfileScreen _createMyProfileScreen() =>
-      _i37.MyProfileScreen(_createEditProfileStateManager());
+  _i37.MyProfileScreen _createMyProfileScreen() => _i37.MyProfileScreen(
+      _createEditProfileStateManager(), _createImageUploadService());
   _i38.EditProfileStateManager _createEditProfileStateManager() =>
       _i38.EditProfileStateManager(_createMyProfileService());
   _i4.LocalizationService _createLocalizationService() =>
