@@ -31,7 +31,7 @@ class AnimeDetailsService {
     anime.comments = getComments(response.comments);
 
     var df = new DateFormat('yyyy');
-    var date = new DateTime.fromMicrosecondsSinceEpoch(response.publishDate.timestamp);
+    var date = new DateTime.fromMillisecondsSinceEpoch(response.publishDate.timestamp);
     anime.showYear = df.format(date).toString();
 
 
@@ -65,7 +65,7 @@ class AnimeDetailsService {
     List months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
     commentResponse.forEach((element) {
-      var date = new DateTime.fromMicrosecondsSinceEpoch(element.creationDate.timestamp);
+      var date = new DateTime.fromMillisecondsSinceEpoch(element.creationDate.timestamp);
       Comment comment = new Comment(
           content: element.comment,
           userName:element.userName,
@@ -120,5 +120,9 @@ class AnimeDetailsService {
   }
   Future<bool> loveComment(int commentId)async{
     return await _detailsManager.loveComment(commentId);
+  }
+
+  Future<bool> unFollowAnime(int animeId)async{
+    return await _detailsManager.unFollowAnime(animeId);
   }
 }

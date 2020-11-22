@@ -75,7 +75,23 @@ class EpisodeDetailsWidget extends StatelessWidget {
                           Row(
                             children: [
                               Text(
-                                  '$likes',
+                                '$comments',
+                                style: TextStyle(
+                                  fontFamily:'Roboto',
+                                ),
+                              ),
+                              Icon(Icons.comment,
+                                  color: ProjectColors.ThemeColor)
+                            ],
+                          ),
+
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Row(
+                            children: [
+                              Text(
+                                '$likes',
                                 style: TextStyle(
                                   fontFamily:'Roboto',
                                 ),
@@ -84,21 +100,6 @@ class EpisodeDetailsWidget extends StatelessWidget {
                                 AssetImage('assets/images/full_flame.png'),
                                 color: ProjectColors.ThemeColor,
                               ),
-                            ],
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Row(
-                            children: [
-                              Text(
-                                  '$comments',
-                                style: TextStyle(
-                                  fontFamily:'Roboto',
-                                ),
-                              ),
-                              Icon(Icons.comment,
-                                  color: ProjectColors.ThemeColor)
                             ],
                           ),
                         ],

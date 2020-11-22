@@ -31,7 +31,7 @@ class EpisodeDetailsService{
     episode.comments = await getComments(response.comments);
 
      var df = new DateFormat('yyyy');
-    var date = new DateTime.fromMicrosecondsSinceEpoch(response.publishDate.timestamp);
+    var date = new DateTime.fromMillisecondsSinceEpoch(response.publishDate.timestamp);
 
     episode.showYear = df.format(date).toString();
     episode.about = response.description;
@@ -47,7 +47,7 @@ class EpisodeDetailsService{
     List months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
     commentResponse.forEach((element) {
-      var date = new DateTime.fromMicrosecondsSinceEpoch(element.creationDate.timestamp);
+      var date = new DateTime.fromMillisecondsSinceEpoch(element.creationDate.timestamp);
       Comment comment = new Comment(
           content: element.comment,
           userName: element.userName,

@@ -20,8 +20,17 @@ class MainScreen extends StatefulWidget {
   final ExploreScreen _exploreScreen;
   final ProfileScreen _profileScreen;
   final AuthService _authService;
+  final AnimeNavigationDrawer _animeNavigationDrawer;
 
   MainScreen(
+      this._notificationScreen,
+      this._homeScreen,
+      this._settingsScreen,
+      this._exploreScreen,
+      this._profileScreen,
+      this._authService,
+      this._animeNavigationDrawer
+      );
     this._notificationScreen,
     this._homeScreen,
     this._settingsScreen,
@@ -82,23 +91,23 @@ class _MainScreenState extends State<MainScreen> {
     // Title is Deprecated!, Not My Optional Call
     return Scaffold(
       key: _scaffoldKey,
-      appBar: AnimeGalaxyAppBar.getAnimeGalaxyAppBar(_scaffoldKey, username),
-      drawer: AnimeNavigationDrawer(),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _pageIndex ?? 0,
-        onTap: (newPos) {
-          _pageIndex = newPos;
-          setState(() {});
-        },
-        backgroundColor: Theme.of(context).brightness == Brightness.light
-            ? ProjectColors.ThemeColor
-            : SwapThemeDataService.getDarkBGColor(),
-        fixedColor: Colors.white,
-        unselectedItemColor: Colors.white54,
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            // Title is Deprecated!, Not My Optional Call
-            icon: Icon(Icons.dashboard),
+      appBar:
+          AnimeGalaxyAppBar.getAnimeGalaxyAppBar(_scaffoldKey, username),
+          drawer: widget._animeNavigationDrawer,
+          bottomNavigationBar: BottomNavigationBar(
+            currentIndex: _pageIndex,
+            onTap: (newPos) {
+              _pageIndex = newPos;
+              setState(() {});
+            },
+            backgroundColor: ProjectColors.ThemeColor,
+            fixedColor: Colors.white,
+            unselectedItemColor: Colors.white54,
+            items: <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                icon: Icon(Icons.dashboard),
+//                  label: '',
+            title: Text(''),
             backgroundColor: ProjectColors.ThemeColor,
           ),
           BottomNavigationBarItem(

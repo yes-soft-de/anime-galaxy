@@ -16,14 +16,16 @@ class AnimeDetailsStateFetchingSuccess extends AnimeDetailsState{
 
 class AnimeDetailsStateFetchingError extends AnimeDetailsState{}
 
-
+///--------------------------------------------
+///
 class AnimeDetailsStateCommentingInProgress extends AnimeDetailsState{}
 
 class AnimeDetailsStateCommentingSuccess extends AnimeDetailsState{}
 
 class AnimeDetailsStateCommentingError extends AnimeDetailsState{}
 
-
+///---------------------------------------------
+///
 class AnimeDetailsStateAddToFavouriteInProgress extends AnimeDetailsState{}
 
 class AnimeDetailsStateAddToFavouriteSuccess extends AnimeDetailsState{}
@@ -45,3 +47,8 @@ class AnimeDetailsStateLoveError extends AnimeDetailsState{}
 class AnimeDetailsStateLoveCommentSuccess extends AnimeDetailsState{}
 
 class AnimeDetailsStateLoveCommentError extends AnimeDetailsState{}
+///----------------------------------------------
+
+class AnimeDetailsStateUnFollowSuccess extends AnimeDetailsState{}
+
+class AnimeDetailsStateUnFollowError extends AnimeDetailsState{}
