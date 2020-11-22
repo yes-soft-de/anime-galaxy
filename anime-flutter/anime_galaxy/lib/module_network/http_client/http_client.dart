@@ -20,7 +20,8 @@ class ApiClient {
   }
 
   Future<Map<String, dynamic>> get(String url,
-      {Map<String, String> queryParams}) async {
+      {Map<String, String> queryParams}
+      ) async {
     _logger.info(tag, 'GET $url');
     try {
       Response response = await _client.get(

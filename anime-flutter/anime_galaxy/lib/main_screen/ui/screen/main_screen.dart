@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:anime_galaxy/module_auth/auth_routes.dart';
 import 'package:anime_galaxy/module_auth/service/auth_service/auth_service.dart';
 import 'package:anime_galaxy/module_explore/ui/screen/explore_screen/explore_screen.dart';
@@ -56,7 +58,10 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   @override
+
+
   Widget build(BuildContext context) {
+
     widget._authService.isLoggedIn.then((value) {
       if (value != true) {
         Navigator.of(context).pushNamedAndRemoveUntil(

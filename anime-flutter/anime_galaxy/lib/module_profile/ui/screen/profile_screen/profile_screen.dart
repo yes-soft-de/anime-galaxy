@@ -99,6 +99,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               PersonalInfoWidget(
                 image: _profileModel.image,
                 name: _profileModel.name,
+                createDate: _profileModel.createDate,
                 //TODO : change it
                 category: 'شونين-فانتازي',
                 //TODO : change it when it available at backend
@@ -122,9 +123,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     child: Center(
                       child: Text(
                         _profileModel.isFollowed
-                            ? S.of(context).isFollowed
+                            ? S.of(context).unFollow
                             : S.of(context).Follow,
-                        style: TextStyle(fontSize: 14, color: Colors.white),
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontFamily:'Roboto',
+                            color: Colors.white
+                        ),
                       ),
                     ),
                   ),
@@ -135,7 +140,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 children: [
                   Text(
                     S.of(context).aboutMe,
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        fontFamily:'Roboto',
+                        fontWeight: FontWeight.bold
+                    ),
                   ),
                 ],
               ),
@@ -144,19 +152,30 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 width: MediaQuery.of(context).size.width * 0.8,
                 child: Text(
                   '${_profileModel.about}',
+                  style: TextStyle(
+                    fontFamily:'Roboto',
+                  ),
                 ),
               ),
+
+
               //activities
+              //display following activities only for me
+              if( userId == null)
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
                     S.of(context).activities,
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      fontFamily:'Roboto',
+                    ),
                   ),
                 ],
               ),
 
+             if ( userId == null)
               ListView.builder(
                   physics: NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
@@ -165,16 +184,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     return Container(
                       margin: EdgeInsets.only(bottom: 10),
                       child: ActivityCard(
-                        //TODO : change it
-                        date: 'منذ ساعتين',
+                        date:  _profileModel.followingActivities[index].date,
                         userName:
                             _profileModel.followingActivities[index].userName,
-                        userImage: '',
+                        userImage:  _profileModel.followingActivities[index].userImage,
                         activity:
                             _profileModel.followingActivities[index].action,
                       ),
                     );
-                  }),
+                  }) ,
 
               SizedBox(
                 height: 20,
@@ -185,7 +203,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 children: [
                   Text(
                     S.of(context).watchedSeries,
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      fontFamily:'Roboto',
+                    ),
                   ),
                 ],
               ),

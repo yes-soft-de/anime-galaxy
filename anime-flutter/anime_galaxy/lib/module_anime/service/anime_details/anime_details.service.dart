@@ -2,12 +2,13 @@ import 'package:anime_galaxy/module_anime/manager/anime_details/anime_details.ma
 import 'package:anime_galaxy/module_anime/model/anime_model/anime_model.dart';
 import 'package:anime_galaxy/module_anime/request/comment_request/comment_request.dart';
 import 'package:anime_galaxy/module_anime/request/favourite_request/favourite_request.dart';
+import 'package:anime_galaxy/module_anime/request/rating_request/rating_request.dart';
 import 'package:anime_galaxy/module_anime/response/anime_response/anime_response.dart';
-import 'package:anime_galaxy/module_anime/response/comment_response/comment_response.dart';
 import 'package:anime_galaxy/module_anime/response/episode_response/episode_response.dart';
 import 'package:anime_galaxy/module_auth/service/auth_service/auth_service.dart';
 import 'package:anime_galaxy/utils/logger/logger.dart';
 import 'package:inject/inject.dart';
+import 'package:intl/intl.dart';
 
 @provide
 class AnimeDetailsService {
@@ -28,17 +29,23 @@ class AnimeDetailsService {
     anime.likesNumber = response.interactions.like;
     anime.commentsNumber = response.comments.length;
     anime.comments = getComments(response.comments);
-    //TODO : change showYear to dynamic data from backend when it added
-    anime.showYear = '2020';
+
+    var df = new DateFormat('yyyy');
+    var date = new DateTime.fromMicrosecondsSinceEpoch(response.publishDate.timestamp);
+    anime.showYear = df.format(date).toString();
+
+
     anime.about = response.description;
     anime.isFollowed = response.isFollowed;
     anime.categoryID = response.categoryID;
-    anime.episodes = getEpisodes(response.episodes);
+    anime.episodes = getEpisodes(response.episodes,response.categoryName);
+    anime.previousRate = response.previousRate;
+    anime.trailerVideo = response.trailerVideo;
 
     return anime;
   }
 
-  List<Episode> getEpisodes(List<EpisodeResponse> episodesResponse) {
+  List<Episode> getEpisodes(List<EpisodeResponse> episodesResponse,String category) {
     List<Episode> episodes = [];
 
     episodesResponse.forEach((element) {
@@ -47,22 +54,25 @@ class AnimeDetailsService {
           episodeNumber: element.episodeNumber,
           image: element.image,
           //TODO : change this later
-          classification: 'أكشن-شاونين');
+          classification:category );
       episodes.add(episode);
     });
     return episodes;
   }
 
-  List<Comment> getComments(List<CommentResponse> commentResponse) {
+  List<Comment> getComments(List<Comments> commentResponse) {
     List<Comment> comments = [];
+    List months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
     commentResponse.forEach((element) {
+      var date = new DateTime.fromMicrosecondsSinceEpoch(element.creationDate.timestamp);
       Comment comment = new Comment(
           content: element.comment,
           userName:element.userName,
+          id: element.id,
+          likesNumber: element.commentInteractions.like,
           userImage:element.image,
-          //TODO : change these below
-          date: '21 Jun'
+          date:' ${months[date.month+1]} ${date.day} ' ,
       );
       comments.add(comment);
     });
@@ -91,5 +101,24 @@ class AnimeDetailsService {
         userID: userId);
 
     return await _detailsManager.addToFavourite(request);
+  }
+
+  Future<bool> rateAnime(int animeId, int rateValue) async{
+    String userId = await _authService.userID;
+
+    RatingRequest request = new RatingRequest(
+        userId: userId,
+        animeId: animeId,
+        rateValue: rateValue
+    );
+
+    return await _detailsManager.rateAnime(request);
+  }
+
+  Future<bool> loveAnime(int animeId)async{
+    return await _detailsManager.loveAnime(animeId);
+  }
+  Future<bool> loveComment(int commentId)async{
+    return await _detailsManager.loveComment(commentId);
   }
 }

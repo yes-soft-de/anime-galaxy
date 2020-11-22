@@ -40,19 +40,19 @@ class AnimeCategoryCard extends StatelessWidget {
                     fontFamily: 'Roboto'
                 ),
             ),
-          Flex(
-            direction: Axis.vertical,
-            children: [
-              Text(
-                description,
-                textDirection: TextDirection.rtl,
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.white,
-                    fontFamily: 'Roboto'
+          Expanded(
+
+              child :SingleChildScrollView(
+                child: Text(
+                  description,
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.white,
+                      fontFamily: 'Roboto'
+                  ),
                 ),
               )
-            ],
+
           )
         ],
       ),

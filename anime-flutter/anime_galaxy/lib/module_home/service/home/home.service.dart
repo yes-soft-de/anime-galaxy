@@ -1,9 +1,9 @@
 import 'package:anime_galaxy/module_auth/presistance/auth_prefs_helper.dart';
 import 'package:anime_galaxy/module_home/manager/home/home.manager.dart';
 import 'package:anime_galaxy/module_home/model/home_model/home_model.dart';
-import 'package:anime_galaxy/module_home/response/anime_response/anime_response.dart';
 import 'package:anime_galaxy/module_home/response/coming_soon_episodes/coming_soon_episodes.dart';
 import 'package:anime_galaxy/module_home/response/home_response/home_response.dart';
+import 'package:anime_galaxy/module_home/response/series_you_may_like_response/series_you_may_like_response.dart';
 import 'package:anime_galaxy/module_home/response/watched_series_response/watched_series_response.dart';
 import 'package:inject/inject.dart';
 
@@ -38,14 +38,14 @@ class HomeService {
     });
     return seriesList;
   }
-  List<Series> getComingSoonSeries(List<AnimeResponse> animeResponses) {
+  List<Series> getComingSoonSeries(List<SeriesYouMayLikeResponse> animeResponses) {
     List<Series> seriesList = [];
 
     animeResponses.forEach((element) {
       seriesList.add(new Series(
           id: element.id,
-          name: element.name,
-          image: element.mainImage,
+          name: element.animeName,
+          image: element.animeMainImage,
           classification: element.categoryName));
     });
     return seriesList;
@@ -56,8 +56,7 @@ class HomeService {
 
     episodesList.forEach((element) {
       episodes.add(new Episode(
-          //TODO : change this to real data
-          classification: 'شاونين',
+          classification: element.categoryName,
           image: element.image,
           episodeNumber: element.episodeNumber,
           season: element.seasonNumber,

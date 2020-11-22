@@ -1,4 +1,5 @@
 
+import 'package:anime_galaxy/module_explore/explore_routes.dart';
 import 'package:anime_galaxy/module_notification/notification_routes.dart';
 import 'package:anime_galaxy/module_settings/setting_routes.dart';
 import 'package:anime_galaxy/utils/project_color/project_color.dart';
@@ -9,8 +10,11 @@ import 'package:anime_galaxy/generated/l10n.dart';
 import 'package:anime_galaxy/module_home/home.routes.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+
+
 class AnimeNavigationDrawer extends StatelessWidget {
   AnimeNavigationDrawer();
+
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +24,8 @@ class AnimeNavigationDrawer extends StatelessWidget {
         children: [
           // Background
           Positioned.fill(
-            child: SvgPicture.asset(
-              'assets/images/logo.svg',
+            child: Image.asset(
+              'assets/images/logo.jpg',
               fit: BoxFit.cover,
               colorBlendMode: BlendMode.softLight,
             ),
@@ -98,6 +102,11 @@ class AnimeNavigationDrawer extends StatelessWidget {
                     },
                   ),
                   */
+                     Container(
+                       height: 50
+                        ),
+                       
+
                     // region Sections
                     Flex(
                       direction: Axis.vertical,
@@ -121,7 +130,10 @@ class AnimeNavigationDrawer extends StatelessWidget {
                                 ),
                                 Text(
                                   S.of(context).feed,
-                                  style: TextStyle(color: Colors.white),
+                                  style: TextStyle(
+                                      fontFamily:'Roboto',
+                                      color: Colors.white
+                                  ),
                                 ),
                               ],
                             ),
@@ -129,8 +141,8 @@ class AnimeNavigationDrawer extends StatelessWidget {
                         ),
                         GestureDetector(
                           onTap: () {
-//                          Navigator.of(context)
-//                              .pushNamed(HomeRoutes.ROUTE_HOME, arguments: 0);
+                          Navigator.of(context)
+                              .pushNamed(ExploreRoutes.EXPLORE_SCREEN);
                           },
                           child: Padding(
                             padding: const EdgeInsets.fromLTRB(32, 8.0, 0, 8),
@@ -146,7 +158,10 @@ class AnimeNavigationDrawer extends StatelessWidget {
                                 ),
                                 Text(
                                   S.of(context).explore,
-                                  style: TextStyle(color: Colors.white),
+                                  style: TextStyle(
+                                      fontFamily:'Roboto',
+                                      color: Colors.white
+                                  ),
                                 ),
                               ],
                             ),
@@ -171,8 +186,13 @@ class AnimeNavigationDrawer extends StatelessWidget {
                                 Container(
                                   width: 16,
                                 ),
-                                Text(S.of(context).notifications,
-                                    style: TextStyle(color: Colors.white)),
+                                Text(
+                                    S.of(context).notifications,
+                                    style: TextStyle(
+                                        fontFamily:'Roboto',
+                                        color: Colors.white
+                                    )
+                                ),
                               ],
                             ),
                           ),
@@ -180,7 +200,7 @@ class AnimeNavigationDrawer extends StatelessWidget {
                         GestureDetector(
                           onTap: () {
                             Navigator.of(context)
-                                .pushNamed( SettingRoutes.SETTING_SCREEN_ROUTE);
+                                .pushNamed( SettingRoutes.SETTING_SCREEN_ROUTE, arguments: 1);
                           },
                           child: Padding(
                             padding: const EdgeInsets.fromLTRB(32, 8.0, 0, 8),
@@ -194,8 +214,13 @@ class AnimeNavigationDrawer extends StatelessWidget {
                                 Container(
                                   width: 16,
                                 ),
-                                Text(S.of(context).settings,
-                                    style: TextStyle(color: Colors.white)),
+                                Text(
+                                    S.of(context).settings,
+                                    style: TextStyle(
+                                        fontFamily:'Roboto',
+                                        color: Colors.white
+                                    )
+                                ),
                               ],
                             ),
                           ),
@@ -218,8 +243,13 @@ class AnimeNavigationDrawer extends StatelessWidget {
                                 Container(
                                   width: 16,
                                 ),
-                                Text(S.of(context).tos,
-                                    style: TextStyle(color: Colors.white)),
+                                Text(
+                                    S.of(context).tos,
+                                    style: TextStyle(
+                                        fontFamily:'Roboto',
+                                        color: Colors.white
+                                    )
+                                ),
                               ],
                             ),
                           ),
@@ -245,6 +275,7 @@ class AnimeNavigationDrawer extends StatelessWidget {
                                 Text(
                                   S.of(context).privacyPolicy,
                                   style: TextStyle(
+                                    fontFamily:'Roboto',
                                     color: Colors.white,
                                   ),
                                 ),
@@ -257,10 +288,9 @@ class AnimeNavigationDrawer extends StatelessWidget {
                     // endregion
 
                     // region Social Links
-                    //TODO : add these images to assets
                     Flex(
                       direction: Axis.horizontal,
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
 
                         GestureDetector(
@@ -313,7 +343,12 @@ class AnimeNavigationDrawer extends StatelessWidget {
 //                      color: Theme.of(context).brightness == Brightness.dark
 //                          ? Colors.black
 //                          : Colors.white,
-                        child: Text(S.of(context).feedback),
+                        child: Text(
+                            S.of(context).feedback,
+                          style: TextStyle(
+                            fontFamily:'Roboto',
+                          ),
+                        ),
                       ),
                     ),
                     // endregion

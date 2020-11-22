@@ -21,7 +21,7 @@ class NotificationRepository{
   Future<List<NotificationModel>> getNotifications() async{
     await Future.delayed(Duration(milliseconds: 2000));
 
-    return notifications;
+    return null;
   }
 
 }

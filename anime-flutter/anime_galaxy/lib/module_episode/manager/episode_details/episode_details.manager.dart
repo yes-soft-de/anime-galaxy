@@ -20,4 +20,11 @@ class EpisodeDetailsManager{
   Future<bool> rateEpisode(RatingRequest ratingRequest) async{
     return await _episodeDetailsRepository.rateEpisode(ratingRequest);
   }
+
+  Future<bool> loveEpisode(int episodeId)async{
+    return await _episodeDetailsRepository.loveEpisode(episodeId);
+  }
+  Future<bool> loveComment(int commentId)async{
+    return await _episodeDetailsRepository.loveComment(commentId);
+  }
 }

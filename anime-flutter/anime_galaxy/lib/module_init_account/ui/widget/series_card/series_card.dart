@@ -43,6 +43,7 @@ class SeriesCard extends StatelessWidget {
                    name,
                     textDirection: TextDirection.rtl,
                     style: TextStyle(
+                      fontFamily:'Roboto',
                         fontSize: 10,
                         fontWeight: FontWeight.bold,
 
@@ -53,6 +54,7 @@ class SeriesCard extends StatelessWidget {
                     Text(
                       classification,
                       style: TextStyle(
+                          fontFamily:'Roboto',
                           fontSize: 9,
                         color: Colors.black38
                       ),

@@ -1,7 +1,7 @@
 class RatingRequest{
   String userId;
   int episodeId;
-  double rateValue;
+  int rateValue;
 
   RatingRequest({
     this.userId,

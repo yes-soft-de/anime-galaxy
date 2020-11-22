@@ -119,5 +119,13 @@
   "name_hont": "name_hont",
   "nameHint": "Name Hint",
   "nameIsEmpty": "Name is empty",
-  "pleaseTellUsAboutYourSelf": "Please tell us about your self"
+  "pleaseTellUsAboutYourSelf": "Please tell us about your self",
+  "ratingSuccessfully": "تم التقييم بنجاح",
+  "RateEpisode": "قيم الحلقة",
+  "GoodMorning": "صباح الخير",
+  "GoodEvining": "مساء الخير",
+  "YouHaveRatedThisAnime": "لقد قمت بتقييم هذا الأنمي مسبقا",
+  "YouHaveRatedThisEpisode": "لقد قمت بتقييم هذه الحلقة مسبقا",
+  "ThanksYourExcitement": "شكرا لحماسك",
+  "unFollow": "الغاء المتابعة"
 }

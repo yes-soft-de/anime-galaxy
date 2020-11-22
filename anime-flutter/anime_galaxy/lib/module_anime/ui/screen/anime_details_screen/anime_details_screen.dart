@@ -13,9 +13,11 @@ import 'package:anime_galaxy/utils/app_bar/anime_galaxy_app_bar.dart';
 import 'package:anime_galaxy/utils/loading_indicator/loading_indicator.dart';
 import 'package:anime_galaxy/utils/project_colors/project_color.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:inject/inject.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
+import 'package:video_player/video_player.dart';
 
 @provide
 class AnimeDetailsScreen extends StatefulWidget {
@@ -35,7 +37,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
     with TickerProviderStateMixin<AnimeDetailsScreen> {
   double screenWidth;
   bool isExpanded = false;
-  double rating = 3.5;
+  int rating = 0;
   bool loading = true;
   AnimeDetailsState currentState = AnimeDetailsStateInit();
   AnimeModel anime = new AnimeModel();
@@ -44,16 +46,25 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
   final TextEditingController _commentController = TextEditingController();
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   String username;
+  VideoPlayerController controller; // used to controller videos
+  Future<void> futureController;
 
   @override
   void initState() {
     super.initState();
     _getUserId();
 
+
     widget._stateManager.stateStream.listen((event) {
       currentState = event;
       processEvent();
     });
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();  // when app is been closed destroyed the controller
+    super.dispose();
   }
 
   void _getUserId() async {
@@ -69,6 +80,14 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
     if (currentState is AnimeDetailsStateFetchingSuccess) {
       AnimeDetailsStateFetchingSuccess state = currentState;
       anime = state.data;
+      rating = anime.previousRate;
+
+      controller = VideoPlayerController.network(anime.trailerVideo??'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4');
+      futureController = controller.initialize();
+      controller.setLooping(true);  // this will keep video looping active, means video will keep on playing
+      controller.setVolume(25.0);
+      controller.play();
+
       loading = false;
       if (this.mounted) {
         setState(() {});
@@ -93,6 +112,21 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
     if (currentState is AnimeDetailsStateAddToFavouriteSuccess) {
       anime.isFollowed = true;
 
+      if (this.mounted) {
+        setState(() {});
+      }
+    }
+    if (currentState is AnimeDetailsStateRatingSuccess) {
+      anime.previousRate = rating;
+      if (this.mounted) {
+        setState(() {});
+      }
+    }
+    if (currentState is AnimeDetailsStateLoveSuccess) {
+
+      int likes = int.parse(anime.likesNumber);
+      likes+=1;
+      anime.likesNumber = likes.toString() ;
       if (this.mounted) {
         setState(() {});
       }
@@ -162,12 +196,15 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
             name: anime.name,
             comments: anime.commentsNumber,
             likes: anime.likesNumber,
-            rate: anime.rate ?? '10',
+            rate: anime.rate ?? '0',
             showYear: anime.showYear,
             image: anime.image,
+            episodesNumber: anime.episodes.length,
             isFollowed: anime.isFollowed,
             onFollow: () =>
                 widget._stateManager.addToFavourite(animeId, anime.categoryID),
+            onLove: ()=>
+                widget._stateManager.loveAnime(animeId),
           ),
           //rating the series
           Row(
@@ -181,20 +218,31 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                 quarterTurns: 2,
                 child: AnimeRatingBar(
                   rating: rating ?? 10,
-                  fillIcon: Icon(
-                    Icons.favorite,
+                  fillIcon: ImageIcon(
+                    AssetImage('assets/images/full_flame.png'),
                     color: ProjectColors.ThemeColor,
                   ),
-                  halfFillIcon: Icon(
-                    Icons.favorite_border,
+                  halfFillIcon: ImageIcon(
+                      AssetImage('assets/images/full_flame.png'),
                     color: ProjectColors.ThemeColor,
                   ),
-                  emptyIcon: Icon(
-                    Icons.favorite_border,
+                  emptyIcon: ImageIcon(
+                    AssetImage('assets/images/flame.png'),
                     color: ProjectColors.ThemeColor,
                   ),
-                  onRatingChanged: (rating) =>
-                      setState(() => this.rating = rating),
+                  onRatingChanged: (rating) {
+                    if(anime.previousRate == 0 ){
+                      widget._stateManager.rateAnime(animeId, rating);
+                      this.rating = rating;
+                      setState(() {
+
+                      });
+                    }else{
+                      Fluttertoast.showToast(msg: S.of(context).YouHaveRatedThisAnime);
+                    }
+
+                  }
+                   ,
                   itemSize: 25,
                   itemCount: 10,
                 ),
@@ -219,6 +267,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                 S.of(context).generalEvaluation,
                 style: TextStyle(fontSize: 14),
               ),
+              //TODO : change it with real data
               LinearPercentIndicator(
                 width: MediaQuery.of(context).size.width * 0.5,
                 animation: true,
@@ -235,8 +284,13 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
             children: [
               Text(
                 S.of(context).monthlyComments,
-                style: TextStyle(fontSize: 14),
+                style: TextStyle(
+                    fontSize: 14,
+                    fontFamily:'Roboto'
+                ),
+
               ),
+              //TODO : change it with real data
               LinearPercentIndicator(
                 width: MediaQuery.of(context).size.width * 0.5,
                 animation: true,
@@ -257,7 +311,10 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
               children: [
                 Text(
                   S.of(context).About,
-                  style: TextStyle(fontSize: 12),
+                  style: TextStyle(
+                      fontSize: 12,
+                      fontFamily:'Roboto'
+                  ),
                 ),
                 SizedBox(
                   width: 10,
@@ -284,6 +341,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                       '${anime.about}',
                       style: TextStyle(
                         fontSize: 12,
+                          fontFamily:'Roboto'
                       ),
                     ),
                   ))),
@@ -332,6 +390,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
+                      fontFamily:'Roboto'
                   ),
                 ),
               ],
@@ -350,7 +409,10 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                   child: Center(
                       child: Text(
                     '${anime.classification}',
-                    style: TextStyle(fontSize: 12),
+                    style: TextStyle(
+                        fontSize: 12,
+                        fontFamily:'Roboto'
+                    ),
                   ))),
             ],
           ),
@@ -363,6 +425,54 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
             color: Colors.black38,
           ),
 
+          //Trailer video
+
+          FutureBuilder(
+            future: futureController,
+            builder: (context,snapshot){
+              // if video to ready to play, else show a progress bar to the user
+              if(snapshot.connectionState == ConnectionState.done)
+              {
+                return AspectRatio(
+                    aspectRatio: controller.value.aspectRatio,
+                    child: VideoPlayer(controller)
+                );
+              }else{
+                return Center(child: CircularProgressIndicator(),);
+              }
+
+            },
+          ),
+
+          //button to play/pause the video
+          ButtonTheme(
+            height: 12,
+            child: FlatButton(
+                color: ProjectColors.ThemeColor,
+              shape: RoundedRectangleBorder(
+                borderRadius: new BorderRadius.circular(20.0),
+              ),
+             child: Icon(
+                  controller.value.isPlaying? Icons.pause : Icons.play_arrow
+              ),
+              onPressed: (){
+                setState(() {
+                  if(controller.value.isPlaying)
+                  {
+                    controller.pause();
+                  }
+                  else
+                  {
+                    controller.play();
+                  }
+                });
+              },
+            ),
+          ),
+
+
+
+          //last episodes
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
@@ -375,6 +485,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
+                          fontFamily:'Roboto'
                       ),
                     ),
                   ],
@@ -386,9 +497,12 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                   physics: NeverScrollableScrollPhysics(),
                   itemBuilder: (BuildContext context, int index) {
                     return GestureDetector(
-                      onTap: () => Navigator.pushNamed(
-                          context, EpisodeRoutes.ROUTE_EPISODE_DETAILS_SCREEN,
-                          arguments: anime.episodes[index].id),
+                      onTap: () {
+                        controller.pause();
+                        Navigator.pushNamed(
+                            context, EpisodeRoutes.ROUTE_EPISODE_DETAILS_SCREEN,
+                            arguments: anime.episodes[index].id);
+                      },
                       child: EpisodeCard(
                         image: anime.episodes[index].image,
                         episodeNumber: anime.episodes[index].episodeNumber,
@@ -405,7 +519,12 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                   itemCount: anime.episodes != null ? anime.episodes.length : 0,
                   shrinkWrap: true,
                 )
-              : Text(S.of(context).noNewEpisodes),
+              : Text(
+              S.of(context).noNewEpisodes,
+                style: TextStyle(
+                    fontFamily:'Roboto'
+                ),
+          ),
 
           Container(
               padding: EdgeInsetsDirectional.fromSTEB(0, 0, 5, 0),
@@ -419,6 +538,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
+                          fontFamily:'Roboto'
                       ),
                     ),
                   ),
@@ -431,14 +551,21 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                   itemCount: anime.comments != null ? anime.comments.length : 0,
                   itemBuilder: (BuildContext context, int index) {
                     return CommentCard(
-                      userImage: anime.comments[index].userImage,
-                      userName: anime.comments[index].userName,
-                      date: anime.comments[index].date,
-                      comment: anime.comments[index].content,
+                      userImage: '${anime.comments[index].userImage}',
+                      userName: '${anime.comments[index].userName}',
+                      date:'${ anime.comments[index].date}',
+                      comment: '${anime.comments[index].content}',
+                      likesNumber: anime.comments[index].likesNumber,
+                      onLove:()=> widget._stateManager.loveComment(anime.comments[index].id),
                     );
                   },
                 )
-              : Text(S.of(context).beTheFirstToComment),
+              : Text(
+              S.of(context).beTheFirstToComment,
+                style: TextStyle(
+                    fontFamily:'Roboto'
+                ),
+          ),
 
           SizedBox(
             height: 60,
@@ -466,7 +593,10 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Text(S.of(context).newInteraction,
-                              style: GoogleFonts.roboto()),
+                              style: TextStyle(
+                                  fontFamily:'Roboto'
+                              )
+                          ),
                         ],
                       ),
                       Container(
@@ -478,11 +608,18 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                         width: MediaQuery.of(context).size.width * 0.6,
                         child: TextField(
                           controller: _commentController,
-                          style: TextStyle(color: Colors.white, fontSize: 14),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontFamily:'Roboto',
+                              fontSize: 14,
+                          ),
                           maxLines: 8,
                           decoration: InputDecoration.collapsed(
                             hintText: S.of(context).addYourComment,
-                            hintStyle: TextStyle(color: Colors.white),
+                            hintStyle: TextStyle(
+                                color: Colors.white,
+                              fontFamily:'Roboto',
+                            ),
                           ),
                         ),
                       ),
@@ -509,7 +646,10 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                             Text(S.of(context).spoilerAlert,
                                 style: GoogleFonts.roboto(
                                   textStyle: TextStyle(
-                                      fontSize: 10, color: Colors.white),
+                                      fontFamily:'Roboto',
+                                      fontSize: 10,
+                                      color: Colors.white
+                                  ),
                                 ))
                           ],
                         ),
@@ -533,7 +673,9 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.roboto(
                                   textStyle: TextStyle(
-                                      fontSize: 10, color: Colors.white),
+                                      fontFamily:'Roboto',
+                                      fontSize: 10,
+                                      color: Colors.white),
                                 )),
                           )),
                     ],

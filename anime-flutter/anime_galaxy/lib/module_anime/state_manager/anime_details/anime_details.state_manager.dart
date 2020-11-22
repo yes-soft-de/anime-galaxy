@@ -58,4 +58,41 @@ class AnimeDetailsStateManager {
 
   }
 
+  void rateAnime(int animeId,int rateValue){
+
+    this._animeDetailsService.rateAnime(animeId, rateValue).then((value) {
+      if(value == null || value == false){
+        Fluttertoast.showToast(msg: S.current.ommentingError);
+        this._stateSubject.add(AnimeDetailsStateRatingError());
+      }else{
+        Fluttertoast.showToast(msg : S.current.ratingSuccessfully);
+        this._stateSubject.add(AnimeDetailsStateRatingSuccess());
+      }
+    });
+  }
+
+  void loveAnime(int animeId){
+
+    this._animeDetailsService.loveAnime(animeId).then((value) {
+      if(value == null || value == false){
+        Fluttertoast.showToast(msg: S.current.ommentingError);
+        this._stateSubject.add(AnimeDetailsStateLoveError());
+      }else{
+        Fluttertoast.showToast(msg : S.current.ThanksYourExcitement);
+        this._stateSubject.add(AnimeDetailsStateLoveSuccess());
+      }
+    });
+  }
+  void loveComment(int commentId){
+
+    this._animeDetailsService.loveComment(commentId).then((value) {
+      if(value == null || value == false){
+        Fluttertoast.showToast(msg: S.current.ommentingError);
+        this._stateSubject.add(AnimeDetailsStateLoveCommentError());
+      }else{
+        Fluttertoast.showToast(msg : S.current.ThanksYourExcitement);
+        this._stateSubject.add(AnimeDetailsStateLoveCommentSuccess());
+      }
+    });
+  }
 }

@@ -29,11 +29,19 @@ class SeriesCard extends StatelessWidget {
               '$name',
               textDirection: TextDirection.rtl,
               overflow: TextOverflow.ellipsis,
-              style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  fontSize: 12,
+                  fontFamily:'Roboto',
+                  fontWeight: FontWeight.bold
+              ),
             )),
             Text(
               classification,
-              style: TextStyle(fontSize: 12, color: Colors.black38),
+              style: TextStyle(
+                  fontSize: 12,
+                  fontFamily:'Roboto',
+                  color: Colors.black38
+              ),
             ),
           ],
         ));

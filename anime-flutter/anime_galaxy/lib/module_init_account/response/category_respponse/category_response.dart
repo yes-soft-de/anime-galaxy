@@ -4,6 +4,7 @@ class CategoryResponse {
   String name;
   String description;
   int id;
+  String image;
   List<SeriesResponse> series;
 
   CategoryResponse({
@@ -11,12 +12,14 @@ class CategoryResponse {
     this.description,
     this.id,
     this.series,
+    this.image,
   });
 
   CategoryResponse.fromJson(Map<String, dynamic> json) {
     name = json['name'];
     description = json['description'];
     id = json['id'];
+    image = json['image'];
   }
 
   Map<String, dynamic> toJson() {
@@ -24,6 +27,7 @@ class CategoryResponse {
     data['name'] = this.name;
     data['description'] = this.description;
     data['id'] = this.id;
+    data['image'] = this.image;
     return data;
   }
 }

@@ -7,10 +7,10 @@ import 'package:flutter/material.dart';
 import 'package:inject/inject.dart';
 
 @provide
-class SettingModule extends YesModule{
+class SettingsModule extends YesModule{
   final AnimSetting _animSetting;
 
-  SettingModule(this._animSetting);
+  SettingsModule(this._animSetting);
 
 
   @override

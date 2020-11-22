@@ -9,6 +9,7 @@ class ComingSoonEpisodesResponse {
   ResponseDuration duration;
   ResponseDuration publishDate;
   ResponseDuration createdAt;
+  String categoryName;
 
   ComingSoonEpisodesResponse(
       {this.animeName,
@@ -18,7 +19,9 @@ class ComingSoonEpisodesResponse {
       this.image,
       this.duration,
       this.publishDate,
-      this.createdAt});
+      this.createdAt,
+        this.categoryName
+      });
 
   ComingSoonEpisodesResponse.fromJson(Map<String, dynamic> json) {
     animeName = json['animeName'];
@@ -26,6 +29,7 @@ class ComingSoonEpisodesResponse {
     episodeNumber = json['episodeNumber'];
     description = json['description'];
     image = json['image'];
+    categoryName = json['categoryName'];
     image.replaceFirst('http://localhost:8000', Urls.DOMAIN);
     duration = json['duration'] != null
         ? new ResponseDuration.fromJson(json['duration'])
@@ -45,6 +49,7 @@ class ComingSoonEpisodesResponse {
     data['episodeNumber'] = this.episodeNumber;
     data['description'] = this.description;
     data['image'] = this.image;
+    data['categoryName'] = this.categoryName;
     if (this.duration != null) {
       data['duration'] = this.duration.toJson();
     }

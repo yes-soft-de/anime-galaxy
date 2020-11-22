@@ -2,6 +2,8 @@ import 'package:anime_galaxy/generated/l10n.dart';
 import 'package:anime_galaxy/utils/project_colors/project_color.dart';
 import 'package:flutter/material.dart';
 
+typedef LoveCallBack = void Function();
+
 class EpisodeDetailsWidget extends StatelessWidget {
   final String name;
   final String showYear;
@@ -9,6 +11,7 @@ class EpisodeDetailsWidget extends StatelessWidget {
   final String likes;
   final int comments;
   final String image;
+  final LoveCallBack onLove;
 
   EpisodeDetailsWidget(
       {this.name,
@@ -16,7 +19,9 @@ class EpisodeDetailsWidget extends StatelessWidget {
         this.rate,
         this.showYear,
         this.comments,
-        this.image});
+        this.image,
+        this.onLove,
+      });
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -37,16 +42,30 @@ class EpisodeDetailsWidget extends StatelessWidget {
                 children: [
                   Text(
                     name,
+                    style: TextStyle(
+                      fontFamily:'Roboto',
+                    ),
                   ),
                   Text(
                     showYear,
+                    style: TextStyle(
+                      fontFamily:'Roboto',
+                    ),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Row(
                         children: [
-                          Text('$rate'),
+                          Text(
+                            rate != null
+                                ? ((double.parse(rate) * 10).floor() / 10)
+                                .toString()
+                                : 0.toString(),
+                            style: TextStyle(
+                              fontFamily:'Roboto',
+                            ),
+                          ),
                           Icon(Icons.star_border,
                               color: ProjectColors.ThemeColor)
                         ],
@@ -55,9 +74,16 @@ class EpisodeDetailsWidget extends StatelessWidget {
                         children: [
                           Row(
                             children: [
-                              Text('$likes'),
-                              Icon(Icons.favorite,
-                                  color: ProjectColors.ThemeColor)
+                              Text(
+                                  '$likes',
+                                style: TextStyle(
+                                  fontFamily:'Roboto',
+                                ),
+                              ),
+                              ImageIcon(
+                                AssetImage('assets/images/full_flame.png'),
+                                color: ProjectColors.ThemeColor,
+                              ),
                             ],
                           ),
                           SizedBox(
@@ -65,7 +91,12 @@ class EpisodeDetailsWidget extends StatelessWidget {
                           ),
                           Row(
                             children: [
-                              Text('$comments'),
+                              Text(
+                                  '$comments',
+                                style: TextStyle(
+                                  fontFamily:'Roboto',
+                                ),
+                              ),
                               Icon(Icons.comment,
                                   color: ProjectColors.ThemeColor)
                             ],
@@ -79,13 +110,18 @@ class EpisodeDetailsWidget extends StatelessWidget {
                       Row(
                         children: [
                           IconButton(
-                            icon: Icon(Icons.favorite),
-                            //TODO : implement this
-                            onPressed: () {},
+                            icon:   ImageIcon(
+                                    AssetImage('assets/images/flame.png'),
+                                    color: ProjectColors.ThemeColor,
+                                  ),
+                            onPressed:  onLove,
                           ),
                           Text(
                             S.of(context).Like,
-                            style: TextStyle(fontSize: 10),
+                            style: TextStyle(
+                                fontSize: 10,
+                              fontFamily:'Roboto',
+                            ),
                           ),
                         ],
                       ),
@@ -98,7 +134,10 @@ class EpisodeDetailsWidget extends StatelessWidget {
                           ),
                           Text(
                             S.of(context).Share,
-                            style: TextStyle(fontSize: 10),
+                            style: TextStyle(
+                                fontSize: 10,
+                              fontFamily:'Roboto',
+                            ),
                           ),
                         ],
                       ),

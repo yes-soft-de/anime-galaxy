@@ -3,6 +3,7 @@ import 'package:anime_galaxy/utils/project_colors/project_color.dart';
 import 'package:flutter/material.dart';
 
 typedef FollowCallBack = void Function();
+typedef LoveCallBack = void Function();
 
 class AnimeDetailsWidget extends StatelessWidget {
   final String name;
@@ -13,6 +14,8 @@ class AnimeDetailsWidget extends StatelessWidget {
   final String image;
   final FollowCallBack onFollow;
   final bool isFollowed;
+  final int episodesNumber;
+  final LoveCallBack onLove;
 
   AnimeDetailsWidget({
     this.name,
@@ -23,6 +26,8 @@ class AnimeDetailsWidget extends StatelessWidget {
     this.image,
     this.isFollowed,
     this.onFollow,
+    this.episodesNumber,
+    this.onLove,
   });
 
   @override
@@ -44,16 +49,18 @@ class AnimeDetailsWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    name,
+                    name ?? '',
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
+                      fontFamily:'Roboto',
                     ),
                   ),
                   Text(
-                    showYear,
+                    showYear ?? '',
                     style: TextStyle(
-                      fontSize: 12,
+                      fontSize: 13,
+                      fontFamily:'Roboto',
                     ),
                   ),
                   Padding(
@@ -63,28 +70,54 @@ class AnimeDetailsWidget extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            Icon(Icons.star_border,
-                                color: ProjectColors.ThemeColor),
-                            Text(
-                              rate != null
-                                  ? ((double.parse(rate) * 10).floor() / 10)
+                            Row(
+                              children: [
+                                Icon(Icons.star_border,
+                                    color: ProjectColors.ThemeColor),
+                                Text(
+                                  rate != null
+                                      ? ((double.parse(rate) * 10).floor() / 10)
                                       .toString()
-                                  : 10.toString(),
-                              style: TextStyle(
-                                fontSize: 16,
-                              ),
+                                      : 0.toString(),
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontFamily:'Roboto',
+                                  ),
+                                ),
+                              ],
                             ),
+                            SizedBox(
+                              width: 13,
+                            ),
+                            Row(
+                              children: [
+                                 Text(
+                                   '$episodesNumberحلقات',
+                                   style: TextStyle(
+                                   fontSize: 16,
+                                   color: ProjectColors.ThemeColor,
+                                   fontFamily:'Roboto',
+                                 ),
+                                 )
+                              ],
+                            ),
+
                           ],
                         ),
                         Row(
                           children: [
                             Row(
                               children: [
-                                Text('$likes'),
-                                Icon(
-                                  Icons.favorite,
+                                Text(
+                                    '$likes',
+                                  style: TextStyle(
+                                    fontFamily:'Roboto',
+                                  ),
+                                ),
+                                ImageIcon(
+                                  AssetImage('assets/images/full_flame.png'),
                                   color: ProjectColors.ThemeColor,
-                                )
+                                ),
                               ],
                             ),
                             SizedBox(
@@ -92,7 +125,12 @@ class AnimeDetailsWidget extends StatelessWidget {
                             ),
                             Row(
                               children: [
-                                Text('$comments'),
+                                Text(
+                                  '$comments',
+                                  style: TextStyle(
+                                    fontFamily:'Roboto',
+                                  ),
+                                ),
                                 Icon(Icons.comment,
                                     color: ProjectColors.ThemeColor)
                               ],
@@ -124,6 +162,7 @@ class AnimeDetailsWidget extends StatelessWidget {
                               style: TextStyle(
                                 fontSize: 14,
                                 color: Colors.white,
+                                fontFamily:'Roboto',
                               ),
                             ),
                           ),
@@ -131,9 +170,12 @@ class AnimeDetailsWidget extends StatelessWidget {
                         Row(
                           children: [
                             IconButton(
-                              icon: Icon(Icons.favorite),
-                              //TODO : implement this
-                              onPressed: () {},
+                              icon: ImageIcon(
+                                AssetImage('assets/images/flame.png'),
+                                color: ProjectColors.ThemeColor,
+                              ),
+
+                              onPressed: onLove ,
                             ),
                             IconButton(
                               icon: Icon(Icons.share),

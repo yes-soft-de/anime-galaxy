@@ -8,6 +8,7 @@ class EpisodeModel{
   String about;
   String  classification;
   List<Comment> comments;
+  int previousRate;
 
   EpisodeModel({
     this.commentsNumber,
@@ -19,6 +20,7 @@ class EpisodeModel{
     this.classification,
     this.showYear,
     this.comments,
+    this.previousRate,
   });
 }
 
@@ -27,6 +29,8 @@ class EpisodeModel{
 class Comment{
   String userImage;
   String content;
+  int id;
+  String likesNumber;
   String date;
   String userName;
 
@@ -35,5 +39,7 @@ class Comment{
     this.userName,
     this.userImage,
     this.content,
+    this.id,
+    this.likesNumber,
   });
 }

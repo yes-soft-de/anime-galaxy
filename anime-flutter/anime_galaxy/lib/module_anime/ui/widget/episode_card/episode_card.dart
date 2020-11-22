@@ -31,11 +31,16 @@ class EpisodeCard extends StatelessWidget {
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
+                fontFamily:'Roboto',
               ),
             )),
             Text(
               classification,
-              style: TextStyle(fontSize: 9, color: Colors.black38),
+              style: TextStyle(
+                  fontSize: 9,
+                  fontFamily:'Roboto',
+                  color: Colors.black38
+              ),
             ),
           ],
         ));

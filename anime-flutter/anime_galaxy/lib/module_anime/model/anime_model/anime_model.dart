@@ -11,6 +11,8 @@ class AnimeModel{
     List<Episode> episodes;
     bool isFollowed;
     int categoryID;
+    int previousRate;
+    String trailerVideo;
 
     AnimeModel({
       this.commentsNumber,
@@ -25,6 +27,8 @@ class AnimeModel{
       this.episodes,
       this.isFollowed,
       this.categoryID,
+      this.previousRate,
+      this.trailerVideo,
 });
 }
 
@@ -32,15 +36,19 @@ class AnimeModel{
 
 class Comment{
     String userImage;
+    int id;
     String content;
     String date;
     String userName;
+    String likesNumber;
 
     Comment({
       this.date,
       this.userName,
+      this.id,
       this.userImage,
       this.content,
+      this.likesNumber,
 });
 }
 

@@ -1,4 +1,5 @@
 
+import 'package:anime_galaxy/utils/project_color/project_color.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:anime_galaxy/generated/l10n.dart';
@@ -31,7 +32,8 @@ class PointsWidget extends StatelessWidget {
               Text(
                 S.of(context).member+' $memberType',
                 style: TextStyle(
-                    fontSize: 10
+                    fontSize: 10,
+                  fontFamily:'Roboto',
                 ),
               ),
               Container(
@@ -54,9 +56,9 @@ class PointsWidget extends StatelessWidget {
           ),
           Column(
             children: [
-              Icon(
-                Icons.star,
-                color: Color(0xfff77f00),
+              ImageIcon(
+                AssetImage('assets/images/trophy.png'),
+                color: ProjectColors.ThemeColor,
               ),
               Container(
                 margin: EdgeInsets.only(top: 10),
@@ -64,7 +66,8 @@ class PointsWidget extends StatelessWidget {
                   '$points '+ S.of(context).point,
                   textDirection: TextDirection.rtl,
                   style: TextStyle(
-                      fontSize: 10
+                      fontSize: 10,
+                    fontFamily:'Roboto',
                   ),
                 ),
               ),

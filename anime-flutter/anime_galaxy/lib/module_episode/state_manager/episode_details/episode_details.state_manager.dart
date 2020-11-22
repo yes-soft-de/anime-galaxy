@@ -45,14 +45,38 @@ class EpisodeDetailsStateManager {
     });
   }
 
-  void rateEpisode(int episodeId,double rateValue){
+  void rateEpisode(int episodeId,int rateValue){
 
     this._animeDetailsService.rateEpisode(episodeId, rateValue).then((value) {
       if(value == null || value == false){
         Fluttertoast.showToast(msg: S.current.ommentingError);
         this._stateSubject.add(EpisodeDetailsStateRatingError());
       }else{
+        Fluttertoast.showToast(msg : S.current.ratingSuccessfully);
         this._stateSubject.add(EpisodeDetailsStateRatingSuccess());
+      }
+    });
+  }
+
+  void loveEpisode(int episodeId){
+    this._animeDetailsService.loveEpisode(episodeId).then((value) {
+      if(value == null || value == false){
+        Fluttertoast.showToast(msg: S.current.ommentingError);
+        this._stateSubject.add(EpisodeDetailsStateLoveError());
+      }else{
+        Fluttertoast.showToast(msg : S.current.ThanksYourExcitement);
+        this._stateSubject.add(EpisodeDetailsStateLoveSuccess());
+      }
+    });
+  }
+  void loveComment(int commentId){
+    this._animeDetailsService.loveComment(commentId).then((value) {
+      if(value == null || value == false){
+        Fluttertoast.showToast(msg: S.current.ommentingError);
+        this._stateSubject.add(EpisodeDetailsStateLoveCommentError());
+      }else{
+        Fluttertoast.showToast(msg : S.current.ThanksYourExcitement);
+        this._stateSubject.add(EpisodeDetailsStateLoveCommentSuccess());
       }
     });
   }

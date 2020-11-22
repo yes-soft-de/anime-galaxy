@@ -65,11 +65,12 @@ class InitAccountService {
       data.add(new InitAccountModel(
           id: element.id,
           name: element.name,
-          //TODO : chang this to real image from backend
-          image:
-              'https://i.pinimg.com/236x/90/10/bb/9010bb9745f2ae4a93bd506345c0ca07--animation-background-environment-concept.jpg',
-          description: element.description,
-          series: getSeries(element.series, element.name)));
+          image:element.image,
+           description: element.description,
+          series: getSeries(element.series, element.name
+          )
+      )
+      );
     });
 
     return data;

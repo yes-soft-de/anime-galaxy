@@ -2,6 +2,7 @@
 import 'package:anime_galaxy/consts/urls.dart';
 import 'package:anime_galaxy/module_anime/request/comment_request/comment_request.dart';
 import 'package:anime_galaxy/module_anime/request/favourite_request/favourite_request.dart';
+import 'package:anime_galaxy/module_anime/request/rating_request/rating_request.dart';
 import 'package:anime_galaxy/module_anime/response/anime_response/anime_response.dart';
 import 'package:anime_galaxy/module_anime/response/comment_response/comment_response.dart';
 import 'package:anime_galaxy/module_anime/response/episode_response/episode_response.dart';
@@ -13,7 +14,8 @@ import 'package:inject/inject.dart';
 
 List<EpisodeResponse> episodes1 = [];
 List<CommentResponse> comments1 = [];
-bool isFollowed = false;
+bool isFollowed ;
+int previousRate1 ;
 
 @provide
 class AnimeDetailsRepository{
@@ -23,7 +25,8 @@ class AnimeDetailsRepository{
 
   Future<AnimeResponse> getAnimeDetails(int animeId) async{
 
-    dynamic response = await _httpClient.get(Urls.API_ANIME+'/$animeId');
+    String token = await _authPrefsHelper.getToken();
+    dynamic response = await _httpClient.get(Urls.API_ANIME+'/$animeId' );
 
     if(response == null) return null;
 
@@ -34,13 +37,13 @@ class AnimeDetailsRepository{
 
     await Future.wait([
       _getEpisodes(animeId),
-      _getComments(animeId),
-      _isFollowed(animeId , userId)
+      _isFollowed(animeId , userId),
+      _getPreviousRate(animeId,userId),
     ]);
 
     anime.episodes = episodes1;
-    anime.comments = comments1;
     anime.isFollowed = isFollowed1;
+    anime.previousRate = previousRate1;
 
     return anime;
 
@@ -60,17 +63,17 @@ class AnimeDetailsRepository{
     episodes1 = episodes;
   }
 
-  Future<void> _getComments(int animeId) async{
-    dynamic response = await _httpClient.get(Urls.API_ALL_COMMENTS+'$animeId');
-    if(response == null) return [];
-
-    List<CommentResponse> comments = [];
-    dynamic res = response['Data'];
-    for(int i=0; i<res.length ; i++){
-      comments.add(CommentResponse.fromJson(response['Data'][i]));
-    }
-   comments1 = comments;
-  }
+//  Future<void> _getComments(int animeId) async{
+//    dynamic response = await _httpClient.get(Urls.API_ALL_COMMENTS+'$animeId');
+//    if(response == null) return [];
+//
+//    List<CommentResponse> comments = [];
+//    dynamic res = response['Data'];
+//    for(int i=0; i<res.length ; i++){
+//      comments.add(CommentResponse.fromJson(response['Data'][i]));
+//    }
+//   comments1 = comments;
+//  }
 
   Future<void> _isFollowed(int animeId , String userId)async{
     dynamic favourites = await _httpClient.get(Urls.API_FAVOURITE_ANIMES+userId);
@@ -79,7 +82,10 @@ class AnimeDetailsRepository{
     dynamic res = favourites['Data'];
     for(int i=0 ; i <res.length ; i++){
       FavouriteResponse favourite = FavouriteResponse.fromJson(res[i]);
-      if(animeId == favourite.animeID ) isFollowed1 = true;
+      if(animeId == favourite.animeID ) {
+        isFollowed1 = true;
+        return;
+      }
     }
 
     isFollowed1 = false;
@@ -112,6 +118,77 @@ class AnimeDetailsRepository{
      return true;
    }
 
+  Future<bool> rateAnime(RatingRequest ratingRequest) async{
+    dynamic response = await _httpClient.post(Urls.API_RATING_ANIME, {
+      'userID':ratingRequest.userId,
+      'animeID':ratingRequest.animeId,
+      'rateValue':ratingRequest.rateValue
+    });
+    return response == null ?
+    null:
+    response['status_code']=='201'?
+    true:
+    false;
 
+  }
+
+  Future<void> _getPreviousRate(int animeId,String userId)async{
+    dynamic response = await _httpClient.get(Urls.API_RATING_ANIME+'/$animeId/'+userId);
+
+    if(response == null ) {
+      previousRate1 = 0;
+      return;
+    }
+
+    String stringRate = response['Data']['avgRating'][0]['rating'];
+     if( stringRate == null){
+       previousRate1 = 0 ;
+       return;
+    }
+
+    previousRate1 = double.parse(stringRate).round();
+
+  }
+
+  Future<bool> loveAnime(int animeId)async{
+    String userId = await _authPrefsHelper.getUserId();
+    dynamic response = await _httpClient.post(Urls.API_ANIME_INTERACTION, {
+      'userID': userId,
+      'animeID':animeId,
+      'type':1
+    });
+    return response == null ?
+    null:
+    response['status_code']=='201'?
+    true:
+    false;
+  }
+  Future<bool> loveComment(int commentId)async{
+    String userId = await _authPrefsHelper.getUserId();
+    dynamic response = await _httpClient.post(Urls.API_ANIME_COMMENT_INTERACTION, {
+      'userID': userId,
+      'commentID':commentId,
+      'type':1
+    });
+    return response == null ?
+    null:
+    response['status_code']=='201'?
+    true:
+    false;
+  }
+
+//  Future<bool> unFollowAnime(int animeId)async{
+//    String userId = await _authPrefsHelper.getUserId();
+//    dynamic response = await _httpClient.post(Urls.API_ANIME_INTERACTION, {
+//      'userID': userId,
+//      'animeID':animeId,
+//      'type':1
+//    });
+//    return response == null ?
+//    null:
+//    response['status_code']=='201'?
+//    true:
+//    false;
+//  }
 }
 

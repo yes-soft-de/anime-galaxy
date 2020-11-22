@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 
-typedef RatingChangeCallback = void Function(double rating);
+typedef RatingChangeCallback = void Function(int rating);
 
 class  AnimeRatingBar extends StatelessWidget {
   final int itemCount;
-  final double rating;
+  final int rating;
   final RatingChangeCallback onRatingChanged;
-  final Icon fillIcon;
-  final Icon emptyIcon;
-  final Icon halfFillIcon;
+  final ImageIcon fillIcon;
+  final ImageIcon emptyIcon;
+  final ImageIcon halfFillIcon;
   final Color color;
   final double itemSize;
 
   AnimeRatingBar(
       {
         this.itemCount = 5,
-        this.rating = .0,
+        this.rating = 0,
         this.onRatingChanged,
         this.color,
         this.fillIcon,
@@ -26,7 +26,7 @@ class  AnimeRatingBar extends StatelessWidget {
       );
 
   Widget buildStar(BuildContext context, int index) {
-    Icon icon;
+    ImageIcon icon;
     if (index >= rating) {
       icon = emptyIcon;
     }
@@ -36,7 +36,7 @@ class  AnimeRatingBar extends StatelessWidget {
       icon = fillIcon;
     }
     return new InkResponse(
-      onTap: onRatingChanged == null ? null : () => onRatingChanged(index + 1.0),
+      onTap: onRatingChanged == null ? null : () => onRatingChanged(index + 1),
       child: SizedBox(
           width: itemSize ,
           height: itemSize,

@@ -8,6 +8,7 @@ class PersonalInfoWidget extends StatelessWidget {
   final String seriesNumber;
   final String commentsNumber;
   final String image;
+  final String createDate;
 
   PersonalInfoWidget({
     this.name,
@@ -16,6 +17,7 @@ class PersonalInfoWidget extends StatelessWidget {
     this.seriesNumber,
     this.category,
     this.commentsNumber,
+    this.createDate,
   });
 
   @override
@@ -41,10 +43,26 @@ class PersonalInfoWidget extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    '$name',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
+                 Row(
+                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                   children: [
+                     Text(
+                       '$name',
+                       style: TextStyle(
+                           fontSize: 16,
+                           fontFamily:'Roboto',
+                           fontWeight: FontWeight.bold
+                       ),
+                     ),
+                     Text(
+                       '$createDate',
+                       style: TextStyle(
+                           fontSize: 14,
+                           fontFamily:'Roboto',
+                       ),
+                     ),
+                   ],
+                 ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -52,6 +70,7 @@ class PersonalInfoWidget extends StatelessWidget {
                         '$category',
                         style: TextStyle(
                           fontSize: 12,
+                          fontFamily:'Roboto',
                         ),
                       ),
                     ],
@@ -78,12 +97,14 @@ class PersonalInfoWidget extends StatelessWidget {
                                   S.of(context).comments,
                                   style: TextStyle(
                                     color: Colors.white,
+                                    fontFamily:'Roboto',
                                     fontSize: 12,
                                   ),
                                 ),
                                 Text(
                                   '$commentsNumber',
                                   style: TextStyle(
+                                    fontFamily:'Roboto',
                                     color: Colors.white,
                                     fontSize: 16,
                                   ),
@@ -95,6 +116,7 @@ class PersonalInfoWidget extends StatelessWidget {
                                 Text(
                                   S.of(context).following,
                                   style: TextStyle(
+                                    fontFamily:'Roboto',
                                     color: Colors.white,
                                     fontSize: 12,
                                   ),
@@ -102,6 +124,7 @@ class PersonalInfoWidget extends StatelessWidget {
                                 Text(
                                   '$followingNumber',
                                   style: TextStyle(
+                                    fontFamily:'Roboto',
                                     color: Colors.white,
                                     fontSize: 16,
                                   ),
@@ -113,6 +136,7 @@ class PersonalInfoWidget extends StatelessWidget {
                                 Text(
                                   S.of(context).series,
                                   style: TextStyle(
+                                    fontFamily:'Roboto',
                                     color: Colors.white,
                                     fontSize: 12,
                                   ),
@@ -120,6 +144,7 @@ class PersonalInfoWidget extends StatelessWidget {
                                 Text(
                                   '$seriesNumber',
                                   style: TextStyle(
+                                    fontFamily:'Roboto',
                                     color: Colors.white,
                                     fontSize: 16,
                                   ),

@@ -26,6 +26,7 @@ import 'module_episode/episode_module.dart';
 import 'module_explore/explore_module.dart';
 import 'module_localization/service/localization_service/localization_service.dart';
 import 'module_profile/profile_module.dart';
+import 'module_settings/setting_module.dart';
 import 'module_theme/service/theme_service/theme_service.dart';
 
 typedef Provider<T> = T Function();

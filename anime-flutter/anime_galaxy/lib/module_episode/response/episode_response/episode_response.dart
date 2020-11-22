@@ -1,4 +1,5 @@
-import 'package:anime_galaxy/module_episode/response/comment_response/comment_response.dart';
+
+
 
 class EpisodeResponse {
   List<Comments> comments;
@@ -9,10 +10,12 @@ class EpisodeResponse {
   String description;
   String image;
   CreationDate duration;
-  String publishDate;
+  CreationDate publishDate;
   CreationDate createdAt;
   CommentInteractions interactions;
-  List<CommentResponse> episodeComments;
+  String categoryName;
+  CreationDate animePublishDate;
+  int previousRate;
 
   EpisodeResponse(
       {this.comments,
@@ -25,7 +28,11 @@ class EpisodeResponse {
         this.duration,
         this.publishDate,
         this.createdAt,
-        this.interactions});
+        this.interactions,
+        this.categoryName,
+        this.animePublishDate,
+        this.previousRate
+      });
 
   EpisodeResponse.fromJson(Map<String, dynamic> json) {
     if (json['comments'] != null) {
@@ -43,12 +50,18 @@ class EpisodeResponse {
     duration = json['duration'] != null
         ? new CreationDate.fromJson(json['duration'])
         : null;
-    // publishDate = json['publishDate'];
+    publishDate = json['publishDate'] != null
+        ? new CreationDate.fromJson(json['publishDate'])
+        : null;
     createdAt = json['createdAt'] != null
         ? new CreationDate.fromJson(json['createdAt'])
         : null;
     interactions = json['interactions'] != null
         ? new CommentInteractions.fromJson(json['interactions'])
+        : null;
+    categoryName = json['categoryName'];
+    animePublishDate = json['animePublishDate'] != null
+        ? new CreationDate.fromJson(json['animePublishDate'])
         : null;
   }
 
@@ -66,12 +79,18 @@ class EpisodeResponse {
     if (this.duration != null) {
       data['duration'] = this.duration.toJson();
     }
-    data['publishDate'] = this.publishDate;
+    if (this.publishDate != null) {
+      data['publishDate'] = this.publishDate.toJson();
+    }
     if (this.createdAt != null) {
       data['createdAt'] = this.createdAt.toJson();
     }
     if (this.interactions != null) {
       data['interactions'] = this.interactions.toJson();
+    }
+    data['categoryName'] = this.categoryName;
+    if (this.animePublishDate != null) {
+      data['animePublishDate'] = this.animePublishDate.toJson();
     }
     return data;
   }
@@ -80,17 +99,24 @@ class EpisodeResponse {
 class Comments {
   String comment;
   bool spoilerAlert;
+  int id;
   CreationDate creationDate;
   CommentInteractions commentInteractions;
+  String userName;
+  String image;
 
   Comments(
       {this.comment,
         this.spoilerAlert,
         this.creationDate,
-        this.commentInteractions});
+        this.commentInteractions,
+        this.userName,
+        this.id,
+        this.image});
 
   Comments.fromJson(Map<String, dynamic> json) {
     comment = json['comment'];
+    id = json['id'];
     spoilerAlert = json['spoilerAlert'];
     creationDate = json['creationDate'] != null
         ? new CreationDate.fromJson(json['creationDate'])
@@ -98,11 +124,14 @@ class Comments {
     commentInteractions = json['commentInteractions'] != null
         ? new CommentInteractions.fromJson(json['commentInteractions'])
         : null;
+    userName = json['userName'];
+    image = json['image'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['comment'] = this.comment;
+    data['id'] = this.id;
     data['spoilerAlert'] = this.spoilerAlert;
     if (this.creationDate != null) {
       data['creationDate'] = this.creationDate.toJson();
@@ -110,6 +139,8 @@ class Comments {
     if (this.commentInteractions != null) {
       data['commentInteractions'] = this.commentInteractions.toJson();
     }
+    data['userName'] = this.userName;
+    data['image'] = this.image;
     return data;
   }
 }

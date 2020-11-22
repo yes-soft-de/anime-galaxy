@@ -1222,6 +1222,86 @@ class S {
       args: [],
     );
   }
+
+  /// `تم التقييم بنجاح`
+  String get ratingSuccessfully {
+    return Intl.message(
+      'تم التقييم بنجاح',
+      name: 'ratingSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `قيم الحلقة`
+  String get RateEpisode {
+    return Intl.message(
+      'قيم الحلقة',
+      name: 'RateEpisode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `صباح الخير`
+  String get GoodMorning {
+    return Intl.message(
+      'صباح الخير',
+      name: 'GoodMorning',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `مساء الخير`
+  String get GoodEvining {
+    return Intl.message(
+      'مساء الخير',
+      name: 'GoodEvining',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `لقد قمت بتقييم هذا الأنمي مسبقا`
+  String get YouHaveRatedThisAnime {
+    return Intl.message(
+      'لقد قمت بتقييم هذا الأنمي مسبقا',
+      name: 'YouHaveRatedThisAnime',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `لقد قمت بتقييم هذه الحلقة مسبقا`
+  String get YouHaveRatedThisEpisode {
+    return Intl.message(
+      'لقد قمت بتقييم هذه الحلقة مسبقا',
+      name: 'YouHaveRatedThisEpisode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `شكرا لحماسك`
+  String get ThanksYourExcitement {
+    return Intl.message(
+      'شكرا لحماسك',
+      name: 'ThanksYourExcitement',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الغاء المتابعة`
+  String get unFollow {
+    return Intl.message(
+      'الغاء المتابعة',
+      name: 'unFollow',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
