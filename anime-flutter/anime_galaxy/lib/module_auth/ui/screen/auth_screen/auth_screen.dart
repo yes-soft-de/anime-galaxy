@@ -64,6 +64,12 @@ class _AuthScreenState extends State<AuthScreen> {
   }
 
   Widget _getUI() {
+    if (_errorMsg != null) {
+      Scaffold.of(context).showSnackBar(SnackBar(
+        content: Text(_errorMsg),
+      ));
+      _errorMsg = null;
+    }
     return loginMode ? getLoginPage() : getRegisterPage();
   }
 
@@ -212,6 +218,8 @@ class _AuthScreenState extends State<AuthScreen> {
             GestureDetector(
               onTap: () {
                 if (!loading) {
+                  loading = true;
+                  setState(() {});
                   widget.manager.registerWithEmailAndPassword(
                     _emailController.text.trim(),
                     _passwordController.text.trim(),
@@ -335,7 +343,9 @@ class _AuthScreenState extends State<AuthScreen> {
                       ),
                     ),
                     onTap: () {
-                      Scaffold.of(context).showSnackBar(SnackBar(content: Text('Social App Id not provided'),))
+                      Scaffold.of(context).showSnackBar(SnackBar(
+                        content: Text('Social App Id not provided'),
+                      ));
                     },
                   ),
                 ),
@@ -360,7 +370,11 @@ class _AuthScreenState extends State<AuthScreen> {
                         ),
                       ),
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      Scaffold.of(context).showSnackBar(SnackBar(
+                        content: Text('Social App Id not provided'),
+                      ));
+                    },
                   ),
                 ),
               ],
