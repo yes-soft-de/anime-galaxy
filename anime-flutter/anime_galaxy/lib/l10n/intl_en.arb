@@ -127,5 +127,11 @@
   "YouHaveRatedThisAnime": "لقد قمت بتقييم هذا الأنمي مسبقا",
   "YouHaveRatedThisEpisode": "لقد قمت بتقييم هذه الحلقة مسبقا",
   "ThanksYourExcitement": "شكرا لحماسك",
-  "unFollow": "الغاء المتابعة"
+  "unFollow": "الغاء المتابعة",
+  "iHaveAnAccount": "لدي حساب",
+  "registerNewAccount": "سجل حسابا جديدا",
+  "iDontHaveAnAccount": "لا املك حسابا",
+  "caNotSignIn": "Ca not Sign in!",
+  "createNewAccount": "Create new account",
+  "selectAnImage": "Select an Image"
 }

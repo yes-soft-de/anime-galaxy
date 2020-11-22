@@ -22,10 +22,6 @@
       <change beforePath="$PROJECT_DIR$/lib/module_navigation/ui/widget/navigation_drawer/anime_navigation_drawer.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_navigation/ui/widget/navigation_drawer/anime_navigation_drawer.inject.summary" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/utils/app_bar/anime_galaxy_app_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/app_bar/anime_galaxy_app_bar.dart" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/.dart_tool/" />
-    <ignored path="$PROJECT_DIR$/.pub/" />
-    <ignored path="$PROJECT_DIR$/build/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -109,12 +105,12 @@
   </component>
   <component name="Git.Settings">
     <option name="PUSH_AUTO_UPDATE" value="true" />
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/../.." value="android-deploy" />
+        <entry key="$PROJECT_DIR$/../.." value="dev-mobile" />
       </map>
     </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
     <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="IdeDocumentHistory">
@@ -348,18 +344,6 @@
       <recent name="C:\Users\TEC-GATE\Documents\Servers\anime-galaxy\anime-flutter\anime_galaxy\assets\images" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="RunManager">
     <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
       <option name="filePath" value="$PROJECT_DIR$/lib/main.dart" />
@@ -376,6 +360,34 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1602006469330</updated>
+    </task>
+    <task id="LOCAL-00027" summary="create app bar">
+      <created>1603884485397</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1603884485397</updated>
+    </task>
+    <task id="LOCAL-00028" summary="edit drawer">
+      <created>1603892818736</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1603892818736</updated>
+    </task>
+    <task id="LOCAL-00029" summary="edit drawer">
+      <created>1603892834955</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1603892834955</updated>
+    </task>
+    <task id="LOCAL-00030" summary="implement explore screen full structure">
+      <created>1603918899808</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1603918899808</updated>
     </task>
     <task id="LOCAL-00031" summary="new branch">
       <created>1604267787631</created>
@@ -721,6 +733,14 @@
       <updated>1606053426295</updated>
     </task>
     <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00075" summary="release ready for testing">
+      <created>1606062905777</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1606062905777</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TodoView">
@@ -767,12 +787,6 @@
         <entry key="MAIN">
           <value>
             <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
               <option name="COLUMN_ORDER" />
             </State>
           </value>
@@ -795,6 +809,12 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="enhance explore screen response" />
+    <MESSAGE value="enhance profile screen response" />
+    <MESSAGE value="enhance home screen response" />
+    <MESSAGE value="enhance anime screen response" />
     <MESSAGE value="implement rating anime" />
     <MESSAGE value="edit login screen design" />
     <MESSAGE value="edit init account screen" />
@@ -821,6 +841,8 @@
     <MESSAGE value="do some code factoring" />
     <MESSAGE value="edit settings screen" />
     <option name="LAST_COMMIT_MESSAGE" value="edit settings screen" />
+    <MESSAGE value="release ready for testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="release ready for testing" />
   </component>
   <component name="WindowStateProjectService">
     <state x="522" y="235" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605284647206">
@@ -831,30 +853,30 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="574" y="148" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1605338417127" />
-    <state x="253" y="19" key="CommitChangelistDialog2" timestamp="1605184393461">
+    <state x="0" y="19" key="CommitChangelistDialog2" timestamp="1606062903337">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="253" y="19" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1605184393461" />
-    <state width="1491" height="271" key="GridCell.Tab.0.bottom" timestamp="1605368603245">
+    <state x="0" y="19" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1606062903337" />
+    <state width="1491" height="271" key="GridCell.Tab.0.bottom" timestamp="1606067264434">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="271" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1605368603245" />
-    <state width="1491" height="271" key="GridCell.Tab.0.center" timestamp="1605368603245">
+    <state width="1491" height="271" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1606067264434" />
+    <state width="1491" height="271" key="GridCell.Tab.0.center" timestamp="1606067264434">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="271" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1605368603245" />
-    <state width="1491" height="271" key="GridCell.Tab.0.left" timestamp="1605368603245">
+    <state width="1491" height="271" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1606067264434" />
+    <state width="1491" height="271" key="GridCell.Tab.0.left" timestamp="1606067264434">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="271" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1605368603245" />
-    <state width="1491" height="271" key="GridCell.Tab.0.right" timestamp="1605368603245">
+    <state width="1491" height="271" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1606067264434" />
+    <state width="1491" height="271" key="GridCell.Tab.0.right" timestamp="1606067264434">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="271" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1605368603245" />
-    <state x="26" y="69" key="SettingsEditor" timestamp="1605605228838">
+    <state width="1491" height="271" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1606067264434" />
+    <state x="26" y="69" key="SettingsEditor" timestamp="1606056528485">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="26" y="69" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1605605228838" />
+    <state x="26" y="69" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1606056528485" />
     <state x="361" y="165" key="Vcs.Push.Dialog.v2" timestamp="1605214785703">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -863,11 +885,11 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="452" y="145" key="git4idea.branch.GitSmartOperationDialog/0.0.1536.864@0.0.1536.864" timestamp="1605214761607" />
-    <state width="300" height="96" key="javadoc.popup.new" timestamp="1605606039817">
+    <state width="300" height="96" key="javadoc.popup.new" timestamp="1606066134443">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="300" height="96" key="javadoc.popup.new/0.0.1536.864@0.0.1536.864" timestamp="1605606039817" />
-    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1605122738998">
+    <state width="300" height="96" key="javadoc.popup.new/0.0.1536.864@0.0.1536.864" timestamp="1606066134443" />
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1606062221049">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1605122738998" />

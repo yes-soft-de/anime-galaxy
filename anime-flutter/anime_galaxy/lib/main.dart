@@ -5,7 +5,6 @@ import 'package:anime_galaxy/module_error/error_module.dart';
 import 'package:anime_galaxy/module_home/home.module.dart';
 import 'package:anime_galaxy/module_init_account/account_module.dart';
 import 'package:anime_galaxy/module_notification/notification_module.dart';
-import 'package:anime_galaxy/utils/logger/logger.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -15,7 +14,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:inject/inject.dart';
 
-import 'anime_setting/routes/setting_module.dart';
 import 'camera/camera_module.dart';
 import 'di/components/app.component.dart';
 import 'generated/l10n.dart';
@@ -98,13 +96,10 @@ class _MyAppState extends State<MyApp> {
     super.initState();
 
     widget._localizationService.localizationStream.listen((event) {
-      lang = event;
       setState(() {});
     });
 
     widget._swapThemeService.darkModeStream.listen((event) {
-      isDarkMode = event;
-      Logger().info('Main.dart', 'Dark Mode: ' + isDarkMode.toString());
       setState(() {});
     });
   }
@@ -142,7 +137,6 @@ class _MyAppState extends State<MyApp> {
     lang ??= await widget._localizationService.getLanguage();
     isDarkMode ??= await widget._swapThemeService.isDarkMode();
     authorized ??= await widget._authService.isLoggedIn;
-    Logger().info('main.dart', isDarkMode.toString());
 
     return MaterialApp(
       navigatorObservers: <NavigatorObserver>[observer],
@@ -158,6 +152,7 @@ class _MyAppState extends State<MyApp> {
       theme: isDarkMode == true
           ? ThemeData(
               brightness: Brightness.dark,
+              scaffoldBackgroundColor: SwapThemeDataService.getDarkBGColor(),
             )
           : ThemeData(
               brightness: Brightness.light,

@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:anime_galaxy/module_auth/auth_routes.dart';
 import 'package:anime_galaxy/module_auth/service/auth_service/auth_service.dart';
 import 'package:anime_galaxy/module_explore/ui/screen/explore_screen/explore_screen.dart';
@@ -8,6 +6,7 @@ import 'package:anime_galaxy/module_navigation/ui/widget/navigation_drawer/anime
 import 'package:anime_galaxy/module_notification/ui/screen/notification_screen/notification_screen.dart';
 import 'package:anime_galaxy/module_profile/ui/screen/profile_screen/profile_screen.dart';
 import 'package:anime_galaxy/module_settings/ui/ui/settings_page/settings_page.dart';
+import 'package:anime_galaxy/module_theme/service/theme_service/theme_service.dart';
 import 'package:anime_galaxy/utils/app_bar/anime_galaxy_app_bar.dart';
 import 'package:anime_galaxy/utils/project_colors/project_color.dart';
 import 'package:flutter/material.dart';
@@ -32,6 +31,13 @@ class MainScreen extends StatefulWidget {
       this._authService,
       this._animeNavigationDrawer
       );
+    this._notificationScreen,
+    this._homeScreen,
+    this._settingsScreen,
+    this._exploreScreen,
+    this._profileScreen,
+    this._authService,
+  );
 
   @override
   _MainScreenState createState() => _MainScreenState();
@@ -40,13 +46,20 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
-  int _pageIndex = 0;
+  int _pageIndex;
   String username;
-  bool authorized = false;
 
   @override
   void initState() {
     super.initState();
+    widget._authService.isLoggedIn.then((value) {
+      if (value != true) {
+        Navigator.of(context).pushNamedAndRemoveUntil(
+          AuthRoutes.ROUTE_AUTHORIZE,
+          (route) => false,
+        );
+      }
+    });
   }
 
   @override
@@ -60,19 +73,12 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   @override
-
-
   Widget build(BuildContext context) {
-
-    widget._authService.isLoggedIn.then((value) {
-      if (value != true) {
-        Navigator.of(context).pushNamedAndRemoveUntil(
-            AuthRoutes.ROUTE_AUTHORIZE, (route) => false);
-      } else {
-        authorized = true;
-        getName();
+    if (_pageIndex == null) {
+      if (ModalRoute.of(context).settings.arguments is int) {
+        _pageIndex = ModalRoute.of(context).settings.arguments;
       }
-    });
+    }
 
     var pages = [
       widget._homeScreen,
@@ -82,8 +88,8 @@ class _MainScreenState extends State<MainScreen> {
       widget._settingsScreen,
     ];
 
-    return authorized
-        ? Scaffold(
+    // Title is Deprecated!, Not My Optional Call
+    return Scaffold(
       key: _scaffoldKey,
       appBar:
           AnimeGalaxyAppBar.getAnimeGalaxyAppBar(_scaffoldKey, username),
@@ -105,34 +111,29 @@ class _MainScreenState extends State<MainScreen> {
             backgroundColor: ProjectColors.ThemeColor,
           ),
           BottomNavigationBarItem(
+            // Title is Deprecated!, Not My Optional Call
             icon: Icon(Icons.notifications),
-//                  label: '',
-            title: Text(''),
             backgroundColor: ProjectColors.ThemeColor,
           ),
           BottomNavigationBarItem(
+            // Title is Deprecated!, Not My Optional Call
             icon: Icon(Icons.explore),
-//                  label: '',
-            title: Text(''),
             backgroundColor: ProjectColors.ThemeColor,
           ),
           BottomNavigationBarItem(
+            // Title is Deprecated!, Not My Optional Call
             icon: Icon(Icons.person),
-//                  label: '',
-            title: Text(''),
             backgroundColor: ProjectColors.ThemeColor,
           ),
           BottomNavigationBarItem(
             backgroundColor: ProjectColors.ThemeColor,
             icon: Icon(Icons.settings),
-//                  label: '',
-            title: Text(''),
+            label: ' ',
           ),
         ],
       ),
-      body: pages[_pageIndex],
-    )
-        : Scaffold();
+      body: pages[_pageIndex ?? 0],
+    );
   }
 
   void onPageChanged(int page) {
