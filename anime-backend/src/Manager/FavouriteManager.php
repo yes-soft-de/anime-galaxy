@@ -76,7 +76,7 @@ class FavouriteManager
 
         if(!$favourite)
         {
-            return null;
+            return $favourite;
         }
         else
         {

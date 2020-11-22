@@ -94,6 +94,6 @@ class FavouriteController extends BaseController
     {
         $result = $this->favouriteService->delete($animeID, $userID);
 
-        return $this->response("", self::DELETE);
+        return $this->response($result, self::DELETE);
     }
 }
