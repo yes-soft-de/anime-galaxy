@@ -1,6 +1,6 @@
 
-import 'package:anime_galaxy/module_notification/model/notification_model/notification_model.dart';
 import 'package:anime_galaxy/module_notification/repository/notification/notification.repository.dart';
+import 'package:anime_galaxy/module_notification/response/notification_response/notification_response.dart';
 import 'package:inject/inject.dart';
 
 @provide
@@ -9,7 +9,7 @@ class NotificationManager{
 
   NotificationManager(this._notificationRepository);
 
-  Future<List<NotificationModel>> getNotifications() async{
+  Future<List<NotificationResponse>> getNotifications() async{
      return await _notificationRepository.getNotifications();
   }
 
