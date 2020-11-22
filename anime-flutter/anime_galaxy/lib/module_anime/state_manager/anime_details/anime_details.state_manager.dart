@@ -95,4 +95,16 @@ class AnimeDetailsStateManager {
       }
     });
   }
+
+  void unFollowAnime(int animeId){
+
+    this._animeDetailsService.unFollowAnime(animeId).then((value) {
+      if(value == null || value == false){
+        Fluttertoast.showToast(msg: S.current.ommentingError);
+        this._stateSubject.add(AnimeDetailsStateUnFollowError());
+      }else{
+        this._stateSubject.add(AnimeDetailsStateUnFollowSuccess());
+      }
+    });
+  }
 }

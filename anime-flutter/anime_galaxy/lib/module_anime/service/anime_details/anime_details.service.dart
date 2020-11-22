@@ -121,4 +121,8 @@ class AnimeDetailsService {
   Future<bool> loveComment(int commentId)async{
     return await _detailsManager.loveComment(commentId);
   }
+
+  Future<bool> unFollowAnime(int animeId)async{
+    return await _detailsManager.unFollowAnime(animeId);
+  }
 }

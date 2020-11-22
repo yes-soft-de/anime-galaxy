@@ -3,6 +3,7 @@ import 'package:anime_galaxy/utils/project_colors/project_color.dart';
 import 'package:flutter/material.dart';
 
 typedef FollowCallBack = void Function();
+typedef UnFollowCallBack = void Function();
 typedef LoveCallBack = void Function();
 
 class AnimeDetailsWidget extends StatelessWidget {
@@ -13,6 +14,7 @@ class AnimeDetailsWidget extends StatelessWidget {
   final int comments;
   final String image;
   final FollowCallBack onFollow;
+  final UnFollowCallBack onUnFollow;
   final bool isFollowed;
   final int episodesNumber;
   final LoveCallBack onLove;
@@ -26,6 +28,7 @@ class AnimeDetailsWidget extends StatelessWidget {
     this.image,
     this.isFollowed,
     this.onFollow,
+    this.onUnFollow,
     this.episodesNumber,
     this.onLove,
   });
@@ -154,10 +157,10 @@ class AnimeDetailsWidget extends StatelessWidget {
                             shape: RoundedRectangleBorder(
                               borderRadius: new BorderRadius.circular(20.0),
                             ),
-                            onPressed: isFollowed ? () {} : onFollow,
+                            onPressed: isFollowed ? onUnFollow : onFollow,
                             child: Text(
                               isFollowed
-                                  ? S.of(context).isFollowed
+                                  ? S.of(context).unFollow
                                   : S.of(context).Follow,
                               style: TextStyle(
                                 fontSize: 14,
