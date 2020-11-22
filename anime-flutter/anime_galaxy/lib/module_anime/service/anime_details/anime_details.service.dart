@@ -26,7 +26,7 @@ class AnimeDetailsService {
     anime.image = image;
     anime.classification = response.categoryName;
     anime.rate = response.rating;
-    anime.likesNumber = response.interactions.like;
+    anime.likesNumber = response.interactions.love;
     anime.commentsNumber = response.comments.length;
     anime.comments = getComments(response.comments);
 
@@ -70,7 +70,7 @@ class AnimeDetailsService {
           content: element.comment,
           userName:element.userName,
           id: element.id,
-          likesNumber: element.commentInteractions.like,
+          likesNumber: element.commentInteractions.love,
           userImage:element.image,
           date:' ${months[date.month+1]} ${date.day} ' ,
       );
