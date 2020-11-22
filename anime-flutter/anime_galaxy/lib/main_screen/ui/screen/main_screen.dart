@@ -21,6 +21,7 @@ class MainScreen extends StatefulWidget {
   final ExploreScreen _exploreScreen;
   final ProfileScreen _profileScreen;
   final AuthService _authService;
+  final AnimeNavigationDrawer _animeNavigationDrawer;
 
   MainScreen(
       this._notificationScreen,
@@ -29,6 +30,7 @@ class MainScreen extends StatefulWidget {
       this._exploreScreen,
       this._profileScreen,
       this._authService,
+      this._animeNavigationDrawer
       );
 
   @override
@@ -84,20 +86,20 @@ class _MainScreenState extends State<MainScreen> {
         ? Scaffold(
       key: _scaffoldKey,
       appBar:
-      AnimeGalaxyAppBar.getAnimeGalaxyAppBar(_scaffoldKey, username),
-      drawer: AnimeNavigationDrawer(),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _pageIndex,
-        onTap: (newPos) {
-          _pageIndex = newPos;
-          setState(() {});
-        },
-        backgroundColor: ProjectColors.ThemeColor,
-        fixedColor: Colors.white,
-        unselectedItemColor: Colors.white54,
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.dashboard),
+          AnimeGalaxyAppBar.getAnimeGalaxyAppBar(_scaffoldKey, username),
+          drawer: widget._animeNavigationDrawer,
+          bottomNavigationBar: BottomNavigationBar(
+            currentIndex: _pageIndex,
+            onTap: (newPos) {
+              _pageIndex = newPos;
+              setState(() {});
+            },
+            backgroundColor: ProjectColors.ThemeColor,
+            fixedColor: Colors.white,
+            unselectedItemColor: Colors.white54,
+            items: <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                icon: Icon(Icons.dashboard),
 //                  label: '',
             title: Text(''),
             backgroundColor: ProjectColors.ThemeColor,

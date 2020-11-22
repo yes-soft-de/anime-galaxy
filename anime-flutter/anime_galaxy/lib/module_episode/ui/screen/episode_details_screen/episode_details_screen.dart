@@ -20,8 +20,13 @@ import 'package:percent_indicator/linear_percent_indicator.dart';
 class EpisodeDetailsScreen extends StatefulWidget {
   final EpisodeDetailsStateManager _stateManager;
   final AuthService _authService;
+  final AnimeNavigationDrawer _animeNavigationDrawer;
 
-  EpisodeDetailsScreen(this._stateManager, this._authService);
+  EpisodeDetailsScreen(
+      this._stateManager,
+      this._authService,
+      this._animeNavigationDrawer,
+      );
   @override
   _EpisodeDetailsScreenState createState() => _EpisodeDetailsScreenState();
 }
@@ -131,7 +136,7 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
     return Scaffold(
       key: _scaffoldKey,
       appBar: AnimeGalaxyAppBar.getAnimeGalaxyAppBar(_scaffoldKey, username),
-      drawer: AnimeNavigationDrawer(),
+      drawer: widget._animeNavigationDrawer,
       body: Container(
         padding: EdgeInsets.all(5),
         child: SingleChildScrollView(

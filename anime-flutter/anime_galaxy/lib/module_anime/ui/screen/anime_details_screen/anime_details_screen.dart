@@ -23,10 +23,12 @@ import 'package:video_player/video_player.dart';
 class AnimeDetailsScreen extends StatefulWidget {
   final AnimeDetailsStateManager _stateManager;
   final AuthService _authService;
+  final AnimeNavigationDrawer _animeNavigationDrawer;
 
   AnimeDetailsScreen(
     this._stateManager,
     this._authService,
+      this._animeNavigationDrawer
   );
 
   @override
@@ -158,7 +160,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
     return Scaffold(
       key: _scaffoldKey,
       appBar: AnimeGalaxyAppBar.getAnimeGalaxyAppBar(_scaffoldKey, username),
-      drawer: AnimeNavigationDrawer(),
+      drawer: widget._animeNavigationDrawer,
       body: Container(
         padding: EdgeInsets.all(5),
         child: SingleChildScrollView(
