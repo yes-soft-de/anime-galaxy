@@ -90,7 +90,7 @@ class FavouriteManager
     public function notifacations($userID)
     {
         $date = [];
-        for ($i = 1; $i <= 2; $i++) {
+        for ($i = 1; $i <= 10; $i++) {
             $date[] = date('Y-m-d', strtotime('+' . $i . ' day'));
         }
     

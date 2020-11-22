@@ -10,7 +10,6 @@ class GetNotifacationsResponse
     public $AnimeName;
     public $categoryID;
     public $categoryName;
-    public $episodeName;
     public $episodeID;
     public $publishDate;
    
