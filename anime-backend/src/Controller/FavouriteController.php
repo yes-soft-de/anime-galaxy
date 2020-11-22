@@ -96,4 +96,16 @@ class FavouriteController extends BaseController
 
         return $this->response("", self::DELETE);
     }
+
+     /**
+     * @Route("notifacations/{userID}", name="notifacations", methods={"GET"})
+     * @param $userID
+     * @return JsonResponse
+     */
+    public function notifacations($userID)
+    {
+        $result = $this->favouriteService->notifacations($userID);
+
+        return $this->response($result, self::FETCH);
+    }
 }
