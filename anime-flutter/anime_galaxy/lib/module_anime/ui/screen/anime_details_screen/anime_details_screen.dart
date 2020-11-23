@@ -12,6 +12,7 @@ import 'package:anime_galaxy/module_rating/ui/widget/rating_bar.dart';
 import 'package:anime_galaxy/utils/app_bar/anime_galaxy_app_bar.dart';
 import 'package:anime_galaxy/utils/loading_indicator/loading_indicator.dart';
 import 'package:anime_galaxy/utils/project_colors/project_color.dart';
+import 'package:flick_video_player/flick_video_player.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -48,14 +49,17 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
   final TextEditingController _commentController = TextEditingController();
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   String username;
-  VideoPlayerController controller; // used to controller videos
+  FlickManager flickManager;
   Future<void> futureController;
 
   @override
   void initState() {
     super.initState();
     _getUserId();
-
+    flickManager = FlickManager(
+      videoPlayerController:
+          VideoPlayerController.network(anime.trailerVideo??'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4'),
+    );
 
     widget._stateManager.stateStream.listen((event) {
       currentState = event;
@@ -65,7 +69,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
 
   @override
   void dispose() {
-    controller.dispose();  // when app is been closed destroyed the controller
+    flickManager.dispose();
     super.dispose();
   }
 
@@ -84,11 +88,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
       anime = state.data;
       rating = anime.previousRate;
 
-      controller = VideoPlayerController.network(anime.trailerVideo??'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4');
-      futureController = controller.initialize();
-      controller.setLooping(true);  // this will keep video looping active, means video will keep on playing
-      controller.setVolume(25.0);
-      controller.play();
+      
 
       loading = false;
       if (this.mounted) {
@@ -421,50 +421,9 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
           ),
 
           //Trailer video
-
-          FutureBuilder(
-            future: futureController,
-            builder: (context,snapshot){
-              // if video to ready to play, else show a progress bar to the user
-              if(snapshot.connectionState == ConnectionState.done)
-              {
-                return AspectRatio(
-                    aspectRatio: controller.value.aspectRatio,
-                    child: VideoPlayer(controller)
-                );
-              }else{
-                return Center(child: CircularProgressIndicator(),);
-              }
-
-            },
+          FlickVideoPlayer(
+            flickManager: flickManager
           ),
-
-          //button to play/pause the video
-          ButtonTheme(
-            height: 12,
-            child: FlatButton(
-                color: ProjectColors.ThemeColor,
-              shape: RoundedRectangleBorder(
-                borderRadius: new BorderRadius.circular(20.0),
-              ),
-             child: Icon(
-                  controller.value.isPlaying? Icons.pause : Icons.play_arrow
-              ),
-              onPressed: (){
-                setState(() {
-                  if(controller.value.isPlaying)
-                  {
-                    controller.pause();
-                  }
-                  else
-                  {
-                    controller.play();
-                  }
-                });
-              },
-            ),
-          ),
-
 
 
           //last episodes
@@ -493,7 +452,6 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                   itemBuilder: (BuildContext context, int index) {
                     return GestureDetector(
                       onTap: () {
-                        controller.pause();
                         Navigator.pushNamed(
                             context, EpisodeRoutes.ROUTE_EPISODE_DETAILS_SCREEN,
                             arguments: anime.episodes[index].id);

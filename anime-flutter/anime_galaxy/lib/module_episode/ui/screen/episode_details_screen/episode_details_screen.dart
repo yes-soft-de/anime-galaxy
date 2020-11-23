@@ -216,32 +216,6 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
                 itemCount: 10,
               ),
             ),
-
-//                RotatedBox(
-//                  quarterTurns: 2,
-//                  child: RatingBar(
-//                  initialRating: 2,
-//                  direction: Axis.horizontal,
-//                  itemSize: 16,
-////                allowHalfRating: true,
-//                  itemCount: 10,
-//                  ratingWidget: RatingWidget(
-//                    full: RotatedBox(
-//                        quarterTurns: 2,
-//                        child: Icon(Icons.favorite,color: ProjectColors.ThemeColor,  )
-//                    ),
-////                  half: _image('assets/heart_half.png'),
-//                    empty: RotatedBox(
-//                      quarterTurns: 2,
-//                        child: Icon(Icons.favorite_border,color: ProjectColors.ThemeColor, )
-//                    ),
-//                  ),
-//                  itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-//                  onRatingUpdate: (rating) {
-//                    print(rating);
-//                  },
-//              ),
-//                ),
           ],
         ),
 
@@ -265,7 +239,6 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
                 S.of(context).generalEvaluation,
                 style: TextStyle(fontSize: 14),
               ),
-              //TODO : change it with real data
               LinearPercentIndicator(
                 width: MediaQuery.of(context).size.width * 0.5,
                 animation: true,
