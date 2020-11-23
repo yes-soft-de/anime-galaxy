@@ -155,7 +155,7 @@ class AnimeDetailsRepository{
     dynamic response = await _httpClient.post(Urls.API_ANIME_INTERACTION, {
       'userID': userId,
       'animeID':animeId,
-      'type':1
+      'type':3
     });
     return response == null ?
     null:
@@ -168,7 +168,7 @@ class AnimeDetailsRepository{
     dynamic response = await _httpClient.post(Urls.API_ANIME_COMMENT_INTERACTION, {
       'userID': userId,
       'commentID':commentId,
-      'type':1
+      'type':3
     });
     return response == null ?
     null:
@@ -177,18 +177,14 @@ class AnimeDetailsRepository{
     false;
   }
 
-//  Future<bool> unFollowAnime(int animeId)async{
-//    String userId = await _authPrefsHelper.getUserId();
-//    dynamic response = await _httpClient.post(Urls.API_ANIME_INTERACTION, {
-//      'userID': userId,
-//      'animeID':animeId,
-//      'type':1
-//    });
-//    return response == null ?
-//    null:
-//    response['status_code']=='201'?
-//    true:
-//    false;
-//  }
+  Future<bool> unFollowAnime(int animeId)async{
+    String userId = await _authPrefsHelper.getUserId();
+    dynamic response = await _httpClient.delete(Urls.API_ADD_FAVOURITE+'/$animeId/$userId' );
+    return response == null
+        ? null
+        : response['status_code'] == '401'
+        ? true
+        : false;
+  }
 }
 

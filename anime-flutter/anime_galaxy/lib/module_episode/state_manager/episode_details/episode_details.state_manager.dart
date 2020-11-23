@@ -49,7 +49,7 @@ class EpisodeDetailsStateManager {
 
     this._animeDetailsService.rateEpisode(episodeId, rateValue).then((value) {
       if(value == null || value == false){
-        Fluttertoast.showToast(msg: S.current.ommentingError);
+        Fluttertoast.showToast(msg: S.current.errorHappened);
         this._stateSubject.add(EpisodeDetailsStateRatingError());
       }else{
         Fluttertoast.showToast(msg : S.current.ratingSuccessfully);
@@ -61,7 +61,7 @@ class EpisodeDetailsStateManager {
   void loveEpisode(int episodeId){
     this._animeDetailsService.loveEpisode(episodeId).then((value) {
       if(value == null || value == false){
-        Fluttertoast.showToast(msg: S.current.ommentingError);
+        Fluttertoast.showToast(msg: S.current.errorHappened);
         this._stateSubject.add(EpisodeDetailsStateLoveError());
       }else{
         Fluttertoast.showToast(msg : S.current.ThanksYourExcitement);

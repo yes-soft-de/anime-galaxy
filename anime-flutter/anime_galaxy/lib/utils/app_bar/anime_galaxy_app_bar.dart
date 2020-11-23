@@ -58,7 +58,8 @@ class AnimeGalaxyAppBar {
                       fontSize: 18,
                       fontFamily: 'Roboto',
                       fontWeight: FontWeight.bold,
-                    )),
+                    )
+                ),
               ],
             ),
           )

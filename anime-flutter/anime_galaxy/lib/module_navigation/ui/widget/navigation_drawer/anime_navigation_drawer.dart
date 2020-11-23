@@ -1,17 +1,30 @@
 import 'package:anime_galaxy/generated/l10n.dart';
+
+import 'package:anime_galaxy/anime_setting/ui/widget/circular_setting/circular_image.dart';
+import 'package:anime_galaxy/module_auth/service/auth_service/auth_service.dart';
 import 'package:anime_galaxy/module_explore/explore_routes.dart';
 import 'package:anime_galaxy/module_home/home.routes.dart';
 import 'package:anime_galaxy/module_notification/notification_routes.dart';
+import 'package:anime_galaxy/module_profile/presistance/profile_shared_preferences.dart';
 import 'package:anime_galaxy/module_settings/setting_routes.dart';
 import 'package:anime_galaxy/utils/project_color/project_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:inject/inject.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:anime_galaxy/module_home/home.routes.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 @provide
 class AnimeNavigationDrawer extends StatelessWidget {
-  AnimeNavigationDrawer();
+  final ProfileSharedPreferencesHelper _profileSharedPreferencesHelper;
+  final AuthService _authService;
+
+  AnimeNavigationDrawer(
+      this._profileSharedPreferencesHelper,
+      this._authService,
+      );
+
 
   @override
   Widget build(BuildContext context) {
@@ -99,7 +112,59 @@ class AnimeNavigationDrawer extends StatelessWidget {
                     },
                   ),
                   */
-                Container(height: 50),
+                     Container(
+                       height: 150,
+                       color: Colors.black26,
+                       child: Row(
+                         children: [
+                           FutureBuilder(
+                             future: _profileSharedPreferencesHelper.getImage() ,
+                             builder: (
+                               return  CircularImage(
+                                 linkImg: snapShot.data ??
+                                 'https://images.unsplash.com/photo-1518806118471-f28b20a1d79d',
+                                 width: 40,
+                                 height: 40,
+                               );
+                           },
+                           ),
+                           SizedBox(width: 20,),
+                           Column(
+                             mainAxisAlignment: MainAxisAlignment.center,
+                             children: [
+                               FutureBuilder(
+                                 future : _authService.username,
+                                 builder: (
+                                     BuildContext context ,
+                                     AsyncSnapshot<String> snapShot
+                                     ){
+                                   return  Text(
+                                       snapShot.data??'',
+                                       style: TextStyle(
+                                         fontSize: 18,
+                                         fontFamily:'Roboto',
+                                         color: Colors.white ,
+                                         fontWeight: FontWeight.bold,
+                                       )
+                                   );
+                                 },
+
+                               ),
+                                  Text(
+                                       'شاونين-مغامرات',
+                                      style: TextStyle(
+                                      fontSize: 14,
+                                      fontFamily:'Roboto',
+                                      color: Colors.white ,
+                                  )
+                                  ),
+                             ],
+                           ),
+                         ],
+                       ),
+                        ),
+                       
+
 
                 // region Sections
                 Flex(
@@ -110,7 +175,6 @@ class AnimeNavigationDrawer extends StatelessWidget {
                         Navigator.of(context)
                             .pushNamed(HomeRoutes.ROUTE_HOME, arguments: 0);
                       },
-                      child: Padding(
                         padding: const EdgeInsets.fromLTRB(32, 8.0, 0, 8),
                         child: Flex(
                           direction: Axis.horizontal,
@@ -231,21 +295,31 @@ class AnimeNavigationDrawer extends StatelessWidget {
                                     fontFamily: 'Roboto', color: Colors.white)),
                           ],
                         ),
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        canLaunch('https://www.google.com').then((value) {
-                          launch('https://www.google.com');
-                        });
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(32, 8.0, 0, 8),
-                        child: Flex(
-                          direction: Axis.horizontal,
-                          children: [
-                            Icon(
-                              Icons.lock,
+                        GestureDetector(
+                          onTap: () {
+                            canLaunch('https://www.google.com').then((value) {
+                              launch('https://www.google.com');
+                            });
+                          },
+                          child: Container(
+                              height: 24,
+                              width: 24,
+                              child: Image.asset(
+                                'assets/images/instagram.png',
+                                color: Colors.white,
+                              )),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            canLaunch('https://www.google.com').then((value) {
+                              launch('https://www.google.com');
+                            });
+                          },
+                          child: Container(
+                            height: 24,
+                            width: 24,
+                            child: SvgPicture.asset(
+                              'assets/images/facebook.svg',
                               color: Colors.white,
                             ),
                             Container(
@@ -260,7 +334,6 @@ class AnimeNavigationDrawer extends StatelessWidget {
                             ),
                           ],
                         ),
-                      ),
                     ),
                   ],
                 ),

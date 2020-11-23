@@ -58,27 +58,27 @@ class _NotificationScreenState extends State<NotificationScreen> {
       body: Container(
         padding: EdgeInsets.only(top: 20),
         child:
-//        notifications.isEmpty ?
+        notifications.isEmpty ?
         Container(
           child: Center(
               child: Text(S.of(context).noNotificationsYet)
           ),
         )
-//              :
-//        ListView.builder(
-//            itemCount: notifications.length,
-//            padding: EdgeInsetsDirectional.fromSTEB(10, 20, 10, 10),
-//            itemBuilder: (BuildContext context, int index) {
-//               return Container(
-//              margin: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
-//                  child: NotificationCard(
-//                  image: notifications[index].image,
-//                  content: notifications[index].content,
-//                  date: notifications[index].date,
-//              )
-//              );
-//
-//            }),
+              :
+        ListView.builder(
+            itemCount: notifications.length,
+            padding: EdgeInsetsDirectional.fromSTEB(10, 20, 10, 10),
+            itemBuilder: (BuildContext context, int index) {
+               return Container(
+              margin: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                  child: NotificationCard(
+                  image: notifications[index].image,
+                  content: notifications[index].content,
+                  date: notifications[index].date,
+              )
+              );
+
+            }),
       ),
     );
   }

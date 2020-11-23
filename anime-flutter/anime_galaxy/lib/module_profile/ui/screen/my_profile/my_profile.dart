@@ -3,6 +3,7 @@ import 'package:anime_galaxy/main_screen/main_screen_routes.dart';
 import 'package:anime_galaxy/module_profile/profile_routes.dart';
 import 'package:anime_galaxy/module_profile/state_manager/edit_profile_state_manager/edit_profile_state_manager.dart';
 import 'package:anime_galaxy/module_theme/service/theme_service/theme_service.dart';
+import 'package:anime_galaxy/utils/project_color/project_color.dart';
 import 'package:anime_galaxy/module_upload/service/image_upload/image_upload_service.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -137,7 +138,8 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
           ),
           _errorMsg != null ? Text(_errorMsg) : Container(),
           Container(
-            decoration: BoxDecoration(color: SwapThemeDataService.getAccent()),
+            height: 50,
+            decoration: BoxDecoration(color: ProjectColors.ThemeColor),
             child: GestureDetector(
               onTap: () {
                 if (_storyController.text.isEmpty) {
@@ -157,13 +159,13 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(16.0),
+                    padding: const EdgeInsets.all(4.0),
                     child: Text(
                       loading == false
                           ? S.of(context).saveProfile
                           : S.of(context).loading,
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
                       ),

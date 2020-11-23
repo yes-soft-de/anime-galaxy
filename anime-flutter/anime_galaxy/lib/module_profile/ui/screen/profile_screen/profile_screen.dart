@@ -52,21 +52,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
       ProfileFetchingDataSuccess state = currentState;
       _profileModel = state.data;
       loading = false;
-      if (this.mounted) {
-        setState(() {});
-      }
     }
     if (currentState is ProfileFollowSuccess) {
       _profileModel.isFollowed = true;
-      if (this.mounted) {
-        setState(() {});
-      }
     }
     if (currentState is ProfileUnFollowSuccess) {
       _profileModel.isFollowed = false;
-      if (this.mounted) {
-        setState(() {});
-      }
+
+    }
+    if (this.mounted) {
+      setState(() {});
     }
   }
 

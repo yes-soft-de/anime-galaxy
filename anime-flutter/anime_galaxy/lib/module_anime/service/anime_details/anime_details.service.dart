@@ -26,12 +26,12 @@ class AnimeDetailsService {
     anime.image = image;
     anime.classification = response.categoryName;
     anime.rate = response.rating;
-    anime.likesNumber = response.interactions.like;
+    anime.likesNumber = response.interactions.love;
     anime.commentsNumber = response.comments.length;
     anime.comments = getComments(response.comments);
 
     var df = new DateFormat('yyyy');
-    var date = new DateTime.fromMicrosecondsSinceEpoch(response.publishDate.timestamp);
+    var date = new DateTime.fromMillisecondsSinceEpoch(response.publishDate.timestamp);
     anime.showYear = df.format(date).toString();
 
 
@@ -65,12 +65,12 @@ class AnimeDetailsService {
     List months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
     commentResponse.forEach((element) {
-      var date = new DateTime.fromMicrosecondsSinceEpoch(element.creationDate.timestamp);
+      var date = new DateTime.fromMillisecondsSinceEpoch(element.creationDate.timestamp);
       Comment comment = new Comment(
           content: element.comment,
           userName:element.userName,
           id: element.id,
-          likesNumber: element.commentInteractions.like,
+          likesNumber: element.commentInteractions.love,
           userImage:element.image,
           date:' ${months[date.month+1]} ${date.day} ' ,
       );
@@ -120,5 +120,9 @@ class AnimeDetailsService {
   }
   Future<bool> loveComment(int commentId)async{
     return await _detailsManager.loveComment(commentId);
+  }
+
+  Future<bool> unFollowAnime(int animeId)async{
+    return await _detailsManager.unFollowAnime(animeId);
   }
 }

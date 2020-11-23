@@ -28,7 +28,8 @@ class MainScreen extends StatefulWidget {
       this._exploreScreen,
       this._profileScreen,
       this._authService,
-      this._animeNavigationDrawer);
+      this._animeNavigationDrawer,
+  );
 
   @override
   _MainScreenState createState() => _MainScreenState();

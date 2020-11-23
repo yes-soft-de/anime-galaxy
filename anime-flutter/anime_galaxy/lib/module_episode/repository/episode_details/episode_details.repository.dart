@@ -111,7 +111,7 @@ class EpisodeDetailsRepository{
     dynamic response = await _httpClient.post(Urls.API_EPISODE_INTERACTION, {
       'userID': userId,
       'episodeID':episodeId,
-      'type':1
+      'type':3
     });
     return response == null ?
     null:
@@ -125,7 +125,7 @@ class EpisodeDetailsRepository{
     dynamic response = await _httpClient.post(Urls.API_EPISODE_COMMENT_INTERACTION, {
       'userID': userId,
       'commentID':commentId,
-      'type':1
+      'type':3
     });
     return response == null ?
     null:
