@@ -62,11 +62,11 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(),
-          Container(
+          MediaQuery.of(context).viewInsets.bottom != 0 ? Container() : Container(
             height: 240,
             child: Stack(
               children: [
-                userImage == null
+                 userImage == null
                     ? Positioned.fill(
                         child: Container(
                         color: Colors.orange,
