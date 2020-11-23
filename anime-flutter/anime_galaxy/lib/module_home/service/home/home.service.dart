@@ -20,7 +20,7 @@ class HomeService {
 
     HomeModel homeModel = new HomeModel(
         watchedSeries: getSeries(response.watchedSeries),
-        points: response.points != null ? response.points.points : 0,
+        points: response.points.points ?? 0,
         mayLikeSeries: getComingSoonSeries(response.mayLikedSeries),
         newEpisodes: getEpisodes(response.comingSoonEpisodes));
     return homeModel;
