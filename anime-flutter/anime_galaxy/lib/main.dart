@@ -122,6 +122,9 @@ class _MyAppState extends State<MyApp> {
     fullRoutesList.addAll(widget._episodeModule.getRoutes());
     fullRoutesList.addAll(widget._errorModule.getRoutes());
 
+    widget._swapThemeService.isDarkMode().then((value) {
+      isDarkMode ??= value;
+    });
     return FutureBuilder(
       future: getConfiguratedApp(fullRoutesList),
       builder: (BuildContext context, AsyncSnapshot<Widget> snapshot) {
@@ -134,8 +137,8 @@ class _MyAppState extends State<MyApp> {
   Future<Widget> getConfiguratedApp(
       Map<String, WidgetBuilder> fullRoutesList) async {
     await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
-    lang ??= await widget._localizationService.getLanguage();
-    isDarkMode ??= await widget._swapThemeService.isDarkMode();
+    
+    
 
     return MaterialApp(
       navigatorObservers: <NavigatorObserver>[observer],

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:anime_galaxy/generated/l10n.dart';
 import 'package:anime_galaxy/main_screen/main_screen_routes.dart';
 import 'package:anime_galaxy/module_home/home.routes.dart';
@@ -6,6 +8,7 @@ import 'package:anime_galaxy/utils/project_color/project_color.dart';
 import 'package:anime_galaxy/module_upload/service/image_upload/image_upload_service.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:inject/inject.dart';
 
 @provide
@@ -59,49 +62,44 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(),
-          Flex(
-            direction: Axis.vertical,
-            children: [
-              MediaQuery.of(context).viewInsets.bottom == 0
-                  ? Image.asset(
-                      'assets/images/logo.jpg',
-                      height: 120,
-                    )
-                  : Container(),
-            ],
+          Container(
+            height: 240,
+            child: Stack(
+              children: [
+                userImage == null
+                    ? Positioned.fill(
+                        child: Container(
+                        color: Colors.orange,
+                        child: Center(
+                          child: GestureDetector(
+                            onTap: () {
+                              ImagePicker ip = ImagePicker();
+                              ip
+                                  .getImage(source: ImageSource.gallery)
+                                  .then((value) {
+                                if (value != null) {
+                                  userImage = value.path;
+                                  widget.manager.saveProfileImage(value.path);
+                                }
+                              });
+                            },
+                            child: Text(
+                              S.of(context).selectAnImage,
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 20),
+                            ),
+                          ),
+                        ),
+                      ))
+                    : Positioned.fill(
+                        child: Image.file(
+                          File(userImage),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+              ],
+            ),
           ),
-          // Container(
-          //   height: 240,
-          //   child: Stack(
-          //     children: [
-          //       userImage == null
-          //           ? Positioned.fill(
-          //               child: Center(
-          //               child: GestureDetector(
-          //                 onTap: () {
-          //                   ImagePicker ip = ImagePicker();
-          //                   ip
-          //                       .getImage(source: ImageSource.gallery)
-          //                       .then((value) {
-          //                     widget.imageUploadService
-          //                         .uploadImage(value.path)
-          //                         .then((value) {
-          //                       userImage = value;
-          //                     });
-          //                   });
-          //                 },
-          //                 child: Text(S.of(context).selectAnImage),
-          //               ),
-          //             ))
-          //           : Positioned.fill(
-          //               child: Image.network(
-          //                 userImage,
-          //                 fit: BoxFit.cover,
-          //               ),
-          //             ),
-          //     ],
-          //   ),
-          // ),
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: TextFormField(

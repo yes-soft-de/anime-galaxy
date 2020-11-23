@@ -27,8 +27,13 @@ class MyProfileService {
     this._generalProfileService,
   );
 
+  Future<void> saveImage(String image) {
+    return _preferencesHelper.setUserImage(image);
+  }
+
   Future<ProfileModel> getProfile({String id}) async {
     String userId = id ?? await _authService.userID;
+
 
     ProfileResponse response = await _manager.getProfile(userId);
     if (response != null) {

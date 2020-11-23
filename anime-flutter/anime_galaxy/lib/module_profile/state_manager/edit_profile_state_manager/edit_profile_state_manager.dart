@@ -9,6 +9,10 @@ class EditProfileStateManager {
 
   EditProfileStateManager(this._myProfileService);
 
+  void saveProfileImage(String path) {
+    _myProfileService.saveImage(path);
+  }
+
   void saveProfile(String name, String story) {
     _myProfileService.createProfile(name, null, story).then((value) {
       if (value != null) {

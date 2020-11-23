@@ -22,11 +22,12 @@ class AuthScreen extends StatefulWidget {
 class _AuthScreenState extends State<AuthScreen> {
   String _errorMsg;
   AuthState _currentState;
-  Scaffold pageLayout;
+  
 
   bool loginMode = false;
 
   final GlobalKey _signUpFormKey = GlobalKey<FormState>();
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -36,6 +37,9 @@ class _AuthScreenState extends State<AuthScreen> {
   @override
   void initState() {
     super.initState();
+    widget.manager.status.listen((event) {
+      _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text(event),));
+    });
     widget.manager.stateStream.listen((event) {
       print(event.runtimeType.toString());
       _currentState = event;
@@ -59,19 +63,21 @@ class _AuthScreenState extends State<AuthScreen> {
     }
     if (_currentState is AuthStateError) {
       AuthStateError errorState = _currentState;
-      _errorMsg = errorState.errorMsg;
-    }
-
-    return _getUI();
-  }
-
-  Widget _getUI() {
-    if (_errorMsg != null) {
-      Scaffold.of(context).showSnackBar(SnackBar(
-        content: Text(_errorMsg),
+      if (errorState.errorMsg != null) {
+      _scaffoldKey.currentState.showSnackBar(SnackBar(
+        content: Text(errorState.errorMsg),
       ));
       _errorMsg = null;
     }
+    }
+
+    return Scaffold(
+      key: _scaffoldKey,
+      body: _getUI(),
+    );
+  }
+
+  Widget _getUI() {
     return loginMode ? getLoginPage() : getRegisterPage();
   }
 
