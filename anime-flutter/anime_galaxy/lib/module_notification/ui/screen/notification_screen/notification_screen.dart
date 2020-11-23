@@ -3,6 +3,7 @@ import 'package:anime_galaxy/module_notification/model/notification_model/notifi
 import 'package:anime_galaxy/module_notification/state/notification/notification.state.dart';
 import 'package:anime_galaxy/module_notification/state_manager/notification/notification.state_manager.dart';
 import 'package:anime_galaxy/module_notification/ui/widget/notification_card/notification_card.dart';
+import 'package:anime_galaxy/utils/loading_indicator/loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:inject/inject.dart';
 
@@ -50,7 +51,9 @@ class _NotificationScreenState extends State<NotificationScreen> {
       }
     }
 
-    return getPageLayout();
+    return loading?
+        LoadingIndicatorWidget():
+        getPageLayout();
   }
 
   Widget getPageLayout() {
