@@ -104,6 +104,7 @@ class AuthStateManager {
   }
 
   void signWithEmailAndPassword(String email, String password) {
+    print('Signing in');
     _auth
         .signInWithEmailAndPassword(email: email, password: password)
         .then((value) {

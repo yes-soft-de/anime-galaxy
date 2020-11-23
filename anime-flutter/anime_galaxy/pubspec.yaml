@@ -84,7 +84,7 @@ dependencies:
   intl_utils: ^1.6.5
 
   # Toasts
-  fluttertoast: ^7.1.1
+  fluttertoast: ^7.1.4
 
   # UUID
   uuid: ^2.2.2

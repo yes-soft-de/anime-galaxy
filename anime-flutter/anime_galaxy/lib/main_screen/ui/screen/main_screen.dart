@@ -22,13 +22,13 @@ class MainScreen extends StatefulWidget {
   final AnimeNavigationDrawer _animeNavigationDrawer;
 
   MainScreen(
-      this._notificationScreen,
-      this._homeScreen,
-      this._settingsScreen,
-      this._exploreScreen,
-      this._profileScreen,
-      this._authService,
-      this._animeNavigationDrawer,
+    this._notificationScreen,
+    this._homeScreen,
+    this._settingsScreen,
+    this._exploreScreen,
+    this._profileScreen,
+    this._authService,
+    this._animeNavigationDrawer,
   );
 
   @override
@@ -72,6 +72,8 @@ class _MainScreenState extends State<MainScreen> {
       }
     }
 
+    getName();
+
     var pages = [
       widget._homeScreen,
       widget._notificationScreen,
@@ -85,7 +87,10 @@ class _MainScreenState extends State<MainScreen> {
       key: _scaffoldKey,
       drawer: widget._animeNavigationDrawer,
       appBar: AnimeGalaxyAppBar.getAnimeGalaxyAppBar(
-          context, _scaffoldKey, username),
+        context,
+        _scaffoldKey,
+        username,
+      ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _pageIndex ?? 0,
         onTap: (newPos) {

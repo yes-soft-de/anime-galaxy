@@ -1,8 +1,7 @@
 import 'package:anime_galaxy/generated/l10n.dart';
 import 'package:anime_galaxy/main_screen/main_screen_routes.dart';
-import 'package:anime_galaxy/module_profile/profile_routes.dart';
+import 'package:anime_galaxy/module_home/home.routes.dart';
 import 'package:anime_galaxy/module_profile/state_manager/edit_profile_state_manager/edit_profile_state_manager.dart';
-import 'package:anime_galaxy/module_theme/service/theme_service/theme_service.dart';
 import 'package:anime_galaxy/utils/project_color/project_color.dart';
 import 'package:anime_galaxy/module_upload/service/image_upload/image_upload_service.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +33,7 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
     widget.manager.stateStream.stream.listen((event) {
       // Null means no errors
       if (event == null) {
-        Navigator.of(context).pushNamed(ProfileRoutes.ROUTE_PROFILE);
+        Navigator.of(context).pushNamed(HomeRoutes.ROUTE_HOME);
       } else {
         _errorMsg = event;
         if (mounted) setState(() {});

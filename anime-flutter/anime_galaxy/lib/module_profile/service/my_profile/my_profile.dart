@@ -7,6 +7,7 @@ import 'package:anime_galaxy/module_profile/request/create_profile.dart';
 import 'package:anime_galaxy/module_profile/response/following_activities_response/following_activities_response.dart';
 import 'package:anime_galaxy/module_profile/response/profile_response/profile_response.dart';
 import 'package:anime_galaxy/module_profile/service/general_profile/general_profile.dart';
+import 'package:anime_galaxy/utils/logger/logger.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:inject/inject.dart';
 import 'package:intl/intl.dart';
@@ -20,11 +21,11 @@ class MyProfileService {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
   MyProfileService(
-      this._manager,
-      this._preferencesHelper,
-      this._authService,
-      this._generalProfileService,
-      );
+    this._manager,
+    this._preferencesHelper,
+    this._authService,
+    this._generalProfileService,
+  );
 
   Future<ProfileModel> getProfile({String id}) async {
     String userId = id ?? await _authService.userID;
@@ -32,7 +33,8 @@ class MyProfileService {
     ProfileResponse response = await _manager.getProfile(userId);
     if (response != null) {
       var df = new DateFormat('d-M-yyyy');
-      var date = new DateTime.fromMillisecondsSinceEpoch(response.createdAt.timestamp);
+      var date = new DateTime.fromMillisecondsSinceEpoch(
+          response.createdAt.timestamp * 1000);
 
       ProfileModel result = new ProfileModel(
         name: response.userName,
@@ -41,7 +43,8 @@ class MyProfileService {
         about: response.story,
         seriesNumber: response.favourites.length,
         watchedSeries: _getSeries(response.favourites),
-        followingActivities: _getActivities(response.followingActivitiesResponse),
+        followingActivities:
+            _getActivities(response.followingActivitiesResponse),
         isFollowed: response.isFollowed,
         createDate: df.format(date).toString(),
       );
@@ -68,14 +71,14 @@ class MyProfileService {
     var df = DateFormat('d m yyyy');
 
     followingActivitiesResponse.forEach((element) {
-      var date = new DateTime.fromMillisecondsSinceEpoch(element.date.timestamp);
+      var date =
+          new DateTime.fromMillisecondsSinceEpoch(element.date.timestamp);
 
       activities.add(new Activity(
         userName: element.userName,
         action: element.animeName,
         userImage: element.userImage,
         date: df.format(date).toString(),
-
       ));
     });
     return activities;
@@ -107,10 +110,10 @@ class MyProfileService {
   }
 
   Future<ProfileResponse> createProfile(
-      String username,
-      String userImage,
-      String story,
-      ) async {
+    String username,
+    String userImage,
+    String story,
+  ) async {
     String userId = await _authService.userID;
 
     var profileExists = await _manager.getProfile(userId);
@@ -121,22 +124,25 @@ class MyProfileService {
         location: 'Saudi Arabia',
         story: story,
         userID: userId);
+    await _preferencesHelper.setUserName(username);
+    await _preferencesHelper.setUserImage(userImage);
+    await _preferencesHelper.setUserLocation('Saudi Arabia');
+    await _preferencesHelper.setUserStory(story);
+    try {
+      ProfileResponse response = (profileExists == null)
+          ? await _manager.createMyProfile(request)
+          : await _manager.updateMyProfile(request);
 
-
-    ProfileResponse response = (profileExists == null)
-        ? await _manager.createMyProfile(request)
-        :await _manager.updateMyProfile(request);
-    if (response == null) return null;
-    await _preferencesHelper.setUserName(response.userName);
-    await _preferencesHelper.setUserImage(response.image);
-    await _preferencesHelper.setUserLocation(response.location);
-    await _preferencesHelper.setUserStory(response.story);
-    await _generalProfileService.setUserProfile(
-        userId,
-        ProfileModel(
-          name: response.userName,
-          image: response.image,
-        ));
-    return response;
+      await _generalProfileService.setUserProfile(
+          userId,
+          ProfileModel(
+            name: response.userName,
+            image: response.image,
+          ));
+      return response;
+    } catch (e) {
+      Logger().error('Profile Creation', 'Error Creating / Updating profile');
+      return null;
+    }
   }
 }

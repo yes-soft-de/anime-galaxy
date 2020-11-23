@@ -33,14 +33,15 @@ class ApiClient {
         _logger.info(tag, response.data.toString());
         return response.data;
       } else if (response.statusCode == 404) {
-        _logger.warn(tag, url + '\t' + response.statusCode.toString());
+        _logger.warn(tag, 'Get ' + url + '\t' + response.statusCode.toString());
         return null;
       } else {
-        _logger.error(tag, url + '\t' + response.statusCode.toString());
+        _logger.error(
+            tag, 'Get ' + url + ' \t ' + response.statusCode.toString());
         return null;
       }
     } catch (e) {
-      _logger.error(tag, url + '\t' + e.toString());
+      _logger.error(tag, 'Get ' + url + ' \t ' + e.toString());
       return null;
     }
   }

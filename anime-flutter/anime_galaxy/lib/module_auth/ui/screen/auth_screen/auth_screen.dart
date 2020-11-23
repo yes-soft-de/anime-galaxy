@@ -37,8 +37,10 @@ class _AuthScreenState extends State<AuthScreen> {
   void initState() {
     super.initState();
     widget.manager.stateStream.listen((event) {
+      print(event.runtimeType.toString());
       _currentState = event;
       loading = false;
+      setState(() {});
     });
   }
 
