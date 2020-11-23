@@ -122,7 +122,7 @@ class AnimeController extends BaseController
 
         $result = $this->animeService->deleteAnime($request);
 
-        return $this->response("", self::DELETE);
+        return $this->response("the item has been deleted ", self::DELETE);
     }
 
     /**

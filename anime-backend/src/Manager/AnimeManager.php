@@ -74,7 +74,7 @@ class AnimeManager
 
     public function delete(DeleteRequest $request)
     {
-        $anime = $this->animeRepository->getAnimeById($request->getId());
+        $anime = $this->animeRepository->find($request->getId());
         if(!$anime)
         {
             return null;
