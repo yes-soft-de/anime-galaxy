@@ -21,7 +21,7 @@ class NotificationRepository{
   Future<List<NotificationResponse>> getNotifications() async{
     String userId = await _authService.userID;
     dynamic response = await _apiClient.get(Urls.API_NOTIFICATION+userId);
-    if (response == null ) return null;
+    if (response == null ) return [];
 
     List<NotificationResponse> notifications =[];
     dynamic res = response['Data'];
