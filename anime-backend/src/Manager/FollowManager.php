@@ -41,7 +41,6 @@ class FollowManager
         return $followEntity;
     }
 
-
     public function getAll()
     {
         return $this->followRepository->getAll();
@@ -51,7 +50,6 @@ class FollowManager
     {
         return $this->followRepository->getFollowsByUserId($request->get('userID'));
     }
-
 
     public function delete(DeleteRequest $request)
     {
@@ -91,4 +89,8 @@ class FollowManager
         return $this->followRepository->getFollowers($userID);
     }
 
+    public function getFollowedByNumber($userID)
+    {
+        return $this->followRepository->getFollowedByNumber($userID);
+    }
 }

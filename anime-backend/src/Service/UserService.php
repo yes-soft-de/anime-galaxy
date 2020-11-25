@@ -22,11 +22,17 @@ class UserService
     private $autoMapping;
     private $userManager;
     private $params;
+    private $commentService;
+    private $followService;
 
-    public function __construct(AutoMapping $autoMapping, UserManager $userManager, ParameterBagInterface $params)
+    public function __construct(AutoMapping $autoMapping, UserManager $userManager, ParameterBagInterface $params,
+ CommentService $commentService, FollowService $followService)
     {
         $this->autoMapping = $autoMapping;
         $this->userManager = $userManager;
+        $this->commentService = $commentService;
+        $this->followService = $followService;
+
         $this->params = $params->get('upload_base_url').'/';
     }
 
@@ -61,13 +67,20 @@ class UserService
     public function getUserProfileByUserID($userID)
     {
         $item = $this->userManager->getProfileByUserID($userID);
+        $commentsNumber = $this->commentService->commentsNumber($userID);
+        $followedByNumber = $this->followService->getFollowedByNumber($userID);
 
         if(isset($item['image']))
         {
             $item['image'] = $this->params . $item['image'];
         }
 
-        return $this->autoMapping->map('array', UserProfileResponse::class, $item);
+        $response = $this->autoMapping->map('array', UserProfileResponse::class, $item);
+
+        $response->setCommentsNumber($commentsNumber->getCommentsNumber());
+        $response->setFollowedByNumber($followedByNumber);
+
+        return $response;
     }
 
     public function getAllProfiles()

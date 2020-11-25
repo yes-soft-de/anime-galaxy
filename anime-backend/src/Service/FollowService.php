@@ -126,4 +126,8 @@ class FollowService
         return $response;
     }
 
+    public function getFollowedByNumber($userID)
+    {
+        return $this->followManager->getFollowedByNumber($userID)[1];
+    }
 }

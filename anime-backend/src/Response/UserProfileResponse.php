@@ -19,4 +19,25 @@ class UserProfileResponse
     public $image;
 
     public $createdAt;
+
+    public $commentsNumber;
+
+    public $followedByNumber;
+
+    /**
+     * @param mixed $commentsNumber
+     */
+    public function setCommentsNumber($commentsNumber): void
+    {
+        $this->commentsNumber = $commentsNumber;
+    }
+
+    /**
+     * @param mixed $followedByNumber
+     */
+    public function setFollowedByNumber($followedByNumber): void
+    {
+        $this->followedByNumber = $followedByNumber;
+    }
+
 }

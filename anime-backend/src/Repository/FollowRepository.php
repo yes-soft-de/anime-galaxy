@@ -61,7 +61,6 @@ class FollowRepository extends ServiceEntityRepository
             ->getOneOrNullResult();
     }
 
-
     public function getFollowers($userID)
     {
         return $this->createQueryBuilder('follow')
@@ -72,4 +71,13 @@ class FollowRepository extends ServiceEntityRepository
             ->getResult();      
     }
 
+    public function getFollowedByNumber($userID)
+    {
+        return $this->createQueryBuilder('follow')
+            ->select('count(follow.friendID)')
+            ->andWhere('follow.friendID = :userID')
+            ->setParameter('userID', $userID)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
 }
