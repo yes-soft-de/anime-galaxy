@@ -222,4 +222,9 @@ class AnimeService
             return $this->params;
         }
     }
+
+    public function checkInteraction($request)
+    {
+        return $this->interactionService->checkUserLoved($request);
+    }
 }

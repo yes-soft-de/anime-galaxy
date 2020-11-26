@@ -171,4 +171,20 @@ class AnimeController extends BaseController
 
         return $this->response($result, self::FETCH);
     }
+
+    /**
+     * @Route("/checkinteraction/{id}", name="checkInteractionOfAnime", methods={"GET"})
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function checkInteraction(Request $request)
+    {
+        $request = new GetByIdRequest($request->get('id'));
+
+        $request->setUserID($this->getUserId());
+
+        $res = $this->animeService->checkInteraction($request);
+
+        return $this->json($res);
+    }
 }
