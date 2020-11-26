@@ -50,10 +50,13 @@ class AnimeService
         $result = $this->animeManager->getAnimeById($request);
 
         $resultImg = $this->imageService->getImagesByAnimeID($request);
-        $resultComments = $this->commentService->getCommentsByAnimeId($request);
+        
         $love = $this->interactionService->loved($request);
         $like = $this->interactionService->like($request);
         $dislike = $this->interactionService->dislike($request);
+        $isLoved = $this->interactionService->checkUserLoved($request);
+
+        $resultComments = $this->commentService->getCommentsByAnimeId($request);
 
         foreach ($result as $row)
         {
@@ -63,12 +66,12 @@ class AnimeService
         }
         if($result)
         {
-        $response->setImages($resultImg);
-        $response->setComments($resultComments);
-        $response->interactions['love'] = $love;
-        $response->interactions['like'] = $like;
-        $response->interactions['dislike'] = $dislike;
-        $response->interactions['isLoved'] = $this->interactionService->checkUserLoved($request);
+            $response->setImages($resultImg);
+            $response->setComments($resultComments);
+            $response->interactions['love'] = $love;
+            $response->interactions['like'] = $like;
+            $response->interactions['dislike'] = $dislike;
+            $response->interactions['isLoved'] = $isLoved;
         }
         return $response;
     }
