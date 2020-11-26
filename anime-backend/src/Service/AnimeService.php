@@ -225,6 +225,13 @@ class AnimeService
 
     public function checkInteraction($request)
     {
-        return $this->interactionService->checkUserLoved($request);
+        $response = [];
+
+        $response['loved'] = $this->interactionService->loved($request);
+        $response['like'] = $this->interactionService->like($request);
+        $response['disLike'] = $this->interactionService->dislike($request);
+        $response['isLoved'] = $this->interactionService->checkUserLoved($request);
+
+        return $response;
     }
 }

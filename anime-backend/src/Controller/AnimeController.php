@@ -185,6 +185,6 @@ class AnimeController extends BaseController
 
         $res = $this->animeService->checkInteraction($request);
 
-        return $this->json($res);
+        return $this->response($res, self::FETCH);
     }
 }
