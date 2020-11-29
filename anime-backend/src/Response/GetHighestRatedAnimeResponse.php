@@ -11,7 +11,7 @@ class GetHighestRatedAnimeResponse
     public $categoryID;
     public $categoryName;
     public $animeMainImage;
-    public $rating;
+    //public $rating;
   
     /**
      * @return mixed

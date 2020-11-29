@@ -11,6 +11,7 @@ use App\Request\CreateAnimeRequest;
 use App\Request\DeleteRequest;
 use App\Request\GetByIdRequest;
 use App\Request\UpdateAnimeRequest;
+use App\Request\UpdateAnimeSuggestRequest;
 use Doctrine\ORM\EntityManagerInterface;
 
 class AnimeManager
@@ -66,6 +67,22 @@ class AnimeManager
         else
         {
             $animeEntity = $this->autoMapping->mapToObject(UpdateAnimeRequest::class,
+                Anime::class, $request, $animeEntity);
+            $this->entityManager->flush();
+            return $animeEntity;
+        }
+    }
+
+    public function updateSuggest(UpdateAnimeSuggestRequest $request)
+    {
+        $animeEntity = $this->animeRepository->find($request->getId());
+        if(!$animeEntity)
+        {
+            //return null;
+        }
+        else
+        {
+            $animeEntity = $this->autoMapping->mapToObject(UpdateAnimeSuggestRequest::class,
                 Anime::class, $request, $animeEntity);
             $this->entityManager->flush();
             return $animeEntity;

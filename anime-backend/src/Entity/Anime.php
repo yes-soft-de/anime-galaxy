@@ -62,6 +62,11 @@ class Anime
      */
     private $trailerVideo;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $suggest;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -171,6 +176,18 @@ class Anime
     public function setTrailerVideo(?string $trailerVideo): self
     {
         $this->trailerVideo = $trailerVideo;
+
+        return $this;
+    }
+
+    public function getSuggest(): ?bool
+    {
+        return $this->suggest;
+    }
+
+    public function setSuggest(bool $suggest): self
+    {
+        $this->suggest = $suggest;
 
         return $this;
     }

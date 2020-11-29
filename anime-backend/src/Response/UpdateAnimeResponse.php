@@ -13,6 +13,7 @@ class UpdateAnimeResponse
     private $description;
     public $episodesCount;
     public $trailerVideo;
+    public $suggest;
 
     /**
      * @return mixed

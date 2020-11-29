@@ -8,6 +8,7 @@ use App\Request\CreateAnimeRequest;
 use App\Request\DeleteRequest;
 use App\Request\GetByIdRequest;
 use App\Request\UpdateAnimeRequest;
+use App\Request\UpdateAnimeSuggestRequest;
 use App\Service\AnimeService;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -108,6 +109,31 @@ class AnimeController extends BaseController
         }
 
         $result = $this->animeService->update($request);
+
+        return $this->response($result, self::UPDATE);
+    }
+
+    /**
+     * @Route("anime/{suggest}", name="updateSuggest", methods={"PUT"})
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function updateSuggest(Request $request, $suggest)
+    {
+        $data = json_decode($request->getContent(), true);
+
+        $request = $this->autoMapping->map(\stdClass::class, UpdateAnimeSuggestRequest::class, (object) $data);
+
+        $request->setSuggest($suggest);
+
+        $violations = $this->validator->validate($request);
+        if (\count($violations) > 0) {
+            $violationsString = (string) $violations;
+
+            return new JsonResponse($violationsString, Response::HTTP_OK);
+        }
+
+        $result = $this->animeService->updateSuggest($request);
 
         return $this->response($result, self::UPDATE);
     }

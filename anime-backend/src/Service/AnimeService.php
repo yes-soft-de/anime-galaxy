@@ -125,6 +125,15 @@ class AnimeService
         return $response;
     }
 
+    public function updateSuggest($request)
+    {
+        $animeResult = $this->animeManager->updateSuggest($request);
+        $response = $this->autoMapping->map(Anime::class, UpdateAnimeResponse::class, $animeResult);
+        //$response->setName($request->getName());
+        //$response->setMainImage($request->getMainImage());
+        return $response;
+    }
+
     public function deleteAnime($request)
     {
         $animeResult = $this->animeManager->delete($request);

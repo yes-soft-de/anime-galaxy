@@ -109,11 +109,40 @@ class AnimeRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    /**
+     * getHighestRatedAnime depends on the rating, specifically on top 10 rated anime
+     */
+//    public function getHighestRatedAnime()
+//    {
+//        return $this->createQueryBuilder('anime')
+//            ->select('anime.id', 'anime.name as animeName', 'anime.mainImage as animeMainImage',
+//                'category.name as categoryName','category.id as categoryID', 'avg(rate.rateValue) as rating', 'anime.specialLink'
+//                )
+//            ->leftjoin(
+//                Category::class,
+//                'category',
+//                Join::WITH,
+//                'category.id = anime.categoryID'
+//            )
+//            ->leftJoin(
+//                Rating::class,
+//                'rate',
+//                Join::WITH,
+//                'rate.animeID = anime.id'
+//            )
+//            ->setMaxResults(10)
+//            ->addOrderBy('rating','DESC')
+//            ->groupBy('categoryID')
+//            ->groupBy('anime.id')
+//            ->getQuery()
+//            ->getResult();
+//    }
+
     public function getHighestRatedAnime()
     {
         return $this->createQueryBuilder('anime')
-            ->select('anime.id', 'anime.name as animeName', 'anime.mainImage as animeMainImage',
-                'category.name as categoryName','category.id as categoryID', 'avg(rate.rateValue) as rating', 'anime.specialLink'
+            ->select('anime.id', 'anime.name as animeName', 'anime.mainImage as animeMainImage', 'anime.suggest',
+                'category.name as categoryName','category.id as categoryID', 'anime.specialLink'
                 )
             ->leftjoin(
                 Category::class,
@@ -121,14 +150,7 @@ class AnimeRepository extends ServiceEntityRepository
                 Join::WITH,
                 'category.id = anime.categoryID'
             )
-            ->leftJoin(
-                Rating::class,
-                'rate',
-                Join::WITH,
-                'rate.animeID = anime.id'
-            )
-            ->setMaxResults(10)   
-            ->addOrderBy('rating','DESC')
+            ->andWhere('anime.suggest = true')
             ->groupBy('categoryID')
             ->groupBy('anime.id')
             ->getQuery()
