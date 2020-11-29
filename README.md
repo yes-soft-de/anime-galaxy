@@ -1,3 +1,3 @@
 ### Backend Guide
 
-_Backend folder contains the source code of the application_
+_anime-backend folder contains the source code of the application_
