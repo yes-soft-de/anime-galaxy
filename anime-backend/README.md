@@ -114,6 +114,8 @@ methods: GET
 `Method: POST. Path: /category`
 ##### Get all categories. 
 `Method: GET. Path: /category`
+##### Get category by ID. 
+`Method: GET. Path: /category/id`
 ##### Update existing category. 
 `Method: PUT. Path: / category`
 ##### Delete specific category. 
