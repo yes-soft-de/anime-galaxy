@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\AutoMapping;
 use App\Request\CreateCategoryRequest;
 use App\Request\DeleteRequest;
+use App\Request\GetByIdRequest;
 use App\Request\UpdateCategoryRequest;
 use App\Service\CategoryService;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -55,6 +56,20 @@ class CategoryController extends BaseController
     public function getAll()
     {
         $result = $this->categoryService->getAll();
+
+        return $this->response($result, self::FETCH);
+    }
+
+    /**
+     * @Route("category/{id}", name="getCategoryById", methods={"GET"})
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function getCategoryById(Request $request)
+    {
+        $request = new GetByIdRequest($request->get('id'));
+
+        $result = $this->categoryService->getCategoryById($request);
 
         return $this->response($result, self::FETCH);
     }
