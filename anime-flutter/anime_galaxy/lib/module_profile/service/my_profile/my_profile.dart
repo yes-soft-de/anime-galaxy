@@ -5,6 +5,7 @@ import 'package:anime_galaxy/module_profile/model/profile_model/profile_model.da
 import 'package:anime_galaxy/module_profile/presistance/profile_shared_preferences.dart';
 import 'package:anime_galaxy/module_profile/request/create_profile.dart';
 import 'package:anime_galaxy/module_profile/response/following_activities_response/following_activities_response.dart';
+import 'package:anime_galaxy/module_profile/response/previous_comments_response/previous_comments_response.dart';
 import 'package:anime_galaxy/module_profile/response/profile_response/profile_response.dart';
 import 'package:anime_galaxy/module_profile/service/general_profile/general_profile.dart';
 import 'package:anime_galaxy/utils/logger/logger.dart';
@@ -12,6 +13,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:inject/inject.dart';
 import 'package:intl/intl.dart';
 
+import '../../model/profile_model/profile_model.dart';
 @provide
 class MyProfileService {
   final MyProfileManager _manager;
@@ -52,6 +54,7 @@ class MyProfileService {
             _getActivities(response.followingActivitiesResponse),
         isFollowed: response.isFollowed,
         createDate: df.format(date).toString(),
+        previousComments:_getPreviousComments(response.previousCommentsResponse),
       );
       return result;
     }
@@ -101,7 +104,30 @@ class MyProfileService {
     });
     return seriesList;
   }
+  PreviousComments  _getPreviousComments(PreviousCommentsResponse response){
+    PreviousComments comments = new PreviousComments();
+    comments.commentsOnAnime = [];
+    comments.commentsOnEpisodes = [];
+    response.animeComments.forEach((element) {
+      comments.commentsOnAnime.add(
+          new CommentsOnAnime(
+            animeName: element.animeName,
+            comment: element.comment,
+          )
+      );
+    });
 
+    response.episodeComments.forEach((element) {
+      comments.commentsOnEpisodes.add(
+          new CommentsOnEpisode(
+            animeName: element.animeName,
+            episodeNumber: element.episodeNumber,
+            comment: element.comment,
+          )
+      );
+    });
+    return comments;
+  }
   Future<bool> hasProfile() async {
     String userImage = await _preferencesHelper.getImage();
     return userImage != null;

@@ -1,5 +1,6 @@
 import 'package:anime_galaxy/module_anime/response/favourite_response/favourite_response.dart';
 import 'package:anime_galaxy/module_profile/response/following_activities_response/following_activities_response.dart';
+import 'package:anime_galaxy/module_profile/response/previous_comments_response/previous_comments_response.dart';
 
 
 
@@ -15,6 +16,7 @@ class ProfileResponse {
   List<FollowingActivitiesResponse> followingActivitiesResponse;
   List<FavouriteResponse> favourites;
   bool isFollowed;
+  PreviousCommentsResponse previousCommentsResponse;
 
   ProfileResponse(
       {this.id,
@@ -28,6 +30,7 @@ class ProfileResponse {
         this.followingActivitiesResponse,
         this.favourites,
         this.isFollowed,
+        this.previousCommentsResponse,
       });
 
   ProfileResponse.fromJson(Map<String, dynamic> json) {

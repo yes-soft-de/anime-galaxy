@@ -113,6 +113,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "pleaseUploadTheImage" : MessageLookupByLibrary.simpleMessage("Please Upload the Image"),
     "pleaseUploadYourImage" : MessageLookupByLibrary.simpleMessage("Please Upload your Image :)"),
     "point" : MessageLookupByLibrary.simpleMessage("نقطة"),
+    "previousComments" : MessageLookupByLibrary.simpleMessage("تعليقات سابقة"),
     "privacy" : MessageLookupByLibrary.simpleMessage("الخصوصية"),
     "privacyPolicy" : MessageLookupByLibrary.simpleMessage("Privacy Policy"),
     "profile" : MessageLookupByLibrary.simpleMessage("Profile"),

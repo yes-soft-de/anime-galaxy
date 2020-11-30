@@ -131,5 +131,6 @@
   "iDontHaveAnAccount": "لا املك حسابا",
   "caNotSignIn": "حدث خطأ اثناء تسجيل الدخول!",
   "createNewAccount": "سجل حسابا جديدا",
-  "selectAnImage": "اختر صورة"
+  "selectAnImage": "اختر صورة",
+  "previousComments": "تعليقات سابقة"
 }
