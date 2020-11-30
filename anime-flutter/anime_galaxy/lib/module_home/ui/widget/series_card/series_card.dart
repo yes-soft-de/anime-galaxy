@@ -17,6 +17,7 @@ class SeriesCard extends StatelessWidget {
           children: [
             FadeInImage.assetNetwork(
               height: 90,
+              width: 70,
               placeholder: 'assets/images/logo.jpg',
               image: image,
               fit: BoxFit.fill,
@@ -26,15 +27,15 @@ class SeriesCard extends StatelessWidget {
             ),
             Center(
                 child: Text(
-              '$name',
-              textDirection: TextDirection.rtl,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                  fontSize: 12,
-                  fontFamily:'Roboto',
-                  fontWeight: FontWeight.bold
-              ),
-            )),
+                  '$name',
+                  textDirection: TextDirection.rtl,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                      fontSize: 12,
+                      fontFamily:'Roboto',
+                      fontWeight: FontWeight.bold
+                  ),
+                )),
             Text(
               classification,
               style: TextStyle(

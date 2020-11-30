@@ -11,19 +11,19 @@ class FavouriteSeriesCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 126,
-      width: 88,
+      height: 136,
+      width: 100,
       child: Column(
         children: [
           Container(
-            height: 115,
+            height: 136,
             child: Card(
               clipBehavior: Clip.hardEdge,
               child: FadeInImage.assetNetwork(
                 fit: BoxFit.cover,
                 image: url_image ?? '',
                 placeholder: 'assets/images/logo.jpg',
-                width: 88,
+                width: 100,
               ),
               elevation: 0,
               shape: OutlineInputBorder(

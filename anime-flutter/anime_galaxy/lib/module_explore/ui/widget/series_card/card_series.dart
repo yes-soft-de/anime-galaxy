@@ -22,7 +22,7 @@ class SeriesCard extends StatelessWidget {
                 fit: BoxFit.cover,
                 image: url_image,
                 placeholder: 'assets/images/logo.jpg',
-                width: 140,
+                width: 100,
               ),
               elevation: 0,
               shape: OutlineInputBorder(

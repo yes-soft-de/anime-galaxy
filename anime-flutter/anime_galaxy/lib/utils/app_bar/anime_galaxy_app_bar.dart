@@ -6,10 +6,10 @@ import 'package:intl/intl.dart';
 
 class AnimeGalaxyAppBar {
   static AppBar getAnimeGalaxyAppBar(
-    BuildContext context,
-    GlobalKey<ScaffoldState> drawerKey,
-    String userName,
-  ) {
+      BuildContext context,
+      GlobalKey<ScaffoldState> drawerKey,
+      String userName,
+      ) {
     final df = new DateFormat('a');
     return AppBar(
       backgroundColor: Theme.of(context).brightness == Brightness.dark
@@ -32,7 +32,7 @@ class AnimeGalaxyAppBar {
             padding: const EdgeInsets.all(8.0),
             child: CircularImage(
               linkImg:
-                  'https://images.unsplash.com/photo-1518806118471-f28b20a1d79d',
+              'https://images.unsplash.com/photo-1518806118471-f28b20a1d79d',
               width: 40,
               height: 40,
             ),
@@ -44,15 +44,15 @@ class AnimeGalaxyAppBar {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                    df.format(DateTime.now()) == 'ص' ||
-                            df.format(DateTime.now()) == 'am'
-                        ? S.current.GoodMorning
-                        : S.current.GoodEvining,
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontFamily: 'Roboto',
-                    )),
+//                Text(
+//                    df.format(DateTime.now()) == 'ص' ||
+//                            df.format(DateTime.now()) == 'am'
+//                        ? S.current.GoodMorning
+//                        : S.current.GoodEvining,
+//                    style: TextStyle(
+//                      fontSize: 14,
+//                      fontFamily: 'Roboto',
+//                    )),
                 Text('$userName',
                     style: TextStyle(
                       fontSize: 18,
