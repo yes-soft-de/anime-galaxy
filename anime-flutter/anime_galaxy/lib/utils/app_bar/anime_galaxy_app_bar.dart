@@ -9,6 +9,7 @@ class AnimeGalaxyAppBar {
       BuildContext context,
       GlobalKey<ScaffoldState> drawerKey,
       String userName,
+      String userImage,
       ) {
     final df = new DateFormat('a');
     return AppBar(
@@ -32,7 +33,7 @@ class AnimeGalaxyAppBar {
             padding: const EdgeInsets.all(8.0),
             child: CircularImage(
               linkImg:
-              'https://images.unsplash.com/photo-1518806118471-f28b20a1d79d',
+              userImage??'https://images.unsplash.com/photo-1518806118471-f28b20a1d79d',
               width: 40,
               height: 40,
             ),

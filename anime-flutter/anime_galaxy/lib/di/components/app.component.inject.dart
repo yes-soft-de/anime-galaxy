@@ -236,8 +236,11 @@ class AppComponent$Injector implements _i1.AppComponent {
   _i48.AnimeModule _createAnimeModule() =>
       _i48.AnimeModule(_createAnimeDetailsScreen());
   _i49.AnimeDetailsScreen _createAnimeDetailsScreen() =>
-      _i49.AnimeDetailsScreen(_createAnimeDetailsStateManager(),
-          _createAuthService(), _createAnimeNavigationDrawer());
+      _i49.AnimeDetailsScreen(
+          _createAnimeDetailsStateManager(),
+          _createAuthService(),
+          _createAnimeNavigationDrawer(),
+          _createProfileSharedPreferencesHelper());
   _i50.AnimeDetailsStateManager _createAnimeDetailsStateManager() =>
       _i50.AnimeDetailsStateManager(_createAnimeDetailsService());
   _i51.AnimeDetailsService _createAnimeDetailsService() =>
@@ -248,8 +251,7 @@ class AppComponent$Injector implements _i1.AppComponent {
   _i53.AnimeDetailsRepository _createAnimeDetailsRepository() =>
       _i53.AnimeDetailsRepository(_createApiClient(), _createAuthPrefsHelper());
   _i54.AnimeNavigationDrawer _createAnimeNavigationDrawer() =>
-      _i54.AnimeNavigationDrawer(
-          _createProfileSharedPreferencesHelper(), _createAuthService());
+      _i54.AnimeNavigationDrawer(_createProfileSharedPreferencesHelper());
   _i55.NotificationModule _createNotificationModule() =>
       _i55.NotificationModule(_createNotificationScreen());
   _i56.NotificationScreen _createNotificationScreen() =>
@@ -284,7 +286,8 @@ class AppComponent$Injector implements _i1.AppComponent {
       _createExploreScreen(),
       _createProfileScreen(),
       _createAuthService(),
-      _createAnimeNavigationDrawer());
+      _createAnimeNavigationDrawer(),
+      _createProfileSharedPreferencesHelper());
   _i69.SettingsPage _createSettingsPage() => _i69.SettingsPage(
       _createAuthService(),
       _createLocalizationService(),
@@ -307,8 +310,11 @@ class AppComponent$Injector implements _i1.AppComponent {
   _i77.EpisodeModule _createEpisodeModule() =>
       _i77.EpisodeModule(_createEpisodeDetailsScreen());
   _i78.EpisodeDetailsScreen _createEpisodeDetailsScreen() =>
-      _i78.EpisodeDetailsScreen(_createEpisodeDetailsStateManager(),
-          _createAuthService(), _createAnimeNavigationDrawer());
+      _i78.EpisodeDetailsScreen(
+          _createEpisodeDetailsStateManager(),
+          _createAuthService(),
+          _createAnimeNavigationDrawer(),
+          _createProfileSharedPreferencesHelper());
   _i79.EpisodeDetailsStateManager _createEpisodeDetailsStateManager() =>
       _i79.EpisodeDetailsStateManager(_createEpisodeDetailsService());
   _i80.EpisodeDetailsService _createEpisodeDetailsService() =>

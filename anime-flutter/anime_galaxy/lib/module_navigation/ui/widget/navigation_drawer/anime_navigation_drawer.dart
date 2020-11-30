@@ -16,11 +16,9 @@ import 'package:url_launcher/url_launcher.dart';
 @provide
 class AnimeNavigationDrawer extends StatelessWidget {
   final ProfileSharedPreferencesHelper _profileSharedPreferencesHelper;
-  final AuthService _authService;
 
   AnimeNavigationDrawer(
     this._profileSharedPreferencesHelper,
-    this._authService,
   );
 
   @override
@@ -133,7 +131,7 @@ class AnimeNavigationDrawer extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           FutureBuilder(
-                            future: _authService.username,
+                            future: _profileSharedPreferencesHelper.getUsername(),
                             builder: (BuildContext context,
                                 AsyncSnapshot<String> snapShot) {
                               return Text(snapShot.data ?? '',

@@ -4,6 +4,7 @@ import 'package:anime_galaxy/module_explore/ui/screen/explore_screen/explore_scr
 import 'package:anime_galaxy/module_home/ui/screens/home_screen.dart';
 import 'package:anime_galaxy/module_navigation/ui/widget/navigation_drawer/anime_navigation_drawer.dart';
 import 'package:anime_galaxy/module_notification/ui/screen/notification_screen/notification_screen.dart';
+import 'package:anime_galaxy/module_profile/presistance/profile_shared_preferences.dart';
 import 'package:anime_galaxy/module_profile/ui/screen/profile_screen/profile_screen.dart';
 import 'package:anime_galaxy/module_settings/ui/ui/settings_page/settings_page.dart';
 import 'package:anime_galaxy/utils/app_bar/anime_galaxy_app_bar.dart';
@@ -20,6 +21,7 @@ class MainScreen extends StatefulWidget {
   final ProfileScreen _profileScreen;
   final AuthService _authService;
   final AnimeNavigationDrawer _animeNavigationDrawer;
+  final ProfileSharedPreferencesHelper _profileSharedPreferencesHelper;
 
   MainScreen(
     this._notificationScreen,
@@ -29,6 +31,7 @@ class MainScreen extends StatefulWidget {
     this._profileScreen,
     this._authService,
     this._animeNavigationDrawer,
+    this._profileSharedPreferencesHelper,
   );
 
   @override
@@ -40,6 +43,7 @@ class _MainScreenState extends State<MainScreen> {
 
   int _pageIndex;
   String username;
+  String userImage;
 
   @override
   void initState() {
@@ -60,7 +64,8 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   void getName() async {
-    username = await widget._authService.username;
+    username = await widget._profileSharedPreferencesHelper.getUsername();
+    userImage = await widget._profileSharedPreferencesHelper.getImage();
     setState(() {});
   }
 
@@ -90,6 +95,7 @@ class _MainScreenState extends State<MainScreen> {
         context,
         _scaffoldKey,
         username,
+        userImage
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _pageIndex ?? 0,

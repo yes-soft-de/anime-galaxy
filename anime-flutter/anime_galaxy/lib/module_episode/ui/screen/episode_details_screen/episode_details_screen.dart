@@ -6,6 +6,7 @@ import 'package:anime_galaxy/module_episode/state_manager/episode_details/episod
 import 'package:anime_galaxy/module_episode/ui/widget/comment_card/comment_card.dart';
 import 'package:anime_galaxy/module_episode/ui/widget/episode_details_widget/episode_details_widget.dart';
 import 'package:anime_galaxy/module_navigation/ui/widget/navigation_drawer/anime_navigation_drawer.dart';
+import 'package:anime_galaxy/module_profile/presistance/profile_shared_preferences.dart';
 import 'package:anime_galaxy/module_rating/ui/widget/rating_bar.dart';
 import 'package:anime_galaxy/utils/app_bar/anime_galaxy_app_bar.dart';
 import 'package:anime_galaxy/utils/loading_indicator/loading_indicator.dart';
@@ -23,11 +24,13 @@ class EpisodeDetailsScreen extends StatefulWidget {
   final EpisodeDetailsStateManager _stateManager;
   final AuthService _authService;
   final AnimeNavigationDrawer _animeNavigationDrawer;
+  final ProfileSharedPreferencesHelper _profileSharedPreferencesHelper;
 
   EpisodeDetailsScreen(
       this._stateManager,
       this._authService,
       this._animeNavigationDrawer,
+      this._profileSharedPreferencesHelper,
       );
   @override
   _EpisodeDetailsScreenState createState() => _EpisodeDetailsScreenState();
@@ -60,7 +63,7 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
   }
 
   void _getUserId() async {
-    username = await widget._authService.username;
+    username = await widget._profileSharedPreferencesHelper.getUsername();
     if (username == null) {
       username = await widget._authService.userID;
       username = username.substring(0, 6);
@@ -143,7 +146,7 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
     return Scaffold(
       key: _scaffoldKey,
       appBar: AnimeGalaxyAppBar.getAnimeGalaxyAppBar(
-          context, _scaffoldKey, username),
+          context, _scaffoldKey, username,null),
       drawer: widget._animeNavigationDrawer,
       body: Container(
         padding: EdgeInsets.all(5),
