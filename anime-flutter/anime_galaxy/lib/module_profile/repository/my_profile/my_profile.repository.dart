@@ -15,7 +15,7 @@ int followingNumber1 = 0;
 List<FollowingActivitiesResponse> followingActivitiesResponse1 = [];
 List<FavouriteResponse> favourites1 = [];
 bool isFollowed1 = false;
-PreviousCommentsResponse previousCommentsResponse1 = new PreviousCommentsResponse(
+PreviousCommentsResponse previousCommentsResponse= new PreviousCommentsResponse(
   animeComments: [],
   episodeComments: [],
 );
@@ -38,20 +38,21 @@ class MyProfileRepository {
       await Future.wait([
         _getPreviousComments(userId),
         _getWatchedSeries(userId),
-        _getFollowingNumber(userId,loggedUser),
+        _getFollowingNumber(userId),
+        _isFollowed(loggedUser, userId)
       ]) ;
 
     }else{
       await Future.wait([
         _getFollowingActivities(userId),
         _getWatchedSeries(userId),
-        _getFollowingNumber(userId,loggedUser),
+        _getFollowingNumber(userId),
       ]) ;
 
     }
 
+    result.previousCommentsResponse = previousCommentsResponse;
     result.followingActivitiesResponse = followingActivitiesResponse1;
-    result.previousCommentsResponse = previousCommentsResponse1;
     result.favourites = favourites1;
     result.followingNumber = followingNumber1;
     result.isFollowed = isFollowed1;
@@ -59,23 +60,24 @@ class MyProfileRepository {
     return result;
   }
 
-  Future<void> _getFollowingNumber(String userId,String friendId) async {
+  Future<void> _getFollowingNumber(String userId) async {
     dynamic response = await _apiClient.get(Urls.API_FOLLOWING_USERS + userId);
     if (response == null) return 0;
 
-    dynamic res = response['Data'];
-    followingNumber1 = res.length;
+    followingNumber1 = response['Data'].length;
 
-    await  _isFollowed(res,friendId);
   }
+  Future<void> _isFollowed(String userId, String friendId) async {
+    dynamic following = await _apiClient.get(Urls.API_FOLLOWING_USERS + userId);
+    if (following == null) return false;
 
-  Future<void> _isFollowed(dynamic res , String friendId) async {
-
+    dynamic res = following['Data'];
     for (int i = 0; i < res.length; i++) {
       FollowingUsersResponse follow = FollowingUsersResponse.fromJson(res[i]);
       if (friendId == follow.friendID) isFollowed1 =  true;
     }
 
+    isFollowed1 = false;
   }
 
   Future<void> _getFollowingActivities(
@@ -110,7 +112,7 @@ class MyProfileRepository {
   Future<void> _getPreviousComments(String userId) async{
     dynamic response = await _apiClient.get(Urls.API_PREVIOUS_COMMENTS+userId);
     if (response == null ) return null;
-    previousCommentsResponse1 = PreviousCommentsResponse.fromJson(response['Data']);
+    previousCommentsResponse = PreviousCommentsResponse.fromJson(response['Data']);
   }
 
   Future<bool> follow(String userId, String friendId) async {
