@@ -52,17 +52,23 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
   String username;
   VideoPlayerController controller; // used to controller videos
   Future<void> futureController;
+  bool fABIsVisible = false;
+  ScrollController _scrollController;
 
   @override
   void initState() {
     super.initState();
     _getUserId();
 
+    _scrollController = ScrollController();
+    _scrollController.addListener(_scrollListener);
 
     widget._stateManager.stateStream.listen((event) {
       currentState = event;
       processEvent();
     });
+
+
   }
 
   @override
@@ -70,7 +76,22 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
     controller.dispose();  // when app is been closed destroyed the controller
     super.dispose();
   }
+  _scrollListener(){
+    if (_scrollController.offset >= _scrollController.position.maxScrollExtent &&
+        !_scrollController.position.outOfRange) {
 
+      setState(() {
+        fABIsVisible = true ;
+      });
+    }
+    if (_scrollController.offset <= _scrollController.position.minScrollExtent &&
+        !_scrollController.position.outOfRange) {
+
+    /*  setState(() {
+        message = "reach the top";
+      });*/
+    }
+  }
   void _getUserId() async {
     username = await widget._authService.username;
     if (username == null) {
@@ -178,19 +199,25 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
       body: Container(
         padding: EdgeInsets.all(5),
         child: SingleChildScrollView(
+          controller: _scrollController,
           child: body(),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: ProjectColors.ThemeColor,
-        onPressed: () {
-          _showCommentDialog(context);
-        },
-        child: Icon(
-          Icons.comment,
-          color: Colors.white,
-        ),
-      ),
+      floatingActionButton: Container(
+        height: 40,
+        width: 40,
+        child:/* fABIsVisible?*/ FloatingActionButton(
+
+          backgroundColor: ProjectColors.ThemeColor,
+          onPressed: () {
+            _showCommentDialog(context);
+          },
+          child: Icon(
+            Icons.comment,
+            color: Colors.white,
+          ),
+        )/*:null*/,
+      )
     );
   }
 

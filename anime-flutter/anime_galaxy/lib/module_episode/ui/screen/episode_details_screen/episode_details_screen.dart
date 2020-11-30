@@ -160,14 +160,18 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
           body(),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: ProjectColors.ThemeColor,
-        onPressed: () {
-          _showCommentDialog(context);
-        },
-        child: Icon(
-          Icons.comment,
-          color: Colors.white,
+      floatingActionButton: Container(
+        height: 40,
+        width: 40,
+        child: FloatingActionButton(
+          backgroundColor: ProjectColors.ThemeColor,
+          onPressed: () {
+            _showCommentDialog(context);
+          },
+          child: Icon(
+            Icons.comment,
+            color: Colors.white,
+          ),
         ),
       ),
 //      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,

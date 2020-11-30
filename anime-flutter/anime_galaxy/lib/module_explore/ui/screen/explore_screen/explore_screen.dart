@@ -246,58 +246,64 @@ class _ExploreScreenState extends State<ExploreScreen> {
                   SizedBox(
                     height: 10,
                   ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Text(
-                          S.of(context).activeMembers,
-                          style: StyleExploreList.getTextSyle(
-                            size: 14,
-                            fontWeight: FontWeight.w500,
-                            day: true,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Container(
-                    height: 100,
-                    child: explore.activeUsers != null
-                        ? ListView.builder(
-                            itemBuilder: (context, index) {
-                              return Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 4),
-                                child: GestureDetector(
-                                  onTap: () => Navigator.pushNamed(
-                                      context, ProfileRoutes.ROUTE_PROFILE,
-                                      arguments: explore.activeUsers[index].id),
-                                  child: MemberCard(
-                                    url_image:  explore.activeUsers[index].image,
-                                     series_name:
-                                        explore.activeUsers[index].name,
-                                  ),
-                                ),
-                              );
-                            },
-                            itemCount: explore.activeUsers.length,
-                            shrinkWrap: true,
-                            scrollDirection: Axis.horizontal,
-                          )
-                        : ListView(
-                            children: [
-                              Text(
-                                  'No Active Users Yet!',
-                                style: TextStyle(
-                                  fontFamily:'Roboto',
-                                ),
-                              )
-                            ],
-                          ),
-                  ),
+
+                  //active users
+//                  Row(
+//                    children: [
+//                      Expanded(
+//                        child: Text(
+//                          S.of(context).activeMembers,
+//                          style: StyleExploreList.getTextSyle(
+//                            size: 14,
+//                            fontWeight: FontWeight.w500,
+//                            day: true,
+//                          ),
+//                        ),
+//                      ),
+//                    ],
+//                  ),
+//                  SizedBox(
+//                    height: 10,
+//                  ),
+//                  Container(
+//                    height: 100,
+//                    child: explore.activeUsers != null
+//                        ? ListView.builder(
+//                            itemBuilder: (context, index) {
+//                              return Padding(
+//                                padding:
+//                                    const EdgeInsets.symmetric(horizontal: 4),
+//                                child: GestureDetector(
+//                                  onTap: () => Navigator.pushNamed(
+//                                      context, ProfileRoutes.ROUTE_PROFILE,
+//                                      arguments: explore.activeUsers[index].id),
+//                                  child: MemberCard(
+//                                    url_image:  explore.activeUsers[index].image,
+//                                     series_name:
+//                                        explore.activeUsers[index].name,
+//                                  ),
+//                                ),
+//                              );
+//                            },
+//                            itemCount: explore.activeUsers.length,
+//                            shrinkWrap: true,
+//                            scrollDirection: Axis.horizontal,
+//                          )
+//                        : ListView(
+//                            children: [
+//                              Text(
+//                                  'No Active Users Yet!',
+//                                style: TextStyle(
+//                                  fontFamily:'Roboto',
+//                                ),
+//                              )
+//                            ],
+//                          ),
+//                  ),
+
+
+
+
                   Container(
                     margin: EdgeInsets.only(top: 20),
                     child: CarouselSlider(
