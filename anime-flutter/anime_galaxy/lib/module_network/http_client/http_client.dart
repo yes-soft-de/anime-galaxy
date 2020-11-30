@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:anime_galaxy/utils/logger/logger.dart';
 import 'package:dio/dio.dart';
@@ -20,10 +21,14 @@ class ApiClient {
   }
 
   Future<Map<String, dynamic>> get(String url,
-      {Map<String, String> queryParams}) async {
+      {Map<String, String> queryParams, String token}) async {
+    if (token != null){
+      _client.options.headers.putIfAbsent('Authorization', () => token);
+    }
+
     _logger.info(tag, 'GET $url');
     try {
-      Response response = await _client.get(
+      Response  response = await _client.get(
         url,
         queryParameters: queryParams,
         options: buildCacheOptions(Duration(seconds: 15)),
