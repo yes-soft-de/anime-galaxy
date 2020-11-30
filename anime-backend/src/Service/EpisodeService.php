@@ -37,18 +37,19 @@ class EpisodeService
     public function create(CreateEpisodeRequest $request)
     {
         $episodeResult = $this->episodeManager->create($request);
+
+        $episodeResult->setImage($this->specialLinkCheck($episodeResult->getSpecialLink()).$episodeResult->getImage());
+
         return $this->autoMapping->map(Episode::class, CreateEpisodeResponse::class, $episodeResult);
     }
 
     public function update($request)
     {
         $episodeResult = $this->episodeManager->update($request);
-        $response = $this->autoMapping->map(Episode::class, UpdateEpisodeResponse::class, $episodeResult);
 
-        $response->setDescription($request->getDescription());
-        $response->setImage($request->getImage());
+        $episodeResult->setImage($this->specialLinkCheck($episodeResult->getSpecialLink()).$episodeResult->getImage());
 
-        return $response;
+        return $this->autoMapping->map(Episode::class, UpdateEpisodeResponse::class, $episodeResult);
     }
 
     public function getEpisodesByAnimeId($animeID)

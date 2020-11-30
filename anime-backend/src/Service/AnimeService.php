@@ -39,6 +39,9 @@ class AnimeService
     public function createAnime($request)
     {
         $animeResult = $this->animeManager->create($request);
+
+        $animeResult->setMainImage($this->specialLinkCheck($animeResult->getSpecialLink()).$animeResult->getMainImage());
+
         return $this->autoMapping->map(Anime::class, CreateAnimeResponse::class, $animeResult);
     }
 
@@ -119,10 +122,10 @@ class AnimeService
     public function update($request)
     {
         $animeResult = $this->animeManager->update($request);
-        $response = $this->autoMapping->map(Anime::class, UpdateAnimeResponse::class, $animeResult);
-        $response->setName($request->getName());
-        $response->setMainImage($request->getMainImage());
-        return $response;
+
+        $animeResult->setMainImage($this->specialLinkCheck($animeResult->getSpecialLink()).$animeResult->getMainImage());
+
+        return $this->autoMapping->map(Anime::class, UpdateAnimeResponse::class, $animeResult);
     }
 
     public function updateSuggest($request)
