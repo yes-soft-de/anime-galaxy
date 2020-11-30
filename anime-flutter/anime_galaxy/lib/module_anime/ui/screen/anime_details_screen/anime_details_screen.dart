@@ -126,12 +126,13 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
     }
 
     if (currentState is AnimeDetailsStateLoveCommentSuccess) {
-      AnimeDetailsStateLoveCommentSuccess state =currentState;
-      anime.comments[state.data].isLoved = true;
-      int likes = int.parse( anime.comments[state.data].likesNumber);
+      AnimeDetailsStateLoveCommentSuccess state = currentState;
+      int commentIndex = anime.comments.indexWhere((element) => element.id == state.data);
+      print(' comment index'+commentIndex.toString()+'comment id '+state.data.toString());
+      anime.comments[commentIndex].isLoved = true;
+      int likes = int.parse( anime.comments[commentIndex].likesNumber);
       likes+=1;
-      anime.comments[state.data].likesNumber = likes.toString();
-      anime.comments[state.data].isLoved = true;
+      anime.comments[commentIndex].likesNumber = likes.toString();
     }
 
     if (this.mounted) {
@@ -206,8 +207,8 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
             showYear: anime.showYear,
             image: anime.image,
             episodesNumber: anime.episodes.length,
-            isFollowed: anime.isFollowed,
-
+            isFollowed: anime.isFollowed ,
+            isLoved: anime.isLoved,
             onFollow: () =>
                 widget._stateManager.addToFavourite(animeId, anime.categoryID),
             onUnFollow: () =>

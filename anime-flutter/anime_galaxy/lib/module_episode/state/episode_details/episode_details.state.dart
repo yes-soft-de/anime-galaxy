@@ -36,7 +36,7 @@ class EpisodeDetailsStateLoveError extends EpisodeDetailsState{}
 
 class EpisodeDetailsStateLoveCommentSuccess extends EpisodeDetailsState{
   int data;
-  EpisodeDetailsStateLoveCommentSuccess(data);
+  EpisodeDetailsStateLoveCommentSuccess(this.data);
 }
 
 class EpisodeDetailsStateLoveCommentError extends EpisodeDetailsState{}

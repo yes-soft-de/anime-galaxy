@@ -97,10 +97,12 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
     }
     if (currentState is EpisodeDetailsStateLoveCommentSuccess) {
       EpisodeDetailsStateLoveCommentSuccess state = currentState;
-      int likes = int.parse(episode.comments[state.data].likesNumber);
+      int commentIndex = episode.comments.indexWhere((element) => element.id == state.data);
+
+      int likes = int.parse(episode.comments[commentIndex].likesNumber);
       likes += 1;
-      episode.comments[state.data].likesNumber = likes.toString();
-      episode.comments[state.data].isLoved = true;
+      episode.comments[commentIndex].likesNumber = likes.toString();
+      episode.comments[commentIndex].isLoved = true;
     }
     if (this.mounted) {
       setState(() {});
@@ -182,7 +184,9 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
           rate: episode.rate,
           showYear: episode.showYear,
           image: episode.image,
+          isLoved: episode.isLoved ?? false,
           onLove: () => widget._stateManager.loveEpisode(episodeId),
+
         ),
         //rating the series
         Row(
