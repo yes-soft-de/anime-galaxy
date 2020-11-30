@@ -35,6 +35,7 @@ class Comment{
   String likesNumber;
   String date;
   String userName;
+  bool isLoved;
 
   Comment({
     this.date,
@@ -43,5 +44,6 @@ class Comment{
     this.content,
     this.id,
     this.likesNumber,
+    this.isLoved,
   });
 }

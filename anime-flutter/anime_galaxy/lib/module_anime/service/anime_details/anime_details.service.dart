@@ -68,12 +68,13 @@ class AnimeDetailsService {
     commentResponse.forEach((element) {
       var date = new DateTime.fromMillisecondsSinceEpoch(element.creationDate.timestamp);
       Comment comment = new Comment(
-          content: element.comment,
-          userName:element.userName,
-          id: element.id,
-          likesNumber: element.commentInteractions.love,
-          userImage:element.image,
-          date:' ${months[date.month+1]} ${date.day} ' ,
+        content: element.comment,
+        userName:element.userName,
+        id: element.id,
+        likesNumber: element.commentInteractions.love,
+        userImage:element.image,
+        date:' ${months[date.month+1]} ${date.day} ' ,
+        isLoved: element.commentInteractions.isLoved,
       );
       comments.add(comment);
     });

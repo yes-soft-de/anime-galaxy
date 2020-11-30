@@ -10,6 +10,7 @@ class CommentCard extends StatelessWidget {
   final String userName;
   final String likesNumber;
   final LoveCommentCallBack onLove;
+  final bool isLoved;
 
   CommentCard({
     this.comment,
@@ -18,6 +19,7 @@ class CommentCard extends StatelessWidget {
     this.userName,
     this.likesNumber,
     this.onLove,
+    this.isLoved,
   });
 
   @override
@@ -79,9 +81,14 @@ class CommentCard extends StatelessWidget {
               Row(
                 children: [
                   IconButton(
-                    onPressed: onLove,
-                    icon: ImageIcon(
+                    onPressed: isLoved ? (){} : onLove,
+                    icon: isLoved ?
+                    ImageIcon(
                       AssetImage('assets/images/full_flame.png'),
+                      color: ProjectColors.ThemeColor,
+                    ):
+                    ImageIcon(
+                      AssetImage('assets/images/flame.png'),
                       color: ProjectColors.ThemeColor,
                     ),
                   ),

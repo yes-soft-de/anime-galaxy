@@ -22,19 +22,19 @@ class AnimeDetailsStateManager {
 
     this._animeDetailsService.getAnimeDetails(animeId).then(
             (result) {
-              if(result != null){
-                this._stateSubject.add(AnimeDetailsStateFetchingSuccess(result));
-              }
-              else{
-                this._stateSubject.add(AnimeDetailsStateFetchingError());
-                Fluttertoast.showToast(msg: S.current.errorLoadingData);
-              }
-            });
+          if(result != null){
+            this._stateSubject.add(AnimeDetailsStateFetchingSuccess(result));
+          }
+          else{
+            this._stateSubject.add(AnimeDetailsStateFetchingError());
+            Fluttertoast.showToast(msg: S.current.errorLoadingData);
+          }
+        });
   }
-  
+
   void addComment(String comment,int animeId,bool spoilerAlert){
     this._stateSubject.add(AnimeDetailsStateCommentingInProgress());
-    
+
     this._animeDetailsService.addComment(comment, animeId, spoilerAlert).then((value) {
       if(value == null || value == false){
         Fluttertoast.showToast(msg: S.current.ommentingError);
@@ -91,7 +91,7 @@ class AnimeDetailsStateManager {
         this._stateSubject.add(AnimeDetailsStateLoveCommentError());
       }else{
         Fluttertoast.showToast(msg : S.current.ThanksYourExcitement);
-        this._stateSubject.add(AnimeDetailsStateLoveCommentSuccess());
+        this._stateSubject.add(AnimeDetailsStateLoveCommentSuccess(commentId));
       }
     });
   }

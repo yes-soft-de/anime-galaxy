@@ -19,6 +19,8 @@ import 'package:inject/inject.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:video_player/video_player.dart';
 
+import '../../../state/anime_details/anime_details.state.dart';
+
 @provide
 class AnimeDetailsScreen extends StatefulWidget {
   final AnimeDetailsStateManager _stateManager;
@@ -122,6 +124,16 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
     if (currentState is AnimeDetailsStateUnFollowSuccess) {
       anime.isFollowed = false;
     }
+
+    if (currentState is AnimeDetailsStateLoveCommentSuccess) {
+      AnimeDetailsStateLoveCommentSuccess state =currentState;
+      anime.comments[state.data].isLoved = true;
+      int likes = int.parse( anime.comments[state.data].likesNumber);
+      likes+=1;
+      anime.comments[state.data].likesNumber = likes.toString();
+      anime.comments[state.data].isLoved = true;
+    }
+
     if (this.mounted) {
       setState(() {});
     }
@@ -553,7 +565,9 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                 date:'${ anime.comments[index].date}',
                 comment: '${anime.comments[index].content}',
                 likesNumber: anime.comments[index].likesNumber,
+                isLoved:anime.comments[index].isLoved ,
                 onLove:()=> widget._stateManager.loveComment(anime.comments[index].id),
+
               );
             },
           )

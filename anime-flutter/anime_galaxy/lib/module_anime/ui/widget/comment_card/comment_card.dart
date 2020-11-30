@@ -9,6 +9,7 @@ class CommentCard extends StatelessWidget {
   final String date;
   final String userName;
   final String likesNumber;
+  final bool isLoved;
   final LoveCommentCallBack onLove;
 
   CommentCard({
@@ -18,6 +19,7 @@ class CommentCard extends StatelessWidget {
     this.userName,
     this.likesNumber,
     this.onLove,
+    this.isLoved,
   });
 
   @override
@@ -46,9 +48,9 @@ class CommentCard extends StatelessWidget {
                   Text(
                     userName,
                     style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        fontFamily:'Roboto',
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      fontFamily:'Roboto',
                     ),
                   ),
                 ],
@@ -56,46 +58,52 @@ class CommentCard extends StatelessWidget {
               Text(
                 date,
                 style: TextStyle(
-                    fontFamily:'Roboto',
-                    fontSize: 12,
+                  fontFamily:'Roboto',
+                  fontSize: 12,
                 ),
               ),
             ],
           ),
-         Row(
-           children: [
-             Container
-               (
-               width: MediaQuery.of(context).size.width * 0.6,
-               padding: EdgeInsetsDirectional.fromSTEB(60, 10, 0, 0),
-               child: Text(
-                 '$comment',
-                 style: TextStyle(
-                     fontFamily:'Roboto',
-                     fontSize: 16
-                 ),
-               ),
-             ),
-             Row(
-               children: [
-                 IconButton(
-                   onPressed: onLove,
-                   icon: ImageIcon(
-                     AssetImage('assets/images/full_flame.png'),
-                     color: ProjectColors.ThemeColor,
-                   ),
-                 ),
-                 Text(
-                   '${likesNumber??0}',
-                   style: TextStyle(
-                       fontFamily:'Roboto',
-                       fontSize: 12
-                   ),
-                 ),
-               ],
-             ),
-           ],
-         )
+          Row(
+            children: [
+              Container
+                (
+                width: MediaQuery.of(context).size.width * 0.6,
+                padding: EdgeInsetsDirectional.fromSTEB(60, 10, 0, 0),
+                child: Text(
+                  '$comment',
+                  style: TextStyle(
+                      fontFamily:'Roboto',
+                      fontSize: 16
+                  ),
+                ),
+              ),
+              Row(
+                children: [
+                  IconButton(
+                    onPressed: isLoved ?(){}: onLove,
+                    icon: isLoved?
+                    ImageIcon(
+                      AssetImage('assets/images/full_flame.png'),
+                      color: ProjectColors.ThemeColor,
+                    ) :
+                    ImageIcon(
+                      AssetImage('assets/images/flame.png'),
+                      color: ProjectColors.ThemeColor,
+                    )
+                    ,
+                  ),
+                  Text(
+                    '${likesNumber??0}',
+                    style: TextStyle(
+                        fontFamily:'Roboto',
+                        fontSize: 12
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          )
         ],
       ),
     );

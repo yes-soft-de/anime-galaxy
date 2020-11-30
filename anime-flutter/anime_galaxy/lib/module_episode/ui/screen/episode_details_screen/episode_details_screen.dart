@@ -16,6 +16,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:inject/inject.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
+import '../../../state/episode_details/episode_details.state.dart';
+
 @provide
 class EpisodeDetailsScreen extends StatefulWidget {
   final EpisodeDetailsStateManager _stateManager;
@@ -71,9 +73,6 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
       episode = state.data;
       rating = episode.previousRate;
       loading = false;
-      if (this.mounted) {
-        setState(() {});
-      }
     }
     if (currentState is EpisodeDetailsStateCommentingSuccess) {
       episode.comments.insert(
@@ -83,7 +82,7 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
               userName: username,
               //TODO : change the below
               userImage:
-                  'https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=100&q=60 100w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=60 200w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=60 300w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60 400w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60 500w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60 600w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60 700w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60 800w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60 900w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60 1000w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=60 1100w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1200&q=60 1200w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1296&q=60 1296w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60 1400w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=60 1600w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1800&q=60 1800w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=60 2000w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2200&q=60 2200w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2400&q=60 2400w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2592&q=60 2592w',
+              'https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=100&q=60 100w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=60 200w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=60 300w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60 400w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60 500w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60 600w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60 700w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60 800w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60 900w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60 1000w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=60 1100w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1200&q=60 1200w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1296&q=60 1296w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60 1400w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=60 1600w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1800&q=60 1800w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=60 2000w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2200&q=60 2200w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2400&q=60 2400w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2592&q=60 2592w',
               date: '21 Jun'));
       _commentController.text = '';
     }
@@ -95,9 +94,16 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
       int likes = int.parse(episode.likesNumber);
       likes += 1;
       episode.likesNumber = likes.toString();
-      if (this.mounted) {
-        setState(() {});
-      }
+    }
+    if (currentState is EpisodeDetailsStateLoveCommentSuccess) {
+      EpisodeDetailsStateLoveCommentSuccess state = currentState;
+      int likes = int.parse(episode.comments[state.data].likesNumber);
+      likes += 1;
+      episode.comments[state.data].likesNumber = likes.toString();
+      episode.comments[state.data].isLoved = true;
+    }
+    if (this.mounted) {
+      setState(() {});
     }
   }
 
@@ -141,7 +147,7 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
         padding: EdgeInsets.all(5),
         child: SingleChildScrollView(
           child:
-              /*loading?
+          /*loading?
           Shimmer.fromColors(
             baseColor: Colors.grey[300],
             highlightColor: Colors.grey[100],
@@ -149,7 +155,7 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
 
             child: body()
           ):*/
-              body(),
+          body(),
         ),
       ),
       floatingActionButton: FloatingActionButton(
@@ -216,6 +222,32 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
                 itemCount: 10,
               ),
             ),
+
+//                RotatedBox(
+//                  quarterTurns: 2,
+//                  child: RatingBar(
+//                  initialRating: 2,
+//                  direction: Axis.horizontal,
+//                  itemSize: 16,
+////                allowHalfRating: true,
+//                  itemCount: 10,
+//                  ratingWidget: RatingWidget(
+//                    full: RotatedBox(
+//                        quarterTurns: 2,
+//                        child: Icon(Icons.favorite,color: ProjectColors.ThemeColor,  )
+//                    ),
+////                  half: _image('assets/heart_half.png'),
+//                    empty: RotatedBox(
+//                      quarterTurns: 2,
+//                        child: Icon(Icons.favorite_border,color: ProjectColors.ThemeColor, )
+//                    ),
+//                  ),
+//                  itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+//                  onRatingUpdate: (rating) {
+//                    print(rating);
+//                  },
+//              ),
+//                ),
           ],
         ),
 
@@ -239,6 +271,7 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
                 S.of(context).generalEvaluation,
                 style: TextStyle(fontSize: 14),
               ),
+              //TODO : change it with real data
               LinearPercentIndicator(
                 width: MediaQuery.of(context).size.width * 0.5,
                 animation: true,
@@ -318,34 +351,34 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
                   ),
                 )
 //
-                )),
+            )),
         isExpanded
             ? new FlatButton(
-                child: Container(
-                    width: 30,
-                    height: 30,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                      color: ProjectColors.ThemeColor,
-                    ),
-                    child: const Icon(
-                      Icons.keyboard_arrow_up,
-                      color: Colors.white,
-                    )),
-                onPressed: () => setState(() => isExpanded = false))
+            child: Container(
+                width: 30,
+                height: 30,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                  color: ProjectColors.ThemeColor,
+                ),
+                child: const Icon(
+                  Icons.keyboard_arrow_up,
+                  color: Colors.white,
+                )),
+            onPressed: () => setState(() => isExpanded = false))
             : new FlatButton(
-                child: Container(
-                    width: 30,
-                    height: 30,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                      color: ProjectColors.ThemeColor,
-                    ),
-                    child: const Icon(
-                      Icons.keyboard_arrow_down,
-                      color: Colors.white,
-                    )),
-                onPressed: () => setState(() => isExpanded = true)),
+            child: Container(
+                width: 30,
+                height: 30,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                  color: ProjectColors.ThemeColor,
+                ),
+                child: const Icon(
+                  Icons.keyboard_arrow_down,
+                  color: Colors.white,
+                )),
+            onPressed: () => setState(() => isExpanded = true)),
 
         //divider
         Container(
@@ -381,9 +414,9 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
                     border: Border.all(color: Colors.black38)),
                 child: Center(
                     child: Text(
-                  '${episode.classification}',
-                  style: TextStyle(fontFamily: 'Roboto', fontSize: 12),
-                ))),
+                      '${episode.classification}',
+                      style: TextStyle(fontFamily: 'Roboto', fontSize: 12),
+                    ))),
           ],
           //in case of multiple classifications
           /*  children: List.generate(anime.classification.length, (index) {
@@ -442,6 +475,7 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
               date: '${episode.comments[index].date}',
               likesNumber: episode.comments[index].likesNumber,
               comment: '${episode.comments[index].content}',
+              isLoved: episode.comments[index].isLoved ,
               onLove: () =>
                   widget._stateManager.loveComment(episode.comments[index].id),
             );

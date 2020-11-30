@@ -22,19 +22,19 @@ class EpisodeDetailsStateManager {
 
     this._animeDetailsService.getEpisodeDetails(episodeId).then(
             (result) {
-              if(result != null){
-                this._stateSubject.add(EpisodeDetailsStateFetchingSuccess(result));
-              }
-              else{
-                this._stateSubject.add(EpisodeDetailsStateFetchingError());
-                Fluttertoast.showToast(msg: S.current.errorLoadingData);
-              }
-            });
+          if(result != null){
+            this._stateSubject.add(EpisodeDetailsStateFetchingSuccess(result));
+          }
+          else{
+            this._stateSubject.add(EpisodeDetailsStateFetchingError());
+            Fluttertoast.showToast(msg: S.current.errorLoadingData);
+          }
+        });
   }
-  
+
   void addComment(String comment,int episodeId,bool spoilerAlert){
     this._stateSubject.add(EpisodeDetailsStateCommentingInProgress());
-    
+
     this._animeDetailsService.addComment(comment, episodeId, spoilerAlert).then((value) {
       if(value == null || value == false){
         Fluttertoast.showToast(msg: S.current.ommentingError);
@@ -76,7 +76,7 @@ class EpisodeDetailsStateManager {
         this._stateSubject.add(EpisodeDetailsStateLoveCommentError());
       }else{
         Fluttertoast.showToast(msg : S.current.ThanksYourExcitement);
-        this._stateSubject.add(EpisodeDetailsStateLoveCommentSuccess());
+        this._stateSubject.add(EpisodeDetailsStateLoveCommentSuccess(commentId));
       }
     });
   }

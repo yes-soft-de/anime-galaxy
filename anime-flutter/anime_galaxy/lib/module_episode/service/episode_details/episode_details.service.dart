@@ -56,6 +56,7 @@ class EpisodeDetailsService{
         likesNumber: element.commentInteractions.love,
         userImage:element.image,
         date:' ${months[date.month+1]} ${date.day} ' ,
+        isLoved: element.commentInteractions.isLoved,
       );
       comments.add(comment);
 
