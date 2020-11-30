@@ -76,6 +76,8 @@ methods: GET
 `Method: POST. Path: /anime`
 ##### Update existing anime by ID. 
 `Method: PUT. Path: /anime`
+##### Update Highest Rated Anime by ID and suggest value. 
+`Method: PUT. Path: /anime/{suggest}`
 ##### Get specific anime by ID. 
 `Method: GET. Path: /anime/ID`
 ##### Get all anime. 
