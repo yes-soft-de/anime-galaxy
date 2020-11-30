@@ -37,6 +37,7 @@ class AnimeDetailsService {
 
     anime.about = response.description;
     anime.isFollowed = response.isFollowed;
+    anime.isLoved = response.interactions.isLoved;
     anime.categoryID = response.categoryID;
     anime.episodes = getEpisodes(response.episodes,response.categoryName);
     anime.previousRate = response.previousRate;

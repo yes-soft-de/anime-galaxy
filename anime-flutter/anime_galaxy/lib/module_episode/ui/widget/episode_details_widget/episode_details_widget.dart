@@ -12,6 +12,7 @@ class EpisodeDetailsWidget extends StatelessWidget {
   final int comments;
   final String image;
   final LoveCallBack onLove;
+  final bool isLoved;
 
   EpisodeDetailsWidget(
       {this.name,
@@ -21,6 +22,7 @@ class EpisodeDetailsWidget extends StatelessWidget {
         this.comments,
         this.image,
         this.onLove,
+        this.isLoved,
       });
   @override
   Widget build(BuildContext context) {
@@ -111,16 +113,23 @@ class EpisodeDetailsWidget extends StatelessWidget {
                       Row(
                         children: [
                           IconButton(
-                            icon:   ImageIcon(
-                                    AssetImage('assets/images/flame.png'),
-                                    color: ProjectColors.ThemeColor,
-                                  ),
-                            onPressed:  onLove,
+                            icon: isLoved?  ImageIcon(
+
+                              AssetImage('assets/images/flame.png'),
+                              color: ProjectColors.ThemeColor,
+                            ):
+                            ImageIcon(
+
+                              AssetImage('assets/images/full_flame.png'),
+                              color: ProjectColors.ThemeColor,
+                            )
+                            ,
+                            onPressed:  isLoved?(){}: onLove,
                           ),
                           Text(
                             S.of(context).Like,
                             style: TextStyle(
-                                fontSize: 10,
+                              fontSize: 10,
                               fontFamily:'Roboto',
                             ),
                           ),
@@ -136,7 +145,7 @@ class EpisodeDetailsWidget extends StatelessWidget {
                           Text(
                             S.of(context).Share,
                             style: TextStyle(
-                                fontSize: 10,
+                              fontSize: 10,
                               fontFamily:'Roboto',
                             ),
                           ),

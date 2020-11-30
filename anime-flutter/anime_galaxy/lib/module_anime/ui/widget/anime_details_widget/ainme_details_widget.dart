@@ -16,6 +16,7 @@ class AnimeDetailsWidget extends StatelessWidget {
   final FollowCallBack onFollow;
   final UnFollowCallBack onUnFollow;
   final bool isFollowed;
+  final bool isLoved;
   final int episodesNumber;
   final LoveCallBack onLove;
 
@@ -27,6 +28,7 @@ class AnimeDetailsWidget extends StatelessWidget {
     this.comments,
     this.image,
     this.isFollowed,
+    this.isLoved,
     this.onFollow,
     this.onUnFollow,
     this.episodesNumber,
@@ -94,14 +96,14 @@ class AnimeDetailsWidget extends StatelessWidget {
                             ),
                             Row(
                               children: [
-                                 Text(
-                                   '$episodesNumberحلقات',
-                                   style: TextStyle(
-                                   fontSize: 16,
-                                   color: ProjectColors.ThemeColor,
-                                   fontFamily:'Roboto',
-                                 ),
-                                 )
+                                Text(
+                                  '$episodesNumberحلقات',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    color: ProjectColors.ThemeColor,
+                                    fontFamily:'Roboto',
+                                  ),
+                                )
                               ],
                             ),
 
@@ -174,12 +176,17 @@ class AnimeDetailsWidget extends StatelessWidget {
                         Row(
                           children: [
                             IconButton(
-                              icon: ImageIcon(
+                              icon:isLoved? ImageIcon(
+                                AssetImage('assets/images/full_flame.png'),
+                                color: ProjectColors.ThemeColor,
+                              ):
+                              ImageIcon(
                                 AssetImage('assets/images/flame.png'),
                                 color: ProjectColors.ThemeColor,
-                              ),
+                              )
+                              ,
 
-                              onPressed: onLove ,
+                              onPressed: isLoved?(){}: onLove ,
                             ),
                             IconButton(
                               icon: Icon(Icons.share),

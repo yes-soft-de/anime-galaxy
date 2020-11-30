@@ -30,30 +30,31 @@ class EpisodeDetailsService{
     episode.commentsNumber = response.comments.length;
     episode.comments = await getComments(response.comments);
 
-     var df = new DateFormat('yyyy');
+    var df = new DateFormat('yyyy');
     var date = new DateTime.fromMillisecondsSinceEpoch(response.publishDate.timestamp);
 
     episode.showYear = df.format(date).toString();
     episode.about = response.description;
     episode.previousRate = response.previousRate;
+    episode.isLoved = response.interactions.isLoved;
 
 
     return episode;
   }
 
 
- Future< List<Comment>> getComments(List<Comments> commentResponse)async{
+  Future< List<Comment>> getComments(List<Comments> commentResponse)async{
     List<Comment> comments =[];
     List months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
     commentResponse.forEach((element) {
       var date = new DateTime.fromMillisecondsSinceEpoch(element.creationDate.timestamp);
       Comment comment = new Comment(
-          content: element.comment,
-          userName: element.userName,
-          id: element.id,
-          likesNumber: element.commentInteractions.love,
-          userImage:element.image,
+        content: element.comment,
+        userName: element.userName,
+        id: element.id,
+        likesNumber: element.commentInteractions.love,
+        userImage:element.image,
         date:' ${months[date.month+1]} ${date.day} ' ,
       );
       comments.add(comment);
@@ -66,10 +67,10 @@ class EpisodeDetailsService{
     String userId = await _authPrefsHelper.getUserId();
 
     CommentRequest commentRequest = new CommentRequest(
-      comment: comment,
-      episodeID: episodeId.toString(),
-      spoilerAlert: spoilerAlert,
-      userID: userId
+        comment: comment,
+        episodeID: episodeId.toString(),
+        spoilerAlert: spoilerAlert,
+        userID: userId
     );
 
     return await _detailsManager.addComment(commentRequest);
@@ -79,9 +80,9 @@ class EpisodeDetailsService{
     String userId = await _authPrefsHelper.getUserId();
 
     RatingRequest request = new RatingRequest(
-      userId: userId,
-      episodeId: episodeId,
-      rateValue: rateValue
+        userId: userId,
+        episodeId: episodeId,
+        rateValue: rateValue
     );
 
     return await _detailsManager.rateEpisode(request);

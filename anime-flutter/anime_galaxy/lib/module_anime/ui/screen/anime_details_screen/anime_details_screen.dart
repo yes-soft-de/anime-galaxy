@@ -12,7 +12,6 @@ import 'package:anime_galaxy/module_rating/ui/widget/rating_bar.dart';
 import 'package:anime_galaxy/utils/app_bar/anime_galaxy_app_bar.dart';
 import 'package:anime_galaxy/utils/loading_indicator/loading_indicator.dart';
 import 'package:anime_galaxy/utils/project_colors/project_color.dart';
-import 'package:flick_video_player/flick_video_player.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -27,10 +26,10 @@ class AnimeDetailsScreen extends StatefulWidget {
   final AnimeNavigationDrawer _animeNavigationDrawer;
 
   AnimeDetailsScreen(
-    this._stateManager,
-    this._authService,
+      this._stateManager,
+      this._authService,
       this._animeNavigationDrawer
-  );
+      );
 
   @override
   _AnimeDetailsScreenState createState() => _AnimeDetailsScreenState();
@@ -49,17 +48,14 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
   final TextEditingController _commentController = TextEditingController();
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   String username;
-  FlickManager flickManager;
+  VideoPlayerController controller; // used to controller videos
   Future<void> futureController;
 
   @override
   void initState() {
     super.initState();
     _getUserId();
-    flickManager = FlickManager(
-      videoPlayerController:
-          VideoPlayerController.network(anime.trailerVideo??'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4'),
-    );
+
 
     widget._stateManager.stateStream.listen((event) {
       currentState = event;
@@ -69,7 +65,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
 
   @override
   void dispose() {
-    flickManager.dispose();
+    controller.dispose();  // when app is been closed destroyed the controller
     super.dispose();
   }
 
@@ -88,7 +84,11 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
       anime = state.data;
       rating = anime.previousRate;
 
-      
+      controller = VideoPlayerController.network(anime.trailerVideo??'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4');
+      futureController = controller.initialize();
+      controller.setLooping(true);  // this will keep video looping active, means video will keep on playing
+      controller.setVolume(25.0);
+      controller.play();
 
       loading = false;
       if (this.mounted) {
@@ -103,7 +103,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
               userName: username,
               //TODO : change this
               userImage:
-                  'https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=100&q=60 100w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=60 200w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=60 300w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60 400w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60 500w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60 600w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60 700w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60 800w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60 900w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60 1000w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=60 1100w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1200&q=60 1200w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1296&q=60 1296w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60 1400w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=60 1600w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1800&q=60 1800w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=60 2000w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2200&q=60 2200w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2400&q=60 2400w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2592&q=60 2592w',
+              'https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=100&q=60 100w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=60 200w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=60 300w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60 400w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60 500w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60 600w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60 700w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60 800w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60 900w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60 1000w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=60 1100w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1200&q=60 1200w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1296&q=60 1296w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60 1400w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=60 1600w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1800&q=60 1800w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=60 2000w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2200&q=60 2200w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2400&q=60 2400w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2592&q=60 2592w',
               date: '21 Jun'));
       _commentController.text = '';
     }
@@ -114,6 +114,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
       anime.previousRate = rating;
     }
     if (currentState is AnimeDetailsStateLoveSuccess) {
+      anime.isLoved = true;
       int likes = int.parse(anime.likesNumber);
       likes+=1;
       anime.likesNumber = likes.toString() ;
@@ -194,6 +195,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
             image: anime.image,
             episodesNumber: anime.episodes.length,
             isFollowed: anime.isFollowed,
+
             onFollow: () =>
                 widget._stateManager.addToFavourite(animeId, anime.categoryID),
             onUnFollow: () =>
@@ -218,7 +220,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                     color: ProjectColors.ThemeColor,
                   ),
                   halfFillIcon: ImageIcon(
-                      AssetImage('assets/images/full_flame.png'),
+                    AssetImage('assets/images/full_flame.png'),
                     color: ProjectColors.ThemeColor,
                   ),
                   emptyIcon: ImageIcon(
@@ -237,7 +239,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                     }
 
                   }
-                   ,
+                  ,
                   itemSize: 25,
                   itemCount: 10,
                 ),
@@ -335,38 +337,38 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                     child: Text(
                       '${anime.about}',
                       style: TextStyle(
-                        fontSize: 12,
+                          fontSize: 12,
                           fontFamily:'Roboto'
                       ),
                     ),
                   ))),
           isExpanded
               ? FlatButton(
-                  child: Container(
-                      width: 30,
-                      height: 30,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        color: ProjectColors.ThemeColor,
-                      ),
-                      child: const Icon(
-                        Icons.keyboard_arrow_up,
-                        color: Colors.white,
-                      )),
-                  onPressed: () => setState(() => isExpanded = false))
+              child: Container(
+                  width: 30,
+                  height: 30,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    color: ProjectColors.ThemeColor,
+                  ),
+                  child: const Icon(
+                    Icons.keyboard_arrow_up,
+                    color: Colors.white,
+                  )),
+              onPressed: () => setState(() => isExpanded = false))
               : FlatButton(
-                  child: Container(
-                      width: 30,
-                      height: 30,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        color: ProjectColors.ThemeColor,
-                      ),
-                      child: const Icon(
-                        Icons.keyboard_arrow_down,
-                        color: Colors.white,
-                      )),
-                  onPressed: () => setState(() => isExpanded = true)),
+              child: Container(
+                  width: 30,
+                  height: 30,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    color: ProjectColors.ThemeColor,
+                  ),
+                  child: const Icon(
+                    Icons.keyboard_arrow_down,
+                    color: Colors.white,
+                  )),
+              onPressed: () => setState(() => isExpanded = true)),
 
           //divider
           Container(
@@ -383,8 +385,8 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                 Text(
                   S.of(context).Classification,
                   style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
                       fontFamily:'Roboto'
                   ),
                 ),
@@ -403,12 +405,12 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                       border: Border.all(color: Colors.black38)),
                   child: Center(
                       child: Text(
-                    '${anime.classification}',
-                    style: TextStyle(
-                        fontSize: 12,
-                        fontFamily:'Roboto'
-                    ),
-                  ))),
+                        '${anime.classification}',
+                        style: TextStyle(
+                            fontSize: 12,
+                            fontFamily:'Roboto'
+                        ),
+                      ))),
             ],
           ),
 
@@ -421,9 +423,50 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
           ),
 
           //Trailer video
-          FlickVideoPlayer(
-            flickManager: flickManager
+
+          FutureBuilder(
+            future: futureController,
+            builder: (context,snapshot){
+              // if video to ready to play, else show a progress bar to the user
+              if(snapshot.connectionState == ConnectionState.done)
+              {
+                return AspectRatio(
+                    aspectRatio: controller.value.aspectRatio,
+                    child: VideoPlayer(controller)
+                );
+              }else{
+                return Center(child: CircularProgressIndicator(),);
+              }
+
+            },
           ),
+
+          //button to play/pause the video
+          ButtonTheme(
+            height: 12,
+            child: FlatButton(
+              color: ProjectColors.ThemeColor,
+              shape: RoundedRectangleBorder(
+                borderRadius: new BorderRadius.circular(20.0),
+              ),
+              child: Icon(
+                  controller.value.isPlaying? Icons.pause : Icons.play_arrow
+              ),
+              onPressed: (){
+                setState(() {
+                  if(controller.value.isPlaying)
+                  {
+                    controller.pause();
+                  }
+                  else
+                  {
+                    controller.play();
+                  }
+                });
+              },
+            ),
+          ),
+
 
 
           //last episodes
@@ -437,8 +480,8 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                     Text(
                       S.of(context).LastEpisodes,
                       style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
                           fontFamily:'Roboto'
                       ),
                     ),
@@ -448,35 +491,36 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
           // last episodes
           anime.episodes.isNotEmpty
               ? GridView.builder(
-                  physics: NeverScrollableScrollPhysics(),
-                  itemBuilder: (BuildContext context, int index) {
-                    return GestureDetector(
-                      onTap: () {
-                        Navigator.pushNamed(
-                            context, EpisodeRoutes.ROUTE_EPISODE_DETAILS_SCREEN,
-                            arguments: anime.episodes[index].id);
-                      },
-                      child: EpisodeCard(
-                        image: anime.episodes[index].image,
-                        episodeNumber: anime.episodes[index].episodeNumber,
-                        classification: anime.episodes[index].classification,
-                      ),
-                    );
-                  },
-                  padding: EdgeInsets.symmetric(horizontal: 10),
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3,
-                      mainAxisSpacing: 20,
-                      crossAxisSpacing: 20,
-                      childAspectRatio: (2.3 / 4)),
-                  itemCount: anime.episodes != null ? anime.episodes.length : 0,
-                  shrinkWrap: true,
-                )
-              : Text(
-              S.of(context).noNewEpisodes,
-                style: TextStyle(
-                    fontFamily:'Roboto'
+            physics: NeverScrollableScrollPhysics(),
+            itemBuilder: (BuildContext context, int index) {
+              return GestureDetector(
+                onTap: () {
+                  controller.pause();
+                  Navigator.pushNamed(
+                      context, EpisodeRoutes.ROUTE_EPISODE_DETAILS_SCREEN,
+                      arguments: anime.episodes[index].id);
+                },
+                child: EpisodeCard(
+                  image: anime.episodes[index].image,
+                  episodeNumber: anime.episodes[index].episodeNumber,
+                  classification: anime.episodes[index].classification,
                 ),
+              );
+            },
+            padding: EdgeInsets.symmetric(horizontal: 10),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                mainAxisSpacing: 20,
+                crossAxisSpacing: 20,
+                childAspectRatio: (2.3 / 4)),
+            itemCount: anime.episodes != null ? anime.episodes.length : 0,
+            shrinkWrap: true,
+          )
+              : Text(
+            S.of(context).noNewEpisodes,
+            style: TextStyle(
+                fontFamily:'Roboto'
+            ),
           ),
 
           Container(
@@ -489,8 +533,8 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                     child: Text(
                       S.of(context).LastReplaysAndComments,
                       style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
                           fontFamily:'Roboto'
                       ),
                     ),
@@ -499,25 +543,25 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
               )),
           anime.comments.isNotEmpty
               ? ListView.builder(
-                  physics: NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: anime.comments != null ? anime.comments.length : 0,
-                  itemBuilder: (BuildContext context, int index) {
-                    return CommentCard(
-                      userImage: '${anime.comments[index].userImage}',
-                      userName: '${anime.comments[index].userName}',
-                      date:'${ anime.comments[index].date}',
-                      comment: '${anime.comments[index].content}',
-                      likesNumber: anime.comments[index].likesNumber,
-                      onLove:()=> widget._stateManager.loveComment(anime.comments[index].id),
-                    );
-                  },
-                )
+            physics: NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemCount: anime.comments != null ? anime.comments.length : 0,
+            itemBuilder: (BuildContext context, int index) {
+              return CommentCard(
+                userImage: '${anime.comments[index].userImage}',
+                userName: '${anime.comments[index].userName}',
+                date:'${ anime.comments[index].date}',
+                comment: '${anime.comments[index].content}',
+                likesNumber: anime.comments[index].likesNumber,
+                onLove:()=> widget._stateManager.loveComment(anime.comments[index].id),
+              );
+            },
+          )
               : Text(
-              S.of(context).beTheFirstToComment,
-                style: TextStyle(
-                    fontFamily:'Roboto'
-                ),
+            S.of(context).beTheFirstToComment,
+            style: TextStyle(
+                fontFamily:'Roboto'
+            ),
           ),
 
           SizedBox(
@@ -562,15 +606,15 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                         child: TextField(
                           controller: _commentController,
                           style: TextStyle(
-                              color: Colors.white,
-                              fontFamily:'Roboto',
-                              fontSize: 14,
+                            color: Colors.white,
+                            fontFamily:'Roboto',
+                            fontSize: 14,
                           ),
                           maxLines: 8,
                           decoration: InputDecoration.collapsed(
                             hintText: S.of(context).addYourComment,
                             hintStyle: TextStyle(
-                                color: Colors.white,
+                              color: Colors.white,
                               fontFamily:'Roboto',
                             ),
                           ),

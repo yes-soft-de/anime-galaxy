@@ -257,6 +257,7 @@ class CommentInteractions {
   String love;
   String like;
   String dislike;
+  bool isLoved;
 
   CommentInteractions({this.love, this.like, this.dislike});
 
@@ -264,6 +265,7 @@ class CommentInteractions {
     love = json['love'];
     like = json['like'];
     dislike = json['dislike'];
+    isLoved = json['isLoved'];
   }
 
   Map<String, dynamic> toJson() {
@@ -271,6 +273,7 @@ class CommentInteractions {
     data['love'] = this.love;
     data['like'] = this.like;
     data['dislike'] = this.dislike;
+    data['isLoved'] = this.isLoved;
     return data;
   }
 }

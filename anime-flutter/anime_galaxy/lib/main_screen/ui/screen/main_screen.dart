@@ -103,31 +103,31 @@ class _MainScreenState extends State<MainScreen> {
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.dashboard),
-            label: ' ',
+            title: Text(''),
             backgroundColor: ProjectColors.ThemeColor,
           ),
           BottomNavigationBarItem(
             // Title is Deprecated!, Not My Optional Call
             icon: Icon(Icons.notifications),
-            label: ' ',
+            title: Text(''),
             backgroundColor: ProjectColors.ThemeColor,
           ),
           BottomNavigationBarItem(
             // Title is Deprecated!, Not My Optional Call
             icon: Icon(Icons.explore),
-            label: ' ',
+            title: Text(''),
             backgroundColor: ProjectColors.ThemeColor,
           ),
           BottomNavigationBarItem(
             // Title is Deprecated!, Not My Optional Call
             icon: Icon(Icons.person),
-            label: ' ',
+            title: Text(''),
             backgroundColor: ProjectColors.ThemeColor,
           ),
           BottomNavigationBarItem(
             backgroundColor: ProjectColors.ThemeColor,
             icon: Icon(Icons.settings),
-            label: ' ',
+            title: Text(''),
           ),
         ],
       ),
