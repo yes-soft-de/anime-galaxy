@@ -63,9 +63,9 @@ class Anime
     private $trailerVideo;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", options={"default":0})
      */
-    private $suggest;
+    private $suggest = 0;
 
     public function getId(): ?int
     {
