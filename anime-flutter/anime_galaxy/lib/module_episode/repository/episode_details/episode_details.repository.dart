@@ -21,7 +21,8 @@ class EpisodeDetailsRepository{
 
   Future<EpisodeResponse> getEpisodeDetails(int episodeId) async{
 
-    dynamic response = await _httpClient.get(Urls.API_EPISODE+'$episodeId');
+    String token = await _authPrefsHelper.getToken();
+    dynamic response = await _httpClient.get(Urls.API_EPISODE+'$episodeId',token: token);
 
     if(response == null) return null;
 

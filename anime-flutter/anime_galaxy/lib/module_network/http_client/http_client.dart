@@ -23,8 +23,7 @@ class ApiClient {
   Future<Map<String, dynamic>> get(String url,
       {Map<String, String> queryParams, String token}) async {
     if (token != null){
-      _client.options.headers.putIfAbsent('Authorization', () => token);
-    }
+      _client.options.headers.putIfAbsent('Authorization', () => 'Token $token'); }
 
     _logger.info(tag, 'GET $url');
     try {
