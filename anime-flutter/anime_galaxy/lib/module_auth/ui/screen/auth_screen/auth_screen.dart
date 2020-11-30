@@ -9,6 +9,9 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:inject/inject.dart';
 
+import 'package:anime_galaxy/module_init_account/init_account_routes.dart';
+
+
 @provide
 class AuthScreen extends StatefulWidget {
   final AuthStateManager manager;
@@ -60,6 +63,9 @@ class _AuthScreenState extends State<AuthScreen> {
 
     if (_currentState is AuthStateSuccess) {
       Navigator.of(context).pushReplacementNamed(redirectTo);
+    }
+    if (_currentState is AuthStateNotRegisteredUser) {
+      Navigator.of(context).pushReplacementNamed(InitAccountRoutes.INIT_ACCOUNT_ROUTE);
     }
     if (_currentState is AuthStateError) {
       AuthStateError errorState = _currentState;

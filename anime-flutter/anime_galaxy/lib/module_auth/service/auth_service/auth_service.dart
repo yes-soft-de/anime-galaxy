@@ -15,11 +15,11 @@ class AuthService {
   final PublishSubject<String> authServiceStateSubject = PublishSubject();
 
   AuthService(
-    this._prefsHelper,
-    this._authManager,
-  );
+      this._prefsHelper,
+      this._authManager,
+      );
 
-  Future<bool> loginUser(
+  Future<String> loginUser(
       String uid, String name, String email, AUTH_SOURCE authSource,
       [String image]) async {
     authServiceStateSubject.add('User is Verified, Creating a user in our DB');
@@ -43,7 +43,8 @@ class AuthService {
     await _prefsHelper.setUsername(name);
     await _prefsHelper.setAuthSource(authSource);
     await _prefsHelper.setToken(uid);
-    return true;
+
+    return userExists?'registered':'notRegistered';
   }
 
   Future<String> getToken() async {
