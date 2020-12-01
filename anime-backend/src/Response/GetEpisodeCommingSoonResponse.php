@@ -6,6 +6,8 @@ namespace App\Response;
 
 class GetEpisodeCommingSoonResponse
 {
+    public $id;
+
     public $animeName;
 
     public $seasonNumber;
