@@ -36,6 +36,11 @@ App\Request\CreateAnimeRequest:
       - NotBlank: ~
     publishDate:
       - NotBlank: ~
+    generalRating:
+      - NotBlank: ~
+    ageGroup:
+      - NotBlank: ~
+
 
 App\Request\CreateCategoryRequest:
   properties:

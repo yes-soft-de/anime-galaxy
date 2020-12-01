@@ -14,6 +14,8 @@ class CreateAnimeResponse
     public $publishDate;
     public $episodesCount;
     public $trailerVideo;
+    public $generalRating;
+    public $ageGroup;
 
     /**
      * @return mixed

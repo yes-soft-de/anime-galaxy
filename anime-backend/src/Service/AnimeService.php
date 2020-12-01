@@ -10,7 +10,6 @@ use App\Response\GetAnimeByCategoryResponse;
 use App\Response\GetAnimeByIdResponse;
 use App\Response\GetAnimeCommingSoonResponse;
 use App\Response\GetAnimeResponse;
-use App\Response\GetAnimeResponseDashboard;
 use App\Response\GetHighestRatedAnimeByUserResponse;
 use App\Response\GetHighestRatedAnimeResponse;
 use App\Response\GetMaybeYouLikeResponse;
@@ -141,10 +140,8 @@ class AnimeService
     public function updateSuggest($request)
     {
         $animeResult = $this->animeManager->updateSuggest($request);
-        $response = $this->autoMapping->map(Anime::class, UpdateAnimeResponse::class, $animeResult);
-        //$response->setName($request->getName());
-        //$response->setMainImage($request->getMainImage());
-        return $response;
+
+        return $this->autoMapping->map(Anime::class, UpdateAnimeResponse::class, $animeResult);
     }
 
     public function deleteAnime($request)
@@ -260,18 +257,24 @@ class AnimeService
         return $response;
     }
 
-    public function dashGetAllAnime()
+    public function getAnimeByName($name)
     {
-        /** @var $response GetAnimeResponseDashboard*/
-        $result = $this->animeManager->getAllAnime();
+        /** @var $response GetAnimeByIdResponse*/
         $response = [];
+
+        $result = $this->animeManager->getAnimeByName($name);
+        //$animeID = $result['anime.id'];
 
         foreach ($result as $row)
         {
-            $response[] = $this->autoMapping->map('array', GetAnimeResponseDashboard::class, $row);
+            $row['imageURL'] = $row['mainImage'];
+            $row['baseURL'] = $this->params;
 
-            //$response[]->setBaseURL($this->params);
+            $row['mainImage'] = $this->specialLinkCheck($row['specialLink']).$row['mainImage'];
+
+            $response[] = $this->autoMapping->map('array', GetAnimeByIdResponse::class, $row);
         }
+
         return $response;
     }
 }

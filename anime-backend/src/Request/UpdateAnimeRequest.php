@@ -13,6 +13,8 @@ class UpdateAnimeRequest
     private $description;
     private $episodesCount;
     private $trailerVideo;
+    private $generalRating;
+    private $ageGroup;
 
     /**
      * @return mixed

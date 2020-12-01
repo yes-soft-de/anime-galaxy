@@ -14,6 +14,8 @@ class UpdateAnimeResponse
     public $episodesCount;
     public $trailerVideo;
     public $suggest;
+    public $generalRating;
+    public $ageGroup;
 
     /**
      * @return mixed

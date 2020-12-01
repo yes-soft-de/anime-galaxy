@@ -21,6 +21,8 @@ class GetAnimeByIdResponse
     public $publishDate;
     public $imageURL;
     public $baseURL;
+    public $generalRating;
+    public $ageGroup;
 //    public $isLoved;
 
     /**

@@ -67,6 +67,16 @@ class Anime
      */
     private $suggest = 0;
 
+    /**
+     * @ORM\Column(type="string", length=50, nullable=true)
+     */
+    private $generalRating;
+
+    /**
+     * @ORM\Column(type="string", length=50, nullable=true)
+     */
+    private $ageGroup;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -188,6 +198,30 @@ class Anime
     public function setSuggest(bool $suggest): self
     {
         $this->suggest = $suggest;
+
+        return $this;
+    }
+
+    public function getGeneralRating(): ?string
+    {
+        return $this->generalRating;
+    }
+
+    public function setGeneralRating(?string $generalRating): self
+    {
+        $this->generalRating = $generalRating;
+
+        return $this;
+    }
+
+    public function getAgeGroup(): ?string
+    {
+        return $this->ageGroup;
+    }
+
+    public function setAgeGroup(?string $ageGroup): self
+    {
+        $this->ageGroup = $ageGroup;
 
         return $this;
     }

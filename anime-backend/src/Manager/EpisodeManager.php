@@ -52,6 +52,11 @@ class EpisodeManager
         {
             $episodeEntity = $this->autoMapping->mapToObject(UpdateEpisodeRequest::class,
              Episode::class, $request, $episodeEntity);
+
+            $episodeEntity->setCreatedAt();
+            $episodeEntity->setDuration();
+            $episodeEntity->setPublishDate($episodeEntity->getPublishDate());
+
             $this->entityManager->flush();
             return $episodeEntity;
         }

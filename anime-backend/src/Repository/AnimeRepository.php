@@ -30,7 +30,7 @@ class AnimeRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('anime')
     
         ->select('anime.id','anime.episodesCount','anime.trailerVideo','anime.name', 'anime.mainImage','anime.description','category.name as categoryName','category.id as categoryID',
-            'avg(rate.rateValue) as rating', 'anime.specialLink', 'anime.publishDate')
+            'avg(rate.rateValue) as rating', 'anime.specialLink', 'anime.publishDate', 'anime.generalRating', 'anime.ageGroup')
         
             ->leftJoin(
                 Category::class,
@@ -266,5 +266,24 @@ class AnimeRepository extends ServiceEntityRepository
         ->getResult();
     }
 
-     
+    public function getAnimeByName($name)
+    {
+        return $this->createQueryBuilder('anime')
+
+            ->select('anime.id','anime.episodesCount','anime.trailerVideo','anime.name', 'anime.mainImage','anime.description','category.name as categoryName','category.id as categoryID', 'anime.specialLink', 'anime.publishDate', 'anime.generalRating', 'anime.ageGroup')
+
+            ->leftJoin(
+                Category::class,
+                'category',
+                Join::WITH,
+                'category.id = anime.categoryID'
+            )
+
+            ->andWhere('anime.name LIKE :name')
+            ->setParameter('name', '%'.$name.'%')
+            ->orderBy('anime.id')
+
+            ->getQuery()
+            ->getResult();
+    }
 }
