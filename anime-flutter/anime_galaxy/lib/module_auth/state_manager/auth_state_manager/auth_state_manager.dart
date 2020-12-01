@@ -110,7 +110,7 @@ class AuthStateManager {
         .then((value) {
       _loginUser(value);
     }).catchError((e) {
-      _stateSubject.add(AuthStateError(e));
+      _stateSubject.add(AuthStateError(e.toString()));
     });
   }
 
@@ -133,7 +133,6 @@ class AuthStateManager {
         result.user.email ?? result.user.uid.substring(0, 6),
         AUTH_SOURCE.APPLE,
       );
-
       loginSuccess == 'registered' ?
       _stateSubject.add(AuthStateSuccess()):
       _stateSubject.add(AuthStateNotRegisteredUser());

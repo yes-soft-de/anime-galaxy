@@ -27,6 +27,8 @@ class AuthService {
 
     try {
       var token = await _authManager.getToken(uid, uid);
+
+      await _prefsHelper.setToken(token);
       userExists = token != null;
     } catch (e) {
       Logger().info('Auth Service', e);
@@ -42,7 +44,8 @@ class AuthService {
     await _prefsHelper.setUserId(uid);
     await _prefsHelper.setUsername(name);
     await _prefsHelper.setAuthSource(authSource);
-    await _prefsHelper.setToken(uid);
+//    await _prefsHelper.setToken(uid);
+    if(! userExists ) await refreshToken();
 
     return userExists?'registered':'notRegistered';
   }

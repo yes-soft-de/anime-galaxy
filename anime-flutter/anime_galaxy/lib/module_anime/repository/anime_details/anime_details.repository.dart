@@ -26,6 +26,7 @@ class AnimeDetailsRepository{
   Future<AnimeResponse> getAnimeDetails(int animeId) async{
 
     String token = await _authPrefsHelper.getToken();
+    print('toto :$token');
     dynamic response = await _httpClient.get(Urls.API_ANIME+'/$animeId' ,token: token);
 
     if(response == null) return null;

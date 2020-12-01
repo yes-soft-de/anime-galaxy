@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:anime_galaxy/generated/l10n.dart';
 import 'package:anime_galaxy/main_screen/main_screen_routes.dart';
-import 'package:anime_galaxy/module_home/home.routes.dart';
 import 'package:anime_galaxy/module_init_account/init_account_routes.dart';
 import 'package:anime_galaxy/module_profile/state_manager/edit_profile_state_manager/edit_profile_state_manager.dart';
 import 'package:anime_galaxy/utils/project_color/project_color.dart';
@@ -30,6 +29,7 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
   String _errorMsg;
   bool loading = false;
   String userImage;
+  String userImageUrl ;
 
   @override
   void initState() {
@@ -38,9 +38,12 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
       // Null means no errors
       if (event == null) {
         Navigator.of(context).pushNamed(InitAccountRoutes.INIT_ACCOUNT_ROUTE);
-      } else {
+      }
+      if(event =='Cant create a profile') {
         _errorMsg = event;
         if (mounted) setState(() {});
+      }else{
+        userImageUrl = event;
       }
     });
   }
@@ -80,7 +83,9 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
                                   .then((value) {
                                 if (value != null) {
                                   userImage = value.path;
-                                  widget.manager.saveProfileImage(value.path);
+//                                  widget.manager.saveProfileImage(value.path);
+                                  print('lolo');
+                                   widget.manager.uploadImage(userImage);
                                 }
                               });
                             },
@@ -151,6 +156,7 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
                 widget.manager.saveProfile(
                   _nameController.text.trim(),
                   _storyController.text.trim(),
+                  userImageUrl
                 );
               },
               child: Row(

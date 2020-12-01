@@ -56,15 +56,15 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
   VideoPlayerController controller; // used to controller videos
   Future<void> futureController;
   bool fABIsVisible = false;
-  ScrollController _scrollController;
+ // ScrollController _scrollController;
 
   @override
   void initState() {
     super.initState();
     _getUserId();
 
-    _scrollController = ScrollController();
-    _scrollController.addListener(_scrollListener);
+//    _scrollController = ScrollController();
+//    _scrollController.addListener(_scrollListener);
 
     widget._stateManager.stateStream.listen((event) {
       currentState = event;
@@ -79,22 +79,22 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
     controller.dispose();  // when app is been closed destroyed the controller
     super.dispose();
   }
-  _scrollListener(){
-    if (_scrollController.offset >= _scrollController.position.maxScrollExtent &&
-        !_scrollController.position.outOfRange) {
-
-      setState(() {
-        fABIsVisible = true ;
-      });
-    }
-    if (_scrollController.offset <= _scrollController.position.minScrollExtent &&
-        !_scrollController.position.outOfRange) {
-
-    /*  setState(() {
-        message = "reach the top";
-      });*/
-    }
-  }
+//  _scrollListener(){
+//    if (_scrollController.offset >= _scrollController.position.maxScrollExtent &&
+//        !_scrollController.position.outOfRange) {
+//
+//      setState(() {
+//        fABIsVisible = true ;
+//      });
+//    }
+//    if (_scrollController.offset <= _scrollController.position.minScrollExtent &&
+//        !_scrollController.position.outOfRange) {
+//
+//    /*  setState(() {
+//        message = "reach the top";
+//      });*/
+//    }
+//  }
   void _getUserId() async {
     username = await widget._profileSharedPreferencesHelper.getUsername();
     if (username == null) {
@@ -202,7 +202,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
       body: Container(
         padding: EdgeInsets.all(5),
         child: SingleChildScrollView(
-          controller: _scrollController,
+//          controller: _scrollController,
           child: body(),
         ),
       ),

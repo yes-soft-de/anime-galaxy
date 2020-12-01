@@ -34,3 +34,10 @@ class ProfileFollowError extends MyProfileState{}
 class ProfileUnFollowSuccess extends MyProfileState{}
 
 class ProfileUnFollowError extends MyProfileState{}
+///-------------------------------------------
+class ProfileUploadImageSuccess extends MyProfileState{
+  String data;
+  ProfileUploadImageSuccess(this.data);
+}
+
+class ProfileUploadImageError extends MyProfileState{}

@@ -1,4 +1,5 @@
 import 'package:anime_galaxy/generated/l10n.dart';
+import 'package:anime_galaxy/main_screen/main_screen_routes.dart';
 import 'package:anime_galaxy/module_auth/state_manager/auth_state_manager/auth_state_manager.dart';
 import 'package:anime_galaxy/module_auth/states/auth_states/auth_states.dart';
 import 'package:anime_galaxy/module_profile/profile_routes.dart';
@@ -42,7 +43,7 @@ class _AuthScreenState extends State<AuthScreen> {
   void initState() {
     super.initState();
     widget.manager.status.listen((event) {
-      _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text(event),));
+      _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text(event??''),));
     });
     widget.manager.stateStream.listen((event) {
       print(event.runtimeType.toString());
@@ -63,10 +64,10 @@ class _AuthScreenState extends State<AuthScreen> {
     });
 
     if (_currentState is AuthStateSuccess) {
-      Navigator.of(context).pushReplacementNamed(redirectTo);
+      Navigator.of(context).pushReplacementNamed(MainScreenRoute.MAIN_SCREEN_ROUTE);
     }
     if (_currentState is AuthStateNotRegisteredUser) {
-      Navigator.of(context).pushReplacementNamed(InitAccountRoutes.INIT_ACCOUNT_ROUTE);
+      Navigator.of(context).pushReplacementNamed(ProfileRoutes.ROUTE_EDIT_PROFILE);
     }
     if (_currentState is AuthStateError) {
       AuthStateError errorState = _currentState;
