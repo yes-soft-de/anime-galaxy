@@ -3,6 +3,7 @@ import 'package:anime_galaxy/consts/urls.dart';
 import 'package:anime_galaxy/module_auth/presistance/auth_prefs_helper.dart';
 import 'package:anime_galaxy/module_explore/response/active_users_response/active_users_response.dart';
 import 'package:anime_galaxy/module_explore/response/anime_response/anime_response.dart';
+import 'package:anime_galaxy/module_explore/response/category_respponse/category_response.dart';
 import 'package:anime_galaxy/module_explore/response/comming_soon_response/comming_soon_response.dart';
 import 'package:anime_galaxy/module_explore/response/expolre_response/explore_response.dart';
 import 'package:anime_galaxy/module_network/http_client/http_client.dart';
@@ -12,6 +13,7 @@ List<AnimeResponse> worldRecommendedSeries1 = [];
 List<AnimeResponse> recommendedSeriesByYourFavourites1 = [];
 List<ActiveUsersResponse> activeUsers1 = [];
 List<CommingSoonResponse> comingSoon1 = [];
+List<CategoryResponse> categories1 = [];
 
 @provide
 class ExploreRepository{
@@ -26,15 +28,17 @@ class ExploreRepository{
     await Future.wait([
        _getWorldRecommendedSeries(),
         _getRecommendedSeriesByYourFavourites(),
-      _getActiveUsers(),
-      _getCommingSoonSeries()
+//      _getActiveUsers(),
+      _getCommingSoonSeries(),
+      _getCategories()
     ]) ;
 
     ExploreResponse result = new ExploreResponse(
-      activeUsers: activeUsers1,
+//      activeUsers: activeUsers1,
       recommendedSeriesByYourFavourites: recommendedSeriesByYourFavourites1,
       worldRecommendedSeries: worldRecommendedSeries1,
       comingSoonSeries: comingSoon1,
+      categories:  categories1,
     );
 
     return result;
@@ -94,6 +98,21 @@ class ExploreRepository{
       comingSoon.add(CommingSoonResponse.fromJson(res[i]));
     }
     comingSoon1 = comingSoon;
+  }
+
+  Future<void> _getCategories()async{
+    dynamic response = await _httpClient.get(Urls.API_CATEGORY);
+    if(response == null ) return null;
+
+    dynamic res = response['Data'];
+    List<CategoryResponse> availableCategories = [];
+
+    for(int i = 0 ;i < res.length ; i ++){
+      availableCategories.add(CategoryResponse.fromJson(res[i]));
+    }
+
+    categories1 = availableCategories;
+
   }
 
 }

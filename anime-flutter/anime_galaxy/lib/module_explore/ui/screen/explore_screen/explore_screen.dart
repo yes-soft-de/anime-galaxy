@@ -246,6 +246,62 @@ class _ExploreScreenState extends State<ExploreScreen> {
                   SizedBox(
                     height: 10,
                   ),
+                // categories
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          S.of(context).categories,
+                          style: StyleExploreList.getTextSyle(
+                            size: 14,
+                            fontWeight: FontWeight.w500,
+                            day: true,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    height: 200,
+                    child: explore.categories != null
+                        ? ListView.builder(
+                            itemBuilder: (context, index) {
+                              return Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 4),
+                                child: GestureDetector(
+//                                  onTap: () => Navigator.pushNamed(
+//                                      context, ProfileRoutes.ROUTE_PROFILE,
+//                                      arguments: explore.categories[index].id),
+                                  child: FavouriteSeriesCard(
+                                    url_image:  explore.categories[index].image,
+                                     series_name:
+                                        explore.categories[index].name,
+                                    series_category: '',
+
+                                  ),
+                                ),
+                              );
+                            },
+                            itemCount: explore.categories.length,
+                            shrinkWrap: true,
+                            scrollDirection: Axis.horizontal,
+                          )
+                        : ListView(
+                            children: [
+                              Text(
+                                  'لا يوجد تصنيفات بعد',
+                                style: TextStyle(
+                                  fontFamily:'Roboto',
+                                ),
+                              )
+                            ],
+                          ),
+                  ),
+
 
                   //active users
 //                  Row(

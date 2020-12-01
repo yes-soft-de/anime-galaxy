@@ -2,13 +2,15 @@ class ExploreModel{
   List<Series> worldRecommendedSeries;
   List<Series> recommendedSeriesByUser;
   List<ComingSoonSeries> comingSoonSeries;
-  List<ActiveUser> activeUsers;
+  List<Category> categories;
+//  List<ActiveUser> activeUsers;
 
   ExploreModel({
    this.worldRecommendedSeries,
-   this.activeUsers,
+//   this.activeUsers,
    this.comingSoonSeries,
    this.recommendedSeriesByUser,
+    this.categories,
 });
 }
 
@@ -50,5 +52,19 @@ class ActiveUser{
     this.name,
     this.id,
     this.image,
+});
+}
+
+class Category{
+  int id;
+  String name;
+  String image;
+  String description;
+
+  Category({
+    this.image,
+    this.name,
+    this.id,
+    this.description,
 });
 }

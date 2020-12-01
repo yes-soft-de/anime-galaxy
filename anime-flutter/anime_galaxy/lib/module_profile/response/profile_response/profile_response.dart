@@ -12,11 +12,12 @@ class ProfileResponse {
   String story;
   String image;
   CreatedAt createdAt;
-  int followingNumber;
   List<FollowingActivitiesResponse> followingActivitiesResponse;
   List<FavouriteResponse> favourites;
   bool isFollowed;
   PreviousCommentsResponse previousCommentsResponse;
+  String commentsNumber;
+  String followedByNumber;
 
   ProfileResponse(
       {this.id,
@@ -26,11 +27,12 @@ class ProfileResponse {
         this.story,
         this.image,
         this.createdAt,
-        this.followingNumber,
         this.followingActivitiesResponse,
         this.favourites,
         this.isFollowed,
         this.previousCommentsResponse,
+        this.commentsNumber,
+        this.followedByNumber,
       });
 
   ProfileResponse.fromJson(Map<String, dynamic> json) {
@@ -40,6 +42,8 @@ class ProfileResponse {
     location = json['location'];
     story = json['story'];
     image = json['image'];
+    commentsNumber = json['commentsNumber'];
+    followedByNumber = json['followedByNumber'];
     createdAt = json['createdAt'] != null
         ? new CreatedAt.fromJson(json['createdAt'])
         : null;
@@ -53,6 +57,8 @@ class ProfileResponse {
     data['location'] = this.location;
     data['story'] = this.story;
     data['image'] = this.image;
+    data['commentsNumber'] = this.commentsNumber;
+    data['followedByNumber'] = this.followedByNumber;
     if (this.createdAt != null) {
       data['createdAt'] = this.createdAt.toJson();
     }

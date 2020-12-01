@@ -1372,6 +1372,16 @@ class S {
       args: [],
     );
   }
+
+  /// `التصنيفات`
+  String get categories {
+    return Intl.message(
+      'التصنيفات',
+      name: 'categories',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

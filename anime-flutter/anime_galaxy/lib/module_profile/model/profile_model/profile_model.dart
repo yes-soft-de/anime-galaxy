@@ -3,12 +3,13 @@ class ProfileModel {
   String image;
   String about;
   List<Series> watchedSeries;
-  int followingNumber;
+  String followingNumber;
   int seriesNumber;
   List<Activity> followingActivities;
   bool isFollowed;
   String createDate;
   PreviousComments previousComments;
+  String commentsNumber;
 
   ProfileModel({
     this.name,
@@ -21,6 +22,7 @@ class ProfileModel {
     this.isFollowed,
     this.createDate,
     this.previousComments,
+    this.commentsNumber,
   });
 
 

@@ -38,7 +38,7 @@ class MyProfileRepository {
       await Future.wait([
         _getPreviousComments(userId),
         _getWatchedSeries(userId),
-        _getFollowingNumber(userId),
+//        _getFollowingNumber(userId),
         _isFollowed(loggedUser, userId)
       ]) ;
 
@@ -46,7 +46,7 @@ class MyProfileRepository {
       await Future.wait([
         _getFollowingActivities(userId),
         _getWatchedSeries(userId),
-        _getFollowingNumber(userId),
+//        _getFollowingNumber(userId),
       ]) ;
 
     }
@@ -54,7 +54,7 @@ class MyProfileRepository {
     result.previousCommentsResponse = previousCommentsResponse;
     result.followingActivitiesResponse = followingActivitiesResponse1;
     result.favourites = favourites1;
-    result.followingNumber = followingNumber1;
+//    result.followingNumber = followingNumber1;
     result.isFollowed = isFollowed1;
 
     return result;

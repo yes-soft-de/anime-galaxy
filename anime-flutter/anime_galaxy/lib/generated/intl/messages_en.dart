@@ -49,6 +49,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "anime" : MessageLookupByLibrary.simpleMessage("Anime"),
     "beTheFirstToComment" : MessageLookupByLibrary.simpleMessage("Be the First to Comment"),
     "caNotSignIn" : MessageLookupByLibrary.simpleMessage("Ca not Sign in!"),
+    "categories" : MessageLookupByLibrary.simpleMessage("التصنيفات"),
     "chatRoom" : MessageLookupByLibrary.simpleMessage("Chat Room"),
     "close" : MessageLookupByLibrary.simpleMessage("Close"),
     "comment" : MessageLookupByLibrary.simpleMessage("Comment"),

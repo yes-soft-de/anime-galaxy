@@ -46,7 +46,8 @@ class MyProfileService {
       ProfileModel result = new ProfileModel(
         name: response.userName,
         image: response.image,
-        followingNumber: response.followingNumber,
+        followingNumber: response.followedByNumber,
+        commentsNumber: response.commentsNumber,
         about: response.story,
         seriesNumber: response.favourites.length,
         watchedSeries: _getSeries(response.favourites),
