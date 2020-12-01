@@ -73,15 +73,25 @@ methods: GET
 
 ### Anime APIs
 ##### Create new anime.
-`Method: POST. Path: /anime`
+```
+Method: POST. Path: /anime
+```
 ##### Update existing anime by ID. 
-`Method: PUT. Path: /anime`
+```
+Method: PUT. Path: /anime
+```
 ##### Update Highest Rated Anime by ID and suggest value. 
-`Method: PUT. Path: /anime/{suggest}`
+```
+Method: PUT. Path: /anime/{suggest}
+```
 ##### Get specific anime by ID. 
-`Method: GET. Path: /anime/ID`
+```
+Method: GET. Path: /anime/ID
+```
 ##### Get all anime. 
-`Method: GET. Path: /anime`
+```
+Method: GET. Path: /anime
+```
 ##### Get all anime of specific category. 
 `Method: GET. Path: /animeByCategory/{categoryID}`
 ##### Delete existing anime by ID. 
