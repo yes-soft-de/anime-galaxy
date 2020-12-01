@@ -116,6 +116,10 @@ Method: GET. Path: /animeCommingSoon
 ```
 Method: GET. Path: /getMaybeYouLike/{userID}
 ```
+##### Get Anime By name
+```
+Method: GET. Path: /getanimebyname/{name}
+```
 
 ### Episode APIs
 ##### Insert new episode.
