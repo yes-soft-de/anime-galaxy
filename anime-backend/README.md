@@ -44,6 +44,9 @@ php bin/console doctrine:migration:migrate
 * [Interaction Episode APIs](#Interaction-episode-apis)
 * [Rating APIs](#rating-apis)
 
+-----
+
+
 ### Account
 #### Create new user
 ```
