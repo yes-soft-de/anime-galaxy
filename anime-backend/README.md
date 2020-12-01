@@ -93,17 +93,29 @@ Method: GET. Path: /anime/ID
 Method: GET. Path: /anime
 ```
 ##### Get all anime of specific category. 
-`Method: GET. Path: /animeByCategory/{categoryID}`
+```
+Method: GET. Path: /animeByCategory/{categoryID}
+```
 ##### Delete existing anime by ID. 
-`Method: DELET. Path: /anime`
+```
+Method: DELET. Path: /anime
+```
 ##### Get Highest Rated Anime
-`Method: GET. Path: /getHighestRatedAnime`
+```
+Method: GET. Path: /getHighestRatedAnime`
+``
 ##### Get Highest Rated Anime By User
-`Method: GET. Path: /getHighestRatedAnime/{userID}`
+```
+Method: GET. Path: /getHighestRatedAnime/{userID}
+```
 ##### Get All Anime CommingSoon
-`Method: GET. Path: /animeCommingSoon`
+```
+Method: GET. Path: /animeCommingSoon
+```
 ##### Get Anime Maybe You Like
-`Method: GET. Path: /getMaybeYouLike/{userID}`
+```
+Method: GET. Path: /getMaybeYouLike/{userID}
+```
 
 ### Episode APIs
 ##### Insert new episode.
