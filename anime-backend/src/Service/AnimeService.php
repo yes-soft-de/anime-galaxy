@@ -10,6 +10,7 @@ use App\Response\GetAnimeByCategoryResponse;
 use App\Response\GetAnimeByIdResponse;
 use App\Response\GetAnimeCommingSoonResponse;
 use App\Response\GetAnimeResponse;
+use App\Response\GetAnimeResponseDashboard;
 use App\Response\GetHighestRatedAnimeByUserResponse;
 use App\Response\GetHighestRatedAnimeResponse;
 use App\Response\GetMaybeYouLikeResponse;
@@ -63,6 +64,9 @@ class AnimeService
 
         foreach ($result as $row)
         {
+            $row['imageURL'] = $row['mainImage'];
+            $row['baseURL'] = $this->params;
+
             $row['mainImage'] = $this->specialLinkCheck($row['specialLink']).$row['mainImage'];
 
             $response = $this->autoMapping->map('array', GetAnimeByIdResponse::class, $row);
@@ -87,6 +91,9 @@ class AnimeService
         
         foreach ($result as $row)
         {
+            $row['imageURL'] = $row['mainImage'];
+            $row['baseURL'] = $this->params;
+
             $row['mainImage'] = $this->specialLinkCheck($row['specialLink']).$row['mainImage'];
 
             $row['interaction']=[
@@ -94,8 +101,8 @@ class AnimeService
             'like' => $this->interactionService->likeAll($row['id']),
             'dislike' => $this->interactionService->dislikeAll($row['id'])
             ];
-            $response[] = $this->autoMapping->map('array', GetAnimeResponse::class, $row);
 
+            $response[] = $this->autoMapping->map('array', GetAnimeResponse::class, $row);
         }
         return $response;
     }
@@ -107,6 +114,9 @@ class AnimeService
         
         foreach ($result as $row)
         {
+            $row['imageURL'] = $row['mainImage'];
+            $row['baseURL'] = $this->params;
+
             $row['mainImage'] = $this->specialLinkCheck($row['specialLink']).$row['mainImage'];
 
             $row['interaction']=[
@@ -247,6 +257,21 @@ class AnimeService
         $response['disLike'] = $this->interactionService->dislike($request);
         $response['isLoved'] = $this->interactionService->checkUserLoved($request);
 
+        return $response;
+    }
+
+    public function dashGetAllAnime()
+    {
+        /** @var $response GetAnimeResponseDashboard*/
+        $result = $this->animeManager->getAllAnime();
+        $response = [];
+
+        foreach ($result as $row)
+        {
+            $response[] = $this->autoMapping->map('array', GetAnimeResponseDashboard::class, $row);
+
+            //$response[]->setBaseURL($this->params);
+        }
         return $response;
     }
 }

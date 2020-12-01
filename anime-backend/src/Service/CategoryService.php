@@ -42,6 +42,9 @@ class CategoryService
 
         foreach ($result as $row)
         {
+            $row['imageURL'] = $row['image'];
+            $row['baseURL'] = $this->params;
+
             $row['image'] = $this->params.$row['image'];
 
             $response[] = $this->autoMapping->map('array', GetCategoryResponse::class, $row);
@@ -54,7 +57,13 @@ class CategoryService
     {
         $result = $this->categoryManager->getCategoryById($request);
 
-        return  $this->autoMapping->map(Category::class, GetCategoryByIdResponse::class, $result);
+        $response =  $this->autoMapping->map(Category::class, GetCategoryByIdResponse::class, $result);
+
+        $response->setImageURL($response->getImage());
+        $response->setBaseURL($this->params);
+        $response->setImage($this->params.$response->getImageURL());
+
+        return $response;
     }
 
     public function delete($request)

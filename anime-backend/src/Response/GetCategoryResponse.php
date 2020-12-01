@@ -10,6 +10,8 @@ class GetCategoryResponse
     public $name;
     public $description;
     public $image;
+    public $imageURL;
+    public $baseURL;
 
     /**
      * @return mixed

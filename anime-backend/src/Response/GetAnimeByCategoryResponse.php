@@ -12,6 +12,8 @@ class GetAnimeByCategoryResponse
     public $interaction;
     public $rating;
     public $comments;
+    public $imageURL;
+    public $baseURL;
 
     /**
      * @return mixed

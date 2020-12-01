@@ -10,6 +10,8 @@ class GetCategoryByIdResponse
     public $name;
     public $description;
     public $image;
+    public $imageURL;
+    public $baseURL;
 
     /**
      * @return mixed
@@ -58,4 +60,45 @@ class GetCategoryByIdResponse
     {
         $this->description = $description;
     }
+
+    /**
+     * @param mixed $imageURL
+     */
+    public function setImageURL($imageURL): void
+    {
+        $this->imageURL = $imageURL;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImageURL()
+    {
+        return $this->imageURL;
+    }
+
+    /**
+     * @param mixed $baseURL
+     */
+    public function setBaseURL($baseURL): void
+    {
+        $this->baseURL = $baseURL;
+    }
+
+    /**
+     * @param mixed $image
+     */
+    public function setImage($image): void
+    {
+        $this->image = $image;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
 }

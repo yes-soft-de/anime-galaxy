@@ -59,6 +59,9 @@ class EpisodeService
 
         foreach ($result as $row)
         {
+            $row['imageURL'] = $row['image'];
+            $row['baseURL'] = $this->params;
+
             $row['image'] = $this->specialLinkCheck($row['specialLink']).$row['image'];
 
             $row['episodInteraction']=[
@@ -80,6 +83,9 @@ class EpisodeService
 
         foreach ($result as $row)
         {
+            $row['imageURL'] = $row['image'];
+            $row['baseURL'] = $this->params;
+
             $row['image'] = $this->specialLinkCheck($row['specialLink']).$row['image'];
 
             $row['interaction'] = [
@@ -104,6 +110,9 @@ class EpisodeService
         
         foreach ($result as $row)
         {
+            $row['imageURL'] = $row['image'];
+            $row['baseURL'] = $this->params;
+
             $row['image'] = $this->specialLinkCheck($row['specialLink']).$row['image'];
 
             $response = $this->autoMapping->map('array', GetEpisodeByIdResponse::class, $row);

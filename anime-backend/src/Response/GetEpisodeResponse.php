@@ -30,4 +30,8 @@ class GetEpisodeResponse
     
     public $rating;
 
+    public $imageURL;
+
+    public $baseURL;
+
 }

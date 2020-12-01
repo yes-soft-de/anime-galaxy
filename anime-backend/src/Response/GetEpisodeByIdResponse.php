@@ -19,6 +19,8 @@ class GetEpisodeByIdResponse
     public $rating;
     public $categoryName;
     public $animePublishDate;
+    public $imageURL;
+    public $baseURL;
 
     /**
      * @return mixed

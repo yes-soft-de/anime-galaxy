@@ -14,6 +14,9 @@ class GetAnimeResponse
     public $rating;
     public $comments;
     public $interaction;
+    public $imageURL;
+    public $baseURL;
+
     /**
      * @return mixed
      */
@@ -112,10 +115,6 @@ class GetAnimeResponse
         $this->comments = $comments;
     }
 
-
-
-
-
     /**
      * Set the value of love
      *
@@ -127,4 +126,38 @@ class GetAnimeResponse
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getImageURL()
+    {
+        return $this->imageURL;
+    }
+
+    /**
+     * @param mixed $imageURL
+     */
+    public function setImageURL($imageURL): void
+    {
+        $this->imageURL = $imageURL;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBaseURL()
+    {
+        return $this->baseURL;
+    }
+
+    /**
+     * @param mixed $baseURL
+     */
+    public function setBaseURL($baseURL): void
+    {
+        $this->baseURL = $baseURL;
+    }
+
+
 }
