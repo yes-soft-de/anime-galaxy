@@ -2,3 +2,6 @@
 
 
 _anime-backend folder contains the source code of the application_
+
+##### What used? 
+- PHP version 7.4.11 with the framwork Symfony 5.1.0
