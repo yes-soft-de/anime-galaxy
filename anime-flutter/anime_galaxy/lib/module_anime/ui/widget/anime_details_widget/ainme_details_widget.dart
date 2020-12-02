@@ -80,15 +80,23 @@ class AnimeDetailsWidget extends StatelessWidget {
                                 Icon(Icons.star_border,
                                     color: ProjectColors.ThemeColor),
                                 Text(
+                                  'MAL' ,
+                                  style: TextStyle(
+                                    fontSize: 10,
+                                    fontFamily:'Roboto',
+                                  ),
+                                ),
+                                Text(
                                   rate != null
                                       ? ((double.parse(rate) * 10).floor() / 10)
                                       .toString()
-                                      : 0.toString(),
+                                      : 0.toString() ,
                                   style: TextStyle(
                                     fontSize: 16,
                                     fontFamily:'Roboto',
                                   ),
                                 ),
+
                               ],
                             ),
                             SizedBox(

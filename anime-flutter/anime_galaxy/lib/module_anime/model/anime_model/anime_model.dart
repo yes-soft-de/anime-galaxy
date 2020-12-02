@@ -14,6 +14,9 @@ class AnimeModel{
   int categoryID;
   int previousRate;
   String trailerVideo;
+  String generalRating;
+  String ageGroup;
+
 
   AnimeModel({
     this.commentsNumber,
@@ -31,6 +34,8 @@ class AnimeModel{
     this.categoryID,
     this.previousRate,
     this.trailerVideo,
+    this.generalRating,
+    this.ageGroup,
   });
 }
 

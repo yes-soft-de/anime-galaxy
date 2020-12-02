@@ -263,60 +263,39 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
         ),
 
         //Statistics
-        Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Text(
-              S.of(context).statics,
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(width: 10)
-          ],
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                S.of(context).generalEvaluation,
-                style: TextStyle(fontSize: 14),
-              ),
-              //TODO : change it with real data
-              LinearPercentIndicator(
-                width: MediaQuery.of(context).size.width * 0.5,
-                animation: true,
-                lineHeight: 12.0,
-                animationDuration: 1500,
-                percent: 0.8,
-                linearStrokeCap: LinearStrokeCap.roundAll,
-                progressColor: Color(0xfff77f00),
-              ),
-            ],
-          ),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              S.of(context).monthlyComments,
-              style: TextStyle(
-                fontSize: 14,
-                fontFamily: 'Roboto',
-              ),
-            ),
-            //TODO : change it with real data
-            LinearPercentIndicator(
-              width: MediaQuery.of(context).size.width * 0.5,
-              animation: true,
-              lineHeight: 12.0,
-              animationDuration: 1500,
-              percent: 0.8,
-              linearStrokeCap: LinearStrokeCap.roundAll,
-              progressColor: Color(0xfff77f00),
-            ),
-          ],
-        ),
+//        Row(
+//          mainAxisAlignment: MainAxisAlignment.start,
+//          children: [
+//            Text(
+//              S.of(context).statics,
+//              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+//            ),
+//            SizedBox(width: 10)
+//          ],
+//        ),
+//        Padding(
+//          padding: const EdgeInsets.all(8.0),
+//          child: Row(
+//            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//            children: [
+//              Text(
+//                S.of(context).generalEvaluation,
+//                style: TextStyle(fontSize: 14),
+//              ),
+//
+////              LinearPercentIndicator(
+////                width: MediaQuery.of(context).size.width * 0.5,
+////                animation: true,
+////                lineHeight: 12.0,
+////                animationDuration: 1500,
+////                percent: 0.8,
+////                linearStrokeCap: LinearStrokeCap.roundAll,
+////                progressColor: Color(0xfff77f00),
+////              ),
+//            ],
+//          ),
+//        ),
+
 
         //about
         Container(
@@ -327,7 +306,7 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
               Text(
                 S.of(context).About,
                 style: TextStyle(
-                  fontSize: 18,
+                  fontSize: 14,
                   fontWeight: FontWeight.bold,
                   fontFamily: 'Roboto',
                 ),
@@ -406,7 +385,7 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
               Text(
                 S.of(context).Classification,
                 style: TextStyle(
-                    fontSize: 18,
+                    fontSize: 14,
                     fontFamily: 'Roboto',
                     fontWeight: FontWeight.bold),
               ),
@@ -469,7 +448,7 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
                 Text(
                   S.of(context).LastReplaysAndComments,
                   style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 14,
                       fontFamily: 'Roboto',
                       fontWeight: FontWeight.bold),
                 ),

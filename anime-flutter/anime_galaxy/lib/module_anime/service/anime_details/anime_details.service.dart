@@ -29,6 +29,8 @@ class AnimeDetailsService {
     anime.likesNumber = response.interactions.love;
     anime.commentsNumber = response.comments.length;
     anime.comments = getComments(response.comments);
+    anime.ageGroup = response.ageGroup;
+    anime.generalRating = response.generalRating;
 
     var df = new DateFormat('yyyy');
     var date = new DateTime.fromMillisecondsSinceEpoch(response.publishDate.timestamp);

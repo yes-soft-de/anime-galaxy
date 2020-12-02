@@ -129,7 +129,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
               userName: username,
               //TODO : change this
               userImage:
-              'https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=100&q=60 100w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=60 200w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=60 300w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60 400w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60 500w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60 600w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60 700w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60 800w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60 900w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60 1000w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=60 1100w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1200&q=60 1200w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1296&q=60 1296w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60 1400w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=60 1600w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1800&q=60 1800w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=60 2000w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2200&q=60 2200w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2400&q=60 2400w, https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2592&q=60 2592w',
+              'https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=100&q=60 100w',
               date: '21 Jun'));
       _commentController.text = '';
     }
@@ -233,7 +233,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
             name: anime.name,
             comments: anime.commentsNumber,
             likes: anime.likesNumber,
-            rate: anime.rate ?? '0',
+            rate: anime.generalRating ?? '0',
             showYear: anime.showYear,
             image: anime.image,
             episodesNumber: anime.episodes.length,
@@ -294,7 +294,14 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Text(S.of(context).statics),
+              Text(
+                  S.of(context).statics,
+                  style:TextStyle (
+                      fontSize: 14,
+                      fontFamily:'Roboto',
+                      fontWeight: FontWeight.bold,
+                  ),
+              ),
               SizedBox(
                 width: 10,
               )
@@ -305,43 +312,41 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
             children: [
               Text(
                 S.of(context).generalEvaluation,
-                style: TextStyle(fontSize: 14),
-              ),
-              //TODO : change it with real data
-              LinearPercentIndicator(
-                width: MediaQuery.of(context).size.width * 0.5,
-                animation: true,
-                lineHeight: 12.0,
-                animationDuration: 1500,
-                percent: 0.8,
-                linearStrokeCap: LinearStrokeCap.roundAll,
-                progressColor: Color(0xfff77f00),
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                S.of(context).monthlyComments,
                 style: TextStyle(
                     fontSize: 14,
-                    fontFamily:'Roboto'
+                    fontFamily:'Roboto',
                 ),
+              ),
 
-              ),
-              //TODO : change it with real data
-              LinearPercentIndicator(
-                width: MediaQuery.of(context).size.width * 0.5,
-                animation: true,
-                lineHeight: 12.0,
-                animationDuration: 1500,
-                percent: 0.8,
-                linearStrokeCap: LinearStrokeCap.roundAll,
-                progressColor: Color(0xfff77f00),
-              ),
+             Row(
+               mainAxisAlignment: MainAxisAlignment.center,
+               children: [
+                 Text(
+                   anime.rate != null
+                         ? ((double.parse(anime.rate) * 10).floor() / 10)
+                            .toString()
+                         : 0.toString(),
+                   style: TextStyle(
+                       fontSize: 14,
+                       fontFamily:'Roboto'
+                   ),
+                 ),
+                 Icon(Icons.star_border,
+                     color: ProjectColors.ThemeColor),
+               ],
+             )
+//              LinearPercentIndicator(
+//                width: MediaQuery.of(context).size.width * 0.5,
+//                animation: true,
+//                lineHeight: 12.0,
+//                animationDuration: 1500,
+//                percent: 0.8,
+//                linearStrokeCap: LinearStrokeCap.roundAll,
+//                progressColor: Color(0xfff77f00),
+//              ),
             ],
           ),
+
 
           //about
           Container(
@@ -352,8 +357,9 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                 Text(
                   S.of(context).About,
                   style: TextStyle(
-                      fontSize: 12,
-                      fontFamily:'Roboto'
+                      fontSize: 14,
+                      fontFamily:'Roboto',
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
                 SizedBox(
@@ -428,7 +434,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                 Text(
                   S.of(context).Classification,
                   style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 14,
                       fontWeight: FontWeight.bold,
                       fontFamily:'Roboto'
                   ),
@@ -576,7 +582,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                     child: Text(
                       S.of(context).LastReplaysAndComments,
                       style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 14,
                           fontWeight: FontWeight.bold,
                           fontFamily:'Roboto'
                       ),

@@ -22,6 +22,8 @@ class AnimeResponse {
   bool isFollowed;
   int previousRate;
   CreationDate publishDate;
+  String generalRating;
+  String ageGroup;
 
   AnimeResponse(
       {this.id,
@@ -40,12 +42,16 @@ class AnimeResponse {
         this.episodes,
         this.isFollowed,
         this.publishDate,
+        this.generalRating,
+        this.ageGroup,
       });
 
   AnimeResponse.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     mainImage = json['mainImage'];
+    generalRating = json['generalRating'];
+    ageGroup = json['ageGroup'];
 
     categoryName = json['categoryName'];
     rating = json['rating'];
@@ -72,6 +78,8 @@ class AnimeResponse {
     data['id'] = this.id;
     data['name'] = this.name;
     data['mainImage'] = this.mainImage;
+    data['generalRating'] = this.generalRating;
+    data['ageGroup'] = this.ageGroup;
 
     data['categoryName'] = this.categoryName;
     data['rating'] = this.rating;
