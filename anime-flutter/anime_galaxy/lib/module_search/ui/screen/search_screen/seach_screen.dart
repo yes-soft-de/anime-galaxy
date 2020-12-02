@@ -57,6 +57,10 @@ class _SearchScreenState extends State<SearchScreen> {
           centerTitle: true,
           title:       TextFormField(
             controller: _searchController,
+            onFieldSubmitted: (value){
+              loading = true;
+              widget._stateManager.searchAnime(_searchController.text.trim());
+              },
             decoration: InputDecoration(
                 hintText: S.of(context).searchForAnAnime,
             ),

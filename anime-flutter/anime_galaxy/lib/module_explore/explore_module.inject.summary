@@ -25,6 +25,13 @@
                 "qualifier": null
               },
               "isProvider": false
+            },
+            {
+              "lookupKey": {
+                "root": "asset:anime_galaxy/lib/module_explore/ui/screen/category_animes_screen/category_animes_screen.dart#CategoryAnimesScreen",
+                "qualifier": null
+              },
+              "isProvider": false
             }
           ]
         }

@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:anime_galaxy/generated/l10n.dart';
 import 'package:anime_galaxy/module_anime/anime_routes.dart';
+import 'package:anime_galaxy/module_explore/explore_routes.dart';
 import 'package:anime_galaxy/module_explore/model/explore/explore_model.dart';
 import 'package:anime_galaxy/module_explore/state/explore/explore.state.dart';
 import 'package:anime_galaxy/module_explore/state_manager/explore/explore.state_manager.dart';
@@ -11,6 +12,7 @@ import 'package:anime_galaxy/module_explore/ui/widget/member_card/member_card.da
 import 'package:anime_galaxy/module_explore/ui/widget/series_card/card_series.dart';
 import 'package:anime_galaxy/module_profile/profile_routes.dart';
 import 'package:anime_galaxy/utils/loading_indicator/loading_indicator.dart';
+import 'package:anime_galaxy/utils/project_color/project_color.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:inject/inject.dart';
@@ -108,12 +110,24 @@ class _ExploreScreenState extends State<ExploreScreen> {
                             Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
-                                Text(
-                                  '${item.name}',
-                                  style: TextStyle(
-                                      color: Colors.grey,
-                                      fontFamily:'Roboto',
-                                      fontWeight: FontWeight.bold
+                                Container(
+                                  width: MediaQuery.of(context).size.width*0.6,
+                                  child: Text(
+                                    '${item.name}',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                        shadows: [
+                                          Shadow(
+                                            color: ProjectColors.ThemeColor,
+                                            offset: Offset(0.5, 0.5)
+
+                                          ),
+                                        ],
+                                        fontFamily:'Roboto',
+                                        fontWeight: FontWeight.bold
+                                    ),
                                   ),
                                 ),
                               ],
@@ -273,9 +287,9 @@ class _ExploreScreenState extends State<ExploreScreen> {
                                 padding:
                                     const EdgeInsets.symmetric(horizontal: 4),
                                 child: GestureDetector(
-//                                  onTap: () => Navigator.pushNamed(
-//                                      context, ProfileRoutes.ROUTE_PROFILE,
-//                                      arguments: explore.categories[index].id),
+                                  onTap: () => Navigator.pushNamed(
+                                      context, ExploreRoutes.CATEGORY_ANIMES_SCREEN,
+                                      arguments: explore.categories[index]),
                                   child: FavouriteSeriesCard(
                                     url_image:  explore.categories[index].image,
                                      series_name:
@@ -358,7 +372,23 @@ class _ExploreScreenState extends State<ExploreScreen> {
 //                  ),
 
 
-
+              Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          S.of(context).comingSoonSeries,
+                          style: StyleExploreList.getTextSyle(
+                            size: 14,
+                            fontWeight: FontWeight.w500,
+                            day: true,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
 
                   Container(
                     margin: EdgeInsets.only(top: 20),

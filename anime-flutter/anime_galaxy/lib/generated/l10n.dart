@@ -1392,6 +1392,16 @@ class S {
       args: [],
     );
   }
+
+  /// `مسلسلات تصدر قريبا`
+  String get comingSoonSeries {
+    return Intl.message(
+      'مسلسلات تصدر قريبا',
+      name: 'comingSoonSeries',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

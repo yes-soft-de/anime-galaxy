@@ -52,6 +52,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "categories" : MessageLookupByLibrary.simpleMessage("التصنيفات"),
     "chatRoom" : MessageLookupByLibrary.simpleMessage("Chat Room"),
     "close" : MessageLookupByLibrary.simpleMessage("Close"),
+    "comingSoonSeries" : MessageLookupByLibrary.simpleMessage("مسلسلات تصدر قريبا"),
     "comment" : MessageLookupByLibrary.simpleMessage("Comment"),
     "comments" : MessageLookupByLibrary.simpleMessage("التعليقات"),
     "confirm" : MessageLookupByLibrary.simpleMessage("Confirm!"),
