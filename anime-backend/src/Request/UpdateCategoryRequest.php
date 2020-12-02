@@ -5,9 +5,10 @@ namespace App\Request;
 
 class UpdateCategoryRequest
 {
-    public $id;
-    public $name;
-    public $description;
+    private $id;
+    private $name;
+    private $description;
+    private $image;
 
     /**
      * @return mixed

@@ -9,6 +9,7 @@ class UpdateCategoryResponse
     public $id;
     public $name;
     public $description;
+    public $image;
 
     /**
      * @return mixed
