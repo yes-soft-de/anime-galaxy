@@ -15,6 +15,7 @@ class AnimeCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 140,
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
         
@@ -24,8 +25,8 @@ class AnimeCardWidget extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            width: 100,
-            height: 130,
+            width: 80,
+            height: 110,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               image: DecorationImage(
@@ -45,11 +46,12 @@ class AnimeCardWidget extends StatelessWidget {
                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                    children: [
                      Container(
-                       width: MediaQuery.of(context).size.width*0.5,
+                       width: MediaQuery.of(context).size.width*0.55,
                        child: Text(
                          '$name',
+                         overflow: TextOverflow.clip,
                          style: TextStyle(
-                             fontSize: 14,
+                             fontSize: 12,
                              fontFamily:'Roboto',
                              fontWeight: FontWeight.bold
                          ),

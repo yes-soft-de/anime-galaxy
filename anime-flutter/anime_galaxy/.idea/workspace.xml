@@ -5,29 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="949cf1e4-ee88-43fb-8374-6a66b1c9c391" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/module_search/manager/search_manager/search.manager.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/module_search/model/search_model/search_model.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/module_search/repository/search_repository/search.repository.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/module_search/response/search_response/search_reaponse.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/module_search/search_module.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/module_search/search_routes.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/module_search/service/search_service/search.service.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/module_search/state/search/search.state.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/module_search/state_manager/search/search.state_manager.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/module_search/ui/screen/search_screen/seach_screen.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/module_search/ui/widget/anime_card_widget/anime_card_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/consts/urls.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/consts/urls.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/di/components/app.component.inject.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/di/components/app.component.inject.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/generated/intl/messages_ar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/intl/messages_ar.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/generated/intl/messages_en.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/intl/messages_en.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/generated/l10n.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/l10n.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/l10n/intl_ar.arb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/l10n/intl_ar.arb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/l10n/intl_en.arb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/l10n/intl_en.arb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main_screen/ui/screen/main_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main_screen/ui/screen/main_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main_screen/ui/screen/main_screen.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main_screen/ui/screen/main_screen.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/response/category_respponse/category_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/response/category_respponse/category_response.inject.summary" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_search/ui/widget/anime_card_widget/anime_card_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_search/ui/widget/anime_card_widget/anime_card_widget.dart" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.pub/" />
@@ -43,11 +22,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/module_search/ui/screen/search_screen/seach_screen.dart">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="381">
-              <caret line="74" column="18" selection-start-line="74" selection-start-column="18" selection-end-line="74" selection-end-column="18" />
+              <caret line="74" selection-start-line="74" selection-end-line="74" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
               </folding>
@@ -55,23 +34,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/module_search/ui/widget/anime_card_widget/anime_card_widget.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/module_episode/ui/screen/episode_details_screen/episode_details_screen.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="479" column="10" lean-forward="true" selection-start-line="479" selection-start-column="10" selection-end-line="479" selection-end-column="27" />
-              <folding>
-                <element signature="e#0#50#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="240">
+              <caret line="28" column="22" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -197,8 +164,8 @@
         <option value="$PROJECT_DIR$/lib/module_search/state_manager/search/search.state_manager.dart" />
         <option value="$PROJECT_DIR$/lib/main_screen/ui/screen/main_screen.dart" />
         <option value="$PROJECT_DIR$/lib/module_search/service/search_service/search.service.dart" />
-        <option value="$PROJECT_DIR$/lib/module_search/ui/widget/anime_card_widget/anime_card_widget.dart" />
         <option value="$PROJECT_DIR$/lib/module_search/ui/screen/search_screen/seach_screen.dart" />
+        <option value="$PROJECT_DIR$/lib/module_search/ui/widget/anime_card_widget/anime_card_widget.dart" />
       </list>
     </option>
   </component>
@@ -374,13 +341,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1602006469330</updated>
-    </task>
-    <task id="LOCAL-00041" summary="edit workspace">
-      <created>1604946145911</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1604946145911</updated>
     </task>
     <task id="LOCAL-00042" summary="Merge remote-tracking branch 'origin/zolfekar' into zolfekar&#10;&#10;# Conflicts:&#10;#&#9;anime-flutter/anime_galaxy/.flutter-plugins-dependencies&#10;#&#9;anime-flutter/anime_galaxy/.idea/codeStyles/Project.xml&#10;#&#9;anime-flutter/anime_galaxy/.idea/libraries/Dart_Packages.xml&#10;#&#9;anime-flutter/anime_galaxy/.idea/libraries/Flutter_Plugins.xml">
       <created>1604946244197</created>
@@ -718,7 +678,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606858201688</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="implement search screen">
+      <created>1606917530375</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1606917530377</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TodoView">
@@ -802,7 +769,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="enhance anime details screen response" />
     <MESSAGE value="enhance episode details screen response" />
     <MESSAGE value="enhance home screen response , and do some other TODOS" />
     <MESSAGE value="do some TODOS" />
@@ -827,7 +793,8 @@
     <MESSAGE value="edit some components" />
     <MESSAGE value="correct token" />
     <MESSAGE value="add categories to explore screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="add categories to explore screen" />
+    <MESSAGE value="implement search screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="implement search screen" />
   </component>
   <component name="WindowStateProjectService">
     <state x="522" y="235" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605284647206">
@@ -882,17 +849,6 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1606128659485" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/module_episode/ui/screen/episode_details_screen/episode_details_screen.dart</url>
-          <line>469</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/lib/di/components/app.component.inject.dart">
@@ -1282,9 +1238,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_search/ui/screen/search_screen/seach_screen.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="74" selection-start-line="74" selection-end-line="74" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/module_episode/ui/screen/episode_details_screen/episode_details_screen.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
+        <state relative-caret-position="246">
           <caret line="479" column="10" lean-forward="true" selection-start-line="479" selection-start-column="10" selection-end-line="479" selection-end-column="27" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
@@ -1294,18 +1260,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/module_search/ui/widget/anime_card_widget/anime_card_widget.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_search/ui/screen/search_screen/seach_screen.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="74" column="18" selection-start-line="74" selection-start-column="18" selection-end-line="74" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="240">
+          <caret line="28" column="22" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
         </state>
       </provider>
     </entry>
