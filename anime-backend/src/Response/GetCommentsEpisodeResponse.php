@@ -11,6 +11,7 @@ class GetCommentsEpisodeResponse
     public $commentInteractions;
     public $userName;
     public $image;
+    public $userID;
 
     /**
      * @return mixed

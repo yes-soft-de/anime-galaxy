@@ -12,6 +12,7 @@ class GetCommentsResponse
     public $userName;
     public $image;
     public $animeName;
+    public $userID;
 
     /**
      * @return mixed

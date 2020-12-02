@@ -48,7 +48,7 @@ class CommentEpisodeRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('CommentEpisode')
             ->select('CommentEpisode.id', 'CommentEpisode.userID', 'CommentEpisode.comment', 'CommentEpisode.spoilerAlert', 'CommentEpisode.creationDate')
-            ->addSelect('userProfile.userName','userProfile.image')
+            ->addSelect('userProfile.userID', 'userProfile.userName','userProfile.image')
             ->from('App:Episode','episode')
 
             ->leftJoin(
