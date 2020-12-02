@@ -71,6 +71,7 @@ class AnimeDetailsService {
         content: element.comment,
         userName:element.userName,
         id: element.id,
+        userId: element.userID,
         likesNumber: element.commentInteractions.love,
         userImage:element.image,
         date:' ${months[date.month+1]} ${date.day} ' ,

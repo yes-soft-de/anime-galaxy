@@ -30,6 +30,7 @@ class EpisodeModel{
 
 class Comment{
   String userImage;
+  String userId;
   String content;
   int id;
   String likesNumber;
@@ -45,5 +46,6 @@ class Comment{
     this.id,
     this.likesNumber,
     this.isLoved,
+    this.userId,
   });
 }

@@ -39,6 +39,7 @@ class AnimeModel{
 class Comment{
   String userImage;
   int id;
+  String userId;
   String content;
   String date;
   String userName;
@@ -53,6 +54,7 @@ class Comment{
     this.content,
     this.likesNumber,
     this.isLoved,
+    this.userId,
   });
 }
 

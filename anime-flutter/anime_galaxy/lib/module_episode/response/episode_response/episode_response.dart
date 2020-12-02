@@ -104,6 +104,7 @@ class Comments {
   CommentInteractions commentInteractions;
   String userName;
   String image;
+  String userID;
 
   Comments(
       {this.comment,
@@ -112,7 +113,9 @@ class Comments {
         this.commentInteractions,
         this.userName,
         this.id,
-        this.image});
+        this.image,
+        this.userID,
+      });
 
   Comments.fromJson(Map<String, dynamic> json) {
     comment = json['comment'];
@@ -126,6 +129,7 @@ class Comments {
         : null;
     userName = json['userName'];
     image = json['image'];
+    userID = json['userID'];
   }
 
   Map<String, dynamic> toJson() {
@@ -141,6 +145,7 @@ class Comments {
     }
     data['userName'] = this.userName;
     data['image'] = this.image;
+    data['userID'] = this.userID;
     return data;
   }
 }

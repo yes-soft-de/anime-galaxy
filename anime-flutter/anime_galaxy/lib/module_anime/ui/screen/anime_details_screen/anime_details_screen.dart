@@ -591,6 +591,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
             itemCount: anime.comments != null ? anime.comments.length : 0,
             itemBuilder: (BuildContext context, int index) {
               return CommentCard(
+                userId: anime.comments[index].userId,
                 userImage: '${anime.comments[index].userImage}',
                 userName: '${anime.comments[index].userName}',
                 date:'${ anime.comments[index].date}',

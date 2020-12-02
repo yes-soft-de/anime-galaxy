@@ -481,6 +481,7 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
           itemCount: episode.comments.length,
           itemBuilder: (BuildContext context, int index) {
             return CommentCard(
+              userId: episode.comments[index].userId,
               userImage: '${episode.comments[index].userImage}',
               userName: '${episode.comments[index].userName}',
               date: '${episode.comments[index].date}',

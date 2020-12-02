@@ -52,6 +52,7 @@ class EpisodeDetailsService{
       Comment comment = new Comment(
         content: element.comment,
         userName: element.userName,
+        userId: element.userID,
         id: element.id,
         likesNumber: element.commentInteractions.love,
         userImage:element.image,

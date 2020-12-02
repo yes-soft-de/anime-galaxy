@@ -1,3 +1,4 @@
+import 'package:anime_galaxy/module_profile/profile_routes.dart';
 import 'package:anime_galaxy/utils/project_color/project_color.dart';
 import 'package:flutter/material.dart';
 
@@ -11,6 +12,7 @@ class CommentCard extends StatelessWidget {
   final String likesNumber;
   final bool isLoved;
   final LoveCommentCallBack onLove;
+  String userId;
 
   CommentCard({
     this.comment,
@@ -20,6 +22,7 @@ class CommentCard extends StatelessWidget {
     this.likesNumber,
     this.onLove,
     this.isLoved,
+    this.userId,
   });
 
   @override
@@ -32,28 +35,35 @@ class CommentCard extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      height: 50,
-                      width: 50,
-                      child: CircleAvatar(
-                        radius: 50,
-                        backgroundImage: NetworkImage(userImage),
+              GestureDetector(
+                onTap: ()=> Navigator.pushNamed(
+                    context,
+                    ProfileRoutes.ROUTE_PROFILE,
+                    arguments: userId
+                ),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        height: 50,
+                        width: 50,
+                        child: CircleAvatar(
+                          radius: 50,
+                          backgroundImage: NetworkImage(userImage),
+                        ),
                       ),
                     ),
-                  ),
-                  Text(
-                    userName,
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      fontFamily:'Roboto',
+                    Text(
+                      userName,
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        fontFamily:'Roboto',
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               Text(
                 date,
