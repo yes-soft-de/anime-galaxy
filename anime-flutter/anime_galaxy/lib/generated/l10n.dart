@@ -1382,6 +1382,16 @@ class S {
       args: [],
     );
   }
+
+  /// `ابحث عن انمي`
+  String get searchForAnAnime {
+    return Intl.message(
+      'ابحث عن انمي',
+      name: 'searchForAnAnime',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

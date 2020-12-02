@@ -56,6 +56,13 @@
             },
             {
               "lookupKey": {
+                "root": "asset:anime_galaxy/lib/module_search/ui/screen/search_screen/seach_screen.dart#SearchScreen",
+                "qualifier": null
+              },
+              "isProvider": false
+            },
+            {
+              "lookupKey": {
                 "root": "asset:anime_galaxy/lib/module_auth/service/auth_service/auth_service.dart#AuthService",
                 "qualifier": null
               },

@@ -128,6 +128,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "saveProfile" : MessageLookupByLibrary.simpleMessage("احفظ المعلومات"),
     "saving" : MessageLookupByLibrary.simpleMessage("جار الحفظ!"),
     "searchAGame" : MessageLookupByLibrary.simpleMessage("ابحث عن لعبة :)"),
+    "searchForAnAnime" : MessageLookupByLibrary.simpleMessage("ابحث عن انمي"),
     "selectAnImage" : MessageLookupByLibrary.simpleMessage("اختر صورة"),
     "sendComment" : MessageLookupByLibrary.simpleMessage("إرسال التعليق"),
     "sendMeACode" : MessageLookupByLibrary.simpleMessage("ارسل الرمز!"),

@@ -6,6 +6,7 @@ import 'package:anime_galaxy/module_navigation/ui/widget/navigation_drawer/anime
 import 'package:anime_galaxy/module_notification/ui/screen/notification_screen/notification_screen.dart';
 import 'package:anime_galaxy/module_profile/presistance/profile_shared_preferences.dart';
 import 'package:anime_galaxy/module_profile/ui/screen/profile_screen/profile_screen.dart';
+import 'package:anime_galaxy/module_search/ui/screen/search_screen/seach_screen.dart';
 import 'package:anime_galaxy/module_settings/ui/ui/settings_page/settings_page.dart';
 import 'package:anime_galaxy/utils/app_bar/anime_galaxy_app_bar.dart';
 import 'package:anime_galaxy/utils/project_colors/project_color.dart';
@@ -19,6 +20,7 @@ class MainScreen extends StatefulWidget {
   final SettingsPage _settingsScreen;
   final ExploreScreen _exploreScreen;
   final ProfileScreen _profileScreen;
+  final SearchScreen _searchScreen;
   final AuthService _authService;
   final AnimeNavigationDrawer _animeNavigationDrawer;
   final ProfileSharedPreferencesHelper _profileSharedPreferencesHelper;
@@ -29,6 +31,7 @@ class MainScreen extends StatefulWidget {
     this._settingsScreen,
     this._exploreScreen,
     this._profileScreen,
+    this._searchScreen,
     this._authService,
     this._animeNavigationDrawer,
     this._profileSharedPreferencesHelper,
@@ -82,6 +85,7 @@ class _MainScreenState extends State<MainScreen> {
     var pages = [
       widget._homeScreen,
       widget._notificationScreen,
+      widget._searchScreen,
       widget._exploreScreen,
       widget._profileScreen,
       widget._settingsScreen,
@@ -115,6 +119,12 @@ class _MainScreenState extends State<MainScreen> {
           BottomNavigationBarItem(
             // Title is Deprecated!, Not My Optional Call
             icon: Icon(Icons.notifications),
+            title: Text(''),
+            backgroundColor: ProjectColors.ThemeColor,
+          ),
+          BottomNavigationBarItem(
+            // Title is Deprecated!, Not My Optional Call
+            icon: Icon(Icons.search),
             title: Text(''),
             backgroundColor: ProjectColors.ThemeColor,
           ),

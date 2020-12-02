@@ -33,6 +33,7 @@ class Urls {
   static const API_EPISODE_COMMENT_INTERACTION = BASE_API + '/interactionCommentEpisode';
   static const API_NOTIFICATION = BASE_API + '/notifacations/';
   static const API_PREVIOUS_COMMENTS = BASE_API + '/usercomments/';
+  static const API_SEARCH_ANIME = BASE_API + '/getanimebyname/';
 
   static const API_UPLOAD_USER_IMAGE = BASE_API + '/uploadfile';
 
