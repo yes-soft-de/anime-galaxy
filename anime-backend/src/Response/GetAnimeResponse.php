@@ -16,6 +16,7 @@ class GetAnimeResponse
     public $interaction;
     public $imageURL;
     public $baseURL;
+    public $suggest;
 
     /**
      * @return mixed
