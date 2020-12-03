@@ -61,6 +61,8 @@ class UserService
     {
         $item = $this->userManager->userProfileUpdate($request);
 
+        $item->setImage($this->params . $item->getImage());
+
         return $this->autoMapping->map(UserProfile::class,UserProfileResponse::class, $item);
     }
 
