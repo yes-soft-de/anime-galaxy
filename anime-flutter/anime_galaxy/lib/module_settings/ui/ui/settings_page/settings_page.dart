@@ -121,7 +121,7 @@ class _SettingsPageState extends State<SettingsPage> {
                      color:ProjectColors.ThemeColor,
                      shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(5.0)),
                      onPressed: (){
-                       Navigator.pushNamed(context, ProfileRoutes.ROUTE_EDIT_PROFILE);
+                       Navigator.pushNamed(context, ProfileRoutes.ROUTE_EDIT_PROFILE,arguments: ProfileRoutes.ROUTE_PROFILE);
                      },
                      child:Text(
                        S.of(context).edit,

@@ -43,6 +43,7 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
         _errorMsg = event;
         if (mounted) setState(() {});
       }else{
+        print('mkmk');
         userImageUrl = event;
       }
     });
@@ -84,7 +85,7 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
                                 if (value != null) {
                                   userImage = value.path;
 //                                  widget.manager.saveProfileImage(value.path);
-                                  print('lolo');
+
                                    widget.manager.uploadImage(userImage);
                                 }
                               });
