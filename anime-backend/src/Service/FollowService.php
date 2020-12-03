@@ -9,6 +9,7 @@ use App\Response\CreateFollowResponse;
 use App\Response\GetFollowByIdResponse;
 use App\Response\getFollowersActivitiesResponse;
 use App\Response\GetFollowResponse;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 class FollowService
 {
@@ -17,14 +18,17 @@ class FollowService
     private $commentService;
     private $ratingService;
     private $favouriteService;
+    private $params;
 
-    public function __construct(FollowManager $followManager, AutoMapping $autoMapping, CommentService $commentService, RatingService $ratingService, FavouriteService $favouriteService)
+    public function __construct(FollowManager $followManager, AutoMapping $autoMapping, CommentService $commentService, RatingService $ratingService, 
+    FavouriteService $favouriteService, ParameterBagInterface $params)
     {
         $this->followManager = $followManager;
         $this->autoMapping = $autoMapping;
         $this->commentService = $commentService;
         $this->ratingService = $ratingService;
         $this->favouriteService = $favouriteService;
+        $this->params = $params->get('upload_base_url') . '/';
     }
 
     public function create($request)
@@ -101,16 +105,19 @@ class FollowService
 
             foreach ($row['comment'] as $res) {
 
+                    $res['userImage'] = $this->params.$res['userImage'];
                     $arr[] = $res;
             }
 
             foreach ($row['rating'] as $res) {
 
+                    $res['userImage'] = $this->params.$res['userImage'];
                     $arr[] = $res;
             }
 
             foreach ($row['favourite'] as $res) {
 
+                    $res['userImage'] = $this->params.$res['userImage'];
                     $arr[] = $res;
             }          
            
