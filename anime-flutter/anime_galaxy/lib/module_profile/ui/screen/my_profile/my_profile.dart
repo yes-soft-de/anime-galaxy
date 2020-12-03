@@ -37,7 +37,7 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
     widget.manager.stateStream.stream.listen((event) {
       // Null means no errors
       if (event == null) {
-        Navigator.of(context).pushNamed(InitAccountRoutes.INIT_ACCOUNT_ROUTE);
+        Navigator.of(context).pushReplacementNamed(InitAccountRoutes.INIT_ACCOUNT_ROUTE);
       }
       if(event =='Cant create a profile') {
         _errorMsg = event;

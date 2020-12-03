@@ -31,11 +31,13 @@ class _AuthScreenState extends State<AuthScreen> {
 
   bool loginMode = false;
 
-  final GlobalKey _signUpFormKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _signUpFormKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _signInFormKey = GlobalKey<FormState>();
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  bool _autoValidate = false;
 
   bool loading = false;
 
@@ -92,6 +94,8 @@ class _AuthScreenState extends State<AuthScreen> {
   Widget getRegisterPage() {
     return Scaffold(
       body: Form(
+        key: _signUpFormKey,
+        autovalidate: _autoValidate,
         child: Flex(
           direction: Axis.vertical,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -129,6 +133,12 @@ class _AuthScreenState extends State<AuthScreen> {
                       hintText: 'account@email.com',
                       labelText: S.of(context).email,
                     ),
+                    validator: (result) {
+                      if (result.isEmpty) {
+                        return 'الرجاء ادخال الإيميل الخاص بك';
+                      }
+                      return null;
+                    },
                   ),
                   TextFormField(
                     controller: _passwordController,
@@ -137,6 +147,12 @@ class _AuthScreenState extends State<AuthScreen> {
                       hintText: '******',
                       labelText: S.of(context).password,
                     ),
+                    validator: (result) {
+                      if (result.length <8) {
+                        return 'كلمة المرور يجب ان تكون من 8 محارف على الأقل';
+                      }
+                      return null;
+                    },
                     obscureText: true,
                   ),
                 ],
@@ -172,54 +188,54 @@ class _AuthScreenState extends State<AuthScreen> {
                     },
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: GestureDetector(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: Border.all(
-                            color:
-                                Theme.of(context).brightness == Brightness.light
-                                    ? SwapThemeDataService.getDarkBGColor()
-                                    : Colors.white,
-                            width: .25),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: SvgPicture.asset(
-                          'assets/images/twitter.svg',
-                          height: 32,
-                        ),
-                      ),
-                    ),
-                    onTap: () {},
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: GestureDetector(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: Border.all(
-                            color:
-                                Theme.of(context).brightness == Brightness.light
-                                    ? SwapThemeDataService.getDarkBGColor()
-                                    : Colors.white,
-                            width: .25),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: SvgPicture.asset(
-                          'assets/images/facebook.svg',
-                          height: 32,
-                        ),
-                      ),
-                    ),
-                    onTap: () {},
-                  ),
-                ),
+//                Padding(
+//                  padding: const EdgeInsets.all(8.0),
+//                  child: GestureDetector(
+//                    child: Container(
+//                      decoration: BoxDecoration(
+//                        shape: BoxShape.circle,
+//                        border: Border.all(
+//                            color:
+//                                Theme.of(context).brightness == Brightness.light
+//                                    ? SwapThemeDataService.getDarkBGColor()
+//                                    : Colors.white,
+//                            width: .25),
+//                      ),
+//                      child: Padding(
+//                        padding: const EdgeInsets.all(8.0),
+//                        child: SvgPicture.asset(
+//                          'assets/images/twitter.svg',
+//                          height: 32,
+//                        ),
+//                      ),
+//                    ),
+//                    onTap: () {},
+//                  ),
+//                ),
+//                Padding(
+//                  padding: const EdgeInsets.all(8.0),
+//                  child: GestureDetector(
+//                    child: Container(
+//                      decoration: BoxDecoration(
+//                        shape: BoxShape.circle,
+//                        border: Border.all(
+//                            color:
+//                                Theme.of(context).brightness == Brightness.light
+//                                    ? SwapThemeDataService.getDarkBGColor()
+//                                    : Colors.white,
+//                            width: .25),
+//                      ),
+//                      child: Padding(
+//                        padding: const EdgeInsets.all(8.0),
+//                        child: SvgPicture.asset(
+//                          'assets/images/facebook.svg',
+//                          height: 32,
+//                        ),
+//                      ),
+//                    ),
+//                    onTap: () {},
+//                  ),
+//                ),
               ],
             ),
             GestureDetector(
@@ -233,15 +249,18 @@ class _AuthScreenState extends State<AuthScreen> {
             ),
             GestureDetector(
               onTap: () {
-                if (!loading) {
-                  loading = true;
-                  setState(() {});
-                  widget.manager.registerWithEmailAndPassword(
-                    _emailController.text.trim(),
-                    _passwordController.text.trim(),
-                    _nameController.text.trim(),
-                  );
-                }
+               if (_signUpFormKey.currentState.validate()) {
+                 if (!loading) {
+                   loading = true;
+                   setState(() {});
+                   widget.manager.registerWithEmailAndPassword(
+                     _emailController.text.trim(),
+                     _passwordController.text.trim(),
+                     _nameController.text.trim(),
+                   );
+                 }
+              }
+
               },
               child: Container(
                 color: ProjectColors.ThemeColor,
@@ -270,6 +289,8 @@ class _AuthScreenState extends State<AuthScreen> {
   Widget getLoginPage() {
     return Scaffold(
       body: Form(
+        key: _signInFormKey,
+        autovalidate: _autoValidate,
         child: Flex(
           direction: Axis.vertical,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -294,6 +315,12 @@ class _AuthScreenState extends State<AuthScreen> {
                       hintText: 'account@email.com',
                       labelText: S.of(context).email,
                     ),
+                    validator: (result) {
+                      if (result.isEmpty) {
+                        return 'الرجاء ادخال الإيميل الخاص بك';
+                      }
+                      return null;
+                    },
                   ),
                   TextFormField(
                     controller: _passwordController,
@@ -302,6 +329,12 @@ class _AuthScreenState extends State<AuthScreen> {
                       hintText: '******',
                       labelText: S.of(context).password,
                     ),
+                    validator: (result) {
+                      if (result.length <8) {
+                        return 'كلمة المرور يجب ان تكون من 8 محارف على الأقل';
+                      }
+                      return null;
+                    },
                     obscureText: true,
                   ),
                 ],
@@ -406,12 +439,16 @@ class _AuthScreenState extends State<AuthScreen> {
             ),
             GestureDetector(
               onTap: () {
-                if (!loading) {
-                  widget.manager.signWithEmailAndPassword(
-                    _emailController.text.trim(),
-                    _passwordController.text.trim(),
-                  );
+                if(_signInFormKey.currentState.validate()){
+                  if (!loading) {
+                    loading = true;
+                    widget.manager.signWithEmailAndPassword(
+                      _emailController.text.trim(),
+                      _passwordController.text.trim(),
+                    );
+                  }
                 }
+
               },
               child: Container(
                 color: ProjectColors.ThemeColor,

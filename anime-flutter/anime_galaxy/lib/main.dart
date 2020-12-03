@@ -141,6 +141,7 @@ class _MyAppState extends State<MyApp> {
     
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       navigatorObservers: <NavigatorObserver>[observer],
       locale: Locale.fromSubtags(
         languageCode: 'ar',
