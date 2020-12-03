@@ -19,6 +19,7 @@ class AnimeDetailsWidget extends StatelessWidget {
   final bool isLoved;
   final int episodesNumber;
   final LoveCallBack onLove;
+  final String ageGroup;
 
   AnimeDetailsWidget({
     this.name,
@@ -33,6 +34,7 @@ class AnimeDetailsWidget extends StatelessWidget {
     this.onUnFollow,
     this.episodesNumber,
     this.onLove,
+    this.ageGroup,
   });
 
   @override
@@ -61,13 +63,26 @@ class AnimeDetailsWidget extends StatelessWidget {
                       fontFamily:'Roboto',
                     ),
                   ),
-                  Text(
-                    showYear ?? '',
-                    style: TextStyle(
-                      fontSize: 13,
-                      fontFamily:'Roboto',
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      showYear ?? '',
+                      style: TextStyle(
+                        fontSize: 13,
+                        fontFamily:'Roboto',
+                      ),
                     ),
-                  ),
+                    Text(
+                      ageGroup ?? '',
+                      style: TextStyle(
+                        fontSize: 13,
+                        fontFamily:'Roboto',
+                      ),
+                    ),
+
+                  ],
+                ),
                   Padding(
                     padding: EdgeInsets.fromLTRB(0, 8, 0, 8),
                     child: Row(

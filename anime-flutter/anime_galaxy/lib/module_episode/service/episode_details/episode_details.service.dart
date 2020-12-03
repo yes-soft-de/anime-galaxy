@@ -31,7 +31,9 @@ class EpisodeDetailsService{
     episode.comments = await getComments(response.comments);
 
     var df = new DateFormat('yyyy');
-    var date = new DateTime.fromMillisecondsSinceEpoch(response.publishDate.timestamp);
+    var date = response.publishDate != null?
+                            new DateTime.fromMillisecondsSinceEpoch(response.publishDate.timestamp *1000):
+                            DateTime.now();
 
     episode.showYear = df.format(date).toString();
     episode.about = response.description;
@@ -46,9 +48,10 @@ class EpisodeDetailsService{
   Future< List<Comment>> getComments(List<Comments> commentResponse)async{
     List<Comment> comments =[];
     List months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var df = new DateFormat('dd/MM');
 
     commentResponse.forEach((element) {
-      var date = new DateTime.fromMillisecondsSinceEpoch(element.creationDate.timestamp);
+      var date = new DateTime.fromMillisecondsSinceEpoch(element.creationDate.timestamp * 1000);
       Comment comment = new Comment(
         content: element.comment,
         userName: element.userName,
@@ -56,7 +59,8 @@ class EpisodeDetailsService{
         id: element.id,
         likesNumber: element.commentInteractions.love,
         userImage:element.image,
-        date:' ${months[date.month+1]} ${date.day} ' ,
+        //  date:' ${months[date.month+1]} ${date.day} ' ,
+        date: df.format(date).toString()??'',
         isLoved: element.commentInteractions.isLoved,
       );
       comments.add(comment);

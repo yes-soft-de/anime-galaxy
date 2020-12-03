@@ -98,7 +98,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     name: _profileModel.name,
                     createDate: _profileModel.createDate,
                     //TODO : change it
-                    category: 'شونين-فانتازي',
+                    category: '',
                     commentsNumber: _profileModel.commentsNumber,
                     followingNumber: _profileModel.followingNumber,
                     seriesNumber: _profileModel.seriesNumber.toString(),

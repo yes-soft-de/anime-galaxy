@@ -137,5 +137,8 @@
   "previousComments": "تعليقات سابقة",
   "categories": "التصنيفات",
   "searchForAnAnime": "ابحث عن انمي",
-  "comingSoonSeries": "مسلسلات تصدر قريبا"
+  "comingSoonSeries": "مسلسلات تصدر قريبا",
+  "comingSoonEpisodes": "حلقات ستصدر قريباً",
+  "hideComments": "اخفاء التعليقات",
+  "showComments": "اظهار التعليقات"
 }

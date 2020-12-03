@@ -1402,6 +1402,36 @@ class S {
       args: [],
     );
   }
+
+  /// `حلقات ستصدر قريباً`
+  String get comingSoonEpisodes {
+    return Intl.message(
+      'حلقات ستصدر قريباً',
+      name: 'comingSoonEpisodes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `اخفاء التعليقات`
+  String get hideComments {
+    return Intl.message(
+      'اخفاء التعليقات',
+      name: 'hideComments',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `اظهار التعليقات`
+  String get showComments {
+    return Intl.message(
+      'اظهار التعليقات',
+      name: 'showComments',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

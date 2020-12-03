@@ -17,6 +17,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:inject/inject.dart';
+import 'package:intl/intl.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:video_player/video_player.dart';
 
@@ -55,7 +56,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
   String username;
   VideoPlayerController controller; // used to controller videos
   Future<void> futureController;
-  bool fABIsVisible = false;
+  bool CommentsVisible = false;
  // ScrollController _scrollController;
 
   @override
@@ -122,16 +123,31 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
       }
     }
     if (currentState is AnimeDetailsStateCommentingSuccess) {
-      anime.comments.insert(
-          0,
-          new Comment(
-              content: _commentController.text,
-              userName: username,
-              //TODO : change this
-              userImage:
-              'https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=100&q=60 100w',
-              date: '21 Jun'));
-      _commentController.text = '';
+      var df  = new DateFormat('dd/MM');
+      if((anime.comments.singleWhere(
+              (element) =>
+              element.userName == username && element.content == _commentController.text ,
+          orElse: () => null)) !=
+          null){
+
+      }else{
+        anime.comments.insert(
+            0,
+            new Comment(
+                content: _commentController.text,
+                userName: username,
+                isLoved: false,
+                likesNumber: '0',
+                //TODO : change this
+                userImage:
+                'https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=100&q=60 100w',
+                date: df.format(DateTime.now()).toString() )
+        );
+        _commentController.text = '';
+      }
+
+
+
     }
     if (currentState is AnimeDetailsStateAddToFavouriteSuccess) {
       anime.isFollowed = true;
@@ -209,7 +225,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
       floatingActionButton: Container(
         height: 40,
         width: 40,
-        child:/* fABIsVisible?*/ FloatingActionButton(
+        child:CommentsVisible? FloatingActionButton(
 
           backgroundColor: ProjectColors.ThemeColor,
           onPressed: () {
@@ -219,7 +235,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
             Icons.comment,
             color: Colors.white,
           ),
-        )/*:null*/,
+        ):null,
       )
     );
   }
@@ -239,6 +255,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
             episodesNumber: anime.episodes.length,
             isFollowed: anime.isFollowed ,
             isLoved: anime.isLoved,
+            ageGroup: anime.ageGroup,
             onFollow: () =>
                 widget._stateManager.addToFavourite(animeId, anime.categoryID),
             onUnFollow: () =>
@@ -572,49 +589,37 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
             ),
           ),
 
-          Container(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 5, 0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      S.of(context).LastReplaysAndComments,
-                      style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          fontFamily:'Roboto'
-                      ),
-                    ),
+          //comments section
+          Padding(
+            padding: const EdgeInsets.only(top:10.0),
+            child: ButtonTheme(
+              height: 12,
+              child: FlatButton(
+                color: CommentsVisible
+                    ? Colors.grey
+                    : ProjectColors.ThemeColor,
+                shape: RoundedRectangleBorder(
+                  borderRadius: new BorderRadius.circular(20.0),
+                ),
+                onPressed: (){
+                  setState(() {
+                    CommentsVisible = !CommentsVisible;
+                  });
+                },
+                child: Text(
+                  CommentsVisible
+                      ? S.of(context).hideComments
+                      : S.of(context).showComments,
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.white,
+                    fontFamily:'Roboto',
                   ),
-                ],
-              )),
-          anime.comments.isNotEmpty
-              ? ListView.builder(
-            physics: NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            itemCount: anime.comments != null ? anime.comments.length : 0,
-            itemBuilder: (BuildContext context, int index) {
-              return CommentCard(
-                userId: anime.comments[index].userId,
-                userImage: '${anime.comments[index].userImage}',
-                userName: '${anime.comments[index].userName}',
-                date:'${ anime.comments[index].date}',
-                comment: '${anime.comments[index].content}',
-                likesNumber: anime.comments[index].likesNumber,
-                isLoved:anime.comments[index].isLoved ,
-                onLove:()=> widget._stateManager.loveComment(anime.comments[index].id),
-
-              );
-            },
-          )
-              : Text(
-            S.of(context).beTheFirstToComment,
-            style: TextStyle(
-                fontFamily:'Roboto'
+                ),
+              ),
             ),
           ),
+        if(CommentsVisible) _commentsSection(),
 
           SizedBox(
             height: 60,
@@ -624,6 +629,55 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
     );
   }
 
+  Widget _commentsSection(){
+    return Column(
+      children: [
+        Container(
+            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 5, 0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    S.of(context).LastReplaysAndComments,
+                    style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                        fontFamily:'Roboto'
+                    ),
+                  ),
+                ),
+              ],
+            )),
+        anime.comments.isNotEmpty
+            ? ListView.builder(
+          physics: NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          itemCount: anime.comments != null ? anime.comments.length : 0,
+          itemBuilder: (BuildContext context, int index) {
+            return CommentCard(
+              userId: anime.comments[index].userId,
+              userImage: '${anime.comments[index].userImage}',
+              userName: '${anime.comments[index].userName}',
+              date:'${ anime.comments[index].date}',
+              comment: '${anime.comments[index].content}',
+              likesNumber: anime.comments[index].likesNumber,
+              isLoved:anime.comments[index].isLoved ,
+              onLove:()=> widget._stateManager.loveComment(anime.comments[index].id),
+
+            );
+          },
+        )
+            : Text(
+          S.of(context).beTheFirstToComment,
+          style: TextStyle(
+              fontFamily:'Roboto'
+          ),
+        ),
+      ],
+    );
+  }
   void _showCommentDialog(BuildContext context) {
     showDialog(
         context: context,

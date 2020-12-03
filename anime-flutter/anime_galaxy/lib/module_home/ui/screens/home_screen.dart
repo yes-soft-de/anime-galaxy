@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:anime_galaxy/generated/l10n.dart';
 import 'package:anime_galaxy/module_anime/anime_routes.dart';
 import 'package:anime_galaxy/module_auth/service/auth_service/auth_service.dart';
+import 'package:anime_galaxy/module_episode/episode_routes.dart';
 import 'package:anime_galaxy/module_home/model/home_model/home_model.dart';
 import 'package:anime_galaxy/module_home/state/home/home.state.dart';
 import 'package:anime_galaxy/module_home/state_manager/home/home.state_manager.dart';
@@ -89,85 +90,92 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     List<Widget> imageSliders = [];
     anime.newEpisodes.forEach((item) {
       imageSliders.add(Container(
-        child: Container(
-          margin: EdgeInsets.all(5.0),
-          child: ClipRRect(
-              borderRadius: BorderRadius.all(Radius.circular(0.0)),
-              child: Stack(
-                children: <Widget>[
-                  Stack(
-                    children: [
-                      FadeInImage.assetNetwork(
-                        placeholder: 'assets/images/logo.jpg',
-                        image: item.image,
-                      ),
-                      BackdropFilter(
-                        filter: ImageFilter.blur(sigmaX: 1.0, sigmaY: 1.0),
-                        child: Container(
-                          decoration: BoxDecoration(
-                              color: Colors.white.withOpacity(0.0)),
+        child: GestureDetector(
+          onTap: ()=> Navigator.pushNamed(
+              context,
+              EpisodeRoutes.ROUTE_EPISODE_DETAILS_SCREEN,
+              arguments: item.id
+          ),
+          child: Container(
+            margin: EdgeInsets.all(5.0),
+            child: ClipRRect(
+                borderRadius: BorderRadius.all(Radius.circular(0.0)),
+                child: Stack(
+                  children: <Widget>[
+                    Stack(
+                      children: [
+                        FadeInImage.assetNetwork(
+                          placeholder: 'assets/images/logo.jpg',
+                          image: item.image,
                         ),
-                      )
-                    ],
-                  ),
-                  Positioned.fill(
-                    child: Container(
-                      color: Colors.black26,
+                        BackdropFilter(
+                          filter: ImageFilter.blur(sigmaX: 1.0, sigmaY: 1.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                                color: Colors.white.withOpacity(0.0)),
+                          ),
+                        )
+                      ],
                     ),
-                  ),
-                  Positioned(
-                    left: 0.0,
-                    right: 0.0,
-                    child: Container(
-                        padding: EdgeInsets.symmetric(
-                            vertical: 10.0, horizontal: 10.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            FadeInImage.assetNetwork(
-                              height: 160,
-                              width: 75,
-                              placeholder: 'assets/images/logo.jpg',
-                              image: item.image,
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Text(
-                                  '${item.seriesName}',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 18,
-                                      fontFamily: 'Roboto',
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                Text(
-                                  item.classification,
-                                  style: TextStyle(
-                                      color: Colors.white70,
-                                      fontFamily: 'Roboto',
-                                      fontSize: 14),
-                                ),
-                                Text(
-                                  S.of(context).Episode +
-                                      '${item.episodeNumber} ' +
-                                      S.of(context).Season +
-                                      '${item.season}',
-                                  style: TextStyle(
-                                      fontFamily: 'Roboto',
-                                      color: Colors.white70,
-                                      fontSize: 14),
-                                ),
-                              ],
-                            ),
-                          ],
-                        )),
-                  ),
-                ],
-              )),
+                    Positioned.fill(
+                      child: Container(
+                        color: Colors.black26,
+                      ),
+                    ),
+                    Positioned(
+                      left: 0.0,
+                      right: 0.0,
+                      child: Container(
+                          padding: EdgeInsets.symmetric(
+                              vertical: 10.0, horizontal: 10.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              FadeInImage.assetNetwork(
+                                height: 160,
+                                width: 75,
+                                placeholder: 'assets/images/logo.jpg',
+                                image: item.image,
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Text(
+                                    '${item.seriesName}',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 18,
+                                        fontFamily: 'Roboto',
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  Text(
+                                    item.classification,
+                                    style: TextStyle(
+                                        color: Colors.white70,
+                                        fontFamily: 'Roboto',
+                                        fontSize: 14),
+                                  ),
+                                  Text(
+                                    S.of(context).Episode +
+                                        '${item.episodeNumber} ' +
+                                        S.of(context).Season +
+                                        '${item.season}',
+                                    style: TextStyle(
+                                        fontFamily: 'Roboto',
+                                        color: Colors.white70,
+                                        fontSize: 14),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          )),
+                    ),
+                  ],
+                )),
+          ),
         ),
       ));
     });
@@ -190,20 +198,20 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      S.of(context).newEpisodes,
+                      S.of(context).comingSoonEpisodes,
                       style: TextStyle(
                         fontSize: 14,
                         fontFamily: 'Roboto',
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Text(
-                      S.of(context).More,
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontFamily: 'Roboto',
-                      ),
-                    ),
+//                    Text(
+//                      S.of(context).More,
+//                      style: TextStyle(
+//                        fontSize: 14,
+//                        fontFamily: 'Roboto',
+//                      ),
+//                    ),
                   ],
                 ),
               ),
@@ -238,13 +246,13 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Text(
-                      S.of(context).More,
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontFamily: 'Roboto',
-                      ),
-                    ),
+//                    Text(
+//                      S.of(context).More,
+//                      style: TextStyle(
+//                        fontSize: 14,
+//                        fontFamily: 'Roboto',
+//                      ),
+//                    ),
                   ],
                 ),
               ),
@@ -319,13 +327,13 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                           fontFamily: 'Roboto',
                           fontWeight: FontWeight.bold),
                     ),
-                    Text(
-                      S.of(context).More,
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontFamily: 'Roboto',
-                      ),
-                    ),
+//                    Text(
+//                      S.of(context).More,
+//                      style: TextStyle(
+//                        fontSize: 14,
+//                        fontFamily: 'Roboto',
+//                      ),
+//                    ),
                   ],
                 ),
               ),

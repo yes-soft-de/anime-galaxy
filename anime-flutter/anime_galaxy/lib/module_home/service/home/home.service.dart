@@ -56,6 +56,7 @@ class HomeService {
 
     episodesList.forEach((element) {
       episodes.add(new Episode(
+          id: element.id,
           classification: element.categoryName,
           image: element.image,
           episodeNumber: element.episodeNumber,

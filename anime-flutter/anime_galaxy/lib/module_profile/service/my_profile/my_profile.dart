@@ -81,7 +81,7 @@ class MyProfileService {
 
     followingActivitiesResponse.forEach((element) {
       var date =
-          new DateTime.fromMillisecondsSinceEpoch(element.date.timestamp);
+          new DateTime.fromMillisecondsSinceEpoch(element.date.timestamp * 1000);
 
       activities.add(new Activity(
         userName: element.userName,

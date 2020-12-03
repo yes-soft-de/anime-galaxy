@@ -15,6 +15,7 @@ class HomeModel{
 }
 
 class Episode{
+  int id;
   String image;
   String seriesName;
   String classification;
@@ -22,6 +23,7 @@ class Episode{
   int season;
 
   Episode({
+    this.id,
     this.classification,
     this.image,
     this.episodeNumber,

@@ -1,6 +1,7 @@
 import 'package:anime_galaxy/consts/urls.dart';
 
 class ComingSoonEpisodesResponse {
+  int id;
   String animeName;
   int seasonNumber;
   int episodeNumber;
@@ -20,7 +21,8 @@ class ComingSoonEpisodesResponse {
       this.duration,
       this.publishDate,
       this.createdAt,
-        this.categoryName
+        this.categoryName,
+        this.id,
       });
 
   ComingSoonEpisodesResponse.fromJson(Map<String, dynamic> json) {
@@ -29,6 +31,7 @@ class ComingSoonEpisodesResponse {
     episodeNumber = json['episodeNumber'];
     description = json['description'];
     image = json['image'];
+    id = json['id'];
     categoryName = json['categoryName'];
     image.replaceFirst('http://localhost:8000', Urls.DOMAIN);
     duration = json['duration'] != null
@@ -49,6 +52,7 @@ class ComingSoonEpisodesResponse {
     data['episodeNumber'] = this.episodeNumber;
     data['description'] = this.description;
     data['image'] = this.image;
+    data['id'] = this.id;
     data['categoryName'] = this.categoryName;
     if (this.duration != null) {
       data['duration'] = this.duration.toJson();
