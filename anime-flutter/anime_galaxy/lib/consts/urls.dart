@@ -2,6 +2,8 @@ class Urls {
   static const String DOMAIN = 'http://35.226.243.159';
   static const String BASE_API = DOMAIN + '/html/public/index.php';
 
+  static const String IMAGES_UPLOAD_PATH = DOMAIN +'/upload';
+
   static const API_PROFILE = BASE_API + '/userprofile/';
   static const API_ANIME = BASE_API + '/anime';
   static const API_CATEGORY = BASE_API + '/category';

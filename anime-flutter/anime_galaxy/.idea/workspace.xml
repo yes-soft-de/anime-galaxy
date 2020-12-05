@@ -4,16 +4,22 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="949cf1e4-ee88-43fb-8374-6a66b1c9c391" name="Default Changelist" comment="">
+    <list default="true" id="949cf1e4-ee88-43fb-8374-6a66b1c9c391" name="Default Changelist" comment="edit upload image">
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Fastlane/Fastfile" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Fastlane/Fastfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/consts/urls.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/consts/urls.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/di/components/app.component.inject.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/di/components/app.component.inject.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_profile/request/create_profile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/request/create_profile.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_profile/response/profile_response/profile_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/response/profile_response/profile_response.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_profile/service/my_profile/my_profile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/service/my_profile/my_profile.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_profile/service/my_profile/my_profile.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/service/my_profile/my_profile.inject.summary" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/module_profile/state_manager/edit_profile_state_manager/edit_profile_state_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/state_manager/edit_profile_state_manager/edit_profile_state_manager.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/module_profile/ui/screen/my_profile/my_profile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/ui/screen/my_profile/my_profile.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/module_settings/ui/ui/settings_page/settings_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_settings/ui/ui/settings_page/settings_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_upload/manager/upload_manager/upload_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_upload/manager/upload_manager/upload_manager.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_upload/repository/upload_repository/upload_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_upload/repository/upload_repository/upload_repository.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/module_upload/service/image_upload/image_upload_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_upload/service/image_upload/image_upload_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.pub/" />
@@ -28,7 +34,98 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/module_profile/state_manager/edit_profile_state_manager/edit_profile_state_manager.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="249">
+              <caret line="32" column="31" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
+              <folding>
+                <element signature="e#0#17#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/module_profile/service/my_profile/my_profile.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="25">
+              <caret line="165" column="65" selection-start-line="165" selection-start-column="65" selection-end-line="165" selection-end-column="65" />
+              <folding>
+                <element signature="e#0#47#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/module_profile/response/profile_response/profile_response.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="110">
+              <caret line="13" column="22" lean-forward="true" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/module_settings/ui/ui/settings_page/settings_page.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="59">
+              <caret line="72" column="64" selection-start-line="72" selection-start-column="64" selection-end-line="72" selection-end-column="64" />
+              <folding>
+                <element signature="e#0#50#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/consts/urls.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="66">
+              <caret line="4" column="59" selection-start-line="4" selection-start-column="59" selection-end-line="4" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/module_navigation/ui/widget/navigation_drawer/anime_navigation_drawer.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2060">
+              <caret line="17" column="70" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="70" />
+              <folding>
+                <element signature="e#0#91#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/module_upload/service/image_upload/image_upload_service.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="12" column="38" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
+              <folding>
+                <element signature="e#0#36#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/module_upload/repository/upload_repository/upload_repository.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-236">
+              <caret line="8" column="48" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
+              <folding>
+                <element signature="e#0#47#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -40,16 +137,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>video</find>
-      <find>follow</find>
-      <find>onfo</find>
-      <find>ageg</find>
-      <find>year</find>
-      <find>icon</find>
-      <find>goo</find>
-      <find>navigato</find>
-      <find>navi</find>
-      <find>comments s</find>
       <find>TextFormField</find>
       <find>new</find>
       <find>key</find>
@@ -68,8 +155,18 @@
       <find>edit</find>
       <find>mkmk</find>
       <find>upload</find>
-      <find>PUT</find>
       <find>userImageUrl</find>
+      <find>PUT</find>
+      <find>bui</find>
+      <find>lklk</find>
+      <find>post</find>
+      <find>zoz</find>
+      <find>pick</find>
+      <find>qqq</find>
+      <find>zooz</find>
+      <find>saveProfile</find>
+      <find>put</find>
+      <find>rrr</find>
     </findStrings>
     <replaceStrings>
       <replace>_scrollController</replace>
@@ -103,11 +200,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/lib/consts/urls.dart" />
-        <option value="$PROJECT_DIR$/lib/module_search/search_routes.dart" />
-        <option value="$PROJECT_DIR$/lib/module_search/search_module.dart" />
-        <option value="$PROJECT_DIR$/lib/module_search/response/search_response/search_reaponse.dart" />
-        <option value="$PROJECT_DIR$/lib/module_search/repository/search_repository/search.repository.dart" />
         <option value="$PROJECT_DIR$/lib/module_search/manager/search_manager/search.manager.dart" />
         <option value="$PROJECT_DIR$/lib/module_search/model/search_model/search_model.dart" />
         <option value="$PROJECT_DIR$/lib/module_search/state/search/search.state.dart" />
@@ -134,7 +226,6 @@
         <option value="$PROJECT_DIR$/lib/module_anime/response/anime_response/anime_response.dart" />
         <option value="$PROJECT_DIR$/lib/module_anime/model/anime_model/anime_model.dart" />
         <option value="$PROJECT_DIR$/lib/module_profile/ui/screen/profile_screen/profile_screen.dart" />
-        <option value="$PROJECT_DIR$/lib/module_profile/service/my_profile/my_profile.dart" />
         <option value="$PROJECT_DIR$/lib/module_home/response/coming_soon_episodes/coming_soon_episodes.dart" />
         <option value="$PROJECT_DIR$/lib/module_home/model/home_model/home_model.dart" />
         <option value="$PROJECT_DIR$/lib/module_home/service/home/home.service.dart" />
@@ -144,21 +235,27 @@
         <option value="$PROJECT_DIR$/lib/module_episode/service/episode_details/episode_details.service.dart" />
         <option value="$PROJECT_DIR$/lib/module_anime/ui/widget/anime_details_widget/ainme_details_widget.dart" />
         <option value="$PROJECT_DIR$/lib/module_auth/ui/screen/auth_screen/auth_screen.dart" />
-        <option value="$PROJECT_DIR$/pubspec.yaml" />
         <option value="$PROJECT_DIR$/lib/main.dart" />
-        <option value="$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.dart" />
-        <option value="$PROJECT_DIR$/lib/module_settings/ui/ui/settings_page/settings_page.dart" />
         <option value="$PROJECT_DIR$/lib/module_profile/state_manager/my_profile/my_profile_state_manager.dart" />
         <option value="$PROJECT_DIR$/lib/module_upload/repository/upload_repository/upload_repository.dart" />
         <option value="$PROJECT_DIR$/lib/module_upload/manager/upload_manager/upload_manager.dart" />
-        <option value="$PROJECT_DIR$/lib/module_upload/service/image_upload/image_upload_service.dart" />
-        <option value="$PROJECT_DIR$/lib/module_profile/state_manager/edit_profile_state_manager/edit_profile_state_manager.dart" />
+        <option value="$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.dart" />
+        <option value="$PROJECT_DIR$/ios/Fastlane/Fastfile" />
+        <option value="$PROJECT_DIR$/pubspec.yaml" />
         <option value="$PROJECT_DIR$/lib/module_profile/ui/screen/my_profile/my_profile.dart" />
+        <option value="$PROJECT_DIR$/lib/module_profile/state_manager/edit_profile_state_manager/edit_profile_state_manager.dart" />
+        <option value="$PROJECT_DIR$/lib/module_upload/service/image_upload/image_upload_service.dart" />
+        <option value="$PROJECT_DIR$/lib/module_profile/request/create_profile.dart" />
+        <option value="$PROJECT_DIR$/lib/module_settings/ui/ui/settings_page/settings_page.dart" />
+        <option value="$PROJECT_DIR$/lib/consts/urls.dart" />
+        <option value="$PROJECT_DIR$/lib/module_profile/repository/my_profile/my_profile.repository.dart" />
+        <option value="$PROJECT_DIR$/lib/module_profile/service/my_profile/my_profile.dart" />
+        <option value="$PROJECT_DIR$/lib/module_profile/response/profile_response/profile_response.dart" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="676" />
+    <option name="x" value="-7" />
     <option name="width" value="697" />
     <option name="height" value="735" />
   </component>
@@ -171,8 +268,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -189,59 +284,44 @@
               <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
               <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="module_profile" type="462c0819:PsiDirectoryNode" />
+              <item name="consts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
               <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="module_profile" type="462c0819:PsiDirectoryNode" />
-              <item name="state_manager" type="462c0819:PsiDirectoryNode" />
+              <item name="module_navigation" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
               <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="module_profile" type="462c0819:PsiDirectoryNode" />
-              <item name="state_manager" type="462c0819:PsiDirectoryNode" />
-              <item name="edit_profile_state_manager" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="module_profile" type="462c0819:PsiDirectoryNode" />
-              <item name="state_manager" type="462c0819:PsiDirectoryNode" />
-              <item name="my_profile" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="module_profile" type="462c0819:PsiDirectoryNode" />
+              <item name="module_navigation" type="462c0819:PsiDirectoryNode" />
               <item name="ui" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
               <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="module_profile" type="462c0819:PsiDirectoryNode" />
+              <item name="module_navigation" type="462c0819:PsiDirectoryNode" />
               <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="screen" type="462c0819:PsiDirectoryNode" />
+              <item name="widget" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
               <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="module_profile" type="462c0819:PsiDirectoryNode" />
+              <item name="module_navigation" type="462c0819:PsiDirectoryNode" />
               <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="screen" type="462c0819:PsiDirectoryNode" />
-              <item name="my_profile" type="462c0819:PsiDirectoryNode" />
+              <item name="widget" type="462c0819:PsiDirectoryNode" />
+              <item name="navigation_drawer" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="ProjectViewState">
@@ -257,7 +337,8 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/module_explore/ui/widget" />
+    <property name="last_opened_file_path" value="D:/anime 9/anime-galaxy/anime-flutter/anime_galaxy" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="flutter.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
@@ -305,13 +386,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1602006469330</updated>
-    </task>
-    <task id="LOCAL-00048" summary="enhance home screen response">
-      <created>1605638188249</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1605638188249</updated>
     </task>
     <task id="LOCAL-00049" summary="enhance home screen response">
       <created>1605639988430</created>
@@ -649,7 +723,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607020254724</updated>
     </task>
-    <option name="localTasksCounter" value="97" />
+    <task id="LOCAL-00097" summary="edit upload image">
+      <created>1607025481472</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1607025481473</updated>
+    </task>
+    <option name="localTasksCounter" value="98" />
     <servers />
   </component>
   <component name="TodoView">
@@ -663,9 +744,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.16792738" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.17019667" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -673,10 +755,10 @@
       <window_info id="Capture Tool" order="6" />
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Dart Analysis" order="0" weight="0.4893617" />
-      <window_info active="true" anchor="bottom" id="Run" order="1" sideWeight="0.49924356" visible="true" weight="0.32405892" />
+      <window_info active="true" anchor="bottom" id="Run" order="1" sideWeight="0.49924356" visible="true" weight="0.61374795" />
       <window_info anchor="bottom" id="TODO" order="2" weight="0.3289689" />
       <window_info anchor="bottom" id="Debug" order="3" />
-      <window_info anchor="bottom" id="Terminal" order="4" weight="0.7266776" />
+      <window_info anchor="bottom" id="Terminal" order="4" weight="0.1391162" />
       <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.50075644" side_tool="true" weight="0.6743044" />
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.44517186" />
       <window_info anchor="bottom" id="Messages" order="7" weight="0.45335516" />
@@ -732,7 +814,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="add interaction methods for anime and episode repositories" />
     <MESSAGE value="implement love reaction for episodes and animes" />
     <MESSAGE value="add video trailer to anime screen" />
     <MESSAGE value="implement structure for react to comments of animes and episodes , fix navigation at the drawer , stop video after change screen" />
@@ -757,7 +838,8 @@
     <MESSAGE value="add the ability to navigate to users profiles from their comments" />
     <MESSAGE value="edit general rating bars" />
     <MESSAGE value="fix some bugs and add some features" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix some bugs and add some features" />
+    <MESSAGE value="edit upload image" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit upload image" />
   </component>
   <component name="WindowStateProjectService">
     <state x="522" y="235" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605284647206">
@@ -814,68 +896,6 @@
     <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1606128659485" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/module_explore/repository/category_animes/category_animes.repository.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="13" column="70" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="70" />
-          <folding>
-            <element signature="e#2#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_search/model/search_model/search_model.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="1" selection-end-line="12" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_explore/state/explore/explore.state.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="15" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_explore/state/category_animes/category_animes.state.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_explore/state_manager/category_animes/category_animes.state_manager.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="26" column="54" selection-start-line="26" selection-start-column="54" selection-end-line="26" selection-end-column="54" />
-          <folding>
-            <element signature="e#2#52#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_init_account/model/init_account_model.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="6" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_explore/ui/widget/anime_card_widget/anime_card_widget.dart">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_search/ui/screen/search_screen/seach_screen.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="113" column="16" selection-start-line="90" selection-start-column="10" selection-end-line="113" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-            <element signature="e#2906#3939#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/module_explore/explore_module.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
@@ -1111,29 +1131,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="109" column="34" selection-start-line="109" selection-start-column="34" selection-end-line="109" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/main.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="143" column="40" selection-start-line="143" selection-start-column="40" selection-end-line="143" selection-end-column="40" />
           <folding>
             <element signature="e#0#66#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="536" column="32" selection-start-line="536" selection-start-column="32" selection-end-line="536" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1145,34 +1148,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_settings/ui/ui/settings_page/settings_page.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="123" column="123" selection-start-line="123" selection-start-column="123" selection-end-line="123" selection-end-column="123" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-            <element signature="e#1776#3517#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_profile/state_manager/my_profile/my_profile_state_manager.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="88" column="7" lean-forward="true" selection-start-line="88" selection-start-column="7" selection-end-line="88" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_upload/manager/upload_manager/upload_manager.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="9" column="42" lean-forward="true" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/module_network/http_client/http_client.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
@@ -1180,74 +1155,178 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_profile/request/create_profile.dart">
+    <entry file="file://$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="6" selection-start-column="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_profile/state_manager/edit_profile_state_manager/edit_profile_state_manager.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="32" column="31" lean-forward="true" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
+        <state relative-caret-position="10280">
+          <caret line="538" selection-start-line="538" selection-end-line="538" />
           <folding>
-            <element signature="e#0#17#0" expanded="true" />
+            <element signature="e#0#50#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_profile/service/my_profile/my_profile.dart">
+    <entry file="file://$PROJECT_DIR$/lib/di/components/app.component.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="43">
-          <caret line="152" column="22" lean-forward="true" selection-start-line="152" selection-start-column="22" selection-end-line="152" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#95#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_upload/repository/upload_repository/upload_repository.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="12" column="7" lean-forward="true" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#47#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_profile/manager/my_profile_manager/my_profile_manager.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="33" column="36" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_profile/repository/my_profile/my_profile.repository.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="155" column="19" lean-forward="true" selection-start-line="155" selection-start-column="19" selection-end-line="155" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_upload/service/image_upload/image_upload_service.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+        <state relative-caret-position="180">
+          <caret line="12" column="34" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ios/Fastlane/Appfile">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ios/Fastlane/Fastfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1">
+          <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_profile/state_manager/my_profile/my_profile_state_manager.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="661">
+          <caret line="71" column="19" selection-start-line="71" selection-start-column="7" selection-end-line="71" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/watch-code.bat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/module_profile/ui/screen/my_profile/my_profile.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="156" column="37" selection-start-line="156" selection-start-column="37" selection-end-line="156" selection-end-column="37" />
+        <state relative-caret-position="188">
+          <caret line="157" column="37" selection-start-line="157" selection-start-column="37" selection-end-line="157" selection-end-column="37" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_upload/manager/upload_manager/upload_manager.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_upload/repository/upload_repository/upload_repository.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-236">
+          <caret line="8" column="48" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_upload/service/image_upload/image_upload_service.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="12" column="38" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_profile/state_manager/edit_profile_state_manager/edit_profile_state_manager.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="32" column="31" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/utils/app_bar/anime_galaxy_app_bar.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#91#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_navigation/ui/widget/navigation_drawer/anime_navigation_drawer.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2060">
+          <caret line="17" column="70" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="70" />
+          <folding>
+            <element signature="e#0#91#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_settings/ui/ui/settings_page/settings_page.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="59">
+          <caret line="72" column="64" selection-start-line="72" selection-start-column="64" selection-end-line="72" selection-end-column="64" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/consts/urls.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="4" column="59" selection-start-line="4" selection-start-column="59" selection-end-line="4" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_profile/request/create_profile.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="21" column="6" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_profile/repository/my_profile/my_profile.repository.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="155" column="51" selection-start-line="155" selection-start-column="51" selection-end-line="155" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_profile/manager/my_profile_manager/my_profile_manager.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="33" column="37" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_profile/service/my_profile/my_profile.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="165" column="65" selection-start-line="165" selection-start-column="65" selection-end-line="165" selection-end-column="65" />
+          <folding>
+            <element signature="e#0#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_profile/response/profile_response/profile_response.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="13" column="22" lean-forward="true" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
         </state>
       </provider>
     </entry>

@@ -1,3 +1,4 @@
+import 'package:anime_galaxy/consts/urls.dart';
 import 'package:anime_galaxy/module_anime/response/favourite_response/favourite_response.dart';
 import 'package:anime_galaxy/module_auth/service/auth_service/auth_service.dart';
 import 'package:anime_galaxy/module_profile/manager/my_profile_manager/my_profile_manager.dart';
@@ -8,6 +9,7 @@ import 'package:anime_galaxy/module_profile/response/following_activities_respon
 import 'package:anime_galaxy/module_profile/response/previous_comments_response/previous_comments_response.dart';
 import 'package:anime_galaxy/module_profile/response/profile_response/profile_response.dart';
 import 'package:anime_galaxy/module_profile/service/general_profile/general_profile.dart';
+import 'package:anime_galaxy/module_upload/service/image_upload/image_upload_service.dart';
 import 'package:anime_galaxy/utils/logger/logger.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:inject/inject.dart';
@@ -21,12 +23,14 @@ class MyProfileService {
   final AuthService _authService;
   final GeneralProfileService _generalProfileService;
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+  final ImageUploadService _imageUploadService;
 
   MyProfileService(
     this._manager,
     this._preferencesHelper,
     this._authService,
     this._generalProfileService,
+    this._imageUploadService,
   );
 
   Future<void> saveImage(String image) {
@@ -46,8 +50,8 @@ class MyProfileService {
       ProfileModel result = new ProfileModel(
         name: response.userName,
         image: response.image,
-        followingNumber: response.followedByNumber,
-        commentsNumber: response.commentsNumber,
+        followingNumber: response.followedByNumber.toString(),
+        commentsNumber: response.commentsNumber.toString(),
         about: response.story,
         seriesNumber: response.favourites.length,
         watchedSeries: _getSeries(response.favourites),
@@ -146,18 +150,20 @@ class MyProfileService {
     String userImage,
     String story,
   ) async {
+    String imageUrl;
+    if(userImage != null)  imageUrl = await _imageUploadService.uploadImage(userImage);
     String userId = await _authService.userID;
 
     var profileExists = await _manager.getProfile(userId);
 
     CreateProfileRequest request = CreateProfileRequest(
         userName: username,
-        image: userImage,
+        image: imageUrl??'',
         location: 'Saudi Arabia',
         story: story,
         userID: userId);
     await _preferencesHelper.setUserName(username);
-    await _preferencesHelper.setUserImage(userImage);
+    await _preferencesHelper.setUserImage(Urls.IMAGES_UPLOAD_PATH+'/'+imageUrl);
     await _preferencesHelper.setUserLocation('Saudi Arabia');
     await _preferencesHelper.setUserStory(story);
     try {

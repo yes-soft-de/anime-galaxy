@@ -19,7 +19,7 @@ class CreateProfileRequest {
       'userName': this.userName,
       'story': this.story,
       'location': this.location,
-      // 'image': this.image,
+       'image': this.image,
     };
   }
 }

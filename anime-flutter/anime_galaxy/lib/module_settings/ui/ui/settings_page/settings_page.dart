@@ -69,10 +69,13 @@ class _SettingsPageState extends State<SettingsPage> {
                            ),
                            child: Align(
                                alignment: Alignment.center,
-                               child: CircularImage(
-                                 width: hight/8,
-                                 height: hight/8,
-                                 linkImg:snapshot.data ?? 'https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=100&q=60 100w',
+                               child: GestureDetector(
+                                 onTap: ()=> print(snapshot.data),
+                                 child: CircularImage(
+                                   width: hight/8,
+                                   height: hight/8,
+                                   linkImg:snapshot.data ?? 'https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=100&q=60 100w',
+                                 ),
                                )
                            ),
 
@@ -95,7 +98,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
                    children: [
                      FutureBuilder(
-                       future: widget._authService.username,
+                       future: widget._profileSharedPreferencesHelper.getUsername(),
                        builder: (
                            BuildContext context,
                            AsyncSnapshot<String> snapshot,

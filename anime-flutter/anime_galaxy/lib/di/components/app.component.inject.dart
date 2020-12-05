@@ -33,17 +33,17 @@ import '../../module_profile/presistance/profile_shared_preferences.dart'
     as _i27;
 import '../../module_profile/service/general_profile/general_profile.dart'
     as _i28;
-import '../../module_error/error_module.dart' as _i29;
-import '../../module_error/ui/screen/error_screen.dart' as _i30;
-import '../../module_profile/profile_module.dart' as _i31;
-import '../../module_profile/ui/screen/profile_screen/profile_screen.dart'
-    as _i32;
-import '../../module_profile/state_manager/my_profile/my_profile_state_manager.dart'
-    as _i33;
 import '../../module_upload/service/image_upload/image_upload_service.dart'
-    as _i34;
-import '../../module_upload/manager/upload_manager/upload_manager.dart' as _i35;
+    as _i29;
+import '../../module_upload/manager/upload_manager/upload_manager.dart' as _i30;
 import '../../module_upload/repository/upload_repository/upload_repository.dart'
+    as _i31;
+import '../../module_error/error_module.dart' as _i32;
+import '../../module_error/ui/screen/error_screen.dart' as _i33;
+import '../../module_profile/profile_module.dart' as _i34;
+import '../../module_profile/ui/screen/profile_screen/profile_screen.dart'
+    as _i35;
+import '../../module_profile/state_manager/my_profile/my_profile_state_manager.dart'
     as _i36;
 import '../../module_profile/ui/screen/my_profile/my_profile.dart' as _i37;
 import '../../module_profile/state_manager/edit_profile_state_manager/edit_profile_state_manager.dart'
@@ -200,7 +200,8 @@ class AppComponent$Injector implements _i1.AppComponent {
       _createMyProfileManager(),
       _createProfileSharedPreferencesHelper(),
       _createAuthService(),
-      _createGeneralProfileService());
+      _createGeneralProfileService(),
+      _createImageUploadService());
   _i25.MyProfileManager _createMyProfileManager() =>
       _i25.MyProfileManager(_createMyProfileRepository());
   _i26.MyProfileRepository _createMyProfileRepository() =>
@@ -209,23 +210,23 @@ class AppComponent$Injector implements _i1.AppComponent {
       _i27.ProfileSharedPreferencesHelper();
   _i28.GeneralProfileService _createGeneralProfileService() =>
       _i28.GeneralProfileService();
-  _i29.ErrorModule _createErrorModule() =>
-      _i29.ErrorModule(_createErrorScreen());
-  _i30.ErrorScreen _createErrorScreen() => _i30.ErrorScreen();
-  _i31.ProfileModule _createProfileModule() =>
-      _i31.ProfileModule(_createProfileScreen(), _createMyProfileScreen());
-  _i32.ProfileScreen _createProfileScreen() => _i32.ProfileScreen(
+  _i29.ImageUploadService _createImageUploadService() =>
+      _i29.ImageUploadService(_createUploadManager());
+  _i30.UploadManager _createUploadManager() =>
+      _i30.UploadManager(_createUploadRepository());
+  _i31.UploadRepository _createUploadRepository() => _i31.UploadRepository();
+  _i32.ErrorModule _createErrorModule() =>
+      _i32.ErrorModule(_createErrorScreen());
+  _i33.ErrorScreen _createErrorScreen() => _i33.ErrorScreen();
+  _i34.ProfileModule _createProfileModule() =>
+      _i34.ProfileModule(_createProfileScreen(), _createMyProfileScreen());
+  _i35.ProfileScreen _createProfileScreen() => _i35.ProfileScreen(
       _createAuthService(),
       _createMyProfileStateManager(),
       _createProfileSharedPreferencesHelper());
-  _i33.MyProfileStateManager _createMyProfileStateManager() =>
-      _i33.MyProfileStateManager(
+  _i36.MyProfileStateManager _createMyProfileStateManager() =>
+      _i36.MyProfileStateManager(
           _createImageUploadService(), _createMyProfileService());
-  _i34.ImageUploadService _createImageUploadService() =>
-      _i34.ImageUploadService(_createUploadManager());
-  _i35.UploadManager _createUploadManager() =>
-      _i35.UploadManager(_createUploadRepository());
-  _i36.UploadRepository _createUploadRepository() => _i36.UploadRepository();
   _i37.MyProfileScreen _createMyProfileScreen() => _i37.MyProfileScreen(
       _createEditProfileStateManager(), _createImageUploadService());
   _i38.EditProfileStateManager _createEditProfileStateManager() =>

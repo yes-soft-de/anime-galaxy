@@ -16,8 +16,8 @@ class ProfileResponse {
   List<FavouriteResponse> favourites;
   bool isFollowed;
   PreviousCommentsResponse previousCommentsResponse;
-  String commentsNumber;
-  String followedByNumber;
+  int commentsNumber;
+  int followedByNumber;
 
   ProfileResponse(
       {this.id,

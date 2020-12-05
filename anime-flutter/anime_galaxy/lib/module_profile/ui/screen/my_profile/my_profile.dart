@@ -84,9 +84,10 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
                                   .then((value) {
                                 if (value != null) {
                                   userImage = value.path;
+                                  print('image pikced');
 //                                  widget.manager.saveProfileImage(value.path);
 
-                                   widget.manager.uploadImage(userImage);
+                                  // widget.manager.uploadImage(userImage);
                                 }
                               });
                             },
@@ -157,7 +158,7 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
                 widget.manager.saveProfile(
                   _nameController.text.trim(),
                   _storyController.text.trim(),
-                  userImageUrl
+                  userImage
                 );
               },
               child: Row(
