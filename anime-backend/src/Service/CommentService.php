@@ -109,9 +109,17 @@ class CommentService
     {
         $response = [];
         $result = $this->commentManager->commentsNumber($userID);
+
+        $commentsEpisodeNumber = $this->commentEpisodeService->getEpisodeCommentsNumbers($userID);
+        
         foreach ($result as $row) {
              $response = $this->autoMapping->map('array', GetcommentsNumberResponse::class, $row);
         }
+
+        $totalNumber = $response->getCommentsNumber() + $commentsEpisodeNumber[0]['commentsNumber'];
+
+        $response->setCommentsNumber($totalNumber);
+
         return $response;
     }
 

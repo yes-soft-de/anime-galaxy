@@ -97,4 +97,14 @@ class CommentEpisodeRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
+    public function getEpisodeCommentsNumbers($userID)
+    {
+        return $this->createQueryBuilder('comment')
+            ->select('count(comment.id) as commentsNumber')
+            ->andWhere('comment.userID=:userID')
+            ->setParameter('userID', $userID)
+            ->getQuery()
+            ->getResult();
+    }
 }

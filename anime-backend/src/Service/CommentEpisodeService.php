@@ -133,4 +133,9 @@ class CommentEpisodeService
 
         return $response;
     }
+
+    public function getEpisodeCommentsNumbers($userID)
+    {
+        return $this->commentEpisodeManager->getEpisodeCommentsNumbers($userID);
+    }
 }

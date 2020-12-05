@@ -81,4 +81,9 @@ class CommentEpisodeManager
     {
         return $this->commentEpisodeRepository->getCommentsByUserId($userID);
     }
+
+    public function getEpisodeCommentsNumbers($userID)
+    {
+        return $this->commentEpisodeRepository->getEpisodeCommentsNumbers($userID);
+    }
 }
