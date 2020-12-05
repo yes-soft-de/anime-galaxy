@@ -23,11 +23,11 @@ class PointsWidget extends StatelessWidget {
     return Container(
       padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
       child: Row(
-
+         mainAxisAlignment: MainAxisAlignment.center,
         children: [
 
           Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
                 S.of(context).member+' $memberType',
@@ -37,11 +37,11 @@ class PointsWidget extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(top: 10),
+                margin: EdgeInsets.only(top: 4),
                 child: RotatedBox(
                   quarterTurns: 2,
                   child:   new LinearPercentIndicator(
-                    width: MediaQuery.of(context).size.width *0.8,
+                    width: MediaQuery.of(context).size.width*0.8,
                     animation: true,
                     lineHeight: 10.0,
                     animationDuration: 1500,

@@ -188,6 +188,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         child: Container(
           padding: EdgeInsetsDirectional.fromSTEB(7, 0, 7, 10),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               PointsWidget(
                 points: anime.points,
