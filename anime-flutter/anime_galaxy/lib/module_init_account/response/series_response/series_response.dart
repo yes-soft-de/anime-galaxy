@@ -5,7 +5,7 @@ class SeriesResponse {
   String name;
   String mainImage;
   double rating;
-  String comments;
+  int comments;
   Interaction interaction;
 
   SeriesResponse(
@@ -47,9 +47,9 @@ class SeriesResponse {
 }
 
 class Interaction {
-  String love;
-  String like;
-  String dislike;
+  int love;
+  int like;
+  int dislike;
 
   Interaction({this.love, this.like, this.dislike});
 

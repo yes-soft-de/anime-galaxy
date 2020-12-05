@@ -74,7 +74,10 @@ class MyProfileRepository {
     dynamic res = following['Data'];
     for (int i = 0; i < res.length; i++) {
       FollowingUsersResponse follow = FollowingUsersResponse.fromJson(res[i]);
-      if (friendId == follow.friendID) isFollowed1 =  true;
+      if (friendId == follow.friendID) {
+        isFollowed1 =  true;
+        return;
+      }
     }
 
     isFollowed1 = false;

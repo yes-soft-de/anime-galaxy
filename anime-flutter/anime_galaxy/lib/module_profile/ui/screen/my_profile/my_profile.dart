@@ -30,14 +30,14 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
   bool loading = false;
   String userImage;
   String userImageUrl ;
-
+  String redirectTo = InitAccountRoutes.INIT_ACCOUNT_ROUTE;
   @override
   void initState() {
     super.initState();
     widget.manager.stateStream.stream.listen((event) {
       // Null means no errors
       if (event == null) {
-        Navigator.of(context).pushReplacementNamed(InitAccountRoutes.INIT_ACCOUNT_ROUTE);
+        Navigator.of(context).pushReplacementNamed(redirectTo);
       }
       if(event =='Cant create a profile') {
         _errorMsg = event;
@@ -51,9 +51,10 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    String redirectTo = ModalRoute.of(context).settings.arguments.toString();
-    redirectTo =
-        redirectTo == null ? redirectTo : MainScreenRoute.MAIN_SCREEN_ROUTE;
+    String link = ModalRoute.of(context).settings.arguments;
+   if(link != null) redirectTo = link;
+
+    print('okok : $redirectTo');
     return Scaffold(
       body: _getProfileEditScreen(),
     );

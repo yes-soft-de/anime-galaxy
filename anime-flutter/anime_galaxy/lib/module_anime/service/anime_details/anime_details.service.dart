@@ -26,7 +26,7 @@ class AnimeDetailsService {
     anime.image = image;
     anime.classification = response.categoryName;
     anime.rate = response.rating;
-    anime.likesNumber = response.interactions.love;
+    anime.likesNumber = response.interactions.love.toString();
     anime.commentsNumber = response.comments.length;
     anime.comments = getComments(response.comments);
     anime.ageGroup = response.ageGroup;
@@ -75,7 +75,7 @@ class AnimeDetailsService {
         userName:element.userName,
         id: element.id,
         userId: element.userID,
-        likesNumber: element.commentInteractions.love,
+        likesNumber: element.commentInteractions.love.toString(),
         userImage:element.image,
       //  date:' ${months[date.month+1]} ${date.day} ' ,
         date: df.format(date).toString()??'',

@@ -263,9 +263,9 @@ class Location {
 }
 
 class CommentInteractions {
-  String love;
-  String like;
-  String dislike;
+  int love;
+  int like;
+  int dislike;
   bool isLoved;
 
   CommentInteractions({this.love, this.like, this.dislike});

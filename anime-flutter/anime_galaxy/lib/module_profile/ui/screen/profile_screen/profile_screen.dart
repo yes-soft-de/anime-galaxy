@@ -57,8 +57,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
     }
     if (currentState is ProfileFollowSuccess) {
       _profileModel.isFollowed = true;
+      int num = int.parse( _profileModel.followingNumber);
+      num+=1;
+      _profileModel.followingNumber =num.toString() ;
     }
     if (currentState is ProfileUnFollowSuccess) {
+      int num = int.parse( _profileModel.followingNumber);
+      num-=1;
       _profileModel.isFollowed = false;
 
     }

@@ -26,7 +26,7 @@ class EpisodeDetailsService{
     episode.image = image;
     episode.classification = response.categoryName;
     episode.rate = response.rating;
-    episode.likesNumber = response.interactions.love;
+    episode.likesNumber = response.interactions.love.toString();
     episode.commentsNumber = response.comments.length;
     episode.comments = await getComments(response.comments);
 
@@ -57,7 +57,7 @@ class EpisodeDetailsService{
         userName: element.userName,
         userId: element.userID,
         id: element.id,
-        likesNumber: element.commentInteractions.love,
+        likesNumber: element.commentInteractions.love.toString(),
         userImage:element.image,
         //  date:' ${months[date.month+1]} ${date.day} ' ,
         date: df.format(date).toString()??'',

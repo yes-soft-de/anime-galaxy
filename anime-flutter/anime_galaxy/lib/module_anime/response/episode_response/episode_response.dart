@@ -9,7 +9,7 @@ class EpisodeResponse {
   ResponseDuration publishDate;
   ResponseDuration createdAt;
   EpisodInteraction episodInteraction;
-  String comments;
+  int comments;
   String rating;
 
   EpisodeResponse(
@@ -188,9 +188,9 @@ class Location {
 }
 
 class EpisodInteraction {
-  String love;
-  String like;
-  String dislike;
+  int love;
+  int like;
+  int dislike;
 
   EpisodInteraction({this.love, this.like, this.dislike});
 

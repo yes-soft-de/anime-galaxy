@@ -349,7 +349,7 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
                   child: Text(
                     '${episode.about}',
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 14,
                       fontFamily: 'Roboto',
                     ),
                   ),

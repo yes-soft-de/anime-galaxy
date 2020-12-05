@@ -1,4 +1,3 @@
-
 import 'package:anime_galaxy/utils/project_color/project_color.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
@@ -27,13 +26,16 @@ class PointsWidget extends StatelessWidget {
         children: [
 
           Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                S.of(context).member+' $memberType',
-                style: TextStyle(
-                    fontSize: 10,
-                  fontFamily:'Roboto',
+              Container(
+                padding: EdgeInsets.only(right: 10),
+                child: Text(
+                  S.of(context).member+' $memberType',
+                  style: TextStyle(
+                      fontSize: 10,
+                    fontFamily:'Roboto',
+                  ),
                 ),
               ),
               Container(

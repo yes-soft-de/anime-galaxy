@@ -69,7 +69,10 @@ class _AuthScreenState extends State<AuthScreen> {
       Navigator.of(context).pushReplacementNamed(MainScreenRoute.MAIN_SCREEN_ROUTE);
     }
     if (_currentState is AuthStateNotRegisteredUser) {
-      Navigator.of(context).pushReplacementNamed(ProfileRoutes.ROUTE_EDIT_PROFILE);
+      Navigator.of(context).pushReplacementNamed(
+          ProfileRoutes.ROUTE_EDIT_PROFILE,
+          arguments: InitAccountRoutes.INIT_ACCOUNT_ROUTE
+      );
     }
     if (_currentState is AuthStateError) {
       AuthStateError errorState = _currentState;
