@@ -205,6 +205,7 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
           rate: episode.rate,
           showYear: episode.showYear,
           image: episode.image,
+          duration: episode.duration,
           isLoved: episode.isLoved ?? false,
           onLove: () => widget._stateManager.loveEpisode(episodeId),
 

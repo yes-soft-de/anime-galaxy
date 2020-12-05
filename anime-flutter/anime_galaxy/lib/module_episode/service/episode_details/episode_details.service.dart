@@ -7,6 +7,7 @@ import 'package:anime_galaxy/module_episode/request/comment_request/comment_requ
 import 'package:anime_galaxy/module_episode/request/rating_request/rating_request.dart';
 import 'package:anime_galaxy/module_episode/response/comment_response/comment_response.dart';
 import 'package:anime_galaxy/module_episode/response/episode_response/episode_response.dart';
+import 'package:anime_galaxy/utils/time/time_formatter.dart';
 import 'package:inject/inject.dart';
 import 'package:intl/intl.dart';
 
@@ -29,6 +30,10 @@ class EpisodeDetailsService{
     episode.likesNumber = response.interactions.love.toString();
     episode.commentsNumber = response.comments.length;
     episode.comments = await getComments(response.comments);
+
+    int seconds=0;
+    if(response.duration!= null)  seconds = response.duration.timestamp;
+    episode.duration = TimeFormatter.secondsToTime(seconds);
 
     var df = new DateFormat('yyyy');
     var date = response.publishDate != null?

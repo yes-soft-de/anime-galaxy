@@ -13,6 +13,7 @@ class EpisodeDetailsWidget extends StatelessWidget {
   final String image;
   final LoveCallBack onLove;
   final bool isLoved;
+  final String duration;
 
   EpisodeDetailsWidget(
       {this.name,
@@ -23,6 +24,7 @@ class EpisodeDetailsWidget extends StatelessWidget {
         this.image,
         this.onLove,
         this.isLoved,
+        this.duration,
       });
   @override
   Widget build(BuildContext context) {
@@ -48,12 +50,25 @@ class EpisodeDetailsWidget extends StatelessWidget {
                       fontFamily:'Roboto',
                     ),
                   ),
-                  Text(
-                    showYear,
-                    style: TextStyle(
-                      fontFamily:'Roboto',
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      showYear,
+                      style: TextStyle(
+                        fontFamily:'Roboto',
+                      ),
                     ),
-                  ),
+                    Text(
+                      duration,
+                      textDirection: TextDirection.ltr,
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontFamily:'Roboto',
+                      ),
+                    ),
+                  ],
+                ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [

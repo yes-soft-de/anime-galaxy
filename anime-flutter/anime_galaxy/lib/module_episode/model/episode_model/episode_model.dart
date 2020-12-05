@@ -10,6 +10,7 @@ class EpisodeModel{
   List<Comment> comments;
   int previousRate;
   bool isLoved;
+  String duration;
 
   EpisodeModel({
     this.commentsNumber,
@@ -23,6 +24,7 @@ class EpisodeModel{
     this.comments,
     this.previousRate,
     this.isLoved,
+    this.duration,
   });
 }
 
