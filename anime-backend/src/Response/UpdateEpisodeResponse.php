@@ -24,6 +24,8 @@ class UpdateEpisodeResponse
 
     public $createdAt;
 
+    public $categoyID;
+
     /**
      * @param mixed $animeID
      */

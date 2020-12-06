@@ -14,6 +14,7 @@ class UpdateEpisodeRequest
     private $image;
     private $duration;
     private $publishDate;
+    private $categoyID;
 
     /**
      * @return mixed
