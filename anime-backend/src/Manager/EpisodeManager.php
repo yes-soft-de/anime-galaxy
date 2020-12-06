@@ -54,7 +54,7 @@ class EpisodeManager
              Episode::class, $request, $episodeEntity);
 
             $episodeEntity->setCreatedAt();
-            $episodeEntity->setDuration();
+            $episodeEntity->setDuration($request->getDuration());
             $episodeEntity->setPublishDate($episodeEntity->getPublishDate());
 
             $this->entityManager->flush();
