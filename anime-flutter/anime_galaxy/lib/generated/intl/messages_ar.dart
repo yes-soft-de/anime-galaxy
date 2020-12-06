@@ -55,6 +55,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "comingSoonEpisodes" : MessageLookupByLibrary.simpleMessage("حلقات ستصدر قريباً"),
     "comingSoonSeries" : MessageLookupByLibrary.simpleMessage("مسلسلات تصدر قريبا"),
     "comment" : MessageLookupByLibrary.simpleMessage("تعليق"),
+    "commentContainsSpoiler" : MessageLookupByLibrary.simpleMessage("هذا التعليق يحوي حرق"),
     "comments" : MessageLookupByLibrary.simpleMessage("التعليقات"),
     "confirm" : MessageLookupByLibrary.simpleMessage("تأكيد الرقم!"),
     "continueUsingApp" : MessageLookupByLibrary.simpleMessage("تابع استخدام التطبيق"),

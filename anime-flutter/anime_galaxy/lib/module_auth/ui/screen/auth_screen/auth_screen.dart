@@ -40,6 +40,7 @@ class _AuthScreenState extends State<AuthScreen> {
   bool _autoValidate = false;
 
   bool loading = false;
+  String redirectTo;
 
   @override
   void initState() {
@@ -51,29 +52,28 @@ class _AuthScreenState extends State<AuthScreen> {
       print(event.runtimeType.toString());
       _currentState = event;
       loading = false;
-      setState(() {});
+      processEvent();
     });
   }
 
+  void processEvent(){
+    if (_currentState is AuthStateSuccess) {
+      redirectTo = MainScreenRoute.MAIN_SCREEN_ROUTE;
+    }
+    if (_currentState is AuthStateNotRegisteredUser) {
+      redirectTo = ProfileRoutes.ROUTE_EDIT_PROFILE;
+    }
+
+    setState(() {});
+  }
   @override
   Widget build(BuildContext context) {
-    String redirectTo = ModalRoute.of(context).settings.arguments.toString();
-    redirectTo =
-        redirectTo == null ? redirectTo : ProfileRoutes.ROUTE_EDIT_PROFILE;
+
 
     widget.manager.isSignedIn().then((value) {
       if (value) Navigator.of(context).pushReplacementNamed(redirectTo);
     });
 
-    if (_currentState is AuthStateSuccess) {
-      Navigator.of(context).pushReplacementNamed(MainScreenRoute.MAIN_SCREEN_ROUTE);
-    }
-    if (_currentState is AuthStateNotRegisteredUser) {
-      Navigator.of(context).pushReplacementNamed(
-          ProfileRoutes.ROUTE_EDIT_PROFILE,
-          arguments: InitAccountRoutes.INIT_ACCOUNT_ROUTE
-      );
-    }
     if (_currentState is AuthStateError) {
       AuthStateError errorState = _currentState;
       if (errorState.errorMsg != null) {

@@ -138,5 +138,6 @@
   "comingSoonSeries": "مسلسلات تصدر قريبا",
   "comingSoonEpisodes": "حلقات ستصدر قريباً",
   "hideComments": "اخفاء التعليقات",
-  "showComments": "اظهار التعليقات"
+  "showComments": "اظهار التعليقات",
+  "commentContainsSpoiler": "هذا التعليق يحوي حرق"
 }

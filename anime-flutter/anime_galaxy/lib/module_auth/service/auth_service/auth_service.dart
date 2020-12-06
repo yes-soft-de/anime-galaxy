@@ -1,6 +1,7 @@
 import 'package:anime_galaxy/module_auth/enums/auth_source.dart';
 import 'package:anime_galaxy/module_auth/manager/auth/auth_manager.dart';
 import 'package:anime_galaxy/module_auth/presistance/auth_prefs_helper.dart';
+import 'package:anime_galaxy/module_profile/service/my_profile/my_profile.dart';
 import 'package:anime_galaxy/utils/logger/logger.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:inject/inject.dart';

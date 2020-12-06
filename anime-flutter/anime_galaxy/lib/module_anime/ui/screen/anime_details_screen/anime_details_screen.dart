@@ -5,6 +5,7 @@ import 'package:anime_galaxy/module_anime/state_manager/anime_details/anime_deta
 import 'package:anime_galaxy/module_anime/ui/widget/anime_details_widget/ainme_details_widget.dart';
 import 'package:anime_galaxy/module_anime/ui/widget/comment_card/comment_card.dart';
 import 'package:anime_galaxy/module_anime/ui/widget/episode_card/episode_card.dart';
+import 'package:anime_galaxy/module_anime/ui/widget/spoiler_comment_card/spoiler_comment_card.dart';
 import 'package:anime_galaxy/module_auth/service/auth_service/auth_service.dart';
 import 'package:anime_galaxy/module_episode/episode_routes.dart';
 import 'package:anime_galaxy/module_navigation/ui/widget/navigation_drawer/anime_navigation_drawer.dart';
@@ -20,6 +21,7 @@ import 'package:inject/inject.dart';
 import 'package:intl/intl.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:video_player/video_player.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 import '../../../state/anime_details/anime_details.state.dart';
 
@@ -57,11 +59,30 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
   VideoPlayerController controller; // used to controller videos
   Future<void> futureController;
   bool CommentsVisible = false;
- // ScrollController _scrollController;
+
+  //youtube video controller
+//  YoutubePlayerController _youtubePlayerController;
+//  PlayerState _playerState;
+//  YoutubeMetaData _videoMetaData;
+//  double _volume = 100;
+//  bool _muted = false;
+//  bool _isPlayerReady = false;
+
+  // ScrollController _scrollController;
 
   @override
   void initState() {
     super.initState();
+    controller = VideoPlayerController.network(
+      /* anime.trailerVideo??*/
+      /**/   'blob:https://www.youtube.com/7665f6c7-323d-4765-ab92-6b9aea6eb06b'
+        'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4'
+    );
+    futureController = controller.initialize();
+    controller.setLooping(true);  // this will keep video looping active, means video will keep on playing
+    controller.setVolume(25.0);
+    controller.play();
+
     _getUserId();
 
 //    _scrollController = ScrollController();
@@ -72,11 +93,28 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
       processEvent();
     });
 
-
   }
+
+//  void listener() {
+//    if (_isPlayerReady && mounted && !_youtubePlayerController.value.isFullScreen) {
+//      setState(() {
+//        _playerState = _youtubePlayerController.value.playerState;
+//        _videoMetaData = _youtubePlayerController.metadata;
+//      });
+//    }
+//  }
+
+  @override
+//  void deactivate() {
+//     Pauses video while navigating to next page.
+//     _youtubePlayerController.pause();
+//    super.deactivate();
+//  }
 
   @override
   void dispose() {
+  //  _youtubePlayerController.dispose(); // when app is been closed destroyed the controller
+
     controller.dispose();  // when app is been closed destroyed the controller
     super.dispose();
   }
@@ -111,11 +149,32 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
       anime = state.data;
       rating = anime.previousRate;
 
-      controller = VideoPlayerController.network(anime.trailerVideo??'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4');
-      futureController = controller.initialize();
-      controller.setLooping(true);  // this will keep video looping active, means video will keep on playing
-      controller.setVolume(25.0);
-      controller.play();
+      //ordinary video initializing
+//      controller = VideoPlayerController.network(
+//         /* anime.trailerVideo??*/
+//           /**/   'blob:https://www.youtube.com/7665f6c7-323d-4765-ab92-6b9aea6eb06b'
+//          'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4'
+//      );
+//      futureController = controller.initialize();
+//      controller.setLooping(true);  // this will keep video looping active, means video will keep on playing
+//      controller.setVolume(25.0);
+//      controller.play();
+
+      //youtube video initializing
+//      _youtubePlayerController = YoutubePlayerController(
+//        initialVideoId: YoutubePlayer.convertUrlToId(anime.trailerVideo??'https://www.youtube.com/watch?v=BBAyRBTfsOU'),
+//        flags: const YoutubePlayerFlags(
+//          mute: false,
+//          autoPlay: true,
+//          disableDragSeek: false,
+//          loop: false,
+//          isLive: false,
+//          forceHD: false,
+//          enableCaption: true,
+//        ),
+//      )..addListener(listener);
+//      _videoMetaData = const YoutubeMetaData();
+//      _playerState = PlayerState.unknown;
 
       loading = false;
       if (this.mounted) {
@@ -490,6 +549,11 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
 
           //Trailer video
 
+          //youtube video player
+//         _youtubePlayer(),
+
+
+          //ordinary video player
           FutureBuilder(
             future: futureController,
             builder: (context,snapshot){
@@ -535,7 +599,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
 
 
 
-          //last episodes
+         // last episodes
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
@@ -561,7 +625,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
             itemBuilder: (BuildContext context, int index) {
               return GestureDetector(
                 onTap: () {
-                  controller.pause();
+//                  controller.pause(); // to stop video when navigation to another screen
                   Navigator.pushNamed(
                       context, EpisodeRoutes.ROUTE_EPISODE_DETAILS_SCREEN,
                       arguments: anime.episodes[index].id);
@@ -656,17 +720,33 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
           shrinkWrap: true,
           itemCount: anime.comments != null ? anime.comments.length : 0,
           itemBuilder: (BuildContext context, int index) {
-            return CommentCard(
-              userId: anime.comments[index].userId,
-              userImage: '${anime.comments[index].userImage}',
-              userName: '${anime.comments[index].userName}',
-              date:'${ anime.comments[index].date}',
-              comment: '${anime.comments[index].content}',
-              likesNumber: anime.comments[index].likesNumber,
-              isLoved:anime.comments[index].isLoved ,
-              onLove:()=> widget._stateManager.loveComment(anime.comments[index].id),
+            return anime.comments[index].spoilerAlert ?
+                         SpoilerCommentCard(
+                           userId: anime.comments[index].userId,
+                           userImage: '${anime.comments[index].userImage}',
+                           userName: '${anime.comments[index].userName}',
+                           date:'${ anime.comments[index].date}',
+                           likesNumber: anime.comments[index].likesNumber,
+                           isLoved:anime.comments[index].isLoved ,
+                           onShow:(){
+                             anime.comments[index].spoilerAlert = false;
+                             setState(() {
 
-            );
+                             });
+                           },
+                         )   :
+                        CommentCard(
+                          userId: anime.comments[index].userId,
+                          userImage: '${anime.comments[index].userImage}',
+                          userName: '${anime.comments[index].userName}',
+                          date:'${ anime.comments[index].date}',
+                          comment: '${anime.comments[index].content}',
+                          likesNumber: anime.comments[index].likesNumber,
+                          isLoved:anime.comments[index].isLoved ,
+                          onLove:()=> widget._stateManager.loveComment(anime.comments[index].id),
+
+
+                        )  ;
           },
         )
             : Text(
@@ -678,6 +758,135 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
       ],
     );
   }
+//  Widget _youtubePlayer(){
+//    return YoutubePlayerBuilder(
+//      onExitFullScreen: () {
+//        // The player forces portraitUp after exiting fullscreen. This overrides the behaviour.
+////                SystemChrome.setPreferredOrientations(DeviceOrientation.values);
+//      },
+//      player: YoutubePlayer(
+//        controller: _youtubePlayerController,
+//        showVideoProgressIndicator: true,
+//        progressIndicatorColor: ProjectColors.ThemeColor,
+//        topActions: <Widget>[
+//          const SizedBox(width: 8.0),
+//          Expanded(
+//            child: Text(
+//              _youtubePlayerController.metadata.title,
+//              style: const TextStyle(
+//                color: Colors.white,
+//                fontSize: 18.0,
+//              ),
+//              overflow: TextOverflow.ellipsis,
+//              maxLines: 1,
+//            ),
+//          ),
+////
+//        ],
+//        onReady: () {
+//          _isPlayerReady = true;
+//        },
+////
+//      ),
+//      builder: (context, player) => Scaffold(
+//        key: _scaffoldKey,
+//        appBar: AppBar(
+//          leading: Padding(
+//            padding: const EdgeInsets.only(left: 12.0),
+//            child: Image.asset(
+//              'assets/ypf.png',
+//              fit: BoxFit.fitWidth,
+//            ),
+//          ),
+//
+//        ),
+//        body: ListView(
+//          children: [
+//            player,
+//            Padding(
+//              padding: const EdgeInsets.all(8.0),
+//              child: Column(
+//                crossAxisAlignment: CrossAxisAlignment.stretch,
+//                children: [
+//
+//
+//                  Row(
+//                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//                    children: [
+//
+//                      IconButton(
+//                        icon: Icon(
+//                          _youtubePlayerController.value.isPlaying
+//                              ? Icons.pause
+//                              : Icons.play_arrow,
+//                        ),
+//                        onPressed: _isPlayerReady
+//                            ? () {
+//                          _youtubePlayerController.value.isPlaying
+//                              ? _youtubePlayerController.pause()
+//                              : _youtubePlayerController.play();
+//                          setState(() {});
+//                        }
+//                            : null,
+//                      ),
+//                      IconButton(
+//                        icon: Icon(_muted ? Icons.volume_off : Icons.volume_up),
+//                        onPressed: _isPlayerReady
+//                            ? () {
+//                          _muted
+//                              ? _youtubePlayerController.unMute()
+//                              : _youtubePlayerController.mute();
+//                          setState(() {
+//                            _muted = !_muted;
+//                          });
+//                        }
+//                            : null,
+//                      ),
+//                      FullScreenButton(
+//                        controller: _youtubePlayerController,
+//                        color: Colors.blueAccent,
+//                      ),
+//
+//                    ],
+//                  ),
+//
+//                  Row(
+//                    children: <Widget>[
+//                      const Text(
+//                        "Volume",
+//                        style: TextStyle(fontWeight: FontWeight.w300),
+//                      ),
+//                      Expanded(
+//                        child: Slider(
+//                          inactiveColor: Colors.transparent,
+//                          value: _volume,
+//                          min: 0.0,
+//                          max: 100.0,
+//                          divisions: 10,
+//                          label: '${(_volume).round()}',
+//                          onChanged: _isPlayerReady
+//                              ? (value) {
+//                            setState(() {
+//                              _volume = value;
+//                            });
+//                            _youtubePlayerController.setVolume(_volume.round());
+//                          }
+//                              : null,
+//                        ),
+//                      ),
+//                    ],
+//                  ),
+//
+//
+//                ],
+//              ),
+//            ),
+//          ],
+//        ),
+//      ),
+//    );
+//  }
+
   void _showCommentDialog(BuildContext context) {
     showDialog(
         context: context,

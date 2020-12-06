@@ -152,7 +152,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                         fontWeight: FontWeight.bold),
                                   ),
                                   Text(
-                                    item.classification,
+                                    item.classification??'',
                                     style: TextStyle(
                                         color: Colors.white70,
                                         fontFamily: 'Roboto',

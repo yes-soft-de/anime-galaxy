@@ -37,7 +37,7 @@ class SeriesCard extends StatelessWidget {
                   ),
                 )),
             Text(
-              classification,
+              classification??'',
               style: TextStyle(
                   fontSize: 12,
                   fontFamily:'Roboto',

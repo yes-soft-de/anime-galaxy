@@ -80,6 +80,7 @@ class AnimeDetailsService {
       //  date:' ${months[date.month+1]} ${date.day} ' ,
         date: df.format(date).toString()??'',
         isLoved: element.commentInteractions.isLoved,
+        spoilerAlert: element.spoilerAlert,
       );
       comments.add(comment);
     });

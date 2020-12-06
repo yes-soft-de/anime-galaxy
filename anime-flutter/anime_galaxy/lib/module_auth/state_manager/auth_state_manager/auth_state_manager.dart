@@ -244,6 +244,7 @@ class AuthStateManager {
   }
 
   Future<bool> isSignedIn() async {
+
     return _authService.isLoggedIn;
   }
 }

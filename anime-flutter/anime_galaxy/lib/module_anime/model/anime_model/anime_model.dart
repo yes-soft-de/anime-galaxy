@@ -50,6 +50,7 @@ class Comment{
   String userName;
   String likesNumber;
   bool isLoved;
+  bool spoilerAlert;
 
   Comment({
     this.date,
@@ -60,6 +61,7 @@ class Comment{
     this.likesNumber,
     this.isLoved,
     this.userId,
+    this.spoilerAlert,
   });
 }
 

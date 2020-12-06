@@ -61,6 +61,12 @@ class MyProfileService {
         createDate: df.format(date).toString(),
         previousComments:_getPreviousComments(response.previousCommentsResponse),
       );
+
+      await _preferencesHelper.setUserName(response.userName);
+      if(response.image != null) await _preferencesHelper.setUserImage(Urls.IMAGES_UPLOAD_PATH+'/'+response.image);
+      await _preferencesHelper.setUserLocation('Saudi Arabia');
+      await _preferencesHelper.setUserStory(response.story);
+
       return result;
     }
     return null;
@@ -163,7 +169,7 @@ class MyProfileService {
         story: story,
         userID: userId);
     await _preferencesHelper.setUserName(username);
-    await _preferencesHelper.setUserImage(Urls.IMAGES_UPLOAD_PATH+'/'+imageUrl);
+    if(imageUrl != null) await _preferencesHelper.setUserImage(Urls.IMAGES_UPLOAD_PATH+'/'+imageUrl);
     await _preferencesHelper.setUserLocation('Saudi Arabia');
     await _preferencesHelper.setUserStory(story);
     try {

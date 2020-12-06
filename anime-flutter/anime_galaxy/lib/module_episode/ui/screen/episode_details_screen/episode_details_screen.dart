@@ -5,6 +5,7 @@ import 'package:anime_galaxy/module_episode/state/episode_details/episode_detail
 import 'package:anime_galaxy/module_episode/state_manager/episode_details/episode_details.state_manager.dart';
 import 'package:anime_galaxy/module_episode/ui/widget/comment_card/comment_card.dart';
 import 'package:anime_galaxy/module_episode/ui/widget/episode_details_widget/episode_details_widget.dart';
+import 'package:anime_galaxy/module_episode/ui/widget/spoiler_comment_card/spoiler_comment_card.dart';
 import 'package:anime_galaxy/module_navigation/ui/widget/navigation_drawer/anime_navigation_drawer.dart';
 import 'package:anime_galaxy/module_profile/presistance/profile_shared_preferences.dart';
 import 'package:anime_galaxy/module_rating/ui/widget/rating_bar.dart';
@@ -516,7 +517,22 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
           shrinkWrap: true,
           itemCount: episode.comments.length,
           itemBuilder: (BuildContext context, int index) {
-            return CommentCard(
+            return episode.comments[index].spoilerAlert?
+            SpoilerCommentCard(
+              userId: episode.comments[index].userId,
+              userImage: '${episode.comments[index].userImage}',
+              userName: '${episode.comments[index].userName}',
+              date:'${ episode.comments[index].date}',
+              likesNumber: episode.comments[index].likesNumber,
+              isLoved:episode.comments[index].isLoved ,
+              onShow:(){
+                episode.comments[index].spoilerAlert = false;
+                setState(() {
+
+                });
+              },
+            ):
+            CommentCard(
               userId: episode.comments[index].userId,
               userImage: '${episode.comments[index].userImage}',
               userName: '${episode.comments[index].userName}',

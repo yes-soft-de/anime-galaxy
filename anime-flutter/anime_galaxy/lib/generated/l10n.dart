@@ -1432,6 +1432,16 @@ class S {
       args: [],
     );
   }
+
+  /// `هذا التعليق يحوي حرق`
+  String get commentContainsSpoiler {
+    return Intl.message(
+      'هذا التعليق يحوي حرق',
+      name: 'commentContainsSpoiler',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
