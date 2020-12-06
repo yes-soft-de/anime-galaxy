@@ -137,9 +137,9 @@ class Episode
         return $this->duration;
     }
 
-    public function setDuration(): self
+    public function setDuration($duration): self
     {
-        $this->duration = new \DateTime('Now');
+        $this->duration = new \DateTime($duration);
 
         return $this;
     }

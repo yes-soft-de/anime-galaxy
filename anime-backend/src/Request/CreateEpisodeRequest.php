@@ -34,6 +34,12 @@ class CreateEpisodeRequest
         $this->createdAt = $createdAt;
     }
 
-
+    /**
+     * @return mixed
+     */
+    public function getDuration()
+    {
+        return $this->duration;
+    }
 
 }
