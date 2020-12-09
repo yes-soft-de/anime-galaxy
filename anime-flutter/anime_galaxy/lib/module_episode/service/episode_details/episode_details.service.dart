@@ -1,5 +1,6 @@
 
 
+import 'package:anime_galaxy/consts/urls.dart';
 import 'package:anime_galaxy/module_auth/presistance/auth_prefs_helper.dart';
 import 'package:anime_galaxy/module_episode/manager/episode_details/episode_details.manager.dart';
 import 'package:anime_galaxy/module_episode/model/episode_model/episode_model.dart';
@@ -58,13 +59,14 @@ class EpisodeDetailsService{
 
     commentResponse.forEach((element) {
       var date = new DateTime.fromMillisecondsSinceEpoch(element.creationDate.timestamp * 1000);
+      String image = element.image??'';
       Comment comment = new Comment(
         content: element.comment,
         userName: element.userName,
         userId: element.userID,
         id: element.id,
         likesNumber: element.commentInteractions.love.toString(),
-        userImage:element.image,
+        userImage:Urls.IMAGES_UPLOAD_PATH+'/'+image,
         //  date:' ${months[date.month+1]} ${date.day} ' ,
         date: df.format(date).toString()??'',
         isLoved: element.commentInteractions.isLoved,
