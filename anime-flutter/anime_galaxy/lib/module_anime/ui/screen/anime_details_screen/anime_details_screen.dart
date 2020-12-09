@@ -56,6 +56,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
   final TextEditingController _commentController = TextEditingController();
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   String username;
+  String userImage;
   VideoPlayerController controller; // used to controller videos
   Future<void> futureController;
   bool CommentsVisible = false;
@@ -136,6 +137,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
 //  }
   void _getUserId() async {
     username = await widget._profileSharedPreferencesHelper.getUsername();
+    userImage = await widget._profileSharedPreferencesHelper.getImage();
     if (username == null) {
       username = await widget._authService.userID;
       username = username.substring(0, 6);
@@ -197,6 +199,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                 userName: username,
                 isLoved: false,
                 likesNumber: '0',
+                spoilerAlert: false,
                 //TODO : change this
                 userImage:
                 'https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=100&q=60 100w',
@@ -239,6 +242,8 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
     }
   }
 
+
+
   @override
   Widget build(BuildContext context) {
     animeId = ModalRoute.of(context).settings.arguments;
@@ -272,7 +277,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
   Widget getPageLayout() {
     return Scaffold(
       key: _scaffoldKey,
-      appBar: AnimeGalaxyAppBar.getAnimeGalaxyAppBar(context, _scaffoldKey, username,null),
+      appBar: AnimeGalaxyAppBar.getAnimeGalaxyAppBar(context, _scaffoldKey, username, userImage),
       drawer: widget._animeNavigationDrawer,
       body: Container(
         padding: EdgeInsets.all(5),

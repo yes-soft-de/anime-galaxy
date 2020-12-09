@@ -63,10 +63,11 @@ class MyProfileService {
       );
 
       await _preferencesHelper.setUserName(response.userName);
-      if(response.image != null) await _preferencesHelper.setUserImage(Urls.IMAGES_UPLOAD_PATH+'/'+response.image);
-      await _preferencesHelper.setUserLocation('Saudi Arabia');
+      await _preferencesHelper.setUserImage(response.image);
       await _preferencesHelper.setUserStory(response.story);
 
+      String i = await _preferencesHelper.getImage();
+      print('hjhjhj2 :${i}');
       return result;
     }
     return null;

@@ -27,7 +27,7 @@ class NotificationCard extends StatelessWidget {
 
       clipBehavior: Clip.hardEdge,
       elevation: 0,
-      color: Color(0xffe4e5eb),
+//      color: Color(0xffe4e5eb),
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 15,vertical: 15),
 

@@ -86,7 +86,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       }
     }
 
-    return loading ? LoadingIndicatorWidget() : pageLayout();
+    return loading ? LoadingIndicatorWidget() : newPageLayout();
   }
 
   Widget pageLayout() {
@@ -240,6 +240,294 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
         ));
   }
+
+  Widget newPageLayout(){
+    return Scaffold(
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: Column(
+
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage(
+                              'assets/images/orange2.jpg'
+                          ),
+                          fit: BoxFit.cover
+                      )
+                  ),
+                  child: Container(
+                    width: double.infinity,
+                    height: 200,
+                    //profile image
+                    child: Container(
+                      alignment: Alignment(0.0,2.5),
+                      child: CircleAvatar(
+                        backgroundImage: NetworkImage(
+                            _profileModel.image??
+                                'https://images.unsplash.com/photo-1518806118471-f28b20a1d79d'
+                        ),
+                        radius: 60.0,
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 10),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 60,
+                      ),
+                      Text(
+                        _profileModel.name??'',
+                        style: TextStyle(
+                            fontSize: 16,
+                            fontFamily:'Roboto',
+                            fontWeight: FontWeight.bold
+                        ),
+                      ),
+                      Text(
+                        'انضم '+ _profileModel.createDate,
+                        style: TextStyle(
+                            fontSize: 13,
+                            fontFamily:'Roboto',
+                            fontWeight: FontWeight.bold
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            padding: EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: Colors.black26,
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  children: [
+                                    Text(
+                                      S.of(context).comments,
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontFamily:'Roboto',
+                                        fontSize: 12,
+                                      ),
+                                    ),
+                                    Text(
+                                      _profileModel.commentsNumber??'0',
+                                      style: TextStyle(
+                                        fontFamily:'Roboto',
+                                        color: ProjectColors.ThemeColor,
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(width: 10,),
+                                Column(
+                                  children: [
+                                    Text(
+                                      S.of(context).series,
+                                      style: TextStyle(
+                                        fontFamily:'Roboto',
+                                        color: Colors.white,
+                                        fontSize: 12,
+                                      ),
+                                    ),
+                                    Text(
+                                     _profileModel.seriesNumber.toString()??'0',
+                                      style: TextStyle(
+                                        fontFamily:'Roboto',
+                                        color: ProjectColors.ThemeColor,
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(width: 10,),
+                          Container(
+                            padding: EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: Colors.black26,
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+
+                                Column(
+                                  children: [
+                                    Text(
+                                      S.of(context).following,
+                                      style: TextStyle(
+                                        fontFamily:'Roboto',
+                                        color: Colors.white,
+                                        fontSize: 12,
+                                      ),
+                                    ),
+                                    Text(
+                                      _profileModel.followingNumber??'0',
+                                      style: TextStyle(
+                                        fontFamily:'Roboto',
+                                        color: ProjectColors.ThemeColor,
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+
+                      if (userId != null)
+                        FlatButton(
+                          color: _profileModel.isFollowed
+                              ? Colors.grey
+                              : ProjectColors.ThemeColor,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: new BorderRadius.circular(15.0)),
+                          onPressed: () => _profileModel.isFollowed
+                              ? widget._stateManager.unFollow(userId)
+                              : widget._stateManager.follow(userId),
+                          child: Container(
+                            width: MediaQuery.of(context).size.width * 0.8,
+                            child: Center(
+                              child: Text(
+                                _profileModel.isFollowed
+                                    ? S.of(context).unFollow
+                                    : S.of(context).Follow,
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    fontFamily:'Roboto',
+                                    color: Colors.white
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      //about me
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            S.of(context).aboutMe,
+                            style: TextStyle(
+                                fontFamily:'Roboto',
+                                fontWeight: FontWeight.bold
+                            ),
+                          ),
+                        ],
+                      ),
+                      Container(
+                        margin: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        child: Text(
+                          '${_profileModel.about}',
+                          style: TextStyle(
+                            fontFamily:'Roboto',
+                          ),
+                        ),
+                      ),
+
+
+                      //activities
+                      //display following activities only for me
+                      if( userId == null)
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(
+                              S.of(context).activities,
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontFamily:'Roboto',
+                              ),
+                            ),
+                          ],
+                        ),
+
+                      if ( userId == null)
+                        ListView.builder(
+                            physics: NeverScrollableScrollPhysics(),
+                            shrinkWrap: true,
+                            itemCount: _profileModel.followingActivities.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              return Container(
+                                margin: EdgeInsets.only(bottom: 10),
+                                child: ActivityCard(
+                                  date:  _profileModel.followingActivities[index].date,
+                                  userName:
+                                  _profileModel.followingActivities[index].userName,
+                                  userImage:  _profileModel.followingActivities[index].userImage,
+                                  activity:
+                                  _profileModel.followingActivities[index].action,
+                                ),
+                              );
+                            }) ,
+
+                      SizedBox(
+                        height: 20,
+                      ),
+                      //watched series
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            S.of(context).watchedSeries,
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontFamily:'Roboto',
+                            ),
+                          ),
+                        ],
+                      ),
+                      Container(
+                        height: 225,
+                        child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            shrinkWrap: true,
+                            itemCount: _profileModel.watchedSeries.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              return GestureDetector(
+                                onTap: () => Navigator.pushNamed(
+                                    context, AnimeRoutes.ROUTE_ANIME_DETAILS_SCREEN,
+                                    arguments: _profileModel.watchedSeries[index].id),
+                                child: SeriesCard(
+                                  url_image: _profileModel.watchedSeries[index].image,
+                                  series_category: 'شونين',
+                                  series_name: _profileModel.watchedSeries[index].name,
+                                ),
+                              );
+                            }),
+                      ),
+
+                      //previous comments
+                      if ( userId != null)
+                        previousCommentSection(),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        )
+    );
+  }
+
 
   Widget previousCommentSection(){
     return Column(

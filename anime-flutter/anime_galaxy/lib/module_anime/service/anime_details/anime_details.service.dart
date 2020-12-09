@@ -1,3 +1,4 @@
+import 'package:anime_galaxy/consts/urls.dart';
 import 'package:anime_galaxy/module_anime/manager/anime_details/anime_details.manager.dart';
 import 'package:anime_galaxy/module_anime/model/anime_model/anime_model.dart';
 import 'package:anime_galaxy/module_anime/request/comment_request/comment_request.dart';
@@ -7,6 +8,7 @@ import 'package:anime_galaxy/module_anime/response/anime_response/anime_response
 import 'package:anime_galaxy/module_anime/response/episode_response/episode_response.dart';
 import 'package:anime_galaxy/module_auth/service/auth_service/auth_service.dart';
 import 'package:anime_galaxy/utils/logger/logger.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:inject/inject.dart';
 import 'package:intl/intl.dart';
 
@@ -70,13 +72,14 @@ class AnimeDetailsService {
 
     commentResponse.forEach((element) {
       var date = new DateTime.fromMillisecondsSinceEpoch(element.creationDate.timestamp * 1000);
+      String image = element.image??'';
       Comment comment = new Comment(
         content: element.comment,
         userName:element.userName,
         id: element.id,
         userId: element.userID,
         likesNumber: element.commentInteractions.love.toString(),
-        userImage:element.image,
+        userImage:Urls.IMAGES_UPLOAD_PATH+'/'+image,
       //  date:' ${months[date.month+1]} ${date.day} ' ,
         date: df.format(date).toString()??'',
         isLoved: element.commentInteractions.isLoved,
