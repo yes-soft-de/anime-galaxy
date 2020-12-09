@@ -1,6 +1,9 @@
 import 'package:anime_galaxy/module_auth/enums/auth_source.dart';
 import 'package:anime_galaxy/module_auth/manager/auth/auth_manager.dart';
 import 'package:anime_galaxy/module_auth/presistance/auth_prefs_helper.dart';
+import 'package:anime_galaxy/module_profile/manager/my_profile_manager/my_profile_manager.dart';
+import 'package:anime_galaxy/module_profile/presistance/profile_shared_preferences.dart';
+import 'package:anime_galaxy/module_profile/response/profile_response/profile_response.dart';
 import 'package:anime_galaxy/module_profile/service/my_profile/my_profile.dart';
 import 'package:anime_galaxy/utils/logger/logger.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -11,6 +14,8 @@ import 'package:rxdart/rxdart.dart';
 class AuthService {
   final AuthPrefsHelper _prefsHelper;
   final AuthManager _authManager;
+  final MyProfileManager _myProfileManager;
+  final ProfileSharedPreferencesHelper _preferencesHelper;
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
   final PublishSubject<String> authServiceStateSubject = PublishSubject();
@@ -18,6 +23,8 @@ class AuthService {
   AuthService(
       this._prefsHelper,
       this._authManager,
+      this._myProfileManager,
+      this._preferencesHelper
       );
 
   Future<String> loginUser(
@@ -41,6 +48,9 @@ class AuthService {
     } catch (e) {
       Logger().info('AuthService', 'User Already Exists');
     }
+    ProfileResponse response = await _myProfileManager.getBasicProfileInfo(uid);
+    await _preferencesHelper.setUserImage(response.image);
+    await _preferencesHelper.setUserName(response.userName);
 
     await _prefsHelper.setUserId(uid);
     await _prefsHelper.setUsername(name);

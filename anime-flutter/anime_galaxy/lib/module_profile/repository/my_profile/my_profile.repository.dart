@@ -60,6 +60,14 @@ class MyProfileRepository {
     return result;
   }
 
+  Future<ProfileResponse> getBasicProfileInfo(String userId) async {
+    dynamic response = await _apiClient.get(Urls.API_PROFILE + userId);
+    if (response == null) return null;
+    ProfileResponse result = ProfileResponse.fromJson(response['Data']);
+
+    return result;
+  }
+
   Future<void> _getFollowingNumber(String userId) async {
     dynamic response = await _apiClient.get(Urls.API_FOLLOWING_USERS + userId);
     if (response == null) return 0;

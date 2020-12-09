@@ -65,9 +65,6 @@ class MyProfileService {
       await _preferencesHelper.setUserName(response.userName);
       await _preferencesHelper.setUserImage(response.image);
       await _preferencesHelper.setUserStory(response.story);
-
-      String i = await _preferencesHelper.getImage();
-      print('hjhjhj2 :${i}');
       return result;
     }
     return null;

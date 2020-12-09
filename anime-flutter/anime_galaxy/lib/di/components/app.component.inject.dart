@@ -24,13 +24,13 @@ import '../../module_auth/presistance/auth_prefs_helper.dart' as _i20;
 import '../../module_auth/manager/auth/auth_manager.dart' as _i21;
 import '../../module_auth/repository/auth/auth_repository.dart' as _i22;
 import '../../module_network/http_client/http_client.dart' as _i23;
-import '../../module_profile/service/my_profile/my_profile.dart' as _i24;
 import '../../module_profile/manager/my_profile_manager/my_profile_manager.dart'
-    as _i25;
+    as _i24;
 import '../../module_profile/repository/my_profile/my_profile.repository.dart'
-    as _i26;
+    as _i25;
 import '../../module_profile/presistance/profile_shared_preferences.dart'
-    as _i27;
+    as _i26;
+import '../../module_profile/service/my_profile/my_profile.dart' as _i27;
 import '../../module_profile/service/general_profile/general_profile.dart'
     as _i28;
 import '../../module_upload/service/image_upload/image_upload_service.dart'
@@ -187,8 +187,11 @@ class AppComponent$Injector implements _i1.AppComponent {
       _i17.AuthScreen(_createAuthStateManager());
   _i18.AuthStateManager _createAuthStateManager() =>
       _i18.AuthStateManager(_createAuthService(), _createMyProfileService());
-  _i19.AuthService _createAuthService() =>
-      _i19.AuthService(_createAuthPrefsHelper(), _createAuthManager());
+  _i19.AuthService _createAuthService() => _i19.AuthService(
+      _createAuthPrefsHelper(),
+      _createAuthManager(),
+      _createMyProfileManager(),
+      _createProfileSharedPreferencesHelper());
   _i20.AuthPrefsHelper _createAuthPrefsHelper() => _i20.AuthPrefsHelper();
   _i21.AuthManager _createAuthManager() =>
       _i21.AuthManager(_createAuthRepository());
@@ -196,18 +199,18 @@ class AppComponent$Injector implements _i1.AppComponent {
       _i22.AuthRepository(_createApiClient());
   _i23.ApiClient _createApiClient() => _i23.ApiClient(_createLogger());
   _i3.Logger _createLogger() => _singletonLogger ??= _i3.Logger();
-  _i24.MyProfileService _createMyProfileService() => _i24.MyProfileService(
+  _i24.MyProfileManager _createMyProfileManager() =>
+      _i24.MyProfileManager(_createMyProfileRepository());
+  _i25.MyProfileRepository _createMyProfileRepository() =>
+      _i25.MyProfileRepository(_createApiClient(), _createAuthPrefsHelper());
+  _i26.ProfileSharedPreferencesHelper _createProfileSharedPreferencesHelper() =>
+      _i26.ProfileSharedPreferencesHelper();
+  _i27.MyProfileService _createMyProfileService() => _i27.MyProfileService(
       _createMyProfileManager(),
       _createProfileSharedPreferencesHelper(),
       _createAuthService(),
       _createGeneralProfileService(),
       _createImageUploadService());
-  _i25.MyProfileManager _createMyProfileManager() =>
-      _i25.MyProfileManager(_createMyProfileRepository());
-  _i26.MyProfileRepository _createMyProfileRepository() =>
-      _i26.MyProfileRepository(_createApiClient(), _createAuthPrefsHelper());
-  _i27.ProfileSharedPreferencesHelper _createProfileSharedPreferencesHelper() =>
-      _i27.ProfileSharedPreferencesHelper();
   _i28.GeneralProfileService _createGeneralProfileService() =>
       _i28.GeneralProfileService();
   _i29.ImageUploadService _createImageUploadService() =>
