@@ -138,7 +138,7 @@ flutter:
   fonts:
     - family: Roboto
       fonts:
-        - asset: assets/fonts/Roboto/Roboto-Regular.ttf
+        - asset: assets/fonts/RB/RB.ttf
 
 
 flutter_intl:

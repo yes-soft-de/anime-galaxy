@@ -1,5 +1,6 @@
 import 'package:anime_galaxy/anime_setting/ui/widget/circular_setting/circular_image.dart';
 import 'package:anime_galaxy/generated/l10n.dart';
+import 'package:anime_galaxy/module_search/search_routes.dart';
 import 'package:anime_galaxy/module_theme/service/theme_service/theme_service.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -76,7 +77,16 @@ class AnimeGalaxyAppBar {
         // SizedBox(
         //   width: 5,
         // ),
-        // GestureDetector(onTap: () {}, child: Icon(Icons.search))
+         GestureDetector(
+             onTap: () {
+           Navigator.pushNamed(drawerKey.currentContext,
+                          SearchRoutes.ROUTE_Search
+           );
+         },
+             child: Icon(Icons.search)),
+        SizedBox(
+             width: 10,
+          ),
         //Add more icon here
       ],
     );

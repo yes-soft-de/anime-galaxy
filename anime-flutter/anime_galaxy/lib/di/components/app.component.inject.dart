@@ -102,36 +102,37 @@ import '../../module_explore/state_manager/explore/explore.state_manager.dart'
 import '../../module_explore/service/explore/explore.service.dart' as _i72;
 import '../../module_explore/manager/explore/explore.manager.dart' as _i73;
 import '../../module_explore/repository/explore/explore.repositry.dart' as _i74;
-import '../../module_search/ui/screen/search_screen/seach_screen.dart' as _i75;
-import '../../module_search/state_manager/search/search.state_manager.dart'
-    as _i76;
-import '../../module_search/service/search_service/search.service.dart' as _i77;
-import '../../module_search/manager/search_manager/search.manager.dart' as _i78;
-import '../../module_search/repository/search_repository/search.repository.dart'
-    as _i79;
-import '../../module_settings/setting_module.dart' as _i80;
-import '../../module_explore/explore_module.dart' as _i81;
+import '../../module_settings/setting_module.dart' as _i75;
+import '../../module_explore/explore_module.dart' as _i76;
 import '../../module_explore/ui/screen/category_animes_screen/category_animes_screen.dart'
-    as _i82;
+    as _i77;
 import '../../module_explore/state_manager/category_animes/category_animes.state_manager.dart'
-    as _i83;
+    as _i78;
 import '../../module_explore/service/category_animes/category_animes.service.dart'
-    as _i84;
+    as _i79;
 import '../../module_explore/manager/category_animes/category_animes.manager.dart'
-    as _i85;
+    as _i80;
 import '../../module_explore/repository/category_animes/category_animes.repository.dart'
-    as _i86;
-import '../../module_episode/episode_module.dart' as _i87;
+    as _i81;
+import '../../module_episode/episode_module.dart' as _i82;
 import '../../module_episode/ui/screen/episode_details_screen/episode_details_screen.dart'
-    as _i88;
+    as _i83;
 import '../../module_episode/state_manager/episode_details/episode_details.state_manager.dart'
-    as _i89;
+    as _i84;
 import '../../module_episode/service/episode_details/episode_details.service.dart'
-    as _i90;
+    as _i85;
 import '../../module_episode/manager/episode_details/episode_details.manager.dart'
-    as _i91;
+    as _i86;
 import '../../module_episode/repository/episode_details/episode_details.repository.dart'
-    as _i92;
+    as _i87;
+import '../../module_search/search_module.dart' as _i88;
+import '../../module_search/ui/screen/search_screen/seach_screen.dart' as _i89;
+import '../../module_search/state_manager/search/search.state_manager.dart'
+    as _i90;
+import '../../module_search/service/search_service/search.service.dart' as _i91;
+import '../../module_search/manager/search_manager/search.manager.dart' as _i92;
+import '../../module_search/repository/search_repository/search.repository.dart'
+    as _i93;
 
 class AppComponent$Injector implements _i1.AppComponent {
   AppComponent$Injector._();
@@ -164,7 +165,8 @@ class AppComponent$Injector implements _i1.AppComponent {
       _createMainScreenModule(),
       _createSettingModule(),
       _createExploreModule(),
-      _createEpisodeModule());
+      _createEpisodeModule(),
+      _createSearchModule());
   _i7.ChatModule _createChatModule() =>
       _i7.ChatModule(_createChatPage(), _createAuthGuard());
   _i8.ChatPage _createChatPage() => _i8.ChatPage(_createChatPageBloc());
@@ -307,7 +309,6 @@ class AppComponent$Injector implements _i1.AppComponent {
       _createSettingsPage(),
       _createExploreScreen(),
       _createProfileScreen(),
-      _createSearchScreen(),
       _createAuthService(),
       _createAnimeNavigationDrawer(),
       _createProfileSharedPreferencesHelper());
@@ -326,48 +327,50 @@ class AppComponent$Injector implements _i1.AppComponent {
       _i73.ExploreManager(_createExploreRepository());
   _i74.ExploreRepository _createExploreRepository() =>
       _i74.ExploreRepository(_createApiClient(), _createAuthPrefsHelper());
-  _i75.SearchScreen _createSearchScreen() =>
-      _i75.SearchScreen(_createSearchStateManager());
-  _i76.SearchStateManager _createSearchStateManager() =>
-      _i76.SearchStateManager(_createSearchService());
-  _i77.SearchService _createSearchService() =>
-      _i77.SearchService(_createSearchManager());
-  _i78.SearchManager _createSearchManager() =>
-      _i78.SearchManager(_createSearchRepository());
-  _i79.SearchRepository _createSearchRepository() =>
-      _i79.SearchRepository(_createApiClient());
-  _i80.SettingModule _createSettingModule() =>
-      _i80.SettingModule(_createSettingsPage());
-  _i81.ExploreModule _createExploreModule() =>
-      _i81.ExploreModule(_createExploreScreen(), _createCategoryAnimesScreen());
-  _i82.CategoryAnimesScreen _createCategoryAnimesScreen() =>
-      _i82.CategoryAnimesScreen(_createCategoryAnimesStateManager());
-  _i83.CategoryAnimesStateManager _createCategoryAnimesStateManager() =>
-      _i83.CategoryAnimesStateManager(_createCategoryAnimesService());
-  _i84.CategoryAnimesService _createCategoryAnimesService() =>
-      _i84.CategoryAnimesService(_createCategoryAnimesManager());
-  _i85.CategoryAnimesManager _createCategoryAnimesManager() =>
-      _i85.CategoryAnimesManager(_createCategoryAnimesRepository());
-  _i86.CategoryAnimesRepository _createCategoryAnimesRepository() =>
-      _i86.CategoryAnimesRepository(_createApiClient());
-  _i87.EpisodeModule _createEpisodeModule() =>
-      _i87.EpisodeModule(_createEpisodeDetailsScreen());
-  _i88.EpisodeDetailsScreen _createEpisodeDetailsScreen() =>
-      _i88.EpisodeDetailsScreen(
+  _i75.SettingModule _createSettingModule() =>
+      _i75.SettingModule(_createSettingsPage());
+  _i76.ExploreModule _createExploreModule() =>
+      _i76.ExploreModule(_createExploreScreen(), _createCategoryAnimesScreen());
+  _i77.CategoryAnimesScreen _createCategoryAnimesScreen() =>
+      _i77.CategoryAnimesScreen(_createCategoryAnimesStateManager());
+  _i78.CategoryAnimesStateManager _createCategoryAnimesStateManager() =>
+      _i78.CategoryAnimesStateManager(_createCategoryAnimesService());
+  _i79.CategoryAnimesService _createCategoryAnimesService() =>
+      _i79.CategoryAnimesService(_createCategoryAnimesManager());
+  _i80.CategoryAnimesManager _createCategoryAnimesManager() =>
+      _i80.CategoryAnimesManager(_createCategoryAnimesRepository());
+  _i81.CategoryAnimesRepository _createCategoryAnimesRepository() =>
+      _i81.CategoryAnimesRepository(_createApiClient());
+  _i82.EpisodeModule _createEpisodeModule() =>
+      _i82.EpisodeModule(_createEpisodeDetailsScreen());
+  _i83.EpisodeDetailsScreen _createEpisodeDetailsScreen() =>
+      _i83.EpisodeDetailsScreen(
           _createEpisodeDetailsStateManager(),
           _createAuthService(),
           _createAnimeNavigationDrawer(),
           _createProfileSharedPreferencesHelper());
-  _i89.EpisodeDetailsStateManager _createEpisodeDetailsStateManager() =>
-      _i89.EpisodeDetailsStateManager(_createEpisodeDetailsService());
-  _i90.EpisodeDetailsService _createEpisodeDetailsService() =>
-      _i90.EpisodeDetailsService(
+  _i84.EpisodeDetailsStateManager _createEpisodeDetailsStateManager() =>
+      _i84.EpisodeDetailsStateManager(_createEpisodeDetailsService());
+  _i85.EpisodeDetailsService _createEpisodeDetailsService() =>
+      _i85.EpisodeDetailsService(
           _createEpisodeDetailsManager(), _createAuthPrefsHelper());
-  _i91.EpisodeDetailsManager _createEpisodeDetailsManager() =>
-      _i91.EpisodeDetailsManager(_createEpisodeDetailsRepository());
-  _i92.EpisodeDetailsRepository _createEpisodeDetailsRepository() =>
-      _i92.EpisodeDetailsRepository(
+  _i86.EpisodeDetailsManager _createEpisodeDetailsManager() =>
+      _i86.EpisodeDetailsManager(_createEpisodeDetailsRepository());
+  _i87.EpisodeDetailsRepository _createEpisodeDetailsRepository() =>
+      _i87.EpisodeDetailsRepository(
           _createApiClient(), _createAuthPrefsHelper());
+  _i88.SearchModule _createSearchModule() =>
+      _i88.SearchModule(_createSearchScreen());
+  _i89.SearchScreen _createSearchScreen() =>
+      _i89.SearchScreen(_createSearchStateManager());
+  _i90.SearchStateManager _createSearchStateManager() =>
+      _i90.SearchStateManager(_createSearchService());
+  _i91.SearchService _createSearchService() =>
+      _i91.SearchService(_createSearchManager());
+  _i92.SearchManager _createSearchManager() =>
+      _i92.SearchManager(_createSearchRepository());
+  _i93.SearchRepository _createSearchRepository() =>
+      _i93.SearchRepository(_createApiClient());
   @override
   _i6.MyApp get app => _createMyApp();
 }

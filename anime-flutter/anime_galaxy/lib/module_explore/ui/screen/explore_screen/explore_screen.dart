@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:anime_galaxy/generated/l10n.dart';
 import 'package:anime_galaxy/module_anime/anime_routes.dart';
 import 'package:anime_galaxy/module_explore/explore_routes.dart';
@@ -162,7 +161,35 @@ class _ExploreScreenState extends State<ExploreScreen> {
                     children: [
                       Expanded(
                         child: Text(
-                          S.of(context).worldWideSeries,
+                          'الإنميات القادمة',
+                          style: StyleExploreList.getTextSyle(
+                            size: 14,
+                            fontWeight: FontWeight.w500,
+                            day: true,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  Container(
+                    margin: EdgeInsets.only(top: 5),
+                    child: CarouselSlider(
+                      options: CarouselOptions(
+                        autoPlay: true,
+                        aspectRatio: 2.0,
+                        enlargeCenterPage: false,
+                      ),
+                      items: imageSliders,
+                    ),
+                  ),
+
+
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          'الإنميات الموصى بها عربيا',
                           style: StyleExploreList.getTextSyle(
                             size: 14,
                             fontWeight: FontWeight.w500,
@@ -183,7 +210,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                                 context, AnimeRoutes.ROUTE_ANIME_DETAILS_SCREEN,
                                 arguments:
                                     explore.worldRecommendedSeries[index].id),
-                            child: SeriesCard(
+                            child: FavouriteSeriesCard(
                               url_image:
                                   explore.worldRecommendedSeries[index].image,
                               series_category: explore
@@ -210,7 +237,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                     children: [
                       Expanded(
                         child: Text(
-                          S.of(context).recomendationByFavorite,
+                          'الإنميات الموصى بها حسب تفضيلاتك',
                           style: StyleExploreList.getTextSyle(
                             size: 14,
                             fontWeight: FontWeight.w500,
@@ -372,35 +399,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
 //                  ),
 
 
-              Row(
-                    children: [
-                      Expanded(
-                        child: Text(
-                          S.of(context).comingSoonSeries,
-                          style: StyleExploreList.getTextSyle(
-                            size: 14,
-                            fontWeight: FontWeight.w500,
-                            day: true,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
 
-                  Container(
-                    margin: EdgeInsets.only(top: 20),
-                    child: CarouselSlider(
-                      options: CarouselOptions(
-                        autoPlay: true,
-                        aspectRatio: 2.0,
-                        enlargeCenterPage: true,
-                      ),
-                      items: imageSliders,
-                    ),
-                  ),
                 ],
               ),
             ),

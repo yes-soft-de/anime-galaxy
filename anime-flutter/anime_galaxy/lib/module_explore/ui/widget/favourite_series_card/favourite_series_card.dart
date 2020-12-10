@@ -11,12 +11,12 @@ class FavouriteSeriesCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 136,
-      width: 100,
+      height: 200,
+      width: 110,
       child: Column(
         children: [
           Container(
-            height: 136,
+            height: 145,
             child: Card(
               clipBehavior: Clip.hardEdge,
               child: FadeInImage.assetNetwork(
@@ -47,18 +47,18 @@ class FavouriteSeriesCard extends StatelessWidget {
               ),
             ],
           ),
-          Row(
-            children: [
-              Expanded(
-                child: Text(
-                  '${series_category}',
-                  style: StyleExploreList.getTextSyle(size: 14),
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ),
-            ],
-          ),
+//          Row(
+//            children: [
+//              Expanded(
+//                child: Text(
+//                  '${series_category}',
+//                  style: StyleExploreList.getTextSyle(size: 14),
+//                  maxLines: 1,
+//                  overflow: TextOverflow.ellipsis,
+//                ),
+//              ),
+//            ],
+//          ),
         ],
       ),
     );

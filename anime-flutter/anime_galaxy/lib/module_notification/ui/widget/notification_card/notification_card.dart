@@ -45,11 +45,11 @@ class NotificationCard extends StatelessWidget {
                         SizedBox(width: 10,),
 
                        Container(
-                         width: MediaQuery.of(context).size.width*0.6,
+                         width: MediaQuery.of(context).size.width*0.65,
                           child: Text(
                             'ستصدر قريبا حلقة جديدة من المسلسل $content',
                             style: TextStyle(
-                                fontSize: 8,
+                                fontSize: 10,
                                 fontWeight: FontWeight.bold
                             ),
                           ),

@@ -5,6 +5,8 @@ import 'package:anime_galaxy/module_error/error_module.dart';
 import 'package:anime_galaxy/module_home/home.module.dart';
 import 'package:anime_galaxy/module_init_account/account_module.dart';
 import 'package:anime_galaxy/module_notification/notification_module.dart';
+import 'package:anime_galaxy/module_search/model/search_model/search_model.dart';
+import 'package:anime_galaxy/module_search/search_module.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -58,6 +60,7 @@ class MyApp extends StatefulWidget {
   final ExploreModule _exploreModule;
   final EpisodeModule _episodeModule;
   final ErrorModule _errorModule;
+  final SearchModule _searchModule;
 
   MyApp(
     this._chatModule,
@@ -76,6 +79,7 @@ class MyApp extends StatefulWidget {
     this._settingModule,
     this._exploreModule,
     this._episodeModule,
+    this._searchModule,
   );
 
   @override
@@ -121,6 +125,7 @@ class _MyAppState extends State<MyApp> {
     fullRoutesList.addAll(widget._exploreModule.getRoutes());
     fullRoutesList.addAll(widget._episodeModule.getRoutes());
     fullRoutesList.addAll(widget._errorModule.getRoutes());
+    fullRoutesList.addAll(widget._searchModule.getRoutes());
 
     widget._swapThemeService.isDarkMode().then((value) {
       isDarkMode ??= value;
@@ -156,10 +161,12 @@ class _MyAppState extends State<MyApp> {
           ? ThemeData(
               brightness: Brightness.dark,
               scaffoldBackgroundColor: SwapThemeDataService.getDarkBGColor(),
+              fontFamily: 'Roboto'
             )
           : ThemeData(
               brightness: Brightness.light,
               primaryColor: Colors.white,
+              fontFamily: 'Roboto'
             ),
       supportedLocales: S.delegate.supportedLocales,
       title: 'Anime Galaxy',

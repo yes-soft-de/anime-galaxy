@@ -1,4 +1,5 @@
 import 'package:anime_galaxy/generated/l10n.dart';
+import 'package:anime_galaxy/main_screen/main_screen_routes.dart';
 import 'package:anime_galaxy/module_anime/anime_routes.dart';
 import 'package:anime_galaxy/module_auth/service/auth_service/auth_service.dart';
 import 'package:anime_galaxy/module_profile/model/profile_model/profile_model.dart';
@@ -259,16 +260,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                   child: Container(
                     width: double.infinity,
-                    height: 200,
+                    height: 175,
                     //profile image
                     child: Container(
                       alignment: Alignment(0.0,2.5),
                       child: CircleAvatar(
-                        backgroundImage: NetworkImage(
-                            _profileModel.image??
-                                'https://images.unsplash.com/photo-1518806118471-f28b20a1d79d'
+                        radius: 53.0,
+
+                        child: CircleAvatar(
+                          backgroundImage: NetworkImage(
+                              _profileModel.image??
+                                  'https://images.unsplash.com/photo-1518806118471-f28b20a1d79d'
+                          ),
+                          radius: 51.0,
                         ),
-                        radius: 60.0,
                       ),
                     ),
                   ),
@@ -277,8 +282,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 10),
                   child: Column(
                     children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text(
+                            'انضم '+ _profileModel.createDate,
+                            style: TextStyle(
+                                fontSize: 10,
+                                fontFamily:'Roboto',
+                                fontWeight: FontWeight.bold
+                            ),
+                          ),
+                        ],
+                      ),
                       SizedBox(
-                        height: 60,
+                        height: 40,
                       ),
                       Text(
                         _profileModel.name??'',
@@ -288,74 +306,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             fontWeight: FontWeight.bold
                         ),
                       ),
-                      Text(
-                        'انضم '+ _profileModel.createDate,
-                        style: TextStyle(
-                            fontSize: 13,
-                            fontFamily:'Roboto',
-                            fontWeight: FontWeight.bold
-                        ),
-                      ),
+
                       SizedBox(
                         height: 10,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Container(
-                            padding: EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Colors.black26,
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Column(
-                                  children: [
-                                    Text(
-                                      S.of(context).comments,
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontFamily:'Roboto',
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    Text(
-                                      _profileModel.commentsNumber??'0',
-                                      style: TextStyle(
-                                        fontFamily:'Roboto',
-                                        color: ProjectColors.ThemeColor,
-                                        fontSize: 16,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(width: 10,),
-                                Column(
-                                  children: [
-                                    Text(
-                                      S.of(context).series,
-                                      style: TextStyle(
-                                        fontFamily:'Roboto',
-                                        color: Colors.white,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    Text(
-                                     _profileModel.seriesNumber.toString()??'0',
-                                      style: TextStyle(
-                                        fontFamily:'Roboto',
-                                        color: ProjectColors.ThemeColor,
-                                        fontSize: 16,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                          SizedBox(width: 10,),
                           Container(
                             padding: EdgeInsets.all(10),
                             decoration: BoxDecoration(
@@ -389,7 +346,62 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
                               ],
                             ),
-                          )
+                          ),
+                          SizedBox(width: 10,),
+                          Container(
+                            padding: EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: Colors.black26,
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  children: [
+                                    Text(
+                                      S.of(context).series,
+                                      style: TextStyle(
+                                        fontFamily:'Roboto',
+                                        color: Colors.white,
+                                        fontSize: 12,
+                                      ),
+                                    ),
+                                    Text(
+                                      _profileModel.seriesNumber.toString()??'0',
+                                      style: TextStyle(
+                                        fontFamily:'Roboto',
+                                        color: ProjectColors.ThemeColor,
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Text(
+                                      S.of(context).comments,
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontFamily:'Roboto',
+                                        fontSize: 12,
+                                      ),
+                                    ),
+                                    Text(
+                                      _profileModel.commentsNumber??'0',
+                                      style: TextStyle(
+                                        fontFamily:'Roboto',
+                                        color: ProjectColors.ThemeColor,
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(width: 10,),
+
+                              ],
+                            ),
+                          ),
                         ],
                       ),
 

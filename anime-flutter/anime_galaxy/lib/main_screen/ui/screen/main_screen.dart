@@ -20,7 +20,7 @@ class MainScreen extends StatefulWidget {
   final SettingsPage _settingsScreen;
   final ExploreScreen _exploreScreen;
   final ProfileScreen _profileScreen;
-  final SearchScreen _searchScreen;
+//  final SearchScreen _searchScreen;
   final AuthService _authService;
   final AnimeNavigationDrawer _animeNavigationDrawer;
   final ProfileSharedPreferencesHelper _profileSharedPreferencesHelper;
@@ -31,7 +31,7 @@ class MainScreen extends StatefulWidget {
     this._settingsScreen,
     this._exploreScreen,
     this._profileScreen,
-    this._searchScreen,
+//    this._searchScreen,
     this._authService,
     this._animeNavigationDrawer,
     this._profileSharedPreferencesHelper,
@@ -85,7 +85,7 @@ class _MainScreenState extends State<MainScreen> {
     var pages = [
       widget._homeScreen,
       widget._notificationScreen,
-      widget._searchScreen,
+//      widget._searchScreen,
       widget._exploreScreen,
       widget._profileScreen,
       widget._settingsScreen,
@@ -122,12 +122,12 @@ class _MainScreenState extends State<MainScreen> {
             title: Text(''),
             backgroundColor: ProjectColors.ThemeColor,
           ),
-          BottomNavigationBarItem(
-            // Title is Deprecated!, Not My Optional Call
-            icon: Icon(Icons.search),
-            title: Text(''),
-            backgroundColor: ProjectColors.ThemeColor,
-          ),
+//          BottomNavigationBarItem(
+//            // Title is Deprecated!, Not My Optional Call
+//            icon: Icon(Icons.search),
+//            title: Text(''),
+//            backgroundColor: ProjectColors.ThemeColor,
+//          ),
           BottomNavigationBarItem(
             // Title is Deprecated!, Not My Optional Call
             icon: Icon(Icons.explore),

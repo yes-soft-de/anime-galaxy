@@ -108,52 +108,106 @@ class AnimeNavigationDrawer extends StatelessWidget {
                   ),
                   */
                 Container(
-                  height: 150,
-                  color: Colors.black26,
-                  child: Row(
-                    children: [
-                      FutureBuilder(
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage(
+                              'assets/images/orange2.jpg'
+                          ),
+                          fit: BoxFit.cover
+                      )
+                  ),
+                  child: Container(
+                    width: double.infinity,
+                    height: 120,
+                    //profile image
+                    child: Container(
+                      alignment: Alignment(0.0,5.5),
+                      child: FutureBuilder(
                         future: _profileSharedPreferencesHelper.getImage(),
                         builder: (BuildContext context,
-                            AsyncSnapshot<String> snapShot) {
-                          return CircularImage(
-                            linkImg: snapShot.data ??
-                                'https://images.unsplash.com/photo-1518806118471-f28b20a1d79d',
-                            width: 40,
-                            height: 40,
-                          );
-                        },
+                        AsyncSnapshot<String> snapShot) {
+                                 return CircleAvatar(
+                                   backgroundColor: Colors.white,
+                                   radius: 50.0,
+                                   child: CircleAvatar(
+                                     backgroundImage: NetworkImage(
+                                       snapShot.data ??
+                                           'https://images.unsplash.com/photo-1518806118471-f28b20a1d79d',
+                                     ),
+                                     radius: 48.0,
+                                   ),
+                                 ) ;
+                        }
+
                       ),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          FutureBuilder(
-                            future: _profileSharedPreferencesHelper.getUsername(),
-                            builder: (BuildContext context,
-                                AsyncSnapshot<String> snapShot) {
-                              return Text(snapShot.data ?? '',
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    fontFamily: 'Roboto',
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                  ));
-                            },
-                          ),
-                          Text('شاونين-مغامرات',
-                              style: TextStyle(
-                                fontSize: 14,
-                                fontFamily: 'Roboto',
-                                color: Colors.white,
-                              )),
-                        ],
-                      ),
-                    ],
+                    ),
                   ),
                 ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 30),
+                        child: FutureBuilder(
+                              future: _profileSharedPreferencesHelper.getUsername(),
+                              builder: (BuildContext context,
+                                  AsyncSnapshot<String> snapShot) {
+                                return Text(snapShot.data ?? '',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontFamily: 'Roboto',
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                    ));
+                              },
+                            ),
+                      ),
+
+
+//                Container(
+//                  height: 150,
+//                  color: Colors.black26,
+//                  child: Row(
+//                    children: [
+//                      FutureBuilder(
+//                        future: _profileSharedPreferencesHelper.getImage(),
+//                        builder: (BuildContext context,
+//                            AsyncSnapshot<String> snapShot) {
+//                          return CircularImage(
+//                            linkImg: snapShot.data ??
+//                                'https://images.unsplash.com/photo-1518806118471-f28b20a1d79d',
+//                            width: 40,
+//                            height: 40,
+//                          );
+//                        },
+//                      ),
+//                      SizedBox(
+//                        width: 20,
+//                      ),
+//                      Column(
+//                        mainAxisAlignment: MainAxisAlignment.center,
+//                        children: [
+//                          FutureBuilder(
+//                            future: _profileSharedPreferencesHelper.getUsername(),
+//                            builder: (BuildContext context,
+//                                AsyncSnapshot<String> snapShot) {
+//                              return Text(snapShot.data ?? '',
+//                                  style: TextStyle(
+//                                    fontSize: 18,
+//                                    fontFamily: 'Roboto',
+//                                    color: Colors.white,
+//                                    fontWeight: FontWeight.bold,
+//                                  ));
+//                            },
+//                          ),
+//                          Text('شاونين-مغامرات',
+//                              style: TextStyle(
+//                                fontSize: 14,
+//                                fontFamily: 'Roboto',
+//                                color: Colors.white,
+//                              )),
+//                        ],
+//                      ),
+//                    ],
+//                  ),
+//                ),
 
                 // region Sections
                 Flex(
@@ -164,7 +218,8 @@ class AnimeNavigationDrawer extends StatelessWidget {
                         Navigator.of(context)
                             .pushNamed(HomeRoutes.ROUTE_HOME, arguments: 0);
                       },
-                      child: Padding(
+                      child: Container(
+                        color: Color(0xffff9600),
                         padding: const EdgeInsets.fromLTRB(32, 8.0, 0, 8),
                         child: Flex(
                           direction: Axis.horizontal,
@@ -218,7 +273,8 @@ class AnimeNavigationDrawer extends StatelessWidget {
                           arguments: 1,
                         );
                       },
-                      child: Padding(
+                      child: Container(
+                        color: Color(0xffff9600),
                         padding: const EdgeInsets.fromLTRB(32, 8.0, 0, 8),
                         child: Flex(
                           direction: Axis.horizontal,
@@ -268,7 +324,8 @@ class AnimeNavigationDrawer extends StatelessWidget {
                           launch('https://www.google.com');
                         });
                       },
-                      child: Padding(
+                      child: Container(
+                        color: Color(0xffff9600),
                         padding: const EdgeInsets.fromLTRB(32, 8.0, 0, 8),
                         child: Flex(
                           direction: Axis.horizontal,
