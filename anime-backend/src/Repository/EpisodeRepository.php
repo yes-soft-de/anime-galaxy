@@ -130,7 +130,8 @@ class EpisodeRepository extends ServiceEntityRepository
     {        
         return $this->createQueryBuilder('episode')
             ->select('episode.id', 'episode.description', 'episode.episodeNumber', 'episode.image', 'episode.duration',
-                'episode.publishDate', 'episode.createdAt', 'episode.seasonNumber', 'anime.name as animeName', 'episode.specialLink','category.name as categoryName')
+                'episode.publishDate', 'episode.createdAt', 'episode.seasonNumber', 'anime.name as animeName',
+                'episode.specialLink','category.name as categoryName', 'episode.posterImage', 'episode.posterSpecialLink')
             ->leftJoin(
                 Anime::class,
                 'anime',

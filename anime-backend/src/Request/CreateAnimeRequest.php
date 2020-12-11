@@ -18,6 +18,8 @@ class CreateAnimeRequest
     public $trailerVideo;
     private $generalRating;
     private $ageGroup;
+    private $posterImage;
+    private $posterSpecialLink;
 
     public function __construct()
     {

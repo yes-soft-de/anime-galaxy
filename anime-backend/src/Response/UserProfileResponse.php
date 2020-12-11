@@ -24,6 +24,8 @@ class UserProfileResponse
 
     public $followedByNumber;
 
+    public $cover;
+
     /**
      * @param mixed $commentsNumber
      */

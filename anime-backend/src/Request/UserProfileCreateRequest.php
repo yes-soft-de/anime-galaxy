@@ -15,6 +15,10 @@ class UserProfileCreateRequest
 
     private $image;
 
+    private $cover;
+
+    private $coverSpecialLink;
+
     /**
      * @return mixed
      */

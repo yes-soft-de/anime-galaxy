@@ -16,6 +16,7 @@ class CreateAnimeResponse
     public $trailerVideo;
     public $generalRating;
     public $ageGroup;
+    public $posterImage;
 
     /**
      * @return mixed

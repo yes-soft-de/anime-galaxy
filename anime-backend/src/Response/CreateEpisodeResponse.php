@@ -23,4 +23,7 @@ class CreateEpisodeResponse
     public $createdAt;
 
     public $categoyID;
+
+    public $posterImage;
+
 }

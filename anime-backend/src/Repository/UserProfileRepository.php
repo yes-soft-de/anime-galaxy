@@ -25,7 +25,7 @@ class UserProfileRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('profile')
             ->select('user.createdAt as createdAt','profile.userID', 'profile.userName', 'profile.location', 'profile.image',
-                'profile.image', 'profile.story')
+                'profile.image', 'profile.story', 'profile.cover', 'profile.coverSpecialLink')
             ->leftJoin(
                 User::class,
                 'user',

@@ -17,6 +17,8 @@ class CreateEpisodeRequest
     private $publishDate;
     private $createdAt;
     private $categoyID;
+    private $posterImage;
+    private $posterSpecialLink;
 
     /**
      * CreateArticleRequest constructor.

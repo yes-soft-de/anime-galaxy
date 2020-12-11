@@ -133,6 +133,7 @@ class AnimeService
         $animeResult = $this->animeManager->update($request);
 
         $animeResult->setMainImage($this->specialLinkCheck($animeResult->getSpecialLink()).$animeResult->getMainImage());
+        $animeResult->setPosterImage($this->specialLinkCheck($animeResult->getPosterSpecialLink()).$animeResult->getPosterImage());
 
         return $this->autoMapping->map(Anime::class, UpdateAnimeResponse::class, $animeResult);
     }
@@ -194,6 +195,8 @@ class AnimeService
         foreach ($result as $row)
         {
             $row['mainImage'] = $this->specialLinkCheck($row['specialLink']).$row['mainImage'];
+
+            $row['posterImage'] = $this->specialLinkCheck($row['posterSpecialLink']).$row['posterImage'];
 
             $response[] = $this->autoMapping->map('array', GetAnimeCommingSoonResponse::class, $row);
 

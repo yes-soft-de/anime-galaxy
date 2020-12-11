@@ -16,6 +16,7 @@ class UpdateAnimeResponse
     public $suggest;
     public $generalRating;
     public $ageGroup;
+    public $posterImage;
 
     /**
      * @return mixed

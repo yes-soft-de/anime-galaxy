@@ -26,4 +26,6 @@ class GetEpisodeCommingSoonResponse
     
     public $categoryName;
 
+    public $posterImage;
+
 }

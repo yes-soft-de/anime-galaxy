@@ -15,6 +15,8 @@ class UpdateAnimeRequest
     private $trailerVideo;
     private $generalRating;
     private $ageGroup;
+    private $posterImage;
+    private $posterSpecialLink;
 
     /**
      * @return mixed

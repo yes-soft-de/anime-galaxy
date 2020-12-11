@@ -62,6 +62,7 @@ class UserService
         $item = $this->userManager->userProfileUpdate($request);
 
         $item->setImage($this->params . $item->getImage());
+        $item->setCover($this->params . $item->getCover());
 
         return $this->autoMapping->map(UserProfile::class,UserProfileResponse::class, $item);
     }
@@ -75,6 +76,10 @@ class UserService
         if(isset($item['image']))
         {
             $item['image'] = $this->params . $item['image'];
+        }
+        if(isset($item['cover']))
+        {
+            $item['cover'] = $this->params . $item['cover'];
         }
 
         $response = $this->autoMapping->map('array', UserProfileResponse::class, $item);

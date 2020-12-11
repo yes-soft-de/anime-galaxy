@@ -150,6 +150,8 @@ class EpisodeService
         {
             $row['image'] = $this->specialLinkCheck($row['specialLink']).$row['image'];
 
+            $row['posterImage'] = $this->specialLinkCheck($row['posterSpecialLink']).$row['posterImage'];
+
             $response[] = $this->autoMapping->map('array', GetEpisodeCommingSoonResponse::class, $row); 
         }
 

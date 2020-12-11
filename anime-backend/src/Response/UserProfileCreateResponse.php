@@ -13,4 +13,6 @@ class UserProfileCreateResponse
     public $story;
 
     public $image;
+
+    public $cover;
 }

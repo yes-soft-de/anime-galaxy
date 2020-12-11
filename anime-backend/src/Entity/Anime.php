@@ -77,6 +77,16 @@ class Anime
      */
     private $ageGroup;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $posterImage;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $posterSpecialLink;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -222,6 +232,30 @@ class Anime
     public function setAgeGroup(?string $ageGroup): self
     {
         $this->ageGroup = $ageGroup;
+
+        return $this;
+    }
+
+    public function getPosterImage(): ?string
+    {
+        return $this->posterImage;
+    }
+
+    public function setPosterImage(?string $posterImage): self
+    {
+        $this->posterImage = $posterImage;
+
+        return $this;
+    }
+
+    public function getPosterSpecialLink(): ?bool
+    {
+        return $this->posterSpecialLink;
+    }
+
+    public function setPosterSpecialLink(?bool $posterSpecialLink): self
+    {
+        $this->posterSpecialLink = $posterSpecialLink;
 
         return $this;
     }
