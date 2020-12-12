@@ -377,6 +377,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     ),
                                   ],
                                 ),
+                                SizedBox(width: 10,),
                                 Column(
                                   children: [
                                     Text(
@@ -432,18 +433,29 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                         ),
                       //about me
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            S.of(context).aboutMe,
-                            style: TextStyle(
-                                fontFamily:'Roboto',
-                                fontWeight: FontWeight.bold
+
+                      Container(
+                        margin: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 5),
+                        decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [Colors.grey[400],Colors.white],
+                            )
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              S.of(context).aboutMe,
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontFamily: 'Roboto',
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
+
                       Container(
                         margin: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
                         width: MediaQuery.of(context).size.width * 0.8,
@@ -459,18 +471,29 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       //activities
                       //display following activities only for me
                       if( userId == null)
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Text(
-                              S.of(context).activities,
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontFamily:'Roboto',
+                        Container(
+                          margin: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
+                          decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [Colors.grey[400],Colors.white],
+                              )
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                S.of(context).activities,
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontFamily: 'Roboto',
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
+
+
 
                       if ( userId == null)
                         ListView.builder(
@@ -495,20 +518,31 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         height: 20,
                       ),
                       //watched series
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            S.of(context).watchedSeries,
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontFamily:'Roboto',
+                      Container(
+                        margin: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
+                        decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [Colors.grey[400],Colors.white],
+                            )
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              S.of(context).watchedSeries,
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontFamily: 'Roboto',
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
+
                       Container(
                         height: 225,
+                        color: Colors.grey[300],
                         child: ListView.builder(
                             scrollDirection: Axis.horizontal,
                             shrinkWrap: true,

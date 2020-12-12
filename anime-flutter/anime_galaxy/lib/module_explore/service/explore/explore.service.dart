@@ -79,6 +79,7 @@ class ExploreService{
         name: element.name,
         image: element.mainImage,
         category: element.categoryName,
+        posterImage: element.posterImage,
       ));
     });
     return series;

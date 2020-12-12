@@ -27,7 +27,7 @@ class FavouriteSeriesCard extends StatelessWidget {
               ),
               elevation: 0,
               shape: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(15),
                 borderSide: BorderSide.none,
               ),
             ),

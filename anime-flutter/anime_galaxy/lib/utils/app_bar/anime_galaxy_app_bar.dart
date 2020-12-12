@@ -16,8 +16,8 @@ class AnimeGalaxyAppBar {
     return AppBar(
       backgroundColor: Theme.of(context).brightness == Brightness.dark
           ? SwapThemeDataService.getDarkBGColor()
-          : Colors.white,
-      elevation: 0,
+          : Colors.white70,
+      elevation: 1,
       centerTitle: false,
       automaticallyImplyLeading: false,
       title: Row(
@@ -29,7 +29,6 @@ class AnimeGalaxyAppBar {
               Icons.menu,
             ),
           ),
-          //TODO : change this to real image of user
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: CircularImage(
@@ -83,7 +82,10 @@ class AnimeGalaxyAppBar {
                           SearchRoutes.ROUTE_Search
            );
          },
-             child: Icon(Icons.search)),
+             child: Icon(
+                 Icons.search,
+               size: 35,
+             )),
         SizedBox(
              width: 10,
           ),

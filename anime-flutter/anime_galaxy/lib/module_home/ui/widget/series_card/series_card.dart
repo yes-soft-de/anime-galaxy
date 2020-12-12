@@ -11,20 +11,24 @@ class SeriesCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-        height: 200,
+        height: 170,
         width: 110,
         child: Column(
           children: [
             Container(
-              width: 110,
-              height: 140,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                image: DecorationImage(
-                  fit: BoxFit.fill,
-                  image:  NetworkImage(image ??
-                      'https://images.unsplash.com/photo-1518806118471-f28b20a1d79d'
-                  ),
+              height: 150,
+              child: Card(
+                clipBehavior: Clip.hardEdge,
+                child: FadeInImage.assetNetwork(
+                  fit: BoxFit.cover,
+                  image: image ?? '',
+                  placeholder: 'assets/images/logo.jpg',
+                  width: 100,
+                ),
+                elevation: 0,
+                shape: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15),
+                  borderSide: BorderSide.none,
                 ),
               ),
             ),
@@ -44,14 +48,7 @@ class SeriesCard extends StatelessWidget {
                       fontWeight: FontWeight.bold
                   ),
                 )),
-            Text(
-              classification??'',
-              style: TextStyle(
-                  fontSize: 12,
-                  fontFamily:'Roboto',
-                  color: Colors.black38
-              ),
-            ),
+
           ],
         ));
   }

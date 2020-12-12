@@ -91,11 +91,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     anime.newEpisodes.forEach((item) {
       imageSliders.add(Container(
         child: GestureDetector(
-          onTap: ()=> Navigator.pushNamed(
-              context,
-              EpisodeRoutes.ROUTE_EPISODE_DETAILS_SCREEN,
-              arguments: item.id
-          ),
+          onTap: () => Navigator.pushNamed(
+              context, EpisodeRoutes.ROUTE_EPISODE_DETAILS_SCREEN,
+              arguments: item.id),
           child: Container(
             margin: EdgeInsets.all(5.0),
             child: ClipRRect(
@@ -107,68 +105,68 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       children: [
                         FadeInImage.assetNetwork(
                           placeholder: 'assets/images/logo.jpg',
-                          image: item.image,
+                          image: item.posterImage,
                         ),
-                        BackdropFilter(
-                          filter: ImageFilter.blur(sigmaX: 1.0, sigmaY: 1.0),
-                          child: Container(
-                            decoration: BoxDecoration(
-                                color: Colors.white.withOpacity(0.0)),
-                          ),
-                        )
+//                        BackdropFilter(
+//                          filter: ImageFilter.blur(sigmaX: 1.0, sigmaY: 1.0),
+//                          child: Container(
+//                            decoration: BoxDecoration(
+//                                color: Colors.white.withOpacity(0.0)),
+//                          ),
+//                        )
                       ],
                     ),
-                    Positioned.fill(
-                      child: Container(
-                        color: Colors.black12,
-                      ),
-                    ),
-                    Positioned(
-                      left: 0.0,
-                      right: 0.0,
-                      child: Container(
-                          padding: EdgeInsets.symmetric(
-                              vertical: 10.0, horizontal: 10.0),
-                          child:
-                              Column(
-                                children: <Widget>[
-
-                                      Text(
-                                      '${item.seriesName}',
-                                      overflow: TextOverflow.fade,
-                                      maxLines: 1,
-                                      softWrap: false,
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 14,
-                                          fontFamily: 'Roboto',
-                                          fontWeight: FontWeight.bold,
-
-                                      ),
-
-                                  ),
-//                                  Text(
-//                                    item.classification??'',
-//                                    style: TextStyle(
-//                                        color: Colors.white70,
-//                                        fontFamily: 'Roboto',
-//                                        fontSize: 13),
+//                    Positioned.fill(
+//                      child: Container(
+//                        color: Colors.black12,
+//                      ),
+//                    ),
+//                    Positioned(
+//                      left: 0.0,
+//                      right: 0.0,
+//                      child: Container(
+//                          padding: EdgeInsets.symmetric(
+//                              vertical: 10.0, horizontal: 10.0),
+//                          child:
+//                              Column(
+//                                children: <Widget>[
+//
+//                                      Text(
+//                                      '${item.seriesName}',
+//                                      overflow: TextOverflow.fade,
+//                                      maxLines: 1,
+//                                      softWrap: false,
+//                                      style: TextStyle(
+//                                          color: Colors.white,
+//                                          fontSize: 14,
+//                                          fontFamily: 'Roboto',
+//                                          fontWeight: FontWeight.bold,
+//
+//                                      ),
+//
 //                                  ),
-//                                  Text(
-//                                    S.of(context).Episode +
-//                                        '${item.episodeNumber} ' +
-//                                        S.of(context).Season +
-//                                        '${item.season}',
-//                                    style: TextStyle(
-//                                        fontFamily: 'Roboto',
-//                                        color: Colors.white70,
-//                                        fontSize: 13),
-//                                  ),
-                                ],
-                              ),
-
-                           ),
-                    ),
+////                                  Text(
+////                                    item.classification??'',
+////                                    style: TextStyle(
+////                                        color: Colors.white70,
+////                                        fontFamily: 'Roboto',
+////                                        fontSize: 13),
+////                                  ),
+////                                  Text(
+////                                    S.of(context).Episode +
+////                                        '${item.episodeNumber} ' +
+////                                        S.of(context).Season +
+////                                        '${item.season}',
+////                                    style: TextStyle(
+////                                        fontFamily: 'Roboto',
+////                                        color: Colors.white70,
+////                                        fontSize: 13),
+////                                  ),
+//                                ],
+//                              ),
+//
+//                           ),
+//                    ),
                   ],
                 )),
           ),
@@ -190,12 +188,16 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 points: anime.points,
               ),
               Container(
-                margin: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 5),
+                margin: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 5),
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                  colors: [Colors.grey[400], Colors.white],
+                )),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                     'حلقات التي سوف تصدر قريبا',
+                      'حلقات التي سوف تصدر قريبا',
                       style: TextStyle(
                         fontSize: 14,
                         fontFamily: 'Roboto',
@@ -231,12 +233,16 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       ),
                     ),
               Container(
-                margin: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 5),
+                margin: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 5),
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                  colors: [Colors.grey[400], Colors.white],
+                )),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                     'المتابعة',
+                      'المتابعة',
                       style: TextStyle(
                         fontSize: 14,
                         fontFamily: 'Roboto',
@@ -255,7 +261,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               ),
 
               Container(
-                height: 200,
+                height: 190,
+                color: Colors.grey[300],
                 child: ListView.builder(
                   itemBuilder: (context, index) {
                     return Padding(
@@ -263,10 +270,10 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       child: GestureDetector(
                         onTap: () => Navigator.pushNamed(
                             context, AnimeRoutes.ROUTE_ANIME_DETAILS_SCREEN,
-                            arguments:anime.watchedSeries[index].id),
+                            arguments: anime.watchedSeries[index].id),
                         child: SeriesCard(
-                          image:anime.watchedSeries[index].image,
-                          name:anime.watchedSeries[index].name,
+                          image: anime.watchedSeries[index].image,
+                          name: anime.watchedSeries[index].name,
                         ),
                       ),
                     );
@@ -338,12 +345,16 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 //
 
               Container(
-                margin: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 5),
+                margin: EdgeInsetsDirectional.fromSTEB(10, 5, 0, 5),
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                  colors: [Colors.grey[400], Colors.white],
+                )),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                     'إنميات قد تعجبك',
+                      'إنميات قد تعجبك',
                       style: TextStyle(
                           fontSize: 14,
                           fontFamily: 'Roboto',
@@ -361,34 +372,34 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               ),
 
               anime.mayLikeSeries.isNotEmpty
-                  ?  Container(
-                        height: 200,
-                        child: ListView.builder(
-                          itemBuilder: (context, index) {
-                            return Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 2),
-                              child: GestureDetector(
-                                onTap: () => Navigator.pushNamed(
-                                    context, AnimeRoutes.ROUTE_ANIME_DETAILS_SCREEN,
-                                    arguments:anime.mayLikeSeries[index].id),
-                                child: SeriesCard(
-                                  image:anime.mayLikeSeries[index].image,
-                                  name:anime.mayLikeSeries[index].name,
-                                ),
+                  ? Container(
+                      height: 190,
+                      color: Colors.grey[300],
+                      child: ListView.builder(
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 2),
+                            child: GestureDetector(
+                              onTap: () => Navigator.pushNamed(context,
+                                  AnimeRoutes.ROUTE_ANIME_DETAILS_SCREEN,
+                                  arguments: anime.mayLikeSeries[index].id),
+                              child: SeriesCard(
+                                image: anime.mayLikeSeries[index].image,
+                                name: anime.mayLikeSeries[index].name,
                               ),
-                            );
-                          },
-                          itemCount: anime.mayLikeSeries.length,
-                          scrollDirection: Axis.horizontal,
-                        ),
-                      )
+                            ),
+                          );
+                        },
+                        itemCount: anime.mayLikeSeries.length,
+                        scrollDirection: Axis.horizontal,
+                      ),
+                    )
                   : Text(
-                'Not Enough Data',
-                style: TextStyle(
-                  fontFamily: 'Roboto',
-                ),
-              ),
-
+                      'Not Enough Data',
+                      style: TextStyle(
+                        fontFamily: 'Roboto',
+                      ),
+                    ),
 
 //              anime.mayLikeSeries.isNotEmpty
 //                  ? AnimatedSize(

@@ -21,6 +21,7 @@ class Episode{
   String classification;
   int episodeNumber;
   int season;
+  String posterImage;
 
   Episode({
     this.id,
@@ -29,6 +30,7 @@ class Episode{
     this.episodeNumber,
     this.season,
     this.seriesName,
+    this.posterImage,
 });
 }
 

@@ -61,7 +61,9 @@ class HomeService {
           image: element.image,
           episodeNumber: element.episodeNumber,
           season: element.seasonNumber,
-          seriesName: element.animeName));
+          seriesName: element.animeName,
+          posterImage: element.posterImage,
+      ));
     });
     return episodes;
   }

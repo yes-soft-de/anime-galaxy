@@ -318,25 +318,25 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
 
         //about
         Container(
-          padding: EdgeInsetsDirectional.fromSTEB(0, 5, 5, 5),
+          margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 5),
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Colors.grey[400],Colors.white],
+              )
+          ),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 S.of(context).About,
                 style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'Roboto',
-                ),
+                    fontSize: 14,
+                    fontFamily: 'Roboto',
+                    fontWeight: FontWeight.bold),
               ),
-              SizedBox(
-                width: 10,
-              )
             ],
           ),
         ),
-
         new AnimatedSize(
             vsync: this,
             duration: const Duration(milliseconds: 500),
@@ -397,7 +397,12 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
           color: Colors.black38,
         ),
         Container(
-          margin: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 20),
+          margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 15),
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Colors.grey[400],Colors.white],
+              )
+          ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -501,51 +506,64 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
     return Column(
       children: [
         Container(
-            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 5, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Text(
-                  S.of(context).LastReplaysAndComments,
-                  style: TextStyle(
-                      fontSize: 14,
-                      fontFamily: 'Roboto',
-                      fontWeight: FontWeight.bold),
-                ),
-              ],
-            )),
+          margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 5),
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Colors.grey[400],Colors.white],
+              )
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                S.of(context).LastReplaysAndComments,
+                style: TextStyle(
+                    fontSize: 14,
+                    fontFamily: 'Roboto',
+                    fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+        ),
         episode.comments.isNotEmpty  ?
         ListView.builder(
           physics: NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           itemCount: episode.comments.length,
           itemBuilder: (BuildContext context, int index) {
-            return episode.comments[index].spoilerAlert?
-            SpoilerCommentCard(
-              userId: episode.comments[index].userId,
-              userImage: '${episode.comments[index].userImage}',
-              userName: '${episode.comments[index].userName}',
-              date:'${ episode.comments[index].date}',
-              likesNumber: episode.comments[index].likesNumber,
-              isLoved:episode.comments[index].isLoved ,
-              onShow:(){
-                episode.comments[index].spoilerAlert = false;
-                setState(() {
+            return
+            Column(
+              children: [
+                episode.comments[index].spoilerAlert?
+                SpoilerCommentCard(
+                  userId: episode.comments[index].userId,
+                  userImage: '${episode.comments[index].userImage}',
+                  userName: '${episode.comments[index].userName}',
+                  date:'${ episode.comments[index].date}',
+                  likesNumber: episode.comments[index].likesNumber,
+                  isLoved:episode.comments[index].isLoved ,
+                  onShow:(){
+                    episode.comments[index].spoilerAlert = false;
+                    setState(() {
 
-                });
-              },
-            ):
-            CommentCard(
-              userId: episode.comments[index].userId,
-              userImage: '${episode.comments[index].userImage}',
-              userName: '${episode.comments[index].userName}',
-              date: '${episode.comments[index].date}',
-              likesNumber: episode.comments[index].likesNumber,
-              comment: '${episode.comments[index].content}',
-              isLoved: episode.comments[index].isLoved ,
-              onLove: () =>
-                  widget._stateManager.loveComment(episode.comments[index].id),
-            );
+                    });
+                  },
+                ):
+                CommentCard(
+                  userId: episode.comments[index].userId,
+                  userImage: '${episode.comments[index].userImage}',
+                  userName: '${episode.comments[index].userName}',
+                  date: '${episode.comments[index].date}',
+                  likesNumber: episode.comments[index].likesNumber,
+                  comment: '${episode.comments[index].content}',
+                  isLoved: episode.comments[index].isLoved ,
+                  onLove: () =>
+                      widget._stateManager.loveComment(episode.comments[index].id),
+                ),
+                Divider(),
+              ],
+            )
+              ;
           },
         ) : Text(
           S.of(context).beTheFirstToComment,
@@ -556,6 +574,7 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
       ],
     );
   }
+
   void _showCommentDialog(BuildContext context) {
     showDialog(
         context: context,
@@ -570,15 +589,28 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Text(S.of(context).newInteraction,
+                      Container(
+                        margin: EdgeInsetsDirectional.fromSTEB(10, 0, 5, 5),
+                        width: MediaQuery.of(context).size.width * 0.55,
+                        decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [Colors.grey[400],Colors.white],
+                            )
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              S.of(context).newInteraction,
                               style: TextStyle(
-                                fontFamily: 'Roboto',
-                              )),
-                        ],
+                                  fontSize: 14,
+                                  fontFamily: 'Roboto',
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
                       ),
+//
                       Container(
                         padding: EdgeInsets.all(5),
                         decoration: BoxDecoration(
@@ -590,13 +622,16 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
                           controller: _commentController,
                           style: TextStyle(
                             color: Colors.white,
-                            fontFamily: 'Roboto',
+                            fontFamily:'Roboto',
                             fontSize: 14,
                           ),
                           maxLines: 8,
                           decoration: InputDecoration.collapsed(
                             hintText: S.of(context).addYourComment,
-                            hintStyle: TextStyle(color: Colors.white),
+                            hintStyle: TextStyle(
+                              color: Colors.white,
+                              fontFamily:'Roboto',
+                            ),
                           ),
                         ),
                       ),
@@ -605,29 +640,37 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
                         margin: EdgeInsets.only(top: 10),
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
-                            color: Colors.black),
+                            color: Colors.black
+                        ),
                         width: MediaQuery.of(context).size.width * 0.6,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Switch(
-                              value: isSwitched,
-                              onChanged: (isOn) {
-                                setState(() {
-                                  isSwitched = !isSwitched;
-                                });
-                              },
-                              activeTrackColor: ProjectColors.ThemeColor,
-                              activeColor: Colors.white,
-                            ),
                             Text(S.of(context).spoilerAlert,
                                 style: GoogleFonts.roboto(
                                   textStyle: TextStyle(
-                                    fontSize: 10,
-                                    color: Colors.white,
-                                    fontFamily: 'Roboto',
+                                      fontFamily:'Roboto',
+                                      fontSize: 10,
+                                      color: Colors.white
                                   ),
-                                ))
+                                )),
+                            Container(
+                              height: 25,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: Colors.grey
+                              ),
+                              child: Switch(
+                                value: isSwitched,
+                                onChanged: (isOn) {
+                                  setState(() {
+                                    isSwitched = !isSwitched;
+                                  });
+                                },
+                                activeTrackColor: ProjectColors.ThemeColor,
+                                activeColor: Colors.white,
+                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -650,8 +693,8 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.roboto(
                                   textStyle: TextStyle(
+                                      fontFamily:'Roboto',
                                       fontSize: 10,
-                                      fontFamily: 'Roboto',
                                       color: Colors.white),
                                 )),
                           )),

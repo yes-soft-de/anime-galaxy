@@ -372,22 +372,27 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
           ),
 
           //Statistics
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Text(
+          Container(
+            margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 5),
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Colors.grey[400],Colors.white],
+                )
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
                   S.of(context).statics,
-                  style:TextStyle (
+                  style: TextStyle(
                       fontSize: 14,
-                      fontFamily:'Roboto',
-                      fontWeight: FontWeight.bold,
-                  ),
-              ),
-              SizedBox(
-                width: 10,
-              )
-            ],
+                      fontFamily: 'Roboto',
+                      fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
           ),
+
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -431,24 +436,26 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
 
           //about
           Container(
-            padding: EdgeInsetsDirectional.fromSTEB(0, 5, 5, 5),
+            margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 5),
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Colors.grey[400],Colors.white],
+                )
+            ),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   S.of(context).About,
                   style: TextStyle(
                       fontSize: 14,
-                      fontFamily:'Roboto',
-                    fontWeight: FontWeight.bold,
-                  ),
+                      fontFamily: 'Roboto',
+                      fontWeight: FontWeight.bold),
                 ),
-                SizedBox(
-                  width: 10,
-                )
               ],
             ),
           ),
+
 
           AnimatedSize(
               vsync: this,
@@ -507,8 +514,14 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
             width: screenWidth * 0.8,
             color: Colors.black38,
           ),
+
           Container(
-            margin: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 20),
+            margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 15),
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Colors.grey[400],Colors.white],
+                )
+            ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -516,13 +529,13 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                   S.of(context).Classification,
                   style: TextStyle(
                       fontSize: 14,
-                      fontWeight: FontWeight.bold,
-                      fontFamily:'Roboto'
-                  ),
+                      fontFamily: 'Roboto',
+                      fontWeight: FontWeight.bold),
                 ),
               ],
             ),
           ),
+
 
           //classifications
           Wrap(
@@ -605,27 +618,59 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
 
 
          // last episodes
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 5, 0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      S.of(context).LastEpisodes,
-                      style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          fontFamily:'Roboto'
-                      ),
-                    ),
-                  ],
-                )),
+          Container(
+            margin: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 5),
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Colors.grey[400],Colors.white],
+                )
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  S.of(context).LastEpisodes,
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontFamily: 'Roboto',
+                      fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
           ),
+
+
           // last episodes
           anime.episodes.isNotEmpty
-              ? GridView.builder(
+              ?
+          Container(
+            height: 210,
+            color: Colors.grey[300],
+            child: ListView.builder(
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 2),
+                  child: GestureDetector(
+                    onTap: () {
+//                  controller.pause(); // to stop video when navigation to another screen
+                      Navigator.pushNamed(
+                          context, EpisodeRoutes.ROUTE_EPISODE_DETAILS_SCREEN,
+                          arguments: anime.episodes[index].id);
+                    },
+                    child: EpisodeCard(
+                      image: anime.episodes[index].image,
+                      episodeNumber: anime.episodes[index].episodeNumber,
+                      classification: anime.episodes[index].classification,
+                    ),
+                  )
+                );
+              },
+              itemCount:  anime.episodes.length,
+              scrollDirection: Axis.horizontal,
+            ),
+          )
+
+         /* GridView.builder(
             physics: NeverScrollableScrollPhysics(),
             itemBuilder: (BuildContext context, int index) {
               return GestureDetector(
@@ -650,7 +695,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                 childAspectRatio: (2.3 / 4)),
             itemCount: anime.episodes != null ? anime.episodes.length : 0,
             shrinkWrap: true,
-          )
+          )*/
               : Text(
             S.of(context).noNewEpisodes,
             style: TextStyle(
@@ -702,56 +747,68 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
     return Column(
       children: [
         Container(
-            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 5, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    S.of(context).LastReplaysAndComments,
-                    style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                        fontFamily:'Roboto'
-                    ),
-                  ),
-                ),
-              ],
-            )),
+          margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 5),
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Colors.grey[400],Colors.white],
+              )
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                S.of(context).LastReplaysAndComments,
+                style: TextStyle(
+                    fontSize: 14,
+                    fontFamily: 'Roboto',
+                    fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+        ),
+
         anime.comments.isNotEmpty
             ? ListView.builder(
           physics: NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           itemCount: anime.comments != null ? anime.comments.length : 0,
           itemBuilder: (BuildContext context, int index) {
-            return anime.comments[index].spoilerAlert ?
-                         SpoilerCommentCard(
-                           userId: anime.comments[index].userId,
-                           userImage: '${anime.comments[index].userImage}',
-                           userName: '${anime.comments[index].userName}',
-                           date:'${ anime.comments[index].date}',
-                           likesNumber: anime.comments[index].likesNumber,
-                           isLoved:anime.comments[index].isLoved ,
-                           onShow:(){
-                             anime.comments[index].spoilerAlert = false;
-                             setState(() {
+            return Column(
+              children: [
+                anime.comments[index].spoilerAlert ?
+                SpoilerCommentCard(
+                  userId: anime.comments[index].userId,
+                  userImage: '${anime.comments[index].userImage}',
+                  userName: '${anime.comments[index].userName}',
+                  date:'${ anime.comments[index].date}',
+                  likesNumber: anime.comments[index].likesNumber,
+                  isLoved:anime.comments[index].isLoved ,
+                  onShow:(){
+                    anime.comments[index].spoilerAlert = false;
+                    setState(() {
 
-                             });
-                           },
-                         )   :
-                        CommentCard(
-                          userId: anime.comments[index].userId,
-                          userImage: '${anime.comments[index].userImage}',
-                          userName: '${anime.comments[index].userName}',
-                          date:'${ anime.comments[index].date}',
-                          comment: '${anime.comments[index].content}',
-                          likesNumber: anime.comments[index].likesNumber,
-                          isLoved:anime.comments[index].isLoved ,
-                          onLove:()=> widget._stateManager.loveComment(anime.comments[index].id),
+                    });
+                  },
+                )   :
+                CommentCard(
+                  userId: anime.comments[index].userId,
+                  userImage: '${anime.comments[index].userImage}',
+                  userName: '${anime.comments[index].userName}',
+                  date:'${ anime.comments[index].date}',
+                  comment: '${anime.comments[index].content}',
+                  likesNumber: anime.comments[index].likesNumber,
+                  isLoved:anime.comments[index].isLoved ,
+                  onLove:()=> widget._stateManager.loveComment(anime.comments[index].id),
 
 
-                        )  ;
+                ),
+
+                Divider(),
+              ],
+            );
+
+
+
           },
         )
             : Text(
@@ -906,16 +963,28 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Text(S.of(context).newInteraction,
+                      Container(
+                        margin: EdgeInsetsDirectional.fromSTEB(10, 0, 5, 5),
+                        width: MediaQuery.of(context).size.width * 0.55,
+                        decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [Colors.grey[400],Colors.white],
+                            )
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              S.of(context).newInteraction,
                               style: TextStyle(
-                                  fontFamily:'Roboto'
-                              )
-                          ),
-                        ],
+                                  fontSize: 14,
+                                  fontFamily: 'Roboto',
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
                       ),
+//
                       Container(
                         padding: EdgeInsets.all(5),
                         decoration: BoxDecoration(
@@ -945,21 +1014,12 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                         margin: EdgeInsets.only(top: 10),
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
-                            color: Colors.black),
+                            color: Colors.black
+                        ),
                         width: MediaQuery.of(context).size.width * 0.6,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Switch(
-                              value: isSwitched,
-                              onChanged: (isOn) {
-                                setState(() {
-                                  isSwitched = !isSwitched;
-                                });
-                              },
-                              activeTrackColor: ProjectColors.ThemeColor,
-                              activeColor: Colors.white,
-                            ),
                             Text(S.of(context).spoilerAlert,
                                 style: GoogleFonts.roboto(
                                   textStyle: TextStyle(
@@ -967,7 +1027,24 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                                       fontSize: 10,
                                       color: Colors.white
                                   ),
-                                ))
+                                )),
+                            Container(
+                              height: 25,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: Colors.grey
+                              ),
+                              child: Switch(
+                                value: isSwitched,
+                                onChanged: (isOn) {
+                                  setState(() {
+                                    isSwitched = !isSwitched;
+                                  });
+                                },
+                                activeTrackColor: ProjectColors.ThemeColor,
+                                activeColor: Colors.white,
+                              ),
+                            ),
                           ],
                         ),
                       ),

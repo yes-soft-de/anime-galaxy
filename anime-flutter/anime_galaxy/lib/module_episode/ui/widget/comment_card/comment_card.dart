@@ -28,8 +28,8 @@ class CommentCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width * 0.9,
-      padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
+      width: MediaQuery.of(context).size.width * 0.95,
+      padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
       child: Column(
         children: [
           Row(

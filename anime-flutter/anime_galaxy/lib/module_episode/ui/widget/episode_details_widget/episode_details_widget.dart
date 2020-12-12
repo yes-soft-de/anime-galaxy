@@ -31,12 +31,22 @@ class EpisodeDetailsWidget extends StatelessWidget {
     return Container(
       child: Row(
         children: [
-          FadeInImage.assetNetwork(
+          Container(
             height: 136,
-            width: 80,
-            placeholder: 'assets/images/logo.jpg',
-            image: image ?? '',
-            fit: BoxFit.cover,
+            child: Card(
+              clipBehavior: Clip.hardEdge,
+              child: FadeInImage.assetNetwork(
+                fit: BoxFit.cover,
+                image: image ?? '',
+                placeholder: 'assets/images/logo.jpg',
+                width: 80,
+              ),
+              elevation: 0,
+              shape: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(15),
+                borderSide: BorderSide.none,
+              ),
+            ),
           ),
           Expanded(
             child: Padding(
@@ -150,22 +160,22 @@ class EpisodeDetailsWidget extends StatelessWidget {
                           ),
                         ],
                       ),
-                      Row(
-                        children: [
-                          IconButton(
-                            icon: Icon(Icons.share),
-                            //TODO : implement this
-                            onPressed: () {},
-                          ),
-                          Text(
-                            S.of(context).Share,
-                            style: TextStyle(
-                              fontSize: 10,
-                              fontFamily:'Roboto',
-                            ),
-                          ),
-                        ],
-                      ),
+//                      Row(
+//                        children: [
+//                          IconButton(
+//                            icon: Icon(Icons.share),
+//                            //TODO : implement this
+//                            onPressed: () {},
+//                          ),
+//                          Text(
+//                            S.of(context).Share,
+//                            style: TextStyle(
+//                              fontSize: 10,
+//                              fontFamily:'Roboto',
+//                            ),
+//                          ),
+//                        ],
+//                      ),
                     ],
                   )
                 ],

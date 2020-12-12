@@ -11,16 +11,26 @@ class EpisodeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-        height: 160,
+        height: 200,
+        width: 110,
         child: Column(
           children: [
-            FadeInImage.assetNetwork(
-              width: MediaQuery.of(context).size.width,
-              height: 110,
-              placeholder: 'assets/images/logo.jpg',
-              image: image,
-              fit: BoxFit.fill,
+            Container(
+              height: 145,
+              child: Card(
+                clipBehavior: Clip.hardEdge,
+                child: FadeInImage.assetNetwork(
+                  fit: BoxFit.cover,
+                  image: image ?? '',
+                  placeholder: 'assets/images/logo.jpg',
+                  width: 100,
+                ),
+                elevation: 0,
+                shape: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15),
+                  borderSide: BorderSide.none,
+                ),
+              ),
             ),
             Container(
               height: 5,
@@ -29,7 +39,7 @@ class EpisodeCard extends StatelessWidget {
                 child: Text(
               S.of(context).Episode + ' $episodeNumber ',
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 12,
                 fontWeight: FontWeight.bold,
                 fontFamily:'Roboto',
               ),

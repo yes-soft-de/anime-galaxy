@@ -33,11 +33,13 @@ class ComingSoonSeries{
   String name;
   String image;
   String category;
+  String posterImage;
 
   ComingSoonSeries({
     this.name,
     this.image,
     this.category,
+    this.posterImage,
   });
 
 

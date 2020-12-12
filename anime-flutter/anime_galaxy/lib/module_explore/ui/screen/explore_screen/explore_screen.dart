@@ -7,9 +7,6 @@ import 'package:anime_galaxy/module_explore/state/explore/explore.state.dart';
 import 'package:anime_galaxy/module_explore/state_manager/explore/explore.state_manager.dart';
 import 'package:anime_galaxy/module_explore/style/style_explore_list.dart';
 import 'package:anime_galaxy/module_explore/ui/widget/favourite_series_card/favourite_series_card.dart';
-import 'package:anime_galaxy/module_explore/ui/widget/member_card/member_card.dart';
-import 'package:anime_galaxy/module_explore/ui/widget/series_card/card_series.dart';
-import 'package:anime_galaxy/module_profile/profile_routes.dart';
 import 'package:anime_galaxy/utils/loading_indicator/loading_indicator.dart';
 import 'package:anime_galaxy/utils/project_color/project_color.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -82,65 +79,128 @@ class _ExploreScreenState extends State<ExploreScreen> {
               borderRadius: BorderRadius.all(Radius.circular(0.0)),
               child: Stack(
                 children: <Widget>[
-                  Container(
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: NetworkImage(item.image),
-                        fit: BoxFit.cover,
+                  Stack(
+                    fit: StackFit.expand,
+                    children: [
+                      FadeInImage.assetNetwork(
+                        placeholder: 'assets/images/logo.jpg',
+                        image: item.posterImage,
                       ),
-                    ),
-                    child: BackdropFilter(
-                      filter: ImageFilter.blur(sigmaX: 1.0, sigmaY: 1.0),
-                      child: Container(
-                        decoration:
-                            BoxDecoration(color: Colors.white.withOpacity(0.0)),
-                      ),
-                    ),
+//                        BackdropFilter(
+//                          filter: ImageFilter.blur(sigmaX: 1.0, sigmaY: 1.0),
+//                          child: Container(
+//                            decoration: BoxDecoration(
+//                                color: Colors.white.withOpacity(0.0)),
+//                          ),
+//                        )
+                    ],
                   ),
-                  Positioned(
-                    left: 0.0,
-                    right: 0.0,
-                    child: Container(
-                        padding: EdgeInsets.symmetric(
-                            vertical: 10.0, horizontal: 10.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Container(
-                                  width: MediaQuery.of(context).size.width*0.6,
-                                  child: Text(
-                                    '${item.name}',
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 16,
-                                        shadows: [
-                                          Shadow(
-                                            color: ProjectColors.ThemeColor,
-                                            offset: Offset(0.5, 0.5)
-
-                                          ),
-                                        ],
-                                        fontFamily:'Roboto',
-                                        fontWeight: FontWeight.bold
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                          ],
-                        )),
-                  ),
+//                    Positioned.fill(
+//                      child: Container(
+//                        color: Colors.black12,
+//                      ),
+//                    ),
+//                    Positioned(
+//                      left: 0.0,
+//                      right: 0.0,
+//                      child: Container(
+//                          padding: EdgeInsets.symmetric(
+//                              vertical: 10.0, horizontal: 10.0),
+//                          child:
+//                              Column(
+//                                children: <Widget>[
+//
+//                                      Text(
+//                                      '${item.seriesName}',
+//                                      overflow: TextOverflow.fade,
+//                                      maxLines: 1,
+//                                      softWrap: false,
+//                                      style: TextStyle(
+//                                          color: Colors.white,
+//                                          fontSize: 14,
+//                                          fontFamily: 'Roboto',
+//                                          fontWeight: FontWeight.bold,
+//
+//                                      ),
+//
+//                                  ),
+////                                  Text(
+////                                    item.classification??'',
+////                                    style: TextStyle(
+////                                        color: Colors.white70,
+////                                        fontFamily: 'Roboto',
+////                                        fontSize: 13),
+////                                  ),
+////                                  Text(
+////                                    S.of(context).Episode +
+////                                        '${item.episodeNumber} ' +
+////                                        S.of(context).Season +
+////                                        '${item.season}',
+////                                    style: TextStyle(
+////                                        fontFamily: 'Roboto',
+////                                        color: Colors.white70,
+////                                        fontSize: 13),
+////                                  ),
+//                                ],
+//                              ),
+//
+//                           ),
+//                    ),
                 ],
               )),
-        ),
-      ));
+                    ),
+//                    child: BackdropFilter(
+//                      filter: ImageFilter.blur(sigmaX: 1.0, sigmaY: 1.0),
+//                      child: Container(
+//                        decoration:
+//                            BoxDecoration(color: Colors.white.withOpacity(0.0)),
+//                      ),
+//                    ),
+//                  ),
+//                  Positioned(
+//                    left: 0.0,
+//                    right: 0.0,
+//                    child: Container(
+//                        padding: EdgeInsets.symmetric(
+//                            vertical: 10.0, horizontal: 10.0),
+//                        child: Row(
+//                          mainAxisAlignment: MainAxisAlignment.center,
+//                          children: [
+//                            Column(
+//                              mainAxisAlignment: MainAxisAlignment.center,
+//                              children: <Widget>[
+//                                Container(
+//                                  width: MediaQuery.of(context).size.width*0.6,
+//                                  child: Text(
+//                                    '${item.name}',
+//                                    textAlign: TextAlign.center,
+//                                    style: TextStyle(
+//                                        color: Colors.white,
+//                                        fontSize: 16,
+//                                        shadows: [
+//                                          Shadow(
+//                                            color: ProjectColors.ThemeColor,
+//                                            offset: Offset(0.5, 0.5)
+//
+//                                          ),
+//                                        ],
+//                                        fontFamily:'Roboto',
+//                                        fontWeight: FontWeight.bold
+//                                    ),
+//                                  ),
+//                                ),
+//                              ],
+//                            ),
+//                            SizedBox(
+//                              width: 10,
+//                            ),
+//                          ],
+//                        )),
+//                  ),
+
+               ),
+
+       );
     });
     return SafeArea(
       child: Scaffold(
@@ -157,23 +217,31 @@ class _ExploreScreenState extends State<ExploreScreen> {
                   SizedBox(
                     width: 8,
                   ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Text(
-                          'الإنميات القادمة',
-                          style: StyleExploreList.getTextSyle(
-                            size: 14,
-                            fontWeight: FontWeight.w500,
-                            day: true,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
 
                   Container(
-                    margin: EdgeInsets.only(top: 5),
+                    margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 5),
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [Colors.grey[400],Colors.white],
+                        )
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'الإنميات القادمة',
+                          style: TextStyle(
+                              fontSize: 14,
+                              fontFamily: 'Roboto',
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                    
+
+                  Container(
                     child: CarouselSlider(
                       options: CarouselOptions(
                         autoPlay: true,
@@ -185,22 +253,31 @@ class _ExploreScreenState extends State<ExploreScreen> {
                   ),
 
 
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Text(
+                  Container(
+                    margin: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 5),
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [Colors.grey[400],Colors.white],
+                        )
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
                           'الإنميات الموصى بها عربيا',
-                          style: StyleExploreList.getTextSyle(
-                            size: 14,
-                            fontWeight: FontWeight.w500,
-                            day: true,
-                          ),
+                          style: TextStyle(
+                              fontSize: 14,
+                              fontFamily: 'Roboto',
+                              fontWeight: FontWeight.bold),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
+
+
                   Container(
                     height: 200,
+                    color: Colors.grey[300],
                     child: ListView.builder(
                       itemBuilder: (context, index) {
                         return Padding(
@@ -225,30 +302,31 @@ class _ExploreScreenState extends State<ExploreScreen> {
                       scrollDirection: Axis.horizontal,
                     ),
                   ),
-                  Divider(
-                    height: 1,
-                    thickness: 0.1,
-                    color: Colors.grey,
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Text(
+
+                  Container(
+                    margin: EdgeInsetsDirectional.fromSTEB(10, 5, 0, 5),
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [Colors.grey[400],Colors.white],
+                        )
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
                           'الإنميات الموصى بها حسب تفضيلاتك',
-                          style: StyleExploreList.getTextSyle(
-                            size: 14,
-                            fontWeight: FontWeight.w500,
-                            day: true,
-                          ),
+                          style: TextStyle(
+                              fontSize: 14,
+                              fontFamily: 'Roboto',
+                              fontWeight: FontWeight.bold),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
+
                   Container(
                     height: 200,
+                    color: Colors.grey[300],
                     child: ListView.builder(
                       itemBuilder: (context, index) {
                         return Padding(
@@ -276,37 +354,32 @@ class _ExploreScreenState extends State<ExploreScreen> {
                       scrollDirection: Axis.horizontal,
                     ),
                   ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Divider(
-                    height: 1,
-                    thickness: 0.1,
-                    color: Colors.grey,
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
                 // categories
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Text(
-                          S.of(context).categories,
-                          style: StyleExploreList.getTextSyle(
-                            size: 14,
-                            fontWeight: FontWeight.w500,
-                            day: true,
-                          ),
+                  Container(
+                    margin: EdgeInsetsDirectional.fromSTEB(10, 5, 0, 5),
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [Colors.grey[400],Colors.white],
+                        )
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                         'تصنيفات الإنمي',
+                          style: TextStyle(
+                              fontSize: 14,
+                              fontFamily: 'Roboto',
+                              fontWeight: FontWeight.bold),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                  SizedBox(
-                    height: 10,
-                  ),
+
+
                   Container(
                     height: 200,
+                    color: Colors.grey[300],
                     child: explore.categories != null
                         ? ListView.builder(
                             itemBuilder: (context, index) {
