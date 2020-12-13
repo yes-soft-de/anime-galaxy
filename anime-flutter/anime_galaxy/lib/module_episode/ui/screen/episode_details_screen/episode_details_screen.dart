@@ -56,6 +56,7 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
   String username;
   String userImage;
   bool CommentsVisible=false;
+  bool isDarkMode;
 
   @override
   void initState() {
@@ -135,6 +136,10 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
 
   @override
   Widget build(BuildContext context) {
+    widget._themeDataService.isDarkMode().then((value) {
+      isDarkMode ??= value;
+    });
+
     episodeId = ModalRoute.of(context).settings.arguments;
     screenWidth = MediaQuery.of(context).size.width;
 
@@ -320,14 +325,11 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
 
 
         //about
-        FutureBuilder(
-          future: widget._themeDataService.isDarkMode(),
-          builder: (BuildContext context, AsyncSnapshot<bool> snapshot){
-            return  Container(
+          Container(
               margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 5),
               decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    colors: [Colors.grey[400], snapshot.data? Colors.black26 :Colors.white],
+                    colors: [Colors.grey[400], isDarkMode? Colors.black26 :Colors.white],
                   )),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -342,8 +344,7 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
                   ),
                 ],
               ),
-            );
-          },
+
         ),
 
         new AnimatedSize(
@@ -406,14 +407,11 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
           color: Colors.black38,
         ),
 
-        FutureBuilder(
-          future: widget._themeDataService.isDarkMode(),
-          builder: (BuildContext context, AsyncSnapshot<bool> snapshot){
-            return  Container(
+         Container(
               margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 15),
               decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    colors: [Colors.grey[400], snapshot.data? Colors.black26 :Colors.white],
+                    colors: [Colors.grey[400], isDarkMode? Colors.black26 :Colors.white],
                   )),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -428,8 +426,7 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
                   ),
                 ],
               ),
-            );
-          },
+
         ),
 
 
@@ -521,14 +518,11 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
   Widget _commentsSection(){
     return Column(
       children: [
-        FutureBuilder(
-          future: widget._themeDataService.isDarkMode(),
-          builder: (BuildContext context, AsyncSnapshot<bool> snapshot){
-            return  Container(
+        Container(
               margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 5),
               decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    colors: [Colors.grey[400], snapshot.data? Colors.black26 :Colors.white],
+                    colors: [Colors.grey[400], isDarkMode? Colors.black26 :Colors.white],
                   )),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -543,8 +537,7 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
                   ),
                 ],
               ),
-            );
-          },
+
         ),
 
         episode.comments.isNotEmpty  ?
@@ -611,15 +604,12 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      FutureBuilder(
-                        future: widget._themeDataService.isDarkMode(),
-                        builder: (BuildContext context, AsyncSnapshot<bool> snapshot){
-                          return  Container(
+                       Container(
                             margin: EdgeInsetsDirectional.fromSTEB(10, 0, 5, 5),
                             width: MediaQuery.of(context).size.width * 0.55,
                             decoration: BoxDecoration(
                                 gradient: LinearGradient(
-                                  colors: [Colors.grey[400], snapshot.data? Colors.black26 :Colors.white],
+                                  colors: [Colors.grey[400],isDarkMode? Colors.black26 :Colors.white],
                                 )),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -634,30 +624,9 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
                                 ),
                               ],
                             ),
-                          );
-                        },
+
                       ),
-                      Container(
-                        margin: EdgeInsetsDirectional.fromSTEB(10, 0, 5, 5),
-                        width: MediaQuery.of(context).size.width * 0.55,
-                        decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: [Colors.grey[400],Colors.white],
-                            )
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              S.of(context).newInteraction,
-                              style: TextStyle(
-                                  fontSize: 14,
-                                  fontFamily: 'Roboto',
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ],
-                        ),
-                      ),
+
 //
                       Container(
                         padding: EdgeInsets.all(5),

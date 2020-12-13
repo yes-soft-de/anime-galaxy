@@ -21,8 +21,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:inject/inject.dart';
 import 'package:intl/intl.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
-import 'package:video_player/video_player.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
 import '../../../state/anime_details/anime_details.state.dart';
 
@@ -60,37 +59,19 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   String username;
   String userImage;
-  VideoPlayerController controller; // used to controller videos
-  Future<void> futureController;
   bool CommentsVisible = false;
-
-  //youtube video controller
-//  YoutubePlayerController _youtubePlayerController;
-//  PlayerState _playerState;
-//  YoutubeMetaData _videoMetaData;
-//  double _volume = 100;
-//  bool _muted = false;
-//  bool _isPlayerReady = false;
-
-  // ScrollController _scrollController;
+  YoutubePlayerController _controller;
+  bool isDarkMode;
 
   @override
   void initState() {
     super.initState();
-    controller = VideoPlayerController.network(
-      /* anime.trailerVideo??*/
-      /**/   'blob:https://www.youtube.com/7665f6c7-323d-4765-ab92-6b9aea6eb06b'
-        'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4'
-    );
-    futureController = controller.initialize();
-    controller.setLooping(true);  // this will keep video looping active, means video will keep on playing
-    controller.setVolume(25.0);
-    controller.play();
+
+
+
 
     _getUserId();
 
-//    _scrollController = ScrollController();
-//    _scrollController.addListener(_scrollListener);
 
     widget._stateManager.stateStream.listen((event) {
       currentState = event;
@@ -99,45 +80,16 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
 
   }
 
-//  void listener() {
-//    if (_isPlayerReady && mounted && !_youtubePlayerController.value.isFullScreen) {
-//      setState(() {
-//        _playerState = _youtubePlayerController.value.playerState;
-//        _videoMetaData = _youtubePlayerController.metadata;
-//      });
-//    }
-//  }
 
-  @override
-//  void deactivate() {
-//     Pauses video while navigating to next page.
-//     _youtubePlayerController.pause();
-//    super.deactivate();
-//  }
+
+
 
   @override
   void dispose() {
-  //  _youtubePlayerController.dispose(); // when app is been closed destroyed the controller
-
-    controller.dispose();  // when app is been closed destroyed the controller
+    _controller.close();
     super.dispose();
   }
-//  _scrollListener(){
-//    if (_scrollController.offset >= _scrollController.position.maxScrollExtent &&
-//        !_scrollController.position.outOfRange) {
-//
-//      setState(() {
-//        fABIsVisible = true ;
-//      });
-//    }
-//    if (_scrollController.offset <= _scrollController.position.minScrollExtent &&
-//        !_scrollController.position.outOfRange) {
-//
-//    /*  setState(() {
-//        message = "reach the top";
-//      });*/
-//    }
-//  }
+
   void _getUserId() async {
     username = await widget._profileSharedPreferencesHelper.getUsername();
     userImage = await widget._profileSharedPreferencesHelper.getImage();
@@ -154,32 +106,29 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
       anime = state.data;
       rating = anime.previousRate;
 
-      //ordinary video initializing
-//      controller = VideoPlayerController.network(
-//         /* anime.trailerVideo??*/
-//           /**/   'blob:https://www.youtube.com/7665f6c7-323d-4765-ab92-6b9aea6eb06b'
-//          'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4'
-//      );
-//      futureController = controller.initialize();
-//      controller.setLooping(true);  // this will keep video looping active, means video will keep on playing
-//      controller.setVolume(25.0);
-//      controller.play();
-
-      //youtube video initializing
-//      _youtubePlayerController = YoutubePlayerController(
-//        initialVideoId: YoutubePlayer.convertUrlToId(anime.trailerVideo??'https://www.youtube.com/watch?v=BBAyRBTfsOU'),
-//        flags: const YoutubePlayerFlags(
-//          mute: false,
-//          autoPlay: true,
-//          disableDragSeek: false,
-//          loop: false,
-//          isLive: false,
-//          forceHD: false,
-//          enableCaption: true,
-//        ),
-//      )..addListener(listener);
-//      _videoMetaData = const YoutubeMetaData();
-//      _playerState = PlayerState.unknown;
+      _controller = YoutubePlayerController(
+        initialVideoId: anime.trailerVideo ,
+        params: const YoutubePlayerParams(
+         /* playlist: [
+            'wIb3nnOeves',
+            'K18cpp_-gP8',
+            'iLnmTe5Q2Qw',
+            '_WoCV4c6XOE',
+            'KmzdUe0RSJo',
+            '6jZDSSZZxjQ',
+            'p2lYr3vM_1w',
+            '7QUtEmBT_-w',
+            '34_PXCzGw1M',
+          ],*/
+          startAt: const Duration(minutes: 0, seconds: 0),
+          showControls: false,
+          showFullscreenButton: true,
+          desktopMode: false,
+          showVideoAnnotations: false,
+          autoPlay: false,
+//        privacyEnhanced: true,
+        ),
+      );
 
       loading = false;
       if (this.mounted) {
@@ -249,6 +198,11 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
 
   @override
   Widget build(BuildContext context) {
+
+      widget._themeDataService.isDarkMode().then((value) {
+        isDarkMode ??= value;
+      });
+
     animeId = ModalRoute.of(context).settings.arguments;
     screenWidth = MediaQuery.of(context).size.width;
 
@@ -278,158 +232,137 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
   }
 
   Widget getPageLayout() {
-    return Scaffold(
-      key: _scaffoldKey,
-      appBar: AnimeGalaxyAppBar.getAnimeGalaxyAppBar(context, _scaffoldKey, username, userImage),
-      drawer: widget._animeNavigationDrawer,
-      body: Container(
-        padding: EdgeInsets.all(5),
-        child: SingleChildScrollView(
+    const player = YoutubePlayerIFrame();
+    return YoutubePlayerControllerProvider(
+      // Passing controller to widgets below.
+      controller: _controller,
+      child: Scaffold(
+        key: _scaffoldKey,
+        appBar: AnimeGalaxyAppBar.getAnimeGalaxyAppBar(context, _scaffoldKey, username, userImage),
+        drawer: widget._animeNavigationDrawer,
+        body: Container(
+          padding: EdgeInsets.all(5),
+          child: SingleChildScrollView(
 //          controller: _scrollController,
-          child: body(),
-        ),
-      ),
-      floatingActionButton: Container(
-        height: 40,
-        width: 40,
-        child:CommentsVisible? FloatingActionButton(
-
-          backgroundColor: ProjectColors.ThemeColor,
-          onPressed: () {
-            _showCommentDialog(context);
-          },
-          child: Icon(
-            Icons.comment,
-            color: Colors.white,
-          ),
-        ):null,
-      )
-    );
-  }
-
-  Widget body() {
-    return Container(
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(children: [
-          AnimeDetailsWidget(
-            name: anime.name,
-            comments: anime.commentsNumber,
-            likes: anime.likesNumber,
-            rate: anime.generalRating ?? '0',
-            showYear: anime.showYear,
-            image: anime.image,
-            episodesNumber: anime.episodes.length,
-            isFollowed: anime.isFollowed ,
-            isLoved: anime.isLoved,
-            ageGroup: anime.ageGroup,
-            onFollow: () =>
-                widget._stateManager.addToFavourite(animeId, anime.categoryID),
-            onUnFollow: () =>
-                widget._stateManager.unFollowAnime(animeId),
-            onLove: ()=>
-                widget._stateManager.loveAnime(animeId),
-          ),
-          //rating the series
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                S.of(context).RateSeries,
-                style: TextStyle(fontSize: 14),
-              ),
-              RotatedBox(
-                quarterTurns: 2,
-                child: AnimeRatingBar(
-                  rating: rating ?? 10,
-                  fillIcon: ImageIcon(
-                    AssetImage('assets/images/full_flame.png'),
-                    color: ProjectColors.ThemeColor,
+            child: Container(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(children: [
+                  AnimeDetailsWidget(
+                    name: anime.name,
+                    comments: anime.commentsNumber,
+                    likes: anime.likesNumber,
+                    rate: anime.generalRating ?? '0',
+                    showYear: anime.showYear,
+                    image: anime.image,
+                    episodesNumber: anime.episodes.length,
+                    isFollowed: anime.isFollowed ,
+                    isLoved: anime.isLoved,
+                    ageGroup: anime.ageGroup,
+                    onFollow: () =>
+                        widget._stateManager.addToFavourite(animeId, anime.categoryID),
+                    onUnFollow: () =>
+                        widget._stateManager.unFollowAnime(animeId),
+                    onLove: ()=>
+                        widget._stateManager.loveAnime(animeId),
                   ),
-                  halfFillIcon: ImageIcon(
-                    AssetImage('assets/images/full_flame.png'),
-                    color: ProjectColors.ThemeColor,
-                  ),
-                  emptyIcon: ImageIcon(
-                    AssetImage('assets/images/flame.png'),
-                    color: ProjectColors.ThemeColor,
-                  ),
-                  onRatingChanged: (rating) {
-                    if(anime.previousRate == 0 ){
-                      widget._stateManager.rateAnime(animeId, rating);
-                      this.rating = rating;
-                      setState(() {
-
-                      });
-                    }else{
-                      Fluttertoast.showToast(msg: S.of(context).YouHaveRatedThisAnime);
-                    }
-
-                  }
-                  ,
-                  itemSize: 25,
-                  itemCount: 10,
-                ),
-              ),
-            ],
-          ),
-
-          //Statistics
-          FutureBuilder(
-            future: widget._themeDataService.isDarkMode(),
-            builder: (BuildContext context, AsyncSnapshot<bool> snapshot){
-              return  Container(
-                margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 5),
-                decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [Colors.grey[400], snapshot.data? Colors.black26 :Colors.white],
-                    )),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      S.of(context).statics,
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontFamily: 'Roboto',
-                        fontWeight: FontWeight.bold,
+                  //rating the series
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        S.of(context).RateSeries,
+                        style: TextStyle(fontSize: 14),
                       ),
-                    ),
-                  ],
-                ),
-              );
-            },
-          ),
+                      RotatedBox(
+                        quarterTurns: 2,
+                        child: AnimeRatingBar(
+                          rating: rating ?? 10,
+                          fillIcon: ImageIcon(
+                            AssetImage('assets/images/full_flame.png'),
+                            color: ProjectColors.ThemeColor,
+                          ),
+                          halfFillIcon: ImageIcon(
+                            AssetImage('assets/images/full_flame.png'),
+                            color: ProjectColors.ThemeColor,
+                          ),
+                          emptyIcon: ImageIcon(
+                            AssetImage('assets/images/flame.png'),
+                            color: ProjectColors.ThemeColor,
+                          ),
+                          onRatingChanged: (rating) {
+                            if(anime.previousRate == 0 ){
+                              widget._stateManager.rateAnime(animeId, rating);
+                              this.rating = rating;
+                              setState(() {
+
+                              });
+                            }else{
+                              Fluttertoast.showToast(msg: S.of(context).YouHaveRatedThisAnime);
+                            }
+
+                          }
+                          ,
+                          itemSize: 25,
+                          itemCount: 10,
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  //Statistics
+                  Container(
+                        margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 5),
+                        decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [Colors.grey[400],isDarkMode? Colors.black26 :Colors.white],
+                            )),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              S.of(context).statics,
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontFamily: 'Roboto',
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                   /*   );
+                    },*/
+                  ),
 
 
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                S.of(context).generalEvaluation,
-                style: TextStyle(
-                    fontSize: 14,
-                    fontFamily:'Roboto',
-                ),
-              ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        S.of(context).generalEvaluation,
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontFamily:'Roboto',
+                        ),
+                      ),
 
-             Row(
-               mainAxisAlignment: MainAxisAlignment.center,
-               children: [
-                 Text(
-                   anime.rate != null
-                         ? ((double.parse(anime.rate) * 10).floor() / 10)
-                            .toString()
-                         : 0.toString(),
-                   style: TextStyle(
-                       fontSize: 14,
-                       fontFamily:'Roboto'
-                   ),
-                 ),
-                 Icon(Icons.star_border,
-                     color: ProjectColors.ThemeColor),
-               ],
-             )
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            anime.rate != null
+                                ? ((double.parse(anime.rate) * 10).floor() / 10)
+                                .toString()
+                                : 0.toString(),
+                            style: TextStyle(
+                                fontSize: 14,
+                                fontFamily:'Roboto'
+                            ),
+                          ),
+                          Icon(Icons.star_border,
+                              color: ProjectColors.ThemeColor),
+                        ],
+                      )
 //              LinearPercentIndicator(
 //                width: MediaQuery.of(context).size.width * 0.5,
 //                animation: true,
@@ -439,264 +372,231 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
 //                linearStrokeCap: LinearStrokeCap.roundAll,
 //                progressColor: Color(0xfff77f00),
 //              ),
-            ],
-          ),
-
-
-          //about
-          FutureBuilder(
-            future: widget._themeDataService.isDarkMode(),
-            builder: (BuildContext context, AsyncSnapshot<bool> snapshot){
-              return  Container(
-                margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 5),
-                decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [Colors.grey[400], snapshot.data? Colors.black26 :Colors.white],
-                    )),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      S.of(context).About,
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontFamily: 'Roboto',
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-              );
-            },
-          ),
-
-
-          AnimatedSize(
-              vsync: this,
-              duration: const Duration(milliseconds: 500),
-              child: new ConstrainedBox(
-                  constraints: isExpanded
-                      ? new BoxConstraints()
-                      : new BoxConstraints(maxHeight: 75.0),
-                  child: Container(
-                    width: screenWidth * 0.9,
-                    padding: EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: Colors.black38),
-                    ),
-                    child: Text(
-                      '${anime.about}',
-                      style: TextStyle(
-                          fontSize: 12,
-                          fontFamily:'Roboto'
-                      ),
-                    ),
-                  ))),
-          isExpanded
-              ? FlatButton(
-              child: Container(
-                  width: 30,
-                  height: 30,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50),
-                    color: ProjectColors.ThemeColor,
+                    ],
                   ),
-                  child: const Icon(
-                    Icons.keyboard_arrow_up,
-                    color: Colors.white,
-                  )),
-              onPressed: () => setState(() => isExpanded = false))
-              : FlatButton(
-              child: Container(
-                  width: 30,
-                  height: 30,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50),
-                    color: ProjectColors.ThemeColor,
-                  ),
-                  child: const Icon(
-                    Icons.keyboard_arrow_down,
-                    color: Colors.white,
-                  )),
-              onPressed: () => setState(() => isExpanded = true)),
-
-          //divider
-          Container(
-            margin: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
-            height: 1,
-            width: screenWidth * 0.8,
-            color: Colors.black38,
-          ),
-
-          FutureBuilder(
-            future: widget._themeDataService.isDarkMode(),
-            builder: (BuildContext context, AsyncSnapshot<bool> snapshot){
-              return  Container(
-                margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 15),
-                decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [Colors.grey[400], snapshot.data? Colors.black26 :Colors.white],
-                    )),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      S.of(context).Classification,
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontFamily: 'Roboto',
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-              );
-            },
-          ),
 
 
-
-          //classifications
-          Wrap(
-            children: [
-              Container(
-                  padding: EdgeInsetsDirectional.fromSTEB(10, 5, 10, 5),
-                  margin: EdgeInsets.only(left: 7),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: Colors.black38)),
-                  child: Center(
-                      child: Text(
-                        '${anime.classification}',
-                        style: TextStyle(
-                            fontSize: 12,
-                            fontFamily:'Roboto'
+                  //about
+                  Container(
+                        margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 5),
+                        decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [Colors.grey[400], isDarkMode? Colors.black26 :Colors.white],
+                            )),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              S.of(context).About,
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontFamily: 'Roboto',
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
                         ),
-                      ))),
-            ],
-          ),
-
-          //divider
-          Container(
-            margin: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
-            height: 1,
-            width: screenWidth * 0.8,
-            color: Colors.black38,
-          ),
-
-          //Trailer video
-
-          //youtube video player
-//         _youtubePlayer(),
+                  /*    );
+                    },*/
+                  ),
 
 
-          //ordinary video player
-          FutureBuilder(
-            future: futureController,
-            builder: (context,snapshot){
-              // if video to ready to play, else show a progress bar to the user
-              if(snapshot.connectionState == ConnectionState.done)
-              {
-                return AspectRatio(
-                    aspectRatio: controller.value.aspectRatio,
-                    child: VideoPlayer(controller)
-                );
-              }else{
-                return Center(child: CircularProgressIndicator(),);
-              }
+                  AnimatedSize(
+                      vsync: this,
+                      duration: const Duration(milliseconds: 500),
+                      child: new ConstrainedBox(
+                          constraints: isExpanded
+                              ? new BoxConstraints()
+                              : new BoxConstraints(maxHeight: 75.0),
+                          child: Container(
+                            width: screenWidth * 0.9,
+                            padding: EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(color: Colors.black38),
+                            ),
+                            child: Text(
+                              '${anime.about}',
+                              style: TextStyle(
+                                  fontSize: 12,
+                                  fontFamily:'Roboto'
+                              ),
+                            ),
+                          ))),
+                  isExpanded
+                      ? FlatButton(
+                      child: Container(
+                          width: 30,
+                          height: 30,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50),
+                            color: ProjectColors.ThemeColor,
+                          ),
+                          child: const Icon(
+                            Icons.keyboard_arrow_up,
+                            color: Colors.white,
+                          )),
+                      onPressed: () => setState(() => isExpanded = false))
+                      : FlatButton(
+                      child: Container(
+                          width: 30,
+                          height: 30,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50),
+                            color: ProjectColors.ThemeColor,
+                          ),
+                          child: const Icon(
+                            Icons.keyboard_arrow_down,
+                            color: Colors.white,
+                          )),
+                      onPressed: () => setState(() => isExpanded = true)),
 
-            },
-          ),
+                  //divider
+                  Container(
+                    margin: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
+                    height: 1,
+                    width: screenWidth * 0.8,
+                    color: Colors.black38,
+                  ),
 
-          //button to play/pause the video
-          ButtonTheme(
-            height: 12,
-            child: FlatButton(
-              color: ProjectColors.ThemeColor,
-              shape: RoundedRectangleBorder(
-                borderRadius: new BorderRadius.circular(20.0),
-              ),
-              child: Icon(
-                  controller.value.isPlaying? Icons.pause : Icons.play_arrow
-              ),
-              onPressed: (){
-                setState(() {
-                  if(controller.value.isPlaying)
-                  {
-                    controller.pause();
-                  }
-                  else
-                  {
-                    controller.play();
-                  }
-                });
-              },
-            ),
-          ),
+                  Container(
+                        margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 15),
+                        decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [Colors.grey[400], isDarkMode? Colors.black26 :Colors.white],
+                            )),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              S.of(context).Classification,
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontFamily: 'Roboto',
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                  /*    );
+                    },*/
+                  ),
 
 
 
-         // last episodes
-          FutureBuilder(
-            future: widget._themeDataService.isDarkMode(),
-            builder: (BuildContext context, AsyncSnapshot<bool> snapshot){
-              return  Container(
-                margin: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 5),
-                decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [Colors.grey[400], snapshot.data? Colors.black26 :Colors.white],
-                    )),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      S.of(context).LastEpisodes,
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontFamily: 'Roboto',
-                        fontWeight: FontWeight.bold,
-                      ),
+                  //classifications
+                  Wrap(
+                    children: [
+                      Container(
+                          padding: EdgeInsetsDirectional.fromSTEB(10, 5, 10, 5),
+                          margin: EdgeInsets.only(left: 7),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(color: Colors.black38)),
+                          child: Center(
+                              child: Text(
+                                '${anime.classification}',
+                                style: TextStyle(
+                                    fontSize: 12,
+                                    fontFamily:'Roboto'
+                                ),
+                              ))),
+                    ],
+                  ),
+
+                  //divider
+                  Container(
+                    margin: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
+                    height: 1,
+                    width: screenWidth * 0.8,
+                    color: Colors.black38,
+                  ),
+
+                  //Trailer video
+                  Container(
+                    margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 15),
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [Colors.grey[400],isDarkMode? Colors.black26 :Colors.white],
+                        )),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                         'التريلر',
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontFamily: 'Roboto',
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-              );
-            },
-          ),
+
+                  ),
+
+
+                  player,
 
 
 
-          // last episodes
-          anime.episodes.isNotEmpty
-              ?
-          Container(
-            height: 210,
-            color: Colors.grey[300],
-            child: ListView.builder(
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 2),
-                  child: GestureDetector(
-                    onTap: () {
+                  // last episodes
+                  Container(
+                        margin: EdgeInsetsDirectional.fromSTEB(10, 15, 0, 15),
+                        decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [Colors.grey[400],isDarkMode? Colors.black26 :Colors.white],
+                            )),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              S.of(context).LastEpisodes,
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontFamily: 'Roboto',
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                   /*   );
+                    },*/
+                  ),
+
+
+
+                  // last episodes
+                  anime.episodes.isNotEmpty
+                      ?
+                  Container(
+                    height: 210,
+                    color: Colors.grey[300],
+                    child: ListView.builder(
+                      itemBuilder: (context, index) {
+                        return Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 2),
+                            child: GestureDetector(
+                              onTap: () {
 //                  controller.pause(); // to stop video when navigation to another screen
-                      Navigator.pushNamed(
-                          context, EpisodeRoutes.ROUTE_EPISODE_DETAILS_SCREEN,
-                          arguments: anime.episodes[index].id);
-                    },
-                    child: EpisodeCard(
-                      image: anime.episodes[index].image,
-                      episodeNumber: anime.episodes[index].episodeNumber,
-                      classification: anime.episodes[index].classification,
+                                Navigator.pushNamed(
+                                    context, EpisodeRoutes.ROUTE_EPISODE_DETAILS_SCREEN,
+                                    arguments: anime.episodes[index].id);
+                              },
+                              child: EpisodeCard(
+                                image: anime.episodes[index].image,
+                                episodeNumber: anime.episodes[index].episodeNumber,
+                                classification: anime.episodes[index].classification,
+                              ),
+                            )
+                        );
+                      },
+                      itemCount:  anime.episodes.length,
+                      scrollDirection: Axis.horizontal,
                     ),
                   )
-                );
-              },
-              itemCount:  anime.episodes.length,
-              scrollDirection: Axis.horizontal,
-            ),
-          )
 
-         /* GridView.builder(
+                  /* GridView.builder(
             physics: NeverScrollableScrollPhysics(),
             itemBuilder: (BuildContext context, int index) {
               return GestureDetector(
@@ -722,64 +622,82 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
             itemCount: anime.episodes != null ? anime.episodes.length : 0,
             shrinkWrap: true,
           )*/
-              : Text(
-            S.of(context).noNewEpisodes,
-            style: TextStyle(
-                fontFamily:'Roboto'
-            ),
-          ),
-
-          //comments section
-          Padding(
-            padding: const EdgeInsets.only(top:10.0),
-            child: ButtonTheme(
-              height: 12,
-              child: FlatButton(
-                color: CommentsVisible
-                    ? Colors.grey
-                    : ProjectColors.ThemeColor,
-                shape: RoundedRectangleBorder(
-                  borderRadius: new BorderRadius.circular(20.0),
-                ),
-                onPressed: (){
-                  setState(() {
-                    CommentsVisible = !CommentsVisible;
-                  });
-                },
-                child: Text(
-                  CommentsVisible
-                      ? S.of(context).hideComments
-                      : S.of(context).showComments,
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.white,
-                    fontFamily:'Roboto',
+                      : Text(
+                    S.of(context).noNewEpisodes,
+                    style: TextStyle(
+                        fontFamily:'Roboto'
+                    ),
                   ),
-                ),
+
+                  //comments section
+                  Padding(
+                    padding: const EdgeInsets.only(top:10.0),
+                    child: ButtonTheme(
+                      height: 12,
+                      child: FlatButton(
+                        color: CommentsVisible
+                            ? Colors.grey
+                            : ProjectColors.ThemeColor,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(20.0),
+                        ),
+                        onPressed: (){
+                          setState(() {
+                            CommentsVisible = !CommentsVisible;
+                          });
+                        },
+                        child: Text(
+                          CommentsVisible
+                              ? S.of(context).hideComments
+                              : S.of(context).showComments,
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: Colors.white,
+                            fontFamily:'Roboto',
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  if(CommentsVisible) _commentsSection(),
+
+                  SizedBox(
+                    height: 60,
+                  )
+                ]),
               ),
             ),
           ),
-        if(CommentsVisible) _commentsSection(),
+        ),
+        floatingActionButton: Container(
+          height: 40,
+          width: 40,
+          child:CommentsVisible? FloatingActionButton(
 
-          SizedBox(
-            height: 60,
-          )
-        ]),
+            backgroundColor: ProjectColors.ThemeColor,
+            onPressed: () {
+              _showCommentDialog(context);
+            },
+            child: Icon(
+              Icons.comment,
+              color: Colors.white,
+            ),
+          ):null,
+        )
       ),
     );
   }
 
+
+
   Widget _commentsSection(){
     return Column(
       children: [
-        FutureBuilder(
-          future: widget._themeDataService.isDarkMode(),
-          builder: (BuildContext context, AsyncSnapshot<bool> snapshot){
-            return  Container(
+         Container(
               margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 5),
               decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    colors: [Colors.grey[400], snapshot.data? Colors.black26 :Colors.white],
+                    colors: [Colors.grey[400], isDarkMode? Colors.black26 :Colors.white],
                   )),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -794,8 +712,8 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                   ),
                 ],
               ),
-            );
-          },
+         /*   );
+          },*/
         ),
 
 
@@ -852,134 +770,6 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
       ],
     );
   }
-//  Widget _youtubePlayer(){
-//    return YoutubePlayerBuilder(
-//      onExitFullScreen: () {
-//        // The player forces portraitUp after exiting fullscreen. This overrides the behaviour.
-////                SystemChrome.setPreferredOrientations(DeviceOrientation.values);
-//      },
-//      player: YoutubePlayer(
-//        controller: _youtubePlayerController,
-//        showVideoProgressIndicator: true,
-//        progressIndicatorColor: ProjectColors.ThemeColor,
-//        topActions: <Widget>[
-//          const SizedBox(width: 8.0),
-//          Expanded(
-//            child: Text(
-//              _youtubePlayerController.metadata.title,
-//              style: const TextStyle(
-//                color: Colors.white,
-//                fontSize: 18.0,
-//              ),
-//              overflow: TextOverflow.ellipsis,
-//              maxLines: 1,
-//            ),
-//          ),
-////
-//        ],
-//        onReady: () {
-//          _isPlayerReady = true;
-//        },
-////
-//      ),
-//      builder: (context, player) => Scaffold(
-//        key: _scaffoldKey,
-//        appBar: AppBar(
-//          leading: Padding(
-//            padding: const EdgeInsets.only(left: 12.0),
-//            child: Image.asset(
-//              'assets/ypf.png',
-//              fit: BoxFit.fitWidth,
-//            ),
-//          ),
-//
-//        ),
-//        body: ListView(
-//          children: [
-//            player,
-//            Padding(
-//              padding: const EdgeInsets.all(8.0),
-//              child: Column(
-//                crossAxisAlignment: CrossAxisAlignment.stretch,
-//                children: [
-//
-//
-//                  Row(
-//                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-//                    children: [
-//
-//                      IconButton(
-//                        icon: Icon(
-//                          _youtubePlayerController.value.isPlaying
-//                              ? Icons.pause
-//                              : Icons.play_arrow,
-//                        ),
-//                        onPressed: _isPlayerReady
-//                            ? () {
-//                          _youtubePlayerController.value.isPlaying
-//                              ? _youtubePlayerController.pause()
-//                              : _youtubePlayerController.play();
-//                          setState(() {});
-//                        }
-//                            : null,
-//                      ),
-//                      IconButton(
-//                        icon: Icon(_muted ? Icons.volume_off : Icons.volume_up),
-//                        onPressed: _isPlayerReady
-//                            ? () {
-//                          _muted
-//                              ? _youtubePlayerController.unMute()
-//                              : _youtubePlayerController.mute();
-//                          setState(() {
-//                            _muted = !_muted;
-//                          });
-//                        }
-//                            : null,
-//                      ),
-//                      FullScreenButton(
-//                        controller: _youtubePlayerController,
-//                        color: Colors.blueAccent,
-//                      ),
-//
-//                    ],
-//                  ),
-//
-//                  Row(
-//                    children: <Widget>[
-//                      const Text(
-//                        "Volume",
-//                        style: TextStyle(fontWeight: FontWeight.w300),
-//                      ),
-//                      Expanded(
-//                        child: Slider(
-//                          inactiveColor: Colors.transparent,
-//                          value: _volume,
-//                          min: 0.0,
-//                          max: 100.0,
-//                          divisions: 10,
-//                          label: '${(_volume).round()}',
-//                          onChanged: _isPlayerReady
-//                              ? (value) {
-//                            setState(() {
-//                              _volume = value;
-//                            });
-//                            _youtubePlayerController.setVolume(_volume.round());
-//                          }
-//                              : null,
-//                        ),
-//                      ),
-//                    ],
-//                  ),
-//
-//
-//                ],
-//              ),
-//            ),
-//          ],
-//        ),
-//      ),
-//    );
-//  }
 
   void _showCommentDialog(BuildContext context) {
     showDialog(
@@ -995,15 +785,12 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      FutureBuilder(
-                        future: widget._themeDataService.isDarkMode(),
-                        builder: (BuildContext context, AsyncSnapshot<bool> snapshot){
-                          return  Container(
+                   Container(
                             width: MediaQuery.of(context).size.width * 0.55,
                             margin: EdgeInsetsDirectional.fromSTEB(10, 0, 5, 5),
                             decoration: BoxDecoration(
                                 gradient: LinearGradient(
-                                  colors: [Colors.grey[400], snapshot.data? Colors.black26 :Colors.white],
+                                  colors: [Colors.grey[400],isDarkMode? Colors.black26 :Colors.white],
                                 )),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1018,8 +805,8 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                                 ),
                               ],
                             ),
-                          );
-                        },
+                     /*     );
+                        },*/
                       ),
 
 //

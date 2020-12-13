@@ -37,6 +37,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   HomeModel anime;
   HomeState currentState = HomeStateInit();
   bool loading = true;
+  bool isDarkMode;
 
   @override
   void initState() {
@@ -60,6 +61,10 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    widget._themeDataService.isDarkMode().then((value) {
+      isDarkMode ??= value;
+    });
+
     screenWidth = MediaQuery.of(context).size.width;
     if (currentState is HomeStateInit) {
       widget._authService.isLoggedIn.then((value) {
@@ -188,14 +193,11 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               PointsWidget(
                 points: anime.points,
               ),
-              FutureBuilder(
-                future: widget._themeDataService.isDarkMode(),
-                builder: (BuildContext context, AsyncSnapshot<bool> snapshot){
-                  return  Container(
+               Container(
                     margin: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 5),
                     decoration: BoxDecoration(
                         gradient: LinearGradient(
-                          colors: [Colors.grey[400], snapshot.data? Colors.black26 :Colors.white],
+                          colors: [Colors.grey[400], isDarkMode? Colors.black26 :Colors.white],
                         )),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -210,8 +212,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                         ),
                       ],
                     ),
-                  );
-                },
+                /*  );
+                },*/
               ),
               imageSliders.isNotEmpty
                   ? CarouselSlider(
@@ -231,14 +233,11 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                         ),
                       ),
                     ),
-              FutureBuilder(
-                future: widget._themeDataService.isDarkMode(),
-                builder: (BuildContext context, AsyncSnapshot<bool> snapshot){
-                  return  Container(
+             Container(
                     margin: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 5),
                     decoration: BoxDecoration(
                         gradient: LinearGradient(
-                          colors: [Colors.grey[400], snapshot.data? Colors.black26 :Colors.white],
+                          colors: [Colors.grey[400], isDarkMode? Colors.black26 :Colors.white],
                         )),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -253,8 +252,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                         ),
                       ],
                     ),
-                  );
-                },
+                /*  );
+                },*/
               ),
 
 
@@ -341,14 +340,11 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 //                          )),
 //                      onPressed: () => setState(() => isExpanded = true)),
 //
-              FutureBuilder(
-                future: widget._themeDataService.isDarkMode(),
-                builder: (BuildContext context, AsyncSnapshot<bool> snapshot){
-                  return  Container(
+           Container(
                     margin: EdgeInsetsDirectional.fromSTEB(10, 5, 0, 5),
                     decoration: BoxDecoration(
                         gradient: LinearGradient(
-                          colors: [Colors.grey[400], snapshot.data? Colors.black26 :Colors.white],
+                          colors: [Colors.grey[400], isDarkMode? Colors.black26 :Colors.white],
                         )),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -363,8 +359,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                         ),
                       ],
                     ),
-                  );
-                },
+                /*  );
+                },*/
               ),
 
 

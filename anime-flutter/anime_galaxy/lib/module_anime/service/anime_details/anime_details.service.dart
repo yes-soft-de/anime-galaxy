@@ -45,7 +45,11 @@ class AnimeDetailsService {
     anime.categoryID = response.categoryID;
     anime.episodes = getEpisodes(response.episodes,response.categoryName);
     anime.previousRate = response.previousRate;
-    anime.trailerVideo = response.trailerVideo;
+    int index = response.trailerVideo.indexOf('&');
+    anime.trailerVideo = index==-1?
+                              response.trailerVideo.substring(response.trailerVideo.indexOf('=')+1):
+                              response.trailerVideo.substring(response.trailerVideo.indexOf('=')+1,index);
+    print('trailer from : ${anime.trailerVideo}');
 
     return anime;
   }

@@ -41,6 +41,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   ProfileModel _profileModel;
   MyProfileState currentState = MyProfileStateInit();
   String userId;
+  bool isDarkMode;
 
   @override
   void initState() {
@@ -77,6 +78,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
+
+    widget._themeDataService.isDarkMode().then((value) {
+      isDarkMode ??= value;
+    });
+
     userId = ModalRoute.of(context).settings.arguments;
 
     if (currentState is MyProfileStateInit) {
@@ -435,14 +441,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                         ),
                       //about me
-                      FutureBuilder(
-                        future: widget._themeDataService.isDarkMode(),
-                        builder: (BuildContext context, AsyncSnapshot<bool> snapshot){
-                          return  Container(
+                       Container(
                             margin: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 5),
                             decoration: BoxDecoration(
                                 gradient: LinearGradient(
-                                  colors: [Colors.grey[400], snapshot.data? Colors.black26 :Colors.white],
+                                  colors: [Colors.grey[400], isDarkMode? Colors.black26 :Colors.white],
                                 )),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -457,8 +460,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 ),
                               ],
                             ),
-                          );
-                        },
+
                       ),
 
                       Container(
@@ -476,14 +478,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       //activities
                       //display following activities only for me
                       if( userId == null)
-                        FutureBuilder(
-                          future: widget._themeDataService.isDarkMode(),
-                          builder: (BuildContext context, AsyncSnapshot<bool> snapshot){
-                            return  Container(
+                         Container(
                               margin: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
                               decoration: BoxDecoration(
                                   gradient: LinearGradient(
-                                    colors: [Colors.grey[400], snapshot.data? Colors.black26 :Colors.white],
+                                    colors: [Colors.grey[400], isDarkMode? Colors.black26 :Colors.white],
                                   )),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -498,8 +497,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   ),
                                 ],
                               ),
-                            );
-                          },
+
                         ),
 
 
@@ -528,14 +526,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         height: 20,
                       ),
                       //watched series
-                      FutureBuilder(
-                        future: widget._themeDataService.isDarkMode(),
-                        builder: (BuildContext context, AsyncSnapshot<bool> snapshot){
-                          return  Container(
+                        Container(
                             margin: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
                             decoration: BoxDecoration(
                                 gradient: LinearGradient(
-                                  colors: [Colors.grey[400], snapshot.data? Colors.black26 :Colors.white],
+                                  colors: [Colors.grey[400],isDarkMode? Colors.black26 :Colors.white],
                                 )),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -550,8 +545,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 ),
                               ],
                             ),
-                          );
-                        },
+
                       ),
 
 

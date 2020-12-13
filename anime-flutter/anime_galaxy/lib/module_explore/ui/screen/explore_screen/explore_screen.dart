@@ -25,6 +25,7 @@ class ExploreScreen extends StatefulWidget {
 
 class _ExploreScreenState extends State<ExploreScreen> {
   ExploreModel explore;
+  bool isDarkMode;
 
   ExploreState currentState = ExploreStateInit();
   bool loading = true;
@@ -58,6 +59,11 @@ class _ExploreScreenState extends State<ExploreScreen> {
 
   @override
   Widget build(BuildContext context) {
+
+    widget._themeDataService.isDarkMode().then((value) {
+      isDarkMode ??= value;
+    });
+
     if (currentState is ExploreStateInit) {
       widget._stateManager.getExploreScreenContent();
       if (this.mounted) {
@@ -217,14 +223,11 @@ class _ExploreScreenState extends State<ExploreScreen> {
                   SizedBox(
                     width: 8,
                   ),
-                  FutureBuilder(
-                    future: widget._themeDataService.isDarkMode(),
-                    builder: (BuildContext context, AsyncSnapshot<bool> snapshot){
-                      return  Container(
+                   Container(
                         margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 5),
                         decoration: BoxDecoration(
                             gradient: LinearGradient(
-                              colors: [Colors.grey[400], snapshot.data? Colors.black26 :Colors.white],
+                              colors: [Colors.grey[400], isDarkMode? Colors.black26 :Colors.white],
                             )),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -239,8 +242,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                             ),
                           ],
                         ),
-                      );
-                    },
+
                   ),
 
 
@@ -257,14 +259,11 @@ class _ExploreScreenState extends State<ExploreScreen> {
                     ),
                   ),
 
-                  FutureBuilder(
-                    future: widget._themeDataService.isDarkMode(),
-                    builder: (BuildContext context, AsyncSnapshot<bool> snapshot){
-                      return  Container(
+                   Container(
                         margin: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 5),
                         decoration: BoxDecoration(
                             gradient: LinearGradient(
-                              colors: [Colors.grey[400], snapshot.data? Colors.black26 :Colors.white],
+                              colors: [Colors.grey[400],isDarkMode? Colors.black26 :Colors.white],
                             )),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -279,8 +278,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                             ),
                           ],
                         ),
-                      );
-                    },
+
                   ),
 
                   Container(
@@ -312,14 +310,11 @@ class _ExploreScreenState extends State<ExploreScreen> {
                   ),
 
 
-                  FutureBuilder(
-                    future: widget._themeDataService.isDarkMode(),
-                    builder: (BuildContext context, AsyncSnapshot<bool> snapshot){
-                      return  Container(
+                 Container(
                         margin: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 5),
                         decoration: BoxDecoration(
                             gradient: LinearGradient(
-                              colors: [Colors.grey[400], snapshot.data? Colors.black26 :Colors.white],
+                              colors: [Colors.grey[400],isDarkMode? Colors.black26 :Colors.white],
                             )),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -334,8 +329,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                             ),
                           ],
                         ),
-                      );
-                    },
+
                   ),
 
                   Container(
@@ -371,14 +365,11 @@ class _ExploreScreenState extends State<ExploreScreen> {
 
 
                 // categories
-                  FutureBuilder(
-                    future: widget._themeDataService.isDarkMode(),
-                    builder: (BuildContext context, AsyncSnapshot<bool> snapshot){
-                      return  Container(
+                   Container(
                         margin: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 5),
                         decoration: BoxDecoration(
                             gradient: LinearGradient(
-                              colors: [Colors.grey[400], snapshot.data? Colors.black26 :Colors.white],
+                              colors: [Colors.grey[400],isDarkMode? Colors.black26 :Colors.white],
                             )),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -393,8 +384,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                             ),
                           ],
                         ),
-                      );
-                    },
+
                   ),
 
 
