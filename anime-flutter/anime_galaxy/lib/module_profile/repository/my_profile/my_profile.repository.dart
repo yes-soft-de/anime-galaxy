@@ -165,6 +165,7 @@ class MyProfileRepository {
 
   Future<ProfileResponse> updateMyProfile(
       CreateProfileRequest profileRequest) async {
+    print('from profile repository , cover : ${profileRequest.cover}');
     Map<String, dynamic> response = await _apiClient.put(
         Urls.API_PROFILE.substring(0, Urls.API_PROFILE.length - 1),
         profileRequest.toJson());

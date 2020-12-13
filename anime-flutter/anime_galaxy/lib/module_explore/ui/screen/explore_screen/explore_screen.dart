@@ -1,14 +1,11 @@
 import 'dart:ui';
-import 'package:anime_galaxy/generated/l10n.dart';
 import 'package:anime_galaxy/module_anime/anime_routes.dart';
 import 'package:anime_galaxy/module_explore/explore_routes.dart';
 import 'package:anime_galaxy/module_explore/model/explore/explore_model.dart';
 import 'package:anime_galaxy/module_explore/state/explore/explore.state.dart';
 import 'package:anime_galaxy/module_explore/state_manager/explore/explore.state_manager.dart';
-import 'package:anime_galaxy/module_explore/style/style_explore_list.dart';
 import 'package:anime_galaxy/module_explore/ui/widget/favourite_series_card/favourite_series_card.dart';
 import 'package:anime_galaxy/utils/loading_indicator/loading_indicator.dart';
-import 'package:anime_galaxy/utils/project_color/project_color.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:inject/inject.dart';

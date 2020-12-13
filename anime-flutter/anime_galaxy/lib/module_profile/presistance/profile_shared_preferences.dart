@@ -18,6 +18,11 @@ class ProfileSharedPreferencesHelper {
     return prefsHelper.setString('profile_image', image);
   }
 
+  Future<void> setUserCover(String cover) async {
+    var prefsHelper = await SharedPreferences.getInstance();
+    return prefsHelper.setString('profile_cover', cover);
+  }
+
   Future<void> setUserStory(String story) async {
     var prefsHelper = await SharedPreferences.getInstance();
     return prefsHelper.setString('profile_story', story);
@@ -41,5 +46,10 @@ class ProfileSharedPreferencesHelper {
   Future<String> getImage() async {
     var prefsHelper = await SharedPreferences.getInstance();
     return prefsHelper.getString('profile_image');
+  }
+
+  Future<String> getCoverImage() async {
+    var prefsHelper = await SharedPreferences.getInstance();
+    return prefsHelper.getString('profile_cover');
   }
 }

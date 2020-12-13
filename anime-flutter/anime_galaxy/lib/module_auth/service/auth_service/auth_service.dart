@@ -51,6 +51,8 @@ class AuthService {
     ProfileResponse response = await _myProfileManager.getBasicProfileInfo(uid);
     await _preferencesHelper.setUserImage(response.image);
     await _preferencesHelper.setUserName(response.userName);
+    await _preferencesHelper.setUserStory(response.story);
+    await _preferencesHelper.setUserCover(response.cover);
 
     await _prefsHelper.setUserId(uid);
     await _prefsHelper.setUsername(name);

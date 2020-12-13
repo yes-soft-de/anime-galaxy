@@ -28,9 +28,9 @@ class EditProfileStateManager {
 //      }
 //    });
 //  }
-  void saveProfile(String name, String story, String userImage) {
+  void saveProfile(String name, String story, String userImage ,String coverImage) {
      print('qqq state manager running');
-    _myProfileService.createProfile(name, userImage, story).then((value) {
+    _myProfileService.createProfile(name, userImage, story , coverImage).then((value) {
       if (value != null) {
         stateStream.add(null);
       } else {

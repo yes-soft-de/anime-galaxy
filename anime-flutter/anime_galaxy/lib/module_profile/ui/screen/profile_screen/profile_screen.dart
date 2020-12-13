@@ -252,8 +252,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 Container(
                   decoration: BoxDecoration(
                       image: DecorationImage(
-                          image: AssetImage(
-                              'assets/images/orange2.jpg'
+                          image: NetworkImage(
+                              _profileModel.cover
                           ),
                           fit: BoxFit.cover
                       )

@@ -18,6 +18,7 @@ class ProfileResponse {
   PreviousCommentsResponse previousCommentsResponse;
   int commentsNumber;
   int followedByNumber;
+  String cover;
 
   ProfileResponse(
       {this.id,
@@ -33,6 +34,7 @@ class ProfileResponse {
         this.previousCommentsResponse,
         this.commentsNumber,
         this.followedByNumber,
+        this.cover,
       });
 
   ProfileResponse.fromJson(Map<String, dynamic> json) {
@@ -42,6 +44,7 @@ class ProfileResponse {
     location = json['location'];
     story = json['story'];
     image = json['image'];
+    cover = json['cover'];
     commentsNumber = json['commentsNumber'];
     followedByNumber = json['followedByNumber'];
     createdAt = json['createdAt'] != null
@@ -57,6 +60,7 @@ class ProfileResponse {
     data['location'] = this.location;
     data['story'] = this.story;
     data['image'] = this.image;
+    data['cover'] = this.cover;
     data['commentsNumber'] = this.commentsNumber;
     data['followedByNumber'] = this.followedByNumber;
     if (this.createdAt != null) {

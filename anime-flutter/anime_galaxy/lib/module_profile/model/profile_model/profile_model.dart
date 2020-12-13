@@ -10,6 +10,7 @@ class ProfileModel {
   String createDate;
   PreviousComments previousComments;
   String commentsNumber;
+  String cover;
 
   ProfileModel({
     this.name,
@@ -23,6 +24,7 @@ class ProfileModel {
     this.createDate,
     this.previousComments,
     this.commentsNumber,
+    this.cover
   });
 
 

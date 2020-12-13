@@ -1,6 +1,4 @@
-import 'package:anime_galaxy/anime_setting/ui/widget/circular_setting/circular_image.dart';
 import 'package:anime_galaxy/generated/l10n.dart';
-import 'package:anime_galaxy/module_auth/service/auth_service/auth_service.dart';
 import 'package:anime_galaxy/module_explore/explore_routes.dart';
 import 'package:anime_galaxy/module_home/home.routes.dart';
 import 'package:anime_galaxy/module_notification/notification_routes.dart';
@@ -107,59 +105,61 @@ class AnimeNavigationDrawer extends StatelessWidget {
                     },
                   ),
                   */
-                Container(
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage(
-                              'assets/images/orange2.jpg'
-                          ),
-                          fit: BoxFit.cover
-                      )
-                  ),
-                  child: Container(
-                    width: double.infinity,
-                    height: 120,
-                    //profile image
-                    child: Container(
-                      alignment: Alignment(0.0,5.5),
-                      child: FutureBuilder(
-                        future: _profileSharedPreferencesHelper.getImage(),
-                        builder: (BuildContext context,
-                        AsyncSnapshot<String> snapShot) {
-                                 return CircleAvatar(
-                                   backgroundColor: Colors.white,
-                                   radius: 50.0,
-                                   child: CircleAvatar(
-                                     backgroundImage: NetworkImage(
-                                       snapShot.data ??
-                                           'https://images.unsplash.com/photo-1518806118471-f28b20a1d79d',
-                                     ),
-                                     radius: 48.0,
-                                   ),
-                                 ) ;
-                        }
-
-                      ),
-                    ),
-                  ),
-                ),
-                      Padding(
-                        padding: EdgeInsets.only(top: 30),
-                        child: FutureBuilder(
-                              future: _profileSharedPreferencesHelper.getUsername(),
+                FutureBuilder(
+                  future: _profileSharedPreferencesHelper.getCoverImage(),
+                  builder:
+                      (BuildContext context, AsyncSnapshot<String> snapshot) {
+                    return Container(
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image:snapshot.data!=null?
+                                  NetworkImage(snapshot.data):
+                                  AssetImage('assets/images/orange2.jpg'),
+                              fit: BoxFit.cover)),
+                      child: Container(
+                        width: double.infinity,
+                        height: 120,
+                        //profile image
+                        child: Container(
+                          alignment: Alignment(0.0, 5.5),
+                          child: FutureBuilder(
+                              future:
+                                  _profileSharedPreferencesHelper.getImage(),
                               builder: (BuildContext context,
                                   AsyncSnapshot<String> snapShot) {
-                                return Text(snapShot.data ?? '',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      fontFamily: 'Roboto',
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                    ));
-                              },
-                            ),
+                                return CircleAvatar(
+                                  backgroundColor: Colors.white,
+                                  radius: 50.0,
+                                  child: CircleAvatar(
+                                    backgroundImage: NetworkImage(
+                                      snapShot.data ??
+                                          'https://images.unsplash.com/photo-1518806118471-f28b20a1d79d',
+                                    ),
+                                    radius: 48.0,
+                                  ),
+                                );
+                              }),
+                        ),
                       ),
-
+                    );
+                  },
+                ),
+                Padding(
+                  padding: EdgeInsets.only(top: 30),
+                  child: FutureBuilder(
+                    future: _profileSharedPreferencesHelper.getUsername(),
+                    builder:
+                        (BuildContext context, AsyncSnapshot<String> snapShot) {
+                      return Text(snapShot.data ?? '',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontFamily: 'Roboto',
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ));
+                    },
+                  ),
+                ),
 
 //                Container(
 //                  height: 150,

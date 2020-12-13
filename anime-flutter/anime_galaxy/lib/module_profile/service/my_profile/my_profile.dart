@@ -50,6 +50,7 @@ class MyProfileService {
       ProfileModel result = new ProfileModel(
         name: response.userName,
         image: response.image,
+        cover: response.cover,
         followingNumber: response.followedByNumber.toString(),
         commentsNumber: response.commentsNumber.toString(),
         about: response.story,
@@ -64,6 +65,7 @@ class MyProfileService {
 
       await _preferencesHelper.setUserName(response.userName);
       await _preferencesHelper.setUserImage(response.image);
+      await _preferencesHelper.setUserCover(response.cover);
       await _preferencesHelper.setUserStory(response.story);
       return result;
     }
@@ -153,19 +155,30 @@ class MyProfileService {
     String username,
     String userImage,
     String story,
+    String coverImage,
   ) async {
     String imageUrl;
+    String coverImageUrl;
+
     if(userImage != null)  imageUrl = await _imageUploadService.uploadImage(userImage);
+    if(coverImage != null)  coverImageUrl = await _imageUploadService.uploadImage(coverImage);
+
     String userId = await _authService.userID;
+
+    String imageFromLocal = await _preferencesHelper.getImage();
+    imageFromLocal = imageFromLocal.substring(imageFromLocal.indexOf('image'));
 
     var profileExists = await _manager.getProfile(userId);
 
     CreateProfileRequest request = CreateProfileRequest(
         userName: username,
-        image: imageUrl??'',
+        image: imageUrl??imageFromLocal,
         location: 'Saudi Arabia',
         story: story,
-        userID: userId);
+        userID: userId,
+        cover : coverImageUrl??'lll'
+    );
+
     await _preferencesHelper.setUserName(username);
     if(imageUrl != null) await _preferencesHelper.setUserImage(Urls.IMAGES_UPLOAD_PATH+'/'+imageUrl);
     await _preferencesHelper.setUserLocation('Saudi Arabia');

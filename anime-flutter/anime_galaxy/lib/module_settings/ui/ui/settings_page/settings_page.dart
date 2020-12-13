@@ -7,6 +7,7 @@ import 'package:anime_galaxy/module_profile/presistance/profile_shared_preferenc
 import 'package:anime_galaxy/module_profile/profile_routes.dart';
 import 'package:anime_galaxy/module_theme/service/theme_service/theme_service.dart';
 import 'package:anime_galaxy/utils/project_color/project_color.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:inject/inject.dart';
 import 'package:anime_galaxy/module_settings/widget/circular_setting/circular_image.dart';
@@ -45,43 +46,51 @@ class _SettingsPageState extends State<SettingsPage> {
               Row(
                 children: [
                   Expanded(
-                    child: Container(
-                      height: 150,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(3.0)),
-                        image: DecorationImage(
-                            image: NetworkImage(
-                                'https://i.pinimg.com/236x/ec/e4/b0/ece4b097f87bd6a79d8e05cfd45d17d6--matte-painting-digital-paintings.jpg'),
-                            fit: BoxFit.cover),
-                      ),
-                      child: FutureBuilder(
-                          future:
-                              widget._profileSharedPreferencesHelper.getImage(),
-                          builder: (BuildContext context,
-                              AsyncSnapshot<String> snapshot) {
-                            return Container(
-                              decoration: BoxDecoration(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(3.0)),
-                                color: Colors.black.withOpacity(0.25),
-                              ),
-                              child: Align(
-                                  alignment: Alignment.center,
-                                  child: GestureDetector(
-                                    onTap: () => print(snapshot.data),
-                                    child: CircularImage(
-                                      width: hight / 8,
-                                      height: hight / 8,
-                                      linkImg: snapshot.data ??
-                                          'https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=100&q=60 100w',
-                                    ),
-                                  )),
-                            );
-                          }),
+                    child: FutureBuilder(
+                     future: widget._profileSharedPreferencesHelper.getCoverImage(),
+                     builder: (BuildContext context, AsyncSnapshot<String> snapshot){
+                       return Container(
+                         height: 150,
+                         decoration: BoxDecoration(
+                           borderRadius: BorderRadius.all(Radius.circular(3.0)),
+                           image: DecorationImage(
+                               image: NetworkImage(
+                                   snapshot.data??
+                                   'https://i.pinimg.com/236x/ec/e4/b0/ece4b097f87bd6a79d8e05cfd45d17d6--matte-painting-digital-paintings.jpg'),
+                               fit: BoxFit.cover),
+                         ),
+                         child: FutureBuilder(
+                             future:
+                             widget._profileSharedPreferencesHelper.getImage(),
+                             builder: (BuildContext context,
+                                 AsyncSnapshot<String> snapshot) {
+                               return Container(
+                                 decoration: BoxDecoration(
+                                   borderRadius:
+                                   BorderRadius.all(Radius.circular(3.0)),
+                                   color: Colors.black.withOpacity(0.25),
+                                 ),
+                                 child: Align(
+                                     alignment: Alignment.center,
+                                     child: GestureDetector(
+                                       onTap: () => print(snapshot.data),
+                                       child: CircularImage(
+                                         width: hight / 8,
+                                         height: hight / 8,
+                                         linkImg: snapshot.data ??
+                                             'https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=100&q=60 100w',
+                                       ),
+                                     )),
+                               );
+                             }),
+                       );
+                     },
                     ),
                   )
                 ],
               ),
+
+              SizedBox(height: 5,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
