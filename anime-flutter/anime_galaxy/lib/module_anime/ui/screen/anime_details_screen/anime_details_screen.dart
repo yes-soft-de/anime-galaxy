@@ -11,6 +11,7 @@ import 'package:anime_galaxy/module_episode/episode_routes.dart';
 import 'package:anime_galaxy/module_navigation/ui/widget/navigation_drawer/anime_navigation_drawer.dart';
 import 'package:anime_galaxy/module_profile/presistance/profile_shared_preferences.dart';
 import 'package:anime_galaxy/module_rating/ui/widget/rating_bar.dart';
+import 'package:anime_galaxy/module_theme/service/theme_service/theme_service.dart';
 import 'package:anime_galaxy/utils/app_bar/anime_galaxy_app_bar.dart';
 import 'package:anime_galaxy/utils/loading_indicator/loading_indicator.dart';
 import 'package:anime_galaxy/utils/project_colors/project_color.dart';
@@ -31,12 +32,14 @@ class AnimeDetailsScreen extends StatefulWidget {
   final AuthService _authService;
   final AnimeNavigationDrawer _animeNavigationDrawer;
   final ProfileSharedPreferencesHelper _profileSharedPreferencesHelper;
+  final SwapThemeDataService _themeDataService;
 
   AnimeDetailsScreen(
       this._stateManager,
       this._authService,
       this._animeNavigationDrawer,
       this._profileSharedPreferencesHelper,
+      this._themeDataService,
       );
 
   @override
@@ -372,26 +375,32 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
           ),
 
           //Statistics
-          Container(
-            margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 5),
-            decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [Colors.grey[400],Colors.white],
-                )
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  S.of(context).statics,
-                  style: TextStyle(
-                      fontSize: 14,
-                      fontFamily: 'Roboto',
-                      fontWeight: FontWeight.bold),
+          FutureBuilder(
+            future: widget._themeDataService.isDarkMode(),
+            builder: (BuildContext context, AsyncSnapshot<bool> snapshot){
+              return  Container(
+                margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 5),
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [Colors.grey[400], snapshot.data? Colors.black26 :Colors.white],
+                    )),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      S.of(context).statics,
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              );
+            },
           ),
+
 
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -435,25 +444,30 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
 
 
           //about
-          Container(
-            margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 5),
-            decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [Colors.grey[400],Colors.white],
-                )
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  S.of(context).About,
-                  style: TextStyle(
-                      fontSize: 14,
-                      fontFamily: 'Roboto',
-                      fontWeight: FontWeight.bold),
+          FutureBuilder(
+            future: widget._themeDataService.isDarkMode(),
+            builder: (BuildContext context, AsyncSnapshot<bool> snapshot){
+              return  Container(
+                margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 5),
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [Colors.grey[400], snapshot.data? Colors.black26 :Colors.white],
+                    )),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      S.of(context).About,
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              );
+            },
           ),
 
 
@@ -515,26 +529,32 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
             color: Colors.black38,
           ),
 
-          Container(
-            margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 15),
-            decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [Colors.grey[400],Colors.white],
-                )
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  S.of(context).Classification,
-                  style: TextStyle(
-                      fontSize: 14,
-                      fontFamily: 'Roboto',
-                      fontWeight: FontWeight.bold),
+          FutureBuilder(
+            future: widget._themeDataService.isDarkMode(),
+            builder: (BuildContext context, AsyncSnapshot<bool> snapshot){
+              return  Container(
+                margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 15),
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [Colors.grey[400], snapshot.data? Colors.black26 :Colors.white],
+                    )),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      S.of(context).Classification,
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              );
+            },
           ),
+
 
 
           //classifications
@@ -618,26 +638,32 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
 
 
          // last episodes
-          Container(
-            margin: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 5),
-            decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [Colors.grey[400],Colors.white],
-                )
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  S.of(context).LastEpisodes,
-                  style: TextStyle(
-                      fontSize: 14,
-                      fontFamily: 'Roboto',
-                      fontWeight: FontWeight.bold),
+          FutureBuilder(
+            future: widget._themeDataService.isDarkMode(),
+            builder: (BuildContext context, AsyncSnapshot<bool> snapshot){
+              return  Container(
+                margin: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 5),
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [Colors.grey[400], snapshot.data? Colors.black26 :Colors.white],
+                    )),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      S.of(context).LastEpisodes,
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              );
+            },
           ),
+
 
 
           // last episodes
@@ -746,26 +772,32 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
   Widget _commentsSection(){
     return Column(
       children: [
-        Container(
-          margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 5),
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [Colors.grey[400],Colors.white],
-              )
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                S.of(context).LastReplaysAndComments,
-                style: TextStyle(
-                    fontSize: 14,
-                    fontFamily: 'Roboto',
-                    fontWeight: FontWeight.bold),
+        FutureBuilder(
+          future: widget._themeDataService.isDarkMode(),
+          builder: (BuildContext context, AsyncSnapshot<bool> snapshot){
+            return  Container(
+              margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 5),
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [Colors.grey[400], snapshot.data? Colors.black26 :Colors.white],
+                  )),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    S.of(context).LastReplaysAndComments,
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontFamily: 'Roboto',
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
+            );
+          },
         ),
+
 
         anime.comments.isNotEmpty
             ? ListView.builder(
@@ -963,27 +995,33 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Container(
-                        margin: EdgeInsetsDirectional.fromSTEB(10, 0, 5, 5),
-                        width: MediaQuery.of(context).size.width * 0.55,
-                        decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: [Colors.grey[400],Colors.white],
-                            )
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              S.of(context).newInteraction,
-                              style: TextStyle(
-                                  fontSize: 14,
-                                  fontFamily: 'Roboto',
-                                  fontWeight: FontWeight.bold),
+                      FutureBuilder(
+                        future: widget._themeDataService.isDarkMode(),
+                        builder: (BuildContext context, AsyncSnapshot<bool> snapshot){
+                          return  Container(
+                            width: MediaQuery.of(context).size.width * 0.55,
+                            margin: EdgeInsetsDirectional.fromSTEB(10, 0, 5, 5),
+                            decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                  colors: [Colors.grey[400], snapshot.data? Colors.black26 :Colors.white],
+                                )),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  S.of(context).newInteraction,
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontFamily: 'Roboto',
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
                             ),
-                          ],
-                        ),
+                          );
+                        },
                       ),
+
 //
                       Container(
                         padding: EdgeInsets.all(5),

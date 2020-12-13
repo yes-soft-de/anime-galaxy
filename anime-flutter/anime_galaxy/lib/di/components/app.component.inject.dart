@@ -45,13 +45,13 @@ import '../../module_profile/ui/screen/profile_screen/profile_screen.dart'
     as _i35;
 import '../../module_profile/state_manager/my_profile/my_profile_state_manager.dart'
     as _i36;
-import '../../module_profile/ui/screen/my_profile/my_profile.dart' as _i37;
+import '../../module_theme/service/theme_service/theme_service.dart' as _i37;
+import '../../module_theme/pressistance/theme_preferences_helper.dart' as _i38;
+import '../../module_profile/ui/screen/my_profile/my_profile.dart' as _i39;
 import '../../module_profile/state_manager/edit_profile_state_manager/edit_profile_state_manager.dart'
-    as _i38;
+    as _i40;
 import '../../module_localization/presistance/localization_preferences_helper/localization_preferences_helper.dart'
-    as _i39;
-import '../../module_theme/service/theme_service/theme_service.dart' as _i40;
-import '../../module_theme/pressistance/theme_preferences_helper.dart' as _i41;
+    as _i41;
 import '../../module_home/home.module.dart' as _i42;
 import '../../module_home/ui/screens/home_screen.dart' as _i43;
 import '../../module_home/state_manager/home/home.state_manager.dart' as _i44;
@@ -228,29 +228,32 @@ class AppComponent$Injector implements _i1.AppComponent {
   _i35.ProfileScreen _createProfileScreen() => _i35.ProfileScreen(
       _createAuthService(),
       _createMyProfileStateManager(),
-      _createProfileSharedPreferencesHelper());
+      _createProfileSharedPreferencesHelper(),
+      _createSwapThemeDataService());
   _i36.MyProfileStateManager _createMyProfileStateManager() =>
       _i36.MyProfileStateManager(
           _createImageUploadService(), _createMyProfileService());
-  _i37.MyProfileScreen _createMyProfileScreen() => _i37.MyProfileScreen(
+  _i37.SwapThemeDataService _createSwapThemeDataService() =>
+      _i37.SwapThemeDataService(_createThemePreferencesHelper());
+  _i38.ThemePreferencesHelper _createThemePreferencesHelper() =>
+      _i38.ThemePreferencesHelper();
+  _i39.MyProfileScreen _createMyProfileScreen() => _i39.MyProfileScreen(
       _createEditProfileStateManager(),
       _createImageUploadService(),
       _createProfileSharedPreferencesHelper());
-  _i38.EditProfileStateManager _createEditProfileStateManager() =>
-      _i38.EditProfileStateManager(
+  _i40.EditProfileStateManager _createEditProfileStateManager() =>
+      _i40.EditProfileStateManager(
           _createMyProfileService(), _createImageUploadService());
   _i4.LocalizationService _createLocalizationService() =>
       _singletonLocalizationService ??=
           _i4.LocalizationService(_createLocalizationPreferencesHelper());
-  _i39.LocalizationPreferencesHelper _createLocalizationPreferencesHelper() =>
-      _i39.LocalizationPreferencesHelper();
-  _i40.SwapThemeDataService _createSwapThemeDataService() =>
-      _i40.SwapThemeDataService(_createThemePreferencesHelper());
-  _i41.ThemePreferencesHelper _createThemePreferencesHelper() =>
-      _i41.ThemePreferencesHelper();
+  _i41.LocalizationPreferencesHelper _createLocalizationPreferencesHelper() =>
+      _i41.LocalizationPreferencesHelper();
   _i42.HomeModule _createHomeModule() => _i42.HomeModule(_createHomeScreen());
-  _i43.HomeScreen _createHomeScreen() =>
-      _i43.HomeScreen(_createHomeStateManager(), _createAuthService());
+  _i43.HomeScreen _createHomeScreen() => _i43.HomeScreen(
+      _createHomeStateManager(),
+      _createAuthService(),
+      _createSwapThemeDataService());
   _i44.HomeStateManager _createHomeStateManager() =>
       _i44.HomeStateManager(_createHomeService());
   _i45.HomeService _createHomeService() =>
@@ -266,7 +269,8 @@ class AppComponent$Injector implements _i1.AppComponent {
           _createAnimeDetailsStateManager(),
           _createAuthService(),
           _createAnimeNavigationDrawer(),
-          _createProfileSharedPreferencesHelper());
+          _createProfileSharedPreferencesHelper(),
+          _createSwapThemeDataService());
   _i50.AnimeDetailsStateManager _createAnimeDetailsStateManager() =>
       _i50.AnimeDetailsStateManager(_createAnimeDetailsService());
   _i51.AnimeDetailsService _createAnimeDetailsService() =>
@@ -319,8 +323,8 @@ class AppComponent$Injector implements _i1.AppComponent {
       _createLocalizationService(),
       _createSwapThemeDataService(),
       _createProfileSharedPreferencesHelper());
-  _i70.ExploreScreen _createExploreScreen() =>
-      _i70.ExploreScreen(_createExploreStateManager());
+  _i70.ExploreScreen _createExploreScreen() => _i70.ExploreScreen(
+      _createExploreStateManager(), _createSwapThemeDataService());
   _i71.ExploreStateManager _createExploreStateManager() =>
       _i71.ExploreStateManager(_createExploreService());
   _i72.ExploreService _createExploreService() =>
@@ -350,7 +354,8 @@ class AppComponent$Injector implements _i1.AppComponent {
           _createEpisodeDetailsStateManager(),
           _createAuthService(),
           _createAnimeNavigationDrawer(),
-          _createProfileSharedPreferencesHelper());
+          _createProfileSharedPreferencesHelper(),
+          _createSwapThemeDataService());
   _i84.EpisodeDetailsStateManager _createEpisodeDetailsStateManager() =>
       _i84.EpisodeDetailsStateManager(_createEpisodeDetailsService());
   _i85.EpisodeDetailsService _createEpisodeDetailsService() =>

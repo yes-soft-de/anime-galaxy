@@ -1,6 +1,5 @@
 import 'dart:ui';
 
-import 'package:anime_galaxy/generated/l10n.dart';
 import 'package:anime_galaxy/module_anime/anime_routes.dart';
 import 'package:anime_galaxy/module_auth/service/auth_service/auth_service.dart';
 import 'package:anime_galaxy/module_episode/episode_routes.dart';
@@ -9,8 +8,8 @@ import 'package:anime_galaxy/module_home/state/home/home.state.dart';
 import 'package:anime_galaxy/module_home/state_manager/home/home.state_manager.dart';
 import 'package:anime_galaxy/module_home/ui/widget/points_widget/points_widget.dart';
 import 'package:anime_galaxy/module_home/ui/widget/series_card/series_card.dart';
+import 'package:anime_galaxy/module_theme/service/theme_service/theme_service.dart';
 import 'package:anime_galaxy/utils/loading_indicator/loading_indicator.dart';
-import 'package:anime_galaxy/utils/project_colors/project_color.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:inject/inject.dart';
@@ -19,10 +18,12 @@ import 'package:inject/inject.dart';
 class HomeScreen extends StatefulWidget {
   final HomeStateManager _stateManger;
   final AuthService _authService;
+  final SwapThemeDataService _themeDataService;
 
   HomeScreen(
     this._stateManger,
     this._authService,
+    this._themeDataService,
   );
 
   @override
@@ -187,32 +188,30 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               PointsWidget(
                 points: anime.points,
               ),
-              Container(
-                margin: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 5),
-                decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                  colors: [Colors.grey[400], Colors.white],
-                )),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'حلقات التي سوف تصدر قريبا',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontFamily: 'Roboto',
-                        fontWeight: FontWeight.bold,
-                      ),
+              FutureBuilder(
+                future: widget._themeDataService.isDarkMode(),
+                builder: (BuildContext context, AsyncSnapshot<bool> snapshot){
+                  return  Container(
+                    margin: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 5),
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [Colors.grey[400], snapshot.data? Colors.black26 :Colors.white],
+                        )),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'حلقات التي سوف تصدر قريبا',
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontFamily: 'Roboto',
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
                     ),
-//                    Text(
-//                      S.of(context).More,
-//                      style: TextStyle(
-//                        fontSize: 14,
-//                        fontFamily: 'Roboto',
-//                      ),
-//                    ),
-                  ],
-                ),
+                  );
+                },
               ),
               imageSliders.isNotEmpty
                   ? CarouselSlider(
@@ -232,33 +231,32 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                         ),
                       ),
                     ),
-              Container(
-                margin: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 5),
-                decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                  colors: [Colors.grey[400], Colors.white],
-                )),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'المتابعة',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontFamily: 'Roboto',
-                        fontWeight: FontWeight.bold,
-                      ),
+              FutureBuilder(
+                future: widget._themeDataService.isDarkMode(),
+                builder: (BuildContext context, AsyncSnapshot<bool> snapshot){
+                  return  Container(
+                    margin: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 5),
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [Colors.grey[400], snapshot.data? Colors.black26 :Colors.white],
+                        )),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'المتابعة',
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontFamily: 'Roboto',
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
                     ),
-//                    Text(
-//                      S.of(context).More,
-//                      style: TextStyle(
-//                        fontSize: 14,
-//                        fontFamily: 'Roboto',
-//                      ),
-//                    ),
-                  ],
-                ),
+                  );
+                },
               ),
+
 
               Container(
                 height: 190,
@@ -343,33 +341,32 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 //                          )),
 //                      onPressed: () => setState(() => isExpanded = true)),
 //
-
-              Container(
-                margin: EdgeInsetsDirectional.fromSTEB(10, 5, 0, 5),
-                decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                  colors: [Colors.grey[400], Colors.white],
-                )),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'إنميات قد تعجبك',
-                      style: TextStyle(
-                          fontSize: 14,
-                          fontFamily: 'Roboto',
-                          fontWeight: FontWeight.bold),
+              FutureBuilder(
+                future: widget._themeDataService.isDarkMode(),
+                builder: (BuildContext context, AsyncSnapshot<bool> snapshot){
+                  return  Container(
+                    margin: EdgeInsetsDirectional.fromSTEB(10, 5, 0, 5),
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [Colors.grey[400], snapshot.data? Colors.black26 :Colors.white],
+                        )),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'إنميات قد تعجبك',
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontFamily: 'Roboto',
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
                     ),
-//                    Text(
-//                      S.of(context).More,
-//                      style: TextStyle(
-//                        fontSize: 14,
-//                        fontFamily: 'Roboto',
-//                      ),
-//                    ),
-                  ],
-                ),
+                  );
+                },
               ),
+
 
               anime.mayLikeSeries.isNotEmpty
                   ? Container(

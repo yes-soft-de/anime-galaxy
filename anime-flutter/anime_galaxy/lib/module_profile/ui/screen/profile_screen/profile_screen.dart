@@ -1,5 +1,4 @@
 import 'package:anime_galaxy/generated/l10n.dart';
-import 'package:anime_galaxy/main_screen/main_screen_routes.dart';
 import 'package:anime_galaxy/module_anime/anime_routes.dart';
 import 'package:anime_galaxy/module_auth/service/auth_service/auth_service.dart';
 import 'package:anime_galaxy/module_profile/model/profile_model/profile_model.dart';
@@ -10,6 +9,7 @@ import 'package:anime_galaxy/module_profile/ui/widget/activity_card/activity_car
 import 'package:anime_galaxy/module_profile/ui/widget/comment_card/comment_card.dart';
 import 'package:anime_galaxy/module_profile/ui/widget/personal_info_widget/personal_info_widget.dart';
 import 'package:anime_galaxy/module_profile/ui/widget/series_card/card_series.dart';
+import 'package:anime_galaxy/module_theme/service/theme_service/theme_service.dart';
 import 'package:anime_galaxy/utils/loading_indicator/loading_indicator.dart';
 import 'package:anime_galaxy/utils/project_color/project_color.dart';
 import 'package:flutter/material.dart';
@@ -22,11 +22,13 @@ class ProfileScreen extends StatefulWidget {
   final AuthService _authService;
   final MyProfileStateManager _stateManager;
   final ProfileSharedPreferencesHelper _preferencesHelper;
+  final SwapThemeDataService _themeDataService;
 
   ProfileScreen(
       this._authService,
       this._stateManager,
       this._preferencesHelper,
+      this._themeDataService,
       );
 
   @override
@@ -433,27 +435,30 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                         ),
                       //about me
-
-                      Container(
-                        margin: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 5),
-                        decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: [Colors.grey[400],Colors.white],
-                            )
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              S.of(context).aboutMe,
-                              style: TextStyle(
-                                fontSize: 14,
-                                fontFamily: 'Roboto',
-                                fontWeight: FontWeight.bold,
-                              ),
+                      FutureBuilder(
+                        future: widget._themeDataService.isDarkMode(),
+                        builder: (BuildContext context, AsyncSnapshot<bool> snapshot){
+                          return  Container(
+                            margin: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 5),
+                            decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                  colors: [Colors.grey[400], snapshot.data? Colors.black26 :Colors.white],
+                                )),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  S.of(context).aboutMe,
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontFamily: 'Roboto',
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
                             ),
-                          ],
-                        ),
+                          );
+                        },
                       ),
 
                       Container(
@@ -471,27 +476,32 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       //activities
                       //display following activities only for me
                       if( userId == null)
-                        Container(
-                          margin: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
-                          decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                colors: [Colors.grey[400],Colors.white],
-                              )
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                S.of(context).activities,
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  fontFamily: 'Roboto',
-                                  fontWeight: FontWeight.bold,
-                                ),
+                        FutureBuilder(
+                          future: widget._themeDataService.isDarkMode(),
+                          builder: (BuildContext context, AsyncSnapshot<bool> snapshot){
+                            return  Container(
+                              margin: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
+                              decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    colors: [Colors.grey[400], snapshot.data? Colors.black26 :Colors.white],
+                                  )),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    S.of(context).activities,
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      fontFamily: 'Roboto',
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
                               ),
-                            ],
-                          ),
+                            );
+                          },
                         ),
+
 
 
 
@@ -518,27 +528,32 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         height: 20,
                       ),
                       //watched series
-                      Container(
-                        margin: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
-                        decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: [Colors.grey[400],Colors.white],
-                            )
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              S.of(context).watchedSeries,
-                              style: TextStyle(
-                                fontSize: 14,
-                                fontFamily: 'Roboto',
-                                fontWeight: FontWeight.bold,
-                              ),
+                      FutureBuilder(
+                        future: widget._themeDataService.isDarkMode(),
+                        builder: (BuildContext context, AsyncSnapshot<bool> snapshot){
+                          return  Container(
+                            margin: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
+                            decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                  colors: [Colors.grey[400], snapshot.data? Colors.black26 :Colors.white],
+                                )),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'إنميات متابعة',
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontFamily: 'Roboto',
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
                             ),
-                          ],
-                        ),
+                          );
+                        },
                       ),
+
 
                       Container(
                         height: 225,

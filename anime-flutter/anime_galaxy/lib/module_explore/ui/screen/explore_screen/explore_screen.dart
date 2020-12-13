@@ -5,6 +5,7 @@ import 'package:anime_galaxy/module_explore/model/explore/explore_model.dart';
 import 'package:anime_galaxy/module_explore/state/explore/explore.state.dart';
 import 'package:anime_galaxy/module_explore/state_manager/explore/explore.state_manager.dart';
 import 'package:anime_galaxy/module_explore/ui/widget/favourite_series_card/favourite_series_card.dart';
+import 'package:anime_galaxy/module_theme/service/theme_service/theme_service.dart';
 import 'package:anime_galaxy/utils/loading_indicator/loading_indicator.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -13,8 +14,10 @@ import 'package:inject/inject.dart';
 @provide
 class ExploreScreen extends StatefulWidget {
   final ExploreStateManager _stateManager;
+  final SwapThemeDataService _themeDataService;
 
-  ExploreScreen(this._stateManager);
+
+  ExploreScreen(this._stateManager,this._themeDataService);
 
   @override
   _ExploreScreenState createState() => _ExploreScreenState();
@@ -214,27 +217,32 @@ class _ExploreScreenState extends State<ExploreScreen> {
                   SizedBox(
                     width: 8,
                   ),
-
-                  Container(
-                    margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 5),
-                    decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: [Colors.grey[400],Colors.white],
-                        )
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'الإنميات القادمة',
-                          style: TextStyle(
-                              fontSize: 14,
-                              fontFamily: 'Roboto',
-                              fontWeight: FontWeight.bold),
+                  FutureBuilder(
+                    future: widget._themeDataService.isDarkMode(),
+                    builder: (BuildContext context, AsyncSnapshot<bool> snapshot){
+                      return  Container(
+                        margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 5),
+                        decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [Colors.grey[400], snapshot.data? Colors.black26 :Colors.white],
+                            )),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'الإنميات القادمة',
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontFamily: 'Roboto',
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
+                      );
+                    },
                   ),
+
 
                     
 
@@ -249,28 +257,31 @@ class _ExploreScreenState extends State<ExploreScreen> {
                     ),
                   ),
 
-
-                  Container(
-                    margin: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 5),
-                    decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: [Colors.grey[400],Colors.white],
-                        )
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'الإنميات الموصى بها عربيا',
-                          style: TextStyle(
-                              fontSize: 14,
-                              fontFamily: 'Roboto',
-                              fontWeight: FontWeight.bold),
+                  FutureBuilder(
+                    future: widget._themeDataService.isDarkMode(),
+                    builder: (BuildContext context, AsyncSnapshot<bool> snapshot){
+                      return  Container(
+                        margin: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 5),
+                        decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [Colors.grey[400], snapshot.data? Colors.black26 :Colors.white],
+                            )),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'الإنميات الموصى بها عربيا',
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontFamily: 'Roboto',
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
+                      );
+                    },
                   ),
-
 
                   Container(
                     height: 200,
@@ -300,25 +311,31 @@ class _ExploreScreenState extends State<ExploreScreen> {
                     ),
                   ),
 
-                  Container(
-                    margin: EdgeInsetsDirectional.fromSTEB(10, 5, 0, 5),
-                    decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: [Colors.grey[400],Colors.white],
-                        )
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'الإنميات الموصى بها حسب تفضيلاتك',
-                          style: TextStyle(
-                              fontSize: 14,
-                              fontFamily: 'Roboto',
-                              fontWeight: FontWeight.bold),
+
+                  FutureBuilder(
+                    future: widget._themeDataService.isDarkMode(),
+                    builder: (BuildContext context, AsyncSnapshot<bool> snapshot){
+                      return  Container(
+                        margin: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 5),
+                        decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [Colors.grey[400], snapshot.data? Colors.black26 :Colors.white],
+                            )),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'الإنميات الموصى بها حسب تفضيلاتك',
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontFamily: 'Roboto',
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
+                      );
+                    },
                   ),
 
                   Container(
@@ -351,27 +368,35 @@ class _ExploreScreenState extends State<ExploreScreen> {
                       scrollDirection: Axis.horizontal,
                     ),
                   ),
+
+
                 // categories
-                  Container(
-                    margin: EdgeInsetsDirectional.fromSTEB(10, 5, 0, 5),
-                    decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: [Colors.grey[400],Colors.white],
-                        )
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                         'تصنيفات الإنمي',
-                          style: TextStyle(
-                              fontSize: 14,
-                              fontFamily: 'Roboto',
-                              fontWeight: FontWeight.bold),
+                  FutureBuilder(
+                    future: widget._themeDataService.isDarkMode(),
+                    builder: (BuildContext context, AsyncSnapshot<bool> snapshot){
+                      return  Container(
+                        margin: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 5),
+                        decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [Colors.grey[400], snapshot.data? Colors.black26 :Colors.white],
+                            )),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'تصنيفات الإنمي',
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontFamily: 'Roboto',
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
+                      );
+                    },
                   ),
+
 
 
                   Container(

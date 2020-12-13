@@ -9,6 +9,7 @@ import 'package:anime_galaxy/module_episode/ui/widget/spoiler_comment_card/spoil
 import 'package:anime_galaxy/module_navigation/ui/widget/navigation_drawer/anime_navigation_drawer.dart';
 import 'package:anime_galaxy/module_profile/presistance/profile_shared_preferences.dart';
 import 'package:anime_galaxy/module_rating/ui/widget/rating_bar.dart';
+import 'package:anime_galaxy/module_theme/service/theme_service/theme_service.dart';
 import 'package:anime_galaxy/utils/app_bar/anime_galaxy_app_bar.dart';
 import 'package:anime_galaxy/utils/loading_indicator/loading_indicator.dart';
 import 'package:anime_galaxy/utils/project_color/project_color.dart';
@@ -27,12 +28,14 @@ class EpisodeDetailsScreen extends StatefulWidget {
   final AuthService _authService;
   final AnimeNavigationDrawer _animeNavigationDrawer;
   final ProfileSharedPreferencesHelper _profileSharedPreferencesHelper;
+  final SwapThemeDataService _themeDataService;
 
   EpisodeDetailsScreen(
       this._stateManager,
       this._authService,
       this._animeNavigationDrawer,
       this._profileSharedPreferencesHelper,
+      this._themeDataService,
       );
   @override
   _EpisodeDetailsScreenState createState() => _EpisodeDetailsScreenState();
@@ -317,26 +320,32 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
 
 
         //about
-        Container(
-          margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 5),
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [Colors.grey[400],Colors.white],
-              )
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                S.of(context).About,
-                style: TextStyle(
-                    fontSize: 14,
-                    fontFamily: 'Roboto',
-                    fontWeight: FontWeight.bold),
+        FutureBuilder(
+          future: widget._themeDataService.isDarkMode(),
+          builder: (BuildContext context, AsyncSnapshot<bool> snapshot){
+            return  Container(
+              margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 5),
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [Colors.grey[400], snapshot.data? Colors.black26 :Colors.white],
+                  )),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    S.of(context).About,
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontFamily: 'Roboto',
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
+            );
+          },
         ),
+
         new AnimatedSize(
             vsync: this,
             duration: const Duration(milliseconds: 500),
@@ -396,26 +405,33 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
           width: screenWidth * 0.8,
           color: Colors.black38,
         ),
-        Container(
-          margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 15),
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [Colors.grey[400],Colors.white],
-              )
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                S.of(context).Classification,
-                style: TextStyle(
-                    fontSize: 14,
-                    fontFamily: 'Roboto',
-                    fontWeight: FontWeight.bold),
+
+        FutureBuilder(
+          future: widget._themeDataService.isDarkMode(),
+          builder: (BuildContext context, AsyncSnapshot<bool> snapshot){
+            return  Container(
+              margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 15),
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [Colors.grey[400], snapshot.data? Colors.black26 :Colors.white],
+                  )),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    S.of(context).Classification,
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontFamily: 'Roboto',
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
+            );
+          },
         ),
+
 
         //classifications
         Wrap(
@@ -505,26 +521,32 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
   Widget _commentsSection(){
     return Column(
       children: [
-        Container(
-          margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 5),
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [Colors.grey[400],Colors.white],
-              )
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                S.of(context).LastReplaysAndComments,
-                style: TextStyle(
-                    fontSize: 14,
-                    fontFamily: 'Roboto',
-                    fontWeight: FontWeight.bold),
+        FutureBuilder(
+          future: widget._themeDataService.isDarkMode(),
+          builder: (BuildContext context, AsyncSnapshot<bool> snapshot){
+            return  Container(
+              margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 5),
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [Colors.grey[400], snapshot.data? Colors.black26 :Colors.white],
+                  )),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    S.of(context).LastReplaysAndComments,
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontFamily: 'Roboto',
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
+            );
+          },
         ),
+
         episode.comments.isNotEmpty  ?
         ListView.builder(
           physics: NeverScrollableScrollPhysics(),
@@ -589,6 +611,32 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
+                      FutureBuilder(
+                        future: widget._themeDataService.isDarkMode(),
+                        builder: (BuildContext context, AsyncSnapshot<bool> snapshot){
+                          return  Container(
+                            margin: EdgeInsetsDirectional.fromSTEB(10, 0, 5, 5),
+                            width: MediaQuery.of(context).size.width * 0.55,
+                            decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                  colors: [Colors.grey[400], snapshot.data? Colors.black26 :Colors.white],
+                                )),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  S.of(context).newInteraction,
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontFamily: 'Roboto',
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                      ),
                       Container(
                         margin: EdgeInsetsDirectional.fromSTEB(10, 0, 5, 5),
                         width: MediaQuery.of(context).size.width * 0.55,
