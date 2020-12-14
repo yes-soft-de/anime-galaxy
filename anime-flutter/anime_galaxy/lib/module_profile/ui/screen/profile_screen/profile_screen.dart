@@ -41,7 +41,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   ProfileModel _profileModel;
   MyProfileState currentState = MyProfileStateInit();
   String userId;
-  bool isDarkMode;
+  bool isDarkMode = false;
 
   @override
   void initState() {
@@ -80,7 +80,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
 
     widget._themeDataService.isDarkMode().then((value) {
-      isDarkMode ??= value;
+      isDarkMode = value ?? false;
     });
 
     userId = ModalRoute.of(context).settings.arguments;
@@ -108,7 +108,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 children: [
                   //personal info
                   PersonalInfoWidget(
-                    image: _profileModel.image,
+                    image: _profileModel.image??'',
                     name: _profileModel.name,
                     createDate: _profileModel.createDate,
                     //TODO : change it
@@ -197,7 +197,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               date:  _profileModel.followingActivities[index].date,
                               userName:
                               _profileModel.followingActivities[index].userName,
-                              userImage:  _profileModel.followingActivities[index].userImage,
+                              userImage:  _profileModel.followingActivities[index].userImage??'',
                               activity:
                               _profileModel.followingActivities[index].action,
                             ),
@@ -232,7 +232,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 context, AnimeRoutes.ROUTE_ANIME_DETAILS_SCREEN,
                                 arguments: _profileModel.watchedSeries[index].id),
                             child: SeriesCard(
-                              url_image: _profileModel.watchedSeries[index].image,
+                              url_image: _profileModel.watchedSeries[index].image??'',
                               series_category: 'شونين',
                               series_name: _profileModel.watchedSeries[index].name,
                             ),
@@ -261,7 +261,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   decoration: BoxDecoration(
                       image: DecorationImage(
                           image: NetworkImage(
-                              _profileModel.cover
+                              _profileModel.cover??
+                                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqt3FAdEVVbpU0cd2q4BE94ogIQUXZ_fWyww&usqp=CAU'
                           ),
                           fit: BoxFit.cover
                       )

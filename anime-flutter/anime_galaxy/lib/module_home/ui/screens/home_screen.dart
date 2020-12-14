@@ -37,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   HomeModel anime;
   HomeState currentState = HomeStateInit();
   bool loading = true;
-  bool isDarkMode;
+  bool isDarkMode = false;
 
   @override
   void initState() {
@@ -62,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     widget._themeDataService.isDarkMode().then((value) {
-      isDarkMode ??= value;
+      isDarkMode = value ?? false;
     });
 
     screenWidth = MediaQuery.of(context).size.width;

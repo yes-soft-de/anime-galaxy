@@ -25,7 +25,7 @@ class ExploreScreen extends StatefulWidget {
 
 class _ExploreScreenState extends State<ExploreScreen> {
   ExploreModel explore;
-  bool isDarkMode;
+  bool isDarkMode = false;
 
   ExploreState currentState = ExploreStateInit();
   bool loading = true;
@@ -61,7 +61,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
   Widget build(BuildContext context) {
 
     widget._themeDataService.isDarkMode().then((value) {
-      isDarkMode ??= value;
+      isDarkMode = value ?? false;
     });
 
     if (currentState is ExploreStateInit) {

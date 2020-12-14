@@ -46,7 +46,12 @@ class _AuthScreenState extends State<AuthScreen> {
   void initState() {
     super.initState();
     widget.manager.status.listen((event) {
-      _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text(event??''),));
+      _scaffoldKey.currentState.showSnackBar(
+          SnackBar(
+            content: Text(event??''),
+            backgroundColor: Colors.grey,
+          ),
+      );
     });
     widget.manager.stateStream.listen((event) {
       print(event.runtimeType.toString());
@@ -373,62 +378,62 @@ class _AuthScreenState extends State<AuthScreen> {
                     },
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: GestureDetector(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: Border.all(
-                            color:
-                                Theme.of(context).brightness == Brightness.light
-                                    ? SwapThemeDataService.getDarkBGColor()
-                                    : Colors.white,
-                            width: .25),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: SvgPicture.asset(
-                          'assets/images/twitter.svg',
-                          height: 32,
-                        ),
-                      ),
-                    ),
-                    onTap: () {
-                      Scaffold.of(context).showSnackBar(SnackBar(
-                        content: Text('Social App Id not provided'),
-                      ));
-                    },
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: GestureDetector(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: Border.all(
-                            color:
-                                Theme.of(context).brightness == Brightness.light
-                                    ? SwapThemeDataService.getDarkBGColor()
-                                    : Colors.white,
-                            width: .25),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: SvgPicture.asset(
-                          'assets/images/facebook.svg',
-                          height: 32,
-                        ),
-                      ),
-                    ),
-                    onTap: () {
-                      Scaffold.of(context).showSnackBar(SnackBar(
-                        content: Text('Social App Id not provided'),
-                      ));
-                    },
-                  ),
-                ),
+//                Padding(
+//                  padding: const EdgeInsets.all(8.0),
+//                  child: GestureDetector(
+//                    child: Container(
+//                      decoration: BoxDecoration(
+//                        shape: BoxShape.circle,
+//                        border: Border.all(
+//                            color:
+//                                Theme.of(context).brightness == Brightness.light
+//                                    ? SwapThemeDataService.getDarkBGColor()
+//                                    : Colors.white,
+//                            width: .25),
+//                      ),
+//                      child: Padding(
+//                        padding: const EdgeInsets.all(8.0),
+//                        child: SvgPicture.asset(
+//                          'assets/images/twitter.svg',
+//                          height: 32,
+//                        ),
+//                      ),
+//                    ),
+//                    onTap: () {
+//                      Scaffold.of(context).showSnackBar(SnackBar(
+//                        content: Text('Social App Id not provided'),
+//                      ));
+//                    },
+//                  ),
+//                ),
+//                Padding(
+//                  padding: const EdgeInsets.all(8.0),
+//                  child: GestureDetector(
+//                    child: Container(
+//                      decoration: BoxDecoration(
+//                        shape: BoxShape.circle,
+//                        border: Border.all(
+//                            color:
+//                                Theme.of(context).brightness == Brightness.light
+//                                    ? SwapThemeDataService.getDarkBGColor()
+//                                    : Colors.white,
+//                            width: .25),
+//                      ),
+//                      child: Padding(
+//                        padding: const EdgeInsets.all(8.0),
+//                        child: SvgPicture.asset(
+//                          'assets/images/facebook.svg',
+//                          height: 32,
+//                        ),
+//                      ),
+//                    ),
+//                    onTap: () {
+//                      Scaffold.of(context).showSnackBar(SnackBar(
+//                        content: Text('Social App Id not provided'),
+//                      ));
+//                    },
+//                  ),
+//                ),
               ],
             ),
             GestureDetector(

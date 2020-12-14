@@ -38,7 +38,9 @@ class MyProfileService {
   }
 
   Future<ProfileModel> getProfile({String id}) async {
-    String userId = id ?? await _authService.userID;
+    String loggedInId = await _authService.userID;
+
+    String userId = id ?? loggedInId;
 
 
     ProfileResponse response = await _manager.getProfile(userId);
@@ -63,10 +65,12 @@ class MyProfileService {
         previousComments:_getPreviousComments(response.previousCommentsResponse),
       );
 
-      await _preferencesHelper.setUserName(response.userName);
-      await _preferencesHelper.setUserImage(response.image);
-      await _preferencesHelper.setUserCover(response.cover);
-      await _preferencesHelper.setUserStory(response.story);
+      if(userId == loggedInId){
+        await _preferencesHelper.setUserName(response.userName);
+        await _preferencesHelper.setUserImage(response.image);
+        await _preferencesHelper.setUserCover(response.cover);
+        await _preferencesHelper.setUserStory(response.story);
+      }
       return result;
     }
     return null;
@@ -166,7 +170,14 @@ class MyProfileService {
     String userId = await _authService.userID;
 
     String imageFromLocal = await _preferencesHelper.getImage();
-    imageFromLocal = imageFromLocal.substring(imageFromLocal.indexOf('image'));
+    imageFromLocal = (imageFromLocal!=null)
+                      ? imageFromLocal.substring(imageFromLocal.indexOf('image'))
+                      : '' ;
+
+    String coverFromLocal = await _preferencesHelper.getCoverImage();
+    coverFromLocal = (coverFromLocal!=null)
+                      ?  coverFromLocal.substring(coverFromLocal.indexOf('image'))
+                      : '' ;
 
     var profileExists = await _manager.getProfile(userId);
 

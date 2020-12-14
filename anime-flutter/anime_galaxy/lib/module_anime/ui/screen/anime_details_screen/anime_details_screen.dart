@@ -61,17 +61,13 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
   String userImage;
   bool CommentsVisible = false;
   YoutubePlayerController _controller;
-  bool isDarkMode;
+  bool isDarkMode = false;
 
   @override
   void initState() {
     super.initState();
 
-
-
-
     _getUserId();
-
 
     widget._stateManager.stateStream.listen((event) {
       currentState = event;
@@ -79,8 +75,6 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
     });
 
   }
-
-
 
 
 
@@ -200,7 +194,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
   Widget build(BuildContext context) {
 
       widget._themeDataService.isDarkMode().then((value) {
-        isDarkMode ??= value;
+        isDarkMode = value ?? false;
       });
 
     animeId = ModalRoute.of(context).settings.arguments;
@@ -578,7 +572,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                             padding: const EdgeInsets.symmetric(horizontal: 2),
                             child: GestureDetector(
                               onTap: () {
-//                  controller.pause(); // to stop video when navigation to another screen
+                                _controller.close(); // to stop video when navigation to another screen
                                 Navigator.pushNamed(
                                     context, EpisodeRoutes.ROUTE_EPISODE_DETAILS_SCREEN,
                                     arguments: anime.episodes[index].id);

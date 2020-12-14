@@ -56,7 +56,7 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
   String username;
   String userImage;
   bool CommentsVisible=false;
-  bool isDarkMode;
+  bool isDarkMode = false;
 
   @override
   void initState() {
@@ -137,7 +137,7 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
   @override
   Widget build(BuildContext context) {
     widget._themeDataService.isDarkMode().then((value) {
-      isDarkMode ??= value;
+      isDarkMode = value ?? false;
     });
 
     episodeId = ModalRoute.of(context).settings.arguments;

@@ -38,9 +38,9 @@ class AnimeComments {
   bool spoilerAlert;
   int id;
   CreationDate creationDate;
-  Null commentInteractions;
+//  Null commentInteractions;
   String userName;
-  Null image;
+  String image;
   String animeName;
 
   AnimeComments(
@@ -48,7 +48,7 @@ class AnimeComments {
         this.spoilerAlert,
         this.id,
         this.creationDate,
-        this.commentInteractions,
+//        this.commentInteractions,
         this.userName,
         this.image,
         this.animeName});
@@ -60,7 +60,7 @@ class AnimeComments {
     creationDate = json['creationDate'] != null
         ? new CreationDate.fromJson(json['creationDate'])
         : null;
-    commentInteractions = json['commentInteractions'];
+//    commentInteractions = json['commentInteractions'];
     userName = json['userName'];
     image = json['image'];
     animeName = json['animeName'];
@@ -74,7 +74,7 @@ class AnimeComments {
     if (this.creationDate != null) {
       data['creationDate'] = this.creationDate.toJson();
     }
-    data['commentInteractions'] = this.commentInteractions;
+//    data['commentInteractions'] = this.commentInteractions;
     data['userName'] = this.userName;
     data['image'] = this.image;
     data['animeName'] = this.animeName;
@@ -201,7 +201,7 @@ class EpisodeComments {
   bool spoilerAlert;
   CreationDate creationDate;
   String userName;
-  Null image;
+  String image;
   int episodeNumber;
 
   EpisodeComments(
