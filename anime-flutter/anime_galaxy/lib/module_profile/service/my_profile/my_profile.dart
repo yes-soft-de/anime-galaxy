@@ -65,6 +65,7 @@ class MyProfileService {
         previousComments:_getPreviousComments(response.previousCommentsResponse),
       );
 
+
       if(userId == loggedInId){
         await _preferencesHelper.setUserName(response.userName);
         await _preferencesHelper.setUserImage(response.image);

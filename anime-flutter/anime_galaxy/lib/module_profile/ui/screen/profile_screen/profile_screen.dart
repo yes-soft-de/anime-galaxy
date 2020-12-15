@@ -552,7 +552,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
                       Container(
                         height: 225,
-                        color: Colors.grey[300],
+                        color:  isDarkMode? Colors.white30 :Colors.grey[300],
                         child: ListView.builder(
                             scrollDirection: Axis.horizontal,
                             shrinkWrap: true,

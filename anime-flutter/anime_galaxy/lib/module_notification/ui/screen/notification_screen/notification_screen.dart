@@ -78,6 +78,9 @@ class _NotificationScreenState extends State<NotificationScreen> {
                   image: notifications[index].image,
                   content: notifications[index].content,
                   date: notifications[index].date,
+                color:      Theme.of(context).brightness == Brightness.dark
+                ? Colors.white30
+                : Colors.grey[300],
               )
               );
 

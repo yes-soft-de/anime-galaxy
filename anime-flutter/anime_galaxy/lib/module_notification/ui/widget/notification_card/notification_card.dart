@@ -8,17 +8,19 @@ class NotificationCard extends StatelessWidget {
   final String content;
   final String image;
   final String date;
+  final Color color;
 
   NotificationCard({
     this.content,
     this.image,
     this.date,
+    this.color
   });
 
   @override
   Widget build(BuildContext context) {
     return  Card(
-
+      color: color,
       shape: OutlineInputBorder(
         borderRadius: BorderRadius.circular(10),
         borderSide: BorderSide.none,

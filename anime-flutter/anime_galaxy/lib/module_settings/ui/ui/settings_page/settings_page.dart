@@ -188,44 +188,44 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
               ),
               // notification
-              Padding(
-                padding: const EdgeInsets.all(4.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(4)),
-                    color: Colors.black12,
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(4.0),
-                    child: Flex(
-                      direction: Axis.horizontal,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.notifications,
-                              size: 18,
-                            ),
-                            Text(
-                              S.of(context).notifications,
-                              style: TextStyle(
-                                fontFamily: 'Roboto',
-                              ),
-                            ),
-                          ],
-                        ),
-                        Switch(
-                            value: notifications,
-                            onChanged: (mode) {
-                              notifications = mode;
-                              setState(() {});
-                            })
-                      ],
-                    ),
-                  ),
-                ),
-              ),
+//              Padding(
+//                padding: const EdgeInsets.all(4.0),
+//                child: Container(
+//                  decoration: BoxDecoration(
+//                    borderRadius: BorderRadius.all(Radius.circular(4)),
+//                    color: Colors.black12,
+//                  ),
+//                  child: Padding(
+//                    padding: const EdgeInsets.all(4.0),
+//                    child: Flex(
+//                      direction: Axis.horizontal,
+//                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                      children: [
+//                        Row(
+//                          children: [
+//                            Icon(
+//                              Icons.notifications,
+//                              size: 18,
+//                            ),
+//                            Text(
+//                              S.of(context).notifications,
+//                              style: TextStyle(
+//                                fontFamily: 'Roboto',
+//                              ),
+//                            ),
+//                          ],
+//                        ),
+//                        Switch(
+//                            value: notifications,
+//                            onChanged: (mode) {
+//                              notifications = mode;
+//                              setState(() {});
+//                            })
+//                      ],
+//                    ),
+//                  ),
+//                ),
+//              ),
               // account
 //             Padding(
 //               padding: const EdgeInsets.all(4.0),

@@ -34,7 +34,9 @@ class MyProfileRepository {
     if (response == null) return null;
     ProfileResponse result = ProfileResponse.fromJson(response['Data']);
 
+
     if(userId != loggedUser ){
+      print('toto0');
       await Future.wait([
         _getPreviousComments(userId),
         _getWatchedSeries(userId),
@@ -57,6 +59,7 @@ class MyProfileRepository {
 //    result.followingNumber = followingNumber1;
     result.isFollowed = isFollowed1;
 
+    print('kimka : ${result.isFollowed}');
     return result;
   }
 
@@ -76,6 +79,7 @@ class MyProfileRepository {
 
   }
   Future<void> _isFollowed(String userId, String friendId) async {
+
     dynamic following = await _apiClient.get(Urls.API_FOLLOWING_USERS + userId);
     if (following == null) return false;
 
@@ -87,7 +91,6 @@ class MyProfileRepository {
         return;
       }
     }
-
     isFollowed1 = false;
   }
 

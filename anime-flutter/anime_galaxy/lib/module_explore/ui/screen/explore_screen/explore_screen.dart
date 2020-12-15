@@ -283,7 +283,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
 
                   Container(
                     height: 200,
-                    color: Colors.grey[300],
+                    color:  isDarkMode? Colors.white30 :Colors.grey[300],
                     child: ListView.builder(
                       itemBuilder: (context, index) {
                         return Padding(
@@ -311,7 +311,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
 
 
                  Container(
-                        margin: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 5),
+                        margin: EdgeInsetsDirectional.fromSTEB(10, 5, 0, 5),
                         decoration: BoxDecoration(
                             gradient: LinearGradient(
                               colors: [Colors.grey[400],isDarkMode? Colors.black26 :Colors.white],
@@ -334,7 +334,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
 
                   Container(
                     height: 200,
-                    color: Colors.grey[300],
+                    color:  isDarkMode? Colors.white30 :Colors.grey[300],
                     child: ListView.builder(
                       itemBuilder: (context, index) {
                         return Padding(
@@ -366,7 +366,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
 
                 // categories
                    Container(
-                        margin: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 5),
+                        margin: EdgeInsetsDirectional.fromSTEB(10, 5, 0, 5),
                         decoration: BoxDecoration(
                             gradient: LinearGradient(
                               colors: [Colors.grey[400],isDarkMode? Colors.black26 :Colors.white],
@@ -391,7 +391,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
 
                   Container(
                     height: 200,
-                    color: Colors.grey[300],
+                    color:  isDarkMode? Colors.white30 :Colors.grey[300],
                     child: explore.categories != null
                         ? ListView.builder(
                             itemBuilder: (context, index) {

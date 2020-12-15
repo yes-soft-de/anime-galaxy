@@ -14,9 +14,9 @@ class AnimeGalaxyAppBar {
       ) {
     final df = new DateFormat('a');
     return AppBar(
-      backgroundColor: Theme.of(context).brightness == Brightness.dark
-          ? SwapThemeDataService.getDarkBGColor()
-          : Colors.white70,
+      backgroundColor:      Theme.of(context).brightness == Brightness.dark
+          ? Colors.white30
+          : Colors.grey[300],
       elevation: 1,
       centerTitle: false,
       automaticallyImplyLeading: false,

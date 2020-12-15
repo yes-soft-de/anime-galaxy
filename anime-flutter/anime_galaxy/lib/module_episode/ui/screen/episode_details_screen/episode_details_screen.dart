@@ -116,6 +116,7 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
       episode.previousRate = rating;
     }
     if (currentState is EpisodeDetailsStateLoveSuccess) {
+      episode.isLoved = true;
       int likes = int.parse(episode.likesNumber);
       likes += 1;
       episode.likesNumber = likes.toString();

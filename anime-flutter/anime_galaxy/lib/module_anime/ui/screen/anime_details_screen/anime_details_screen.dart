@@ -565,7 +565,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                       ?
                   Container(
                     height: 210,
-                    color: Colors.grey[300],
+                    color:  isDarkMode? Colors.white30 :Colors.grey[300],
                     child: ListView.builder(
                       itemBuilder: (context, index) {
                         return Padding(

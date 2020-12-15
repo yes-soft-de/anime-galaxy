@@ -140,12 +140,12 @@ class EpisodeDetailsWidget extends StatelessWidget {
                           IconButton(
                             icon: isLoved?  ImageIcon(
 
-                              AssetImage('assets/images/flame.png'),
+                              AssetImage('assets/images/full_flame.png'),
                               color: ProjectColors.ThemeColor,
                             ):
                             ImageIcon(
 
-                              AssetImage('assets/images/full_flame.png'),
+                              AssetImage('assets/images/flame.png'),
                               color: ProjectColors.ThemeColor,
                             )
                             ,

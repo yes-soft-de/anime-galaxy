@@ -259,7 +259,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
               Container(
                 height: 190,
-                color: Colors.grey[300],
+                color:  isDarkMode? Colors.white30 :Colors.grey[400],
                 child: ListView.builder(
                   itemBuilder: (context, index) {
                     return Padding(
@@ -367,7 +367,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               anime.mayLikeSeries.isNotEmpty
                   ? Container(
                       height: 190,
-                      color: Colors.grey[300],
+                color:  isDarkMode? Colors.white30 :Colors.grey[400],
                       child: ListView.builder(
                         itemBuilder: (context, index) {
                           return Padding(
