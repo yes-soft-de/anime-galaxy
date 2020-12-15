@@ -38,6 +38,10 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     double hight = MediaQuery.of(context).size.height;
 
+   return newUi(hight);
+  }
+
+  Widget newUi(double hight){
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -47,44 +51,44 @@ class _SettingsPageState extends State<SettingsPage> {
                 children: [
                   Expanded(
                     child: FutureBuilder(
-                     future: widget._profileSharedPreferencesHelper.getCoverImage(),
-                     builder: (BuildContext context, AsyncSnapshot<String> snapshot){
-                       return Container(
-                         height: 150,
-                         decoration: BoxDecoration(
-                           borderRadius: BorderRadius.all(Radius.circular(3.0)),
-                           image: DecorationImage(
-                               image: NetworkImage(
-                                   snapshot.data??
-                                   'https://i.pinimg.com/236x/ec/e4/b0/ece4b097f87bd6a79d8e05cfd45d17d6--matte-painting-digital-paintings.jpg'),
-                               fit: BoxFit.cover),
-                         ),
-                         child: FutureBuilder(
-                             future:
-                             widget._profileSharedPreferencesHelper.getImage(),
-                             builder: (BuildContext context,
-                                 AsyncSnapshot<String> snapshot) {
-                               return Container(
-                                 decoration: BoxDecoration(
-                                   borderRadius:
-                                   BorderRadius.all(Radius.circular(3.0)),
-                                   color: Colors.black.withOpacity(0.25),
-                                 ),
-                                 child: Align(
-                                     alignment: Alignment.center,
-                                     child: GestureDetector(
-                                       onTap: () => print(snapshot.data),
-                                       child: CircularImage(
-                                         width: hight / 8,
-                                         height: hight / 8,
-                                         linkImg: snapshot.data ??
-                                             'https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=100&q=60 100w',
-                                       ),
-                                     )),
-                               );
-                             }),
-                       );
-                     },
+                      future: widget._profileSharedPreferencesHelper.getCoverImage(),
+                      builder: (BuildContext context, AsyncSnapshot<String> snapshot){
+                        return Container(
+                          height: 150,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(3.0)),
+                            image: DecorationImage(
+                                image: NetworkImage(
+                                    snapshot.data??
+                                        'https://i.pinimg.com/236x/ec/e4/b0/ece4b097f87bd6a79d8e05cfd45d17d6--matte-painting-digital-paintings.jpg'),
+                                fit: BoxFit.cover),
+                          ),
+                          child: FutureBuilder(
+                              future:
+                              widget._profileSharedPreferencesHelper.getImage(),
+                              builder: (BuildContext context,
+                                  AsyncSnapshot<String> snapshot) {
+                                return Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius:
+                                    BorderRadius.all(Radius.circular(3.0)),
+                                    color: Colors.black.withOpacity(0.25),
+                                  ),
+                                  child: Align(
+                                      alignment: Alignment.center,
+                                      child: GestureDetector(
+                                        onTap: () => print(snapshot.data),
+                                        child: CircularImage(
+                                          width: hight / 8,
+                                          height: hight / 8,
+                                          linkImg: snapshot.data ??
+                                              'https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=100&q=60 100w',
+                                        ),
+                                      )),
+                                );
+                              }),
+                        );
+                      },
                     ),
                   )
                 ],
@@ -101,9 +105,9 @@ class _SettingsPageState extends State<SettingsPage> {
                         future: widget._profileSharedPreferencesHelper
                             .getUsername(),
                         builder: (
-                          BuildContext context,
-                          AsyncSnapshot<String> snapshot,
-                        ) {
+                            BuildContext context,
+                            AsyncSnapshot<String> snapshot,
+                            ) {
                           return Text(
                             snapshot.data ?? S.of(context).notLoggedIn,
                             style: TextStyle(
@@ -164,9 +168,9 @@ class _SettingsPageState extends State<SettingsPage> {
                           stream: widget._themeDataService.darkModeStream,
                           initialData: false,
                           builder: (
-                            BuildContext context,
-                            AsyncSnapshot<bool> snapshot,
-                          ) {
+                              BuildContext context,
+                              AsyncSnapshot<bool> snapshot,
+                              ) {
                             return Switch(
                                 value: Theme.of(context).brightness ==
                                     Brightness.dark,
@@ -375,7 +379,7 @@ class _SettingsPageState extends State<SettingsPage> {
                                       Navigator.pushNamedAndRemoveUntil(
                                         context,
                                         MainScreenRoute.MAIN_SCREEN_ROUTE,
-                                        (route) => false,
+                                            (route) => false,
                                       );
                                     });
                                   })
@@ -413,4 +417,5 @@ class _SettingsPageState extends State<SettingsPage> {
       ),
     );
   }
+
 }

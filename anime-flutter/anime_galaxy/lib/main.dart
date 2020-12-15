@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:anime_galaxy/main_screen/main_screen_module.dart';
 import 'package:anime_galaxy/main_screen/main_screen_routes.dart';
 import 'package:anime_galaxy/module_auth/service/auth_service/auth_service.dart';
@@ -5,7 +7,6 @@ import 'package:anime_galaxy/module_error/error_module.dart';
 import 'package:anime_galaxy/module_home/home.module.dart';
 import 'package:anime_galaxy/module_init_account/account_module.dart';
 import 'package:anime_galaxy/module_notification/notification_module.dart';
-import 'package:anime_galaxy/module_search/model/search_model/search_model.dart';
 import 'package:anime_galaxy/module_search/search_module.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
@@ -15,7 +16,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:inject/inject.dart';
-
 import 'camera/camera_module.dart';
 import 'di/components/app.component.dart';
 import 'generated/l10n.dart';
@@ -104,9 +104,11 @@ class _MyAppState extends State<MyApp> {
     });
 
     widget._swapThemeService.darkModeStream.listen((event) {
+      isDarkMode = event;
       setState(() {});
     });
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -128,8 +130,9 @@ class _MyAppState extends State<MyApp> {
     fullRoutesList.addAll(widget._searchModule.getRoutes());
 
     widget._swapThemeService.isDarkMode().then((value) {
-      isDarkMode ??= value;
+      isDarkMode  = value ?? false;
     });
+
     return FutureBuilder(
       future: getConfiguratedApp(fullRoutesList),
       builder: (BuildContext context, AsyncSnapshot<Widget> snapshot) {
