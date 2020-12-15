@@ -103,10 +103,12 @@ class EpisodeService
     {
         $response= [];
         $result = $this->episodeManager->getEpisodeById($request);
-        $resultComments = $this->commentService->getCommentsByEpisodeId($request);
+
         $love = $this->interactionService->loved($request);
         $like = $this->interactionService->like($request);
         $dislike = $this->interactionService->dislike($request);
+        $isLoved = $this->interactionService->checkUserLoved($request);
+        $resultComments = $this->commentService->getCommentsByEpisodeId($request);
         
         foreach ($result as $row)
         {
@@ -122,7 +124,7 @@ class EpisodeService
         $response->interactions['love'] = $love;
         $response->interactions['like'] = $like;
         $response->interactions['dislike'] = $dislike;
-        $response->interactions['isLoved'] = $this->interactionService->checkUserLoved($request);
+        $response->interactions['isLoved'] = $isLoved;
         }
         return $response;
     }
