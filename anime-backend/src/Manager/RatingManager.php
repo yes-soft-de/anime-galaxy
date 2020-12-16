@@ -65,7 +65,7 @@ class RatingManager
     public function getFollowersRatings($friendID)
     {
         $date = [];
-        for ($i = 1; $i <= 7; $i++) {
+        for ($i = 0; $i <= 6; $i++) {
             $date[] = date('Y-m-d', strtotime('-' . $i . ' day'));
         }
         return $result = $this->ratingRepository->getFollowersRatings($friendID, $date);
