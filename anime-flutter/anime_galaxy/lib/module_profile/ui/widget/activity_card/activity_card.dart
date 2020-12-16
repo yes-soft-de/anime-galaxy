@@ -4,12 +4,14 @@ class ActivityCard extends StatelessWidget {
   final String activity;
   final String date;
   final String userName;
+  final String animeName;
 
   ActivityCard({
     this.activity,
     this.date,
     this.userImage,
     this.userName,
+    this.animeName,
   });
 
   @override
@@ -34,14 +36,14 @@ class ActivityCard extends StatelessWidget {
                     width: 50,
                     child: CircleAvatar(
                       radius: 50,
-                      backgroundImage:NetworkImage('$date'),
+                      backgroundImage:NetworkImage('$userImage'),
                     ),
                   ),
 
               Container(
                 width: MediaQuery.of(context).size.width*0.5,
                 child: Text(
-                  'قام $userName بالتعليق على المسلسل $activity',
+                  'قام $userName $activity  الأنمي $animeName',
                   style: TextStyle(
                       fontFamily:'Roboto',
                       fontSize: 10

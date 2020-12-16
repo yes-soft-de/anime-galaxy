@@ -92,15 +92,28 @@ class MyProfileService {
   List<Activity> _getActivities(
       List<FollowingActivitiesResponse> followingActivitiesResponse) {
     List<Activity> activities = [];
-    var df = DateFormat('d m yyyy');
+    var df = DateFormat('d/M/yyyy');
+    String activityType = '';
 
     followingActivitiesResponse.forEach((element) {
+
       var date =
           new DateTime.fromMillisecondsSinceEpoch(element.date.timestamp * 1000);
 
+      if(element.comment != null){
+        activityType = 'بالتعليق على';
+      }
+      if(element.favouriteID != null){
+        activityType = 'بمتابعة ';
+      }
+      if(element.ratingID != null){
+        activityType = 'بتقييم';
+      }
+
       activities.add(new Activity(
         userName: element.userName,
-        action: element.animeName,
+        action: activityType,
+        animeName: element.animeName,
         userImage: element.userImage,
         date: df.format(date).toString(),
       ));

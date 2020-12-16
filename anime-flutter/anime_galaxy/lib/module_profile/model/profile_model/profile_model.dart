@@ -60,6 +60,7 @@ class Activity{
   String userName;
   String action;
   String userImage;
+  String animeName;
   String date;
 
   Activity({
@@ -67,6 +68,7 @@ class Activity{
     this.action,
     this.date,
     this.userImage,
+    this.animeName,
   });
 
 }

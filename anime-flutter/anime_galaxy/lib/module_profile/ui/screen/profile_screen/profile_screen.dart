@@ -200,6 +200,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               userImage:  _profileModel.followingActivities[index].userImage??'',
                               activity:
                               _profileModel.followingActivities[index].action,
+                              animeName:
+                              _profileModel.followingActivities[index].animeName,
                             ),
                           );
                         }) ,
@@ -519,6 +521,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   userImage:  _profileModel.followingActivities[index].userImage,
                                   activity:
                                   _profileModel.followingActivities[index].action,
+                                  animeName: _profileModel.followingActivities[index].animeName,
                                 ),
                               );
                             }) ,
