@@ -62,6 +62,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
   bool CommentsVisible = false;
   YoutubePlayerController _controller;
   bool isDarkMode = false;
+  bool canReact = false;
 
   @override
   void initState() {
@@ -138,19 +139,21 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
           null){
 
       }else{
-        anime.comments.insert(
-            0,
-            new Comment(
-                content: _commentController.text,
-                userName: username,
-                isLoved: false,
-                likesNumber: '0',
-                spoilerAlert: false,
-                //TODO : change this
-                userImage:
-                'https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=100&q=60 100w',
-                date: df.format(DateTime.now()).toString() )
-        );
+        if(_commentController.text != ''){
+          anime.comments.insert(
+              0,
+              new Comment(
+                  content: _commentController.text,
+                  userName: username,
+                  isLoved: false,
+                  likesNumber: '0',
+                  spoilerAlert: false,
+                  userImage:
+                  userImage??'https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=100&q=60 100w',
+                  date: df.format(DateTime.now()).toString() )
+          );
+        }
+
         _commentController.text = '';
       }
 
@@ -165,9 +168,13 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
     }
     if (currentState is AnimeDetailsStateLoveSuccess) {
       anime.isLoved = true;
-      int likes = int.parse(anime.likesNumber);
-      likes+=1;
-      anime.likesNumber = likes.toString() ;
+      if(canReact){
+        int likes = int.parse(anime.likesNumber);
+        likes+=1;
+        anime.likesNumber = likes.toString() ;
+      }
+      canReact = false;
+
     }
     if (currentState is AnimeDetailsStateUnFollowSuccess) {
       anime.isFollowed = false;
@@ -176,11 +183,13 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
     if (currentState is AnimeDetailsStateLoveCommentSuccess) {
       AnimeDetailsStateLoveCommentSuccess state = currentState;
       int commentIndex = anime.comments.indexWhere((element) => element.id == state.data);
-      print(' comment index'+commentIndex.toString()+'comment id '+state.data.toString());
       anime.comments[commentIndex].isLoved = true;
-      int likes = int.parse( anime.comments[commentIndex].likesNumber);
-      likes+=1;
-      anime.comments[commentIndex].likesNumber = likes.toString();
+      if( anime.comments[commentIndex].canReact){
+        int likes = int.parse( anime.comments[commentIndex].likesNumber);
+        likes+=1;
+        anime.comments[commentIndex].likesNumber = likes.toString();
+      }
+      anime.comments[commentIndex].canReact = false;
     }
 
     if (this.mounted) {
@@ -257,8 +266,11 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                         widget._stateManager.addToFavourite(animeId, anime.categoryID),
                     onUnFollow: () =>
                         widget._stateManager.unFollowAnime(animeId),
-                    onLove: ()=>
-                        widget._stateManager.loveAnime(animeId),
+                    onLove: (){
+
+                      widget._stateManager.loveAnime(animeId);
+                      canReact = true;
+                    },
                   ),
                   //rating the series
                   Row(
@@ -742,7 +754,10 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                   comment: '${anime.comments[index].content}',
                   likesNumber: anime.comments[index].likesNumber,
                   isLoved:anime.comments[index].isLoved ,
-                  onLove:()=> widget._stateManager.loveComment(anime.comments[index].id),
+                  onLove:(){
+                    widget._stateManager.loveComment(anime.comments[index].id);
+                    anime.comments[index].canReact = true;
+                  } ,
 
 
                 ),

@@ -40,6 +40,7 @@ class Comment{
   String userName;
   bool isLoved;
   bool spoilerAlert;
+  bool canReact;
 
   Comment({
     this.date,
@@ -51,5 +52,6 @@ class Comment{
     this.isLoved,
     this.userId,
     this.spoilerAlert,
+    this.canReact = false,
   });
 }
