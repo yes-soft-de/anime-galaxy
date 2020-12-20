@@ -1,0 +1,111 @@
+<div class="w-100 mb-4" *ngIf="mergeResult">
+  <div class="container">
+    <!--Start Home States Page-->
+    <div class="home-stat">
+      <h1 class="my-4 text-center text-monospace">Dashboard Page </h1>
+      <div class="row">
+        <div class="col-md-6 col-lg-4">
+          <div class="stat st_categories">
+            <i class="fa fa-users fa-fw fa-5x"></i>
+            <div>
+              <h6>Total Categories</h6>
+              <span><a routerLink="/categories">{{mergeResult.categories.Data?.length}}</a></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="stat st_animes">
+            <i class="fa fa-image fa-fw fa-5x"></i>
+            <div>
+              <h6>Total Animes</h6>
+              <span><a routerLink="/animes">{{mergeResult.animes.Data?.length}}</a></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="stat st_episode_coming_soon">
+            <i class="fa fa-clock-o fa-fw fa-5x"></i>
+            <div>
+              <h6>Total Episodes Coming Soon</h6>
+              <span><a routerLink="/episodes/episodesComingSoon">{{episodeComingSoon?.length ? episodeComingSoon?.length : 0}}</a></span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!--Start Latest Section-->
+    <div class="latest mt-5">
+      <div class="row">
+
+        <div class="col-12 col-md-6">
+          <!--Start Latest ArtistAdmin-->
+          <div class="late mb-3">
+            <div class="card">
+              <div class="card-header">
+                Latest {{latestCategoriesNumber}} Categories
+              </div>
+              <div class="card-body" *ngIf="mergeResult.categories.Data?.length != 0">
+                <ng-container *ngFor="let category of mergeResult.categories.Data; let i = index">
+                  <ng-container *ngIf="i < latestCategoriesNumber">
+                    <div class="late_info">
+                      {{category?.name}}
+                      <a routerLink="/categories/edit/{{category?.id}}" class="btn btn-success btn-sm py-0 float-right">Edit</a>
+                    </div>
+                  </ng-container>
+                </ng-container>
+              </div>
+              <div class="card-body" *ngIf="mergeResult.categories.Data?.length == 0">
+                <div class="late_info">
+                  There isn't any Categories To Show Yet
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Start Latest Painting-->
+        <div class="col-12 col-md-6">
+          <div class="late mb-3">
+            <div class="card">
+              <div class="card-header">
+                Latest {{latestAnimesNumber}} Animes
+              </div>
+              <div class="card-body" *ngIf="mergeResult.animes.Data?.length != 0">
+                <ng-container *ngFor="let anime of mergeResult.animes.Data; let i = index">
+                  <ng-container *ngIf="i < latestAnimesNumber">
+                    <div class="late_info">
+                      {{(anime?.name).slice(0, 40)}}
+                      <a routerLink="/animes/edit/{{anime?.id}}"
+                         class="btn btn-success btn-sm py-0 float-right">Edit</a>
+                    </div>
+                  </ng-container>
+                </ng-container>
+              </div>
+              <div class="card-body" *ngIf="mergeResult.animes.Data?.length == 0">
+                <div class="late_info">
+                  There isn't any Animes To Show Yet
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="mergeResult == null && mergeResult == undefined">
+  <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+</div>
+
+<!--<div *ngIf="artists == null || paintings == null" class="w-100">-->
+<!--  &lt;!&ndash;  <h3 class="text-center text-primary">Loading Stats!</h3>&ndash;&gt;-->
+<!--  <div class="lds-ring">-->
+<!--    <div></div>-->
+<!--    <div></div>-->
+<!--    <div></div>-->
+<!--    <div></div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<app-footer></app-footer>

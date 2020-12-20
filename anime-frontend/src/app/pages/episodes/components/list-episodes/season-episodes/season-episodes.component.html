@@ -1,0 +1,124 @@
+<div class="">
+    <div *ngIf="animes != null">
+    <form [formGroup]="uploadForm" class="col-md-10 col-lg-8 col-xl-7 my-5 mx-auto" (ngSubmit)="mySubmit()">
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Animes</label>
+        <div class="col-10">
+          <select class="form-control"
+                  name="animeID"
+                  formControlName="animeID"
+                  (change)="changeAnime($event)">
+            <option value="">Select Anime</option>
+            <option *ngFor="let anime of animes" value="{{anime.id}}">{{anime.name}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Seasons</label>
+        <div class="col-10">
+          <select class="form-control"
+                  name="season"
+                  formControlName="season"
+                  (change)="changeAnime($event)">
+            <option value="">Select Season</option>
+            <option *ngFor="let session of sessions; let i = index" value="{{i + 1}}">{{session}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group offset-md-2 mt-3">
+        <input class="btn btn-primary btn-block" type="submit" value="Submit" [disabled]="isSubmitted">
+        <!-- <input class="btn btn-primary btn-block" type="submit" value="send"> -->
+      </div>
+    </form>
+    </div>
+    <div *ngIf="animes == null">
+        <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+    </div>
+  </div>
+  <div *ngIf="isClicked">
+    <div *ngIf="animeSeasonEpisodes != null">
+        <div *ngIf="animeSeasonEpisodes.length !== 0">
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="col-7 col-md-6 col-xl-4">
+                      <div class="form-group mb-4">
+                          <input 
+                            id="exampleFormControlInput2" 
+                            [(ngModel)]="name" 
+                            (keyup)="applyFilter()" 
+                            type="text" 
+                            placeholder="searching for Anime Name , Episode Number Or Season Number?" 
+                            class="form-control form-control-underlined border-primary search-input">
+                      </div>
+                  </div>
+                  <div class="col-5 col-md-6 col-xl-8 align-self-center">
+                    <a class="btn btn-primary btn-sm mb-2 float-right" routerLink="/episodes/add">
+                      <i class="fa fa-plus"></i>
+                      Add New Episode
+                    </a>
+                  </div>
+              </div>
+            <div class="table-responsive text-center">
+                <table class="table table-bordered main-table">
+                    <tr class="bg-dark text-white">
+                        <td>#ID</td>
+                        <td>Image</td>
+                        <td>Anime Name</td>
+                        <td>Description</td>
+                        <td>Episode Number</td>
+                        <td>Season Number</td>
+                        <td>Publish Date</td>
+                        <td>Duration</td>
+                        <td>Rating</td>
+                        <td>Comments Number</td>                    
+                        <td>Control</td>
+                    </tr>
+                    <tr *ngFor="let episode of animeSeasonEpisodesFilterList | paginate: config">
+                      <td>{{episode.id}}</td>
+                      <td><img src="{{episode?.image}}" alt="{{episode.animeName}} Image" class="img-fluid img-thumbnail img-custom"></td>
+                      <td>{{episode.animeName}}</td>
+                      <td>{{episode.description}}</td>
+                      <td>{{episode.episodeNumber}}</td>
+                      <td>{{episode.seasonNumber}}</td>
+                      <td>{{episode.publishDate ? (episode.publishDate.timestamp * 1000 | date : 'yy-mm-dd') : '-'}}</td>
+                      <td>{{episode.duration ? (episode.duration.timestamp * 1000 | date : 'H:mm:ss':'UTC') : '-'}}</td>
+                      <td>{{episode.rating ? episode.rating : '-' }}</td>
+                      <td>{{episode.comments}}</td>
+                      <td>
+                          <a routerLink="/episodes/edit/{{episode.id}}" class="btn btn-success btn-sm mr-1 mb-1">
+                            Edit
+                          </a>
+                          <a (click)="delete(episode.id)" class="btn btn-danger confirm btn-sm mr-1 mb-1 {{isDeleted ? 'disabled' : ''}}">
+                            Delete
+                          </a>
+                      </td>
+                    </tr>
+                </table>
+                <pagination-controls class="my-pagination"
+                                    (pageChange)="pageChanged($event)"
+                                    autoHide="true"
+                                    maxSize="5"
+                                    responsive="true"
+                                    previousLabel="Prev"
+                                    nextLabel="Next"
+                                    screenReaderPaginationLabel="Pagination"
+                                    screenReaderPageLabel="page"
+                                    screenReaderCurrentLabel="You're on page">
+                </pagination-controls>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="animeSeasonEpisodes.length === 0">
+            <div class="container">
+                <div class="alert alert-primary text-center mt-5">There Isn't Episodes To Show</div>
+                <a routerLink="/episodes/add" class="btn btn-primary btn-sm mb-2 float-right">
+                    <i class="fa fa-plus"></i>
+                    Add New Episode
+                </a>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="animeSeasonEpisodes == null">
+        <div class="lds-ring position-absolute"><div></div><div></div><div></div><div></div></div>
+    </div>
+  </div>
