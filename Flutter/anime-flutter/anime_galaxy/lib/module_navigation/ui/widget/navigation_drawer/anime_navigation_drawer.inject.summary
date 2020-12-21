@@ -1,0 +1,34 @@
+{
+  "asset": "asset:anime_galaxy/lib/module_navigation/ui/widget/navigation_drawer/anime_navigation_drawer.dart",
+  "summary": {
+    "injector": [],
+    "module": [],
+    "injectable": [
+      {
+        "name": "AnimeNavigationDrawer",
+        "constructor": {
+          "name": "",
+          "kind": "constructor",
+          "injectedType": {
+            "lookupKey": {
+              "root": "asset:anime_galaxy/lib/module_navigation/ui/widget/navigation_drawer/anime_navigation_drawer.dart#AnimeNavigationDrawer",
+              "qualifier": null
+            },
+            "isProvider": false
+          },
+          "singleton": false,
+          "asynchronous": false,
+          "dependencies": [
+            {
+              "lookupKey": {
+                "root": "asset:anime_galaxy/lib/module_profile/presistance/profile_shared_preferences.dart#ProfileSharedPreferencesHelper",
+                "qualifier": null
+              },
+              "isProvider": false
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

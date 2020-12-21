@@ -1,0 +1,41 @@
+{
+  "asset": "asset:anime_galaxy/lib/module_episode/service/episode_details/episode_details.service.dart",
+  "summary": {
+    "injector": [],
+    "module": [],
+    "injectable": [
+      {
+        "name": "EpisodeDetailsService",
+        "constructor": {
+          "name": "",
+          "kind": "constructor",
+          "injectedType": {
+            "lookupKey": {
+              "root": "asset:anime_galaxy/lib/module_episode/service/episode_details/episode_details.service.dart#EpisodeDetailsService",
+              "qualifier": null
+            },
+            "isProvider": false
+          },
+          "singleton": false,
+          "asynchronous": false,
+          "dependencies": [
+            {
+              "lookupKey": {
+                "root": "asset:anime_galaxy/lib/module_episode/manager/episode_details/episode_details.manager.dart#EpisodeDetailsManager",
+                "qualifier": null
+              },
+              "isProvider": false
+            },
+            {
+              "lookupKey": {
+                "root": "asset:anime_galaxy/lib/module_auth/presistance/auth_prefs_helper.dart#AuthPrefsHelper",
+                "qualifier": null
+              },
+              "isProvider": false
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

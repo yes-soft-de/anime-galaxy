@@ -1,0 +1,34 @@
+{
+  "asset": "asset:anime_galaxy/lib/module_explore/state_manager/category_animes/category_animes.state_manager.dart",
+  "summary": {
+    "injector": [],
+    "module": [],
+    "injectable": [
+      {
+        "name": "CategoryAnimesStateManager",
+        "constructor": {
+          "name": "",
+          "kind": "constructor",
+          "injectedType": {
+            "lookupKey": {
+              "root": "asset:anime_galaxy/lib/module_explore/state_manager/category_animes/category_animes.state_manager.dart#CategoryAnimesStateManager",
+              "qualifier": null
+            },
+            "isProvider": false
+          },
+          "singleton": false,
+          "asynchronous": false,
+          "dependencies": [
+            {
+              "lookupKey": {
+                "root": "asset:anime_galaxy/lib/module_explore/service/category_animes/category_animes.service.dart#CategoryAnimesService",
+                "qualifier": null
+              },
+              "isProvider": false
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
