@@ -1,0 +1,88 @@
+<div *ngIf="animes != null">
+    <div *ngIf="animes.length !== 0">
+      <div class="container-fluid">
+        <h1 class="text-center my-4">Manage Anime Page</h1>
+          <div class="row">
+              <div class="col-7 col-md-6 col-xl-4">
+                  <div class="form-group mb-4">
+                      <input 
+                        id="exampleFormControlInput2" 
+                        [(ngModel)]="name" 
+                        (keyup)="applyFilter()" 
+                        type="text" 
+                        placeholder="searching for Anime Name and Category Name ?" 
+                        class="form-control form-control-underlined border-primary search-input">
+                  </div>
+              </div>
+              <div class="col-5 col-md-6 col-xl-8 align-self-center">
+                <a class="btn btn-primary btn-sm mb-2 float-right" routerLink="/animes/add">
+                  <i class="fa fa-plus"></i>
+                  Add New Anime
+                </a>
+              </div>
+          </div>
+        <div class="table-responsive text-center">
+            <table class="table table-bordered main-table">
+                <tr class="bg-dark text-white">
+                    <td>#ID</td>
+                    <td>Image</td>
+                    <td>Name</td>
+                    <td>Category Name</td>
+                    <td>Rating</td>
+                    <td>Comments Number</td>
+                    <td>Recommended</td>
+                    <td>Control</td>
+                </tr>
+                <tr *ngFor="let anime of animesFilterList | paginate: config">
+                  <td>{{anime.id}}</td>
+                  <td><img src="{{anime?.mainImage}}" alt="{{anime.name}} Image" class="img-thumbnail img-custom"></td>
+                  <td>{{anime.name}}</td>
+                  <td>{{anime.categoryName}}</td>
+                  <td>{{anime.rating ? anime.rating : '-' }}</td>
+                  <td>{{anime.comments}}</td>
+                  <td>
+                    <a (click)="suggest(anime.id, (anime.suggest ? false : true))" 
+                       class="text-primary mr-1 mb-1" 
+                       title="Change To {{anime.suggest ? 'Not Recommended' : 'Recommended' }}"
+                       
+                       style="cursor: pointer; {{ suggestProgress ? 'pointer-events: none;' : '' }}">
+                      {{ anime.suggest ? 'Recommended' : 'Not Recommended' }}
+                    </a>
+                  </td>
+                  <td>
+                      <a routerLink="/animes/edit/{{anime.id}}" class="btn btn-success btn-sm mr-1 mb-1">
+                        Edit
+                      </a>
+                      <a (click)="delete(anime.id)" class="btn btn-danger confirm btn-sm mr-1 mb-1 {{isDeleted ? 'disabled' : ''}}">
+                        Delete
+                      </a>
+                  </td>
+                </tr>
+            </table>
+            <pagination-controls class="my-pagination"
+                                 (pageChange)="pageChanged($event)"
+                                 autoHide="true"
+                                 maxSize="5"
+                                 responsive="true"
+                                 previousLabel="Prev"
+                                 nextLabel="Next"
+                                 screenReaderPaginationLabel="Pagination"
+                                 screenReaderPageLabel="page"
+                                 screenReaderCurrentLabel="You're on page">
+            </pagination-controls>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="animes.length === 0">
+        <div class="container">
+            <div class="alert alert-primary text-center mt-5">There Isn't Anime To Show</div>
+            <a routerLink="/animes/add" class="btn btn-primary btn-sm mb-2 float-right">
+                <i class="fa fa-plus"></i>
+                Add New Anime
+            </a>
+        </div>
+    </div>
+</div>
+<div *ngIf="animes == null">
+    <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+</div>

@@ -1,0 +1,43 @@
+<div class="container" *ngIf="animes">
+    <form [formGroup]="uploadForm" class="col-md-10 col-lg-8 col-xl-7 my-5 mx-auto" (ngSubmit)="mySubmit()">
+      <h2 class="h1 ml-5 text-center">Add New Anime Suggest</h2>
+      <div class="form-group row">
+          <label class="col-2 col-form-label">Animes</label>
+          <div class="col-10">
+            <select class="form-control"
+                    name="animeID"
+                    formControlName="animeID"
+                    (change)="changeAnime($event)"
+                    [ngClass]="{'is-invalid': isSubmitted && uploadForm.get('animeID').errors}">
+                <option value="">Select Anime</option>
+                <option *ngFor="let anime of animes" value="{{anime.id}}">{{anime.name}}</option>
+            </select>
+          </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Anime Suggest</label>
+        <div class="col-10">
+          <select class="form-control"
+                  name="animeSuggest"
+                  formControlName="animeSuggest"
+                  (change)="changeSuggest($event)"
+                  [ngClass]="{'is-invalid': isSubmitted && uploadForm.get('animeSuggest').errors}">
+            <option value="">Select Anime Suggest</option>
+            <option value="1">Suggest</option>
+            <option value="0">Not Suggest</option>
+        </select>
+          <span class="invalid-feedback" *ngIf="isSubmitted && this.uploadForm.get('animeSuggest').errors?.required">Anime Suggest Field Is Required</span>
+        </div>
+      </div>
+
+    
+
+      <div class="form-group offset-md-2 mt-3">
+        <input class="btn btn-primary btn-block" type="submit" value="Update" [disabled]="!uploadForm.valid">
+        <!-- <input class="btn btn-primary btn-block" type="submit" value="send"> -->
+      </div>
+    </form>
+  </div>
+  <div *ngIf="animes == null">
+    <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+  </div>

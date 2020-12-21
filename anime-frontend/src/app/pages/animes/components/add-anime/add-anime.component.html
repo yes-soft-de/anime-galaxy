@@ -1,0 +1,163 @@
+<div class="container" *ngIf="allCategories">
+    <form [formGroup]="uploadForm" class="col-md-10 col-lg-8 col-xl-7 my-5 mx-auto" (ngSubmit)="mySubmit()">
+      <h2 class="h1 ml-5 text-center">Add New Anime</h2>
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Name</label>
+        <div class="col-10">
+          <input class="form-control"
+                 [ngClass]="{'is-invalid': uploadForm.get('name').errors &&
+                   (uploadForm.get('name').touched || uploadForm.get('name').dirty)}"
+                 type="text"
+                 name="name"
+                 formControlName="name"
+                 placeholder="Type The Name">
+          <span class="invalid-feedback" *ngIf="uploadForm.get('name').errors?.required">Name Field Is Required</span>
+          <span class="invalid-feedback"
+                *ngIf="uploadForm.get('name').errors?.minlength">Name Must Be Greater Than 2</span>
+          <span class="invalid-feedback"
+                *ngIf="uploadForm.get('name').errors?.maxlength">Name Must Be Lower Than 45</span>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Category</label>
+        <div class="col-10">
+          <select class="form-control"
+                  name="categoryID"
+                  formControlName="categoryID"
+                  (change)="changeCategory($event)"
+                  [ngClass]="{'is-invalid': isSubmitted && uploadForm.get('categoryID').errors}">
+            <option value="">Select Category</option>
+            <option *ngFor="let cat of allCategories" value="{{cat.id}}">{{cat.name}}</option>
+          </select>
+          <span class="invalid-feedback" *ngIf="isSubmitted && this.uploadForm.get('categoryID').errors?.required">category Field Is Required</span>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Description</label>
+        <div class="col-10">
+           <textarea class="form-control"
+                     [ngClass]="{'is-invalid': uploadForm.get('description').errors &&
+                     (uploadForm.get('description').touched || uploadForm.get('description').dirty)}"
+                     name="description"
+                     formControlName="description"
+                     placeholder="Type The description"></textarea>
+          <span class="invalid-feedback"
+                *ngIf="uploadForm.get('description').errors?.required">Description Field Is Required</span>
+          <span class="invalid-feedback" *ngIf="uploadForm.get('description').errors?.minlength">Description Must Be Greater Than  2</span>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Trailer Video</label>
+        <div class="col-10">
+          <input class="form-control"
+                 [ngClass]="{'is-invalid': uploadForm.get('trailerVideo').errors &&
+                   (uploadForm.get('trailerVideo').touched || uploadForm.get('trailerVideo').dirty)}"
+                 type="text"
+                 name="trailerVideo"
+                 formControlName="trailerVideo"
+                 placeholder="Type The Trailer Video URL">
+          <span class="invalid-feedback" *ngIf="uploadForm.get('trailerVideo').errors?.required">Trailer Video URL Field Is Required</span>
+          <span class="invalid-feedback"
+                *ngIf="uploadForm.get('trailerVideo').errors?.minlength">Trailer Video URL Must Be Greater Than 2</span>
+          <span class="invalid-feedback"
+                *ngIf="uploadForm.get('trailerVideo').errors?.maxlength">Trailer Video URL Must Be Lower Than 45</span>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Episode Number</label>
+        <div class="col-10">
+          <input class="form-control"
+                 [ngClass]="{'is-invalid': uploadForm.get('episodesCount').errors &&
+                   (uploadForm.get('episodesCount').touched || uploadForm.get('episodesCount').dirty)}"
+                 type="number"
+                 name="episodesCount"
+                 formControlName="episodesCount"
+                 placeholder="Type The Episode Number">
+          <span class="invalid-feedback" *ngIf="uploadForm.get('episodesCount').errors?.required">Episode Number Field Is Required</span>
+          <span class="invalid-feedback"
+                *ngIf="uploadForm.get('episodesCount').errors?.minlength">Episode Number Must Be Greater Than 1</span>
+          <span class="invalid-feedback"
+                *ngIf="uploadForm.get('episodesCount').errors?.maxlength">Episode Number Must Be Lower Than 45</span>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Upload</label>
+        <div class="input-group col-10">
+          <div class="custom-file">
+            <input #imageInput type="file" accept="image/*" class="custom-file-input" id="file-input"
+                   (change)="updateName(imageInput)">
+            <label class="custom-file-label" for="file-input">{{imageName}}</label>
+          </div>
+          <div class="input-group-append">
+            <button class="btn btn-success" type="button" (click)="processFile(imageInput)" [disabled]=!fileSelected>
+              {{uploadButtonValue}}
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Age Group</label>
+        <div class="col-10">
+          <input class="form-control"
+                 [ngClass]="{'is-invalid': uploadForm.get('ageGroup').errors &&
+                   (uploadForm.get('ageGroup').touched || uploadForm.get('ageGroup').dirty)}"
+                 type="text"
+                 name="ageGroup"
+                 formControlName="ageGroup"
+                 placeholder="Type The Age Group">
+          <span class="invalid-feedback" *ngIf="uploadForm.get('ageGroup').errors?.required">Age Group Field Is Required</span> 
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-2 col-form-label">General Rating</label>
+        <div class="col-10">
+          <select class="form-control"
+                 name="generalRating"
+                 formControlName="generalRating"
+                 (change)="changeGeneralRating($event)"
+                 [ngClass]="{'is-invalid': isSubmitted && uploadForm.get('generalRating').errors}">
+           <option value="">Select General Rating</option>
+           <option *ngFor="let rate of generalRating; let i = index" value="{{i + 1}}">{{rate}}</option>
+         </select>
+         <span class="invalid-feedback" *ngIf="uploadForm.get('generalRating').errors?.required">General Rating Field Is Required</span> 
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Publish Date</label>
+        <div class="col-10">
+          <input class="form-control"
+                 [ngClass]="{'is-invalid': uploadForm.get('publishDate').errors &&
+                  (uploadForm.get('publishDate').touched || uploadForm.get('publishDate').dirty)}"
+                 type="date"
+                 name="publishDate"
+                 formControlName="publishDate">
+          <span class="invalid-feedback"
+                *ngIf="uploadForm.get('publishDate').errors?.required">Publish Date Field Is Required</span>
+        </div>
+      </div>
+      <!-- <div class="form-group row">
+        <label class="col-2 col-form-label">Globally Recommended</label>
+        <div class="col-10">
+          <select class="form-control"
+                  name="suggest"
+                  formControlName="suggest"
+                  (change)="changeSuggest($event)"
+                  [ngClass]="{'is-invalid': isSubmitted && uploadForm.get('suggest').errors}">
+            <option value="">Select Globally Recommended</option>
+            <option value="0">Not Recommended</option>
+            <option value="1">Recommended</option>
+          </select>
+          <span class="invalid-feedback" *ngIf="isSubmitted && this.uploadForm.get('suggest').errors?.required">category Field Is Required</span>
+        </div>
+      </div>
+       -->
+
+      <div class="form-group offset-md-2 mt-3">
+        <input class="btn btn-primary btn-block" type="submit" value="{{submitButtonValue}}" [disabled]="!imagePathReady || isSubmitted">
+        <!-- <input class="btn btn-primary btn-block" type="submit" value="send"> -->
+      </div>
+    </form>
+  </div>
+  <div *ngIf="allCategories == null">
+    <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+  </div>

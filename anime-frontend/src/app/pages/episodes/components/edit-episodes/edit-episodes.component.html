@@ -1,0 +1,129 @@
+<div class="container" *ngIf="mergeResult && episodesData">
+    <form [formGroup]="uploadForm" class="col-md-10 col-lg-8 col-xl-7 my-5 mx-auto" (ngSubmit)="mySubmit()">
+      <h2 class="h1 ml-5 text-center">Update Episode</h2>
+      <div class="form-group row">
+          <label class="col-2 col-form-label">Anime</label>
+          <div class="col-10">
+            <select class="form-control"
+                    name="animeID"
+                    formControlName="animeID"
+                    (change)="changeAnime($event)"
+                    [ngClass]="{'is-invalid': isSubmitted && uploadForm.get('animeID').errors}">
+                <option value="">Select Anime</option>
+                <option *ngFor="let anime of mergeResult.animes.Data" 
+                        value="{{anime.id}}"
+                        [selected]="episodesData.animeID == anime.id">{{anime.name}}</option>                        
+            </select>
+          </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Category</label>
+        <div class="col-10">
+          <select class="form-control"
+                  name="categoyID"
+                  formControlName="categoyID"
+                  (change)="changeCategory($event)"
+                  [ngClass]="{'is-invalid': isSubmitted && uploadForm.get('categoyID').errors}">
+            <option value="">Select Category</option>
+            <option *ngFor="let cat of mergeResult.categories.Data" 
+                    value="{{cat.id}}" 
+                    [selected]="episodesData.categoryID == cat.id">{{cat.name}}</option>
+          </select>
+          <span class="invalid-feedback" *ngIf="isSubmitted && this.uploadForm.get('categoyID').errors?.required">category Field Is Required</span>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Season Number</label>
+        <div class="col-10">
+          <input class="form-control"
+                 [ngClass]="{'is-invalid': uploadForm.get('seasonNumber').errors &&
+                   (uploadForm.get('seasonNumber').touched || uploadForm.get('seasonNumber').dirty)}"
+                 type="number"
+                 name="seasonNumber"
+                 formControlName="seasonNumber"
+                 placeholder="Type The Season Number">
+          <span class="invalid-feedback" *ngIf="uploadForm.get('seasonNumber').errors?.required">Season Number Field Is Required</span>
+          <span class="invalid-feedback"
+                *ngIf="uploadForm.get('seasonNumber').errors?.minlength">Season Number Must Be Greater Than 1</span>        
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Episode Number</label>
+        <div class="col-10">
+          <input class="form-control"
+                 [ngClass]="{'is-invalid': uploadForm.get('episodeNumber').errors &&
+                   (uploadForm.get('episodeNumber').touched || uploadForm.get('episodeNumber').dirty)}"
+                 type="number"
+                 name="episodeNumber"
+                 formControlName="episodeNumber"
+                 placeholder="Type The Episode Number">
+          <span class="invalid-feedback" *ngIf="uploadForm.get('episodeNumber').errors?.required">Episode Number Field Is Required</span>
+          <span class="invalid-feedback"
+                *ngIf="uploadForm.get('episodeNumber').errors?.minlength">Episode Number Must Be Greater Than 1</span>        
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Description</label>
+        <div class="col-10">
+           <textarea class="form-control"
+                     [ngClass]="{'is-invalid': uploadForm.get('description').errors &&
+                     (uploadForm.get('description').touched || uploadForm.get('description').dirty)}"
+                     name="description"
+                     formControlName="description"
+                     placeholder="Type The description"></textarea>
+          <span class="invalid-feedback"
+                *ngIf="uploadForm.get('description').errors?.required">Description Field Is Required</span>
+          <span class="invalid-feedback" *ngIf="uploadForm.get('description').errors?.minlength">Description Must Be Greater Than  2</span>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Duration</label>
+        <div class="col-10">
+          <input class="form-control"
+                 [ngClass]="{'is-invalid': uploadForm.get('duration').errors &&
+                   (uploadForm.get('duration').touched || uploadForm.get('duration').dirty)}"
+                 type="text"
+                 name="duration"
+                 formControlName="duration"
+                 placeholder="Type The Duration">
+          <span class="invalid-feedback" *ngIf="uploadForm.get('duration').errors?.required">Duration URL Field Is Required</span>       
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Upload</label>
+        <div class="input-group col-10">
+          <div class="custom-file">
+            <input #imageInput type="file" accept="image/*" class="custom-file-input" id="file-input"
+                   (change)="updateName(imageInput)">
+            <label class="custom-file-label" for="file-input">{{imageName}}</label>
+          </div>
+          <div class="input-group-append">
+            <button class="btn btn-success" type="button" (click)="processFile(imageInput)" [disabled]=!fileSelected>
+              {{uploadButtonValue}}
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Publish Date</label>
+        <div class="col-10">
+          <input class="form-control"
+                 [ngClass]="{'is-invalid': uploadForm.get('publishDate').errors &&
+                  (uploadForm.get('publishDate').touched || uploadForm.get('publishDate').dirty)}"
+                 type="date"
+                 name="publishDate"
+                 formControlName="publishDate">
+          <span class="invalid-feedback"
+                *ngIf="uploadForm.get('publishDate').errors?.required">Publish Date Field Is Required</span>
+        </div>
+      </div>
+    
+
+      <div class="form-group offset-md-2 mt-3">
+        <input class="btn btn-primary btn-block" type="submit" value="Update Episode" [disabled]="!uploadForm.valid || isSubmitted">
+      </div>
+    </form>
+  </div>
+  <div *ngIf="mergeResult == null || mergeResult == undefined">
+    <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+  </div>
