@@ -1,8 +1,0 @@
-{
-  "asset": "asset:anime_galaxy/lib/module_auth/request/login/login_request.dart",
-  "summary": {
-    "injector": [],
-    "module": [],
-    "injectable": []
-  }
-}
