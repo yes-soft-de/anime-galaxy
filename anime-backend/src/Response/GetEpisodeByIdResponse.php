@@ -23,6 +23,8 @@ class GetEpisodeByIdResponse
     public $baseURL;
     public $animeID;
     public $categoryID;
+    public $posterImage;
+    public $posterImageURL;
 
     /**
      * @return mixed

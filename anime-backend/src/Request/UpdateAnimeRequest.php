@@ -17,6 +17,7 @@ class UpdateAnimeRequest
     private $ageGroup;
     private $posterImage;
     private $posterSpecialLink;
+    private $publishDate;
 
     /**
      * @return mixed
@@ -129,4 +130,21 @@ class UpdateAnimeRequest
     {
         $this->description = $description;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getPublishDate()
+    {
+        return $this->publishDate;
+    }
+
+    /**
+     * @param mixed $publishDate
+     */
+    public function setPublishDate($publishDate): void
+    {
+        $this->publishDate = $publishDate;
+    }
+
 }

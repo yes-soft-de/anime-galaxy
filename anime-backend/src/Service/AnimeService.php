@@ -64,9 +64,11 @@ class AnimeService
         foreach ($result as $row)
         {
             $row['imageURL'] = $row['mainImage'];
+            $row['posterImageURL'] = $row['posterImage'];
             $row['baseURL'] = $this->params;
 
             $row['mainImage'] = $this->specialLinkCheck($row['specialLink']).$row['mainImage'];
+            $row['posterImage'] = $this->specialLinkCheck($row['specialLink']).$row['posterImage'];
 
             $response = $this->autoMapping->map('array', GetAnimeByIdResponse::class, $row);
         }
@@ -195,6 +197,8 @@ class AnimeService
         foreach ($result as $row)
         {
             $row['mainImage'] = $this->specialLinkCheck($row['specialLink']).$row['mainImage'];
+
+            $row['posterImageURL'] = $row['posterImage'];
 
             $row['posterImage'] = $this->specialLinkCheck($row['posterSpecialLink']).$row['posterImage'];
 

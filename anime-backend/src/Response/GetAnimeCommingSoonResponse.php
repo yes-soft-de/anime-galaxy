@@ -12,4 +12,5 @@ class GetAnimeCommingSoonResponse
     public $categoryID;
     public $publishDate;
     public $posterImage;
+    public $posterImageURL;
 }

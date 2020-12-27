@@ -68,6 +68,9 @@ class AnimeManager
         {
             $animeEntity = $this->autoMapping->mapToObject(UpdateAnimeRequest::class,
                 Anime::class, $request, $animeEntity);
+
+            $animeEntity->setPublishDate($animeEntity->getPublishDate());
+
             $this->entityManager->flush();
             return $animeEntity;
         }

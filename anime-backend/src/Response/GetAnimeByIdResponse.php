@@ -23,7 +23,8 @@ class GetAnimeByIdResponse
     public $baseURL;
     public $generalRating;
     public $ageGroup;
-//    public $isLoved;
+    public $posterImage;
+    public $posterImageURL;
 
     /**
      * @return mixed

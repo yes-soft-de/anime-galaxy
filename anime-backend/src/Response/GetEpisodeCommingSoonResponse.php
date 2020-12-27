@@ -28,4 +28,5 @@ class GetEpisodeCommingSoonResponse
 
     public $posterImage;
 
+    public $posterImageURL;
 }

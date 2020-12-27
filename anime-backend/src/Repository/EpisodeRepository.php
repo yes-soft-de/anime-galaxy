@@ -92,7 +92,7 @@ class EpisodeRepository extends ServiceEntityRepository
     public function getEpisodeById($id)
     {
        return $this->createQueryBuilder('episode')
-        ->select('episode.id','episode.seasonNumber', 'episode.episodeNumber', 'episode.description', 'episode.image',
+        ->select('episode.id','episode.seasonNumber', 'episode.episodeNumber', 'episode.description', 'episode.image', 'episode.posterImage',
             'episode.duration', 'episode.publishDate', 'episode.createdAt', 'anime.name as animeName', 'episode.specialLink','anime.publishDate as animePublishDate','category.name as categoryName',
         'avg(rate.rateValue) as rating', 'anime.id as animeID', 'category.id as categoryID')
     
