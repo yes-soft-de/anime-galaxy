@@ -1,7 +1,7 @@
 export class AdminConfig {
   // An Example | Delete The Content When Started
   // source api
-  public static sourceAPI                   = 'http://35.226.243.159/html/public/index.php/';
+  public static sourceAPI                   = 'http://34.71.153.58/html/public/index.php/';
 
   // All Application Api
   public static loginAPI                    = AdminConfig.sourceAPI + 'login_check';

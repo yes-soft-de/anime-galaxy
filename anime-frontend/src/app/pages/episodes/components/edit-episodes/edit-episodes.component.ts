@@ -29,11 +29,16 @@ export class EditEpisodesComponent implements OnInit {
   episodesData: EditEpisode;
   isSubmitted = false;
   uploadForm: FormGroup;
-  uploadButtonValue = 'Upload';
+  uploadButtonValue = 'Upload';  
+  mainUploadButtonValue = 'Upload';
   imageName = 'Leave it if you don\'t want to change image';
-  fileSelected = false;
-  imageUrl: string;
-  imagePathReady = true;
+  mainImageName = 'Leave it if you don\'t want to change main image';
+  fileSelected = false;  
+  mainFileSelected = false;
+  imageUrl: string;  
+  mainImageUrl: string;
+  imagePathReady = true;  
+  mainImagePathReady = true;
   submitButtonValue = 'Update Episode';
   selectedFile: ImageSnippet;
 
@@ -89,6 +94,7 @@ export class EditEpisodesComponent implements OnInit {
       episodeNumber: ['', [Validators.required, Validators.minLength(1)]],
       description: ['', Validators.required],
       image: [''],
+      posterImage: [''],
       duration: ['', Validators.required],
       publishDate: ['', Validators.required]
     });
@@ -105,6 +111,7 @@ updateFormValues() {
     episodeNumber: this.episodesData.episodeNumber,
     description: this.episodesData.description,
     image: this.episodesData.image,
+    posterImage: this.episodesData.posterImage,
     duration: HelperService.convertSecondsToHMS(this.episodesData.duration.timestamp),
     publishDate: this.datePipe.transform(new Date(this.episodesData.publishDate?.timestamp * 1000), 'yyyy-MM-dd'),
   });
@@ -133,6 +140,14 @@ updateFormValues() {
     this.fileSelected = true;
   }
 
+
+  updateMainName(imageInput: any) {
+    const file: File = imageInput.files[0];
+    this.mainUploadButtonValue = 'Upload';
+    this.mainImageName = file.name;
+    this.mainFileSelected = true;
+  }
+
   // Upload Image
   processFile(imageInput: any) {
     this.fileSelected = false;
@@ -159,6 +174,31 @@ updateFormValues() {
   }
 
 
+  processMainFile(imageInput: any) {
+    this.mainFileSelected = false;
+    this.mainUploadButtonValue = 'Uploading...';
+    console.log('Processing File');
+    const file: File = imageInput.files[0];
+    const reader = new FileReader();
+    
+    reader.addEventListener('load', (event: any) => {
+      this.selectedFile = new ImageSnippet(event.target.result, file);
+      this.animeService.uploadImage(this.selectedFile.file).subscribe(
+        (res) => {
+          console.log(res);
+          this.mainImageUrl = res;
+          this.mainUploadButtonValue = 'Uploaded';
+          this.mainImagePathReady = true;
+          this.submitButtonValue = 'Update Episode';     
+        },
+        (err) => {
+          console.log(err);
+        });
+    });
+    reader.readAsDataURL(file);
+  }
+
+
   mySubmit() {
     this.isSubmitted = true;
     if (!this.uploadForm.valid) {
@@ -173,6 +213,11 @@ updateFormValues() {
         formObject.image = this.imageUrl;
       } else {
         formObject.image = this.episodesData.imageURL;
+      }
+      if (this.mainImageUrl) {
+        formObject.posterImage = this.mainImageUrl;
+      } else {
+        formObject.posterImage = this.episodesData.posterImageURL;
       }
       this.episodeService.updateEpisode(formObject).subscribe(
         (createResponse: any) => console.log(createResponse),

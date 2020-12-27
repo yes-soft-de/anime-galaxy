@@ -37,7 +37,7 @@ export class HightestRatedAnimeComponent implements OnInit {
           this.animehighestRatingList = data.Data;
         }
       }, 
-      error1 => console.log('Error :', error1), 
+      error1 => this.handleError(error1), 
       () => {
         this.animehighestRatingFilterList = this.animehighestRatingList;
       });
@@ -49,6 +49,16 @@ export class HightestRatedAnimeComponent implements OnInit {
     };
    
   }
+
+    // Handle Response Error
+    handleError(error) {
+      console.log(error);
+      if (error.error.error) {
+        this.toaster.error(error.error.error);
+      } else if (error.error.msg) {
+        this.toaster.error(error.error.msg);
+      }
+    }
 
   // Fetch The Page Number On Page Change
   pageChanged(event) {

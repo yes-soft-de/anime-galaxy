@@ -2,8 +2,10 @@ export interface Anime {
     id?: number;
     name?: string;
     mainImage?: string;
+    posterImage?: string;
     images?: Array<string>;
     imageURL: string;
+    posterImageURL: string;
     categoryName?: string;
     rating?: null;
     comments?: Array<any>;

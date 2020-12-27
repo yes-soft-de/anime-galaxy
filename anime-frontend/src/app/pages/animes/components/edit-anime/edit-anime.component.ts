@@ -32,11 +32,16 @@ export class EditAnimeComponent implements OnInit {
   isSubmitted = false;
   uploadForm: FormGroup;
   uploadButtonValue = 'Upload';
+  mainUploadButtonValue = 'Upload';
   fileSelected = false;
+  mainFileSelected = false;
   fileUploaded = false;
   imageUrl: string;
+  mainImageUrl: string;
   imageName = 'Leave it if you don\'t want to change image';
+  mainImageName = 'Leave it if you don\'t want to change main image';
   imagePathReady = true;
+  mainImagePathReady = true;
   submitButtonValue = 'Update Anime';
   selectedFile: ImageSnippet;
 
@@ -68,6 +73,7 @@ export class EditAnimeComponent implements OnInit {
       })
     )
     result.subscribe(data => {
+      console.log('data', data);
       this.mergeResult = data;
       this.animeData = this.mergeResult.anime.Data;
       this.updateFormValues();
@@ -77,7 +83,8 @@ export class EditAnimeComponent implements OnInit {
     // Fetch Form Data
     this.uploadForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
-      mainImage: [''],
+      mainImage: [''],      
+      posterImage: [''],
       description: ['', [Validators.required, Validators.minLength(2)]],
       trailerVideo: ['', [Validators.required, Validators.minLength(2)]],
       episodesCount: ['', Validators.required],
@@ -93,6 +100,7 @@ export class EditAnimeComponent implements OnInit {
     this.uploadForm.patchValue({
       name: this.animeData.name,
       mainImage: this.animeData.mainImage,
+      posterImage: this.animeData.posterImage,
       description: this.animeData.description,
       trailerVideo: this.animeData.trailerVideo,
       episodesCount: this.animeData.episodesCount,
@@ -131,6 +139,14 @@ export class EditAnimeComponent implements OnInit {
     this.fileSelected = true;
   }
 
+  updateMainName(imageInput: any) {
+    const file: File = imageInput.files[0];
+    this.mainUploadButtonValue = 'Upload';
+    this.mainImageName = file.name;
+    this.mainFileSelected = true;
+  }
+
+
   // Upload Image
   processFile(imageInput: any) {
     this.imagePathReady = false;
@@ -158,6 +174,33 @@ export class EditAnimeComponent implements OnInit {
   }
 
 
+  processMainFile(imageInput: any) {
+    this.mainFileSelected = false;
+    this.mainImagePathReady = false;
+    this.mainUploadButtonValue = 'Uploading...';
+    console.log('Processing File');
+    const file: File = imageInput.files[0];
+    const reader = new FileReader();
+    
+    reader.addEventListener('load', (event: any) => {
+      this.selectedFile = new ImageSnippet(event.target.result, file);
+      this.animeService.uploadImage(this.selectedFile.file).subscribe(
+        (res) => {
+          console.log(res);
+          this.mainImageUrl = res;
+          this.mainUploadButtonValue = 'Uploaded';
+          this.mainImagePathReady = true;
+          this.submitButtonValue = 'Update Anime';        
+        },
+        (err) => {
+          console.log(err);
+        });
+    });
+    reader.readAsDataURL(file);
+  }
+
+
+
   // Submit THe Form
   mySubmit() {
     this.isSubmitted = true;
@@ -172,6 +215,11 @@ export class EditAnimeComponent implements OnInit {
         formObject.mainImage = this.imageUrl;
       } else {
         formObject.mainImage = this.animeData.imageURL;
+      }
+      if (this.mainImageUrl) {
+        formObject.posterImage = this.mainImageUrl;
+      } else {
+        formObject.posterImage = this.animeData.posterImageURL;
       }
       this.animeService.updateAnime(formObject).subscribe(
         (createResponse: any) => console.log(createResponse),

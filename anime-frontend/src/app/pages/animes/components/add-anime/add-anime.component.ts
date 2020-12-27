@@ -20,11 +20,16 @@ export class AddAnimeComponent implements OnInit {
   isSubmitted = false;
   uploadForm: FormGroup;
   uploadButtonValue = 'Upload';
+  mainUploadButtonValue = 'Upload';
   imageName = 'Select Image';
+  mainImageName = 'Select Main Image';
   fileSelected = false;
+  mainFileSelected = false;
   fileUploaded = false;
   imageUrl: string;
+  mainImageUrl: string;
   imagePathReady = false;
+  mainImagePathReady = false;
   submitButtonValue = 'Waiting Uploading Image';
   selectedFile: ImageSnippet;
 
@@ -48,6 +53,7 @@ export class AddAnimeComponent implements OnInit {
     this.uploadForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(45)]],
       mainImage: [''],
+      posterImage: [''],
       description: ['', [Validators.required, Validators.minLength(2)]],
       trailerVideo: ['', [Validators.required, Validators.minLength(2)]],
       episodesCount: ['', Validators.required],
@@ -88,6 +94,13 @@ export class AddAnimeComponent implements OnInit {
     this.fileSelected = true;
   }
 
+  updateMainName(imageInput: any) {
+    const file: File = imageInput.files[0];
+    this.mainUploadButtonValue = 'Upload';
+    this.mainImageName = file.name;
+    this.mainFileSelected = true;
+  }
+
   processFile(imageInput: any) {
     this.fileSelected = false;
     this.uploadButtonValue = 'Uploading...';
@@ -112,6 +125,30 @@ export class AddAnimeComponent implements OnInit {
     reader.readAsDataURL(file);
   }
 
+  processMainFile(imageInput: any) {
+    this.mainFileSelected = false;
+    this.mainUploadButtonValue = 'Uploading...';
+    console.log('Processing File');
+    const file: File = imageInput.files[0];
+    const reader = new FileReader();
+    
+    reader.addEventListener('load', (event: any) => {
+      this.selectedFile = new ImageSnippet(event.target.result, file);
+      this.animeService.uploadImage(this.selectedFile.file).subscribe(
+        (res) => {
+          console.log(res);
+          this.mainImageUrl = res;
+          this.mainUploadButtonValue = 'Uploaded';
+          this.mainImagePathReady = true;
+          this.submitButtonValue = 'New Anime';        
+        },
+        (err) => {
+          console.log(err);
+        });
+    });
+    reader.readAsDataURL(file);
+  }
+
 
   mySubmit() {
     this.isSubmitted = true;
@@ -122,7 +159,8 @@ export class AddAnimeComponent implements OnInit {
       // Fetch All Form Data On Json Type
       const formObject = this.uploadForm.getRawValue();
       // formObject.suggest = this.uploadForm.value.suggest == 1 ? true : false;
-      formObject.mainImage = this.imageUrl;     
+      formObject.mainImage = this.imageUrl;  
+      formObject.posterImage = this.mainImageUrl;     
       this.animeService.createAnime(formObject).subscribe(
         (createResponse: any) => console.log(createResponse),
         error => {

@@ -11,7 +11,9 @@ export interface EditEpisode {
     duration: { timestamp: number; };
     episodeNumber: number;
     image: string;
+    posterImage: string;
     imageURL: string;
+    posterImageURL: string;
     interactions: Object;
     publishDate: { timestamp: number };
     rating: number;

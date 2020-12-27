@@ -105,6 +105,21 @@
         </div>
       </div>
       <div class="form-group row">
+        <label class="col-2 col-form-label">Upload</label>
+        <div class="input-group col-10">
+          <div class="custom-file">
+            <input #mainImageInput type="file" accept="image/*" class="custom-file-input" id="file-input"
+                   (change)="updateMainName(mainImageInput)">
+            <label style="font-size: .9rem;" class="custom-file-label" for="file-input">{{mainImageName}}</label>
+          </div>
+          <div class="input-group-append">
+            <button class="btn btn-success" type="button" (click)="processMainFile(mainImageInput)" [disabled]=!mainFileSelected>
+              {{mainUploadButtonValue}}
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
         <label class="col-2 col-form-label">Publish Date</label>
         <div class="col-10">
           <input class="form-control"

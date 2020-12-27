@@ -24,11 +24,16 @@ export class AddEpisodesComponent implements OnInit {
   isSubmitted = false;
   uploadForm: FormGroup;
   uploadButtonValue = 'Upload';
+  mainUploadButtonValue = 'Upload';
   imageName = 'Select Image';
+  mainImageName = 'Select Main Image';
   fileSelected = false;
+  mainFileSelected = false;
   fileUploaded = false;
   imageUrl: string;
+  mainImageUrl: string;
   imagePathReady = false;
+  mainImagePathReady = false;
   submitButtonValue = 'Waiting Uploading Image';
   selectedFile: ImageSnippet;
 
@@ -70,6 +75,7 @@ export class AddEpisodesComponent implements OnInit {
       episodeNumber: ['', [Validators.required, Validators.minLength(1)]],
       description: ['', Validators.required],
       image: [''],
+      posterImage: [''],
       duration: ['', Validators.required],
       publishDate: ['', Validators.required]
     });
@@ -98,6 +104,14 @@ export class AddEpisodesComponent implements OnInit {
     this.fileSelected = true;
   }
 
+  updateMainName(imageInput: any) {
+    const file: File = imageInput.files[0];
+    this.mainUploadButtonValue = 'Upload';
+    this.mainImageName = file.name;
+    this.mainFileSelected = true;
+  }
+
+
   // Upload Image
   processFile(imageInput: any) {
     this.fileSelected = false;
@@ -123,6 +137,31 @@ export class AddEpisodesComponent implements OnInit {
   }
 
 
+  processMainFile(imageInput: any) {
+    this.mainFileSelected = false;
+    this.mainUploadButtonValue = 'Uploading...';
+    console.log('Processing File');
+    const file: File = imageInput.files[0];
+    const reader = new FileReader();
+    
+    reader.addEventListener('load', (event: any) => {
+      this.selectedFile = new ImageSnippet(event.target.result, file);
+      this.animeService.uploadImage(this.selectedFile.file).subscribe(
+        (res) => {
+          console.log(res);
+          this.mainImageUrl = res;
+          this.mainUploadButtonValue = 'Uploaded';
+          this.mainImagePathReady = true;
+          this.submitButtonValue = 'New Anime';        
+        },
+        (err) => {
+          console.log(err);
+        });
+    });
+    reader.readAsDataURL(file);
+  }
+
+
   mySubmit() {
     this.isSubmitted = true;
     if (!this.uploadForm.valid) {
@@ -132,7 +171,8 @@ export class AddEpisodesComponent implements OnInit {
       // Fetch All Form Data On Json Type
       const formObject = this.uploadForm.getRawValue();
       // formObject.suggest = this.uploadForm.value.suggest == 1 ? true : false;
-      formObject.image = this.imageUrl;
+      formObject.image = this.imageUrl;      
+      formObject.posterImage = this.mainImageUrl;  
       this.episodeService.createEpisode(formObject).subscribe(
         (createResponse: any) => console.log(createResponse),
         error => {
