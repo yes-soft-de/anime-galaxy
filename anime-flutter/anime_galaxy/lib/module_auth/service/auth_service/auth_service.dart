@@ -66,16 +66,27 @@ class AuthService {
     return userExists?'registered':'notRegistered';
   }
 
-  Future<String> getToken() async {
-    bool isLoggedIn = await this.isLoggedIn;
-    if (isLoggedIn) {
-      await refreshToken();
-      return _prefsHelper.getToken();
-    }
 
+  Future<String> getToken() async {
+    try {
+      bool isLoggedIn = await this.isLoggedIn;
+      var tokenDate = await this._prefsHelper.getTokenDate();
+      var diff = DateTime.now().difference(DateTime.parse(tokenDate)).inMinutes;
+      if (isLoggedIn) {
+        if (diff < 0) {
+          diff = diff * -1;
+        }
+        if (diff < 55) {
+          return _prefsHelper.getToken();
+        }
+        await refreshToken();
+        return _prefsHelper.getToken();
+      }
+    } catch (e) {
+      return null;
+    }
     return null;
   }
-
   Future<void> refreshToken() async {
     String uid = await _prefsHelper.getUserId();
     String token = await _authManager.getToken(uid, uid);

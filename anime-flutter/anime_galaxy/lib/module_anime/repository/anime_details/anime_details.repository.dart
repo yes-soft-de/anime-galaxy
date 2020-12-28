@@ -8,6 +8,7 @@ import 'package:anime_galaxy/module_anime/response/comment_response/comment_resp
 import 'package:anime_galaxy/module_anime/response/episode_response/episode_response.dart';
 import 'package:anime_galaxy/module_anime/response/favourite_response/favourite_response.dart';
 import 'package:anime_galaxy/module_auth/presistance/auth_prefs_helper.dart';
+import 'package:anime_galaxy/module_auth/service/auth_service/auth_service.dart';
 import 'package:anime_galaxy/module_network/http_client/http_client.dart';
 import 'package:anime_galaxy/module_profile/repository/my_profile/my_profile.repository.dart';
 import 'package:inject/inject.dart';
@@ -21,12 +22,18 @@ int previousRate1 ;
 class AnimeDetailsRepository{
   final ApiClient _httpClient;
   final AuthPrefsHelper _authPrefsHelper;
-  AnimeDetailsRepository(this._httpClient,this._authPrefsHelper);
+  final AuthService _authService;
+
+  AnimeDetailsRepository(
+      this._httpClient,
+      this._authPrefsHelper,
+      this._authService,
+      );
 
   Future<AnimeResponse> getAnimeDetails(int animeId) async{
 
-    String token = await _authPrefsHelper.getToken();
-    print('toto :$token');
+    String token = await _authService.getToken();
+
     dynamic response = await _httpClient.get(Urls.API_ANIME+'/$animeId' ,token: token);
 
     if(response == null) return null;

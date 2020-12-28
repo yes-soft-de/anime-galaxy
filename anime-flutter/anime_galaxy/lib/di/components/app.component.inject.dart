@@ -279,7 +279,8 @@ class AppComponent$Injector implements _i1.AppComponent {
   _i52.AnimeDetailsManager _createAnimeDetailsManager() =>
       _i52.AnimeDetailsManager(_createAnimeDetailsRepository());
   _i53.AnimeDetailsRepository _createAnimeDetailsRepository() =>
-      _i53.AnimeDetailsRepository(_createApiClient(), _createAuthPrefsHelper());
+      _i53.AnimeDetailsRepository(
+          _createApiClient(), _createAuthPrefsHelper(), _createAuthService());
   _i54.AnimeNavigationDrawer _createAnimeNavigationDrawer() =>
       _i54.AnimeNavigationDrawer(_createProfileSharedPreferencesHelper());
   _i55.NotificationModule _createNotificationModule() =>
@@ -365,7 +366,7 @@ class AppComponent$Injector implements _i1.AppComponent {
       _i86.EpisodeDetailsManager(_createEpisodeDetailsRepository());
   _i87.EpisodeDetailsRepository _createEpisodeDetailsRepository() =>
       _i87.EpisodeDetailsRepository(
-          _createApiClient(), _createAuthPrefsHelper());
+          _createApiClient(), _createAuthPrefsHelper(), _createAuthService());
   _i88.SearchModule _createSearchModule() =>
       _i88.SearchModule(_createSearchScreen());
   _i89.SearchScreen _createSearchScreen() =>
