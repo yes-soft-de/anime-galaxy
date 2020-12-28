@@ -4,24 +4,21 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="949cf1e4-ee88-43fb-8374-6a66b1c9c391" name="Default Changelist" comment="edit settings screen">
-      <change afterPath="$PROJECT_DIR$/assets/images/instagram.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/instagram.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+    <list default="true" id="949cf1e4-ee88-43fb-8374-6a66b1c9c391" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/consts/urls.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/consts/urls.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/di/components/app.component.inject.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/di/components/app.component.inject.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main_screen/ui/screen/main_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main_screen/ui/screen/main_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main_screen/ui/screen/main_screen.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main_screen/ui/screen/main_screen.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/ui/widget/anime_details_widget/ainme_details_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/ui/widget/anime_details_widget/ainme_details_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_episode/ui/screen/episode_details_screen/episode_details_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/ui/screen/episode_details_screen/episode_details_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_episode/ui/screen/episode_details_screen/episode_details_screen.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/ui/screen/episode_details_screen/episode_details_screen.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_episode/ui/widget/episode_details_widget/episode_details_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/ui/widget/episode_details_widget/episode_details_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_navigation/ui/widget/navigation_drawer/anime_navigation_drawer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_navigation/ui/widget/navigation_drawer/anime_navigation_drawer.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_navigation/ui/widget/navigation_drawer/anime_navigation_drawer.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_navigation/ui/widget/navigation_drawer/anime_navigation_drawer.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/app_bar/anime_galaxy_app_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/app_bar/anime_galaxy_app_bar.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_anime/repository/anime_details/anime_details.repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/repository/anime_details/anime_details.repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_anime/repository/anime_details/anime_details.repository.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/repository/anime_details/anime_details.repository.inject.summary" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_auth/presistance/auth_prefs_helper.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/presistance/auth_prefs_helper.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_auth/service/auth_service/auth_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/service/auth_service/auth_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_episode/repository/episode_details/episode_details.repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/repository/episode_details/episode_details.repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_episode/repository/episode_details/episode_details.repository.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/repository/episode_details/episode_details.repository.inject.summary" afterDir="false" />
     </list>
+    <ignored path="$PROJECT_DIR$/.dart_tool/" />
+    <ignored path="$PROJECT_DIR$/.pub/" />
+    <ignored path="$PROJECT_DIR$/build/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,26 +29,50 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/module_navigation/ui/widget/navigation_drawer/anime_navigation_drawer.dart">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/module_anime/repository/anime_details/anime_details.repository.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="160" column="50" selection-start-line="160" selection-start-column="50" selection-end-line="160" selection-end-column="50" />
+            <state relative-caret-position="232">
+              <caret line="24" column="33" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/module_episode/repository/episode_details/episode_details.repository.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="112">
+              <caret line="29" column="43" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/module_auth/service/auth_service/auth_service.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-98">
+              <caret line="69" column="17" selection-start-line="69" selection-start-column="17" selection-end-line="69" selection-end-column="17" />
               <folding>
-                <element signature="e#1#92#0" expanded="true" />
-                <element signature="e#4827#4983#0" />
-                <element signature="e#12607#13206#0" />
-                <element signature="e#13247#13863#0" />
+                <element signature="e#0#65#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/main_screen/ui/screen/main_screen.dart">
+        <entry file="file://$PROJECT_DIR$/lib/module_auth/presistance/auth_prefs_helper.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="22" column="19" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="19" />
+            <state relative-caret-position="60">
+              <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/di/components/app.component.inject.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="111">
+              <caret line="367" column="35" selection-start-line="367" selection-start-column="35" selection-end-line="367" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -68,111 +89,132 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>rate</find>
-      <find>icon</find>
-      <find>activi</find>
-      <find>hh</find>
-      <find>ll</find>
-      <find>video</find>
-      <find>android.com/apk/res/android</find>
-      <find>trail</find>
-      <find>on</find>
-      <find>moda</find>
-      <find>foll</find>
-      <find>tr</find>
-      <find>follow</find>
-      <find>addto</find>
-      <find>dis</find>
-      <find>Options</find>
-      <find>headers</find>
-      <find>ima</find>
-      <find>navigator</find>
-      <find>commentca</find>
-      <find>koko</find>
-      <find>favour</find>
-      <find>?</find>
+      <find>hellllo</find>
+      <find>navigat</find>
+      <find>disp</find>
+      <find>loading</find>
+      <find>isloved</find>
       <find>AnimeDetailsStateLoveSuccess</find>
-      <find>logout</find>
-      <find>8</find>
-      <find>notific</find>
-      <find>notifica</find>
-      <find>navi</find>
-      <find>_profileService</find>
+      <find>EpisodeDetailsStateLoveSuccess</find>
+      <find>last</find>
+      <find>تصنيف</find>
+      <find>listview</find>
+      <find>color:  isDarkMode? Colors.white30 :Colors.grey[300],</find>
+      <find>color:  isDarkMode? Colors.white30 :Colors.grey[400],</find>
+      <find>kloy</find>
+      <find>britny</find>
+      <find>kim</find>
+      <find>kimka</find>
+      <find>toto</find>
+      <find>love</find>
+      <find>kimk</find>
+      <find>activities</find>
+      <find>ActivityCard</find>
+      <find>commentCa</find>
+      <find>comments s</find>
+      <find>on</find>
+      <find>google-services</find>
+      <find>apply</find>
+      <find>getto</find>
+      <find>toke</find>
+      <find>crashlytics</find>
+      <find>token</find>
     </findStrings>
     <replaceStrings>
-      <replace>4</replace>
+      <replace>_scrollController</replace>
+      <replace>Search</replace>
+      <replace>CategoryAnimes</replace>
+      <replace>margin: EdgeInsetsDirectional.fromSTEB(0, 0, 10, 5),</replace>
+      <replace>margin: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 5),</replace>
+      <replace>grey[400]</replace>
+      <replace>isDarkMode</replace>
     </replaceStrings>
+    <dirStrings>
+      <dir>D:\YesSoft projects\anime galaxy app\anime final\anime-galaxy\anime-flutter\anime_galaxy</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$/../.." value="dev-mobile" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
     <option name="RESET_MODE" value="HARD" />
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$/../.." source="origin/dev-mobile" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/lib/module_anime/request/rating_request/rating_request.dart" />
-        <option value="$PROJECT_DIR$/lib/module_episode/request/rating_request/rating_request.dart" />
-        <option value="$PROJECT_DIR$/lib/module_anime/response/rate_response/rate_response.dart" />
-        <option value="$PROJECT_DIR$/lib/module_init_account/response/category_respponse/category_response.dart" />
-        <option value="$PROJECT_DIR$/lib/module_init_account/service/init_account/init_account.service.dart" />
-        <option value="$PROJECT_DIR$/lib/module_home/response/anime_response/anime_response.dart" />
-        <option value="$PROJECT_DIR$/lib/module_home/repository/home/home.repository.dart" />
-        <option value="$PROJECT_DIR$/lib/module_home/response/home_response/home_response.dart" />
+        <option value="$PROJECT_DIR$/lib/module_profile/ui/widget/series_card/card_series.dart" />
+        <option value="$PROJECT_DIR$/lib/module_explore/ui/widget/favourite_series_card/favourite_series_card.dart" />
+        <option value="$PROJECT_DIR$/lib/module_home/ui/widget/series_card/series_card.dart" />
         <option value="$PROJECT_DIR$/lib/module_home/response/coming_soon_episodes/coming_soon_episodes.dart" />
+        <option value="$PROJECT_DIR$/lib/module_home/model/home_model/home_model.dart" />
         <option value="$PROJECT_DIR$/lib/module_home/service/home/home.service.dart" />
-        <option value="$PROJECT_DIR$/lib/module_rating/ui/widget/rating_bar.dart" />
-        <option value="$PROJECT_DIR$/lib/module_home/ui/widget/points_widget/points_widget.dart" />
-        <option value="$PROJECT_DIR$/lib/module_profile/ui/widget/activity_card/activity_card.dart" />
-        <option value="$PROJECT_DIR$/lib/module_profile/response/following_activities_response/following_activities_response.dart" />
-        <option value="$PROJECT_DIR$/watch-code.bat" />
-        <option value="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/lib/utils/video_controller/video_controller.dart" />
-        <option value="$PROJECT_DIR$/lib/anime_setting/routes/setting_module.dart" />
-        <option value="$PROJECT_DIR$/lib/main.dart" />
-        <option value="$PROJECT_DIR$/lib/module_init_account/ui/screen/init_account_screen.dart" />
-        <option value="$PROJECT_DIR$/lib/module_episode/repository/episode_details/episode_details.repository.dart" />
-        <option value="$PROJECT_DIR$/lib/module_episode/manager/episode_details/episode_details.manager.dart" />
-        <option value="$PROJECT_DIR$/lib/module_episode/state/episode_details/episode_details.state.dart" />
-        <option value="$PROJECT_DIR$/lib/module_network/http_client/http_client.dart" />
-        <option value="$PROJECT_DIR$/lib/module_anime/response/anime_response/anime_response.dart" />
-        <option value="$PROJECT_DIR$/lib/module_anime/model/anime_model/anime_model.dart" />
-        <option value="$PROJECT_DIR$/lib/module_episode/response/episode_response/episode_response.dart" />
-        <option value="$PROJECT_DIR$/lib/module_episode/model/episode_model/episode_model.dart" />
-        <option value="$PROJECT_DIR$/lib/module_profile/model/profile_model/profile_model.dart" />
-        <option value="$PROJECT_DIR$/lib/module_profile/ui/widget/personal_info_widget/personal_info_widget.dart" />
-        <option value="$PROJECT_DIR$/lib/module_anime/ui/widget/comment_card/comment_card.dart" />
+        <option value="$PROJECT_DIR$/lib/module_explore/response/comming_soon_response/comming_soon_response.dart" />
+        <option value="$PROJECT_DIR$/lib/module_explore/model/explore/explore_model.dart" />
+        <option value="$PROJECT_DIR$/lib/module_explore/service/explore/explore.service.dart" />
+        <option value="$PROJECT_DIR$/lib/module_anime/ui/widget/episode_card/episode_card.dart" />
         <option value="$PROJECT_DIR$/lib/module_episode/ui/widget/comment_card/comment_card.dart" />
-        <option value="$PROJECT_DIR$/lib/consts/urls.dart" />
-        <option value="$PROJECT_DIR$/lib/module_anime/repository/anime_details/anime_details.repository.dart" />
-        <option value="$PROJECT_DIR$/lib/module_anime/manager/anime_details/anime_details.manager.dart" />
-        <option value="$PROJECT_DIR$/lib/module_anime/state/anime_details/anime_details.state.dart" />
-        <option value="$PROJECT_DIR$/lib/module_anime/service/anime_details/anime_details.service.dart" />
-        <option value="$PROJECT_DIR$/lib/module_episode/service/episode_details/episode_details.service.dart" />
-        <option value="$PROJECT_DIR$/lib/module_profile/service/my_profile/my_profile.dart" />
-        <option value="$PROJECT_DIR$/lib/module_anime/state_manager/anime_details/anime_details.state_manager.dart" />
-        <option value="$PROJECT_DIR$/lib/module_episode/state_manager/episode_details/episode_details.state_manager.dart" />
-        <option value="$PROJECT_DIR$/lib/module_profile/ui/screen/profile_screen/profile_screen.dart" />
-        <option value="$PROJECT_DIR$/lib/module_auth/service/auth_service/auth_service.dart" />
-        <option value="$PROJECT_DIR$/lib/module_settings/ui/ui/settings_page/settings_page.dart" />
+        <option value="$PROJECT_DIR$/lib/module_episode/ui/widget/spoiler_comment_card/spoiler_comment_card.dart" />
+        <option value="$PROJECT_DIR$/lib/module_anime/ui/widget/spoiler_comment_card/spoiler_comment_card.dart" />
+        <option value="$PROJECT_DIR$/lib/module_anime/ui/widget/comment_card/comment_card.dart" />
         <option value="$PROJECT_DIR$/lib/module_anime/ui/widget/anime_details_widget/ainme_details_widget.dart" />
+        <option value="$PROJECT_DIR$/lib/module_profile/state_manager/edit_profile_state_manager/edit_profile_state_manager.dart" />
+        <option value="$PROJECT_DIR$/lib/module_profile/state_manager/my_profile/my_profile_state_manager.dart" />
+        <option value="$PROJECT_DIR$/lib/module_profile/request/create_profile.dart" />
+        <option value="$PROJECT_DIR$/lib/module_profile/response/profile_response/profile_response.dart" />
+        <option value="$PROJECT_DIR$/lib/module_profile/presistance/profile_shared_preferences.dart" />
+        <option value="$PROJECT_DIR$/lib/module_navigation/ui/widget/navigation_drawer/anime_navigation_drawer.dart" />
+        <option value="$PROJECT_DIR$/lib/module_profile/ui/screen/my_profile/my_profile.dart" />
+        <option value="$PROJECT_DIR$/pubspec.yaml" />
+        <option value="$PROJECT_DIR$/lib/module_anime/service/anime_details/anime_details.service.dart" />
+        <option value="$PROJECT_DIR$/lib/module_profile/response/previous_comments_response/previous_comments_response.dart" />
+        <option value="$PROJECT_DIR$/lib/module_auth/ui/screen/auth_screen/auth_screen.dart" />
+        <option value="$PROJECT_DIR$/lib/main.dart" />
+        <option value="$PROJECT_DIR$/lib/main_screen/ui/screen/main_screen.dart" />
+        <option value="$PROJECT_DIR$/lib/utils/loading_indicator/loading_indicator.dart" />
+        <option value="$PROJECT_DIR$/lib/module_settings/ui/ui/settings_page/settings_page.dart" />
+        <option value="$PROJECT_DIR$/lib/module_notification/ui/widget/notification_card/notification_card.dart" />
         <option value="$PROJECT_DIR$/lib/module_episode/ui/widget/episode_details_widget/episode_details_widget.dart" />
+        <option value="$PROJECT_DIR$/lib/module_episode/service/episode_details/episode_details.service.dart" />
+        <option value="$PROJECT_DIR$/lib/module_home/ui/screens/home_screen.dart" />
+        <option value="$PROJECT_DIR$/lib/module_notification/ui/screen/notification_screen/notification_screen.dart" />
+        <option value="$PROJECT_DIR$/lib/module_explore/ui/screen/explore_screen/explore_screen.dart" />
+        <option value="$PROJECT_DIR$/lib/utils/app_bar/anime_galaxy_app_bar.dart" />
+        <option value="$PROJECT_DIR$/lib/module_profile/repository/my_profile/my_profile.repository.dart" />
+        <option value="$PROJECT_DIR$/lib/module_profile/model/profile_model/profile_model.dart" />
+        <option value="$PROJECT_DIR$/lib/module_profile/service/my_profile/my_profile.dart" />
+        <option value="$PROJECT_DIR$/lib/module_profile/ui/screen/profile_screen/profile_screen.dart" />
+        <option value="$PROJECT_DIR$/lib/module_profile/ui/widget/activity_card/activity_card.dart" />
+        <option value="$PROJECT_DIR$/lib/module_episode/model/episode_model/episode_model.dart" />
+        <option value="$PROJECT_DIR$/lib/module_anime/model/anime_model/anime_model.dart" />
         <option value="$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.dart" />
         <option value="$PROJECT_DIR$/lib/module_episode/ui/screen/episode_details_screen/episode_details_screen.dart" />
-        <option value="$PROJECT_DIR$/lib/utils/app_bar/anime_galaxy_app_bar.dart" />
-        <option value="$PROJECT_DIR$/lib/main_screen/ui/screen/main_screen.dart" />
-        <option value="$PROJECT_DIR$/lib/module_navigation/ui/widget/navigation_drawer/anime_navigation_drawer.dart" />
+        <option value="$PROJECT_DIR$/lib/consts/urls.dart" />
+        <option value="$PROJECT_DIR$/lib/module_auth/presistance/auth_prefs_helper.dart" />
+        <option value="$PROJECT_DIR$/lib/module_auth/service/auth_service/auth_service.dart" />
+        <option value="$PROJECT_DIR$/lib/module_anime/repository/anime_details/anime_details.repository.dart" />
+        <option value="$PROJECT_DIR$/lib/module_episode/repository/episode_details/episode_details.repository.dart" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="-7" />
     <option name="width" value="697" />
     <option name="height" value="735" />
   </component>
@@ -203,107 +245,22 @@
               <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
               <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="main_screen" type="462c0819:PsiDirectoryNode" />
+              <item name="module_episode" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
               <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="main_screen" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="module_episode" type="462c0819:PsiDirectoryNode" />
+              <item name="repository" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
               <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="main_screen" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="screen" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="module_navigation" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="module_navigation" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="module_navigation" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="widget" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="module_navigation" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="widget" type="462c0819:PsiDirectoryNode" />
-              <item name="navigation_drawer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="module_network" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="module_profile" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="module_settings" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="module_settings" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="module_settings" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="module_settings" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="settings_page" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-              <item name="app_bar" type="462c0819:PsiDirectoryNode" />
+              <item name="module_episode" type="462c0819:PsiDirectoryNode" />
+              <item name="repository" type="462c0819:PsiDirectoryNode" />
+              <item name="episode_details" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -324,25 +281,38 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/images" />
+    <property name="last_opened_file_path" value="D:/c4d 1/c4d/flutter" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="flutter.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\anime 8\anime-galaxy\anime-flutter\anime_galaxy\assets\images" />
+      <recent name="D:\anime 8\anime-galaxy\anime-flutter\anime_galaxy\lib" />
       <recent name="D:\anime-galaxy5\anime-galaxy\anime-flutter\anime_galaxy\android" />
       <recent name="D:\YesSoft projects\anime-galaxy1\anime-flutter\anime_galaxy\lib\module_explore" />
       <recent name="D:\YesSoft projects\anime-galaxy1\anime-flutter\anime_galaxy\lib\module_explore\style" />
-      <recent name="D:\YesSoft projects\anime-galaxy\anime-flutter\anime_galaxy\lib\module_anime\response\anime_response" />
-      <recent name="D:\YesSoft projects\anime-galaxy\anime-flutter\anime_galaxy\lib\module_init_account\manager\init_account" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\anime-galaxy5\anime-galaxy\anime-flutter\anime_galaxy\assets\images" />
-      <recent name="D:\anime-galaxy5\anime-galaxy\anime-flutter\anime_galaxy\lib\module_settings" />
-      <recent name="D:\anime-galaxy5\anime-galaxy\anime-flutter\anime_galaxy\lib\module_anime\request" />
-      <recent name="D:\anime-galaxy5\anime-galaxy\anime-flutter\anime_galaxy\android\app" />
-      <recent name="C:\Users\TEC-GATE\Documents\Servers\anime-galaxy\anime-flutter\anime_galaxy\assets\images" />
+      <recent name="D:\anime 8\anime-galaxy\anime-flutter\anime_galaxy\assets\fonts\f5" />
+      <recent name="D:\anime 8\anime-galaxy\anime-flutter\anime_galaxy\lib\module_episode\ui\widget" />
+      <recent name="D:\anime 8\anime-galaxy\anime-flutter\anime_galaxy\lib\module_explore\ui\widget" />
+      <recent name="D:\anime 8\anime-galaxy\anime-flutter\anime_galaxy\lib\module_explore\response" />
+      <recent name="D:\anime 8\anime-galaxy\anime-flutter\anime_galaxy\lib\module_search\ui\widget" />
     </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager">
     <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
@@ -360,293 +330,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1602006469330</updated>
-    </task>
-    <task id="LOCAL-00027" summary="create app bar">
-      <created>1603884485397</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1603884485397</updated>
-    </task>
-    <task id="LOCAL-00028" summary="edit drawer">
-      <created>1603892818736</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1603892818736</updated>
-    </task>
-    <task id="LOCAL-00029" summary="edit drawer">
-      <created>1603892834955</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1603892834955</updated>
-    </task>
-    <task id="LOCAL-00030" summary="implement explore screen full structure">
-      <created>1603918899808</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1603918899808</updated>
-    </task>
-    <task id="LOCAL-00031" summary="new branch">
-      <created>1604267787631</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1604267787631</updated>
-    </task>
-    <task id="LOCAL-00032" summary="add episode details screen design and full structure">
-      <created>1604416825894</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1604416825894</updated>
-    </task>
-    <task id="LOCAL-00033" summary="fix design after depend on ar language only">
-      <created>1604431403324</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1604431403324</updated>
-    </task>
-    <task id="LOCAL-00034" summary="fix design after depend on ar language only">
-      <created>1604432354160</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1604432354160</updated>
-    </task>
-    <task id="LOCAL-00035" summary="add refresh indicator to home and explore screen">
-      <created>1604433498712</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1604433498712</updated>
-    </task>
-    <task id="LOCAL-00036" summary="add refresh indicator to home and explore screen">
-      <created>1604434512023</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1604434512023</updated>
-    </task>
-    <task id="LOCAL-00037" summary="handle empty responses">
-      <created>1604435457291</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1604435457291</updated>
-    </task>
-    <task id="LOCAL-00038" summary="fetch real data for maybe like series in home screen">
-      <created>1604588700068</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1604588700068</updated>
-    </task>
-    <task id="LOCAL-00039" summary="implement login and register">
-      <created>1604779427792</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1604779427793</updated>
-    </task>
-    <task id="LOCAL-00040" summary="edit workspace">
-      <created>1604945965227</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1604945965227</updated>
-    </task>
-    <task id="LOCAL-00041" summary="edit workspace">
-      <created>1604946145911</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1604946145911</updated>
-    </task>
-    <task id="LOCAL-00042" summary="Merge remote-tracking branch 'origin/zolfekar' into zolfekar&#10;&#10;# Conflicts:&#10;#&#9;anime-flutter/anime_galaxy/.flutter-plugins-dependencies&#10;#&#9;anime-flutter/anime_galaxy/.idea/codeStyles/Project.xml&#10;#&#9;anime-flutter/anime_galaxy/.idea/libraries/Dart_Packages.xml&#10;#&#9;anime-flutter/anime_galaxy/.idea/libraries/Flutter_Plugins.xml">
-      <created>1604946244197</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1604946244197</updated>
-    </task>
-    <task id="LOCAL-00043" summary="fetch coming soon series from backend">
-      <created>1605025769917</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1605025769917</updated>
-    </task>
-    <task id="LOCAL-00044" summary="edit appbar , add follow button to profile,edit settings screen">
-      <created>1605048325205</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1605048325206</updated>
-    </task>
-    <task id="LOCAL-00045" summary="added lazy loading for multiple widgets">
-      <created>1605122488166</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1605122488167</updated>
-    </task>
-    <task id="LOCAL-00046" summary="added lazy loading for multiple widgets">
-      <created>1605184408684</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1605184408684</updated>
-    </task>
-    <task id="LOCAL-00047" summary="fix some pugs">
-      <created>1605613408367</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1605613408367</updated>
-    </task>
-    <task id="LOCAL-00048" summary="enhance home screen response">
-      <created>1605638188249</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1605638188249</updated>
-    </task>
-    <task id="LOCAL-00049" summary="enhance home screen response">
-      <created>1605639988430</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1605639988430</updated>
-    </task>
-    <task id="LOCAL-00050" summary="edit explore screen">
-      <created>1605640300646</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1605640300647</updated>
-    </task>
-    <task id="LOCAL-00051" summary="enhance explore screen response">
-      <created>1605643192968</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1605643192968</updated>
-    </task>
-    <task id="LOCAL-00052" summary="enhance profile screen response">
-      <created>1605644399914</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1605644399914</updated>
-    </task>
-    <task id="LOCAL-00053" summary="enhance home screen response">
-      <created>1605645589768</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1605645589768</updated>
-    </task>
-    <task id="LOCAL-00054" summary="enhance anime screen response">
-      <created>1605647130489</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1605647130490</updated>
-    </task>
-    <task id="LOCAL-00055" summary="implement rating anime">
-      <created>1605730858845</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1605730858845</updated>
-    </task>
-    <task id="LOCAL-00056" summary="edit login screen design">
-      <created>1605732408713</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1605732408713</updated>
-    </task>
-    <task id="LOCAL-00057" summary="edit init account screen">
-      <created>1605733010384</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1605733010384</updated>
-    </task>
-    <task id="LOCAL-00058" summary="enhance drawer design">
-      <created>1605733471625</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1605733471625</updated>
-    </task>
-    <task id="LOCAL-00059" summary="add real comment date">
-      <created>1605735354817</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1605735354817</updated>
-    </task>
-    <task id="LOCAL-00060" summary="change font to roboto in all the app">
-      <created>1605790198196</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1605790198196</updated>
-    </task>
-    <task id="LOCAL-00061" summary="change rating values to integers values">
-      <created>1605791545304</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1605791545304</updated>
-    </task>
-    <task id="LOCAL-00062" summary="fetch and display previous rate for anime">
-      <created>1605794381017</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1605794381017</updated>
-    </task>
-    <task id="LOCAL-00063" summary="fetch and display previous rate for episode">
-      <created>1605795302421</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1605795302421</updated>
-    </task>
-    <task id="LOCAL-00064" summary="hide friends activities from other users">
-      <created>1605813267484</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1605813267499</updated>
-    </task>
-    <task id="LOCAL-00065" summary="enhance anime details screen response">
-      <created>1605814093580</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1605814093580</updated>
-    </task>
-    <task id="LOCAL-00066" summary="enhance episode details screen response">
-      <created>1605815256822</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1605815256822</updated>
-    </task>
-    <task id="LOCAL-00067" summary="enhance home screen response , and do some other TODOS">
-      <created>1605817765966</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1605817765966</updated>
     </task>
     <task id="LOCAL-00068" summary="do some TODOS">
       <created>1605818812931</created>
@@ -697,42 +380,6 @@
       <option name="project" value="LOCAL" />
       <updated>1605987890164</updated>
     </task>
-    <task id="LOCAL-00075" summary="stop video after change screen">
-      <created>1605988697033</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1605988697033</updated>
-    </task>
-    <task id="LOCAL-00076" summary="react to anime and episodes comments">
-      <created>1605997859802</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1605997859802</updated>
-    </task>
-    <task id="LOCAL-00077" summary="implement un follow for an anime">
-      <created>1606044667850</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1606044667853</updated>
-    </task>
-    <task id="LOCAL-00078" summary="do some code factoring">
-      <created>1606050106145</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1606050106145</updated>
-    </task>
-    <task id="LOCAL-00079" summary="edit settings screen">
-      <created>1606053426295</created>
-      <option name="number" value="00079" />
-      <option name="presentableId" value="LOCAL-00079" />
-      <option name="project" value="LOCAL" />
-      <updated>1606053426295</updated>
-    </task>
-    <option name="localTasksCounter" value="80" />
     <task id="LOCAL-00075" summary="release ready for testing">
       <created>1606062905777</created>
       <option name="number" value="00075" />
@@ -740,7 +387,294 @@
       <option name="project" value="LOCAL" />
       <updated>1606062905777</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="prevent interact with anime and episode more than one time">
+      <created>1606759849571</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1606759849572</updated>
+    </task>
+    <task id="LOCAL-00077" summary="change state of comments in anime and episode screens after being interact to">
+      <created>1606760061939</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1606760061939</updated>
+    </task>
+    <task id="LOCAL-00078" summary="fix some bugs">
+      <created>1606760235435</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1606760235435</updated>
+    </task>
+    <task id="LOCAL-00079" summary="add previous comment section to profile screen">
+      <created>1606760826838</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1606760826838</updated>
+    </task>
+    <task id="LOCAL-00080" summary="redirect to init account screen when register">
+      <created>1606761592449</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1606761592449</updated>
+    </task>
+    <task id="LOCAL-00081" summary="add token to get requests">
+      <created>1606761642759</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1606761642759</updated>
+    </task>
+    <task id="LOCAL-00082" summary="edit profile repository">
+      <created>1606761686008</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1606761686008</updated>
+    </task>
+    <task id="LOCAL-00083" summary="edit auth screen, change button color,send token from anime $ episode screens">
+      <created>1606761922256</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1606761922256</updated>
+    </task>
+    <task id="LOCAL-00084" summary="edit app bar, edit images size in explore &amp; home screen">
+      <created>1606762022969</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1606762022969</updated>
+    </task>
+    <task id="LOCAL-00085" summary="generate injection files">
+      <created>1606762358040</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1606762358041</updated>
+    </task>
+    <task id="LOCAL-00086" summary="hide active users section from explore screen">
+      <created>1606770102813</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1606770102813</updated>
+    </task>
+    <task id="LOCAL-00087" summary="edit some components">
+      <created>1606771759514</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1606771759514</updated>
+    </task>
+    <task id="LOCAL-00088" summary="correct token">
+      <created>1606854952758</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1606854952801</updated>
+    </task>
+    <task id="LOCAL-00089" summary="add categories to explore screen">
+      <created>1606858201688</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1606858201688</updated>
+    </task>
+    <task id="LOCAL-00090" summary="implement search screen">
+      <created>1606917530375</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1606917530377</updated>
+    </task>
+    <task id="LOCAL-00091" summary="edit anime card">
+      <created>1606917908201</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1606917908201</updated>
+    </task>
+    <task id="LOCAL-00092" summary="implement category_animes screen">
+      <created>1606923407285</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1606923407285</updated>
+    </task>
+    <task id="LOCAL-00093" summary="add the ability to navigate to users profiles from their comments">
+      <created>1606932556122</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1606932556122</updated>
+    </task>
+    <task id="LOCAL-00094" summary="edit general rating bars">
+      <created>1606934898050</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1606934898050</updated>
+    </task>
+    <task id="LOCAL-00095" summary="fix some bugs and add some features">
+      <created>1607015984832</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1607015984833</updated>
+    </task>
+    <task id="LOCAL-00096" summary="fix some bugs and add some features">
+      <created>1607020254724</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1607020254724</updated>
+    </task>
+    <task id="LOCAL-00097" summary="edit upload image">
+      <created>1607025481472</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1607025481473</updated>
+    </task>
+    <task id="LOCAL-00098" summary="edit profile done">
+      <created>1607180087963</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1607180087965</updated>
+    </task>
+    <task id="LOCAL-00099" summary="edit appbar">
+      <created>1607181261930</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1607181261930</updated>
+    </task>
+    <task id="LOCAL-00100" summary="edit some things">
+      <created>1607199872086</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1607199872087</updated>
+    </task>
+    <task id="LOCAL-00101" summary="add duration to episode">
+      <created>1607201039728</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1607201039728</updated>
+    </task>
+    <task id="LOCAL-00102" summary="show init account screen only once, hide comments with spoiler alerts">
+      <created>1607263835911</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1607263835912</updated>
+    </task>
+    <task id="LOCAL-00103" summary="fix some bugs , implement a new design for profile screen">
+      <created>1607547055485</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1607547055487</updated>
+    </task>
+    <task id="LOCAL-00104" summary="get profile info after login">
+      <created>1607548729277</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1607548729277</updated>
+    </task>
+    <task id="LOCAL-00105" summary="display users image in episodes comments">
+      <created>1607548928923</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1607548928923</updated>
+    </task>
+    <task id="LOCAL-00106" summary="design updates">
+      <created>1607629491831</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1607629491832</updated>
+    </task>
+    <task id="LOCAL-00107" summary="design updates2">
+      <created>1607803138895</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1607803138895</updated>
+    </task>
+    <task id="LOCAL-00108" summary="add cover image">
+      <created>1607860023591</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1607860023591</updated>
+    </task>
+    <task id="LOCAL-00109" summary="design updates for dark mode">
+      <created>1607862478554</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1607862478554</updated>
+    </task>
+    <task id="LOCAL-00110" summary="design updates for dark mode, youtube video played successfully">
+      <created>1607892825687</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1607892825687</updated>
+    </task>
+    <task id="LOCAL-00111" summary="fix some bugs">
+      <created>1607964481526</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1607964481530</updated>
+    </task>
+    <task id="LOCAL-00112" summary="fix modes and back to close bugs">
+      <created>1608047119066</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1608047119200</updated>
+    </task>
+    <task id="LOCAL-00113" summary="design enhancement">
+      <created>1608066711292</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1608066711293</updated>
+    </task>
+    <task id="LOCAL-00114" summary="edit followers activities">
+      <created>1608144435310</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1608144435311</updated>
+    </task>
+    <task id="LOCAL-00115" summary="fix some bugs">
+      <created>1608193905330</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1608193905333</updated>
+    </task>
+    <task id="LOCAL-00116" summary="change server">
+      <created>1609077510169</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1609077510170</updated>
+    </task>
+    <option name="localTasksCounter" value="117" />
     <servers />
   </component>
   <component name="TodoView">
@@ -757,29 +691,54 @@
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.18683812" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.20347957" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
       <window_info id="Resources Explorer" order="5" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Favorites" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Dart Analysis" order="0" weight="0.24713585" />
-      <window_info active="true" anchor="bottom" id="Run" order="1" visible="true" weight="0.33551556" />
-      <window_info anchor="bottom" id="TODO" order="2" weight="0.18657938" />
+      <window_info anchor="bottom" id="Dart Analysis" order="0" weight="0.31587562" />
+      <window_info anchor="bottom" id="Run" order="1" sideWeight="0.49924356" weight="0.17512275" />
+      <window_info anchor="bottom" id="TODO" order="2" weight="0.3289689" />
       <window_info anchor="bottom" id="Debug" order="3" />
-      <window_info anchor="bottom" id="Terminal" order="4" weight="0.31751227" />
-      <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="6" weight="0.3289689" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.5351882" />
-      <window_info anchor="bottom" id="Find" order="8" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="4" visible="true" weight="0.26022914" />
+      <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.50075644" side_tool="true" weight="0.6743044" />
+      <window_info anchor="bottom" id="Version Control" order="6" weight="0.44517186" />
+      <window_info active="true" anchor="bottom" id="Messages" order="7" visible="true" weight="0.39934534" />
+      <window_info anchor="bottom" id="Find" order="8" weight="0.3289689" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
       <window_info anchor="right" id="Theme Preview" order="1" />
-      <window_info anchor="right" id="Flutter Inspector" order="2" />
+      <window_info anchor="right" id="Flutter Inspector" order="2" weight="0.32980332" />
       <window_info anchor="right" id="Flutter Outline" order="3" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info anchor="right" id="Flutter Performance" order="5" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Captures" order="0" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.1709531" />
+      <window_info id="Structure" order="2" side_tool="true" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Designer" order="4" />
+      <window_info id="Resources Explorer" order="5" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Favorites" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Dart Analysis" order="0" weight="0.049833886" />
+      <window_info anchor="bottom" id="Run" order="1" sideWeight="0.49924356" visible="true" weight="0.42716858" />
+      <window_info anchor="bottom" id="TODO" order="2" weight="0.3289689" />
+      <window_info anchor="bottom" id="Debug" order="3" />
+      <window_info anchor="bottom" id="Terminal" order="4" weight="0.061461795" />
+      <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.50075644" side_tool="true" weight="0.6743044" />
+      <window_info anchor="bottom" id="Version Control" order="6" weight="0.44517186" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.39934534" />
+      <window_info anchor="bottom" id="Find" order="8" weight="0.3289689" />
+      <window_info anchor="right" id="Capture Analysis" order="0" />
+      <window_info anchor="right" id="Theme Preview" order="1" />
+      <window_info anchor="right" id="Flutter Inspector" order="2" weight="0.32980332" />
+      <window_info anchor="right" id="Flutter Outline" order="3" />
+      <window_info anchor="right" id="Palette&#9;" order="4" />
+      <window_info anchor="right" id="Flutter Performance" order="5" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -787,7 +746,20 @@
         <entry key="MAIN">
           <value>
             <State>
-              <option name="COLUMN_ORDER" />
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
             </State>
           </value>
         </entry>
@@ -811,496 +783,421 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="enhance explore screen response" />
-    <MESSAGE value="enhance profile screen response" />
-    <MESSAGE value="enhance home screen response" />
-    <MESSAGE value="enhance anime screen response" />
-    <MESSAGE value="implement rating anime" />
-    <MESSAGE value="edit login screen design" />
-    <MESSAGE value="edit init account screen" />
-    <MESSAGE value="enhance drawer design" />
-    <MESSAGE value="add real comment date" />
-    <MESSAGE value="change font to roboto in all the app" />
-    <MESSAGE value="change rating values to integers values" />
-    <MESSAGE value="fetch and display previous rate for anime" />
-    <MESSAGE value="fetch and display previous rate for episode" />
-    <MESSAGE value="hide friends activities from other users" />
-    <MESSAGE value="enhance anime details screen response" />
-    <MESSAGE value="enhance episode details screen response" />
-    <MESSAGE value="enhance home screen response , and do some other TODOS" />
-    <MESSAGE value="do some TODOS" />
-    <MESSAGE value="add episodes number to anime details screen" />
-    <MESSAGE value="change some icons" />
-    <MESSAGE value="add interaction methods for anime and episode repositories" />
-    <MESSAGE value="implement love reaction for episodes and animes" />
-    <MESSAGE value="add video trailer to anime screen" />
-    <MESSAGE value="implement structure for react to comments of animes and episodes , fix navigation at the drawer , stop video after change screen" />
-    <MESSAGE value="stop video after change screen" />
-    <MESSAGE value="react to anime and episodes comments" />
-    <MESSAGE value="implement un follow for an anime" />
-    <MESSAGE value="do some code factoring" />
-    <MESSAGE value="edit settings screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="edit settings screen" />
-    <MESSAGE value="release ready for testing" />
-    <option name="LAST_COMMIT_MESSAGE" value="release ready for testing" />
+    <MESSAGE value="implement search screen" />
+    <MESSAGE value="edit anime card" />
+    <MESSAGE value="implement category_animes screen" />
+    <MESSAGE value="add the ability to navigate to users profiles from their comments" />
+    <MESSAGE value="edit general rating bars" />
+    <MESSAGE value="fix some bugs and add some features" />
+    <MESSAGE value="edit upload image" />
+    <MESSAGE value="edit profile done" />
+    <MESSAGE value="edit appbar" />
+    <MESSAGE value="edit some things" />
+    <MESSAGE value="add duration to episode" />
+    <MESSAGE value="show init account screen only once, hide comments with spoiler alerts" />
+    <MESSAGE value="fix some bugs , implement a new design for profile screen" />
+    <MESSAGE value="get profile info after login" />
+    <MESSAGE value="display users image in episodes comments" />
+    <MESSAGE value="design updates" />
+    <MESSAGE value="design updates2" />
+    <MESSAGE value="add cover image" />
+    <MESSAGE value="design updates for dark mode" />
+    <MESSAGE value="design updates for dark mode, youtube video played successfully" />
+    <MESSAGE value="fix modes and back to close bugs" />
+    <MESSAGE value="design enhancement" />
+    <MESSAGE value="edit followers activities" />
+    <MESSAGE value="fix some bugs" />
+    <MESSAGE value="change server" />
+    <option name="LAST_COMMIT_MESSAGE" value="change server" />
   </component>
   <component name="WindowStateProjectService">
     <state x="522" y="235" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605284647206">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="522" y="235" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.864@0.0.1536.864" timestamp="1605284647206" />
-    <state x="574" y="148" key="#com.intellij.ide.util.MemberChooser" timestamp="1605338417127">
+    <state x="574" y="148" key="#com.intellij.ide.util.MemberChooser" timestamp="1606084345102">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="574" y="148" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1605338417127" />
-    <state x="0" y="19" key="CommitChangelistDialog2" timestamp="1606062903337">
+    <state x="574" y="148" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1606084345102" />
+    <state x="0" y="19" key="CommitChangelistDialog2" timestamp="1606129911674">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="0" y="19" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1606062903337" />
-    <state width="1491" height="271" key="GridCell.Tab.0.bottom" timestamp="1606067264434">
+    <state x="0" y="19" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1606129911674" />
+    <state width="1491" height="270" key="GridCell.Tab.0.bottom" timestamp="1606124994281">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="271" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1606067264434" />
-    <state width="1491" height="271" key="GridCell.Tab.0.center" timestamp="1606067264434">
+    <state width="1491" height="270" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1606124994281" />
+    <state width="1491" height="270" key="GridCell.Tab.0.center" timestamp="1606124994281">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="271" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1606067264434" />
-    <state width="1491" height="271" key="GridCell.Tab.0.left" timestamp="1606067264434">
+    <state width="1491" height="270" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1606124994281" />
+    <state width="1491" height="270" key="GridCell.Tab.0.left" timestamp="1606124994281">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="271" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1606067264434" />
-    <state width="1491" height="271" key="GridCell.Tab.0.right" timestamp="1606067264434">
+    <state width="1491" height="270" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1606124994281" />
+    <state width="1491" height="270" key="GridCell.Tab.0.right" timestamp="1606124994281">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="271" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1606067264434" />
+    <state width="1491" height="270" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1606124994281" />
     <state x="26" y="69" key="SettingsEditor" timestamp="1606056528485">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="26" y="69" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1606056528485" />
-    <state x="361" y="165" key="Vcs.Push.Dialog.v2" timestamp="1605214785703">
+    <state x="361" y="165" key="Vcs.Push.Dialog.v2" timestamp="1606087700189">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="361" y="165" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1605214785703" />
+    <state x="361" y="165" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1606087700189" />
     <state x="452" y="145" key="git4idea.branch.GitSmartOperationDialog" timestamp="1605214761607">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="452" y="145" key="git4idea.branch.GitSmartOperationDialog/0.0.1536.864@0.0.1536.864" timestamp="1605214761607" />
-    <state width="300" height="96" key="javadoc.popup.new" timestamp="1606066134443">
+    <state width="300" height="96" key="javadoc.popup.new" timestamp="1606128884140">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="300" height="96" key="javadoc.popup.new/0.0.1536.864@0.0.1536.864" timestamp="1606066134443" />
-    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1606062221049">
+    <state width="300" height="96" key="javadoc.popup.new/0.0.1536.864@0.0.1536.864" timestamp="1606128884140" />
+    <state x="425" y="197" key="run.anything.popup" timestamp="1606084044559">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1605122738998" />
+    <state x="425" y="197" key="run.anything.popup/0.0.1536.864@0.0.1536.864" timestamp="1606084044559" />
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1606128659485">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1606128659485" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/module_network/http_client/http_client.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="40" column="14" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="144" column="25" selection-start-line="144" selection-start-column="22" selection-end-line="144" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_episode/model/episode_model/episode_model.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="42" column="21" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_anime/model/anime_model/anime_model.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="41" column="10" selection-start-line="41" selection-start-column="10" selection-end-line="41" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_episode/response/episode_response/episode_response.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="133" column="24" selection-start-line="133" selection-start-column="24" selection-end-line="133" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_profile/model/profile_model/profile_model.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_profile/ui/widget/personal_info_widget/personal_info_widget.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="46" column="68" selection-start-line="46" selection-start-column="68" selection-end-line="46" selection-end-column="68" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_anime/response/anime_response/anime_response.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="94" column="6" selection-start-line="94" selection-start-column="6" selection-end-line="94" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_anime/ui/widget/comment_card/comment_card.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" lean-forward="true" selection-end-line="103" />
-          <folding>
-            <element signature="e#0#69#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_episode/ui/widget/comment_card/comment_card.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2040">
-          <caret line="103" selection-start-line="103" selection-end-line="103" />
-          <folding>
-            <element signature="e#0#69#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/consts/urls.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="11" column="32" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_profile/repository/my_profile/my_profile.repository.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="95" column="4" lean-forward="true" selection-start-line="95" selection-start-column="4" selection-end-line="99" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#47#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_anime/repository/anime_details/anime_details.repository.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="179" column="1" lean-forward="true" selection-start-line="179" selection-start-column="1" selection-end-line="179" selection-end-column="47" />
-          <folding>
-            <element signature="e#1#48#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_anime/manager/anime_details/anime_details.manager.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="38" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_anime/state/anime_details/anime_details.state.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="53" column="31" selection-start-line="53" selection-start-column="31" selection-end-line="53" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/watch-code.bat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_episode/service/episode_details/episode_details.service.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-100">
-          <caret line="33" column="54" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_anime/state_manager/anime_details/anime_details.state_manager.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1077">
-          <caret line="64" column="59" selection-start-line="64" selection-start-column="59" selection-end-line="64" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_episode/state_manager/episode_details/episode_details.state_manager.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="657">
-          <caret line="51" column="59" selection-start-line="51" selection-start-column="59" selection-end-line="51" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/generated/l10n.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="936" column="13" selection-start-line="936" selection-start-column="13" selection-end-line="936" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_explore/ui/screen/explore_screen/explore_screen.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-900">
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/module_home/ui/screens/home_screen.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1680">
-          <caret line="131" column="31" selection-start-line="131" selection-start-column="31" selection-end-line="131" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_init_account/ui/screen/init_account_screen.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="50" column="81" selection-start-line="50" selection-start-column="81" selection-end-line="50" selection-end-column="81" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_profile/ui/screen/profile_screen/profile_screen.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="64" column="5" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_settings/widget/card_setting/card_setting.dart">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_settings/widget/circular_setting/circular_image.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="13" column="38" lean-forward="true" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
+        <state relative-caret-position="89">
+          <caret line="369" column="69" selection-start-line="369" selection-start-column="15" selection-end-line="369" selection-end-column="69" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_auth/presistance/auth_prefs_helper.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9">
-          <caret line="65" column="32" lean-forward="true" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/anime_setting/ui/style_app.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="102" column="19" selection-start-line="102" selection-start-column="19" selection-end-line="102" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/anime_setting/ui/screen/anim_setting.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-297">
-          <caret line="148" column="116" lean-forward="true" selection-start-line="148" selection-start-column="116" selection-end-line="148" selection-end-column="116" />
-          <folding>
-            <element signature="e#5454#6686#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher-5.7.6/lib/url_launcher.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2240">
-          <caret line="119" column="13" selection-start-line="119" selection-start-column="13" selection-end-line="119" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_auth/states/auth_states/auth_states.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="6" selection-start-column="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_auth/ui/screen/auth_screen/auth_screen.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6829">
-          <caret line="64" column="17" lean-forward="true" selection-start-line="64" selection-start-column="17" selection-end-line="64" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_auth/service/auth_service/auth_service.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="21" column="15" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-0.18.3/lib/src/firebase_auth.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="78" column="11" selection-start-line="78" selection-start-column="11" selection-end-line="78" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_auth/state_manager/auth_state_manager/auth_state_manager.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="114" column="36" selection-start-line="114" selection-start-column="36" selection-end-line="114" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_profile/service/general_profile/general_profile.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_profile/service/my_profile/my_profile.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#95#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_settings/ui/ui/settings_page/settings_page.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="73" column="55" selection-start-line="73" selection-start-column="55" selection-end-line="73" selection-end-column="55" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_anime/service/anime_details/anime_details.service.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="28" column="50" selection-start-line="28" selection-start-column="46" selection-end-line="28" selection-end-column="50" />
-          <folding>
-            <element signature="e#0#92#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_anime/ui/widget/anime_details_widget/ainme_details_widget.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="140" column="30" selection-start-line="140" selection-start-column="30" selection-end-line="140" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_episode/ui/widget/episode_details_widget/episode_details_widget.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="103" column="28" selection-start-line="103" selection-start-column="28" selection-end-line="103" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/images/facebook.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/images/instagram.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/anime_setting/ui/widget/circular_setting/circular_image.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="10" column="15" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="165" column="37" selection-start-line="165" selection-start-column="37" selection-end-line="165" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/di/components/app.component.inject.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="236" column="29" selection-start-line="236" selection-start-column="29" selection-end-line="236" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_episode/ui/screen/episode_details_screen/episode_details_screen.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="138" column="43" selection-start-line="138" selection-start-column="43" selection-end-line="138" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/utils/app_bar/anime_galaxy_app_bar.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="51" column="16" selection-start-line="51" selection-start-column="16" selection-end-line="57" selection-end-column="18" />
+        <state relative-caret-position="160">
+          <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
           <folding>
             <element signature="e#0#91#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_notification/ui/screen/notification_screen/notification_screen.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="81" column="32" selection-start-line="81" selection-start-column="32" selection-end-line="81" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_episode/state_manager/episode_details/episode_details.state_manager.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="67" column="61" selection-start-line="67" selection-start-column="31" selection-end-line="67" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_profile/repository/my_profile/my_profile.repository.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="61">
+          <caret line="81" selection-start-line="81" selection-end-line="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_profile/response/following_activities_response/following_activities_response.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2756">
+          <caret line="15" column="22" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_profile/model/profile_model/profile_model.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="70" column="19" selection-start-line="70" selection-start-column="19" selection-end-line="70" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_profile/ui/screen/profile_screen/profile_screen.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="523" column="95" selection-start-line="523" selection-start-column="95" selection-end-line="523" selection-end-column="95" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_profile/ui/widget/activity_card/activity_card.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="38" column="62" selection-start-line="38" selection-start-column="62" selection-end-line="38" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_anime/model/anime_model/anime_model.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1300">
+          <caret line="65" column="26" selection-start-line="65" selection-start-column="26" selection-end-line="65" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_episode/ui/screen/episode_details_screen/episode_details_screen.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="233" column="28" selection-start-line="233" selection-start-column="28" selection-end-line="233" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_episode/model/episode_model/episode_model.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="54" column="26" selection-start-line="54" selection-start-column="3" selection-end-line="54" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_anime/anime_routes.dart">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_anime/anime_module.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/utils/time/time_formatter.dart">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2560">
+          <caret line="128" column="34" selection-start-line="115" selection-start-column="2" selection-end-line="128" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/main.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="169" selection-start-line="169" selection-end-line="169" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/anime_galaxy.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inject_generator.build.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_anime/ui/widget/anime_details_widget/ainme_details_widget.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-505">
+          <caret line="206" column="30" selection-start-line="206" selection-start-column="28" selection-end-line="206" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_anime/ui/widget/comment_card/comment_card.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1694">
+          <caret line="14" column="34" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_anime/ui/widget/spoiler_comment_card/spoiler_comment_card.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1420">
+          <caret line="13" column="34" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_anime/state_manager/anime_details/anime_details.state_manager.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="13" column="68" selection-start-line="12" selection-start-column="2" selection-end-line="13" selection-end-column="68" />
+          <folding>
+            <element signature="e#1#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_anime/state/anime_details/anime_details.state.dart">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_anime/service/anime_details/anime_details.service.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="87" column="45" selection-start-line="87" selection-start-column="14" selection-end-line="87" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/analysis_options.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-477" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LICENSE">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/fastlane/Fastfile">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/fastlane/Appfile">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/fastlane/README.md">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/keystore.jks">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/Gemfile">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/Gemfile.lock">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/keystore.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/consts/urls.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="1" column="58" selection-start-line="1" selection-start-column="58" selection-end-line="1" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/settings.gradle">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/local.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/gradle.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" selection-start-line="4" selection-end-line="7" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/app/google-services.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/consts/keys.dart">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="211" column="4" selection-start-line="211" selection-start-column="4" selection-end-line="216" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/module_profile/presistance/profile_shared_preferences.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/main_screen/ui/screen/main_screen.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="22" column="19" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_navigation/ui/widget/navigation_drawer/anime_navigation_drawer.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="160" column="50" selection-start-line="160" selection-start-column="50" selection-end-line="160" selection-end-column="50" />
+        <state relative-caret-position="-634">
           <folding>
-            <element signature="e#1#92#0" expanded="true" />
-            <element signature="e#4827#4983#0" />
-            <element signature="e#12607#13206#0" />
-            <element signature="e#13247#13863#0" />
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_profile/service/my_profile/my_profile.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="103" column="38" selection-start-line="103" selection-start-column="38" selection-end-line="103" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/watch-code.bat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="12" column="57" lean-forward="true" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="31" column="46" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_anime/repository/anime_details/anime_details.repository.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="24" column="33" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_auth/presistance/auth_prefs_helper.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/di/components/app.component.inject.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="367" column="35" selection-start-line="367" selection-start-column="35" selection-end-line="367" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_episode/repository/episode_details/episode_details.repository.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="29" column="43" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_auth/service/auth_service/auth_service.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-98">
+          <caret line="69" column="17" selection-start-line="69" selection-start-column="17" selection-end-line="69" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#65#0" expanded="true" />
           </folding>
         </state>
       </provider>

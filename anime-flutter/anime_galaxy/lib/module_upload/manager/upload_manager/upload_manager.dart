@@ -7,7 +7,7 @@ class UploadManager {
   final UploadRepository _repository;
   UploadManager(this._repository);
 
-  Future<ImgBBResponse> upload(String filePath) {
+  Future<String> upload(String filePath) {
     return _repository.upload(filePath);
   }
 }

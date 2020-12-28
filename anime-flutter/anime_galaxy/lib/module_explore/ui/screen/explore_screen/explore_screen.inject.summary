@@ -25,6 +25,13 @@
                 "qualifier": null
               },
               "isProvider": false
+            },
+            {
+              "lookupKey": {
+                "root": "asset:anime_galaxy/lib/module_theme/service/theme_service/theme_service.dart#SwapThemeDataService",
+                "qualifier": null
+              },
+              "isProvider": false
             }
           ]
         }

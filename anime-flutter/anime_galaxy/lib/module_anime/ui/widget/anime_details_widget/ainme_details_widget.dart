@@ -16,8 +16,10 @@ class AnimeDetailsWidget extends StatelessWidget {
   final FollowCallBack onFollow;
   final UnFollowCallBack onUnFollow;
   final bool isFollowed;
+  final bool isLoved;
   final int episodesNumber;
   final LoveCallBack onLove;
+  final String ageGroup;
 
   AnimeDetailsWidget({
     this.name,
@@ -27,10 +29,12 @@ class AnimeDetailsWidget extends StatelessWidget {
     this.comments,
     this.image,
     this.isFollowed,
+    this.isLoved,
     this.onFollow,
     this.onUnFollow,
     this.episodesNumber,
     this.onLove,
+    this.ageGroup,
   });
 
   @override
@@ -38,13 +42,24 @@ class AnimeDetailsWidget extends StatelessWidget {
     return Container(
       child: Row(
         children: [
-          FadeInImage.assetNetwork(
+          Container(
             height: 136,
-            width: 80,
-            placeholder: 'assets/images/logo.jpg',
-            image: image ?? '',
-            fit: BoxFit.cover,
+            child: Card(
+              clipBehavior: Clip.hardEdge,
+              child: FadeInImage.assetNetwork(
+                fit: BoxFit.cover,
+                image: image ?? '',
+                placeholder: 'assets/images/logo.jpg',
+                width: 80,
+              ),
+              elevation: 0,
+              shape: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(15),
+                borderSide: BorderSide.none,
+              ),
+            ),
           ),
+
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -59,13 +74,40 @@ class AnimeDetailsWidget extends StatelessWidget {
                       fontFamily:'Roboto',
                     ),
                   ),
-                  Text(
-                    showYear ?? '',
-                    style: TextStyle(
-                      fontSize: 13,
-                      fontFamily:'Roboto',
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      showYear ?? '',
+                      style: TextStyle(
+                        fontSize: 13,
+                        fontFamily:'Roboto',
+                      ),
                     ),
-                  ),
+
+                    Row(
+                      children: [
+                        Text(
+                          '$episodesNumber حلقة',
+                          style: TextStyle(
+                            fontSize: 13,
+                            color: ProjectColors.ThemeColor,
+                            fontFamily:'Roboto',
+                          ),
+                        )
+                      ],
+                    ),
+
+                    Text(
+                      ageGroup ?? '',
+                      style: TextStyle(
+                        fontSize: 13,
+                        fontFamily:'Roboto',
+                      ),
+                    ),
+
+                  ],
+                ),
                   Padding(
                     padding: EdgeInsets.fromLTRB(0, 8, 0, 8),
                     child: Row(
@@ -78,34 +120,30 @@ class AnimeDetailsWidget extends StatelessWidget {
                                 Icon(Icons.star_border,
                                     color: ProjectColors.ThemeColor),
                                 Text(
-                                  rate != null
-                                      ? ((double.parse(rate) * 10).floor() / 10)
-                                      .toString()
-                                      : 0.toString(),
+                                  'MAL' ,
                                   style: TextStyle(
-                                    fontSize: 16,
+                                    fontSize: 10,
                                     fontFamily:'Roboto',
                                   ),
                                 ),
-                              ],
-                            ),
-                            SizedBox(
-                              width: 13,
-                            ),
-                            Row(
-                              children: [
-                                 Text(
-                                   '$episodesNumberحلقات',
-                                   style: TextStyle(
-                                   fontSize: 16,
-                                   color: ProjectColors.ThemeColor,
-                                   fontFamily:'Roboto',
-                                 ),
-                                 )
+                                Text(
+                                  rate != null
+                                      ? ((double.parse(rate) * 10).floor() / 10)
+                                      .toString()
+                                      : 0.toString() ,
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    fontFamily:'Roboto',
+                                  ),
+                                ),
+
                               ],
                             ),
 
                           ],
+                        ),
+                        SizedBox(
+                          width: 13,
                         ),
                         Row(
                           children: [
@@ -115,7 +153,11 @@ class AnimeDetailsWidget extends StatelessWidget {
                                   '$comments',
                                   style: TextStyle(
                                     fontFamily:'Roboto',
+                                    fontSize: 13
                                   ),
+                                ),
+                                SizedBox(
+                                  width: 4,
                                 ),
                                 Icon(Icons.comment,
                                     color: ProjectColors.ThemeColor)
@@ -131,7 +173,11 @@ class AnimeDetailsWidget extends StatelessWidget {
                                   '$likes',
                                   style: TextStyle(
                                     fontFamily:'Roboto',
+                                    fontSize: 13
                                   ),
+                                ),
+                                SizedBox(
+                                  width: 4,
                                 ),
                                 ImageIcon(
                                   AssetImage('assets/images/full_flame.png'),
@@ -174,18 +220,23 @@ class AnimeDetailsWidget extends StatelessWidget {
                         Row(
                           children: [
                             IconButton(
-                              icon: ImageIcon(
+                              icon:isLoved? ImageIcon(
+                                AssetImage('assets/images/full_flame.png'),
+                                color: ProjectColors.ThemeColor,
+                              ):
+                              ImageIcon(
                                 AssetImage('assets/images/flame.png'),
                                 color: ProjectColors.ThemeColor,
-                              ),
+                              )
+                              ,
 
-                              onPressed: onLove ,
+                              onPressed: isLoved?(){}: onLove ,
                             ),
-                            IconButton(
-                              icon: Icon(Icons.share),
-                              //TODO : implement this
-                              onPressed: () {},
-                            ),
+//                            IconButton(
+//                              icon: Icon(Icons.share),
+//                              //TODO : implement this
+//                              onPressed: () {},
+//                            ),
                           ],
                         ),
                       ],

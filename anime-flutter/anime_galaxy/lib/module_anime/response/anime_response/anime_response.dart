@@ -22,6 +22,8 @@ class AnimeResponse {
   bool isFollowed;
   int previousRate;
   CreationDate publishDate;
+  String generalRating;
+  String ageGroup;
 
   AnimeResponse(
       {this.id,
@@ -40,12 +42,16 @@ class AnimeResponse {
         this.episodes,
         this.isFollowed,
         this.publishDate,
+        this.generalRating,
+        this.ageGroup,
       });
 
   AnimeResponse.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     mainImage = json['mainImage'];
+    generalRating = json['generalRating'];
+    ageGroup = json['ageGroup'];
 
     categoryName = json['categoryName'];
     rating = json['rating'];
@@ -72,6 +78,8 @@ class AnimeResponse {
     data['id'] = this.id;
     data['name'] = this.name;
     data['mainImage'] = this.mainImage;
+    data['generalRating'] = this.generalRating;
+    data['ageGroup'] = this.ageGroup;
 
     data['categoryName'] = this.categoryName;
     data['rating'] = this.rating;
@@ -100,6 +108,7 @@ class Comments {
   CommentInteractions commentInteractions;
   String userName;
   String image;
+  String userID;
 
   Comments(
       {this.comment,
@@ -108,7 +117,9 @@ class Comments {
         this.id,
         this.commentInteractions,
         this.userName,
-        this.image});
+        this.image,
+        this.userID,
+      });
 
   Comments.fromJson(Map<String, dynamic> json) {
     comment = json['comment'];
@@ -121,6 +132,7 @@ class Comments {
         ? new CommentInteractions.fromJson(json['commentInteractions'])
         : null;
     userName = json['userName'];
+    userID = json['userID'];
     image = json['image'];
   }
 
@@ -137,6 +149,7 @@ class Comments {
     }
     data['userName'] = this.userName;
     data['image'] = this.image;
+    data['userID'] = this.userID;
     return data;
   }
 }
@@ -254,9 +267,10 @@ class Location {
 }
 
 class CommentInteractions {
-  String love;
-  String like;
-  String dislike;
+  int love;
+  int like;
+  int dislike;
+  bool isLoved;
 
   CommentInteractions({this.love, this.like, this.dislike});
 
@@ -264,6 +278,7 @@ class CommentInteractions {
     love = json['love'];
     like = json['like'];
     dislike = json['dislike'];
+    isLoved = json['isLoved'];
   }
 
   Map<String, dynamic> toJson() {
@@ -271,6 +286,7 @@ class CommentInteractions {
     data['love'] = this.love;
     data['like'] = this.like;
     data['dislike'] = this.dislike;
+    data['isLoved'] = this.isLoved;
     return data;
   }
 }

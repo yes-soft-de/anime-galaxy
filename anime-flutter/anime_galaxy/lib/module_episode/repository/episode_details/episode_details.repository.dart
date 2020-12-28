@@ -2,6 +2,7 @@
 
 import 'package:anime_galaxy/consts/urls.dart';
 import 'package:anime_galaxy/module_auth/presistance/auth_prefs_helper.dart';
+import 'package:anime_galaxy/module_auth/service/auth_service/auth_service.dart';
 import 'package:anime_galaxy/module_episode/request/comment_request/comment_request.dart';
 import 'package:anime_galaxy/module_episode/request/rating_request/rating_request.dart';
 import 'package:anime_galaxy/module_episode/response/comment_response/comment_response.dart';
@@ -16,12 +17,19 @@ int previousRate1 ;
 class EpisodeDetailsRepository{
   final ApiClient _httpClient;
   final AuthPrefsHelper _authPrefsHelper;
+  final AuthService _authService;
 
-  EpisodeDetailsRepository(this._httpClient,this._authPrefsHelper);
+  EpisodeDetailsRepository(
+      this._httpClient,
+      this._authPrefsHelper,
+      this._authService,
+      );
 
   Future<EpisodeResponse> getEpisodeDetails(int episodeId) async{
 
-    dynamic response = await _httpClient.get(Urls.API_EPISODE+'$episodeId');
+    String token = await _authService.getToken();
+
+    dynamic response = await _httpClient.get(Urls.API_EPISODE+'$episodeId',token: token);
 
     if(response == null) return null;
 
@@ -111,7 +119,7 @@ class EpisodeDetailsRepository{
     dynamic response = await _httpClient.post(Urls.API_EPISODE_INTERACTION, {
       'userID': userId,
       'episodeID':episodeId,
-      'type':1
+      'type':3
     });
     return response == null ?
     null:
@@ -125,7 +133,7 @@ class EpisodeDetailsRepository{
     dynamic response = await _httpClient.post(Urls.API_EPISODE_COMMENT_INTERACTION, {
       'userID': userId,
       'commentID':commentId,
-      'type':1
+      'type':3
     });
     return response == null ?
     null:

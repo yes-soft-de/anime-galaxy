@@ -3,7 +3,7 @@ description: A new Flutter project.
 
 publish_to: 'none'
 
-version: 1.0.1+4
+version: 1.1.0
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -32,7 +32,8 @@ dependencies:
   firebase_crashlytics: ^0.2.3
 
   # Video
-  video_player: ^0.11.0
+  video_player: ^0.10.8+1
+  flick_video_player: ^0.1.1
 
   # Paths
   path_provider: ^1.6.18
@@ -84,7 +85,7 @@ dependencies:
   intl_utils: ^1.6.5
 
   # Toasts
-  fluttertoast: ^7.1.1
+  fluttertoast: ^7.1.4
 
   # UUID
   uuid: ^2.2.2
@@ -103,7 +104,10 @@ dependencies:
 
 #  google fonts
   google_fonts: ^1.1.1
+
   image_picker: ^0.6.7+14
+
+  youtube_player_iframe: ^1.1.0
 
 dev_dependencies:
   flutter_test:
@@ -134,7 +138,7 @@ flutter:
   fonts:
     - family: Roboto
       fonts:
-        - asset: assets/fonts/Roboto/Roboto-Regular.ttf
+        - asset: assets/fonts/RB/RB.ttf
 
 
 flutter_intl:

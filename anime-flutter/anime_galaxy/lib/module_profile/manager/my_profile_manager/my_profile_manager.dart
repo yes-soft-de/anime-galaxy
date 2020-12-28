@@ -12,6 +12,11 @@ class MyProfileManager {
     return await _repository.getProfile(userId);
   }
 
+  Future<ProfileResponse> getBasicProfileInfo(String userId) async {
+    return await _repository.getBasicProfileInfo(userId);
+  }
+
+
   Future<bool> follow(String userId, String friendId) async {
     return await _repository.follow(userId, friendId);
   }

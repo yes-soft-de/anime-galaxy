@@ -20,7 +20,7 @@ class HomeService {
 
     HomeModel homeModel = new HomeModel(
         watchedSeries: getSeries(response.watchedSeries),
-        points: response.points != null ? response.points.points : 0,
+        points: response.points.points ?? 0,
         mayLikeSeries: getComingSoonSeries(response.mayLikedSeries),
         newEpisodes: getEpisodes(response.comingSoonEpisodes));
     return homeModel;
@@ -56,11 +56,14 @@ class HomeService {
 
     episodesList.forEach((element) {
       episodes.add(new Episode(
+          id: element.id,
           classification: element.categoryName,
           image: element.image,
           episodeNumber: element.episodeNumber,
           season: element.seasonNumber,
-          seriesName: element.animeName));
+          seriesName: element.animeName,
+          posterImage: element.posterImage,
+      ));
     });
     return episodes;
   }

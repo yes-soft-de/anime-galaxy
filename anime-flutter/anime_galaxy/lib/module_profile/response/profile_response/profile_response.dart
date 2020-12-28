@@ -1,5 +1,6 @@
 import 'package:anime_galaxy/module_anime/response/favourite_response/favourite_response.dart';
 import 'package:anime_galaxy/module_profile/response/following_activities_response/following_activities_response.dart';
+import 'package:anime_galaxy/module_profile/response/previous_comments_response/previous_comments_response.dart';
 
 
 
@@ -11,10 +12,13 @@ class ProfileResponse {
   String story;
   String image;
   CreatedAt createdAt;
-  int followingNumber;
   List<FollowingActivitiesResponse> followingActivitiesResponse;
   List<FavouriteResponse> favourites;
   bool isFollowed;
+  PreviousCommentsResponse previousCommentsResponse;
+  int commentsNumber;
+  int followedByNumber;
+  String cover;
 
   ProfileResponse(
       {this.id,
@@ -24,10 +28,13 @@ class ProfileResponse {
         this.story,
         this.image,
         this.createdAt,
-        this.followingNumber,
         this.followingActivitiesResponse,
         this.favourites,
         this.isFollowed,
+        this.previousCommentsResponse,
+        this.commentsNumber,
+        this.followedByNumber,
+        this.cover,
       });
 
   ProfileResponse.fromJson(Map<String, dynamic> json) {
@@ -37,6 +44,9 @@ class ProfileResponse {
     location = json['location'];
     story = json['story'];
     image = json['image'];
+    cover = json['cover'];
+    commentsNumber = json['commentsNumber'];
+    followedByNumber = json['followedByNumber'];
     createdAt = json['createdAt'] != null
         ? new CreatedAt.fromJson(json['createdAt'])
         : null;
@@ -50,6 +60,9 @@ class ProfileResponse {
     data['location'] = this.location;
     data['story'] = this.story;
     data['image'] = this.image;
+    data['cover'] = this.cover;
+    data['commentsNumber'] = this.commentsNumber;
+    data['followedByNumber'] = this.followedByNumber;
     if (this.createdAt != null) {
       data['createdAt'] = this.createdAt.toJson();
     }

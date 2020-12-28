@@ -6,45 +6,6 @@ import 'package:anime_galaxy/module_init_account/response/category_respponse/cat
 import 'package:anime_galaxy/module_init_account/response/series_response/series_response.dart';
 import 'package:inject/inject.dart';
 
-List<Series> series = [
-  new Series(
-      id: 1,
-      name: 'دكتور ستون',
-      image:
-          'https://i.pinimg.com/236x/5b/27/06/5b2706b1d6459ca81b4576a122844fdc.jpg',
-      classification: 'أكشن شاونين'),
-  new Series(
-      id: 2,
-      name: 'دكتور ستون',
-      image:
-          'https://i.pinimg.com/236x/5b/27/06/5b2706b1d6459ca81b4576a122844fdc.jpg',
-      classification: 'أكشن شاونين'),
-  new Series(
-      id: 1,
-      name: 'دكتور ستون',
-      image:
-          'https://i.pinimg.com/236x/5b/27/06/5b2706b1d6459ca81b4576a122844fdc.jpg',
-      classification: 'أكشن شاونين'),
-  new Series(
-      id: 2,
-      name: 'دكتور ستون',
-      image:
-          'https://i.pinimg.com/236x/5b/27/06/5b2706b1d6459ca81b4576a122844fdc.jpg',
-      classification: 'أكشن شاونين'),
-  new Series(
-      id: 1,
-      name: 'دكتور ستون',
-      image:
-          'https://i.pinimg.com/236x/5b/27/06/5b2706b1d6459ca81b4576a122844fdc.jpg',
-      classification: 'أكشن شاونين'),
-  new Series(
-      id: 2,
-      name: 'دكتور ستون',
-      image:
-          'https://i.pinimg.com/236x/5b/27/06/5b2706b1d6459ca81b4576a122844fdc.jpg',
-      classification: 'أكشن شاونين'),
-];
-
 @provide
 class InitAccountService {
   final InitAccountManager _initAccountManager;

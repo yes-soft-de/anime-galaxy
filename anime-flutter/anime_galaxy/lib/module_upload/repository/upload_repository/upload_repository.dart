@@ -6,13 +6,13 @@ import 'package:inject/inject.dart';
 
 @provide
 class UploadRepository {
-  Future<ImgBBResponse> upload(String filePath) async {
+  Future<String> upload(String filePath) async {
     var client = Dio();
     FormData data = FormData.fromMap({
-      'uploadedFile': await MultipartFile.fromFile(filePath),
+      'image': await MultipartFile.fromFile(filePath),
     });
 
-    Logger().info('UploadRepo', 'Uploading: ' + filePath);
+    Logger().info('image', 'Uploading: ' + filePath);
 
     Response response =
         await client.post(Urls.API_UPLOAD_USER_IMAGE, data: data);
@@ -21,6 +21,7 @@ class UploadRepository {
     if (response == null) {
       return null;
     }
-    return ImgBBResponse.fromJson(response.data);
+
+    return response.toString();
   }
 }

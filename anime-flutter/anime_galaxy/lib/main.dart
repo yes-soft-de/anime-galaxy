@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:anime_galaxy/main_screen/main_screen_module.dart';
 import 'package:anime_galaxy/main_screen/main_screen_routes.dart';
 import 'package:anime_galaxy/module_auth/service/auth_service/auth_service.dart';
@@ -5,6 +7,7 @@ import 'package:anime_galaxy/module_error/error_module.dart';
 import 'package:anime_galaxy/module_home/home.module.dart';
 import 'package:anime_galaxy/module_init_account/account_module.dart';
 import 'package:anime_galaxy/module_notification/notification_module.dart';
+import 'package:anime_galaxy/module_search/search_module.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -13,7 +16,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:inject/inject.dart';
-
 import 'camera/camera_module.dart';
 import 'di/components/app.component.dart';
 import 'generated/l10n.dart';
@@ -58,6 +60,7 @@ class MyApp extends StatefulWidget {
   final ExploreModule _exploreModule;
   final EpisodeModule _episodeModule;
   final ErrorModule _errorModule;
+  final SearchModule _searchModule;
 
   MyApp(
     this._chatModule,
@@ -76,6 +79,7 @@ class MyApp extends StatefulWidget {
     this._settingModule,
     this._exploreModule,
     this._episodeModule,
+    this._searchModule,
   );
 
   @override
@@ -100,9 +104,11 @@ class _MyAppState extends State<MyApp> {
     });
 
     widget._swapThemeService.darkModeStream.listen((event) {
+      isDarkMode = event;
       setState(() {});
     });
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -121,6 +127,11 @@ class _MyAppState extends State<MyApp> {
     fullRoutesList.addAll(widget._exploreModule.getRoutes());
     fullRoutesList.addAll(widget._episodeModule.getRoutes());
     fullRoutesList.addAll(widget._errorModule.getRoutes());
+    fullRoutesList.addAll(widget._searchModule.getRoutes());
+
+    widget._swapThemeService.isDarkMode().then((value) {
+      isDarkMode  = value ?? false;
+    });
 
     return FutureBuilder(
       future: getConfiguratedApp(fullRoutesList),
@@ -134,14 +145,14 @@ class _MyAppState extends State<MyApp> {
   Future<Widget> getConfiguratedApp(
       Map<String, WidgetBuilder> fullRoutesList) async {
     await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
-    lang ??= await widget._localizationService.getLanguage();
-    isDarkMode ??= await widget._swapThemeService.isDarkMode();
-    authorized ??= await widget._authService.isLoggedIn;
+    
+    
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       navigatorObservers: <NavigatorObserver>[observer],
       locale: Locale.fromSubtags(
-        languageCode: 'ar' /* lang ?? 'en'*/,
+        languageCode: 'ar',
       ),
       localizationsDelegates: [
         S.delegate,
@@ -153,10 +164,12 @@ class _MyAppState extends State<MyApp> {
           ? ThemeData(
               brightness: Brightness.dark,
               scaffoldBackgroundColor: SwapThemeDataService.getDarkBGColor(),
+              fontFamily: 'Roboto'
             )
           : ThemeData(
               brightness: Brightness.light,
               primaryColor: Colors.white,
+              fontFamily: 'Roboto'
             ),
       supportedLocales: S.delegate.supportedLocales,
       title: 'Anime Galaxy',

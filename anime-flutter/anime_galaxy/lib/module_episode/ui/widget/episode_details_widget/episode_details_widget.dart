@@ -12,6 +12,8 @@ class EpisodeDetailsWidget extends StatelessWidget {
   final int comments;
   final String image;
   final LoveCallBack onLove;
+  final bool isLoved;
+  final String duration;
 
   EpisodeDetailsWidget(
       {this.name,
@@ -21,18 +23,30 @@ class EpisodeDetailsWidget extends StatelessWidget {
         this.comments,
         this.image,
         this.onLove,
+        this.isLoved,
+        this.duration,
       });
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Row(
         children: [
-          FadeInImage.assetNetwork(
+          Container(
             height: 136,
-            width: 80,
-            placeholder: 'assets/images/logo.jpg',
-            image: image ?? '',
-            fit: BoxFit.cover,
+            child: Card(
+              clipBehavior: Clip.hardEdge,
+              child: FadeInImage.assetNetwork(
+                fit: BoxFit.cover,
+                image: image ?? '',
+                placeholder: 'assets/images/logo.jpg',
+                width: 80,
+              ),
+              elevation: 0,
+              shape: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(15),
+                borderSide: BorderSide.none,
+              ),
+            ),
           ),
           Expanded(
             child: Padding(
@@ -46,12 +60,25 @@ class EpisodeDetailsWidget extends StatelessWidget {
                       fontFamily:'Roboto',
                     ),
                   ),
-                  Text(
-                    showYear,
-                    style: TextStyle(
-                      fontFamily:'Roboto',
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      showYear,
+                      style: TextStyle(
+                        fontFamily:'Roboto',
+                      ),
                     ),
-                  ),
+                    Text(
+                      duration,
+                      textDirection: TextDirection.ltr,
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontFamily:'Roboto',
+                      ),
+                    ),
+                  ],
+                ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -111,37 +138,44 @@ class EpisodeDetailsWidget extends StatelessWidget {
                       Row(
                         children: [
                           IconButton(
-                            icon:   ImageIcon(
-                                    AssetImage('assets/images/flame.png'),
-                                    color: ProjectColors.ThemeColor,
-                                  ),
-                            onPressed:  onLove,
+                            icon: isLoved?  ImageIcon(
+
+                              AssetImage('assets/images/full_flame.png'),
+                              color: ProjectColors.ThemeColor,
+                            ):
+                            ImageIcon(
+
+                              AssetImage('assets/images/flame.png'),
+                              color: ProjectColors.ThemeColor,
+                            )
+                            ,
+                            onPressed:  isLoved?(){}: onLove,
                           ),
                           Text(
                             S.of(context).Like,
                             style: TextStyle(
-                                fontSize: 10,
+                              fontSize: 10,
                               fontFamily:'Roboto',
                             ),
                           ),
                         ],
                       ),
-                      Row(
-                        children: [
-                          IconButton(
-                            icon: Icon(Icons.share),
-                            //TODO : implement this
-                            onPressed: () {},
-                          ),
-                          Text(
-                            S.of(context).Share,
-                            style: TextStyle(
-                                fontSize: 10,
-                              fontFamily:'Roboto',
-                            ),
-                          ),
-                        ],
-                      ),
+//                      Row(
+//                        children: [
+//                          IconButton(
+//                            icon: Icon(Icons.share),
+//                            //TODO : implement this
+//                            onPressed: () {},
+//                          ),
+//                          Text(
+//                            S.of(context).Share,
+//                            style: TextStyle(
+//                              fontSize: 10,
+//                              fontFamily:'Roboto',
+//                            ),
+//                          ),
+//                        ],
+//                      ),
                     ],
                   )
                 ],

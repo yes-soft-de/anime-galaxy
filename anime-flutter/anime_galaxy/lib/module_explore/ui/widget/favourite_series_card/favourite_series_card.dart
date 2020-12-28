@@ -11,23 +11,23 @@ class FavouriteSeriesCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 126,
-      width: 88,
+      height: 200,
+      width: 110,
       child: Column(
         children: [
           Container(
-            height: 115,
+            height: 145,
             child: Card(
               clipBehavior: Clip.hardEdge,
               child: FadeInImage.assetNetwork(
                 fit: BoxFit.cover,
                 image: url_image ?? '',
                 placeholder: 'assets/images/logo.jpg',
-                width: 88,
+                width: 100,
               ),
               elevation: 0,
               shape: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(15),
                 borderSide: BorderSide.none,
               ),
             ),
@@ -47,18 +47,18 @@ class FavouriteSeriesCard extends StatelessWidget {
               ),
             ],
           ),
-          Row(
-            children: [
-              Expanded(
-                child: Text(
-                  '${series_category}',
-                  style: StyleExploreList.getTextSyle(size: 14),
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ),
-            ],
-          ),
+//          Row(
+//            children: [
+//              Expanded(
+//                child: Text(
+//                  '${series_category}',
+//                  style: StyleExploreList.getTextSyle(size: 14),
+//                  maxLines: 1,
+//                  overflow: TextOverflow.ellipsis,
+//                ),
+//              ),
+//            ],
+//          ),
         ],
       ),
     );

@@ -1,4 +1,5 @@
 
+import 'package:anime_galaxy/generated/l10n.dart';
 import 'package:anime_galaxy/utils/project_colors/project_color.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,7 @@ class LoadingIndicatorWidget extends StatelessWidget {
           children: [
             CircularProgressIndicator(),
             Text(
-              'Loading',
+              S.of(context).loading,
             style: TextStyle(
               color: Colors.white,
             ),

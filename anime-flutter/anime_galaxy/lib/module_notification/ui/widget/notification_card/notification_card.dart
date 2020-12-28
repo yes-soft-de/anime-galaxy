@@ -8,17 +8,19 @@ class NotificationCard extends StatelessWidget {
   final String content;
   final String image;
   final String date;
+  final Color color;
 
   NotificationCard({
     this.content,
     this.image,
     this.date,
+    this.color
   });
 
   @override
   Widget build(BuildContext context) {
     return  Card(
-
+      color: color,
       shape: OutlineInputBorder(
         borderRadius: BorderRadius.circular(10),
         borderSide: BorderSide.none,
@@ -27,7 +29,7 @@ class NotificationCard extends StatelessWidget {
 
       clipBehavior: Clip.hardEdge,
       elevation: 0,
-      color: Color(0xffe4e5eb),
+//      color: Color(0xffe4e5eb),
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 15,vertical: 15),
 
@@ -38,27 +40,30 @@ class NotificationCard extends StatelessWidget {
                     Row(
 
               children: [
-                        CircularImage(w: 50,h:50,linkImg: image),
+                        CircularImage(w: 50,h:50,linkImg: image??''),
 
 
 
                         SizedBox(width: 10,),
 
-                        Text(
-                          content,
-                          style: TextStyle(
-                              fontSize: 8,
-                              fontWeight: FontWeight.bold
+                       Container(
+                         width: MediaQuery.of(context).size.width*0.65,
+                          child: Text(
+                            'ستصدر قريبا حلقة جديدة من المسلسل $content',
+                            style: TextStyle(
+                                fontSize: 10,
+                                fontWeight: FontWeight.bold
+                            ),
                           ),
                         ),
               ],
             ),
-                    Text(
-                        date,
-                      style: TextStyle(
-                      fontSize: 7
-                   ),
-                    ),
+//                    Text(
+//                        date,
+//                      style: TextStyle(
+//                      fontSize: 7
+//                   ),
+//                    ),
 
           ],
         ),

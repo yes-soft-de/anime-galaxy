@@ -104,12 +104,13 @@ class AuthStateManager {
   }
 
   void signWithEmailAndPassword(String email, String password) {
+    print('Signing in');
     _auth
         .signInWithEmailAndPassword(email: email, password: password)
         .then((value) {
       _loginUser(value);
     }).catchError((e) {
-      _stateSubject.add(AuthStateError(e));
+      _stateSubject.add(AuthStateError(e.toString()));
     });
   }
 
@@ -126,38 +127,38 @@ class AuthStateManager {
 
   Future<void> _loginUser(UserCredential result, [String username]) async {
     if (result != null) {
-      bool loginSuccess = await _authService.loginUser(
+      String loginSuccess = await _authService.loginUser(
         result.user.uid,
         result.user.displayName ?? username ?? result.user.uid.substring(0, 6),
         result.user.email ?? result.user.uid.substring(0, 6),
         AUTH_SOURCE.APPLE,
       );
+      loginSuccess == 'registered' ?
+      _stateSubject.add(AuthStateSuccess()):
+      _stateSubject.add(AuthStateNotRegisteredUser());
 
-      await _profileService.createProfile(
-          result.user.displayName ??
-              username ??
-              result.user.uid.substring(0, 6),
-          null,
-          ' ');
-      if (loginSuccess) {
-        _stateSubject.add(AuthStateSuccess());
-      }
+//      if (loginSuccess) {
+//        _stateSubject.add(AuthStateSuccess());
+//      }
     }
     _stateSubject.add(AuthStateError('Error logging in'));
   }
 
   Future<void> _continueInterruptedLogin(User result) async {
     if (result != null) {
-      bool loginSuccess = await _authService.loginUser(
+      String loginSuccess = await _authService.loginUser(
         result.uid,
         result.displayName ?? result.uid.substring(0, 6),
         result.email ?? result.uid.substring(0, 6),
         AUTH_SOURCE.APPLE,
       );
+      loginSuccess == 'registered' ?
+      _stateSubject.add(AuthStateSuccess()):
+      _stateSubject.add(AuthStateNotRegisteredUser());
 
-      if (loginSuccess) {
-        _stateSubject.add(AuthStateSuccess());
-      }
+//      if (loginSuccess) {
+//        _stateSubject.add(AuthStateSuccess());
+//      }
     }
     _stateSubject.add(AuthStateError('Can\'t Sign in!'));
   }
@@ -243,6 +244,7 @@ class AuthStateManager {
   }
 
   Future<bool> isSignedIn() async {
+
     return _authService.isLoggedIn;
   }
 }

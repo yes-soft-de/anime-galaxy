@@ -4,19 +4,23 @@ class CommingSoonResponse {
   String categoryName;
   int categoryID;
   PublishDate publishDate;
+  String posterImage;
 
   CommingSoonResponse(
       {this.name,
         this.mainImage,
         this.categoryName,
         this.categoryID,
-        this.publishDate});
+        this.publishDate,
+        this.posterImage,
+      });
 
   CommingSoonResponse.fromJson(Map<String, dynamic> json) {
     name = json['name'];
     mainImage = json['mainImage'];
     categoryName = json['categoryName'];
     categoryID = json['categoryID'];
+    posterImage = json['posterImage'];
     publishDate = json['publishDate'] != null
         ? new PublishDate.fromJson(json['publishDate'])
         : null;
@@ -28,6 +32,7 @@ class CommingSoonResponse {
     data['mainImage'] = this.mainImage;
     data['categoryName'] = this.categoryName;
     data['categoryID'] = this.categoryID;
+    data['posterImage'] = this.posterImage;
     if (this.publishDate != null) {
       data['publishDate'] = this.publishDate.toJson();
     }

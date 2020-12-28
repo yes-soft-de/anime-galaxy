@@ -12,3 +12,5 @@ class AuthStateError extends AuthState {
 }
 
 class AuthStateInit extends AuthState {}
+
+class AuthStateNotRegisteredUser extends AuthState {}

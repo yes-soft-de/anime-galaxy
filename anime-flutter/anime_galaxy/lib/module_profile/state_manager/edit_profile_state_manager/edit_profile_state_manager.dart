@@ -1,4 +1,8 @@
+import 'dart:io';
+
+import 'package:anime_galaxy/consts/urls.dart';
 import 'package:anime_galaxy/module_profile/service/my_profile/my_profile.dart';
+import 'package:anime_galaxy/module_upload/service/image_upload/image_upload_service.dart';
 import 'package:inject/inject.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -6,11 +10,27 @@ import 'package:rxdart/rxdart.dart';
 class EditProfileStateManager {
   final PublishSubject<String> stateStream = PublishSubject();
   final MyProfileService _myProfileService;
+  final ImageUploadService _imageUploadService;
 
-  EditProfileStateManager(this._myProfileService);
+  EditProfileStateManager(this._myProfileService ,this._imageUploadService);
 
-  void saveProfile(String name, String story) {
-    _myProfileService.createProfile(name, null, story).then((value) {
+  void saveProfileImage(String path) {
+    _myProfileService.saveImage(path);
+  }
+
+//  void uploadImage(String userImage){
+//    _imageUploadService.uploadImage(userImage).then((value) {
+//      if (value != null) {
+//            saveProfileImage(Urls.BASE_API+'/'+value);
+//            stateStream.add(value);
+//      } else {
+////        imageurl = null;
+//      }
+//    });
+//  }
+  void saveProfile(String name, String story, String userImage ,String coverImage) {
+     print('qqq state manager running');
+    _myProfileService.createProfile(name, userImage, story , coverImage).then((value) {
       if (value != null) {
         stateStream.add(null);
       } else {

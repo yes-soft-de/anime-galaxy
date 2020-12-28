@@ -15,18 +15,22 @@ class HomeModel{
 }
 
 class Episode{
+  int id;
   String image;
   String seriesName;
   String classification;
   int episodeNumber;
   int season;
+  String posterImage;
 
   Episode({
+    this.id,
     this.classification,
     this.image,
     this.episodeNumber,
     this.season,
     this.seriesName,
+    this.posterImage,
 });
 }
 

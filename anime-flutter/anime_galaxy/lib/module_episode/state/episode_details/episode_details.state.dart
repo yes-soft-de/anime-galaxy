@@ -34,6 +34,9 @@ class EpisodeDetailsStateLoveSuccess extends EpisodeDetailsState{}
 class EpisodeDetailsStateLoveError extends EpisodeDetailsState{}
 ///----------------------------------------------
 
-class EpisodeDetailsStateLoveCommentSuccess extends EpisodeDetailsState{}
+class EpisodeDetailsStateLoveCommentSuccess extends EpisodeDetailsState{
+  int data;
+  EpisodeDetailsStateLoveCommentSuccess(this.data);
+}
 
 class EpisodeDetailsStateLoveCommentError extends EpisodeDetailsState{}

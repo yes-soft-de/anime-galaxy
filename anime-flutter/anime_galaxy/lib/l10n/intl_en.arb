@@ -133,5 +133,13 @@
   "iDontHaveAnAccount": "لا املك حسابا",
   "caNotSignIn": "Ca not Sign in!",
   "createNewAccount": "Create new account",
-  "selectAnImage": "Select an Image"
+  "selectAnImage": "Select an Image",
+  "previousComments": "تعليقات سابقة",
+  "categories": "التصنيفات",
+  "searchForAnAnime": "ابحث عن انمي",
+  "comingSoonSeries": "مسلسلات تصدر قريبا",
+  "comingSoonEpisodes": "حلقات ستصدر قريباً",
+  "hideComments": "اخفاء التعليقات",
+  "showComments": "اظهار التعليقات",
+  "commentContainsSpoiler": "هذا التعليق يحوي حرق"
 }

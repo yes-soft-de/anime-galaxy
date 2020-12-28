@@ -1,21 +1,23 @@
 import 'package:anime_galaxy/anime_setting/ui/widget/circular_setting/circular_image.dart';
 import 'package:anime_galaxy/generated/l10n.dart';
+import 'package:anime_galaxy/module_search/search_routes.dart';
 import 'package:anime_galaxy/module_theme/service/theme_service/theme_service.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class AnimeGalaxyAppBar {
   static AppBar getAnimeGalaxyAppBar(
-    GlobalKey<ScaffoldState> drawerKey,
-    String userName,
-  ) {
+      BuildContext context,
+      GlobalKey<ScaffoldState> drawerKey,
+      String userName,
+      String userImage,
+      ) {
     final df = new DateFormat('a');
     return AppBar(
-      backgroundColor:
-          Theme.of(drawerKey.currentContext).brightness == Brightness.dark
-              ? SwapThemeDataService.getDarkBGColor()
-              : Colors.white,
-      elevation: 0,
+      backgroundColor:      Theme.of(context).brightness == Brightness.dark
+          ? Colors.white30
+          : Colors.grey[300],
+      elevation: 1,
       centerTitle: false,
       automaticallyImplyLeading: false,
       title: Row(
@@ -27,12 +29,11 @@ class AnimeGalaxyAppBar {
               Icons.menu,
             ),
           ),
-          //TODO : change this to real image of user
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: CircularImage(
               linkImg:
-                  'https://images.unsplash.com/photo-1518806118471-f28b20a1d79d',
+              userImage??'https://images.unsplash.com/photo-1518806118471-f28b20a1d79d',
               width: 40,
               height: 40,
             ),
@@ -44,15 +45,15 @@ class AnimeGalaxyAppBar {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                    df.format(DateTime.now()) == 'ص' ||
-                            df.format(DateTime.now()) == 'am'
-                        ? S.current.GoodMorning
-                        : S.current.GoodEvining,
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontFamily: 'Roboto',
-                    )),
+//                Text(
+//                    df.format(DateTime.now()) == 'ص' ||
+//                            df.format(DateTime.now()) == 'am'
+//                        ? S.current.GoodMorning
+//                        : S.current.GoodEvining,
+//                    style: TextStyle(
+//                      fontSize: 14,
+//                      fontFamily: 'Roboto',
+//                    )),
                 Text('$userName',
                     style: TextStyle(
                       fontSize: 18,
@@ -75,7 +76,19 @@ class AnimeGalaxyAppBar {
         // SizedBox(
         //   width: 5,
         // ),
-        // GestureDetector(onTap: () {}, child: Icon(Icons.search))
+         GestureDetector(
+             onTap: () {
+           Navigator.pushNamed(drawerKey.currentContext,
+                          SearchRoutes.ROUTE_Search
+           );
+         },
+             child: Icon(
+                 Icons.search,
+               size: 35,
+             )),
+        SizedBox(
+             width: 10,
+          ),
         //Add more icon here
       ],
     );

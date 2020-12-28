@@ -3,6 +3,7 @@ import 'package:anime_galaxy/module_notification/model/notification_model/notifi
 import 'package:anime_galaxy/module_notification/state/notification/notification.state.dart';
 import 'package:anime_galaxy/module_notification/state_manager/notification/notification.state_manager.dart';
 import 'package:anime_galaxy/module_notification/ui/widget/notification_card/notification_card.dart';
+import 'package:anime_galaxy/utils/loading_indicator/loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:inject/inject.dart';
 
@@ -50,7 +51,9 @@ class _NotificationScreenState extends State<NotificationScreen> {
       }
     }
 
-    return getPageLayout();
+    return loading?
+        LoadingIndicatorWidget():
+        getPageLayout();
   }
 
   Widget getPageLayout() {
@@ -58,27 +61,30 @@ class _NotificationScreenState extends State<NotificationScreen> {
       body: Container(
         padding: EdgeInsets.only(top: 20),
         child:
-//        notifications.isEmpty ?
+        notifications.isEmpty ?
         Container(
           child: Center(
               child: Text(S.of(context).noNotificationsYet)
           ),
         )
-//              :
-//        ListView.builder(
-//            itemCount: notifications.length,
-//            padding: EdgeInsetsDirectional.fromSTEB(10, 20, 10, 10),
-//            itemBuilder: (BuildContext context, int index) {
-//               return Container(
-//              margin: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
-//                  child: NotificationCard(
-//                  image: notifications[index].image,
-//                  content: notifications[index].content,
-//                  date: notifications[index].date,
-//              )
-//              );
-//
-//            }),
+              :
+        ListView.builder(
+            itemCount: notifications.length,
+            padding: EdgeInsetsDirectional.fromSTEB(10, 20, 10, 10),
+            itemBuilder: (BuildContext context, int index) {
+               return Container(
+              margin: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                  child: NotificationCard(
+                  image: notifications[index].image,
+                  content: notifications[index].content,
+                  date: notifications[index].date,
+                color:      Theme.of(context).brightness == Brightness.dark
+                ? Colors.white30
+                : Colors.grey[300],
+              )
+              );
+
+            }),
       ),
     );
   }

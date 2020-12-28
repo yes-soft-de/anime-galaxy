@@ -11,38 +11,44 @@ class SeriesCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-        height: 120,
-        width: 90,
+        height: 170,
+        width: 110,
         child: Column(
           children: [
-            FadeInImage.assetNetwork(
-              height: 90,
-              placeholder: 'assets/images/logo.jpg',
-              image: image,
-              fit: BoxFit.fill,
+            Container(
+              height: 150,
+              child: Card(
+                clipBehavior: Clip.hardEdge,
+                child: FadeInImage.assetNetwork(
+                  fit: BoxFit.cover,
+                  image: image ?? '',
+                  placeholder: 'assets/images/logo.jpg',
+                  width: 100,
+                ),
+                elevation: 0,
+                shape: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15),
+                  borderSide: BorderSide.none,
+                ),
+              ),
             ),
+
+
             Container(
               height: 5,
             ),
             Center(
                 child: Text(
-              '$name',
-              textDirection: TextDirection.rtl,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                  fontSize: 12,
-                  fontFamily:'Roboto',
-                  fontWeight: FontWeight.bold
-              ),
-            )),
-            Text(
-              classification,
-              style: TextStyle(
-                  fontSize: 12,
-                  fontFamily:'Roboto',
-                  color: Colors.black38
-              ),
-            ),
+                  '$name',
+                  textDirection: TextDirection.rtl,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                      fontSize: 12,
+                      fontFamily:'Roboto',
+                      fontWeight: FontWeight.bold
+                  ),
+                )),
+
           ],
         ));
   }

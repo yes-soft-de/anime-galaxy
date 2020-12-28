@@ -3,11 +3,14 @@ class ProfileModel {
   String image;
   String about;
   List<Series> watchedSeries;
-  int followingNumber;
+  String followingNumber;
   int seriesNumber;
   List<Activity> followingActivities;
   bool isFollowed;
   String createDate;
+  PreviousComments previousComments;
+  String commentsNumber;
+  String cover;
 
   ProfileModel({
     this.name,
@@ -19,6 +22,9 @@ class ProfileModel {
     this.followingActivities,
     this.isFollowed,
     this.createDate,
+    this.previousComments,
+    this.commentsNumber,
+    this.cover
   });
 
 
@@ -54,6 +60,7 @@ class Activity{
   String userName;
   String action;
   String userImage;
+  String animeName;
   String date;
 
   Activity({
@@ -61,6 +68,31 @@ class Activity{
     this.action,
     this.date,
     this.userImage,
-});
+    this.animeName,
+  });
 
+}
+class PreviousComments{
+  List<CommentsOnAnime> commentsOnAnime;
+  List<CommentsOnEpisode> commentsOnEpisodes;
+}
+class CommentsOnAnime{
+  String animeName;
+  String comment;
+
+  CommentsOnAnime({
+    this.animeName,
+    this.comment,
+  });
+}
+class CommentsOnEpisode  {
+  String animeName;
+  String comment;
+  int episodeNumber;
+
+  CommentsOnEpisode({
+    this.comment,
+    this.animeName,
+    this.episodeNumber,
+  });
 }

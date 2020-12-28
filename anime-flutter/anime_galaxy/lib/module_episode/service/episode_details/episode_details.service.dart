@@ -1,5 +1,6 @@
 
 
+import 'package:anime_galaxy/consts/urls.dart';
 import 'package:anime_galaxy/module_auth/presistance/auth_prefs_helper.dart';
 import 'package:anime_galaxy/module_episode/manager/episode_details/episode_details.manager.dart';
 import 'package:anime_galaxy/module_episode/model/episode_model/episode_model.dart';
@@ -7,6 +8,7 @@ import 'package:anime_galaxy/module_episode/request/comment_request/comment_requ
 import 'package:anime_galaxy/module_episode/request/rating_request/rating_request.dart';
 import 'package:anime_galaxy/module_episode/response/comment_response/comment_response.dart';
 import 'package:anime_galaxy/module_episode/response/episode_response/episode_response.dart';
+import 'package:anime_galaxy/utils/time/time_formatter.dart';
 import 'package:inject/inject.dart';
 import 'package:intl/intl.dart';
 
@@ -26,35 +28,50 @@ class EpisodeDetailsService{
     episode.image = image;
     episode.classification = response.categoryName;
     episode.rate = response.rating;
-    episode.likesNumber = response.interactions.like;
+    episode.likesNumber = response.interactions.love.toString();
     episode.commentsNumber = response.comments.length;
     episode.comments = await getComments(response.comments);
 
-     var df = new DateFormat('yyyy');
-    var date = new DateTime.fromMillisecondsSinceEpoch(response.publishDate.timestamp);
+
+    int seconds=0;
+    if(response.duration!= null)  seconds = response.duration.timestamp;
+    episode.duration = TimeFormatter.secondsToTime(seconds);
+
+    var df = new DateFormat('yyyy');
+    var date = response.publishDate != null?
+                            new DateTime.fromMillisecondsSinceEpoch(response.publishDate.timestamp *1000):
+                            DateTime.now();
 
     episode.showYear = df.format(date).toString();
     episode.about = response.description;
     episode.previousRate = response.previousRate;
+    episode.isLoved = response.interactions.isLoved;
+
 
 
     return episode;
   }
 
 
- Future< List<Comment>> getComments(List<Comments> commentResponse)async{
+  Future< List<Comment>> getComments(List<Comments> commentResponse)async{
     List<Comment> comments =[];
     List months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var df = new DateFormat('dd/MM');
 
     commentResponse.forEach((element) {
-      var date = new DateTime.fromMillisecondsSinceEpoch(element.creationDate.timestamp);
+      var date = new DateTime.fromMillisecondsSinceEpoch(element.creationDate.timestamp * 1000);
+      String image = element.image??'';
       Comment comment = new Comment(
-          content: element.comment,
-          userName: element.userName,
-          id: element.id,
-          likesNumber: element.commentInteractions.like,
-          userImage:element.image,
-        date:' ${months[date.month+1]} ${date.day} ' ,
+        content: element.comment,
+        userName: element.userName,
+        userId: element.userID,
+        id: element.id,
+        likesNumber: element.commentInteractions.love.toString(),
+        userImage:Urls.IMAGES_UPLOAD_PATH+'/'+image,
+        //  date:' ${months[date.month+1]} ${date.day} ' ,
+        date: df.format(date).toString()??'',
+        isLoved: element.commentInteractions.isLoved,
+        spoilerAlert: element.spoilerAlert,
       );
       comments.add(comment);
 
@@ -66,10 +83,10 @@ class EpisodeDetailsService{
     String userId = await _authPrefsHelper.getUserId();
 
     CommentRequest commentRequest = new CommentRequest(
-      comment: comment,
-      episodeID: episodeId.toString(),
-      spoilerAlert: spoilerAlert,
-      userID: userId
+        comment: comment,
+        episodeID: episodeId.toString(),
+        spoilerAlert: spoilerAlert,
+        userID: userId
     );
 
     return await _detailsManager.addComment(commentRequest);
@@ -79,9 +96,9 @@ class EpisodeDetailsService{
     String userId = await _authPrefsHelper.getUserId();
 
     RatingRequest request = new RatingRequest(
-      userId: userId,
-      episodeId: episodeId,
-      rateValue: rateValue
+        userId: userId,
+        episodeId: episodeId,
+        rateValue: rateValue
     );
 
     return await _detailsManager.rateEpisode(request);

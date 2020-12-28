@@ -1,3 +1,4 @@
+import 'package:anime_galaxy/module_profile/profile_routes.dart';
 import 'package:anime_galaxy/utils/project_color/project_color.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +11,8 @@ class CommentCard extends StatelessWidget {
   final String userName;
   final String likesNumber;
   final LoveCommentCallBack onLove;
+  final bool isLoved;
+  String userId;
 
   CommentCard({
     this.comment,
@@ -18,40 +21,49 @@ class CommentCard extends StatelessWidget {
     this.userName,
     this.likesNumber,
     this.onLove,
+    this.isLoved,
+    this.userId,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width * 0.9,
-      padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
+      width: MediaQuery.of(context).size.width * 0.95,
+      padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
       child: Column(
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      height: 50,
-                      width: 50,
-                      child: CircleAvatar(
-                        radius: 50,
-                        backgroundImage: NetworkImage(userImage),
+              GestureDetector(
+                onTap: ()=> Navigator.pushNamed(
+                    context,
+                    ProfileRoutes.ROUTE_PROFILE,
+                    arguments: userId
+                ),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        height: 50,
+                        width: 50,
+                        child: CircleAvatar(
+                          radius: 50,
+                          backgroundImage: NetworkImage(userImage),
+                        ),
                       ),
                     ),
-                  ),
-                  Text(
-                    userName,
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      fontFamily:'Roboto',
+                    Text(
+                      userName,
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        fontFamily:'Roboto',
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               Text(
                 date,
@@ -79,9 +91,14 @@ class CommentCard extends StatelessWidget {
               Row(
                 children: [
                   IconButton(
-                    onPressed: onLove,
-                    icon: ImageIcon(
+                    onPressed: isLoved ? (){} : onLove,
+                    icon: isLoved ?
+                    ImageIcon(
                       AssetImage('assets/images/full_flame.png'),
+                      color: ProjectColors.ThemeColor,
+                    ):
+                    ImageIcon(
+                      AssetImage('assets/images/flame.png'),
                       color: ProjectColors.ThemeColor,
                     ),
                   ),

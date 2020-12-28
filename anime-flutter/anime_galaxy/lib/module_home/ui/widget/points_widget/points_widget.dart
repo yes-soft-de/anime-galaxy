@@ -1,4 +1,3 @@
-
 import 'package:anime_galaxy/utils/project_color/project_color.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
@@ -23,25 +22,28 @@ class PointsWidget extends StatelessWidget {
     return Container(
       padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
       child: Row(
-
+         mainAxisAlignment: MainAxisAlignment.center,
         children: [
 
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                S.of(context).member+' $memberType',
-                style: TextStyle(
-                    fontSize: 10,
-                  fontFamily:'Roboto',
+              Container(
+                padding: EdgeInsets.only(right: 10),
+                child: Text(
+                  S.of(context).member+' $memberType',
+                  style: TextStyle(
+                      fontSize: 10,
+                    fontFamily:'Roboto',
+                  ),
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(top: 10),
+                margin: EdgeInsets.only(top: 4),
                 child: RotatedBox(
                   quarterTurns: 2,
                   child:   new LinearPercentIndicator(
-                    width: MediaQuery.of(context).size.width *0.8,
+                    width: MediaQuery.of(context).size.width*0.8,
                     animation: true,
                     lineHeight: 10.0,
                     animationDuration: 1500,

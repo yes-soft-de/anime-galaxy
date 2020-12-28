@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:anime_galaxy/utils/logger/logger.dart';
 import 'package:dio/dio.dart';
@@ -20,11 +21,15 @@ class ApiClient {
   }
 
   Future<Map<String, dynamic>> get(String url,
-      {Map<String, String> queryParams}
-      ) async {
+      {Map<String, String> queryParams, String token}) async {
+    if (token != null){
+      print('token :$token');
+      _client.options.headers.putIfAbsent('Authorization', () => 'Bearer $token');
+    }
+
     _logger.info(tag, 'GET $url');
     try {
-      Response response = await _client.get(
+      Response  response = await _client.get(
         url,
         queryParameters: queryParams,
         options: buildCacheOptions(Duration(seconds: 15)),
@@ -33,12 +38,16 @@ class ApiClient {
       if (response.statusCode >= 200 && response.statusCode < 300) {
         _logger.info(tag, response.data.toString());
         return response.data;
+      } else if (response.statusCode == 404) {
+        _logger.warn(tag, 'Get ' + url + '\t' + response.statusCode.toString());
+        return null;
       } else {
-        _logger.error(tag, url + '\t' + response.statusCode.toString());
+        _logger.error(
+            tag, 'Get ' + url + ' \t ' + response.statusCode.toString());
         return null;
       }
     } catch (e) {
-      _logger.error(tag, url + '\t' + e.toString());
+      _logger.error(tag, 'Get ' + url + ' \t ' + e.toString());
       return null;
     }
   }

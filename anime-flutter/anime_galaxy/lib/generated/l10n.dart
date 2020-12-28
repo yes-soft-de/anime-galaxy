@@ -1362,6 +1362,86 @@ class S {
       args: [],
     );
   }
+
+  /// `تعليقات سابقة`
+  String get previousComments {
+    return Intl.message(
+      'تعليقات سابقة',
+      name: 'previousComments',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `التصنيفات`
+  String get categories {
+    return Intl.message(
+      'التصنيفات',
+      name: 'categories',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ابحث عن انمي`
+  String get searchForAnAnime {
+    return Intl.message(
+      'ابحث عن انمي',
+      name: 'searchForAnAnime',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `مسلسلات تصدر قريبا`
+  String get comingSoonSeries {
+    return Intl.message(
+      'مسلسلات تصدر قريبا',
+      name: 'comingSoonSeries',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `حلقات ستصدر قريباً`
+  String get comingSoonEpisodes {
+    return Intl.message(
+      'حلقات ستصدر قريباً',
+      name: 'comingSoonEpisodes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `اخفاء التعليقات`
+  String get hideComments {
+    return Intl.message(
+      'اخفاء التعليقات',
+      name: 'hideComments',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `اظهار التعليقات`
+  String get showComments {
+    return Intl.message(
+      'اظهار التعليقات',
+      name: 'showComments',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `هذا التعليق يحوي حرق`
+  String get commentContainsSpoiler {
+    return Intl.message(
+      'هذا التعليق يحوي حرق',
+      name: 'commentContainsSpoiler',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

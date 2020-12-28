@@ -69,8 +69,8 @@ class MyProfileStateManager {
   }
 
 
-  void setMyProfile(String username, String about, String image) {
-    _myProfileService.createProfile(username, image, about).then((value) {
+  void setMyProfile(String username, String about, String image , String cover) {
+    _myProfileService.createProfile(username, image, about ,cover).then((value) {
       if (value == null) {
         Fluttertoast.showToast(msg: 'Error Submitting Profile');
       } else {

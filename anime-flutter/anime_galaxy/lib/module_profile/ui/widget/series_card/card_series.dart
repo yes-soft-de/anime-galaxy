@@ -11,22 +11,23 @@ class SeriesCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 140,
-      height: 220,
+      height: 200,
+      width: 110,
       child: Column(
         children: [
           Container(
-            height: 140,
+            height: 145,
             child: Card(
+              clipBehavior: Clip.hardEdge,
               child: FadeInImage.assetNetwork(
                 fit: BoxFit.cover,
-                image: url_image,
+                image: url_image ?? '',
                 placeholder: 'assets/images/logo.jpg',
-                width: 140,
+                width: 100,
               ),
               elevation: 0,
               shape: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(0),
+                borderRadius: BorderRadius.circular(15),
                 borderSide: BorderSide.none,
               ),
             ),

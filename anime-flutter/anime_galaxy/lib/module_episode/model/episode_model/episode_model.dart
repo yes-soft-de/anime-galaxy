@@ -9,6 +9,8 @@ class EpisodeModel{
   String  classification;
   List<Comment> comments;
   int previousRate;
+  bool isLoved;
+  String duration;
 
   EpisodeModel({
     this.commentsNumber,
@@ -21,6 +23,8 @@ class EpisodeModel{
     this.showYear,
     this.comments,
     this.previousRate,
+    this.isLoved,
+    this.duration,
   });
 }
 
@@ -28,11 +32,15 @@ class EpisodeModel{
 
 class Comment{
   String userImage;
+  String userId;
   String content;
   int id;
   String likesNumber;
   String date;
   String userName;
+  bool isLoved;
+  bool spoilerAlert;
+  bool canReact;
 
   Comment({
     this.date,
@@ -41,5 +49,9 @@ class Comment{
     this.content,
     this.id,
     this.likesNumber,
+    this.isLoved,
+    this.userId,
+    this.spoilerAlert,
+    this.canReact = false,
   });
 }

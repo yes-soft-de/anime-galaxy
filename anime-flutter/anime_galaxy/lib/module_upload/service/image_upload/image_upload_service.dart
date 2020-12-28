@@ -9,11 +9,13 @@ class ImageUploadService {
   ImageUploadService(this.manager);
 
   Future<String> uploadImage(String filePath) async {
-    ImgBBResponse response = await manager.upload(filePath);
+    print('qqq  image upload service runing');
+    String response = await manager.upload(filePath);
     if (response == null) {
       return null;
     } else {
-      return response.data.url;
+      print('qqq image uploaded url: ${response}');
+      return response;
     }
   }
 }
