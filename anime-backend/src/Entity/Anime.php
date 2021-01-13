@@ -35,11 +35,6 @@ class Anime
     private $categories = [];
 
     /**
-     * @ORM\Column(type="date", nullable=true)
-     */
-    private $creationDate;
-
-    /**
      * @ORM\Column(type="boolean", nullable=true)
      */
     private $specialLink;
@@ -148,18 +143,6 @@ class Anime
     public function setCategories(array $categories): self
     {
         $this->categories = $categories;
-
-        return $this;
-    }
-
-     public function getCreationDate(): ?\DateTimeInterface
-    {
-        return $this->creationDate;
-    }
-
-    public function setCreationDate(): self
-    {
-        $this->creationDate = new \DateTime('Now');
 
         return $this;
     }

@@ -11,7 +11,7 @@ class CreateAnimeRequest
     private $name;
     private $mainImage;
     private $categories;
-    private $creationDate;
+    //private $creationDate;
     private $description;
     public  $publishDate;
     public $episodesCount;
@@ -24,23 +24,23 @@ class CreateAnimeRequest
 
     public function __construct()
     {
-        $this->creationDate = new DateTime('Now');
+//        $this->creationDate = new DateTime('Now');
     }
-    /**
-     * @return mixed
-     */
-    public function getCreationDate(): DateTime
-    {
-        return $this->creationDate;
-    }
-
-    /**
-     * @param mixed $creationDate
-     */
-    public function setCreationDate(DateTime $creationDate): void
-    {
-         $this->creationDate = $creationDate;
-    }
+//    /**
+//     * @return mixed
+//     */
+//    public function getCreationDate(): DateTime
+//    {
+//        return $this->creationDate;
+//    }
+//
+//    /**
+//     * @param mixed $creationDate
+//     */
+//    public function setCreationDate(DateTime $creationDate): void
+//    {
+//         $this->creationDate = $creationDate;
+//    }
 
     /**
      * @return mixed
