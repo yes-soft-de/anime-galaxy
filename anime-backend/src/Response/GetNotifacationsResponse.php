@@ -8,11 +8,10 @@ class GetNotifacationsResponse
     public $animeID;
     public $mainImage;
     public $AnimeName;
-    public $categoryID;
-    public $categoryName;
+    public $categories = [];
+//    public $categoryName = [];
     public $episodeID;
     public $publishDate;
-   
 
      /**
      * @return mixed

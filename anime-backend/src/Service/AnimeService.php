@@ -24,15 +24,16 @@ class AnimeService
     private $commentService;
     private $interactionService;
     private $params;
+    private $categoryService;
 
     public function __construct(AnimeManager $animeManager, AutoMapping $autoMapping, ImageService $imageService, CommentService $commentService,
-        InteractionService $interactionService, ParameterBagInterface $params) {
+        InteractionService $interactionService, ParameterBagInterface $params, CategoryService $categoryService) {
         $this->animeManager = $animeManager;
         $this->autoMapping = $autoMapping;
         $this->imageService = $imageService;
         $this->commentService = $commentService;
         $this->interactionService = $interactionService;
-
+        $this->categoryService = $categoryService;
         $this->params = $params->get('upload_base_url') . '/';
     }
 
@@ -53,7 +54,7 @@ class AnimeService
         $result = $this->animeManager->getAnimeById($request);
 
         $resultImg = $this->imageService->getImagesByAnimeID($request);
-        
+
         $love = $this->interactionService->loved($request);
         $like = $this->interactionService->like($request);
         $dislike = $this->interactionService->dislike($request);
@@ -69,6 +70,8 @@ class AnimeService
 
             $row['mainImage'] = $this->specialLinkCheck($row['specialLink']).$row['mainImage'];
             $row['posterImage'] = $this->specialLinkCheck($row['specialLink']).$row['posterImage'];
+
+            $row['categories'] = $this->categoryService->getCategoriesArray($row['cats']);
 
             $response = $this->autoMapping->map('array', GetAnimeByIdResponse::class, $row);
         }
@@ -102,6 +105,8 @@ class AnimeService
             'like' => $this->interactionService->likeAll($row['id']),
             'dislike' => $this->interactionService->dislikeAll($row['id'])
             ];
+
+            $row['categories'] = $this->categoryService->getCategoriesArray($row['cats']);
 
             $response[] = $this->autoMapping->map('array', GetAnimeResponse::class, $row);
         }
@@ -144,6 +149,8 @@ class AnimeService
     {
         $animeResult = $this->animeManager->updateSuggest($request);
 
+        $animeResult->setCategories($this->categoryService->getCategoriesArray($animeResult->getCategories()));
+
         return $this->autoMapping->map(Anime::class, UpdateAnimeResponse::class, $animeResult);
     }
 
@@ -166,6 +173,8 @@ class AnimeService
         {
             $row['animeMainImage'] = $this->specialLinkCheck($row['specialLink']).$row['animeMainImage'];
 
+            $row['categories'] = $this->categoryService->getCategoriesArray($row['cats']);
+
             $response[] = $this->autoMapping->map('array', GetHighestRatedAnimeResponse::class, $row);
         }
 
@@ -180,6 +189,8 @@ class AnimeService
         foreach ($result as $row)
         {
             $row['animeMainImage'] = $this->specialLinkCheck($row['specialLink']).$row['animeMainImage'];
+
+            $row['categories'] = $this->categoryService->getCategoriesArray($row['cats']);
 
             $response[] = $this->autoMapping->map('array', GetHighestRatedAnimeByUserResponse::class, $row);
         }
@@ -202,9 +213,12 @@ class AnimeService
 
             $row['posterImage'] = $this->specialLinkCheck($row['posterSpecialLink']).$row['posterImage'];
 
+            $row['categories'] = $this->categoryService->getCategoriesArray($row['cats']);
+
             $response[] = $this->autoMapping->map('array', GetAnimeCommingSoonResponse::class, $row);
 
         }
+
         return $response;
     }
 
@@ -230,19 +244,22 @@ class AnimeService
        $response = [];
 
        $result = $this->animeManager->getAnimeFavourite($userID);
-       
+       //dd($result);
        $result1 = $this->animeManager->getAnimeByFavouriteCategory($userID);
-
+       //dd($result1);
        foreach($result1 as $res)
        {
            $res['animeMainImage'] = $this->specialLinkCheck($res['specialLink']).$res['animeMainImage'];
 
           if (!$this->searchMyArray($result, 'id', $res['id']))
           {
+              $res['categories'] = $this->categoryService->getCategoriesArray($res['cats']);
+
               $response[] = $this->autoMapping->map('array', GetMaybeYouLikeResponse::class, $res);
           }
-        }
-        return $response;
+       }
+       //dd($response);
+       return $response;
     }
 
     public function specialLinkCheck($bool)
@@ -278,6 +295,8 @@ class AnimeService
             $row['baseURL'] = $this->params;
 
             $row['mainImage'] = $this->specialLinkCheck($row['specialLink']).$row['mainImage'];
+
+            $row['categories'] = $this->categoryService->getCategoriesArray($row['cats']);
 
             $response[] = $this->autoMapping->map('array', GetAnimeByIdResponse::class, $row);
         }

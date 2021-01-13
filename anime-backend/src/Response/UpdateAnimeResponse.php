@@ -9,7 +9,7 @@ class UpdateAnimeResponse
     private $id;
     private $name;
     private $mainImage;
-    private $categoryID;
+    private $categories;
     private $description;
     public $episodesCount;
     public $trailerVideo;
@@ -69,17 +69,17 @@ class UpdateAnimeResponse
     /**
      * @return mixed
      */
-    public function getCategoryID()
+    public function getCategories()
     {
-        return $this->categoryID;
+        return $this->categories;
     }
 
     /**
-     * @param mixed $categoryID
+     * @param mixed $categories
      */
-    public function setCategoryID($categoryID): void
+    public function setCategories($categories): void
     {
-        $this->categoryID = $categoryID;
+        $this->categories = $categories;
     }
     
     /**

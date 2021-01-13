@@ -8,7 +8,7 @@ class CreateFavouriteRequest
 {
     private $userID;
     private $animeID;
-    private $categoryID;
+    private $categories;
     private $creationDate;
 
     public function __construct()
@@ -58,17 +58,17 @@ class CreateFavouriteRequest
     /**
      * @return mixed
      */
-    public function getCategoryID()
+    public function getCategories()
     {
-        return $this->categoryID;
+        return $this->categories;
     }
 
     /**
-     * @param mixed $categoryID
+     * @param mixed $categories
      */
-    public function setCategoryID($categoryID): void
+    public function setCategories($categories): void
     {
-        $this->categoryID = $categoryID;
+        $this->categories = $categories;
     }
 
     /**

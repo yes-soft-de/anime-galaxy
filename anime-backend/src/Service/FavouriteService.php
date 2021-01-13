@@ -22,15 +22,16 @@ class FavouriteService
     private $gradeService;
     private $updateGradeRequest;
     private $params;
+    private $categoryService;
 
-    public function __construct(FavouriteManager $favouriteManager, AutoMapping $autoMapping,
+    public function __construct(FavouriteManager $favouriteManager, AutoMapping $autoMapping, CategoryService $categoryService,
                                 GradeService $gradeService, UpdateGradeRequest $updateGradeRequest, ParameterBagInterface $params)
     {
         $this->favouriteManager = $favouriteManager;
         $this->autoMapping = $autoMapping;
         $this->gradeService = $gradeService;
         $this->updateGradeRequest = $updateGradeRequest;
-
+        $this->categoryService = $categoryService;
         $this->params = $params->get('upload_base_url') . '/';
     }
   
@@ -80,6 +81,8 @@ class FavouriteService
         foreach ($result as $row)
         {
             $row['mainImage'] = $this->specialLinkCheck($row['specialLink']).$row['mainImage'];
+
+            $row['categories'] = $this->categoryService->getCategoriesArray($row['cats']);
             
             $response[] = $this->autoMapping->map("array", GetFavouriteResponse::class, $row);
         }
@@ -120,6 +123,8 @@ class FavouriteService
         foreach ($result as $row)
         {
             $row['mainImage'] = $this->specialLinkCheck($row['specialLink']).$row['mainImage'];
+
+            $row['categories'] = $this->categoryService->getCategoriesArray($row['cats']);
             
             $response[] = $this->autoMapping->map("array", GetNotifacationsResponse::class, $row);
         }

@@ -10,6 +10,7 @@ use App\Request\GetByIdRequest;
 use App\Request\UpdateAnimeRequest;
 use App\Request\UpdateAnimeSuggestRequest;
 use App\Service\AnimeService;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -32,6 +33,7 @@ class AnimeController extends BaseController
     }
 
     /**
+     * @IsGranted("ROLE_ADMIN", message="Access denied")
      * @Route("/anime", name="createAnime", methods={"POST"})
      * @param Request $request
      * @return JsonResponse
@@ -40,6 +42,8 @@ class AnimeController extends BaseController
     {
         $data = json_decode($request->getContent(), true);
         $request = $this->autoMapping->map(\stdClass::class, CreateAnimeRequest::class, (object) $data);
+
+//        $request->setCreatedBy($this->getUserId());
 
         $violations = $this->validator->validate($request);
         if (\count($violations) > 0) {
@@ -92,6 +96,7 @@ class AnimeController extends BaseController
     }
 
     /**
+     * @IsGranted("ROLE_ADMIN", message="Access denied")
      * @Route("/anime", name="updateAnime", methods={"PUT"})
      * @param Request $request
      * @return JsonResponse|Response
@@ -100,6 +105,8 @@ class AnimeController extends BaseController
     {
         $data = json_decode($request->getContent(), true);
         $request = $this->autoMapping->map(\stdClass::class, UpdateAnimeRequest::class, (object) $data);
+
+//        $request->setUpdatedBy($this->getUserId());
 
         $violations = $this->validator->validate($request);
         if (\count($violations) > 0) {
@@ -114,6 +121,7 @@ class AnimeController extends BaseController
     }
 
     /**
+     * @IsGranted("ROLE_ADMIN", message="Access denied")
      * @Route("anime/{suggest}", name="updateSuggest", methods={"PUT"})
      * @param Request $request
      * @return JsonResponse
@@ -139,6 +147,7 @@ class AnimeController extends BaseController
     }
 
     /**
+     * @IsGranted("ROLE_ADMIN", message="Access denied")
      * @Route("/anime/{id}", name="deleteAnime", methods={"DELETE"})
      * @param Request $request
      * @return JsonResponse

@@ -15,26 +15,27 @@ class CreateEpisodeRequest
     private $image;
     private $duration;
     private $publishDate;
-    private $createdAt;
-    private $categoyID;
+    //private $createdAt;
+    private $categories;
     private $posterImage;
     private $posterSpecialLink;
+    private $createdBy;
 
     /**
      * CreateArticleRequest constructor.
      */
     public function __construct()
     {
-        $this->createdAt = new DateTime('Now');
+        //$this->createdAt = new DateTime('Now');
     }
 
-    /**
-     * @param DateTime $createdAt
-     */
-    public function setCreatedAt(DateTime $createdAt): void
-    {
-        $this->createdAt = $createdAt;
-    }
+//    /**
+//     * @param DateTime $createdAt
+//     */
+//    public function setCreatedAt(DateTime $createdAt): void
+//    {
+//        $this->createdAt = $createdAt;
+//    }
 
     /**
      * @return mixed
@@ -43,5 +44,14 @@ class CreateEpisodeRequest
     {
         return $this->duration;
     }
+
+    /**
+     * @param mixed $createdBy
+     */
+    public function setCreatedBy($createdBy): void
+    {
+        $this->createdBy = $createdBy;
+    }
+
 
 }

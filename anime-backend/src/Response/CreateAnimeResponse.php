@@ -8,7 +8,7 @@ class CreateAnimeResponse
 {
     public $name;
     public $mainImage;
-    public $categoryID;
+    public $categories;
     public $creationDate;
     public $description;
     public $publishDate;
@@ -53,17 +53,17 @@ class CreateAnimeResponse
     /**
      * @return mixed
      */
-    public function getCategoryID()
+    public function getCategories()
     {
-        return $this->categoryID;
+        return $this->categories;
     }
 
     /**
-     * @param mixed $categoryID
+     * @param mixed $categories
      */
-    public function setCategoryID($categoryID): void
+    public function setCategories($categories): void
     {
-        $this->categoryID = $categoryID;
+        $this->categories = $categories;
     }
 
     /**

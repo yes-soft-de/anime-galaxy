@@ -8,8 +8,8 @@ class GetHighestRatedAnimeResponse
 {
     public $id;
 	public $animeName;
-    public $categoryID;
-    public $categoryName;
+    public $categories = [];
+//    public $categoryName = [];
     public $animeMainImage;
     public $suggest;
     //public $rating;
@@ -30,21 +30,21 @@ class GetHighestRatedAnimeResponse
         $this->id = $id;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getCategoryName()
-    {
-        return $this->categoryName;
-    }
-
-    /**
-     * @param mixed $categoryName
-     */
-    public function setCategoryName($categoryName): void
-    {
-        $this->categoryName = $categoryName;
-    }
+//    /**
+//     * @return mixed
+//     */
+//    public function getCategoryName(): array
+//    {
+//        return $this->categoryName;
+//    }
+//
+//    /**
+//     * @param mixed $categoryName
+//     */
+//    public function setCategoryName($categoryName): void
+//    {
+//        $this->categoryName = $categoryName;
+//    }
 
     /**
      * @return mixed

@@ -28,9 +28,9 @@ class Favourite
     private $animeID;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="json")
      */
-    private $categoryID;
+    private $categories = [];
 
     /**
      * @ORM\Column(type="date", nullable=true)
@@ -66,14 +66,14 @@ class Favourite
         return $this;
     }
 
-    public function getCategoryID(): ?int
+    public function getCategories(): array
     {
-        return $this->categoryID;
+        return $this->categories;
     }
 
-    public function setCategoryID(int $categoryID): self
+    public function setCategories(array $categories): self
     {
-        $this->categoryID = $categoryID;
+        $this->categories = $categories;
 
         return $this;
     }

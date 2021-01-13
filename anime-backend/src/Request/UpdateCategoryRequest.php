@@ -9,6 +9,7 @@ class UpdateCategoryRequest
     private $name;
     private $description;
     private $image;
+    private $updatedBy;
 
     /**
      * @return mixed
@@ -42,7 +43,6 @@ class UpdateCategoryRequest
         $this->name = $name;
     }
 
-
     /**
      * @return mixed
      */
@@ -58,4 +58,13 @@ class UpdateCategoryRequest
     {
         $this->description = $description;
     }
+
+    /**
+     * @param mixed $updatedBy
+     */
+    public function setUpdatedBy($updatedBy): void
+    {
+        $this->updatedBy = $updatedBy;
+    }
+
 }

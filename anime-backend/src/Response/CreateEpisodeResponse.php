@@ -22,7 +22,7 @@ class CreateEpisodeResponse
 
     public $createdAt;
 
-    public $categoyID;
+    public $categories;
 
     public $posterImage;
 

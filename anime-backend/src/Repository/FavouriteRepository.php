@@ -36,7 +36,7 @@ class FavouriteRepository extends ServiceEntityRepository
     public function getAllFavouritesByUserID($id)
     {
         return  $this->createQueryBuilder('Favourite')
-             ->addSelect('Favourite.id','Favourite.creationDate as date','Favourite.categoryID as categoryID','category.name as categoryName','Favourite.animeID',
+             ->addSelect('Favourite.id','Favourite.creationDate as date','Favourite.categories as cats','Favourite.animeID',
                  'Anime.name as AnimeName','Anime.mainImage', 'Anime.specialLink')
              ->leftJoin(
                 Anime::class,
@@ -44,12 +44,12 @@ class FavouriteRepository extends ServiceEntityRepository
                  Join::WITH,
                 'Favourite.animeID = Anime.id'
             )
-             ->leftJoin(
-                Category::class,
-                'category',
-                 Join::WITH,
-                'Favourite.categoryID = category.id'
-            )
+//             ->leftJoin(
+//                Category::class,
+//                'category',
+//                 Join::WITH,
+//                'Favourite.categoryID = category.id'
+//            )
              ->andWhere('Favourite.userID = :id')
              ->setParameter('id', $id)
              ->getQuery()
@@ -59,7 +59,7 @@ class FavouriteRepository extends ServiceEntityRepository
     public function getFollowersFavourites($friendID, $date)
     {
         return $this->createQueryBuilder('Favourite')
-            ->select('Favourite.id as favouriteID','Favourite.userID','Favourite.animeID ','Favourite.categoryID ','Favourite.creationDate as date')
+            ->select('Favourite.id as favouriteID','Favourite.userID','Favourite.animeID ','Favourite.categories','Favourite.creationDate as date')
             ->addSelect('Anime.id as animeID','Anime.name as AnimeName','UserProfile.userName','UserProfile.image as userImage')
 
             ->leftJoin(
@@ -100,7 +100,7 @@ class FavouriteRepository extends ServiceEntityRepository
     {
         
         return  $this->createQueryBuilder('Favourite')
-             ->addSelect('Favourite.id','Favourite.creationDate as date','Favourite.categoryID as categoryID','category.name as categoryName','Favourite.animeID',
+             ->addSelect('Favourite.id','Favourite.creationDate as date','Favourite.categories as cats','Favourite.animeID',
                  'Anime.name as AnimeName','Anime.mainImage', 'Anime.specialLink', 'episode.id as episodeID','episode.publishDate')
              ->leftJoin(
                 Anime::class,
@@ -108,12 +108,12 @@ class FavouriteRepository extends ServiceEntityRepository
                  Join::WITH,
                 'Favourite.animeID = Anime.id'
             )
-             ->leftJoin(
-                Category::class,
-                'category',
-                 Join::WITH,
-                'Favourite.categoryID = category.id'
-            )
+//             ->leftJoin(
+//                Category::class,
+//                'category',
+//                 Join::WITH,
+//                'Favourite.categoryID = category.id'
+//            )
              ->leftJoin(
                 Episode::class,
                 'episode',
@@ -126,5 +126,5 @@ class FavouriteRepository extends ServiceEntityRepository
              ->setParameter('date',$date)
              ->getQuery()
              ->getResult();
-             }
+    }
 }

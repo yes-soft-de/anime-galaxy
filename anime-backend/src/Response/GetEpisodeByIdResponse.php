@@ -17,12 +17,12 @@ class GetEpisodeByIdResponse
     public $comments;
     public $interactions;
     public $rating;
-    public $categoryName;
+    public $categories = [];
     public $animePublishDate;
     public $imageURL;
     public $baseURL;
     public $animeID;
-    public $categoryID;
+//    public $categoryID;
     public $posterImage;
     public $posterImageURL;
 

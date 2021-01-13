@@ -7,7 +7,7 @@ class CreateFavouriteResponse
     public $id;
     public $userID;
     public $animeID;
-    public $categoryID;
+    public $categories = [];
     public $creationDate;
 
      /**
@@ -50,24 +50,22 @@ class CreateFavouriteResponse
         $this->animeID = $animeID;
     }
 
-
-
     /**
-     * Get the value of categoryID
+     * Get the value of categories
      */ 
-    public function getCategoryID()
+    public function getCategories(): array
     {
-        return $this->categoryID;
+        return $this->categories;
     }
 
     /**
-     * Set the value of categoryID
+     * Set the value of categories
      *
      * @return  self
      */ 
-    public function setCategoryID($categoryID)
+    public function setCategories($categories)
     {
-        $this->categoryID = $categoryID;
+        $this->categories = $categories;
 
         return $this;
     }

@@ -58,7 +58,7 @@ class CategoryManager
         $category = $this->categoryRepository->getCategoryById($request->getId());
         if (!$category )
         {
-            return json(['res'=>false]);
+            return $category;
         }
          else
              {
@@ -80,6 +80,11 @@ class CategoryManager
             $this->entityManager->flush();
             return $categoryEntity;
         }
+    }
+
+    public function getCategoriesArray($categories)
+    {
+        return $this->categoryRepository->getCategoriesArray($categories);
     }
 
 }

@@ -10,9 +10,8 @@ class GetHighestRatedAnimeByUserResponse
     public $animeName;
     public $animeMainImage;
     public $rating;    
-    public $categoryName;    
-    public $categoryID;    
-
+//    public $categoryName = [];
+    public $categories = [];
 
     /**
      * @return mixed

@@ -8,10 +8,9 @@ class GetFavouriteResponse
     public $animeID;
     public $mainImage;
     public $AnimeName;
-    public $categoryID;
-    public $categoryName;
+    public $categories = [];
+//    public $categoryName = [];
     public $date;
-   
 
      /**
      * @return mixed

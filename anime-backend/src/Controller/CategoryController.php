@@ -8,6 +8,7 @@ use App\Request\DeleteRequest;
 use App\Request\GetByIdRequest;
 use App\Request\UpdateCategoryRequest;
 use App\Service\CategoryService;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -30,6 +31,7 @@ class CategoryController extends BaseController
     }
 
     /**
+     * @IsGranted("ROLE_ADMIN", message="Access denied")
      * @Route("/category", name="createCategory", methods={"POST"})
      * @param Request $request
      * @return JsonResponse
@@ -38,6 +40,8 @@ class CategoryController extends BaseController
     {
         $data = json_decode($request->getContent(), true);
         $request = $this->autoMapping->map(\stdClass::class, CreateCategoryRequest::class, (object) $data);
+
+//        $request->setCreatedBy($this->getUserId());
 
         $violations = $this->validator->validate($request);
         if (\count($violations) > 0) {
@@ -75,6 +79,7 @@ class CategoryController extends BaseController
     }
 
     /**
+     * @IsGranted("ROLE_ADMIN", message="Access denied")
      * @Route("/category", name="updateCategory", methods={"PUT"})
      * @param Request $request
      * @return JsonResponse|Response
@@ -83,6 +88,8 @@ class CategoryController extends BaseController
     {
         $data = json_decode($request->getContent(), true);
         $request = $this->autoMapping->map(\stdClass::class, UpdateCategoryRequest::class, (object) $data);
+
+//        $request->setUpdatedBy($this->getUserId());
 
         $violations = $this->validator->validate($request);
         if (\count($violations) > 0) {
@@ -97,6 +104,7 @@ class CategoryController extends BaseController
     }
 
     /**
+     * @IsGranted("ROLE_ADMIN", message="Access denied")
      * @Route("/category/{id}", name="deleteCategory", methods={"DELETE"})
      * @param Request $request
      * @return JsonResponse

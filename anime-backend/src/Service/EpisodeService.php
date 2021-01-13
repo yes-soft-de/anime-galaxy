@@ -22,15 +22,16 @@ class EpisodeService
     private $commentService;
     private $interactionService;
     private $params;
+    private $categoryService;
 
     public function __construct(EpisodeManager $episodeManager, AutoMapping $autoMapping, CommentEpisodeService $commentService,
-                                InteractionEpisodeService $interactionService, ParameterBagInterface $params)
+                                InteractionEpisodeService $interactionService, ParameterBagInterface $params, CategoryService $categoryService)
     {
         $this->episodeManager = $episodeManager;
         $this->autoMapping = $autoMapping;
         $this->commentService = $commentService;
         $this->interactionService = $interactionService;
-
+        $this->categoryService = $categoryService;
         $this->params = $params->get('upload_base_url').'/';
     }
 
@@ -69,7 +70,7 @@ class EpisodeService
                 'like' => $this->interactionService->likeAll($row['id']),
                 'dislike' => $this->interactionService->dislikeAll($row['id'])
                 ];
-            
+
             $response[] = $this->autoMapping->map('array', GetEpisodeResponse::class, $row); 
         }
 
@@ -119,6 +120,8 @@ class EpisodeService
             $row['image'] = $this->specialLinkCheck($row['specialLink']).$row['image'];
             $row['posterImage'] = $this->specialLinkCheck($row['specialLink']).$row['posterImage'];
 
+            $row['categories'] = $this->categoryService->getCategoriesArray($row['cats']);
+
             $response = $this->autoMapping->map('array', GetEpisodeByIdResponse::class, $row);
         }
         if($result){
@@ -157,6 +160,8 @@ class EpisodeService
             $row['posterImageURL'] = $row['posterImage'];
 
             $row['posterImage'] = $this->specialLinkCheck($row['posterSpecialLink']).$row['posterImage'];
+
+            $row['categories'] = $this->categoryService->getCategoriesArray($row['cats']);
 
             $response[] = $this->autoMapping->map('array', GetEpisodeCommingSoonResponse::class, $row); 
         }

@@ -30,7 +30,7 @@ class EpisodeManager
     public function create(CreateEpisodeRequest $request)
     {
         $episodeEntity = $this->autoMapping->map(CreateEpisodeRequest::class, Episode::class, $request);
-        $episodeEntity->setCreatedAt();
+//        $episodeEntity->setCreatedAt();
         $episodeEntity->setDuration($request->getDuration());
         $episodeEntity->setPublishDate($episodeEntity->getPublishDate());
 
@@ -53,7 +53,7 @@ class EpisodeManager
             $episodeEntity = $this->autoMapping->mapToObject(UpdateEpisodeRequest::class,
              Episode::class, $request, $episodeEntity);
 
-            $episodeEntity->setCreatedAt();
+//            $episodeEntity->setCreatedAt();
             $episodeEntity->setDuration($request->getDuration());
             $episodeEntity->setPublishDate($episodeEntity->getPublishDate());
 

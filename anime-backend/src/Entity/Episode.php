@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\EpisodeRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity(repositoryClass=EpisodeRepository::class)
@@ -53,7 +54,8 @@ class Episode
     private $publishDate;
 
     /**
-     * @ORM\Column(type="date")
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime")
      */
     private $createdAt;
 
@@ -63,9 +65,9 @@ class Episode
     private $specialLink;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="json")
      */
-    private $categoyID;
+    private $categories = [];
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -76,6 +78,22 @@ class Episode
      * @ORM\Column(type="boolean", nullable=true)
      */
     private $posterSpecialLink;
+
+    /**
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(type="datetime")
+     */
+    private $updatedAt;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $createdBy;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $updatedBy;
 
     public function getId(): ?int
     {
@@ -190,14 +208,14 @@ class Episode
         return $this;
     }
 
-    public function getCategoyID(): ?string
+    public function getCategories(): array
     {
-        return $this->categoyID;
+        return array_unique($this->categories);
     }
 
-    public function setCategoyID(string $categoyID): self
+    public function setCategories(array $categories): self
     {
-        $this->categoyID = $categoyID;
+        $this->categories = $categories;
 
         return $this;
     }
@@ -222,6 +240,42 @@ class Episode
     public function setPosterSpecialLink(?bool $posterSpecialLink): self
     {
         $this->posterSpecialLink = $posterSpecialLink;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getCreatedBy(): ?string
+    {
+        return $this->createdBy;
+    }
+
+    public function setCreatedBy(string $createdBy): self
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    public function getUpdatedBy(): ?string
+    {
+        return $this->updatedBy;
+    }
+
+    public function setUpdatedBy(string $updatedBy): self
+    {
+        $this->updatedBy = $updatedBy;
 
         return $this;
     }

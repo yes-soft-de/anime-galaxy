@@ -14,9 +14,10 @@ class UpdateEpisodeRequest
     private $image;
     private $duration;
     private $publishDate;
-    private $categoyID;
+    private $categories;
     private $posterImage;
     private $posterSpecialLink;
+    private $updatedBy;
 
     /**
      * @return mixed
@@ -144,6 +145,14 @@ class UpdateEpisodeRequest
     public function setPublishDate($publishDate): void
     {
         $this->publishDate = $publishDate;
+    }
+
+    /**
+     * @param mixed $updatedBy
+     */
+    public function setUpdatedBy($updatedBy): void
+    {
+        $this->updatedBy = $updatedBy;
     }
 
 }

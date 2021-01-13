@@ -10,8 +10,7 @@ class GetAnimeByIdResponse
     public $name;
     public $mainImage;
     public $images;
-    public $categoryName;
-    public $categoryID;
+    public $categories = [];
     public $interactions;
     public $comments;
     public $rating;
@@ -25,6 +24,10 @@ class GetAnimeByIdResponse
     public $ageGroup;
     public $posterImage;
     public $posterImageURL;
+    public $createdAt;
+    public $updatedAt;
+    public $updatedBy;
+    public $createdBy;
 
     /**
      * @return mixed
@@ -90,21 +93,21 @@ class GetAnimeByIdResponse
         $this->images = $images;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getCategoryName()
-    {
-        return $this->categoryName;
-    }
-
-    /**
-     * @param mixed $categoryName
-     */
-    public function setCategoryName($categoryName): void
-    {
-        $this->categoryName = $categoryName;
-    }
+//    /**
+//     * @return mixed
+//     */
+//    public function getCategoryName(): array
+//    {
+//        return $this->categoryName;
+//    }
+//
+//    /**
+//     * @param mixed $categoryName
+//     */
+//    public function setCategoryName($categoryName): void
+//    {
+//        $this->categoryName = $categoryName;
+//    }
 
     /**
      * @return mixed

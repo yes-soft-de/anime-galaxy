@@ -12,6 +12,10 @@ class GetCategoryResponse
     public $image;
     public $imageURL;
     public $baseURL;
+    public $createdAt;
+    public $updatedAt;
+    public $updatedBy;
+    public $createdBy;
 
     /**
      * @return mixed

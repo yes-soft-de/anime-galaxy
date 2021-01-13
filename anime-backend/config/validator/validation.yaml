@@ -28,7 +28,7 @@ App\Request\CreateAnimeRequest:
   properties:
     name:
       - NotBlank: ~
-    categoryID:
+    categories:
       - NotBlank: ~
     mainImage:
       - NotBlank: ~
@@ -45,8 +45,6 @@ App\Request\CreateAnimeRequest:
 App\Request\CreateCategoryRequest:
   properties:
     name:
-      - NotBlank: ~
-    description:
       - NotBlank: ~
     image:
       - NotBlank: ~
@@ -97,7 +95,7 @@ App\Request\CreateFavouriteRequest:
       - NotBlank: ~
     userID:
       - NotBlank: ~
-    categoryID:
+    categories:
       - NotBlank: ~
     
 App\Request\CreateFollowRequest:
@@ -164,7 +162,7 @@ App\Request\UpdateAnimeRequest:
   properties:
     name:
       - NotBlank: ~
-    categoryID:
+    categories:
       - NotBlank: ~
     mainImage:
       - NotBlank: ~
@@ -181,8 +179,6 @@ App\Request\UpdateAnimeSuggestRequest:
 App\Request\UpdateCategoryRequest:
   properties:
     name:
-      - NotBlank: ~
-    description:
       - NotBlank: ~
 
 App\Request\UpdateCommentRequest:

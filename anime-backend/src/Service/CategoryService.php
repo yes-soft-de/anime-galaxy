@@ -87,4 +87,9 @@ class CategoryService
 
         return $response;
     }
+
+    public function getCategoriesArray($categories)
+    {
+        return $this->categoryManager->getCategoriesArray($categories);
+    }
 }

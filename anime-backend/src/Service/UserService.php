@@ -17,7 +17,7 @@ use App\Response\UserRegisterResponse;
 use phpDocumentor\Reflection\Types\Array_;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
-class UserService
+class UserService implements UserServiceInterface
 {
     private $autoMapping;
     private $userManager;

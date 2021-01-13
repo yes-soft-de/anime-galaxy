@@ -10,7 +10,7 @@ class CreateAnimeRequest
 {
     private $name;
     private $mainImage;
-    private $categoryID;
+    private $categories;
     private $creationDate;
     private $description;
     public  $publishDate;
@@ -20,6 +20,7 @@ class CreateAnimeRequest
     private $ageGroup;
     private $posterImage;
     private $posterSpecialLink;
+    private $createdBy;
 
     public function __construct()
     {
@@ -88,4 +89,13 @@ class CreateAnimeRequest
     {
         $this->description = $description;
     }
+
+    /**
+     * @param mixed $createdBy
+     */
+    public function setCreatedBy($createdBy): void
+    {
+        $this->createdBy = $createdBy;
+    }
+
 }

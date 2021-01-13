@@ -8,6 +8,7 @@ use App\Request\DeleteRequest;
 use App\Request\GetByIdRequest;
 use App\Request\UpdateEpisodeRequest;
 use App\Service\EpisodeService;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -29,6 +30,7 @@ class EpisodeController extends BaseController
     }
 
     /**
+     * @IsGranted("ROLE_ADMIN", message="Access denied")
      * @Route("/episode", name="createEpisode", methods={"POST"})
      * @param Request $request
      * @return JsonResponse
@@ -38,6 +40,8 @@ class EpisodeController extends BaseController
         $data = json_decode($request->getContent(), true);
 
         $request = $this->autoMapping->map(\stdClass::class, CreateEpisodeRequest::class, (object) $data);
+
+//        $request->setCreatedBy($this->getUserId());
 
         $violations = $this->validator->validate($request);
         if (\count($violations) > 0) {
@@ -52,6 +56,7 @@ class EpisodeController extends BaseController
     }
 
     /**
+     * @IsGranted("ROLE_ADMIN", message="Access denied")
      * @Route("/episode", name="updateEpisode", methods={"PUT"})
      * @param Request $request
      * @return JsonResponse
@@ -60,6 +65,8 @@ class EpisodeController extends BaseController
     {
         $data = json_decode($request->getContent(), true);
         $request = $this->autoMapping->map(\stdClass::class, UpdateEpisodeRequest::class, (object) $data);
+
+//        $request->setUpdatedBy($this->getUserId());
 
         $violations = $this->validator->validate($request);
         if (\count($violations) > 0) {
@@ -113,6 +120,7 @@ class EpisodeController extends BaseController
     }
 
     /**
+     * @IsGranted("ROLE_ADMIN", message="Access denied")
      * @Route("/episode/{id}", name="deleteEpisode", methods={"DELETE"})
      * @param Request $request
      * @return JsonResponse

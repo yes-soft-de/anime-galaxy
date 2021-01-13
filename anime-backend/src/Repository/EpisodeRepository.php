@@ -29,7 +29,8 @@ class EpisodeRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('episode')
             ->select('episode.id', 'episode.image', 'episode.seasonNumber', 'episode.episodeNumber', 'episode.description',
-                'episode.duration', 'episode.publishDate', 'episode.createdAt', 'anime.name as animeName', 'count(DISTINCT comment.id) as comments', 'avg(rate.rateValue) as rating', 'episode.specialLink')
+                'episode.duration', 'episode.publishDate', 'anime.name as animeName', 'count(DISTINCT comment.id) as comments',
+                'avg(rate.rateValue) as rating', 'episode.specialLink', 'episode.createdAt', 'episode.updatedAt', 'episode.createdBy', 'episode.updatedBy')
             ->leftJoin(
                 Anime::class,
                 'anime',
@@ -59,8 +60,8 @@ class EpisodeRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('episode')
         ->select('episode.id', 'episode.image', 'episode.seasonNumber', 'episode.episodeNumber', 'episode.description',
-            'episode.duration', 'episode.publishDate', 'episode.createdAt', 'anime.name as animeName', 'count(DISTINCT comment.id) as comments',
-            'avg(rate.rateValue) as rating', 'episode.specialLink')
+            'episode.duration', 'episode.publishDate', 'anime.name as animeName', 'count(DISTINCT comment.id) as comments',
+            'avg(rate.rateValue) as rating', 'episode.specialLink', 'episode.createdAt', 'episode.updatedAt', 'episode.createdBy', 'episode.updatedBy')
         ->leftJoin(
             Anime::class,
             'anime',
@@ -93,8 +94,8 @@ class EpisodeRepository extends ServiceEntityRepository
     {
        return $this->createQueryBuilder('episode')
         ->select('episode.id','episode.seasonNumber', 'episode.episodeNumber', 'episode.description', 'episode.image', 'episode.posterImage',
-            'episode.duration', 'episode.publishDate', 'episode.createdAt', 'anime.name as animeName', 'episode.specialLink','anime.publishDate as animePublishDate','category.name as categoryName',
-        'avg(rate.rateValue) as rating', 'anime.id as animeID', 'category.id as categoryID')
+            'episode.duration', 'episode.publishDate', 'episode.createdAt', 'anime.name as animeName', 'episode.specialLink','anime.publishDate as animePublishDate',
+            'episode.categories as cats', 'avg(rate.rateValue) as rating', 'anime.id as animeID')
     
         ->leftJoin(
             Anime::class,
@@ -102,12 +103,12 @@ class EpisodeRepository extends ServiceEntityRepository
             Join::WITH,
             'anime.id = episode.animeID'
         )
-        ->leftJoin(
-            Category::class,
-            'category',
-            Join::WITH,
-            'category.id = episode.categoyID'
-        )
+//        ->leftJoin(
+//            Category::class,
+//            'category',
+//            Join::WITH,
+//            'category.id = episode.categoyID'
+//        )
         ->leftJoin(
             RatingEpisode::class,            
             'rate',                   
@@ -131,19 +132,19 @@ class EpisodeRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('episode')
             ->select('episode.id', 'episode.description', 'episode.episodeNumber', 'episode.image', 'episode.duration',
                 'episode.publishDate', 'episode.createdAt', 'episode.seasonNumber', 'anime.name as animeName',
-                'episode.specialLink','category.name as categoryName', 'episode.posterImage', 'episode.posterSpecialLink')
+                'episode.specialLink','episode.categories as cats', 'episode.posterImage', 'episode.posterSpecialLink')
             ->leftJoin(
                 Anime::class,
                 'anime',
                 Join::WITH,
                 'anime.id = episode.animeID'
             )
-            ->leftJoin(
-                Category::class,
-                'category',
-                Join::WITH,
-                'category.id = episode.categoyID'
-            )
+//            ->leftJoin(
+//                Category::class,
+//                'category',
+//                Join::WITH,
+//                'category.id = episode.categoyID'
+//            )
             ->andWhere( 'episode.publishDate > :date')
             ->setParameter('date',$date)
             ->groupBy('episode.id')

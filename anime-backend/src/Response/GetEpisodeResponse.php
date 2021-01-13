@@ -21,8 +21,6 @@ class GetEpisodeResponse
     public $duration;
 
     public $publishDate;
-
-    public $createdAt;
     
     public $episodInteraction;
 
@@ -33,5 +31,13 @@ class GetEpisodeResponse
     public $imageURL;
 
     public $baseURL;
+
+    public $createdAt;
+
+    public $updatedAt;
+
+    public $updatedBy;
+
+    public $createdBy;
 
 }

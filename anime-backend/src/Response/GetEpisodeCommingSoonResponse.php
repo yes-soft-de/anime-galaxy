@@ -24,7 +24,7 @@ class GetEpisodeCommingSoonResponse
 
     public $createdAt;
     
-    public $categoryName;
+    public $categories;
 
     public $posterImage;
 

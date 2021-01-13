@@ -7,6 +7,7 @@ class CreateCategoryRequest
     public $name;
     public $description;
     public $image;
+    private $createdBy;
 
     /**
      * @return mixed
@@ -39,4 +40,13 @@ class CreateCategoryRequest
     {
         $this->description = $description;
     }
+
+    /**
+     * @param mixed $createdBy
+     */
+    public function setCreatedBy($createdBy): void
+    {
+        $this->createdBy = $createdBy;
+    }
+
 }

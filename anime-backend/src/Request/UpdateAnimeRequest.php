@@ -9,7 +9,7 @@ class UpdateAnimeRequest
     private $id;
     private $name;
     private $mainImage;
-    private $categoryID;
+    private $categories;
     private $description;
     private $episodesCount;
     private $trailerVideo;
@@ -18,6 +18,7 @@ class UpdateAnimeRequest
     private $posterImage;
     private $posterSpecialLink;
     private $publishDate;
+    private $updatedBy;
 
     /**
      * @return mixed
@@ -102,17 +103,17 @@ class UpdateAnimeRequest
     /**
      * @return mixed
      */
-    public function getCategoryID()
+    public function getCategories()
     {
-        return $this->categoryID;
+        return $this->categories;
     }
 
     /**
-     * @param mixed $categoryID
+     * @param mixed $categories
      */
-    public function setCategoryID($categoryID): void
+    public function setCategories($categories): void
     {
-        $this->categoryID = $categoryID;
+        $this->categories = $categories;
     }
 
     /**
@@ -145,6 +146,14 @@ class UpdateAnimeRequest
     public function setPublishDate($publishDate): void
     {
         $this->publishDate = $publishDate;
+    }
+
+    /**
+     * @param mixed $updatedBy
+     */
+    public function setUpdatedBy($updatedBy): void
+    {
+        $this->updatedBy = $updatedBy;
     }
 
 }

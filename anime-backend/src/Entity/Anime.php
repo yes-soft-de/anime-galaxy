@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\AnimeRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @ORM\Entity(repositoryClass=AnimeRepository::class)
@@ -28,9 +30,9 @@ class Anime
     private $mainImage;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="json")
      */
-    private $categoryID;
+    private $categories = [];
 
     /**
      * @ORM\Column(type="date", nullable=true)
@@ -87,6 +89,28 @@ class Anime
      */
     private $posterSpecialLink;
 
+    /**
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime")
+     */
+    private $createdAt;
+
+    /**
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(type="datetime")
+     */
+    private $updatedAt;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $updatedBy;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $createdBy;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -116,14 +140,14 @@ class Anime
         return $this;
     }
 
-    public function getCategoryID(): ?int
+    public function getCategories(): array
     {
-        return $this->categoryID;
+        return array_unique($this->categories);
     }
 
-    public function setCategoryID(int $categoryID): self
+    public function setCategories(array $categories): self
     {
-        $this->categoryID = $categoryID;
+        $this->categories = $categories;
 
         return $this;
     }
@@ -256,6 +280,54 @@ class Anime
     public function setPosterSpecialLink(?bool $posterSpecialLink): self
     {
         $this->posterSpecialLink = $posterSpecialLink;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getUpdatedBy(): ?string
+    {
+        return $this->updatedBy;
+    }
+
+    public function setUpdatedBy(string $updatedBy): self
+    {
+        $this->updatedBy = $updatedBy;
+
+        return $this;
+    }
+
+    public function getCreatedBy(): ?string
+    {
+        return $this->createdBy;
+    }
+
+    public function setCreatedBy(string $createdBy): self
+    {
+        $this->createdBy = $createdBy;
 
         return $this;
     }
