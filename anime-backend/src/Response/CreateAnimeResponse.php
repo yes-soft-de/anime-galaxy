@@ -9,7 +9,7 @@ class CreateAnimeResponse
     public $name;
     public $mainImage;
     public $categories;
-    public $creationDate;
+//    public $creationDate;
     public $description;
     public $publishDate;
     public $episodesCount;
