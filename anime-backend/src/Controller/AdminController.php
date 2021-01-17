@@ -68,4 +68,15 @@ class AdminController extends BaseController
 
         return $this->response($result, self::DELETE);
     }
+
+    /**
+     * @IsGranted("ROLE_SUPER_ADMIN", message="Access denied")
+     * @Route("getadministrators", name="getAllAdministrators", methods={"GET"})
+     */
+    public function getAllAdministrators()
+    {
+        $response = $this->adminService->getAllAdministrators();
+
+        return $this->response($response,self::FETCH);
+    }
 }

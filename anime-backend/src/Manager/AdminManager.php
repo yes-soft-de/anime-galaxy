@@ -93,4 +93,9 @@ class AdminManager
 
         return $adminData;
     }
+
+    public function getAllAdministrators()
+    {
+        return $this->userRepository->getAllAdministrators();
+    }
 }

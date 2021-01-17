@@ -3,7 +3,10 @@
 namespace App\Repository;
 
 use App\Entity\User;
+use App\Entity\UserProfile;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\DBAL\ParameterType;
+use Doctrine\ORM\Query\Expr\Join;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
@@ -44,5 +47,28 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
             ->getQuery()
             ->getOneOrNullResult()
             ;
+    }
+
+
+
+    public function getAllAdministrators()
+    {
+        $adminRole = "ROLE_ADMIN";
+
+        return $this->createQueryBuilder('user')
+            ->select('user.id', 'user.createdAt', 'user.roles', 'user.userID', 'profile.userName', 'profile.location',
+                'profile.image', 'profile.story', 'profile.cover', 'profile.coverSpecialLink')
+
+            ->leftJoin(
+                UserProfile::class,
+                'profile',
+                Join::WITH,
+                'profile.userID = user.userID'
+            )
+            ->andWhere('user.roles LIKE :roles')
+            ->setParameter('roles', '%"'.$adminRole.'"%')
+
+            ->getQuery()
+            ->getResult();
     }
 }

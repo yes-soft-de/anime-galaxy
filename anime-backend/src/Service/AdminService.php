@@ -8,6 +8,7 @@ use App\Entity\User;
 use App\Manager\AdminManager;
 use App\Request\AdminCreateRequest;
 use App\Response\AdminResponse;
+use App\Response\AllAdminResponse;
 
 class AdminService
 {
@@ -32,5 +33,18 @@ class AdminService
         $adminResult = $this->adminManager->deleteAdmin($userID);
 
         return $this->autoMapping->map(User::class, AdminResponse::class, $adminResult);
+    }
+
+    public function getAllAdministrators()
+    {
+        $response = [];
+        $result = $this->adminManager->getAllAdministrators();
+        //dd($result);
+        foreach ($result as $row)
+        {
+            $response[] = $this->autoMapping->map('array', AllAdminResponse::class, $row);
+        }
+
+        return $response;
     }
 }
