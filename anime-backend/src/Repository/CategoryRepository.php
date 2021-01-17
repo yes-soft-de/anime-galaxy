@@ -37,18 +37,11 @@ class CategoryRepository extends ServiceEntityRepository
 
     public function getCategoriesArray($categories)
     {
-        $categoriesNames = [];
-
-        if (is_array($categories))
-        {
-            return $this->createQueryBuilder('category')
+        return $this->createQueryBuilder('category')
                     ->select('category.id', 'category.name')
                     ->andWhere('category.id IN (:ids)')
                     ->setParameter('ids', $categories)
                     ->getQuery()
                     ->getArrayResult();
-        }
-
-        return $categoriesNames;
     }
 }

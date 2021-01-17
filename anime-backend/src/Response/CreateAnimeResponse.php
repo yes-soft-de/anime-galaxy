@@ -66,21 +66,21 @@ class CreateAnimeResponse
         $this->categories = $categories;
     }
 
-    /**
-     * @return mixed
-     */ 
-    public function getCreationDate()
-    {
-        return $this->creationDate;
-    }
-
-    /**
-     * @param mixed $creationDate
-     */ 
-    public function setCreationDate($creationDate): void
-    {
-        $this->creationDate = $creationDate;
-    }
+//    /**
+//     * @return mixed
+//     */
+//    public function getCreationDate()
+//    {
+//        return $this->creationDate;
+//    }
+//
+//    /**
+//     * @param mixed $creationDate
+//     */
+//    public function setCreationDate($creationDate): void
+//    {
+//        $this->creationDate = $creationDate;
+//    }
 
     /**
      * @return mixed
