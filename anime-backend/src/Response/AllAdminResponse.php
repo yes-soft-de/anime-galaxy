@@ -19,4 +19,10 @@ class AllAdminResponse
     public $story;
 
     public $cover;
+
+    public $imageURL;
+
+    public $coverURL;
+
+    public $baseURL;
 }
