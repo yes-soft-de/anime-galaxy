@@ -3,6 +3,10 @@
 namespace App\Controller;
 
 use App\AutoMapping;
+use App\Entity\ResetPasswordRequest;
+use App\Entity\User;
+use App\Request\CreateAskResetPasswordRequest;
+use App\Request\UpdatePasswordRequest;
 use App\Request\UserProfileCreateRequest;
 use App\Request\UserProfileUpdateRequest;
 use App\Request\UserRegisterRequest;
@@ -11,7 +15,11 @@ use stdClass;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Csrf\TokenGenerator\TokenGeneratorInterface;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
@@ -123,5 +131,40 @@ class UserController extends BaseController
         $response = $this->userService->deleteAllProfiles();
 
         return $this->json('Number of profiles deleted: ' . $response);
+    }
+
+    /**
+     * @Route("/askresetpassword", name="app_forgotten_password", methods={"POST"})
+     * @param Request $request
+     * @param MailerInterface $mailer
+     * @return JsonResponse
+     */
+    public function askResetPassword(Request $request, MailerInterface $mailer)
+    {
+        $data = json_decode($request->getContent(), true);
+
+        $request = $this->autoMapping->map(stdClass::class,CreateAskResetPasswordRequest::class, (object)$data);
+
+        $response = $this->userService->askResetPassword($request, $mailer);
+
+        return $this->response($response, self::CREATE);
+
+    }
+
+    /**
+     * @Route("/reset-password", name="app_reset_password", methods={"POST"})
+     * @param Request $request
+     * @param UserPasswordEncoderInterface $passwordEncoder
+     */
+    public function resetPassword(Request $request, UserPasswordEncoderInterface $passwordEncoder)
+    {
+        $data = json_decode($request->getContent(), true);
+
+        $request = $this->autoMapping->map(stdClass::class,UpdatePasswordRequest::class, (object)$data);
+
+        $response = $this->userService->resetPassword($request, $passwordEncoder);
+
+        return $this->response($response, self::UPDATE);
+
     }
 }

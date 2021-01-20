@@ -13,6 +13,8 @@ use App\Request\UserProfileCreateRequest;
 use App\Request\UserProfileUpdateRequest;
 use App\Request\UserRegisterRequest;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserManager
@@ -22,15 +24,17 @@ class UserManager
     private $encoder;
     private $userRepository;
     private $userProfileRepository;
+    private $resetPasswordManager;
 
-    public function __construct(AutoMapping $autoMapping, EntityManagerInterface $entityManager,
-                                UserPasswordEncoderInterface $encoder, UserRepository $userRepository, UserProfileRepository $userProfileRepository )
+    public function __construct(AutoMapping $autoMapping, EntityManagerInterface $entityManager, UserPasswordEncoderInterface $encoder,
+                                UserRepository $userRepository, UserProfileRepository $userProfileRepository, ResetPasswordRequestManager $resetPasswordRequestManager)
     {
         $this->autoMapping = $autoMapping;
         $this->entityManager = $entityManager;
         $this->encoder = $encoder;
         $this->userRepository = $userRepository;
         $this->userProfileRepository = $userProfileRepository;
+        $this->resetPasswordManager = $resetPasswordRequestManager;
     }
 
     public function userRegister(UserRegisterRequest $request)
@@ -112,4 +116,52 @@ class UserManager
 
         return $res;
     }
+
+    public function askResetPassword($request, $mailer)
+    {
+        $user = $this->userRepository->getUserByEmail($request->getEmail());
+
+        if($user != null)
+        {
+            $code = "1111";
+
+            $request->setCode($code);
+            $request->setExpiresAt(new \DateTime('Now'));
+
+            $this->resetPasswordManager->create($request);
+
+            $message = (new Email())
+                ->from('auto-reply@animegalaxy.com')
+                ->to($user->getEmail())
+                ->subject("Reset Password Code")
+                ->text($code)
+            ;
+
+            $mailer->send($message);
+
+            return "Your request was being registered. And an email was being sent to you";
+        }
+    }
+
+    public function resetPassword($request, $encoder)
+    {
+        $result = $this->resetPasswordManager->checkResetRequest($request->getEmail(), $request->getcode());
+
+        if($result != null)
+        {
+            $user = $this->userRepository->getUserByEmail($request->getEmail());
+
+            if($user != null)
+            {
+                $user->setPassword($encoder->encodePassword($user, $request->getPassword()));
+
+                $this->entityManager->flush();
+
+                return "password was being re-set";
+            }
+        }
+
+        return $result;
+    }
+
 }

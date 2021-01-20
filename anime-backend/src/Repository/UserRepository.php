@@ -49,8 +49,6 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
             ;
     }
 
-
-
     public function getAllAdministrators()
     {
         $adminRole = "ROLE_ADMIN";
@@ -70,5 +68,15 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 
             ->getQuery()
             ->getResult();
+    }
+
+    public function getUserByEmail($email)
+    {
+        return $this->createQueryBuilder('user')
+            ->andWhere('user.email = :email')
+            ->setParameter('email', $email)
+            ->getQuery()
+            ->getOneOrNullResult()
+            ;
     }
 }
