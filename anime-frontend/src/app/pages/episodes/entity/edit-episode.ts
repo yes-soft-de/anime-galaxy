@@ -3,8 +3,9 @@ export interface EditEpisode {
     animeName: string;
     animePublishDate: { timestamp: number };
     baseURL: string;
-    categoryName: string;
-    categoryID: number;
+    categoryName?: string;
+    categoryID?: number;
+    categories?: { id: number; name: string;}[];
     comments: Array<any>;
     createdAt: { timestamp: number };
     description: string;

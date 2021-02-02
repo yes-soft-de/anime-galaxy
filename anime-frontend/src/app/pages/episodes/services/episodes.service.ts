@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { TokenService } from '../../admin-service/token/token.service';
 import { AdminConfig } from '../../AdminConfig';
 import { CreateEpisode } from '../entity/create-episode';
 import { CreateEpisodeResponse } from '../entity/create-episode-response';
@@ -13,7 +14,8 @@ import { EpisodeComingSoon } from '../entity/episode-coming-soone';
 })
 export class EpisodesService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient,
+              private tokenService: TokenService) { }
 
   // Handling the error
   private static errorHandler(error: HttpErrorResponse) {
@@ -48,21 +50,24 @@ export class EpisodesService {
 
   createEpisode(episode: CreateEpisode): Observable<CreateEpisodeResponse> {
     return this.httpClient.post<CreateEpisodeResponse>(
-      AdminConfig.episodeAPI, JSON.stringify(episode)
+      AdminConfig.episodeAPI, JSON.stringify(episode),
+      this.tokenService.httpOptions()
       ).pipe(catchError(EpisodesService.errorHandler));
   }
 
 
   updateEpisode(episode: CreateEpisode): Observable<CreateEpisodeResponse> {
     return this.httpClient.put<CreateEpisodeResponse>(
-      AdminConfig.episodeAPI, JSON.stringify(episode)
+      AdminConfig.episodeAPI, JSON.stringify(episode),
+      this.tokenService.httpOptions()
       ).pipe(catchError(EpisodesService.errorHandler));
   }
 
 
   deleteEpisode(episodeID: number): Observable<any> {
     return this.httpClient.delete<any>(
-      `${AdminConfig.episodeAPI}/${episodeID}`
+      `${AdminConfig.episodeAPI}/${episodeID}`,
+      this.tokenService.httpOptions()
     ).pipe(catchError(EpisodesService.errorHandler));
   }
 

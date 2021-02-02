@@ -7,6 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 import { ImageSnippet } from '../../entity/image-snippet';
 import { ListCategoryResponse } from '../../entity/list-category-response';
 import { CategoryResponse } from '../../entity/category-response';
+import { TokenService } from 'src/app/pages/admin-service/token/token.service';
 
 @Component({
   selector: 'app-edit-category',
@@ -27,6 +28,7 @@ export class EditCategoryComponent implements OnInit {
   selectedFile: ImageSnippet;
 
   constructor(private categoryService: CategoryService,
+              private tokenService: TokenService,
               private toaster: ToastrService,
               private formBuilder: FormBuilder,
               private router: Router,
@@ -47,7 +49,7 @@ export class EditCategoryComponent implements OnInit {
 
     // Fetch Form Data
     this.uploadForm = this.formBuilder.group({
-      name: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(45)]],
+      name: ['', [Validators.required, Validators.minLength(2)]],
       description: ['', [Validators.required, Validators.minLength(2)]],
       image: [''],
     });
@@ -107,6 +109,7 @@ export class EditCategoryComponent implements OnInit {
       // Fetch All Form Data On Json Type
       const formObj = this.uploadForm.getRawValue();
       formObj.id = this.categoryId;
+      formObj.updatedBy = this.tokenService.userName;
       if (this.imageUrl) {
         formObj.image = this.imageUrl;
       } else {
@@ -115,7 +118,7 @@ export class EditCategoryComponent implements OnInit {
       this.categoryService.updateCategory(formObj).subscribe(
         data => {
           console.log('The post request was successfully done', data);
-          this.toaster.success('Category Uploaded Successfully');
+          this.toaster.success('Category Updated Successfully');
         },
         error => {
           this.toaster.error('Error : Please Try Again');

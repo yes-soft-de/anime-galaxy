@@ -13,6 +13,9 @@ import { ImageSnippet } from '../../entity/image-snippet';
 import { AnimeService } from '../../services/anime.service';
 import { DatePipe } from '@angular/common';
 import { HelperService } from 'src/app/@theme/helper/helper.service';
+import { Select2OptionData } from 'ng-select2';
+import { Options } from 'select2';
+import { TokenService } from 'src/app/pages/admin-service/token/token.service';
 
 @Component({
   selector: 'app-edit-anime',
@@ -24,8 +27,9 @@ export class EditAnimeComponent implements OnInit {
   mergeResult: {
     categories: ListCategoryResponse,
     anime: AnimeResponse
-  }
+  };
   animeData: Anime;
+  selectedCategoriesArray: any[] = [];
   // allCategories: ListCategory[];
   generalRating = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten'];
   animeID: number;
@@ -44,8 +48,13 @@ export class EditAnimeComponent implements OnInit {
   mainImagePathReady = true;
   submitButtonValue = 'Update Anime';
   selectedFile: ImageSnippet;
+  public selectData: Array<{ id: string; text: string; }> = [];
+  public options: Options;
+  public value: string[] = [];
+
 
   constructor(private animeService: AnimeService,
+              private tokenService: TokenService,
               private categoryService: CategoryService,
               private formBuilder: FormBuilder,
               private toaster: ToastrService,
@@ -54,7 +63,7 @@ export class EditAnimeComponent implements OnInit {
               private activatedRoute: ActivatedRoute) {
   }
 
-  ngOnInit() {
+  ngOnInit() { 
     // get Anime Id
     this.animeID = parseInt(this.activatedRoute.snapshot.paramMap.get('id'));
 
@@ -76,6 +85,14 @@ export class EditAnimeComponent implements OnInit {
       console.log('data', data);
       this.mergeResult = data;
       this.animeData = this.mergeResult.anime.Data;
+      this.mergeResult.categories.Data.map(e => {
+        // id : must be as string
+        this.selectData.push({id: `${e.id}`, text: e.name});
+      });    
+      this.mergeResult.anime.Data.categories.map(e => {
+         // id : must be as string
+        this.value.push(`${e.id}`);
+      });
       this.updateFormValues();
     });
 
@@ -89,11 +106,19 @@ export class EditAnimeComponent implements OnInit {
       trailerVideo: ['', [Validators.required, Validators.minLength(2)]],
       episodesCount: ['', Validators.required],
       publishDate: ['', Validators.required],
-      categoryID: ['', Validators.required],
+      categories: [''],
       ageGroup: ['', Validators.required],
-      generalRating: ['', Validators.required],
+      generalRating: ['', [Validators.required, Validators.min(0), Validators.max(10)]],
       // suggest: ['', Validators.required]
     });
+
+    // Options For Select 2
+    this.options = {
+      width: '100%',
+      placeholder: 'Type Animes Categories',
+      multiple: true,
+      tags: true
+    };
   }
 
   updateFormValues() {
@@ -105,25 +130,26 @@ export class EditAnimeComponent implements OnInit {
       trailerVideo: this.animeData.trailerVideo,
       episodesCount: this.animeData.episodesCount,
       publishDate: this.datePipe.transform(new Date(this.animeData.publishDate.timestamp * 1000), 'yyyy-MM-dd'),
-      categoryID: this.animeData.categoryID,  // we must use the id not the name to make relate with select html tag
+      categories: this.animeData.categories,  // we must use the id not the name to make relate with select html tag
       ageGroup: this.animeData.ageGroup,
       generalRating: this.animeData.generalRating,
     });
   }
 
+
   // Choose Category Using Select Dropdown
-  changeCategory(event) {
-    this.uploadForm.get('categoryID').setValue(event.target.value, {
-      onlySelf : true
-    });
-  }
+  // changeCategory(event) {
+  //   this.uploadForm.get('categories').setValue(event.target.value, {
+  //     onlySelf : true
+  //   });
+  // }
 
     // Choose General Rating Using Select Dropdown
-    changeGeneralRating(event) {
-      this.uploadForm.get('generalRating').setValue(event.target.value, {
-        onlySelf : true
-      });
-    }
+    // changeGeneralRating(event) {
+    //   this.uploadForm.get('generalRating').setValue(event.target.value, {
+    //     onlySelf : true
+    //   });
+    // }
   
   // changeSuggest(event) {
   //   this.uploadForm.get('suggest').setValue(event.target.value, {
@@ -206,11 +232,19 @@ export class EditAnimeComponent implements OnInit {
     this.isSubmitted = true;
     if (!this.uploadForm.valid) {
       this.toaster.error('Error : Form Not Valid');
+      this.isSubmitted = false;
       return false;
     } else {
       // Fetch All Form Data On Json Type
       const formObject = this.uploadForm.getRawValue();
       formObject.id = this.animeID;
+      formObject.updatedBy = this.tokenService.userName;
+      formObject.categories = this.value;
+      if (this.value.length == 0) {
+        this.toaster.error('Error : Category Not Selected, Please Select One');
+        this.isSubmitted = false;
+        return false;
+      }
       if (this.imageUrl) {
         formObject.mainImage = this.imageUrl;
       } else {
@@ -221,6 +255,7 @@ export class EditAnimeComponent implements OnInit {
       } else {
         formObject.posterImage = this.animeData.posterImageURL;
       }
+      console.log(formObject);
       this.animeService.updateAnime(formObject).subscribe(
         (createResponse: any) => console.log(createResponse),
         error => {

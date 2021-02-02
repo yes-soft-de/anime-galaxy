@@ -16,7 +16,7 @@
             </select>
           </div>
       </div>
-      <div class="form-group row">
+      <!-- <div class="form-group row">
         <label class="col-2 col-form-label">Category</label>
         <div class="col-10">
           <select class="form-control"
@@ -30,6 +30,18 @@
                     [selected]="episodesData.categoryID == cat.id">{{cat.name}}</option>
           </select>
           <span class="invalid-feedback" *ngIf="isSubmitted && this.uploadForm.get('categoyID').errors?.required">category Field Is Required</span>
+        </div>
+      </div> -->
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Category</label>
+        <div class="col-10">
+          <ng-select2 
+              [data]="selectData"
+              [options]="options"
+              [(ngModel)]="value"
+              [ngModelOptions]="{standalone: true}">
+          </ng-select2>          
+          <span class="invalid-feedback" *ngIf="isSubmitted && this.uploadForm.get('categories').errors?.required">Category Field Is Required</span>
         </div>
       </div>
       <div class="form-group row">

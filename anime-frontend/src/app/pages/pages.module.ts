@@ -5,6 +5,7 @@ import { PagesRoutingModule } from './pages-routing.module';
 
 import { PagesComponent } from './pages.component';
 import { ThemeModule } from '../@theme/theme.module';
+
 // import {HeaderComponent} from '../@theme/header/header.component';
 
 

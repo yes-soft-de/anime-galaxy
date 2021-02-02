@@ -8,6 +8,9 @@ import { ListCategoryResponse } from 'src/app/pages/categories/entity/list-categ
 import { CategoryService } from 'src/app/pages/categories/services/category.service';
 import { ImageSnippet } from '../../entity/image-snippet';
 import { AnimeService } from '../../services/anime.service';
+import { Options } from 'select2';
+import { TokenService } from 'src/app/pages/admin-service/token/token.service';
+
 
 @Component({
   selector: 'app-add-anime',
@@ -32,8 +35,12 @@ export class AddAnimeComponent implements OnInit {
   mainImagePathReady = false;
   submitButtonValue = 'Waiting Uploading Image';
   selectedFile: ImageSnippet;
+  public selectData: Array<{ id: string; text: string; }> = [];
+  public options: Options;
+  public value: string[] = [];
 
   constructor(private animeService: AnimeService,
+              private tokenService: TokenService,
               private categoryService: CategoryService,
               private formBuilder: FormBuilder,
               private toaster: ToastrService,
@@ -42,42 +49,54 @@ export class AddAnimeComponent implements OnInit {
   }
 
   ngOnInit() {
-    
     this.categoryService.allCategories().subscribe(
       (categories: ListCategoryResponse) => {
-        this.allCategories = categories.Data
+        console.log('all categories', categories);
+        this.allCategories = categories.Data;
+        this.allCategories.map(e => {
+          // id : must be as string
+          this.selectData.push({id: `${e.id}`, text: e.name});
+        });
       }, error => console.log(error)
     );
 
     // Fetch Form Data
     this.uploadForm = this.formBuilder.group({
-      name: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(45)]],
+      name: ['', [Validators.required, Validators.minLength(2)]],
       mainImage: [''],
       posterImage: [''],
       description: ['', [Validators.required, Validators.minLength(2)]],
       trailerVideo: ['', [Validators.required, Validators.minLength(2)]],
       episodesCount: ['', Validators.required],
       publishDate: ['', Validators.required],
-      categoryID: ['', Validators.required],
+      categories: [''],
       ageGroup: ['', Validators.required],
-      generalRating: ['', Validators.required],
+      generalRating: ['', [Validators.required, Validators.min(0), Validators.max(10)]],
       // suggest: ['', Validators.required]
     });
+
+    // Options For Select 2
+    this.options = {
+      width: '100%',
+      placeholder: 'Type Animes Categories',
+      multiple: true,
+      tags: true
+    };
   }
 
   // Choose State Using Select Dropdown
-  changeCategory(event) {
-    this.uploadForm.get('categoryID').setValue(event.target.value, {
-      onlySelf : true
-    });
-  }
+  // changeCategory(event) {
+  //   this.uploadForm.get('categories').setValue(event.target.value, {
+  //     onlySelf : true
+  //   });
+  // }
 
 
-  changeGeneralRating(event) {
-    this.uploadForm.get('generalRating').setValue(event.target.value, {
-      onlySelf : true
-    });
-  }
+  // changeGeneralRating(event) {
+  //   this.uploadForm.get('generalRating').setValue(event.target.value, {
+  //     onlySelf : true
+  //   });
+  // }
 
   // Choose If Globally Recommended Enimy 
   // changeSuggest(event) {
@@ -154,13 +173,22 @@ export class AddAnimeComponent implements OnInit {
     this.isSubmitted = true;
     if (!this.uploadForm.valid) {
       this.toaster.error('Error : Form Not Valid');
+      this.isSubmitted = false;
       return false;
     } else {
       // Fetch All Form Data On Json Type
       const formObject = this.uploadForm.getRawValue();
       // formObject.suggest = this.uploadForm.value.suggest == 1 ? true : false;
+      formObject.createdBy = this.tokenService.userName;
+      formObject.categories = this.value;
+      if (this.value.length == 0) {
+        this.toaster.error('Error : Category Not Selected, Please Select One');
+        this.isSubmitted = false;
+        return false;
+      }
       formObject.mainImage = this.imageUrl;  
       formObject.posterImage = this.mainImageUrl;     
+      console.log(formObject);
       this.animeService.createAnime(formObject).subscribe(
         (createResponse: any) => console.log(createResponse),
         error => {

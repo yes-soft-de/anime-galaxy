@@ -53,6 +53,7 @@ export class HightestRatedAnimeComponent implements OnInit {
     // Handle Response Error
     handleError(error) {
       console.log(error);
+      this.animehighestRating = [];
       if (error.error.error) {
         this.toaster.error(error.error.error);
       } else if (error.error.msg) {

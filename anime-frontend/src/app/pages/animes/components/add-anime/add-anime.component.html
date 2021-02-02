@@ -13,12 +13,22 @@
                  placeholder="Type The Name">
           <span class="invalid-feedback" *ngIf="uploadForm.get('name').errors?.required">Name Field Is Required</span>
           <span class="invalid-feedback"
-                *ngIf="uploadForm.get('name').errors?.minlength">Name Must Be Greater Than 2</span>
-          <span class="invalid-feedback"
-                *ngIf="uploadForm.get('name').errors?.maxlength">Name Must Be Lower Than 45</span>
+                *ngIf="uploadForm.get('name').errors?.minlength">Name Must Be Greater Than 2</span>          
+        </div>
+      </div>      
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Category</label>
+        <div class="col-10">
+          <ng-select2 
+              [data]="selectData"
+              [options]="options"
+              [(ngModel)]="value"
+              [ngModelOptions]="{standalone: true}">
+          </ng-select2>          
+          <span class="invalid-feedback" *ngIf="isSubmitted && this.uploadForm.get('categories').errors?.required">Category Field Is Required</span>
         </div>
       </div>
-      <div class="form-group row">
+      <!-- <div class="form-group row">
         <label class="col-2 col-form-label">Category</label>
         <div class="col-10">
           <select class="form-control"
@@ -31,7 +41,7 @@
           </select>
           <span class="invalid-feedback" *ngIf="isSubmitted && this.uploadForm.get('categoryID').errors?.required">category Field Is Required</span>
         </div>
-      </div>
+      </div> -->
       <div class="form-group row">
         <label class="col-2 col-form-label">Description</label>
         <div class="col-10">
@@ -59,8 +69,6 @@
           <span class="invalid-feedback" *ngIf="uploadForm.get('trailerVideo').errors?.required">Trailer Video URL Field Is Required</span>
           <span class="invalid-feedback"
                 *ngIf="uploadForm.get('trailerVideo').errors?.minlength">Trailer Video URL Must Be Greater Than 2</span>
-          <span class="invalid-feedback"
-                *ngIf="uploadForm.get('trailerVideo').errors?.maxlength">Trailer Video URL Must Be Lower Than 45</span>
         </div>
       </div>
       <div class="form-group row">
@@ -76,8 +84,6 @@
           <span class="invalid-feedback" *ngIf="uploadForm.get('episodesCount').errors?.required">Episode Number Field Is Required</span>
           <span class="invalid-feedback"
                 *ngIf="uploadForm.get('episodesCount').errors?.minlength">Episode Number Must Be Greater Than 1</span>
-          <span class="invalid-feedback"
-                *ngIf="uploadForm.get('episodesCount').errors?.maxlength">Episode Number Must Be Lower Than 45</span>
         </div>
       </div>
       <div class="form-group row">
@@ -123,7 +129,7 @@
           <span class="invalid-feedback" *ngIf="uploadForm.get('ageGroup').errors?.required">Age Group Field Is Required</span> 
         </div>
       </div>
-      <div class="form-group row">
+      <!-- <div class="form-group row">
         <label class="col-2 col-form-label">General Rating</label>
         <div class="col-10">
           <select class="form-control"
@@ -135,6 +141,24 @@
            <option *ngFor="let rate of generalRating; let i = index" value="{{i + 1}}">{{rate}}</option>
          </select>
          <span class="invalid-feedback" *ngIf="uploadForm.get('generalRating').errors?.required">General Rating Field Is Required</span> 
+        </div>
+      </div> -->
+      <div class="form-group row">
+        <label class="col-2 col-form-label">General Rating</label>
+        <div class="col-10">
+          <input class="form-control"
+                 [ngClass]="{'is-invalid': uploadForm.get('generalRating').errors &&
+                  (uploadForm.get('generalRating').touched || uploadForm.get('generalRating').dirty)}"
+                 type="number"
+                 name="generalRating"
+                 formControlName="generalRating"
+                 placeholder="Type General Rating">
+          <span class="invalid-feedback"
+                *ngIf="uploadForm.get('generalRating').errors?.required">General Rating Field Is Required</span>
+                <span class="invalid-feedback"
+                *ngIf="uploadForm.get('generalRating').errors?.min">General Rating Min Value Is 0</span>
+                <span class="invalid-feedback"
+                *ngIf="uploadForm.get('generalRating').errors?.max">General Rating Max Value Is 10</span>
         </div>
       </div>
       <div class="form-group row">
@@ -169,6 +193,7 @@
 
       <div class="form-group offset-md-2 mt-3">
         <input class="btn btn-primary btn-block" type="submit" value="{{submitButtonValue}}" [disabled]="!imagePathReady || !mainImagePathReady || isSubmitted">
+        <!-- <input class="btn btn-primary btn-block" type="submit" value="send"> -->
         <!-- <input class="btn btn-primary btn-block" type="submit" value="send"> -->
       </div>
     </form>

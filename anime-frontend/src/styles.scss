@@ -56,3 +56,28 @@
 }
 .search-input { font-size: 14px; }
 td { font-size: 14px; vertical-align: middle !important; }
+
+table tr:last-child {
+  border-bottom: 1px solid #dee2e6;
+}
+.td-custom {
+  width: 300px;
+  max-height: 100px;
+  overflow-y: scroll;
+  display: block;
+  border-bottom: none !important;
+  overflow-x: hidden;
+  margin-bottom: .75rem;
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #ccc;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: #999;
+  }
+}

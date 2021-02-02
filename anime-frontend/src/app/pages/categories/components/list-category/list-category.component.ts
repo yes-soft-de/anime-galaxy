@@ -39,12 +39,12 @@ export class ListCategoryComponent implements OnInit, OnDestroy {
     this.allCategoriesObservable = this.categoryService.allCategories().subscribe(
         (data: ListCategoryResponse) => {
           if (data) {
+            console.log('all Categories :', data);
             this.categories = data.Data;
             this.categoriesList = data.Data;
           }
-        }, error1 => {
-          console.log('Error :', error1);
-        }, () => {
+        }, error1 => this.handleError(error1),
+        () => {
           this.categoriesFilterList = this.categoriesList;
         });
 
@@ -55,6 +55,17 @@ export class ListCategoryComponent implements OnInit, OnDestroy {
     };
   }
 
+
+  // Handle Response Error
+  handleError(error) {
+    this.categories = [];
+    console.log(error);
+    if (error.error.error) {
+      this.toaster.error(error.error.error);
+    } else if (error.error.msg) {
+      this.toaster.error(error.error.msg);
+    }
+  }
 
   // Fetch The Page Number On Page Change
   pageChanged(event) {

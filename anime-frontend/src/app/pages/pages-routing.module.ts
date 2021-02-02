@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { NotFoundComponent } from '../@theme/components';
 import { AfterLoginService } from './admin-service/guard/after-login.service';
 import { BeforeLoginService } from './admin-service/guard/before-login.service';
+import { SuperAdminService } from './admin-service/guard/super-admin.service';
 
 
 const routes: Routes = [
@@ -17,9 +18,9 @@ const routes: Routes = [
     canActivate: [BeforeLoginService]
   },
   {
-    path: 'users',
-    loadChildren: () => import('./users/users.module').then(m => m.UsersModule),
-    canActivate: [AfterLoginService]
+    path: 'admins',
+    loadChildren: () => import('./admins/admins.module').then(m => m.AdminsModule),
+    canActivate: [AfterLoginService, SuperAdminService]
   },
   {
     path: 'categories',

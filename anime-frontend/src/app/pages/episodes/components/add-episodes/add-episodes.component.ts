@@ -4,12 +4,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
+import { TokenService } from 'src/app/pages/admin-service/token/token.service';
 import { AnimesResponse } from 'src/app/pages/animes/entity/animes-response';
 import { AnimeService } from 'src/app/pages/animes/services/anime.service';
 import { ListCategoryResponse } from 'src/app/pages/categories/entity/list-category-response';
 import { CategoryService } from 'src/app/pages/categories/services/category.service';
 import { ImageSnippet } from '../../entity/image-snippet';
 import { EpisodesService } from '../../services/episodes.service';
+import { Options } from 'select2';
+
 
 @Component({
   selector: 'app-add-episodes',
@@ -36,8 +39,13 @@ export class AddEpisodesComponent implements OnInit {
   mainImagePathReady = false;
   submitButtonValue = 'Waiting Uploading Image';
   selectedFile: ImageSnippet;
+  public selectData: Array<{ id: string; text: string; }> = [];
+  public options: Options;
+  public value: string[] = [];
+
 
   constructor(private episodeService: EpisodesService,
+              private tokenService: TokenService,
               private animeService: AnimeService,
               private categoryService: CategoryService,
               private formBuilder: FormBuilder,
@@ -64,13 +72,18 @@ export class AddEpisodesComponent implements OnInit {
     result.subscribe(
       mergeResponse => {
         this.mergeResult = mergeResponse;
+        this.mergeResult.categories.Data.map(e => {
+          // id : must be as string
+          this.selectData.push({id: `${e.id}`, text: e.name});
+        });
       }
     );
 
     // Fetch Form Data
     this.uploadForm = this.formBuilder.group({
       animeID: ['', Validators.required],
-      categoyID: ['', Validators.required],
+      // categoyID: ['', Validators.required],
+      categories: [''],
       seasonNumber: ['', [Validators.required, Validators.minLength(1)]],
       episodeNumber: ['', [Validators.required, Validators.minLength(1)]],
       description: ['', Validators.required],
@@ -79,6 +92,14 @@ export class AddEpisodesComponent implements OnInit {
       duration: ['', Validators.required],
       publishDate: ['', Validators.required]
     });
+    
+    // Options For Select 2
+    this.options = {
+      width: '100%',
+      placeholder: 'Type Episodes Categories',
+      multiple: true,
+      tags: true
+    };
   }
 
   // Choose Anime Using Select Dropdown
@@ -89,11 +110,11 @@ export class AddEpisodesComponent implements OnInit {
   }
 
   // Choose Category Using Select Dropdown
-  changeCategory(event) {
-    this.uploadForm.get('categoyID').setValue(event.target.value, {
-      onlySelf : true
-    });
-  }
+  // changeCategory(event) {
+  //   this.uploadForm.get('categoyID').setValue(event.target.value, {
+  //     onlySelf : true
+  //   });
+  // }
 
 
   // Get Image Information
@@ -152,7 +173,7 @@ export class AddEpisodesComponent implements OnInit {
           this.mainImageUrl = res;
           this.mainUploadButtonValue = 'Uploaded';
           this.mainImagePathReady = true;
-          this.submitButtonValue = 'New Anime';        
+          this.submitButtonValue = 'New Episode';        
         },
         (err) => {
           console.log(err);
@@ -171,6 +192,13 @@ export class AddEpisodesComponent implements OnInit {
       // Fetch All Form Data On Json Type
       const formObject = this.uploadForm.getRawValue();
       // formObject.suggest = this.uploadForm.value.suggest == 1 ? true : false;
+      formObject.createdBy = this.tokenService.userName;
+      formObject.categories = this.value;
+      if (this.value.length == 0) {
+        this.toaster.error('Error : Category Not Selected, Please Select One');
+        this.isSubmitted = false;
+        return false;
+      }
       formObject.image = this.imageUrl;      
       formObject.posterImage = this.mainImageUrl;  
       this.episodeService.createEpisode(formObject).subscribe(

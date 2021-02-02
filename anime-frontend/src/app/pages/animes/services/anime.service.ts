@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse, HttpEventType, HttpHeaders } from '@angu
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { TokenService } from '../../admin-service/token/token.service';
 import { AdminConfig } from '../../AdminConfig';
 import { Anime } from '../entity/anime';
 import { AnimeResponse } from '../entity/anime-response';
@@ -15,7 +16,8 @@ import { Suggest } from '../entity/suggest';
 })
 export class AnimeService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient,
+              private tokenService: TokenService) { }
 
   // Handling the error
   private static errorHandler(error: HttpErrorResponse) {
@@ -36,21 +38,24 @@ export class AnimeService {
 
   createAnime(anime: CreateAnime): Observable<CreateAnime> {
     return this.httpClient.post<CreateAnime>(
-      AdminConfig.animeAPI, JSON.stringify(anime)
+      AdminConfig.animeAPI, JSON.stringify(anime),
+      this.tokenService.httpOptions()
       ).pipe(catchError(AnimeService.errorHandler));
   }
 
 
   updateAnime(anime: CreateAnime): Observable<CreateAnime> {
     return this.httpClient.put<CreateAnime>(
-      `${AdminConfig.animeAPI}`, JSON.stringify(anime)
+      `${AdminConfig.animeAPI}`, JSON.stringify(anime),
+      this.tokenService.httpOptions()
       ).pipe(catchError(AnimeService.errorHandler));
   }
 
 
   deleteAnime(id: number): Observable<any> {
     return this.httpClient.delete<any>(
-      `${AdminConfig.animeAPI}/${id}`
+      `${AdminConfig.animeAPI}/${id}`,
+      this.tokenService.httpOptions()
       ).pipe(catchError(AnimeService.errorHandler));
   }
 
@@ -59,7 +64,8 @@ export class AnimeService {
     const suggestValue = isSuggest === false ? 0 : 1;
     return this.httpClient.put<Suggest>(
       `${AdminConfig.animeAPI}/${suggestValue}`, 
-      JSON.stringify({id: animeID})
+      JSON.stringify({id: animeID}),
+      this.tokenService.httpOptions()
       ).pipe(catchError(AnimeService.errorHandler));
   }
 

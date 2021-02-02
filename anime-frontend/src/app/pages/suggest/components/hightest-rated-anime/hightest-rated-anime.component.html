@@ -29,7 +29,8 @@
                   <td>{{anime.id}}</td>
                   <td><img src="{{anime?.animeMainImage}}" alt="{{anime.animeName}} Image" class="img-thumbnail img-custom"></td>
                   <td>{{anime.animeName}}</td>
-                  <td>{{anime.categoryName}}</td>
+                  <td *ngIf="anime.categories.length > 0"><span class="anime_categories d-block mb-1" *ngFor="let cat of anime.categories">{{cat.name}}</span></td>
+                  <td *ngIf="anime.categories.length == 0">-</td>
                   <td>
                     <a (click)="suggest(anime.id, (anime.suggest ? false : true))" 
                        class="text-primary mr-1 mb-1" 

@@ -12,6 +12,12 @@
           <option *ngFor="let anime of animes" value="{{anime.id}}">{{anime.name}}</option>
         </select>
       </div>
+      <div class="col-12 align-self-center text-right">
+        <a class="btn btn-primary btn-sm my-2" routerLink="/episodes/add">
+          <i class="fa fa-plus"></i>
+          Add New Episode
+        </a>
+      </div>
     </div>
   </form>
   </div>
@@ -35,12 +41,6 @@
                           class="form-control form-control-underlined border-primary search-input">
                     </div>
                 </div>
-                <div class="col-5 col-md-6 col-xl-8 align-self-center">
-                  <a class="btn btn-primary btn-sm mb-2 float-right" routerLink="/episodes/add">
-                    <i class="fa fa-plus"></i>
-                    Add New Episode
-                  </a>
-                </div>
             </div>
           <div class="table-responsive text-center">
               <table class="table table-bordered main-table">
@@ -54,20 +54,28 @@
                       <td>Publish Date</td>
                       <td>Duration</td>
                       <td>Rating</td>
-                      <td>Comments Number</td>                    
+                      <td>Comments Number</td>
+                      <td style="white-space: nowrap;">Created By</td>
+                      <td>Created At</td>
+                      <td style="white-space: nowrap;">Updated By</td>
+                      <td>Updated At</td>
                       <td>Control</td>
                   </tr>
                   <tr *ngFor="let episode of animeEpisodesFilterList | paginate: config">
                     <td>{{episode.id}}</td>
                     <td><img src="{{episode?.image}}" alt="{{episode.animeName}} Image" class="img-fluid img-thumbnail img-custom"></td>
                     <td>{{episode.animeName}}</td>
-                    <td>{{episode.description}}</td>
+                    <td class="td-custom">{{episode.description}}</td>
                     <td>{{episode.episodeNumber}}</td>
                     <td>{{episode.seasonNumber}}</td>
-                    <td>{{episode.publishDate ? (episode.publishDate.timestamp * 1000 | date: 'yyyy-MM-dd') : '-'}}</td>
+                    <td style="white-space: nowrap;">{{episode.publishDate ? (episode.publishDate.timestamp * 1000 | date: 'yyyy-MM-dd') : '-'}}</td>
                     <td>{{episode.duration ? (episode.duration.timestamp * 1000 | date: 'H:mm:ss':'UTC') : '-'}}</td>
                     <td>{{episode.rating ? episode.rating : '-' }}</td>
                     <td>{{episode.comments}}</td>
+                    <td>{{episode.createdBy ? episode.createdBy : '-'}}</td>
+                    <td style="white-space: nowrap;">{{episode.createdAt.timestamp * 1000 | date: 'MMM d, y, h:mm:ss a'}}</td>
+                    <td>{{episode.updatedBy ? episode.updatedBy : '-'}}</td>
+                    <td style="white-space: nowrap;">{{episode.updatedAt.timestamp * 1000 | date: 'MMM d, y, h:mm:ss a'}}</td>
                     <td>
                         <a routerLink="/episodes/edit/{{episode.id}}" class="btn btn-success btn-sm mr-1 mb-1">
                           Edit

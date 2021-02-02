@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { TokenService } from '../../admin-service/token/token.service';
 import { AdminConfig } from '../../AdminConfig';
 import { Suggest } from '../entity/suggest';
 
@@ -10,7 +11,8 @@ import { Suggest } from '../entity/suggest';
 })
 export class SuggestService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient,
+              private tokenService: TokenService) { }
 
     // Handling the error
     private static errorHandler(error: HttpErrorResponse) {
@@ -28,7 +30,8 @@ export class SuggestService {
       const suggestValue = isSuggest === false ? 0 : 1;
       return this.httpClient.put<Suggest>(
         `${AdminConfig.animeAPI}/${suggestValue}`, 
-        JSON.stringify({id: animeID})
+        JSON.stringify({id: animeID}),
+        this.tokenService.httpOptions()
         ).pipe(catchError(SuggestService.errorHandler));
     }
 

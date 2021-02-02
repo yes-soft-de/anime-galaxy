@@ -7,6 +7,7 @@ export interface Anime {
     imageURL: string;
     posterImageURL: string;
     categoryName?: string;
+    categories?: { id: number; name: string;}[];
     rating?: null;
     comments?: Array<any>;
     categoryID?: number;

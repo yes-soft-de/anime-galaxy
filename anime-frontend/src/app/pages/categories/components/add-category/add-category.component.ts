@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {CategoryService} from '../../services/category.service';
 import { ImageSnippet } from '../../entity/image-snippet';
 import { ToastrService } from 'ngx-toastr';
+import { TokenService } from 'src/app/pages/admin-service/token/token.service';
 
 @Component({
   selector: 'app-add-category',
@@ -23,6 +24,7 @@ export class AddCategoryComponent implements OnInit {
   selectedFile: ImageSnippet;
 
   constructor(private categoryService: CategoryService,
+              private tokenService: TokenService,
               private formBuilder: FormBuilder,
               private toaster: ToastrService,
               private router: Router,
@@ -32,7 +34,7 @@ export class AddCategoryComponent implements OnInit {
   ngOnInit() {
     // Fetch Form Data
     this.uploadForm = this.formBuilder.group({
-      name: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(45)]],
+      name: ['', [Validators.required, Validators.minLength(2)]],
       description: ['', [Validators.required, Validators.minLength(2)]],
       image: [''],
     });
@@ -75,10 +77,12 @@ export class AddCategoryComponent implements OnInit {
     
     if (!this.uploadForm.valid) {
       this.toaster.error('Error : Form Not Valid');
+      this.isSubmitted = false;
       return false;
     } else {
       // Fetch All Form Data On Json Type
       const formObject = this.uploadForm.getRawValue();
+      formObject.createdBy = this.tokenService.userName;
       formObject.image = this.imageUrl;
 
       this.categoryService.createCategory(formObject).subscribe(

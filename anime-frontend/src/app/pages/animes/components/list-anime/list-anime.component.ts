@@ -37,11 +37,12 @@ export class ListAnimeComponent implements OnInit {
     this.allAnimesObservable = this.animeService.allAnimes().subscribe(
         (data: AnimesResponse) => {
           if (data) {
+            console.log('all Enimes :', data);
             this.animes = data.Data;
             this.animesList = data.Data;
           }
         }, 
-        error1 => console.log('Error :', error1), 
+        error1 => this.handleError(error1), 
         () => {
           this.animesFilterList = this.animesList;
         });
@@ -52,6 +53,17 @@ export class ListAnimeComponent implements OnInit {
       totalItems: this.animesList.length
     };
   }
+
+    // Handle Response Error
+    handleError(error) {
+      this.animes = [];
+      console.log(error);
+      if (error.error.error) {
+        this.toaster.error(error.error.error);
+      } else if (error.error.msg) {
+        this.toaster.error(error.error.msg);
+      }
+    }
 
   // Fetch The Page Number On Page Change
   pageChanged(event) {

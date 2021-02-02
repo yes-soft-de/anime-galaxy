@@ -1,0 +1,105 @@
+<div class="container">
+    <form [formGroup]="uploadForm" class="col-md-10 col-lg-8 col-xl-7 my-5 mx-auto" (ngSubmit)="mySubmit()">
+      <h2 class="h1 ml-5 text-center">Add New Admin</h2>
+      <div class="form-group row">
+        <label class="col-2 col-form-label">User Name</label>
+        <div class="col-10">
+          <input class="form-control"
+                 [ngClass]="{'is-invalid': uploadForm.get('userName').errors &&
+                   (uploadForm.get('userName').touched || uploadForm.get('userName').dirty)}"
+                 type="text"
+                 name="userName"
+                 formControlName="userName"
+                 placeholder="Type The User Name">
+          <span class="invalid-feedback" *ngIf="uploadForm.get('userName').errors?.required">User Name Field Is Required</span>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Email</label>
+        <div class="col-10">
+          <input class="form-control"
+                 [ngClass]="{'is-invalid': uploadForm.get('userID').errors &&
+                   (uploadForm.get('userID').touched || uploadForm.get('userID').dirty)}"
+                 type="text"
+                 name="userID"
+                 formControlName="userID"
+                 placeholder="Type The Email">
+          <span class="invalid-feedback" *ngIf="uploadForm.get('userID').errors?.required">User Email Field Is Required</span>
+          <span class="invalid-feedback" *ngIf="uploadForm.get('userID').errors?.email">User Email Must Be Valid Email</span>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Location</label>
+        <div class="col-10">
+          <input class="form-control"
+                 [ngClass]="{'is-invalid': uploadForm.get('location').errors &&
+                   (uploadForm.get('location').touched || uploadForm.get('location').dirty)}"
+                 type="text"
+                 name="location"
+                 formControlName="location"
+                 placeholder="Type The Location">
+          <span class="invalid-feedback" *ngIf="uploadForm.get('location').errors?.required">Location Field Is Required</span>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Story</label>
+        <div class="col-10">
+           <textarea class="form-control"
+                     name="story"
+                     formControlName="story"
+                     placeholder="Type The story"></textarea>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Password</label>
+        <div class="col-10">
+          <input class="form-control"
+                 [ngClass]="{'is-invalid': uploadForm.get('password').errors &&
+                   (uploadForm.get('password').touched || uploadForm.get('password').dirty)}"
+                 type="password"
+                 name="password"
+                 formControlName="password"
+                 placeholder="Type The Password">
+          <span class="invalid-feedback" *ngIf="uploadForm.get('password').errors?.required">Password Field Is Required</span>        
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Upload</label>
+        <div class="input-group col-10">
+          <div class="custom-file">
+            <input #imageInput type="file" accept="image/*" class="custom-file-input" id="file-input"
+                   (change)="updateName(imageInput)">
+            <label class="custom-file-label" for="file-input">{{imageName}}</label>
+          </div>
+          <div class="input-group-append">
+            <button class="btn btn-success" type="button" (click)="processFile(imageInput)" [disabled]="!fileSelected">
+              {{uploadButtonValue}}
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Upload</label>
+        <div class="input-group col-10">
+          <div class="custom-file">
+            <input #coverImageInput type="file" accept="image/*" class="custom-file-cover-input" id="file-cover-input"
+                   (change)="updateCoverName(coverImageInput)">
+            <label class="custom-file-label" for="file-cover-input">{{coverImageName}}</label>
+          </div>
+          <div class="input-group-append">
+            <button class="btn btn-success" type="button" (click)="processCoverFile(coverImageInput)" [disabled]="!coverFileSelected">
+              {{coverUploadButtonValue}}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group offset-md-2 mt-3">
+        <input class="btn btn-primary btn-block" type="submit" value="New Admin" [disabled]="imageReady || coverReady || isSubmitted">
+        <!-- <input class="btn btn-primary btn-block" type="submit" value="send"> -->
+      </div>
+    </form>
+  </div>
+  <!-- <div *ngIf="allAdmins == null">
+    <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+  </div> -->

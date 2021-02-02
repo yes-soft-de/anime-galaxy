@@ -6,6 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
 import { HelperService } from 'src/app/@theme/helper/helper.service';
+import { TokenService } from 'src/app/pages/admin-service/token/token.service';
 import { AnimesResponse } from 'src/app/pages/animes/entity/animes-response';
 import { AnimeService } from 'src/app/pages/animes/services/anime.service';
 import { ImageSnippet } from 'src/app/pages/categories/entity/image-snippet';
@@ -14,6 +15,7 @@ import { CategoryService } from 'src/app/pages/categories/services/category.serv
 import { EditEpisode } from '../../entity/edit-episode';
 import { EditEpisodeResponse } from '../../entity/edit-episode-response';
 import { EpisodesService } from '../../services/episodes.service';
+import { Options } from 'select2';
 
 @Component({
   selector: 'app-edit-episodes',
@@ -41,8 +43,13 @@ export class EditEpisodesComponent implements OnInit {
   mainImagePathReady = true;
   submitButtonValue = 'Update Episode';
   selectedFile: ImageSnippet;
+  public selectData: Array<{ id: string; text: string; }> = [];
+  public options: Options;
+  public value: string[] = [];
+
 
   constructor(private episodeService: EpisodesService,
+              private tokenService: TokenService,
               private animeService: AnimeService,
               private categoryService: CategoryService,
               private formBuilder: FormBuilder,
@@ -56,10 +63,10 @@ export class EditEpisodesComponent implements OnInit {
 
   ngOnInit() {
   
-
     this.episodeID = parseInt(this.activatedRoute.snapshot.paramMap.get('id'));
     this.episodeService.getEpisode(this.episodeID).subscribe(
      (episodeResponse: EditEpisodeResponse) => {
+       console.log('episodeResponse', episodeResponse);
         this.episodesData = episodeResponse.Data;
         this.updateFormValues();
       }
@@ -82,14 +89,24 @@ export class EditEpisodesComponent implements OnInit {
     );
     result.subscribe(
       mergeResponse => {
+        console.log('episode', mergeResponse);
         this.mergeResult = mergeResponse;
+        this.mergeResult.categories.Data.map(e => {
+          // id : must be as string
+          this.selectData.push({id: `${e.id}`, text: e.name});
+        });
+        this.episodesData.categories.map(e => {
+          // id : must be as string
+         this.value.push(`${e.id}`);
+       });
       }
     );
 
     // Fetch Form Data
     this.uploadForm = this.formBuilder.group({
       animeID: ['', Validators.required],
-      categoyID: ['', Validators.required],
+      // categoyID: ['', Validators.required],
+      categories: [''],
       seasonNumber: ['', [Validators.required, Validators.minLength(1)]],
       episodeNumber: ['', [Validators.required, Validators.minLength(1)]],
       description: ['', Validators.required],
@@ -98,24 +115,31 @@ export class EditEpisodesComponent implements OnInit {
       duration: ['', Validators.required],
       publishDate: ['', Validators.required]
     });
+
+    // Options For Select 2
+    this.options = {
+      width: '100%',
+      placeholder: 'Type Episodes Categories',
+      multiple: true,
+      tags: true
+    };
   }
-
-
   
-// Fill Form Input 
-updateFormValues() {
-  this.uploadForm.patchValue({    // Insert Our category Data Into Form Fields
-    animeID: this.episodesData.animeID,       // we must use the id not the name to make relate with select html tag
-    categoyID: this.episodesData.categoryID,
-    seasonNumber: this.episodesData.seasonNumber,
-    episodeNumber: this.episodesData.episodeNumber,
-    description: this.episodesData.description,
-    image: this.episodesData.image,
-    posterImage: this.episodesData.posterImage,
-    duration: HelperService.convertSecondsToHMS(this.episodesData.duration.timestamp),
-    publishDate: this.datePipe.transform(new Date(this.episodesData.publishDate?.timestamp * 1000), 'yyyy-MM-dd'),
-  });
-}
+  // Fill Form Input 
+  updateFormValues() {
+    this.uploadForm.patchValue({    // Insert Our category Data Into Form Fields
+      animeID: this.episodesData.animeID,       // we must use the id not the name to make relate with select html tag
+      // categoyID: this.episodesData.categoryID,
+      categories: this.episodesData.categories,  // we must use the id not the name to make relate with select html tag
+      seasonNumber: this.episodesData.seasonNumber,
+      episodeNumber: this.episodesData.episodeNumber,
+      description: this.episodesData.description,
+      image: this.episodesData.image,
+      posterImage: this.episodesData.posterImage,
+      duration: HelperService.convertSecondsToHMS(this.episodesData.duration.timestamp),
+      publishDate: this.datePipe.transform(new Date(this.episodesData.publishDate?.timestamp * 1000), 'yyyy-MM-dd'),
+    });
+  }
 
   // Choose Anime Using Select Dropdown
   changeAnime(event) {
@@ -125,11 +149,11 @@ updateFormValues() {
   }
 
   // Choose Category Using Select Dropdown
-  changeCategory(event) {
-    this.uploadForm.get('categoyID').setValue(event.target.value, {
-      onlySelf : true
-    });
-  }
+  // changeCategory(event) {
+  //   this.uploadForm.get('categoyID').setValue(event.target.value, {
+  //     onlySelf : true
+  //   });
+  // }
 
 
   // Get Image Information
@@ -203,12 +227,20 @@ updateFormValues() {
     this.isSubmitted = true;
     if (!this.uploadForm.valid) {
       this.toaster.error('Error : Form Not Valid');
+      this.isSubmitted = false;
       return false;
     } else {
       // Fetch All Form Data On Json Type
       const formObject = this.uploadForm.getRawValue();
       // formObject.suggest = this.uploadForm.value.suggest == 1 ? true : false;
       formObject.id = this.episodeID;
+      formObject.updatedBy = this.tokenService.userName;
+      formObject.categories = this.value;
+      if (this.value.length == 0) {
+        this.toaster.error('Error : Category Not Selected, Please Select One');
+        this.isSubmitted = false;
+        return false;
+      }
       if (this.imageUrl) {
         formObject.image = this.imageUrl;
       } else {

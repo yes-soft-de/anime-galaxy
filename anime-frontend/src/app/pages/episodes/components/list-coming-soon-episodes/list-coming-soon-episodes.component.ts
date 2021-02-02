@@ -41,6 +41,7 @@ export class ListComingSoonEpisodesComponent implements OnInit {
     this.episodsComingSoonSubscription = this.episodesService.allEpisodesComingSoon().subscribe(
       (episodesComingSoon: EpisodeComingSoonResponse) => {      
         if (episodesComingSoon) {
+          console.log('all episodesComingSoon :', episodesComingSoon);
           this.episodesComingSoon = episodesComingSoon.Data;
           this.episodesComingSoonList = episodesComingSoon.Data;
         }
@@ -59,6 +60,7 @@ export class ListComingSoonEpisodesComponent implements OnInit {
   // Handle Response Error
   handleError(error) {
     this.isClicked = false;
+    this.episodesComingSoon = [];
     console.log(error);
     if (error.error.error) {
       this.toaster.error(error.error.error);

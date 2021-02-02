@@ -1,7 +1,7 @@
-<div *ngIf="categories != null">
-    <div *ngIf="categories.length !== 0">
+<div *ngIf="admins != null">
+    <div *ngIf="admins.length !== 0">
       <div class="container-fluid">
-        <h1 class="text-center my-4">Manage Category Page</h1>
+        <h1 class="text-center my-4">Manage Admins Page</h1>
           <div class="row">
               <div class="col-7 col-md-6 col-xl-4">
                   <div class="form-group mb-4">
@@ -10,36 +10,39 @@
                         [(ngModel)]="name" 
                         (keyup)="applyFilter()" 
                         type="text" 
-                        placeholder="searching for Category Name ?" 
+                        placeholder="searching for Admin Name Or Location ?" 
                         class="form-control form-control-underlined border-primary search-input">
                   </div>
               </div>
               <div class="col-5 col-md-6 col-xl-8 align-self-center">
-                <a class="btn btn-primary btn-sm mb-2 float-right" routerLink="/categories/add">
+                <a class="btn btn-primary btn-sm mb-2 float-right" routerLink="/admins/add">
                   <i class="fa fa-plus"></i>
-                  Add New Category
+                  Add New Admin
                 </a>
               </div>
           </div>
         <div class="table-responsive text-center">
             <table class="table table-bordered main-table">
                 <tr class="bg-dark text-white">
-                    <td>#ID</td>
+                    <td>User ID</td>
+                    <td>User Name</td>
                     <td>Image</td>
-                    <td>Name</td>
-                    <td>Description</td>
+                    <td>Cover</td>
+                    <td>Location</td>
+                    <td>Created At</td>
+                    <td>Story</td>
                     <td>Control</td>
                 </tr>
-                <tr *ngFor="let category of categoriesFilterList | paginate: config">
-                  <td>{{category.id}}</td>
-                  <td><img src="{{category?.image}}" alt="{{category.name}} Image" class="img-fluid img-thumbnail img-custom"></td>
-                  <td>{{category.name}}</td>
-                  <td class="td-custom">{{category.description}}</td>
+                <tr *ngFor="let admin of adminsFilterList | paginate: config">
+                  <td>{{admin?.userID}}</td>
+                  <td>{{admin?.userName ? admin?.userName : '-'}}</td>
+                  <td><img src="{{admin?.image}}" (error)="admin.image = '../../../../assets/default-avatar.jpg'" alt="{{admin?.name}} Image" class="img-fluid img-thumbnail img-custom"></td>              
+                  <td><img src="{{admin?.cover}}" (error)="admin.cover = '../../../../assets/default-avatar.jpg'" alt="{{admin?.name}} Image" class="img-fluid img-thumbnail img-custom"></td>              
+                  <td>{{admin?.location ? admin?.location : '-'}}</td>
+                  <td>{{admin?.createdAt ? (admin?.createdAt.timestamp * 1000 | date: 'yyyy-MM-dd' : 'UTC') : '-'}}</td>
+                  <td>{{admin?.story ? admin?.story : '-'}}</td>
                   <td>
-                      <a routerLink="/categories/edit/{{category.id}}" class="btn btn-success btn-sm mr-1 mb-1">
-                        Edit
-                      </a>
-                      <a (click)="delete(category.id)" class="btn btn-danger confirm btn-sm mr-1 mb-1 {{isDeleted ? 'disabled' : ''}}">
+                      <a (click)="delete(admin.userID)" class="btn btn-danger confirm btn-sm mr-1 mb-1 {{isDeleted ? 'disabled' : ''}}">
                         Delete
                       </a>
                   </td>
@@ -59,16 +62,16 @@
         </div>
       </div>
     </div>
-    <div *ngIf="categories.length === 0">
+    <div *ngIf="admins.length === 0">
         <div class="container">
             <div class="alert alert-primary text-center mt-5">There Isn't category To Show</div>
-            <a routerLink="/categories/add" class="btn btn-primary btn-sm mb-2 float-right">
+            <a routerLink="/admins/add" class="btn btn-primary btn-sm mb-2 float-right">
                 <i class="fa fa-plus"></i>
                 Add New category
             </a>
         </div>
     </div>
 </div>
-<div *ngIf="categories == null">
+<div *ngIf="admins == null">
     <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
 </div>

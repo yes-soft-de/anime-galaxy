@@ -1,18 +1,23 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { HelperService } from 'src/app/@theme/helper/helper.service';
 import { AdminConfig } from '../../AdminConfig';
+import { AdminRole } from '../../register/entity/admin-roles';
+import { SuperAdminService } from '../auth/super-admin.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TokenService {
   expireTime = HelperService.timeToMillisecond("02:00:00");
+  userName: string;
   private iss = {
     //login: AdminConfig.loginAPI,
     username: ''
   };
+  private roles: string[];
 
-  constructor() { 
+  constructor(private supperAdminService: SuperAdminService) { 
     console.log('Expire Time To Delete Your Token is : ', HelperService.millisecondToTime(this.expireTime));
   }
 
@@ -41,6 +46,7 @@ export class TokenService {
     const token = this.getTokenWithExpiry('token');
     if (token) {
       const payload = this.payload(token);
+      this.supperAdminService.chnageAdminState(this.isSuperAdmin());    
       return (Object.values(this.iss).indexOf(payload.username) > -1 || token != '') ? true : false;
     }
     return false;
@@ -53,7 +59,16 @@ export class TokenService {
 
   // decode the token to fetch the data from it
   decode(payload) {
-    return JSON.parse(atob(payload));
+    const payloadJson = JSON.parse(atob(payload));
+    this.roles = payloadJson.roles; 
+    this.userName = payloadJson.username;
+    // console.log(payloadJson);
+    return payloadJson;
+  }
+
+  // Check If The User Is Super Admin
+  isSuperAdmin() {
+    return (this.roles?.indexOf(AdminRole.SUPER_ADMIN_ROLE) > -1) ? true : false; 
   }
 
   loggedIn() {
@@ -89,6 +104,18 @@ export class TokenService {
       return null
     }
     return item.value
+  }
+
+  httpOptions() {
+    const token = this.getTokenWithExpiry('token');
+    if (token) {
+      return {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ` + token
+       })
+      }
+    }    
   }
 
 }

@@ -21,7 +21,11 @@ export class AdminConfig {
   public static episodeComingSoonAPI        = AdminConfig.sourceAPI + 'episodesComingSoon';
   public static getHighestRatedAnimeAPI     = AdminConfig.sourceAPI + 'getHighestRatedAnime';
 
- 
+
+  // Admins
+  public static adminsAPI                   = AdminConfig.sourceAPI + 'getadministrators';
+  public static createAdminsAPI             = AdminConfig.sourceAPI + 'createadmin';
+  public static deleteAdminsAPI             = AdminConfig.sourceAPI + 'deleteadmin';
 
   // Upload     
   public static generalUploadAPI            = AdminConfig.sourceAPI + 'uploadfile'; 

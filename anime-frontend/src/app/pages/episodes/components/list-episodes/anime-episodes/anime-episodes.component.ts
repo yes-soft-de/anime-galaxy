@@ -69,7 +69,7 @@ export class AnimeEpisodesComponent implements OnInit, OnDestroy {
         if (animeEpisodes) {
           this.animeEpisodes = animeEpisodes.Data;
           this.animeEpisodesList = animeEpisodes.Data;
-          console.log(animeEpisodes);
+          console.log('all animeEpisodes :', animeEpisodes);
         }
       },
       error => this.handleError(error),

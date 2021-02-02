@@ -30,6 +30,10 @@
                     <td>Category Name</td>
                     <td>Rating</td>
                     <td>Comments Number</td>
+                    <td style="white-space: nowrap;">Created By</td>
+                    <td>Created At</td>
+                    <td style="white-space: nowrap;">Updated By</td>
+                    <td>Updated At</td>
                     <td>Recommended</td>
                     <td>Control</td>
                 </tr>
@@ -37,9 +41,14 @@
                   <td>{{anime.id}}</td>
                   <td><img src="{{anime?.mainImage}}" alt="{{anime.name}} Image" class="img-thumbnail img-custom"></td>
                   <td>{{anime.name}}</td>
-                  <td>{{anime.categoryName}}</td>
+                  <td *ngIf="anime.categories.length > 0"><span class="anime_categories d-block mb-1" *ngFor="let cat of anime.categories">{{cat.name}}</span></td>
+                  <td *ngIf="anime.categories.length == 0">-</td>
                   <td>{{anime.rating ? anime.rating : '-' }}</td>
                   <td>{{anime.comments}}</td>
+                  <td>{{anime.createdBy ? anime.createdBy : '-'}}</td>
+                  <td style="white-space: nowrap;">{{anime.createdAt.timestamp * 1000 | date: 'MMM d, y, h:mm:ss a'}}</td>
+                  <td>{{anime.updatedBy ? anime.updatedBy : '-'}}</td>
+                  <td style="white-space: nowrap;">{{anime.updatedAt.timestamp * 1000 | date: 'MMM d, y, h:mm:ss a'}}</td>
                   <td>
                     <a (click)="suggest(anime.id, (anime.suggest ? false : true))" 
                        class="text-primary mr-1 mb-1" 

@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { NgSelect2Module } from 'ng-select2';
 
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -20,6 +21,7 @@ const MODULES = [
   FormsModule, 
   NgxPaginationModule,
   ReactiveFormsModule,  
+  NgSelect2Module
 ];
 
 @NgModule({
