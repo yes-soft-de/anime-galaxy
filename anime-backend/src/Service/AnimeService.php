@@ -106,6 +106,9 @@ class AnimeService
             'dislike' => $this->interactionService->dislikeAll($row['id'])
             ];
 
+            $row['createdBy'] = $row['userName'];
+            $row['updatedBy'] = $row['username2'];
+
             $row['categories'] = $this->categoryService->getCategoriesArray($row['cats']);
 
             $response[] = $this->autoMapping->map('array', GetAnimeResponse::class, $row);

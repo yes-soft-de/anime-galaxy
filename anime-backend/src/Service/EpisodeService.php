@@ -71,6 +71,9 @@ class EpisodeService
                 'dislike' => $this->interactionService->dislikeAll($row['id'])
                 ];
 
+            $row['createdBy'] = $row['userName'];
+            $row['updatedBy'] = $row['username2'];
+
             $response[] = $this->autoMapping->map('array', GetEpisodeResponse::class, $row); 
         }
 
@@ -94,6 +97,10 @@ class EpisodeService
                 'like' => $this->interactionService->likeAll($row['id']),
                 'dislike' => $this->interactionService->dislikeAll($row['id'])
                 ];
+
+            $row['createdBy'] = $row['userName'];
+            $row['updatedBy'] = $row['username2'];
+
             $response[] = $this->autoMapping->map('array', GetEpisodeResponse::class, $row);
         }
 

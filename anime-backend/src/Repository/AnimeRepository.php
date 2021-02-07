@@ -7,6 +7,7 @@ use App\Entity\Rating;
 use App\Entity\Category;
 use App\Entity\Comment;
 use App\Entity\Favourite;
+use App\Entity\UserProfile;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\Query\Expr\Join;
 use Doctrine\Persistence\ManagerRegistry;
@@ -58,17 +59,18 @@ class AnimeRepository extends ServiceEntityRepository
 
     public function getAll()
     {
-        return $this->createQueryBuilder('anime')
+        $query = $this->createQueryBuilder('anime')
             ->select('anime.id', 'anime.name', 'anime.mainImage', 'anime.categories as cats',
                 'avg(rate.rateValue) as rating', 'anime.suggest', 'anime.createdAt', 'anime.updatedAt', 'anime.createdBy',
-                'anime.updatedBy', 'count(DISTINCT comment.id) as comments', 'anime.specialLink')
-//            ->leftJoin(
-//                Category::class,
-//                'category',
-//                Join::WITH,
-//                'category.id = anime.categoryID'
-//            )
-           
+                'anime.updatedBy', 'count(DISTINCT comment.id) as comments', 'anime.specialLink', 'userProfile.userName')
+
+            ->leftJoin(
+                UserProfile::class,
+                'userProfile',
+                Join::WITH,
+                'userProfile.userID = anime.createdBy'
+            )
+
             ->leftJoin(
                 Rating::class,                   
                 'rate',                        
@@ -80,7 +82,17 @@ class AnimeRepository extends ServiceEntityRepository
                 'comment',                           
                 Join::WITH,              
                 'comment.animeID = anime.id'      
+            );
+
+        return $query->addSelect('userprofile.userName as username2')
+
+            ->leftJoin(
+                UserProfile::class,
+                'userprofile',
+                Join::WITH,
+                'userprofile.userID = anime.updatedBy'
             )
+
             ->groupBy('anime.id')
             ->getQuery()
             ->getResult();

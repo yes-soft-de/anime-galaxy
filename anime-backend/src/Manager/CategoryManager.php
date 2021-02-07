@@ -42,9 +42,7 @@ class CategoryManager
 
     public function getAll()
     {
-        $data = $this->categoryRepository->getAll();
-
-        return $data;
+        return $this->categoryRepository->getAll();
     }
 
     public function getCategoryById(GetByIdRequest $request)

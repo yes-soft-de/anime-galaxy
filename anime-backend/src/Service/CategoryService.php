@@ -38,6 +38,7 @@ class CategoryService
     public function getAll()
     {
         $result = $this->categoryManager->getAll();
+
         $response=[];
 
         foreach ($result as $row)
@@ -48,6 +49,9 @@ class CategoryService
             $row['image'] = $this->params.$row['image'];
 
             $row['coverImage'] = $this->params.$row['coverImage'];
+
+            $row['createdBy'] = $row['userName'];
+            $row['updatedBy'] = $row['username2'];
 
             $response[] = $this->autoMapping->map('array', GetCategoryResponse::class, $row);
         }
