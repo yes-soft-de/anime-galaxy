@@ -123,11 +123,11 @@ class UserManager
 
         if($user != null)
         {
-            $code = "1111";
+            $code = $this->resetCode();
 
             $request->setCode($code);
-            $request->setExpiresAt(new \DateTime('Now'));
-
+            $request->setExpiresAt(new \DateTime('+1 hour'));
+            
             $this->resetPasswordManager->create($request);
 
             $message = (new Email())
@@ -147,21 +147,43 @@ class UserManager
     {
         $result = $this->resetPasswordManager->checkResetRequest($request->getEmail(), $request->getcode());
 
-        if($result != null)
+        $currentDate = new \DateTime('Now');
+
+        if($currentDate < $result->getExpiresAt())
         {
-            $user = $this->userRepository->getUserByEmail($request->getEmail());
-
-            if($user != null)
+            if($result != null)
             {
-                $user->setPassword($encoder->encodePassword($user, $request->getPassword()));
+                $user = $this->userRepository->getUserByEmail($request->getEmail());
 
-                $this->entityManager->flush();
+                if($user != null)
+                {
+                    $user->setPassword($encoder->encodePassword($user, $request->getPassword()));
 
-                return "password was being re-set";
+                    $this->entityManager->flush();
+
+                    return "Your password was being re-set successfully.";
+                }
             }
-        }
 
-        return $result;
+            return $result;
+        }
+        else
+        {
+            return "The entered code expired!";
+        }
+    }
+
+    public function resetCode()
+    {
+        $data = random_bytes(16);
+
+        $data[0] = chr(ord('a') ); 
+        $data[1] = chr(ord('g') ); 
+        $data[2] = chr(ord('a') ); 
+        $data[6] = chr(ord($data[6]) & 0x0f | 0x40);
+        $data[8] = chr(ord($data[8]) & 0x3f | 0x80);
+
+        return  vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($data), 4));
     }
 
 }
