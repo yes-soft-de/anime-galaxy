@@ -10,6 +10,7 @@ class CreateCategoryResponse
     public $name;
     public $description;
     public $image;
+    public $coverImage;
 
     /**
      * @return mixed

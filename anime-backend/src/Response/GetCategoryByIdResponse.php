@@ -10,6 +10,7 @@ class GetCategoryByIdResponse
     public $name;
     public $description;
     public $image;
+    public $coverImage;
     public $imageURL;
     public $baseURL;
 
@@ -99,6 +100,16 @@ class GetCategoryByIdResponse
     public function getImage()
     {
         return $this->image;
+    }
+
+    public function setCoverImage($coverImage)
+    {
+        $this->coverImage = $coverImage;
+    }
+
+    public function getCoverImage()
+    {
+        return $this->coverImage;
     }
 
 }

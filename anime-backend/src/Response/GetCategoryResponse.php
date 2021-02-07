@@ -10,6 +10,7 @@ class GetCategoryResponse
     public $name;
     public $description;
     public $image;
+    public $coverImage;
     public $imageURL;
     public $baseURL;
     public $createdAt;

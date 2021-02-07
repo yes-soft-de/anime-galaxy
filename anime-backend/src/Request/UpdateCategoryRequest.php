@@ -10,6 +10,7 @@ class UpdateCategoryRequest
     private $description;
     private $image;
     private $updatedBy;
+    private $coverImage;
 
     /**
      * @return mixed

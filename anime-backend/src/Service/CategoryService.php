@@ -47,6 +47,8 @@ class CategoryService
 
             $row['image'] = $this->params.$row['image'];
 
+            $row['coverImage'] = $this->params.$row['coverImage'];
+
             $response[] = $this->autoMapping->map('array', GetCategoryResponse::class, $row);
         }
 
@@ -62,6 +64,7 @@ class CategoryService
         $response->setImageURL($response->getImage());
         $response->setBaseURL($this->params);
         $response->setImage($this->params.$response->getImageURL());
+        $response->setCoverImage($this->params.$response->getCoverImage());
 
         return $response;
     }
