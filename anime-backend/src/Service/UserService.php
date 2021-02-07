@@ -8,6 +8,8 @@ use App\AutoMapping;
 use App\Entity\User;
 use App\Entity\UserProfile;
 use App\Manager\UserManager;
+use App\Request\CreateAskResetPasswordRequest;
+use App\Request\UpdatePasswordRequest;
 use App\Request\UserProfileCreateRequest;
 use App\Request\UserProfileUpdateRequest;
 use App\Request\UserRegisterRequest;
@@ -16,6 +18,8 @@ use App\Response\UserProfileResponse;
 use App\Response\UserRegisterResponse;
 use phpDocumentor\Reflection\Types\Array_;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserService implements UserServiceInterface
 {
@@ -105,5 +109,15 @@ class UserService implements UserServiceInterface
     public function deleteAllProfiles()
     {
         return $this->userManager->deleteAllProfiles();
+    }
+
+    public function askResetPassword(CreateAskResetPasswordRequest $request, MailerInterface $mailer)
+    {
+        return $this->userManager->askResetPassword($request, $mailer);
+    }
+
+    public function resetPassword(UpdatePasswordRequest $request, UserPasswordEncoderInterface $encoder)
+    {
+        return $this->userManager->resetPassword($request, $encoder);
     }
 }
