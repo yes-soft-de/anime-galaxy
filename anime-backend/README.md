@@ -73,6 +73,16 @@ methods: PUT
 /userprofile/{id}
 methods: GET
 ```
+#### Ask for reset password 
+```
+/askresetpassword
+methods: POST
+```
+#### Send new password request
+```
+/reset-password
+methods: POST
+```
 
 ### Anime APIs
 ##### Create new anime.
