@@ -120,4 +120,9 @@ class UserService implements UserServiceInterface
     {
         return $this->userManager->resetPassword($request, $encoder);
     }
+    
+    public function getAllUsers()
+    {
+        return $this->userManager->getAllUsers();
+    }
 }

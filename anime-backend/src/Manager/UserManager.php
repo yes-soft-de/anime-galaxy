@@ -185,4 +185,8 @@ class UserManager
         return  vsprintf('%s%s%s%s', str_split(($data)));
     }
 
+    public function getAllUsers()
+    {
+        return $this->userRepository->getAllUsers();
+    }
 }
