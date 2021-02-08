@@ -13,6 +13,7 @@ use App\Request\UserProfileCreateRequest;
 use App\Request\UserProfileUpdateRequest;
 use App\Request\UserRegisterRequest;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -130,12 +131,16 @@ class UserManager
             
             $this->resetPasswordManager->create($request);
 
-            $message = (new Email())
+            $message = (new TemplatedEmail())
                 ->from('auto-reply@animegalaxy.com')
                 ->to($user->getEmail())
                 ->subject("Reset Password Code")
-                ->text($code)
-            ;
+                ->htmlTemplate('email/ResetPasswordCode.html.twig')
+                ->context(
+                    [
+                        'userEmail' => $request->getEmail(),
+                        'code' => $code
+                    ]);
 
             $mailer->send($message);
 
