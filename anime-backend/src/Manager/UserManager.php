@@ -120,32 +120,33 @@ class UserManager
 
     public function askResetPassword($request, $mailer)
     {
-        $user = $this->userRepository->getUserByEmail($request->getEmail());
+        // $user = $this->userRepository->getUserByEmail($request->getEmail());
 
-        if($user != null)
-        {
-            $code = $this->resetCode();
+        // if($user != null)
+        // {
+        
+        $code = $this->resetCode();
 
-            $request->setCode($code);
-            $request->setExpiresAt(new \DateTime('+1 hour'));
-            
-            $this->resetPasswordManager->create($request);
+        $request->setCode($code);
+        $request->setExpiresAt(new \DateTime('+1 hour'));
+        
+        $this->resetPasswordManager->create($request);
 
-            $message = (new TemplatedEmail())
-                ->from('auto-reply@animegalaxy.com')
-                ->to($user->getEmail())
-                ->subject("Reset Password Code")
-                ->htmlTemplate('email/ResetPasswordCode.html.twig')
-                ->context(
+        $message = (new TemplatedEmail())
+            ->from('auto-reply@animegalaxy.com')
+            ->to($request->getEmail())
+            ->subject("Reset Password Code")
+            ->htmlTemplate('email/ResetPasswordCode.html.twig')
+            ->context(
                     [
                         'userEmail' => $request->getEmail(),
                         'code' => $code
                     ]);
+                    
+        $mailer->send($message);
 
-            $mailer->send($message);
-
-            return "Your request was being registered. And an email was being sent to you";
-        }
+        return "Your request was being registered. And an email was being sent to you";
+        // }
     }
 
     public function resetPassword($request, $encoder)
@@ -156,19 +157,19 @@ class UserManager
 
         if($currentDate < $result->getExpiresAt())
         {
-            if($result != null)
-            {
-                $user = $this->userRepository->getUserByEmail($request->getEmail());
+            // if($result != null)
+            // {
+            //     $user = $this->userRepository->getUserByEmail($request->getEmail());
 
-                if($user != null)
-                {
-                    $user->setPassword($encoder->encodePassword($user, $request->getPassword()));
+            //     if($user != null)
+            //     {
+            //         $user->setPassword($encoder->encodePassword($user, $request->getPassword()));
 
-                    $this->entityManager->flush();
+            //         $this->entityManager->flush();
 
-                    return "Your password was being re-set successfully.";
-                }
-            }
+            //         return "Your password was being re-set successfully.";
+            //     }
+            // }
 
             return $result;
         }
