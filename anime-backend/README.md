@@ -115,8 +115,8 @@ Method: DELET. Path: /anime
 ```
 ##### Get Highest Rated Anime
 ```
-Method: GET. Path: /getHighestRatedAnime`
-``
+Method: GET. Path: /getHighestRatedAnime
+```
 ##### Get Highest Rated Anime By User
 ```
 Method: GET. Path: /getHighestRatedAnime/{userID}
@@ -132,6 +132,10 @@ Method: GET. Path: /getMaybeYouLike/{userID}
 ##### Get Anime By name
 ```
 Method: GET. Path: /getanimebyname/{name}
+```
+##### Get Anime By name and Category ID
+```
+Method: GET. Path: /getanime/{categoryID}/{name}
 ```
 
 ### Episode APIs
