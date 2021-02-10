@@ -24,7 +24,7 @@ class CategoryRepository extends ServiceEntityRepository
     public function getAll()
     {
         $query = $this->createQueryBuilder('category')
-            ->select('category.id', 'category.name', 'category.description', 'category.image', 'category.coverImage',
+            ->select('category.id', 'category.name', 'category.description', 'category.image', 'category.coverImage', 'category.titleShow',
              'category.createdAt', 'category.updatedAt', 'category.createdBy', 'category.updatedBy', 'userProfile.userName')
 
             ->leftJoin(

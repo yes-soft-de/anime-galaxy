@@ -60,6 +60,11 @@ class Category
      */
     private $coverImage;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $titleShow;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -157,6 +162,18 @@ class Category
     public function setCoverImage(?string $coverImage): self
     {
         $this->coverImage = $coverImage;
+
+        return $this;
+    }
+
+    public function getTitleShow(): ?bool
+    {
+        return $this->titleShow;
+    }
+
+    public function setTitleShow(?bool $titleShow): self
+    {
+        $this->titleShow = $titleShow;
 
         return $this;
     }

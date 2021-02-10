@@ -9,6 +9,7 @@ class CreateCategoryRequest
     public $image;
     private $createdBy;
     private $coverImage;
+    private $titleShow;
 
     /**
      * @return mixed

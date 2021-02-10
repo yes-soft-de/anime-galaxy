@@ -11,6 +11,7 @@ class CreateCategoryResponse
     public $description;
     public $image;
     public $coverImage;
+    public $titleShow;
 
     /**
      * @return mixed

@@ -17,6 +17,7 @@ class GetCategoryResponse
     public $updatedAt;
     public $updatedBy;
     public $createdBy;
+    public $titleShow;
 
     /**
      * @return mixed

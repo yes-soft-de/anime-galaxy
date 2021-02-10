@@ -13,6 +13,7 @@ class GetCategoryByIdResponse
     public $coverImage;
     public $imageURL;
     public $baseURL;
+    public $titleShow;
 
     /**
      * @return mixed

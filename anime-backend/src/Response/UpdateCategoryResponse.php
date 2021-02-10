@@ -10,6 +10,7 @@ class UpdateCategoryResponse
     public $name;
     public $description;
     public $image;
+    public $titleShow;
 
     /**
      * @return mixed

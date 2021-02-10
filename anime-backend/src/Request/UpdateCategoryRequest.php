@@ -11,6 +11,7 @@ class UpdateCategoryRequest
     private $image;
     private $updatedBy;
     private $coverImage;
+    private $titleShow;
 
     /**
      * @return mixed
