@@ -14,6 +14,10 @@ class GetAnimeByCategoryResponse
     public $comments;
     public $imageURL;
     public $baseURL;
+    Public $episodesCount;
+    public $publishDate;
+    public $generalRating;
+    public $ageGroup;
 
     /**
      * @return mixed

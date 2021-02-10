@@ -138,4 +138,9 @@ class AnimeManager
     {
         return $this->animeRepository->getAnimeByName($name);
     }
+
+    public function getByNameAndCategory($categoryID, $name)
+    {
+        return $this->animeRepository->getByNameAndCategory($categoryID, $name);
+    }
 }

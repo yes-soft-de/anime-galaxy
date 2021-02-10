@@ -306,4 +306,28 @@ class AnimeService
 
         return $response;
     }
+
+    public function getByNameAndCategory($categoryID, $name)
+    {
+        $result = $this->animeManager->getByNameAndCategory($categoryID, $name);
+        $response = [];
+        
+        foreach ($result as $row)
+        {
+            $row['imageURL'] = $row['mainImage'];
+            $row['baseURL'] = $this->params;
+
+            $row['mainImage'] = $this->specialLinkCheck($row['specialLink']).$row['mainImage'];
+
+            $row['interaction']=[
+                'love' => $this->interactionService->lovedAll($row['id']),
+                'like' => $this->interactionService->likeAll($row['id']),
+                'dislike' => $this->interactionService->dislikeAll($row['id']),
+            ];
+
+            $response[] = $this->autoMapping->map('array', GetAnimeByCategoryResponse::class, $row);
+        }
+        
+        return $response;
+    }
 }

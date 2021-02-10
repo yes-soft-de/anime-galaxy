@@ -102,7 +102,8 @@ class AnimeRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('anime')
             ->select('anime.id','anime.name', 'anime.mainImage', 'count(DISTINCT comment.id) as comments',
-                'avg(rate.rateValue) as rating', 'anime.specialLink')
+                'avg(rate.rateValue) as rating', 'anime.specialLink', 'anime.episodesCount', 'anime.publishDate', 
+                'anime.generalRating', 'anime.ageGroup')
             ->leftJoin(
                 Comment::class,            
                 'comment',                  
@@ -297,6 +298,37 @@ class AnimeRepository extends ServiceEntityRepository
             ->setParameter('name', '%'.$name.'%')
             ->orderBy('anime.id')
 
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function getByNameAndCategory($categoryID, $name)
+    {
+        return $this->createQueryBuilder('anime')
+            ->select('anime.id','anime.name', 'anime.mainImage', 'count(DISTINCT comment.id) as comments' ,'anime.episodesCount', 'anime.publishDate', 
+            'anime.generalRating', 'anime.ageGroup', 'avg(rate.rateValue) as rating', 'anime.specialLink')
+            
+            ->leftJoin(
+                Comment::class,            
+                'comment',                  
+                Join::WITH,          
+                'comment.animeID = anime.id ' 
+            )
+
+            ->leftJoin(
+                Rating::class,            
+                'rate',                   
+                Join::WITH,           
+                'rate.animeID = anime.id' 
+            )
+
+            ->andWhere('anime.categories LIKE :categoryID')
+            ->andWhere('anime.name LIKE :name')
+            ->setParameter('categoryID', '%'.(INT)$categoryID.'%')
+            ->setParameter('name', '%'.$name.'%')
+
+            ->groupBy('anime.id')
+            
             ->getQuery()
             ->getResult();
     }

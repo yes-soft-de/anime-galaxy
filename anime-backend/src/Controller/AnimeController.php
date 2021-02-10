@@ -234,4 +234,14 @@ class AnimeController extends BaseController
 
         return $this->response($res, self::FETCH);
     }
+
+    /**
+     * @Route("getanime/{categoryID}/{name}", name="getAnimeByNameAndCategory", methods={"GET"})
+     */
+    public function getAnimeByNameAndCategory($categoryID, $name)
+    {
+        $result = $this->animeService->getByNameAndCategory($categoryID, $name);
+
+        return $this->response($result, self::FETCH);
+    }
 }
