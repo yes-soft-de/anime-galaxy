@@ -85,7 +85,7 @@ methods: POST
 ```
 
 ### Anime APIs
-##### Create new anime.
+##### Create new anime
 ```
 Method: POST. Path: /anime
 ```
@@ -121,7 +121,7 @@ Method: GET. Path: /getHighestRatedAnime
 ```
 Method: GET. Path: /getHighestRatedAnime/{userID}
 ```
-##### Get All Anime CommingSoon
+##### Get All Anime ComingSoon
 ```
 Method: GET. Path: /animeCommingSoon
 ```
