@@ -11,6 +11,7 @@ class GetCategoryResponse
     public $description;
     public $image;
     public $coverImage;
+    public $coverImageURL;
     public $imageURL;
     public $baseURL;
     public $createdAt;

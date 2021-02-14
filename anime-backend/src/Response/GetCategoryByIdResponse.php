@@ -11,6 +11,7 @@ class GetCategoryByIdResponse
     public $description;
     public $image;
     public $coverImage;
+    public $coverImageURL;
     public $imageURL;
     public $baseURL;
     public $titleShow;
@@ -111,6 +112,14 @@ class GetCategoryByIdResponse
     public function getCoverImage()
     {
         return $this->coverImage;
+    }
+    
+    /**
+     * @return mixed
+     */
+    public function setCoverImageURL($coverImageURL)
+    {
+        return $this->coverImageURL = $coverImageURL;
     }
 
 }
