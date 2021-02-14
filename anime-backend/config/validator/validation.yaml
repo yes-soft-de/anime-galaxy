@@ -137,7 +137,6 @@ App\Request\CreateCommentEpisodeRequest:
     comment:
       - NotBlank: ~
 
-
 App\Request\UpdateInteractionRequest:
   properties:
     userID:
@@ -176,7 +175,7 @@ App\Request\UpdateAnimeSuggestRequest:
 
 App\Request\UpdateCategoryRequest:
   properties:
-    name:
+    id:
       - NotBlank: ~
 
 App\Request\UpdateCommentRequest:
