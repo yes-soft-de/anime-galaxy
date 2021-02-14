@@ -35,7 +35,7 @@
   "profile": "الشخصية",
   "settings": "الاعدادات",
   "feedback": "اعطنا رأيك!",
-  "feed": "الرئيسة",
+  "feed": "الرئيسية",
   "tos": "شروط الاستخدام",
   "privacyPolicy": "شروط الخصوصية",
   "setExchangeGame": "حدد المبادلة",
@@ -139,5 +139,6 @@
   "comingSoonEpisodes": "حلقات ستصدر قريباً",
   "hideComments": "اخفاء التعليقات",
   "showComments": "اظهار التعليقات",
-  "commentContainsSpoiler": "هذا التعليق يحوي حرق"
+  "commentContainsSpoiler": "هذا التعليق يحوي حرق",
+  "search": "search"
 }

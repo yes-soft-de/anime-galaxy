@@ -118,7 +118,7 @@ class AnimeDetailsRepository{
      dynamic response = await _httpClient.post(Urls.API_ADD_FAVOURITE, {
        'userID':request.userID,
        'animeID':request.animeID,
-       'categoryID':request.categoryID
+       'categories':request.categories
      });
 
      if(response == null) return null;

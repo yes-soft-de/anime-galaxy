@@ -15,3 +15,7 @@ class CategoryAnimesStateFetchingSuccess extends CategoryAnimesState{
 }
 
 class CategoryAnimesStateFetchingError extends CategoryAnimesState{}
+
+
+
+

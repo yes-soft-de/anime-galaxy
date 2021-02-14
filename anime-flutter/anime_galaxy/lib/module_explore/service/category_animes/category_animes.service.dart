@@ -23,10 +23,43 @@ class CategoryAnimesService{
           animeCategory: '',
           animeName: element.name,
           animeId: element.id,
+          ageGroup: element.ageGroup,
+          comments: element.comments,
+          episodesCount: element.episodesCount,
+          generalRating: element.generalRating,
+          rating: element.rating,
+          likes: element.interaction.love??0
         )
       );
     });
 
     return animes;
   }
+
+  Future<List<CategoryAnimesModel>> searchAnime(
+      int categoryId, String animeName) async {
+    List<SeriesResponse>  response = await _manager.searchAnime(categoryId, animeName);
+    if(response == null ) return null;
+    List<CategoryAnimesModel> animes =[];
+
+    response.forEach((element) {
+      animes.add(
+          new CategoryAnimesModel(
+              animeImage:element.mainImage ,
+              animeCategory: '',
+              animeName: element.name,
+              animeId: element.id,
+              ageGroup: element.ageGroup,
+              comments: element.comments,
+              episodesCount: element.episodesCount,
+              generalRating: element.generalRating,
+              rating: element.rating,
+              likes: element.interaction.love??0
+          )
+      );
+    });
+
+    return animes;
+  }
+
 }

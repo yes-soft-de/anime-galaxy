@@ -168,7 +168,7 @@ class _MyAppState extends State<MyApp> {
             )
           : ThemeData(
               brightness: Brightness.light,
-              primaryColor: Colors.white,
+              primaryColor: Color(0xffEFEEED),
               fontFamily: 'Roboto'
             ),
       supportedLocales: S.delegate.supportedLocales,

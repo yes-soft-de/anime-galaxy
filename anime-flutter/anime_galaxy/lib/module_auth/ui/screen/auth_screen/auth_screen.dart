@@ -121,19 +121,19 @@ class _AuthScreenState extends State<AuthScreen> {
               child: Flex(
                 direction: Axis.vertical,
                 children: [
-                  TextFormField(
-                    controller: _nameController,
-                    decoration: InputDecoration(
-                        icon: Icon(Icons.person),
-                        hintText: S.of(context).yourName,
-                        labelText: S.of(context).name),
-                    validator: (result) {
-                      if (result.isEmpty) {
-                        return S.of(context).pleaseProvideYourName;
-                      }
-                      return null;
-                    },
-                  ),
+//                  TextFormField(
+//                    controller: _nameController,
+//                    decoration: InputDecoration(
+//                        icon: Icon(Icons.person),
+//                        hintText: S.of(context).yourName,
+//                        labelText: S.of(context).name),
+//                    validator: (result) {
+//                      if (result.isEmpty) {
+//                        return S.of(context).pleaseProvideYourName;
+//                      }
+//                      return null;
+//                    },
+//                  ),
                   TextFormField(
                     controller: _emailController,
                     decoration: InputDecoration(

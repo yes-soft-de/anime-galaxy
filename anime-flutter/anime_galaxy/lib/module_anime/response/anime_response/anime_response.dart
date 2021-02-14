@@ -13,7 +13,7 @@ class AnimeResponse {
   String categoryName;
   String rating;
   List<Comments> comments;
-  int categoryID;
+//  int categoryID;
   CommentInteractions interactions;
   String description;
   int episodesCount;
@@ -24,6 +24,7 @@ class AnimeResponse {
   CreationDate publishDate;
   String generalRating;
   String ageGroup;
+  List<Categories> categories;
 
   AnimeResponse(
       {this.id,
@@ -33,7 +34,7 @@ class AnimeResponse {
         this.categoryName,
         this.rating,
         this.comments,
-        this.categoryID,
+//        this.categoryID,
         this.interactions,
         this.description,
         this.episodesCount,
@@ -44,6 +45,7 @@ class AnimeResponse {
         this.publishDate,
         this.generalRating,
         this.ageGroup,
+        this.categories,
       });
 
   AnimeResponse.fromJson(Map<String, dynamic> json) {
@@ -61,7 +63,13 @@ class AnimeResponse {
         comments.add(new Comments.fromJson(v));
       });
     }
-    categoryID = json['categoryID'];
+//    categoryID = json['categoryID'];
+    if (json['categories'] != null) {
+      categories = new List<Categories>();
+      json['categories'].forEach((v) {
+        categories.add(new Categories.fromJson(v));
+      });
+    }
     interactions = json['interactions'] != null
         ? new CommentInteractions.fromJson(json['interactions'])
         : null;
@@ -86,7 +94,10 @@ class AnimeResponse {
     if (this.comments != null) {
       data['comments'] = this.comments.map((v) => v.toJson()).toList();
     }
-    data['categoryID'] = this.categoryID;
+//    data['categoryID'] = this.categoryID;
+    if (this.categories != null) {
+      data['categories'] = this.categories.map((v) => v.toJson()).toList();
+    }
     if (this.interactions != null) {
       data['interactions'] = this.interactions.toJson();
     }
@@ -287,6 +298,25 @@ class CommentInteractions {
     data['like'] = this.like;
     data['dislike'] = this.dislike;
     data['isLoved'] = this.isLoved;
+    return data;
+  }
+}
+
+class Categories {
+  int id;
+  String name;
+
+  Categories({this.id, this.name});
+
+  Categories.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    name = json['name'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['name'] = this.name;
     return data;
   }
 }

@@ -137,9 +137,9 @@ class _InitAccountScreenState extends State<InitAccountScreen>
                               setState(() {});
                             },
                             child: AnimeCategoryCard(
-                              name: categories[index].name,
-                              image: categories[index].image,
-                              description: categories[index].description,
+                              name: categories[index].titleShow? categories[index].name : '',
+                              image: categories[index].coverImage,
+                              description:categories[index].titleShow? categories[index].description : '',
                             ),
                           ),
                           new AnimatedSize(
@@ -160,8 +160,10 @@ class _InitAccountScreenState extends State<InitAccountScreen>
                                               .series[index2]
                                               .id
                                               .toString(),
-                                          categoryID:
-                                              categories[index].id.toString(),
+                                          categories:[Categories(
+                                            name: categories[index].name,
+                                            id: categories[index].id.toString(),
+                                          )]
                                         );
                                         if ((favoriteAnimes.singleWhere(
                                                 (it) =>
@@ -204,13 +206,13 @@ class _InitAccountScreenState extends State<InitAccountScreen>
                                       ),
                                     );
                                   },
-                                  padding: EdgeInsets.symmetric(horizontal: 10),
+//                                  padding: EdgeInsets.symmetric(horizontal: 10),
                                   gridDelegate:
                                       SliverGridDelegateWithFixedCrossAxisCount(
                                           crossAxisCount: 3,
-                                          mainAxisSpacing: 20,
-                                          crossAxisSpacing: 20,
-                                          childAspectRatio: (2.0 / 4)),
+                                          mainAxisSpacing: 10,
+                                          crossAxisSpacing: 10,
+                                          childAspectRatio: (2.5 / 4)),
                                   itemCount: categories[index].series.length,
                                   physics: NeverScrollableScrollPhysics(),
                                   shrinkWrap: true,

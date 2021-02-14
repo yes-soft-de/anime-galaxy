@@ -185,7 +185,6 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
           context, _scaffoldKey, username, userImage),
       drawer: widget._animeNavigationDrawer,
       body: Container(
-        padding: EdgeInsets.all(5),
         child: SingleChildScrollView(
           child:
           /*loading?
@@ -236,43 +235,45 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
 
         ),
         //rating the series
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              S.of(context).RateEpisode,
-              style: TextStyle(fontSize: 14),
-            ),
-            RotatedBox(
-              quarterTurns: 2,
-              child: AnimeRatingBar(
-                rating: rating,
-                fillIcon: ImageIcon(
-                  AssetImage('assets/images/full_flame.png'),
-                  color: ProjectColors.ThemeColor,
-                ),
-                halfFillIcon: ImageIcon(
-                  AssetImage('assets/images/full_flame.png'),
-                  color: ProjectColors.ThemeColor,
-                ),
-                emptyIcon: ImageIcon(
-                  AssetImage('assets/images/flame.png'),
-                  color: ProjectColors.ThemeColor,
-                ),
-                onRatingChanged: (rating) {
-                  if (episode.previousRate == 0) {
-                    widget._stateManager.rateEpisode(episodeId, rating);
-                    this.rating = rating;
-                    setState(() {});
-                  } else {
-                    Fluttertoast.showToast(
-                        msg: S.of(context).YouHaveRatedThisEpisode);
-                  }
-                },
-                itemSize: 25,
-                itemCount: 10,
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 5),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                S.of(context).RateEpisode,
+                style: TextStyle(fontSize: 14),
               ),
-            ),
+              RotatedBox(
+                quarterTurns: 2,
+                child: AnimeRatingBar(
+                  rating: rating,
+                  fillIcon: ImageIcon(
+                    AssetImage('assets/images/full_flame.png'),
+                    color: ProjectColors.ThemeColor,
+                  ),
+                  halfFillIcon: ImageIcon(
+                    AssetImage('assets/images/full_flame.png'),
+                    color: ProjectColors.ThemeColor,
+                  ),
+                  emptyIcon: ImageIcon(
+                    AssetImage('assets/images/flame.png'),
+                    color: ProjectColors.ThemeColor,
+                  ),
+                  onRatingChanged: (rating) {
+                    if (episode.previousRate == 0) {
+                      widget._stateManager.rateEpisode(episodeId, rating);
+                      this.rating = rating;
+                      setState(() {});
+                    } else {
+                      Fluttertoast.showToast(
+                          msg: S.of(context).YouHaveRatedThisEpisode);
+                    }
+                  },
+                  itemSize: 25,
+                  itemCount: 10,
+                ),
+              ),
 
 //                RotatedBox(
 //                  quarterTurns: 2,
@@ -299,7 +300,8 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
 //                  },
 //              ),
 //                ),
-          ],
+            ],
+          ),
         ),
 
         //Statistics
@@ -359,58 +361,72 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
               ),
 
         ),
-
-        new AnimatedSize(
-            vsync: this,
-            duration: const Duration(milliseconds: 500),
-            child: new ConstrainedBox(
-                constraints: isExpanded
-                    ? new BoxConstraints()
-                    : new BoxConstraints(maxHeight: 75.0),
-                child: Container(
-                  width: screenWidth * 0.9,
-                  padding: EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(color: Colors.black38),
-                  ),
-                  child: Text(
-                    '${episode.about}',
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontFamily: 'Roboto',
-                    ),
-                  ),
-                )
-//
-            )),
-        isExpanded
-            ? new FlatButton(
-            child: Container(
-                width: 30,
-                height: 30,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
-                  color: ProjectColors.ThemeColor,
-                ),
-                child: const Icon(
-                  Icons.keyboard_arrow_up,
-                  color: Colors.white,
-                )),
-            onPressed: () => setState(() => isExpanded = false))
-            : new FlatButton(
-            child: Container(
-                width: 30,
-                height: 30,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
-                  color: ProjectColors.ThemeColor,
-                ),
-                child: const Icon(
-                  Icons.keyboard_arrow_down,
-                  color: Colors.white,
-                )),
-            onPressed: () => setState(() => isExpanded = true)),
+        Container(
+          width: screenWidth * 0.9,
+          padding: EdgeInsets.all(10),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            border: Border.all(color: Colors.black38),
+          ),
+          child: Text(
+            '${episode.about}',
+            style: TextStyle(
+              fontSize: 14,
+              fontFamily: 'Roboto',
+            ),
+          ),
+        ),
+//        new AnimatedSize(
+//            vsync: this,
+//            duration: const Duration(milliseconds: 500),
+//            child: new ConstrainedBox(
+//                constraints: isExpanded
+//                    ? new BoxConstraints()
+//                    : new BoxConstraints(maxHeight: 75.0),
+//                child: Container(
+//                  width: screenWidth * 0.9,
+//                  padding: EdgeInsets.all(10),
+//                  decoration: BoxDecoration(
+//                    borderRadius: BorderRadius.circular(10),
+//                    border: Border.all(color: Colors.black38),
+//                  ),
+//                  child: Text(
+//                    '${episode.about}',
+//                    style: TextStyle(
+//                      fontSize: 14,
+//                      fontFamily: 'Roboto',
+//                    ),
+//                  ),
+//                )
+////
+//            )),
+//        isExpanded
+//            ? new FlatButton(
+//            child: Container(
+//                width: 30,
+//                height: 30,
+//                decoration: BoxDecoration(
+//                  borderRadius: BorderRadius.circular(50),
+//                  color: ProjectColors.ThemeColor,
+//                ),
+//                child: const Icon(
+//                  Icons.keyboard_arrow_up,
+//                  color: Colors.white,
+//                )),
+//            onPressed: () => setState(() => isExpanded = false))
+//            : new FlatButton(
+//            child: Container(
+//                width: 30,
+//                height: 30,
+//                decoration: BoxDecoration(
+//                  borderRadius: BorderRadius.circular(50),
+//                  color: ProjectColors.ThemeColor,
+//                ),
+//                child: const Icon(
+//                  Icons.keyboard_arrow_down,
+//                  color: Colors.white,
+//                )),
+//            onPressed: () => setState(() => isExpanded = true)),
 
         //divider
         Container(
@@ -444,43 +460,70 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
 
 
         //classifications
-        Wrap(
-          children: [
-            Container(
-                padding: EdgeInsetsDirectional.fromSTEB(10, 5, 10, 5),
-                margin: EdgeInsets.only(left: 7),
+        GridView.builder(
+          physics: NeverScrollableScrollPhysics(),
+          itemBuilder: (BuildContext context, int index) {
+            return  Container(
+                padding: EdgeInsetsDirectional.fromSTEB(5, 3, 5, 3),
+
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(color: Colors.black38)),
                 child: Center(
                     child: Text(
-                      '${episode.classification}',
-                      style: TextStyle(fontFamily: 'Roboto', fontSize: 12),
-                    ))),
-          ],
-          //in case of multiple classifications
-          /*  children: List.generate(anime.classification.length, (index) {
-                  return Container(
-                      padding: EdgeInsetsDirectional.fromSTEB(10, 5, 10, 5),
-                      margin: EdgeInsets.only(left:7),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(color: Colors.black38)
+                      '${episode.categories[index].name}',
+                      style: TextStyle(
+                          fontSize: 12,
+                          fontFamily:'Roboto'
                       ),
-                      child: Center(
-                          child: RotatedBox(
-                              quarterTurns: 2,
-                              child: Text(
-                                anime.classification[index],
-                                style: TextStyle(
-                                    fontSize: 10
-                                ),
-                              )
-                          )
-                      )
-                  );
-                }),*/
+                    )));
+          },
+          padding: EdgeInsets.symmetric(horizontal: 10),
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 3,
+              mainAxisSpacing: 10,
+              crossAxisSpacing: 10,
+              childAspectRatio: (3 / 1)),
+          itemCount: episode.categories != null ? episode.categories.length : 0,
+          shrinkWrap: true,
         ),
+//        Wrap(
+//          children: [
+//            Container(
+//                padding: EdgeInsetsDirectional.fromSTEB(10, 5, 10, 5),
+//                margin: EdgeInsets.only(left: 7),
+//                decoration: BoxDecoration(
+//                    borderRadius: BorderRadius.circular(10),
+//                    border: Border.all(color: Colors.black38)),
+//                child: Center(
+//                    child: Text(
+//                      '${episode.classification}',
+//                      style: TextStyle(fontFamily: 'Roboto', fontSize: 12),
+//                    ))),
+//          ],
+//          //in case of multiple classifications
+//          /*  children: List.generate(anime.classification.length, (index) {
+//                  return Container(
+//                      padding: EdgeInsetsDirectional.fromSTEB(10, 5, 10, 5),
+//                      margin: EdgeInsets.only(left:7),
+//                      decoration: BoxDecoration(
+//                          borderRadius: BorderRadius.circular(10),
+//                          border: Border.all(color: Colors.black38)
+//                      ),
+//                      child: Center(
+//                          child: RotatedBox(
+//                              quarterTurns: 2,
+//                              child: Text(
+//                                anime.classification[index],
+//                                style: TextStyle(
+//                                    fontSize: 10
+//                                ),
+//                              )
+//                          )
+//                      )
+//                  );
+//                }),*/
+//        ),
 
         //divider
         Container(

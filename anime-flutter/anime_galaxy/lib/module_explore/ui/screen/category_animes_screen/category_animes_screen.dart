@@ -1,3 +1,4 @@
+import 'package:anime_galaxy/generated/l10n.dart';
 import 'package:anime_galaxy/module_anime/anime_routes.dart';
 import 'package:anime_galaxy/module_explore/model/category_animes/category_animes.model.dart';
 import 'package:anime_galaxy/module_explore/model/explore/explore_model.dart';
@@ -5,6 +6,7 @@ import 'package:anime_galaxy/module_explore/state/category_animes/category_anime
 import 'package:anime_galaxy/module_explore/state_manager/category_animes/category_animes.state_manager.dart';
 import 'package:anime_galaxy/module_explore/ui/widget/anime_card_widget/anime_card_widget.dart';
 import 'package:anime_galaxy/utils/loading_indicator/loading_indicator.dart';
+import 'package:anime_galaxy/utils/project_color/project_color.dart';
 import 'package:flutter/material.dart';
 import 'package:inject/inject.dart';
 
@@ -24,6 +26,8 @@ class _CategoryAnimesScreenState extends State<CategoryAnimesScreen> {
   CategoryAnimesState currentState = CategoryAnimesStateInit();
   Category category;
 
+  final TextEditingController _searchController = TextEditingController();
+  
   @override
   void initState() {
    widget._stateManager.stateStream.listen((event) {
@@ -45,7 +49,7 @@ class _CategoryAnimesScreenState extends State<CategoryAnimesScreen> {
   Widget build(BuildContext context) {
     category = ModalRoute.of(context).settings.arguments;
     if(currentState is CategoryAnimesStateInit){
-      widget._stateManager.getCategorySeries(category.id, category.image);
+      widget._stateManager.getCategorySeries(category.id, category.name);
     }
     return loading?
             LoadingIndicatorWidget():
@@ -75,7 +79,7 @@ class _CategoryAnimesScreenState extends State<CategoryAnimesScreen> {
                      mainAxisAlignment: MainAxisAlignment.center,
                      children: [
                        Text(
-                         category.name??'',
+                         category.titleShow?category.name:'',
                          textAlign: TextAlign.center,
                          style:  TextStyle(
                              fontSize: 20,
@@ -94,6 +98,35 @@ class _CategoryAnimesScreenState extends State<CategoryAnimesScreen> {
                      ],
                    )
                  ),
+               Padding(
+                 padding: const EdgeInsets.all(20.0),
+                 child: Center(
+                   child: TextFormField(
+                     controller: _searchController,
+                     onFieldSubmitted: (value) {
+                       _searchController.text.trim()==''
+                           ?widget._stateManager.getCategorySeries(category.id, category.name)
+                           :widget._stateManager.search(category.id,_searchController.text.trim());
+                     },
+                     decoration: InputDecoration(
+                       hintText:
+                       'بحث' ,
+                       suffixIcon: IconButton(
+                           icon: Icon(
+                             Icons.search,
+                             color: ProjectColors.ThemeColor,
+                           ),
+                           onPressed: () {
+                             _searchController.text.trim()==''
+                                 ?widget._stateManager.getCategorySeries(category.id, category.name)
+                                 :widget._stateManager.search(category.id,_searchController.text.trim());
+
+                           }),
+                     ),
+
+                   ),
+                 ),
+               ),
 
                if(animes.isNotEmpty)
                  ListView.builder(
@@ -114,6 +147,12 @@ class _CategoryAnimesScreenState extends State<CategoryAnimesScreen> {
                              name: animes[index].animeName,
                              image: animes[index].animeImage,
                              category: animes[index].animeCategory,
+                             ageGroup: animes[index].ageGroup,
+                             comments: animes[index].comments,
+                             episodesCount: animes[index].episodesCount,
+                             generalRating: animes[index].generalRating,
+                             rating: animes[index].rating,
+                             likes: animes[index].likes,
                            ),
                          ),
                        );

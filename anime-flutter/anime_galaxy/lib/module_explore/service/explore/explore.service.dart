@@ -52,7 +52,9 @@ class ExploreService{
           id: element.id,
           name: element.name,
           image: element.image,
+          coverImage: element.coverImage,
           description: element.description,
+          titleShow: element.titleShow??true,
       ));
     });
     return categories;

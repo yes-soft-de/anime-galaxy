@@ -184,12 +184,17 @@ class MyProfileService {
     String userId = await _authService.userID;
 
     String imageFromLocal = await _preferencesHelper.getImage();
-    imageFromLocal = (imageFromLocal!=null)
+
+
+    imageFromLocal = (imageFromLocal!=null && imageFromLocal != 'http://34.71.153.58/upload/')
                       ? imageFromLocal.substring(imageFromLocal.indexOf('image'))
                       : '' ;
 
     String coverFromLocal = await _preferencesHelper.getCoverImage();
-    coverFromLocal = (coverFromLocal!=null)
+
+    print('kdkdkd :${coverFromLocal}');
+
+    coverFromLocal = (coverFromLocal!=null && coverFromLocal !='http://34.71.153.58/upload/')
                       ?  coverFromLocal.substring(coverFromLocal.indexOf('image'))
                       : '' ;
 
@@ -201,7 +206,7 @@ class MyProfileService {
         location: 'Saudi Arabia',
         story: story,
         userID: userId,
-        cover : coverImageUrl??'lll'
+        cover : coverImageUrl??coverFromLocal
     );
 
     await _preferencesHelper.setUserName(username);

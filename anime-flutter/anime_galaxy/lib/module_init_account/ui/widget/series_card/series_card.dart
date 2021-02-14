@@ -40,7 +40,7 @@ class SeriesCard extends StatelessWidget {
               Center(
 
                   child: Text(
-                   name,
+                   name??'',
                     textDirection: TextDirection.rtl,
                     style: TextStyle(
                       fontFamily:'Roboto',
@@ -52,7 +52,7 @@ class SeriesCard extends StatelessWidget {
               ),
 
                     Text(
-                      classification,
+                      classification??'',
                       style: TextStyle(
                           fontFamily:'Roboto',
                           fontSize: 9,

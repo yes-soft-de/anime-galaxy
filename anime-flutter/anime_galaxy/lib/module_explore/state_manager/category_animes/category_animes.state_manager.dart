@@ -28,4 +28,17 @@ class CategoryAnimesStateManager{
       }
     });
   }
+
+  void search(int categoryId,String animeName){
+    _stateSubject.add(CategoryAnimesStateFetching());
+
+    _categoryAnimesService.searchAnime(categoryId, animeName).then((value) {
+      if(value == null){
+        Fluttertoast.showToast(msg: S.current.errorLoadingData);
+        _stateSubject.add(CategoryAnimesStateFetchingError());
+      }else{
+        _stateSubject.add(CategoryAnimesStateFetchingSuccess(value));
+      }
+    });
+  }
 }
