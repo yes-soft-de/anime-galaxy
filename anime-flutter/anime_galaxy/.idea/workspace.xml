@@ -4,290 +4,9 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="949cf1e4-ee88-43fb-8374-6a66b1c9c391" name="Default Changelist" comment=".&#10;.">
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
+    <list default="true" id="949cf1e4-ee88-43fb-8374-6a66b1c9c391" name="Default Changelist" comment="release 1.1.16">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ios/Fastlane/Fastfile" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Fastlane/Fastfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/abstracts/module/yes_module.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/abstracts/module/yes_module.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_setting/routes/setting_module.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_setting/routes/setting_module.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_setting/routes/setting_route.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_setting/routes/setting_route.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_setting/ui/screen/anim_setting.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_setting/ui/screen/anim_setting.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_setting/ui/style_app.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_setting/ui/style_app.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_setting/ui/widget/card_setting/card_setting.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_setting/ui/widget/card_setting/card_setting.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_setting/ui/widget/circular_setting/circular_image.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_setting/ui/widget/circular_setting/circular_image.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_setting/ui/widget/custome_button/custome_button.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_setting/ui/widget/custome_button/custome_button.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/camera/camer_routes.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/camera/camer_routes.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/camera/camera_module.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/camera/camera_module.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/camera/ui/screen/camera_screen/camera_screen.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/camera/ui/screen/camera_screen/camera_screen.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/consts/keys.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/consts/keys.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/consts/urls.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/consts/urls.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/consts/urls.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/consts/urls.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/di/components/app.component.inject.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/di/components/app.component.inject.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/di/components/app.component.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/di/components/app.component.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/generated/intl/messages_all.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/intl/messages_all.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/generated/intl/messages_all.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/intl/messages_all.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/generated/intl/messages_ar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/intl/messages_ar.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/generated/intl/messages_ar.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/intl/messages_ar.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/generated/intl/messages_en.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/intl/messages_en.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/generated/intl/messages_en.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/intl/messages_en.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/generated/l10n.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/l10n.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/generated/l10n.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/l10n.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/generated_plugin_registrant.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated_plugin_registrant.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/l10n/intl_ar.arb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/l10n/intl_ar.arb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/l10n/intl_en.arb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/l10n/intl_en.arb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main_screen/main_screen_module.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main_screen/main_screen_module.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main_screen/main_screen_routes.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main_screen/main_screen_routes.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main_screen/ui/screen/main_screen.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main_screen/ui/screen/main_screen.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/anime_module.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/anime_module.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/anime_routes.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/anime_routes.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/manager/anime_details/anime_details.manager.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/manager/anime_details/anime_details.manager.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/model/anime_model/anime_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/model/anime_model/anime_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/model/anime_model/anime_model.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/model/anime_model/anime_model.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/repository/anime_details/anime_details.repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/repository/anime_details/anime_details.repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/repository/anime_details/anime_details.repository.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/repository/anime_details/anime_details.repository.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/request/comment_request/comment_request.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/request/comment_request/comment_request.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/request/favourite_request/favourite_request.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/request/favourite_request/favourite_request.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/request/favourite_request/favourite_request.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/request/favourite_request/favourite_request.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/request/rating_request/rating_request.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/request/rating_request/rating_request.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/response/anime_response/anime_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/response/anime_response/anime_response.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/response/anime_response/anime_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/response/anime_response/anime_response.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/response/comment_response/comment_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/response/comment_response/comment_response.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/response/episode_response/episode_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/response/episode_response/episode_response.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/response/favourite_response/favourite_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/response/favourite_response/favourite_response.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/service/anime_details/anime_details.service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/service/anime_details/anime_details.service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/service/anime_details/anime_details.service.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/service/anime_details/anime_details.service.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/state/anime_details/anime_details.state.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/state/anime_details/anime_details.state.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/state_manager/anime_details/anime_details.state_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/state_manager/anime_details/anime_details.state_manager.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/state_manager/anime_details/anime_details.state_manager.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/state_manager/anime_details/anime_details.state_manager.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/ui/widget/anime_details_widget/ainme_details_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/ui/widget/anime_details_widget/ainme_details_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/ui/widget/anime_details_widget/ainme_details_widget.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/ui/widget/anime_details_widget/ainme_details_widget.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/ui/widget/comment_card/comment_card.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/ui/widget/comment_card/comment_card.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/ui/widget/episode_card/episode_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/ui/widget/episode_card/episode_card.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/ui/widget/episode_card/episode_card.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/ui/widget/episode_card/episode_card.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/ui/widget/spoiler_comment_card/spoiler_comment_card.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/ui/widget/spoiler_comment_card/spoiler_comment_card.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_auth/auth_module.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/auth_module.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_auth/auth_module.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/auth_module.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_auth/auth_routes.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/auth_routes.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_auth/auth_routes.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/auth_routes.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_auth/enums/auth_source.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/enums/auth_source.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_auth/manager/auth/auth_manager.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/manager/auth/auth_manager.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_auth/presistance/auth_prefs_helper.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/presistance/auth_prefs_helper.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_auth/repository/auth/auth_repository.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/repository/auth/auth_repository.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_auth/request/login/login_request.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/request/login/login_request.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_auth/request/register/registerRequest.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/request/register/registerRequest.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_auth/service/auth_service/auth_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/service/auth_service/auth_service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_auth/service/auth_service/auth_service.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/service/auth_service/auth_service.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_auth/state_manager/auth_state_manager/auth_state_manager.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/state_manager/auth_state_manager/auth_state_manager.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_auth/states/auth_states/auth_states.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/states/auth_states/auth_states.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_auth/style/style_auth.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/style/style_auth.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_auth/ui/screen/auth_screen/auth_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/ui/screen/auth_screen/auth_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_auth/ui/screen/auth_screen/auth_screen.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/ui/screen/auth_screen/auth_screen.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_auth/ui/widget/custome_button/custome_button.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/ui/widget/custome_button/custome_button.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_auth/ui/widget/social_icon/social_icon.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/ui/widget/social_icon/social_icon.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_chat/bloc/chat_page/chat_page.bloc.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_chat/bloc/chat_page/chat_page.bloc.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_chat/chat_module.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_chat/chat_module.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_chat/chat_routes.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_chat/chat_routes.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_chat/manager/chat/chat_manager.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_chat/manager/chat/chat_manager.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_chat/model/chat/chat_model.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_chat/model/chat/chat_model.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_chat/repository/chat/chat_repository.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_chat/repository/chat/chat_repository.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_chat/service/chat/char_service.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_chat/service/chat/char_service.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_chat/ui/screens/chat_page/chat_page.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_chat/ui/screens/chat_page/chat_page.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_chat/ui/widget/chat_bubble/chat_bubble.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_chat/ui/widget/chat_bubble/chat_bubble.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_episode/episode_module.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/episode_module.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_episode/episode_routes.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/episode_routes.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_episode/manager/episode_details/episode_details.manager.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/manager/episode_details/episode_details.manager.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_episode/model/episode_model/episode_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/model/episode_model/episode_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_episode/model/episode_model/episode_model.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/model/episode_model/episode_model.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_episode/repository/episode_details/episode_details.repository.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/repository/episode_details/episode_details.repository.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_episode/request/comment_request/comment_request.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/request/comment_request/comment_request.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_episode/request/rating_request/rating_request.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/request/rating_request/rating_request.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_episode/response/comment_response/comment_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/response/comment_response/comment_response.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_episode/response/episode_response/episode_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/response/episode_response/episode_response.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_episode/response/episode_response/episode_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/response/episode_response/episode_response.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_episode/service/episode_details/episode_details.service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/service/episode_details/episode_details.service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_episode/service/episode_details/episode_details.service.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/service/episode_details/episode_details.service.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_episode/state/episode_details/episode_details.state.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/state/episode_details/episode_details.state.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_episode/state_manager/episode_details/episode_details.state_manager.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/state_manager/episode_details/episode_details.state_manager.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_episode/ui/screen/episode_details_screen/episode_details_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/ui/screen/episode_details_screen/episode_details_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_episode/ui/screen/episode_details_screen/episode_details_screen.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/ui/screen/episode_details_screen/episode_details_screen.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_episode/ui/widget/comment_card/comment_card.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/ui/widget/comment_card/comment_card.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_episode/ui/widget/episode_details_widget/episode_details_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/ui/widget/episode_details_widget/episode_details_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_episode/ui/widget/episode_details_widget/episode_details_widget.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/ui/widget/episode_details_widget/episode_details_widget.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_episode/ui/widget/spoiler_comment_card/spoiler_comment_card.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/ui/widget/spoiler_comment_card/spoiler_comment_card.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_error/error_module.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_error/error_module.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_error/error_routes.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_error/error_routes.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_error/ui/screen/error_screen.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_error/ui/screen/error_screen.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/explore_module.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/explore_module.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/explore_routes.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/explore_routes.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/manager/category_animes/category_animes.manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/manager/category_animes/category_animes.manager.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/manager/category_animes/category_animes.manager.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/manager/category_animes/category_animes.manager.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/manager/explore/explore.manager.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/manager/explore/explore.manager.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/model/category_animes/category_animes.model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/model/category_animes/category_animes.model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/model/category_animes/category_animes.model.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/model/category_animes/category_animes.model.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/model/explore/explore_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/model/explore/explore_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/model/explore/explore_model.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/model/explore/explore_model.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/repository/category_animes/category_animes.repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/repository/category_animes/category_animes.repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/repository/category_animes/category_animes.repository.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/repository/category_animes/category_animes.repository.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/repository/explore/explore.repositry.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/repository/explore/explore.repositry.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/response/active_users_response/active_users_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/response/active_users_response/active_users_response.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/response/anime_response/anime_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/response/anime_response/anime_response.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/response/category_respponse/category_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/response/category_respponse/category_response.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/response/category_respponse/category_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/response/category_respponse/category_response.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/response/comming_soon_response/comming_soon_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/response/comming_soon_response/comming_soon_response.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/response/expolre_response/explore_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/response/expolre_response/explore_response.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/response/series_response/series_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/response/series_response/series_response.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/response/series_response/series_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/response/series_response/series_response.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/service/category_animes/category_animes.service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/service/category_animes/category_animes.service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/service/category_animes/category_animes.service.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/service/category_animes/category_animes.service.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/service/explore/explore.service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/service/explore/explore.service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/service/explore/explore.service.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/service/explore/explore.service.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/state/category_animes/category_animes.state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/state/category_animes/category_animes.state.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/state/category_animes/category_animes.state.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/state/category_animes/category_animes.state.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/state/explore/explore.state.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/state/explore/explore.state.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/state_manager/category_animes/category_animes.state_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/state_manager/category_animes/category_animes.state_manager.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/state_manager/category_animes/category_animes.state_manager.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/state_manager/category_animes/category_animes.state_manager.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/state_manager/explore/explore.state_manager.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/state_manager/explore/explore.state_manager.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/style/style_explore_list.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/style/style_explore_list.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/ui/screen/category_animes_screen/category_animes_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/ui/screen/category_animes_screen/category_animes_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/ui/screen/category_animes_screen/category_animes_screen.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/ui/screen/category_animes_screen/category_animes_screen.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/ui/screen/explore_screen/explore_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/ui/screen/explore_screen/explore_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/ui/screen/explore_screen/explore_screen.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/ui/screen/explore_screen/explore_screen.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/ui/widget/anime_card_widget/anime_card_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/ui/widget/anime_card_widget/anime_card_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/ui/widget/anime_card_widget/anime_card_widget.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/ui/widget/anime_card_widget/anime_card_widget.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/ui/widget/circular_image/circular_image.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/ui/widget/circular_image/circular_image.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/ui/widget/custome_button/custome_button.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/ui/widget/custome_button/custome_button.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/ui/widget/favourite_series_card/favourite_series_card.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/ui/widget/favourite_series_card/favourite_series_card.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/ui/widget/member_card/member_card.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/ui/widget/member_card/member_card.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/ui/widget/series_card/card_series.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/ui/widget/series_card/card_series.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_forms/forms_module.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_forms/forms_module.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_forms/forms_routes.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_forms/forms_routes.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_forms/request/item_create_request/item_create_request.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_forms/request/item_create_request/item_create_request.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_forms/states/by_image_state/by_image_state.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_forms/states/by_image_state/by_image_state.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/home.module.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/home.module.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/home.routes.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/home.routes.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/manager/home/home.manager.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/manager/home/home.manager.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/model/home_model/home_model.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/model/home_model/home_model.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/repository/home/home.repository.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/repository/home/home.repository.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/response/coming_soon_episodes/coming_soon_episodes.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/response/coming_soon_episodes/coming_soon_episodes.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/response/home_response/home_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/response/home_response/home_response.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/response/points/points_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/response/points/points_response.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/response/series_you_may_like_response/series_you_may_like_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/response/series_you_may_like_response/series_you_may_like_response.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/response/watched_series_response/watched_series_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/response/watched_series_response/watched_series_response.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/service/home/home.service.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/service/home/home.service.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/state/home/home.state.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/state/home/home.state.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/state_manager/home/home.state_manager.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/state_manager/home/home.state_manager.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/ui/screens/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/ui/screens/home_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/ui/screens/home_screen.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/ui/screens/home_screen.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/ui/widget/points_widget/points_widget.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/ui/widget/points_widget/points_widget.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/ui/widget/series_card/series_card.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/ui/widget/series_card/series_card.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_init_account/account_module.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_init_account/account_module.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_init_account/init_account_routes.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_init_account/init_account_routes.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_init_account/manager/init_account/init_account.manager.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_init_account/manager/init_account/init_account.manager.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_init_account/model/init_account_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_init_account/model/init_account_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_init_account/model/init_account_model.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_init_account/model/init_account_model.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_init_account/repository/init_account/init_account.repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_init_account/repository/init_account/init_account.repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_init_account/repository/init_account/init_account.repository.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_init_account/repository/init_account/init_account.repository.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_init_account/request/favourite_request/favourite_request.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_init_account/request/favourite_request/favourite_request.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_init_account/request/favourite_request/favourite_request.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_init_account/request/favourite_request/favourite_request.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_init_account/response/category_respponse/category_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_init_account/response/category_respponse/category_response.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_init_account/response/category_respponse/category_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_init_account/response/category_respponse/category_response.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_init_account/response/series_response/series_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_init_account/response/series_response/series_response.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_init_account/service/init_account/init_account.service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_init_account/service/init_account/init_account.service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_init_account/service/init_account/init_account.service.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_init_account/service/init_account/init_account.service.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_init_account/state/init_account/init_account.state.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_init_account/state/init_account/init_account.state.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_init_account/state_manager/init_account/init_account.state_manager.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_init_account/state_manager/init_account/init_account.state_manager.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_init_account/ui/screen/init_account_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_init_account/ui/screen/init_account_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_init_account/ui/screen/init_account_screen.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_init_account/ui/screen/init_account_screen.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_init_account/ui/widget/anime_category_Card/anime_category_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_init_account/ui/widget/anime_category_Card/anime_category_card.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_init_account/ui/widget/anime_category_Card/anime_category_card.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_init_account/ui/widget/anime_category_Card/anime_category_card.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_init_account/ui/widget/series_card/series_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_init_account/ui/widget/series_card/series_card.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_init_account/ui/widget/series_card/series_card.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_init_account/ui/widget/series_card/series_card.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_localization/presistance/localization_preferences_helper/localization_preferences_helper.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_localization/presistance/localization_preferences_helper/localization_preferences_helper.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_localization/service/localization_service/localization_service.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_localization/service/localization_service/localization_service.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_navigation/ui/widget/navigation_drawer/anime_navigation_drawer.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_navigation/ui/widget/navigation_drawer/anime_navigation_drawer.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_network/http_client/http_client.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_network/http_client/http_client.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_notification/manager/notification/notification.manager.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_notification/manager/notification/notification.manager.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_notification/model/notification_model/notification_model.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_notification/model/notification_model/notification_model.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_notification/notification_module.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_notification/notification_module.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_notification/notification_routes.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_notification/notification_routes.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_notification/repository/notification/notification.repository.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_notification/repository/notification/notification.repository.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_notification/response/notification_response/notification_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_notification/response/notification_response/notification_response.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_notification/service/notification/notification.service.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_notification/service/notification/notification.service.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_notification/state/notification/notification.state.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_notification/state/notification/notification.state.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_notification/state_manager/notification/notification.state_manager.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_notification/state_manager/notification/notification.state_manager.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_notification/ui/screen/notification_screen/notification_screen.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_notification/ui/screen/notification_screen/notification_screen.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_notification/ui/widget/circular_image/circular_image.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_notification/ui/widget/circular_image/circular_image.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_notification/ui/widget/notification_card/notification_card.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_notification/ui/widget/notification_card/notification_card.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_persistence/sharedpref/shared_preferences_helper.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_persistence/sharedpref/shared_preferences_helper.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/manager/my_profile_manager/my_profile_manager.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/manager/my_profile_manager/my_profile_manager.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/model/profile_model/profile_model.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/model/profile_model/profile_model.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/presistance/profile_shared_preferences.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/presistance/profile_shared_preferences.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/profile_module.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/profile_module.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/profile_routes.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/profile_routes.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/repository/my_profile/my_profile.repository.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/repository/my_profile/my_profile.repository.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/request/create_profile.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/request/create_profile.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/response/favourite_response/anime_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/response/favourite_response/anime_response.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/response/following_activities_response/following_activities_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/response/following_activities_response/following_activities_response.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/response/follwoing_response/following_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/response/follwoing_response/following_response.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/response/previous_comments_response/previous_comments_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/response/previous_comments_response/previous_comments_response.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/response/profile_response/profile_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/response/profile_response/profile_response.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/service/general_profile/general_profile.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/service/general_profile/general_profile.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/service/my_profile/my_profile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/service/my_profile/my_profile.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/service/my_profile/my_profile.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/service/my_profile/my_profile.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/state/my_profile_state.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/state/my_profile_state.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/state_manager/edit_profile_state_manager/edit_profile_state_manager.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/state_manager/edit_profile_state_manager/edit_profile_state_manager.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/state_manager/my_profile/my_profile_state_manager.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/state_manager/my_profile/my_profile_state_manager.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/ui/screen/my_profile/my_profile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/ui/screen/my_profile/my_profile.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/ui/screen/my_profile/my_profile.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/ui/screen/my_profile/my_profile.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/ui/screen/profile_screen/profile_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/ui/screen/profile_screen/profile_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/ui/screen/profile_screen/profile_screen.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/ui/screen/profile_screen/profile_screen.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/ui/widget/activity_card/activity_card.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/ui/widget/activity_card/activity_card.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/ui/widget/comment_card/comment_card.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/ui/widget/comment_card/comment_card.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/ui/widget/personal_info_widget/personal_info_widget.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/ui/widget/personal_info_widget/personal_info_widget.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/ui/widget/series_card/card_series.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/ui/widget/series_card/card_series.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_rating/ui/widget/rating_bar.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_rating/ui/widget/rating_bar.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_search/manager/search_manager/search.manager.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_search/manager/search_manager/search.manager.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_search/model/search_model/search_model.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_search/model/search_model/search_model.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_search/repository/search_repository/search.repository.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_search/repository/search_repository/search.repository.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_search/response/search_response/search_reaponse.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_search/response/search_response/search_reaponse.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_search/response/search_response/search_reaponse.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_search/response/search_response/search_reaponse.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_search/search_module.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_search/search_module.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_search/search_routes.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_search/search_routes.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_search/service/search_service/search.service.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_search/service/search_service/search.service.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_search/state/search/search.state.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_search/state/search/search.state.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_search/state_manager/search/search.state_manager.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_search/state_manager/search/search.state_manager.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_search/ui/screen/search_screen/seach_screen.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_search/ui/screen/search_screen/seach_screen.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_search/ui/widget/anime_card_widget/anime_card_widget.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_search/ui/widget/anime_card_widget/anime_card_widget.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_settings/setting_module.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_settings/setting_module.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_settings/setting_routes.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_settings/setting_routes.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_settings/style_app.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_settings/style_app.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_settings/ui/ui/settings_page/settings_page.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_settings/ui/ui/settings_page/settings_page.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_settings/widget/card_setting/card_setting.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_settings/widget/card_setting/card_setting.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_settings/widget/circular_setting/circular_image.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_settings/widget/circular_setting/circular_image.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_settings/widget/custome_button/custome_button.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_settings/widget/custome_button/custome_button.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_theme/pressistance/theme_preferences_helper.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_theme/pressistance/theme_preferences_helper.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_theme/service/theme_service/theme_service.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_theme/service/theme_service/theme_service.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_upload/manager/upload_manager/upload_manager.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_upload/manager/upload_manager/upload_manager.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_upload/repository/upload_repository/upload_repository.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_upload/repository/upload_repository/upload_repository.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_upload/response/imgbb/imgbb_response.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_upload/response/imgbb/imgbb_response.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_upload/service/image_upload/image_upload_service.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_upload/service/image_upload/image_upload_service.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/app_bar/anime_galaxy_app_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/app_bar/anime_galaxy_app_bar.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/app_bar/anime_galaxy_app_bar.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/app_bar/anime_galaxy_app_bar.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/auth_guard/auth_gard.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/auth_guard/auth_gard.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/dims/resolution.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/dims/resolution.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/loading_indicator/loading_indicator.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/loading_indicator/loading_indicator.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/logger/logger.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/logger/logger.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/project_color/project_color.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/project_color/project_color.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/project_colors/project_color.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/project_colors/project_color.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/time/time_formatter.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/time/time_formatter.inject.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/widget_test.inject.summary" beforeDir="false" afterPath="$PROJECT_DIR$/test/widget_test.inject.summary" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.pub/" />
@@ -315,7 +34,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ios/Fastlane/Fastfile">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="194">
@@ -324,11 +43,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pubspec.yaml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="40">
               <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/module_auth/auth_module.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="40">
+              <caret line="3" column="103" selection-start-line="3" selection-start-column="103" selection-end-line="3" selection-end-column="103" />
             </state>
           </provider>
         </entry>
@@ -500,7 +228,6 @@
         <option value="$PROJECT_DIR$/lib/module_explore/state_manager/category_animes/category_animes.state_manager.dart" />
         <option value="$PROJECT_DIR$/lib/module_explore/ui/screen/category_animes_screen/category_animes_screen.dart" />
         <option value="$PROJECT_DIR$/lib/module_auth/auth_routes.dart" />
-        <option value="$PROJECT_DIR$/lib/module_auth/auth_module.dart" />
         <option value="$PROJECT_DIR$/lib/module_auth/ui/screen/auth_screen/auth_screen.dart" />
         <option value="$PROJECT_DIR$/lib/module_auth/state_manager/forgot_password_state_manager/auth_state_manager.dart" />
         <option value="$PROJECT_DIR$/lib/module_auth/ui/screen/forgot_password_screen/forgot_password_screen.dart" />
@@ -508,8 +235,9 @@
         <option value="$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.dart" />
         <option value="$PROJECT_DIR$/lib/utils/app_bar/anime_galaxy_app_bar.dart" />
         <option value="$PROJECT_DIR$/lib/module_episode/ui/screen/episode_details_screen/episode_details_screen.dart" />
-        <option value="$PROJECT_DIR$/ios/Fastlane/Fastfile" />
         <option value="$PROJECT_DIR$/pubspec.yaml" />
+        <option value="$PROJECT_DIR$/lib/module_auth/auth_module.dart" />
+        <option value="$PROJECT_DIR$/ios/Fastlane/Fastfile" />
       </list>
     </option>
   </component>
@@ -546,6 +274,17 @@
               <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
               <item name="ios" type="462c0819:PsiDirectoryNode" />
               <item name="Fastlane" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anime_galaxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anime_galaxy" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="module_auth" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -616,20 +355,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1602006469330</updated>
-    </task>
-    <task id="LOCAL-00072" summary="implement love reaction for episodes and animes">
-      <created>1605953477819</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1605953477821</updated>
-    </task>
-    <task id="LOCAL-00073" summary="add video trailer to anime screen">
-      <created>1605955827099</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1605955827099</updated>
     </task>
     <task id="LOCAL-00074" summary="implement structure for react to comments of animes and episodes , fix navigation at the drawer , stop video after change screen">
       <created>1605987890164</created>
@@ -960,7 +685,21 @@
       <option name="project" value="LOCAL" />
       <updated>1613402369717</updated>
     </task>
-    <option name="localTasksCounter" value="121" />
+    <task id="LOCAL-00121" summary="release 1.1.16">
+      <created>1613403643771</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1613403643771</updated>
+    </task>
+    <task id="LOCAL-00122" summary="release 1.1.16">
+      <created>1613406623996</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1613406623996</updated>
+    </task>
+    <option name="localTasksCounter" value="123" />
     <servers />
   </component>
   <component name="TodoView">
@@ -977,7 +716,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.16414523" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.16414523" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -991,7 +730,7 @@
       <window_info anchor="bottom" id="Terminal" order="4" weight="0.22585924" />
       <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.50075644" side_tool="true" weight="0.6743044" />
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.44517186" />
-      <window_info active="true" anchor="bottom" id="Messages" order="7" visible="true" weight="0.21603929" />
+      <window_info anchor="bottom" id="Messages" order="7" visible="true" weight="0.21603929" />
       <window_info anchor="bottom" id="Find" order="8" weight="0.3289689" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
       <window_info anchor="right" id="Theme Preview" order="1" />
@@ -1069,7 +808,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="edit general rating bars" />
     <MESSAGE value="fix some bugs and add some features" />
     <MESSAGE value="edit upload image" />
     <MESSAGE value="edit profile done" />
@@ -1094,7 +832,8 @@
     <MESSAGE value="implement reset password" />
     <MESSAGE value="add back button in animes and episodes screens" />
     <MESSAGE value=".&#10;." />
-    <option name="LAST_COMMIT_MESSAGE" value=".&#10;." />
+    <MESSAGE value="release 1.1.16" />
+    <option name="LAST_COMMIT_MESSAGE" value="release 1.1.16" />
   </component>
   <component name="WindowStateProjectService">
     <state x="522" y="235" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605284647206">
@@ -1431,16 +1170,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_auth/auth_module.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="e#0#63#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/di/components/app.component.inject.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="980">
@@ -1465,18 +1194,6 @@
           <caret line="69" column="11" selection-start-line="69" selection-start-column="11" selection-end-line="69" selection-end-column="11" />
           <folding>
             <element signature="e#1434#2709#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/module_auth/ui/screen/forgot_password_screen/forgot_password_screen.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="27" column="36" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-            <element signature="e#679#2604#0" />
-            <element signature="e#3493#5948#0" />
           </folding>
         </state>
       </provider>
@@ -1527,17 +1244,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ios/Fastlane/Fastfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pubspec.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
           <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_auth/ui/screen/forgot_password_screen/forgot_password_screen.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/module_auth/auth_module.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="3" column="103" selection-start-line="3" selection-start-column="103" selection-end-line="3" selection-end-column="103" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ios/Fastlane/Fastfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
         </state>
       </provider>
     </entry>
