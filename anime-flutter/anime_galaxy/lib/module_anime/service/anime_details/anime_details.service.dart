@@ -35,26 +35,42 @@ class AnimeDetailsService {
     anime.generalRating = response.generalRating;
 
     var df = new DateFormat('yyyy');
-    var date = new DateTime.fromMillisecondsSinceEpoch(response.publishDate.timestamp *1000);
+    var date = new DateTime.fromMillisecondsSinceEpoch(
+        response.publishDate.timestamp * 1000);
     anime.showYear = df.format(date).toString();
-
 
     anime.about = response.description;
     anime.isFollowed = response.isFollowed;
     anime.isLoved = response.interactions.isLoved;
-    anime.categoryID = response.categoryID;
-    anime.episodes = getEpisodes(response.episodes,response.categoryName);
+//    anime.categoryID = response.categoryID;
+    anime.categories = _getCategories(response.categories);
+    anime.episodes = getEpisodes(response.episodes, response.categoryName);
     anime.previousRate = response.previousRate;
     int index = response.trailerVideo.indexOf('&');
-    anime.trailerVideo = index==-1?
-                              response.trailerVideo.substring(response.trailerVideo.indexOf('=')+1):
-                              response.trailerVideo.substring(response.trailerVideo.indexOf('=')+1,index);
+    anime.trailerVideo = index == -1
+        ? response.trailerVideo
+            .substring(response.trailerVideo.indexOf('=') + 1)
+        : response.trailerVideo
+            .substring(response.trailerVideo.indexOf('=') + 1, index);
     print('trailer from : ${anime.trailerVideo}');
 
     return anime;
   }
 
-  List<Episode> getEpisodes(List<EpisodeResponse> episodesResponse,String category) {
+  List<AnimeCategories> _getCategories(List<Categories> categories) {
+    List<AnimeCategories> result = [];
+
+    categories.forEach((element) {
+      result.add(new AnimeCategories(
+        id: element.id,
+        name: element.name,
+      ));
+    });
+    return result;
+  }
+
+  List<Episode> getEpisodes(
+      List<EpisodeResponse> episodesResponse, String category) {
     List<Episode> episodes = [];
 
     episodesResponse.forEach((element) {
@@ -63,7 +79,7 @@ class AnimeDetailsService {
           episodeNumber: element.episodeNumber,
           image: element.image,
           //TODO : change this later
-          classification:category );
+          classification: category);
       episodes.add(episode);
     });
     return episodes;
@@ -71,21 +87,35 @@ class AnimeDetailsService {
 
   List<Comment> getComments(List<Comments> commentResponse) {
     List<Comment> comments = [];
-    List months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    List months = [
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+      'May',
+      'Jun',
+      'Jul',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dec'
+    ];
     var df = new DateFormat('dd/MM');
 
     commentResponse.forEach((element) {
-      var date = new DateTime.fromMillisecondsSinceEpoch(element.creationDate.timestamp * 1000);
-      String image = element.image??'';
+      var date = new DateTime.fromMillisecondsSinceEpoch(
+          element.creationDate.timestamp * 1000);
+      String image = element.image ?? '';
       Comment comment = new Comment(
         content: element.comment,
-        userName:element.userName,
+        userName: element.userName,
         id: element.id,
         userId: element.userID,
         likesNumber: element.commentInteractions.love.toString(),
-        userImage:Urls.IMAGES_UPLOAD_PATH+'/'+image,
-      //  date:' ${months[date.month+1]} ${date.day} ' ,
-        date: df.format(date).toString()??'',
+        userImage: Urls.IMAGES_UPLOAD_PATH + '/' + image,
+        //  date:' ${months[date.month+1]} ${date.day} ' ,
+        date: df.format(date).toString() ?? '',
         isLoved: element.commentInteractions.isLoved,
         spoilerAlert: element.spoilerAlert,
       );
@@ -107,37 +137,40 @@ class AnimeDetailsService {
     return await _detailsManager.addComment(commentRequest);
   }
 
-  Future<bool> addToFavourite(int animeId, int categoryId) async {
+  Future<bool> addToFavourite(int animeId, List<AnimeCategories> categories) async {
     String userId = await _authService.userID;
     Logger().info('anime_details.service', 'Favorate UID: $userId');
+    List<String> cat = [];
+    categories.forEach((element) {
+      cat.add(element.id.toString());
+    });
+
     FavouriteRequest request = new FavouriteRequest(
-        categoryID: categoryId.toString(),
+        categories: cat,
         animeID: animeId.toString(),
         userID: userId);
 
     return await _detailsManager.addToFavourite(request);
   }
 
-  Future<bool> rateAnime(int animeId, int rateValue) async{
+  Future<bool> rateAnime(int animeId, int rateValue) async {
     String userId = await _authService.userID;
 
     RatingRequest request = new RatingRequest(
-        userId: userId,
-        animeId: animeId,
-        rateValue: rateValue
-    );
+        userId: userId, animeId: animeId, rateValue: rateValue);
 
     return await _detailsManager.rateAnime(request);
   }
 
-  Future<bool> loveAnime(int animeId)async{
+  Future<bool> loveAnime(int animeId) async {
     return await _detailsManager.loveAnime(animeId);
   }
-  Future<bool> loveComment(int commentId)async{
+
+  Future<bool> loveComment(int commentId) async {
     return await _detailsManager.loveComment(commentId);
   }
 
-  Future<bool> unFollowAnime(int animeId)async{
+  Future<bool> unFollowAnime(int animeId) async {
     return await _detailsManager.unFollowAnime(animeId);
   }
 }

@@ -131,6 +131,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "saudiArabia" : MessageLookupByLibrary.simpleMessage("Saudi Arabia"),
     "saveProfile" : MessageLookupByLibrary.simpleMessage("Save Profile"),
     "saving" : MessageLookupByLibrary.simpleMessage("Saving!"),
+    "search" : MessageLookupByLibrary.simpleMessage("search"),
     "searchAGame" : MessageLookupByLibrary.simpleMessage("Search a Game :)"),
     "searchForAnAnime" : MessageLookupByLibrary.simpleMessage("ابحث عن انمي"),
     "selectAnImage" : MessageLookupByLibrary.simpleMessage("Select an Image"),

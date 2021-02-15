@@ -52,7 +52,7 @@ class InitAccountRepository{
       dynamic response = await _httpClient.post(Urls.API_ADD_FAVOURITE, {
         'userID':element.userID,
         'animeID':element.animeID,
-        'categoryID':element.categoryID
+        'categories':element.categories
       });
 
       if(response == null) return null;

@@ -186,7 +186,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       },
       child: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsetsDirectional.fromSTEB(7, 0, 7, 10),
+          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -227,7 +227,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     )
                   : Center(
                       child: Text(
-                        'No New Episodes',
+                        'لا يوجد حلقات جديدة',
                         style: TextStyle(
                           fontFamily: 'Roboto',
                         ),
@@ -258,8 +258,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
 
               Container(
-                height: 190,
-                color:  isDarkMode? Colors.white30 :Colors.grey[400],
+                height: 180,
+//                color:  isDarkMode? Colors.white30 :Colors.grey[400],
                 child: ListView.builder(
                   itemBuilder: (context, index) {
                     return Padding(
@@ -388,7 +388,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       ),
                     )
                   : Text(
-                      'Not Enough Data',
+                      'لا يوجد معلومات كافية بعد',
                       style: TextStyle(
                         fontFamily: 'Roboto',
                       ),

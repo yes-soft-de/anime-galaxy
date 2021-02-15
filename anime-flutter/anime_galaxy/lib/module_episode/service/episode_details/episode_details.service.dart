@@ -26,7 +26,8 @@ class EpisodeDetailsService{
     episode.name = response.animeName;
     String image = response.image ;
     episode.image = image;
-    episode.classification = response.categoryName;
+//    episode.classification = response.categoryName;
+    episode.categories=_getCategories(response.categories);
     episode.rate = response.rating;
     episode.likesNumber = response.interactions.love.toString();
     episode.commentsNumber = response.comments.length;
@@ -51,7 +52,17 @@ class EpisodeDetailsService{
 
     return episode;
   }
+  List<EpisodeCategories> _getCategories(List<Categories> categories) {
+    List<EpisodeCategories> result = [];
 
+    categories.forEach((element) {
+      result.add(new EpisodeCategories(
+        id: element.id,
+        name: element.name,
+      ));
+    });
+    return result;
+  }
 
   Future< List<Comment>> getComments(List<Comments> commentResponse)async{
     List<Comment> comments =[];

@@ -215,221 +215,219 @@ class _ExploreScreenState extends State<ExploreScreen> {
             return _refresh();
           },
           child: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  SizedBox(
-                    width: 8,
-                  ),
-                   Container(
-                        margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 5),
-                        decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: [Colors.grey[400], isDarkMode? Colors.black26 :Colors.white],
-                            )),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'الإنميات القادمة',
-                              style: TextStyle(
-                                fontSize: 14,
-                                fontFamily: 'Roboto',
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-
-                  ),
-
-
-                    
-
-                  Container(
-                    child: CarouselSlider(
-                      options: CarouselOptions(
-                        autoPlay: true,
-                        aspectRatio: 2.0,
-                        enlargeCenterPage: false,
-                      ),
-                      items: imageSliders,
-                    ),
-                  ),
-
-                   Container(
-                        margin: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 5),
-                        decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: [Colors.grey[400],isDarkMode? Colors.black26 :Colors.white],
-                            )),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'الإنميات الموصى بها عربيا',
-                              style: TextStyle(
-                                fontSize: 14,
-                                fontFamily: 'Roboto',
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-
-                  ),
-
-                  Container(
-                    height: 200,
-                    color:  isDarkMode? Colors.white30 :Colors.grey[300],
-                    child: ListView.builder(
-                      itemBuilder: (context, index) {
-                        return Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 2),
-                          child: GestureDetector(
-                            onTap: () => Navigator.pushNamed(
-                                context, AnimeRoutes.ROUTE_ANIME_DETAILS_SCREEN,
-                                arguments:
-                                    explore.worldRecommendedSeries[index].id),
-                            child: FavouriteSeriesCard(
-                              url_image:
-                                  explore.worldRecommendedSeries[index].image,
-                              series_category: explore
-                                  .worldRecommendedSeries[index].category,
-                              series_name:
-                                  explore.worldRecommendedSeries[index].name,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox(
+                  width: 8,
+                ),
+                 Container(
+                      margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 5),
+                      decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [Colors.grey[400], isDarkMode? Colors.black26 :Colors.white],
+                          )),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'الإنميات القادمة',
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontFamily: 'Roboto',
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
-                        );
-                      },
-                      itemCount: explore.worldRecommendedSeries.length,
-                      scrollDirection: Axis.horizontal,
-                    ),
-                  ),
+                        ],
+                      ),
 
+                ),
+
+
+
+
+                Container(
+                  child: CarouselSlider(
+                    options: CarouselOptions(
+                      autoPlay: true,
+                      aspectRatio: 2.0,
+                      enlargeCenterPage: false,
+                    ),
+                    items: imageSliders,
+                  ),
+                ),
 
                  Container(
-                        margin: EdgeInsetsDirectional.fromSTEB(10, 5, 0, 5),
-                        decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: [Colors.grey[400],isDarkMode? Colors.black26 :Colors.white],
-                            )),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'الإنميات الموصى بها حسب تفضيلاتك',
-                              style: TextStyle(
-                                fontSize: 14,
-                                fontFamily: 'Roboto',
-                                fontWeight: FontWeight.bold,
-                              ),
+                      margin: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 5),
+                      decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [Colors.grey[400],isDarkMode? Colors.black26 :Colors.white],
+                          )),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'الإنميات الموصى بها عربيا',
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontFamily: 'Roboto',
+                              fontWeight: FontWeight.bold,
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
+                      ),
 
-                  ),
+                ),
 
-                  Container(
-                    height: 200,
-                    color:  isDarkMode? Colors.white30 :Colors.grey[300],
-                    child: ListView.builder(
-                      itemBuilder: (context, index) {
-                        return Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 4),
-                          child: GestureDetector(
-                            onTap: () => Navigator.pushNamed(
-                              context,
-                              AnimeRoutes.ROUTE_ANIME_DETAILS_SCREEN,
+                Container(
+                  height: 180,
+//                  color:  isDarkMode? Colors.white30 :Colors.grey[300],
+                  child: ListView.builder(
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 2),
+                        child: GestureDetector(
+                          onTap: () => Navigator.pushNamed(
+                              context, AnimeRoutes.ROUTE_ANIME_DETAILS_SCREEN,
                               arguments:
-                                  explore.recommendedSeriesByUser[index].id,
-                            ),
-                            child: FavouriteSeriesCard(
-                              url_image:
-                                  explore.recommendedSeriesByUser[index].image,
-                              series_category: explore
-                                  .recommendedSeriesByUser[index].category,
-                              series_name:
-                                  explore.recommendedSeriesByUser[index].name,
+                                  explore.worldRecommendedSeries[index].id),
+                          child: FavouriteSeriesCard(
+                            url_image:
+                                explore.worldRecommendedSeries[index].image,
+                            series_category: explore
+                                .worldRecommendedSeries[index].category,
+                            series_name:
+                                explore.worldRecommendedSeries[index].name,
+                          ),
+                        ),
+                      );
+                    },
+                    itemCount: explore.worldRecommendedSeries.length,
+                    scrollDirection: Axis.horizontal,
+                  ),
+                ),
+
+
+               Container(
+                      margin: EdgeInsetsDirectional.fromSTEB(10, 5, 0, 5),
+                      decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [Colors.grey[400],isDarkMode? Colors.black26 :Colors.white],
+                          )),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'الإنميات الموصى بها حسب تفضيلاتك',
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontFamily: 'Roboto',
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
-                        );
-                      },
-                      itemCount: explore.recommendedSeriesByUser.length,
-                      shrinkWrap: true,
-                      scrollDirection: Axis.horizontal,
-                    ),
+                        ],
+                      ),
+
+                ),
+
+                Container(
+                  height: 180,
+//                  color:  isDarkMode? Colors.white30 :Colors.grey[300],
+                  child: ListView.builder(
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 4),
+                        child: GestureDetector(
+                          onTap: () => Navigator.pushNamed(
+                            context,
+                            AnimeRoutes.ROUTE_ANIME_DETAILS_SCREEN,
+                            arguments:
+                                explore.recommendedSeriesByUser[index].id,
+                          ),
+                          child: FavouriteSeriesCard(
+                            url_image:
+                                explore.recommendedSeriesByUser[index].image,
+                            series_category: explore
+                                .recommendedSeriesByUser[index].category,
+                            series_name:
+                                explore.recommendedSeriesByUser[index].name,
+                          ),
+                        ),
+                      );
+                    },
+                    itemCount: explore.recommendedSeriesByUser.length,
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
                   ),
+                ),
 
 
-                // categories
-                   Container(
-                        margin: EdgeInsetsDirectional.fromSTEB(10, 5, 0, 5),
-                        decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: [Colors.grey[400],isDarkMode? Colors.black26 :Colors.white],
-                            )),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              // categories
+                 Container(
+                      margin: EdgeInsetsDirectional.fromSTEB(10, 5, 0, 5),
+                      decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [Colors.grey[400],isDarkMode? Colors.black26 :Colors.white],
+                          )),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'تصنيفات الإنمي',
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontFamily: 'Roboto',
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+
+                ),
+
+
+
+                Container(
+                  height: 180,
+//                  color:  isDarkMode? Colors.white30 :Colors.grey[300],
+                  child: explore.categories != null
+                      ? ListView.builder(
+                          itemBuilder: (context, index) {
+                            return Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 4),
+                              child: GestureDetector(
+                                onTap: () => Navigator.pushNamed(
+                                    context, ExploreRoutes.CATEGORY_ANIMES_SCREEN,
+                                    arguments: explore.categories[index]),
+                                child: FavouriteSeriesCard(
+                                  url_image:  explore.categories[index].image,
+                                   series_name:
+                                      explore.categories[index].name,
+                                  series_category: '',
+
+                                ),
+                              ),
+                            );
+                          },
+                          itemCount: explore.categories.length,
+                          shrinkWrap: true,
+                          scrollDirection: Axis.horizontal,
+                        )
+                      : ListView(
                           children: [
                             Text(
-                              'تصنيفات الإنمي',
+                                'لا يوجد تصنيفات بعد',
                               style: TextStyle(
-                                fontSize: 14,
-                                fontFamily: 'Roboto',
-                                fontWeight: FontWeight.bold,
+                                fontFamily:'Roboto',
                               ),
-                            ),
+                            )
                           ],
                         ),
-
-                  ),
-
+                ),
 
 
-                  Container(
-                    height: 200,
-                    color:  isDarkMode? Colors.white30 :Colors.grey[300],
-                    child: explore.categories != null
-                        ? ListView.builder(
-                            itemBuilder: (context, index) {
-                              return Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 4),
-                                child: GestureDetector(
-                                  onTap: () => Navigator.pushNamed(
-                                      context, ExploreRoutes.CATEGORY_ANIMES_SCREEN,
-                                      arguments: explore.categories[index]),
-                                  child: FavouriteSeriesCard(
-                                    url_image:  explore.categories[index].image,
-                                     series_name:
-                                        explore.categories[index].name,
-                                    series_category: '',
-
-                                  ),
-                                ),
-                              );
-                            },
-                            itemCount: explore.categories.length,
-                            shrinkWrap: true,
-                            scrollDirection: Axis.horizontal,
-                          )
-                        : ListView(
-                            children: [
-                              Text(
-                                  'لا يوجد تصنيفات بعد',
-                                style: TextStyle(
-                                  fontFamily:'Roboto',
-                                ),
-                              )
-                            ],
-                          ),
-                  ),
-
-
-                  //active users
+                //active users
 //                  Row(
 //                    children: [
 //                      Expanded(
@@ -485,8 +483,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
 
 
 
-                ],
-              ),
+              ],
             ),
           ),
         ),

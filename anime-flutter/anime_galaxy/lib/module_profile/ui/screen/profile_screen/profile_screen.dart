@@ -103,7 +103,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         body: SingleChildScrollView(
           child: SafeArea(
             child: Container(
-              padding: EdgeInsetsDirectional.fromSTEB(7, 10, 7, 10),
+              padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
               child: Column(
                 children: [
                   //personal info
@@ -290,7 +290,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 10),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0,0,0, 10),
                   child: Column(
                     children: [
                       Row(
@@ -554,8 +554,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
 
                       Container(
-                        height: 225,
-                        color:  isDarkMode? Colors.white30 :Colors.grey[300],
+                        height: 200,
+//                        color:  isDarkMode? Colors.white30 :Colors.grey[300],
                         child: ListView.builder(
                             scrollDirection: Axis.horizontal,
                             shrinkWrap: true,

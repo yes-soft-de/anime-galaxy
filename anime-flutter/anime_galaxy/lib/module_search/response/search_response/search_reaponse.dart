@@ -4,7 +4,7 @@ class SearchResponse {
   int id;
   String name;
   String mainImage;
-  List<Null> images;
+//  List<Null> images;
   String categoryName;
   String rating;
   List<Comments> comments;

@@ -45,7 +45,7 @@ class EpisodeCard extends StatelessWidget {
               ),
             )),
             Text(
-              classification,
+              classification??'',
               style: TextStyle(
                   fontSize: 9,
                   fontFamily:'Roboto',

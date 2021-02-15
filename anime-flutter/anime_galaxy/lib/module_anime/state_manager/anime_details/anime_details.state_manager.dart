@@ -1,5 +1,6 @@
 
 import 'package:anime_galaxy/generated/l10n.dart';
+import 'package:anime_galaxy/module_anime/model/anime_model/anime_model.dart';
 import 'package:anime_galaxy/module_anime/service/anime_details/anime_details.service.dart';
 import 'package:anime_galaxy/module_anime/state/anime_details/anime_details.state.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -45,10 +46,10 @@ class AnimeDetailsStateManager {
     });
   }
 
-  void addToFavourite(int animeId, int categoryId){
+  void addToFavourite(int animeId, List<AnimeCategories> categories){
     this._stateSubject.add(AnimeDetailsStateAddToFavouriteInProgress());
 
-    this._animeDetailsService.addToFavourite(animeId,categoryId ).then((value) {
+    this._animeDetailsService.addToFavourite(animeId,categories ).then((value) {
       if(value == null || value == false){
         this._stateSubject.add(AnimeDetailsStateAddToFavouriteError());
       }else{

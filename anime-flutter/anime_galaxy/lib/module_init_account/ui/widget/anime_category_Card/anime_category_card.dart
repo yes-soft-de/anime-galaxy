@@ -32,7 +32,7 @@ class AnimeCategoryCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
             Text(
-                name,
+                name??'',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -44,7 +44,7 @@ class AnimeCategoryCard extends StatelessWidget {
 
               child :SingleChildScrollView(
                 child: Text(
-                  description,
+                  description??'',
                   style: TextStyle(
                     fontSize: 14,
                     color: Colors.white,

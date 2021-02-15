@@ -26,12 +26,11 @@ class InitAccountService {
       data.add(new InitAccountModel(
           id: element.id,
           name: element.name,
-          image:element.image,
-           description: element.description,
-          series: getSeries(element.series, element.name
-          )
-      )
-      );
+          image: element.image,
+          coverImage: element.coverImage,
+          titleShow: element.titleShow ?? true,
+          description: element.description,
+          series: getSeries(element.series, element.name)));
     });
 
     return data;

@@ -1,5 +1,5 @@
 class Urls {
-  static const String DOMAIN = 'http://anime.yes-apps.com/';
+  static const String DOMAIN = 'http://galaxy.yes-cloud.de/';
   static const String BASE_API = DOMAIN + '/html/public/index.php';
 
   static const String IMAGES_UPLOAD_PATH = DOMAIN +'/upload';
@@ -36,6 +36,8 @@ class Urls {
   static const API_NOTIFICATION = BASE_API + '/notifacations/';
   static const API_PREVIOUS_COMMENTS = BASE_API + '/usercomments/';
   static const API_SEARCH_ANIME = BASE_API + '/getanimebyname/';
+  static const API_SEARCH_ANIME_BY_CATEGORY_AND_NAME = BASE_API + '/getanime/';
+
 
   static const API_UPLOAD_USER_IMAGE = BASE_API + '/uploadfile';
 

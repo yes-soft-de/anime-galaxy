@@ -13,7 +13,7 @@ class EpisodeResponse {
   CreationDate publishDate;
   CreationDate createdAt;
   CommentInteractions interactions;
-  String categoryName;
+  List<Categories> categories;
   CreationDate animePublishDate;
   int previousRate;
 
@@ -29,7 +29,7 @@ class EpisodeResponse {
         this.publishDate,
         this.createdAt,
         this.interactions,
-        this.categoryName,
+        this.categories,
         this.animePublishDate,
         this.previousRate
       });
@@ -59,7 +59,13 @@ class EpisodeResponse {
     interactions = json['interactions'] != null
         ? new CommentInteractions.fromJson(json['interactions'])
         : null;
-    categoryName = json['categoryName'];
+//    categoryName = json['categoryName'];
+    if (json['categories'] != null) {
+      categories = new List<Categories>();
+      json['categories'].forEach((v) {
+        categories.add(new Categories.fromJson(v));
+      });
+    }
     animePublishDate = json['animePublishDate'] != null
         ? new CreationDate.fromJson(json['animePublishDate'])
         : null;
@@ -88,7 +94,10 @@ class EpisodeResponse {
     if (this.interactions != null) {
       data['interactions'] = this.interactions.toJson();
     }
-    data['categoryName'] = this.categoryName;
+//    data['categoryName'] = this.categoryName;
+    if (this.categories != null) {
+      data['categories'] = this.categories.map((v) => v.toJson()).toList();
+    }
     if (this.animePublishDate != null) {
       data['animePublishDate'] = this.animePublishDate.toJson();
     }
@@ -283,6 +292,27 @@ class CommentInteractions {
     data['like'] = this.like;
     data['dislike'] = this.dislike;
     data['isLoved'] = this.isLoved;
+    return data;
+  }
+}
+
+
+
+class Categories {
+  int id;
+  String name;
+
+  Categories({this.id, this.name});
+
+  Categories.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    name = json['name'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['name'] = this.name;
     return data;
   }
 }

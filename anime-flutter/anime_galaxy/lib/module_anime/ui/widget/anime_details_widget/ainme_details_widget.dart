@@ -9,7 +9,6 @@ typedef LoveCallBack = void Function();
 class AnimeDetailsWidget extends StatelessWidget {
   final String name;
   final String showYear;
-  final String rate;
   final String likes;
   final int comments;
   final String image;
@@ -24,7 +23,6 @@ class AnimeDetailsWidget extends StatelessWidget {
   AnimeDetailsWidget({
     this.name,
     this.likes,
-    this.rate,
     this.showYear,
     this.comments,
     this.image,
@@ -85,26 +83,6 @@ class AnimeDetailsWidget extends StatelessWidget {
                       ),
                     ),
 
-                    Row(
-                      children: [
-                        Text(
-                          '$episodesNumber حلقة',
-                          style: TextStyle(
-                            fontSize: 13,
-                            color: ProjectColors.ThemeColor,
-                            fontFamily:'Roboto',
-                          ),
-                        )
-                      ],
-                    ),
-
-                    Text(
-                      ageGroup ?? '',
-                      style: TextStyle(
-                        fontSize: 13,
-                        fontFamily:'Roboto',
-                      ),
-                    ),
 
                   ],
                 ),
@@ -113,38 +91,27 @@ class AnimeDetailsWidget extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
+
+                        Text(
+                          ageGroup ?? '',
+                          style: TextStyle(
+                            fontSize: 13,
+                            fontFamily:'Roboto',
+                          ),
+                        ),
                         Row(
                           children: [
-                            Row(
-                              children: [
-                                Icon(Icons.star_border,
-                                    color: ProjectColors.ThemeColor),
-                                Text(
-                                  'MAL' ,
-                                  style: TextStyle(
-                                    fontSize: 10,
-                                    fontFamily:'Roboto',
-                                  ),
-                                ),
-                                Text(
-                                  rate != null
-                                      ? ((double.parse(rate) * 10).floor() / 10)
-                                      .toString()
-                                      : 0.toString() ,
-                                  style: TextStyle(
-                                    fontSize: 13,
-                                    fontFamily:'Roboto',
-                                  ),
-                                ),
-
-                              ],
-                            ),
-
+                            Text(
+                              '$episodesNumber حلقة',
+                              style: TextStyle(
+                                fontSize: 13,
+                                color: ProjectColors.ThemeColor,
+                                fontFamily:'Roboto',
+                              ),
+                            )
                           ],
                         ),
-                        SizedBox(
-                          width: 13,
-                        ),
+
                         Row(
                           children: [
                             Row(
@@ -231,6 +198,13 @@ class AnimeDetailsWidget extends StatelessWidget {
                               ,
 
                               onPressed: isLoved?(){}: onLove ,
+                            ),
+                            Text(
+                              S.of(context).Like,
+                              style: TextStyle(
+                                fontSize: 10,
+                                fontFamily:'Roboto',
+                              ),
                             ),
 //                            IconButton(
 //                              icon: Icon(Icons.share),

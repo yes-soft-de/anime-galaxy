@@ -76,7 +76,7 @@ class AuthService {
         if (diff < 0) {
           diff = diff * -1;
         }
-        if (diff < 55) {
+        if (diff < 30) {
           return _prefsHelper.getToken();
         }
         await refreshToken();

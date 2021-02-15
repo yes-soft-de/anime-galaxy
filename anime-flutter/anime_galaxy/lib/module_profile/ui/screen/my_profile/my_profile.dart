@@ -130,6 +130,9 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
                                                 if (value != null) {
                                                   userImage = value.path;
                                                   print('image picked');
+                                                  setState(() {
+
+                                                  });
 //                                  widget.manager.saveProfileImage(value.path);
 
                                                   // widget.manager.uploadImage(userImage);

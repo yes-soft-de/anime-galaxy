@@ -62,11 +62,15 @@ class Category{
   String name;
   String image;
   String description;
+  String coverImage;
+  bool titleShow;
 
   Category({
     this.image,
     this.name,
     this.id,
     this.description,
+    this.coverImage,
+    this.titleShow,
 });
 }

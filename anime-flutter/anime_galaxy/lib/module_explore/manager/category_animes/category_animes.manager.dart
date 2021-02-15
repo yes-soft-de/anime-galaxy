@@ -12,5 +12,6 @@ class CategoryAnimesManager{
   Future<List<SeriesResponse>> getCategorySeries(int categoryId)async{
     return await _categoryAnimesRepository.getCategorySeries(categoryId);
   }
-
+  Future<List<SeriesResponse>> searchAnime(
+      int categoryId, String animeName) async => _categoryAnimesRepository.searchAnime(categoryId, animeName);
 }

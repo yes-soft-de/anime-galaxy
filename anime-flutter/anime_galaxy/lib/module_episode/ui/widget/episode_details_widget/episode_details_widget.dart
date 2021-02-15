@@ -55,7 +55,7 @@ class EpisodeDetailsWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    name,
+                    name??'',
                     style: TextStyle(
                       fontFamily:'Roboto',
                     ),
@@ -64,19 +64,12 @@ class EpisodeDetailsWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      showYear,
+                      showYear??'',
                       style: TextStyle(
                         fontFamily:'Roboto',
                       ),
                     ),
-                    Text(
-                      duration,
-                      textDirection: TextDirection.ltr,
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontFamily:'Roboto',
-                      ),
-                    ),
+
                   ],
                 ),
                   Row(
@@ -134,9 +127,20 @@ class EpisodeDetailsWidget extends StatelessWidget {
                     ],
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+                      Text(
+                        duration??'',
+                        textDirection: TextDirection.ltr,
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontFamily:'Roboto',
+                        ),
+                      ),
                       Row(
+
                         children: [
+
                           IconButton(
                             icon: isLoved?  ImageIcon(
 

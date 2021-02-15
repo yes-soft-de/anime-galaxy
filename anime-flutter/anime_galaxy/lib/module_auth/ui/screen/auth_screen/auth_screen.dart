@@ -1,5 +1,6 @@
 import 'package:anime_galaxy/generated/l10n.dart';
 import 'package:anime_galaxy/main_screen/main_screen_routes.dart';
+import 'package:anime_galaxy/module_auth/auth_routes.dart';
 import 'package:anime_galaxy/module_auth/state_manager/auth_state_manager/auth_state_manager.dart';
 import 'package:anime_galaxy/module_auth/states/auth_states/auth_states.dart';
 import 'package:anime_galaxy/module_profile/profile_routes.dart';
@@ -112,28 +113,31 @@ class _AuthScreenState extends State<AuthScreen> {
             Container(),
             MediaQuery.of(context).viewInsets.bottom != 0
                 ? Container()
-                : Image.asset(
-                    'assets/images/logo.jpg',
-                    height: 120,
-                  ),
+                : CircleAvatar(
+              radius: 65.0,
+              backgroundImage: AssetImage(
+                'assets/images/logo.jpg',
+              ),
+
+            ),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Flex(
                 direction: Axis.vertical,
                 children: [
-                  TextFormField(
-                    controller: _nameController,
-                    decoration: InputDecoration(
-                        icon: Icon(Icons.person),
-                        hintText: S.of(context).yourName,
-                        labelText: S.of(context).name),
-                    validator: (result) {
-                      if (result.isEmpty) {
-                        return S.of(context).pleaseProvideYourName;
-                      }
-                      return null;
-                    },
-                  ),
+//                  TextFormField(
+//                    controller: _nameController,
+//                    decoration: InputDecoration(
+//                        icon: Icon(Icons.person),
+//                        hintText: S.of(context).yourName,
+//                        labelText: S.of(context).name),
+//                    validator: (result) {
+//                      if (result.isEmpty) {
+//                        return S.of(context).pleaseProvideYourName;
+//                      }
+//                      return null;
+//                    },
+//                  ),
                   TextFormField(
                     controller: _emailController,
                     decoration: InputDecoration(
@@ -307,10 +311,13 @@ class _AuthScreenState extends State<AuthScreen> {
             Container(),
             MediaQuery.of(context).viewInsets.bottom != 0
                 ? Container()
-                : Image.asset(
-                    'assets/images/logo.jpg',
-                    height: 120,
-                  ),
+                : CircleAvatar(
+              radius: 65.0,
+              backgroundImage: AssetImage(
+                'assets/images/logo.jpg',
+              ),
+
+            ),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Flex(
@@ -346,6 +353,17 @@ class _AuthScreenState extends State<AuthScreen> {
                     obscureText: true,
                   ),
                 ],
+              ),
+            ),
+
+            InkWell(
+              onTap: (){
+                Navigator.pushNamed(context, AuthRoutes.FORGOT_PASSWORD_SCREEN);
+              },
+              child: Center(
+                child: Text(
+                  'نسيت كلمة المرور'
+                ),
               ),
             ),
             Flex(

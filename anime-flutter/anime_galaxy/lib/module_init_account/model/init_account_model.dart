@@ -7,6 +7,8 @@ class InitAccountModel {
  String description;
  List<Series> series;
  bool seriesHidden;
+  bool titleShow;
+  String coverImage;
 
  InitAccountModel({
    this.id,
@@ -15,7 +17,8 @@ class InitAccountModel {
    this.image,
    this.series,
    this.seriesHidden = true,
-
+   this.titleShow,
+   this.coverImage,
 });
 
 }

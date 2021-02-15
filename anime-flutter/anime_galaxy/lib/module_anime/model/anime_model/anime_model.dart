@@ -11,7 +11,8 @@ class AnimeModel{
   List<Episode> episodes;
   bool isFollowed;
   bool isLoved;
-  int categoryID;
+//  int categoryID;
+  List<AnimeCategories> categories;
   int previousRate;
   String trailerVideo;
   String generalRating;
@@ -31,7 +32,8 @@ class AnimeModel{
     this.episodes,
     this.isFollowed,
     this.isLoved,
-    this.categoryID,
+//    this.categoryID,
+    this.categories,
     this.previousRate,
     this.trailerVideo,
     this.generalRating,
@@ -39,7 +41,12 @@ class AnimeModel{
   });
 }
 
+class AnimeCategories {
+  int id;
+  String name;
 
+  AnimeCategories({this.id, this.name});
+}
 
 class Comment{
   String userImage;

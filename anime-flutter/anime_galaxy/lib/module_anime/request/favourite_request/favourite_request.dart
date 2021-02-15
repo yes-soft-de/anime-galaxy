@@ -1,11 +1,11 @@
 class FavouriteRequest{
   String userID;
   String animeID;
-  String categoryID;
+  List<String> categories;
 
   FavouriteRequest({
     this.animeID,
     this.userID,
-    this.categoryID,
+    this.categories,
 });
 }
