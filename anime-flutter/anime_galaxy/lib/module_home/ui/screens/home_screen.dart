@@ -11,6 +11,7 @@ import 'package:anime_galaxy/module_home/ui/widget/series_card/series_card.dart'
 import 'package:anime_galaxy/module_theme/service/theme_service/theme_service.dart';
 import 'package:anime_galaxy/utils/loading_indicator/loading_indicator.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:inject/inject.dart';
 
@@ -101,80 +102,12 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               context, EpisodeRoutes.ROUTE_EPISODE_DETAILS_SCREEN,
               arguments: item.id),
           child: Container(
-            margin: EdgeInsets.all(5.0),
-            child: ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(0.0)),
-                child: Stack(
-                  children: <Widget>[
-                    Stack(
-                      fit: StackFit.expand,
-                      children: [
-                        FadeInImage.assetNetwork(
-                          placeholder: 'assets/images/logo.jpg',
-                          image: item.posterImage,
-                        ),
-//                        BackdropFilter(
-//                          filter: ImageFilter.blur(sigmaX: 1.0, sigmaY: 1.0),
-//                          child: Container(
-//                            decoration: BoxDecoration(
-//                                color: Colors.white.withOpacity(0.0)),
-//                          ),
-//                        )
-                      ],
-                    ),
-//                    Positioned.fill(
-//                      child: Container(
-//                        color: Colors.black12,
-//                      ),
-//                    ),
-//                    Positioned(
-//                      left: 0.0,
-//                      right: 0.0,
-//                      child: Container(
-//                          padding: EdgeInsets.symmetric(
-//                              vertical: 10.0, horizontal: 10.0),
-//                          child:
-//                              Column(
-//                                children: <Widget>[
-//
-//                                      Text(
-//                                      '${item.seriesName}',
-//                                      overflow: TextOverflow.fade,
-//                                      maxLines: 1,
-//                                      softWrap: false,
-//                                      style: TextStyle(
-//                                          color: Colors.white,
-//                                          fontSize: 14,
-//                                          fontFamily: 'Roboto',
-//                                          fontWeight: FontWeight.bold,
-//
-//                                      ),
-//
-//                                  ),
-////                                  Text(
-////                                    item.classification??'',
-////                                    style: TextStyle(
-////                                        color: Colors.white70,
-////                                        fontFamily: 'Roboto',
-////                                        fontSize: 13),
-////                                  ),
-////                                  Text(
-////                                    S.of(context).Episode +
-////                                        '${item.episodeNumber} ' +
-////                                        S.of(context).Season +
-////                                        '${item.season}',
-////                                    style: TextStyle(
-////                                        fontFamily: 'Roboto',
-////                                        color: Colors.white70,
-////                                        fontSize: 13),
-////                                  ),
-//                                ],
-//                              ),
-//
-//                           ),
-//                    ),
-                  ],
-                )),
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: NetworkImage( item.posterImage,),
+                fit: BoxFit.fill
+              ),
+            ),
           ),
         ),
       ));
@@ -234,7 +167,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       ),
                     ),
              Container(
-                    margin: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 5),
+                    margin: EdgeInsetsDirectional.fromSTEB(10, 5, 0, 5),
                     decoration: BoxDecoration(
                         gradient: LinearGradient(
                           colors: [Colors.grey[400], isDarkMode? Colors.black26 :Colors.white],
@@ -257,7 +190,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               ),
 
 
-              Container(
+             anime.watchedSeries.isNotEmpty
+                 ? Container(
                 height: 180,
 //                color:  isDarkMode? Colors.white30 :Colors.grey[400],
                 child: ListView.builder(
@@ -278,7 +212,13 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   itemCount: anime.watchedSeries.length,
                   scrollDirection: Axis.horizontal,
                 ),
-              ),
+              ):
+             Text(
+               'لم تتابع أي مسلسل بعد',
+               style: TextStyle(
+                 fontFamily: 'Roboto',
+               ),
+             ),
 
 //              AnimatedSize(
 //                  vsync: this,
@@ -367,7 +307,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               anime.mayLikeSeries.isNotEmpty
                   ? Container(
                       height: 190,
-                color:  isDarkMode? Colors.white30 :Colors.grey[400],
+//                color:  isDarkMode? Colors.white30 :Colors.grey[400],
                       child: ListView.builder(
                         itemBuilder: (context, index) {
                           return Padding(

@@ -72,7 +72,7 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   void getName() async {
-    username = await widget._profileSharedPreferencesHelper.getUsername();
+    username = await widget._profileSharedPreferencesHelper.getUsername()??'لم يتم تعيين الاسم';
     userImage = await widget._profileSharedPreferencesHelper.getImage();
     setState(() {});
   }

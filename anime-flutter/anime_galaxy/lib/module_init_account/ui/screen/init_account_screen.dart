@@ -106,7 +106,7 @@ class _InitAccountScreenState extends State<InitAccountScreen>
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
-            padding: EdgeInsets.all(16),
+            padding: EdgeInsets.symmetric(vertical: 16),
             child: Column(
               children: [
                 Container(
@@ -149,73 +149,70 @@ class _InitAccountScreenState extends State<InitAccountScreen>
                                 constraints: !categories[index].seriesHidden
                                     ? new BoxConstraints()
                                     : new BoxConstraints(maxHeight: 0.0),
-                                child: GridView.builder(
-                                  itemBuilder:
-                                      (BuildContext context, int index2) {
-                                    return InkWell(
-                                      onTap: () {
-                                        FavouriteRequest fr =
-                                            new FavouriteRequest(
-                                          animeID: categories[index]
-                                              .series[index2]
-                                              .id
-                                              .toString(),
-                                          categories:[Categories(
-                                            name: categories[index].name,
-                                            id: categories[index].id.toString(),
-                                          )]
-                                        );
-                                        if ((favoriteAnimes.singleWhere(
-                                                (it) =>
-                                                    it.animeID == fr.animeID,
-                                                orElse: () => null)) !=
-                                            null) {
-                                          favoriteAnimes.removeWhere(
-                                              (element) =>
-                                                  element.animeID ==
-                                                  fr.animeID);
-                                          categories[index]
-                                              .series[index2]
-                                              .isSelected = false;
-                                        } else {
-                                          favoriteAnimes.add(fr);
-                                          categories[index]
-                                              .series[index2]
-                                              .isSelected = true;
-                                        }
-                                        setState(() {});
-                                      },
-                                      child: Opacity(
-                                        opacity: categories[index]
-                                                    .series[index2]
-                                                    .isSelected ==
-                                                true
-                                            ? 0.5
-                                            : 1.0,
-                                        child: SeriesCard(
-                                          image: categories[index]
-                                              .series[index2]
-                                              .image,
-                                          name: categories[index]
-                                              .series[index2]
-                                              .name,
-                                          classification: categories[index]
-                                              .series[index2]
-                                              .classification,
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                                  child: GridView.builder(
+                                    itemBuilder:
+                                        (BuildContext context, int index2) {
+                                      return InkWell(
+                                        onTap: () {
+                                          FavouriteRequest fr =
+                                              new FavouriteRequest(
+                                            animeID: categories[index]
+                                                .series[index2]
+                                                .id
+                                                .toString(),
+                                            categories:[ categories[index].id.toString(), ]
+                                          );
+                                          if ((favoriteAnimes.singleWhere(
+                                                  (it) =>
+                                                      it.animeID == fr.animeID,
+                                                  orElse: () => null)) !=
+                                              null) {
+                                            favoriteAnimes.removeWhere(
+                                                (element) =>
+                                                    element.animeID ==
+                                                    fr.animeID);
+                                            categories[index]
+                                                .series[index2]
+                                                .isSelected = false;
+                                          } else {
+                                            favoriteAnimes.add(fr);
+                                            categories[index]
+                                                .series[index2]
+                                                .isSelected = true;
+                                          }
+                                          setState(() {});
+                                        },
+                                        child: Opacity(
+                                          opacity: categories[index]
+                                                      .series[index2]
+                                                      .isSelected ==
+                                                  true
+                                              ? 0.5
+                                              : 1.0,
+                                          child: SeriesCard(
+                                            image: categories[index]
+                                                .series[index2]
+                                                .image,
+                                            name: categories[index]
+                                                .series[index2]
+                                                .name,
+                                          ),
                                         ),
-                                      ),
-                                    );
-                                  },
+                                      );
+                                    },
 //                                  padding: EdgeInsets.symmetric(horizontal: 10),
-                                  gridDelegate:
-                                      SliverGridDelegateWithFixedCrossAxisCount(
-                                          crossAxisCount: 3,
-                                          mainAxisSpacing: 10,
-                                          crossAxisSpacing: 10,
-                                          childAspectRatio: (2.5 / 4)),
-                                  itemCount: categories[index].series.length,
-                                  physics: NeverScrollableScrollPhysics(),
-                                  shrinkWrap: true,
+                                    gridDelegate:
+                                        SliverGridDelegateWithFixedCrossAxisCount(
+                                            crossAxisCount: 3,
+                                            mainAxisSpacing: 0,
+                                            crossAxisSpacing: 20,
+                                            childAspectRatio: (2.5 / 4)),
+                                    itemCount: categories[index].series.length,
+                                    physics: NeverScrollableScrollPhysics(),
+                                    shrinkWrap: true,
+                                  ),
                                 ),
                               )),
                         ],

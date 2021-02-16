@@ -49,11 +49,11 @@ class CategoryAnimesService{
               animeCategory: '',
               animeName: element.name,
               animeId: element.id,
-              ageGroup: element.ageGroup,
-              comments: element.comments,
-              episodesCount: element.episodesCount,
-              generalRating: element.generalRating,
-              rating: element.rating,
+              ageGroup: element.ageGroup??'0',
+              comments: element.comments??0,
+              episodesCount: element.episodesCount??0,
+              generalRating: element.generalRating??'0',
+              rating: element.rating??'0',
               likes: element.interaction.love??0
           )
       );

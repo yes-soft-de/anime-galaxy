@@ -1,7 +1,7 @@
 class FavouriteRequest {
   String userID;
   String animeID;
-  List<Categories> categories;
+  List<String> categories;
 
   FavouriteRequest({
     this.animeID,

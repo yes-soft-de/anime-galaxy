@@ -241,8 +241,8 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
       controller: _controller,
       child: Scaffold(
         key: _scaffoldKey,
-        appBar: AnimeGalaxyAppBar.getAnimeGalaxyAppBar(context, _scaffoldKey, username, userImage),
-        drawer: widget._animeNavigationDrawer,
+        appBar: AnimeGalaxyAppBar.getAnimeGalaxyAppBar2(context, _scaffoldKey, username, userImage),
+
         body: Container(
 
           child: SingleChildScrollView(

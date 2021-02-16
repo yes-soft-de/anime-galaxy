@@ -1,5 +1,5 @@
 class Urls {
-  static const String DOMAIN = 'http://galaxy.yes-cloud.de/';
+  static const String DOMAIN = 'http://galaxy.yes-cloud.de';
   static const String BASE_API = DOMAIN + '/html/public/index.php';
 
   static const String IMAGES_UPLOAD_PATH = DOMAIN +'/upload';

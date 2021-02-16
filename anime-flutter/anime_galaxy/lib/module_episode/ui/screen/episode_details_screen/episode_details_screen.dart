@@ -181,7 +181,7 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
   Widget getPageLayout() {
     return Scaffold(
       key: _scaffoldKey,
-      appBar: AnimeGalaxyAppBar.getAnimeGalaxyAppBar(
+      appBar: AnimeGalaxyAppBar.getAnimeGalaxyAppBar2(
           context, _scaffoldKey, username, userImage),
       drawer: widget._animeNavigationDrawer,
       body: Container(
