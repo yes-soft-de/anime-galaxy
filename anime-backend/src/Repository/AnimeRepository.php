@@ -248,24 +248,24 @@ class AnimeRepository extends ServiceEntityRepository
     {    
         return $this->createQueryBuilder('anime')
         ->select('anime.id','anime.name as animeName', 'anime.mainImage as animeMainImage',
-            'avg(rate.rateValue) as rating', 'anime.specialLink')
-        ->addSelect('anime.categories as cats')
+            'avg(rate.rateValue) as rating', 'anime.specialLink', 'anime.categories as cats')
+        ->addSelect('favourite.categories')
 
-        ->join(
+        ->leftJoin(
             Favourite::class,
             'favourite',
             Join::WITH,
             'favourite.userID = :userID'
         )
         ->setParameter('userID', $userID)
-        
+
         ->leftJoin(
             Rating::class,
             'rate',
             Join::WITH,
             'rate.animeID = anime.id'
         )
-        ->andWhere('anime.categories = favourite.categories')
+        ->andWhere('anime.categories LIKE favourite.categories')
         
         ->setMaxResults(10)   
         ->addOrderBy('rating','DESC')
