@@ -113,8 +113,6 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    VideoUrlExtractor.getVideoUrlFromYoutube('L7T6UOkHkJo');
-
     Map<String, WidgetBuilder> fullRoutesList = {};
 
     fullRoutesList.addAll(widget._chatModule.getRoutes());
