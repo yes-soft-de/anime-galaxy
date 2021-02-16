@@ -1,5 +1,6 @@
 
 import 'package:anime_galaxy/generated/l10n.dart';
+import 'package:anime_galaxy/module_search/model/search_model/search_model.dart';
 import 'package:anime_galaxy/module_search/service/search_service/search.service.dart';
 import 'package:anime_galaxy/module_search/state/search/search.state.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -19,8 +20,9 @@ class SearchStateManager {
 
     _searchService.seachAnime(animeName).then((value) {
       if(value == null){
-        Fluttertoast.showToast(msg: S.current.errorLoadingData);
-        _stateSubject.add(SearchStateFetchingError());
+        Fluttertoast.showToast(msg: 'لايوجد إنمي بهذا الاسم');
+        List<SearchModel> l =[];
+        _stateSubject.add(SearchStateFetchingSuccess(l));
       }else{
         _stateSubject.add(SearchStateFetchingSuccess(value));
       }

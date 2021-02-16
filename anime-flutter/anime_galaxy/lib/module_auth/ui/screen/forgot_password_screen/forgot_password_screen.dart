@@ -31,6 +31,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
 
   Widget _screenUi(){
     return Scaffold(
+      appBar: AppBar(elevation: 0,),
       body: Form(
         key:_forgotPasswordFormKey,
         child:  Flex(

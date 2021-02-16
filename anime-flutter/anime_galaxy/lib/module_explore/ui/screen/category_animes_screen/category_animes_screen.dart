@@ -59,6 +59,7 @@ class _CategoryAnimesScreenState extends State<CategoryAnimesScreen> {
 
   Widget _screenUi(){
     return Scaffold(
+      appBar: AppBar(),
       body: SafeArea(
         child: SingleChildScrollView(
            child: Column(

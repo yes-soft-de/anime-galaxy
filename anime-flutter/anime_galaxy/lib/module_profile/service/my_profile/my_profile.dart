@@ -74,7 +74,21 @@ class MyProfileService {
       }
       return result;
     }
-    return null;
+    ProfileModel result2 = new ProfileModel(
+      name: 'لم يتم تعيينه',
+      image: null,
+      cover: null,
+      followingNumber: '0',
+      commentsNumber: '0',
+      about: 'لم يتم حفظ معلوماتك بنجاح قم بتعديل معلواتك الشخصية من الضبط',
+      seriesNumber: 0,
+      watchedSeries: [],
+      followingActivities:[],
+      isFollowed: false,
+      createDate: '',
+      previousComments:null,
+    );
+    return result2;
   }
 
   Future<bool> follow(String friendId) async {

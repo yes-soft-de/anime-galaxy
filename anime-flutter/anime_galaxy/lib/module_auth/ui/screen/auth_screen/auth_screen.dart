@@ -454,6 +454,16 @@ class _AuthScreenState extends State<AuthScreen> {
 //                ),
               ],
             ),
+            InkWell(
+              onTap: (){
+                Navigator.pushNamed(context, AuthRoutes.FORGOT_PASSWORD_SCREEN);
+              },
+              child: Center(
+                child: Text(
+                    'نسيت كلمة المرور'
+                ),
+              ),
+            ),
             GestureDetector(
               onTap: () {
                 loginMode = false;

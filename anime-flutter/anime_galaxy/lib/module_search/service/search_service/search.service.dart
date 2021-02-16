@@ -19,10 +19,16 @@ class SearchService{
     response.forEach((element){
       animesRetrived.add(
         new SearchModel(
-           animeId: element.id,
-          animeName: element.name,
-          animeCategory: element.categoryName,
-          animeImage: element.mainImage,
+            animeImage:element.mainImage ,
+            animeCategory: '',
+            animeName: element.name,
+            animeId: element.id,
+            ageGroup: element.ageGroup??'0',
+            comments: element.comments??0,
+            episodesCount: element.episodesCount??0,
+            generalRating: element.generalRating??'0',
+            rating: element.rating??'0',
+            likes: element.interactions.love??0
         )
       );
     });

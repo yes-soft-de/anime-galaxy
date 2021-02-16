@@ -202,8 +202,8 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
   Widget getPageLayout() {
     return Scaffold(
         key: _scaffoldKey,
-        appBar: AnimeGalaxyAppBar.getAnimeGalaxyAppBar2(
-            context, _scaffoldKey, username, userImage),
+        appBar: AnimeGalaxyAppBar.getAnimeGalaxyAppBar2(context, _scaffoldKey, username, userImage),
+
         body: Container(
           child: SingleChildScrollView(
             child: Container(
@@ -215,13 +215,14 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                   showYear: anime.showYear,
                   image: anime.image,
                   episodesNumber: anime.episodes.length,
-                  isFollowed: anime.isFollowed,
+                  isFollowed: anime.isFollowed ,
                   isLoved: anime.isLoved,
                   ageGroup: anime.ageGroup,
-                  onFollow: () => widget._stateManager
-                      .addToFavourite(animeId, anime.categories),
-                  onUnFollow: () => widget._stateManager.unFollowAnime(animeId),
-                  onLove: () {
+                  onFollow: () =>
+                      widget._stateManager.addToFavourite(animeId, anime.categories),
+                  onUnFollow: () =>
+                      widget._stateManager.unFollowAnime(animeId),
+                  onLove: (){
                     widget._stateManager.loveAnime(animeId);
                     canReact = true;
                   },
@@ -272,31 +273,27 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
 
                 //Statistics
                 Container(
-                  margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 5),
-                  decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                    colors: [
-                      Colors.grey[400],
-                      isDarkMode ? Colors.black26 : Colors.white
-                    ],
-                  )),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        S.of(context).statics,
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontFamily: 'Roboto',
-                          fontWeight: FontWeight.bold,
-                        ),
+                      margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 5),
+                      decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [Colors.grey[400],isDarkMode? Colors.black26 :Colors.white],
+                          )),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            S.of(context).statics,
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontFamily: 'Roboto',
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                  /*   );
+                 /*   );
                   },*/
                 ),
-
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 5),
                   child: Row(
@@ -346,7 +343,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                         'MAL',
                         style: TextStyle(
                           fontSize: 14,
-                          fontFamily: 'Roboto',
+                          fontFamily:'Roboto',
                         ),
                       ),
 
@@ -355,13 +352,13 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                         children: [
                           Text(
                             anime.generalRating != null
-                                ? ((double.parse(anime.generalRating) * 10)
-                                            .floor() /
-                                        10)
-                                    .toString()
+                                ? ((double.parse(anime.generalRating) * 10).floor() / 10)
+                                .toString()
                                 : 0.toString(),
-                            style:
-                                TextStyle(fontSize: 14, fontFamily: 'Roboto'),
+                            style: TextStyle(
+                                fontSize: 14,
+                                fontFamily:'Roboto'
+                            ),
                           ),
                           Icon(Icons.star_border,
                               color: ProjectColors.ThemeColor),
@@ -382,28 +379,25 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
 
                 //about
                 Container(
-                  margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 5),
-                  decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                    colors: [
-                      Colors.grey[400],
-                      isDarkMode ? Colors.black26 : Colors.white
-                    ],
-                  )),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        S.of(context).About,
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontFamily: 'Roboto',
-                          fontWeight: FontWeight.bold,
-                        ),
+                      margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 5),
+                      decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [Colors.grey[400], isDarkMode? Colors.black26 :Colors.white],
+                          )),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            S.of(context).About,
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontFamily: 'Roboto',
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                  /*    );
+                /*    );
                   },*/
                 ),
 
@@ -416,29 +410,143 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                   ),
                   child: Text(
                     '${anime.about}',
-                    style: TextStyle(fontSize: 12, fontFamily: 'Roboto'),
+                    style: TextStyle(
+                        fontSize: 12,
+                        fontFamily:'Roboto'
+                    ),
                   ),
                 ),
+//                  AnimatedSize(
+//                      vsync: this,
+//                      duration: const Duration(milliseconds: 500),
+//                      child: new ConstrainedBox(
+//                          constraints: isExpanded
+//                              ? new BoxConstraints()
+//                              : new BoxConstraints(maxHeight: 75.0),
+//                          child: Container(
+//                            width: screenWidth * 0.9,
+//                            padding: EdgeInsets.all(10),
+//                            decoration: BoxDecoration(
+//                              borderRadius: BorderRadius.circular(10),
+//                              border: Border.all(color: Colors.black38),
+//                            ),
+//                            child: Text(
+//                              '${anime.about}',
+//                              style: TextStyle(
+//                                  fontSize: 12,
+//                                  fontFamily:'Roboto'
+//                              ),
+//                            ),
+//                          ))),
+//                  isExpanded
+//                      ? FlatButton(
+//                      child: Container(
+//                          width: 30,
+//                          height: 30,
+//                          decoration: BoxDecoration(
+//                            borderRadius: BorderRadius.circular(50),
+//                            color: ProjectColors.ThemeColor,
+//                          ),
+//                          child: const Icon(
+//                            Icons.keyboard_arrow_up,
+//                            color: Colors.white,
+//                          )),
+//                      onPressed: () => setState(() => isExpanded = false))
+//                      : FlatButton(
+//                      child: Container(
+//                          width: 30,
+//                          height: 30,
+//                          decoration: BoxDecoration(
+//                            borderRadius: BorderRadius.circular(50),
+//                            color: ProjectColors.ThemeColor,
+//                          ),
+//                          child: const Icon(
+//                            Icons.keyboard_arrow_down,
+//                            color: Colors.white,
+//                          )),
+//                      onPressed: () => setState(() => isExpanded = true)),
+
+                //divider
                 Container(
                   margin: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
                   height: 1,
                   width: screenWidth * 0.8,
                   color: Colors.black38,
                 ),
+
+                Container(
+                      margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 15),
+                      decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [Colors.grey[400], isDarkMode? Colors.black26 :Colors.white],
+                          )),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            S.of(context).Classification,
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontFamily: 'Roboto',
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                /*    );
+                  },*/
+                ),
+
+
+
+                //classifications
+
+                 GridView.builder(
+            physics: NeverScrollableScrollPhysics(),
+            itemBuilder: (BuildContext context, int index) {
+              return  Container(
+                padding: EdgeInsetsDirectional.fromSTEB(5, 3, 5, 3),
+
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(color: Colors.black38)),
+                child: Center(
+                    child: Text(
+                      '${anime.categories[index].name}',
+                      style: TextStyle(
+                          fontSize: 12,
+                          fontFamily:'Roboto'
+                      ),
+                    )));
+            },
+            padding: EdgeInsets.symmetric(horizontal: 10),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 3,
+              mainAxisSpacing: 10,
+              crossAxisSpacing: 10,
+              childAspectRatio: (3 / 1)),
+            itemCount: anime.categories != null ? anime.categories.length : 0,
+            shrinkWrap: true,
+          ),
+                //divider
+                Container(
+                  margin: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
+                  height: 1,
+                  width: screenWidth * 0.8,
+                  color: Colors.black38,
+                ),
+                //Trailer video
                 Container(
                   margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 15),
                   decoration: BoxDecoration(
                       gradient: LinearGradient(
-                    colors: [
-                      Colors.grey[400],
-                      isDarkMode ? Colors.black26 : Colors.white
-                    ],
-                  )),
+                        colors: [Colors.grey[400],isDarkMode? Colors.black26 :Colors.white],
+                      )),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        S.of(context).Classification,
+                       'التريلر',
                         style: TextStyle(
                           fontSize: 14,
                           fontFamily: 'Roboto',
@@ -556,70 +664,43 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
 
                 // last episodes
                 anime.episodes.isNotEmpty
-                    ? Container(
-                        height: 210,
+                    ?
+                Container(
+                  height: 210,
 //                  color:  isDarkMode? Colors.white30 :Colors.grey[300],
-                        child: ListView.builder(
-                          itemBuilder: (context, index) {
-                            return Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 2),
-                                child: GestureDetector(
-                                  onTap: () {
-                                    Navigator.pushNamed(
-                                        context,
-                                        EpisodeRoutes
-                                            .ROUTE_EPISODE_DETAILS_SCREEN,
-                                        arguments: anime.episodes[index].id);
-                                  },
-                                  child: EpisodeCard(
-                                    image: anime.episodes[index].image,
-                                    episodeNumber:
-                                        anime.episodes[index].episodeNumber,
-                                    classification:
-                                        anime.episodes[index].classification,
-                                  ),
-                                ));
-                          },
-                          itemCount: anime.episodes.length,
-                          scrollDirection: Axis.horizontal,
-                        ),
-                      )
-
-                    /* GridView.builder(
-            physics: NeverScrollableScrollPhysics(),
-            itemBuilder: (BuildContext context, int index) {
-              return GestureDetector(
-              onTap: () {
-//                  controller.pause(); // to stop video when navigation to another screen
-                Navigator.pushNamed(
-                    context, EpisodeRoutes.ROUTE_EPISODE_DETAILS_SCREEN,
-                    arguments: anime.episodes[index].id);
-              },
-              child: EpisodeCard(
-                image: anime.episodes[index].image,
-                episodeNumber: anime.episodes[index].episodeNumber,
-                classification: anime.episodes[index].classification,
-              ),
-              );
-            },
-            padding: EdgeInsets.symmetric(horizontal: 10),
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3,
-              mainAxisSpacing: 20,
-              crossAxisSpacing: 20,
-              childAspectRatio: (2.3 / 4)),
-            itemCount: anime.episodes != null ? anime.episodes.length : 0,
-            shrinkWrap: true,
-          )*/
+                  child: ListView.builder(
+                    itemBuilder: (context, index) {
+                      return Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 2),
+                          child: GestureDetector(
+                            onTap: () {
+                              _controller.close(); // to stop video when navigation to another screen
+                              Navigator.pushNamed(
+                                  context, EpisodeRoutes.ROUTE_EPISODE_DETAILS_SCREEN,
+                                  arguments: anime.episodes[index].id);
+                            },
+                            child: EpisodeCard(
+                              image: anime.episodes[index].image,
+                              episodeNumber: anime.episodes[index].episodeNumber,
+                              classification: anime.episodes[index].classification,
+                            ),
+                          )
+                      );
+                    },
+                    itemCount:  anime.episodes.length,
+                    scrollDirection: Axis.horizontal,
+                  ),
+                )
                     : Text(
-                        S.of(context).noNewEpisodes,
-                        style: TextStyle(fontFamily: 'Roboto'),
-                      ),
+                  S.of(context).noNewEpisodes,
+                  style: TextStyle(
+                      fontFamily:'Roboto'
+                  ),
+                ),
 
                 //comments section
                 Padding(
-                  padding: const EdgeInsets.only(top: 10.0),
+                  padding: const EdgeInsets.only(top:10.0),
                   child: ButtonTheme(
                     height: 12,
                     child: FlatButton(

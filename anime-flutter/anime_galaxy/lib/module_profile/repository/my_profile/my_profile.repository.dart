@@ -31,7 +31,9 @@ class MyProfileRepository {
     String loggedUser = await _authPrefsHelper.getUserId();
 
     dynamic response = await _apiClient.get(Urls.API_PROFILE + userId);
-    if (response == null) return null;
+    if (response == null) {
+      return null;
+    }
     ProfileResponse result = ProfileResponse.fromJson(response['Data']);
 
 

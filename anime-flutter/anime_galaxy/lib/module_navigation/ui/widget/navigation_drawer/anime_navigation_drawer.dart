@@ -430,31 +430,32 @@ class AnimeNavigationDrawer extends StatelessWidget {
                 // endregion
 
                 // region Feedback Button
-                GestureDetector(
-                  onTap: () {
-                    canLaunch('https://www.google.com').then((value) {
-                      if (value) {
-                        launch('https://www.google.com');
-                      }
-                    });
-                  },
-                  child: Container(
-                    width: 252,
-                    height: 48,
-                    alignment: Alignment.center,
-                    color: Colors.black26,
-//                      color: Theme.of(context).brightness == Brightness.dark
-//                          ? Colors.black
-//                          : Colors.white,
-                    child: Text(
-                      S.of(context).feedback,
-                      style: TextStyle(
-                        fontFamily: 'Roboto',
-                      ),
-                    ),
-                  ),
-                ),
+//                GestureDetector(
+//                  onTap: () {
+//                    canLaunch('https://www.google.com').then((value) {
+//                      if (value) {
+//                        launch('https://www.google.com');
+//                      }
+//                    });
+//                  },
+//                  child: Container(
+//                    width: 252,
+//                    height: 48,
+//                    alignment: Alignment.center,
+//                    color: Colors.black26,
+////                      color: Theme.of(context).brightness == Brightness.dark
+////                          ? Colors.black
+////                          : Colors.white,
+//                    child: Text(
+//                      S.of(context).feedback,
+//                      style: TextStyle(
+//                        fontFamily: 'Roboto',
+//                      ),
+//                    ),
+//                  ),
+//                ),
                 // endregion
+                Container(),
               ],
             ),
           ))
