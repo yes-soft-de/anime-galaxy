@@ -247,9 +247,9 @@ class AnimeService
        $response = [];
 
        $result = $this->animeManager->getAnimeFavourite($userID);
-       //dd($result);
+       
        $result1 = $this->animeManager->getAnimeByFavouriteCategory($userID);
-       //dd($result1);
+       
        foreach($result1 as $res)
        {
            $res['animeMainImage'] = $this->specialLinkCheck($res['specialLink']).$res['animeMainImage'];
@@ -261,7 +261,7 @@ class AnimeService
               $response[] = $this->autoMapping->map('array', GetMaybeYouLikeResponse::class, $res);
           }
        }
-       //dd($response);
+       
        return $response;
     }
 
@@ -290,8 +290,7 @@ class AnimeService
         $response = [];
 
         $result = $this->animeManager->getAnimeByName($name);
-        //$animeID = $result['anime.id'];
-
+        
         foreach ($result as $row)
         {
             $row['imageURL'] = $row['mainImage'];
@@ -300,6 +299,12 @@ class AnimeService
             $row['mainImage'] = $this->specialLinkCheck($row['specialLink']).$row['mainImage'];
 
             $row['categories'] = $this->categoryService->getCategoriesArray($row['cats']);
+            
+            $row['interaction']=[
+                'love' => $this->interactionService->lovedAll($row['id']),
+                'like' => $this->interactionService->likeAll($row['id']),
+                'dislike' => $this->interactionService->dislikeAll($row['id']),
+            ];
 
             $response[] = $this->autoMapping->map('array', GetAnimeByIdResponse::class, $row);
         }
