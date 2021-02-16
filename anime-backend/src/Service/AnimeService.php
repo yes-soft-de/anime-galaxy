@@ -254,7 +254,7 @@ class AnimeService
        {
            $res['animeMainImage'] = $this->specialLinkCheck($res['specialLink']).$res['animeMainImage'];
 
-          if (!$this->searchMyArray($result, 'id', $res['id']))
+          if (!$this->searchMyArray($result, "id", $res['id']))
           {
               $res['categories'] = $this->categoryService->getCategoriesArray($res['cats']);
 
@@ -334,5 +334,27 @@ class AnimeService
         }
         
         return $response;
+    }
+
+    public function getMaybeYouLike2($userID)
+    {
+        /** @var $response */
+       $response = [];
+
+       $response['result1'] = $this->animeManager->getAnimeFavourite($userID);
+       
+       $response['result2'] = $this->animeManager->getAnimeByFavouriteCategory($userID);
+       
+       $response['result3'] = 0;
+
+       foreach($response['result2'] as $res)
+       {
+          if (!$this->searchMyArray($response['result1'], "id", $res['id']))
+          {
+              $response['result3'] = $response['result3'] + $this->searchMyArray($response['result2'], "id", $res['id']);
+          }
+       }
+       
+       return $response;
     }
 }

@@ -235,14 +235,10 @@ class AnimeRepository extends ServiceEntityRepository
             Join::WITH,
             'favourite.userID = :userID'
         )
-//        ->leftjoin(
-//            Category::class,
-//            'category',
-//            Join::WITH,
-//            'category.id = anime.categoryID'
-//        )
-        ->andWhere('anime.id = favourite.animeID')
         ->setParameter('userID', $userID)
+
+        ->andWhere('favourite.animeID = anime.id')
+        
         ->groupBy('anime.id')
         ->getQuery()
         ->getResult();
@@ -254,18 +250,15 @@ class AnimeRepository extends ServiceEntityRepository
         ->select('anime.id','anime.name as animeName', 'anime.mainImage as animeMainImage',
             'avg(rate.rateValue) as rating', 'anime.specialLink')
         ->addSelect('anime.categories as cats')
-//        ->leftjoin(
-//            Category::class,
-//            'category',
-//            Join::WITH,
-//            'category.id = anime.categoryID'
-//        )
+
         ->join(
             Favourite::class,
             'favourite',
             Join::WITH,
             'favourite.userID = :userID'
         )
+        ->setParameter('userID', $userID)
+        
         ->leftJoin(
             Rating::class,
             'rate',
@@ -273,7 +266,7 @@ class AnimeRepository extends ServiceEntityRepository
             'rate.animeID = anime.id'
         )
         ->andWhere('anime.categories = favourite.categories')
-        ->setParameter('userID', $userID)
+        
         ->setMaxResults(10)   
         ->addOrderBy('rating','DESC')
         ->groupBy('anime.id')
