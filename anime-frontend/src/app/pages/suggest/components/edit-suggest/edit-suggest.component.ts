@@ -20,7 +20,7 @@ export class EditSuggestComponent implements OnInit {
   uploadForm: FormGroup;
 
 
-  constructor(private animeService: AnimeService, 
+  constructor(private animeService: AnimeService,
               private formBuilder: FormBuilder,
               private toaster: ToastrService) {
   }
@@ -34,7 +34,7 @@ export class EditSuggestComponent implements OnInit {
         }
       }
     );
-    
+
 
     // Fetch Form Data
     this.uploadForm = this.formBuilder.group({
@@ -62,12 +62,13 @@ export class EditSuggestComponent implements OnInit {
     this.isSubmitted = true;
     if (!this.uploadForm.valid) {
       this.toaster.error('Error : Form Not Valid');
+      this.isSubmitted = false;
       return false;
     } else {
       // Fetch All Form Data On Json Type
       const formObject = this.uploadForm.getRawValue();
       formObject.animeSuggest = this.uploadForm.value.animeSuggest == 1 ? true : false;
-      
+
       console.log(formObject);
       // this.suggestService.animeSuggest(formObject.animeID, formObject.suggest).subscribe(
       //   (createResponse: any) => console.log(createResponse),

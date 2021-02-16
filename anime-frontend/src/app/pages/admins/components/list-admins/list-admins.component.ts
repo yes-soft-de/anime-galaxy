@@ -40,7 +40,7 @@ export class ListAdminsComponent implements OnInit {
     .pipe(takeUntil(this.destory$))
     .subscribe(
       (response: AdminResponse) => {
-        console.log('All Admins: ', response);
+        // console.log('All Admins: ', response);
         this.admins = response.Data;
         this.adminsList = response.Data;
       }, error => this.handleError(error),

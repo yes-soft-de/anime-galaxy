@@ -98,7 +98,7 @@ export class AddAnimeComponent implements OnInit {
   //   });
   // }
 
-  // Choose If Globally Recommended Enimy 
+  // Choose If Globally Recommended Enimy
   // changeSuggest(event) {
   //   this.uploadForm.get('suggest').setValue(event.target.value, {
   //     onlySelf: true
@@ -126,7 +126,7 @@ export class AddAnimeComponent implements OnInit {
     console.log('Processing File');
     const file: File = imageInput.files[0];
     const reader = new FileReader();
-    
+
     reader.addEventListener('load', (event: any) => {
       this.selectedFile = new ImageSnippet(event.target.result, file);
       this.animeService.uploadImage(this.selectedFile.file).subscribe(
@@ -135,7 +135,7 @@ export class AddAnimeComponent implements OnInit {
           this.imageUrl = res;
           this.uploadButtonValue = 'Uploaded';
           this.imagePathReady = true;
-          this.submitButtonValue = 'New Anime';        
+          this.submitButtonValue = 'New Anime';
         },
         (err) => {
           console.log(err);
@@ -150,7 +150,7 @@ export class AddAnimeComponent implements OnInit {
     console.log('Processing File');
     const file: File = imageInput.files[0];
     const reader = new FileReader();
-    
+
     reader.addEventListener('load', (event: any) => {
       this.selectedFile = new ImageSnippet(event.target.result, file);
       this.animeService.uploadImage(this.selectedFile.file).subscribe(
@@ -159,7 +159,7 @@ export class AddAnimeComponent implements OnInit {
           this.mainImageUrl = res;
           this.mainUploadButtonValue = 'Uploaded';
           this.mainImagePathReady = true;
-          this.submitButtonValue = 'New Anime';        
+          this.submitButtonValue = 'New Anime';
         },
         (err) => {
           console.log(err);
@@ -186,8 +186,8 @@ export class AddAnimeComponent implements OnInit {
         this.isSubmitted = false;
         return false;
       }
-      formObject.mainImage = this.imageUrl;  
-      formObject.posterImage = this.mainImageUrl;     
+      formObject.mainImage = this.imageUrl;
+      formObject.posterImage = this.mainImageUrl;
       console.log(formObject);
       this.animeService.createAnime(formObject).subscribe(
         (createResponse: any) => console.log(createResponse),

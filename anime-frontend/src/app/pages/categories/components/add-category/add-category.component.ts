@@ -15,11 +15,16 @@ export class AddCategoryComponent implements OnInit {
   isSubmitted = false;
   uploadForm: FormGroup;
   uploadButtonValue = 'Upload';
+  coverUploadButtonValue = 'Upload';
   imageName = 'Select Image';
+  coverImageName = 'Select Cover Image';
   fileSelected = false;
+  coverFileSelected = false;
   fileUploaded = false;
   imageUrl: string;
+  coverImageUrl: string;
   imagePathReady = false;
+  coverImagePathReady = false;
   submitButtonValue = 'Waiting Uploading Image';
   selectedFile: ImageSnippet;
 
@@ -34,9 +39,17 @@ export class AddCategoryComponent implements OnInit {
   ngOnInit() {
     // Fetch Form Data
     this.uploadForm = this.formBuilder.group({
-      name: ['', [Validators.required, Validators.minLength(2)]],
-      description: ['', [Validators.required, Validators.minLength(2)]],
+      name: ['', [Validators.minLength(2)]],
+      description: [''],
+      titleShow: ['', [Validators.required]],
       image: [''],
+      coverImage: ['']
+    });
+  }
+
+  changeTitleStatus(event) {
+    this.uploadForm.get('titleShow').setValue(event.target.value, {
+      onlySelf: true
     });
   }
 
@@ -47,13 +60,20 @@ export class AddCategoryComponent implements OnInit {
     this.fileSelected = true;
   }
 
+  updateCoverName(imageInput: any) {
+    const file: File = imageInput.files[0];
+    this.coverUploadButtonValue = 'Upload';
+    this.coverImageName = file.name;
+    this.coverFileSelected = true;
+  }
+
   processFile(imageInput: any) {
     this.fileSelected = false;
     this.uploadButtonValue = 'Uploading...';
     console.log('Processing File');
     const file: File = imageInput.files[0];
     const reader = new FileReader();
-    
+
     reader.addEventListener('load', (event: any) => {
       this.selectedFile = new ImageSnippet(event.target.result, file);
       this.categoryService.uploadImage(this.selectedFile.file).subscribe(
@@ -71,10 +91,34 @@ export class AddCategoryComponent implements OnInit {
     reader.readAsDataURL(file);
   }
 
+  processCoverFile(imageInput: any) {
+    this.coverFileSelected = false;
+    this.coverUploadButtonValue = 'Uploading...';
+    console.log('Processing File');
+    const file: File = imageInput.files[0];
+    const reader = new FileReader();
+
+    reader.addEventListener('load', (event: any) => {
+      this.selectedFile = new ImageSnippet(event.target.result, file);
+      this.categoryService.uploadImage(this.selectedFile.file).subscribe(
+        (res) => {
+          console.log(res);
+          this.coverImageUrl = res;
+          this.coverUploadButtonValue = 'Uploaded';
+          this.coverImagePathReady = true;
+          this.submitButtonValue = 'New Category';
+        },
+        (err) => {
+          console.log(err);
+        });
+    });
+    reader.readAsDataURL(file);
+  }
+
 
   mySubmit() {
     this.isSubmitted = true;
-    
+
     if (!this.uploadForm.valid) {
       this.toaster.error('Error : Form Not Valid');
       this.isSubmitted = false;
@@ -82,9 +126,10 @@ export class AddCategoryComponent implements OnInit {
     } else {
       // Fetch All Form Data On Json Type
       const formObject = this.uploadForm.getRawValue();
+      formObject.titleShow = formObject.titleShow == 0 ? false : true;
       formObject.createdBy = this.tokenService.userName;
       formObject.image = this.imageUrl;
-
+      formObject.coverImage = this.coverImageUrl;
       this.categoryService.createCategory(formObject).subscribe(
         (createResponse: any) => console.log(createResponse),
         error => {
@@ -92,6 +137,7 @@ export class AddCategoryComponent implements OnInit {
           console.log('Error : ', error);
         },
         () => {
+          this.isSubmitted = false;
           this.router.navigate(['../'], {relativeTo: this.activatedRoute});
         }
       );

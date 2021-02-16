@@ -38,14 +38,14 @@ export class AddAdminsComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+
 
     // Fetch Form Data
     this.uploadForm = this.formBuilder.group({
       userID: ['', [Validators.required, Validators.email]],
       userName: ['', Validators.required],
       password: ['', Validators.required],
-      location: ['', Validators.required],
+      location: [''],
       story: [''],
       image: [''],
       cover: ['']
@@ -75,7 +75,7 @@ export class AddAdminsComponent implements OnInit {
     console.log('Processing File');
     const file: File = imageInput.files[0];
     const reader = new FileReader();
-    
+
     reader.addEventListener('load', (event: any) => {
       this.selectedFile = new ImageSnippet(event.target.result, file);
       this.adminService.uploadImage(this.selectedFile.file).subscribe(
@@ -85,7 +85,7 @@ export class AddAdminsComponent implements OnInit {
           this.imageReady = false;
           this.uploadButtonValue = 'Uploaded';
           this.imagePathReady = true;
-          this.submitButtonValue = 'New Admin';        
+          this.submitButtonValue = 'New Admin';
         },
         (err) => {
           console.log(err);
@@ -102,7 +102,7 @@ export class AddAdminsComponent implements OnInit {
     console.log('Processing File');
     const file: File = imageInput.files[0];
     const reader = new FileReader();
-    
+
     reader.addEventListener('load', (event: any) => {
       this.selectedFile = new ImageSnippet(event.target.result, file);
       this.adminService.uploadImage(this.selectedFile.file).subscribe(
@@ -112,7 +112,7 @@ export class AddAdminsComponent implements OnInit {
           this.coverReady = false;
           this.coverUploadButtonValue = 'Uploaded';
           this.coverImagePathReady = true;
-          this.submitButtonValue = 'New Admin';        
+          this.submitButtonValue = 'New Admin';
         },
         (err) => {
           console.log(err);
@@ -123,7 +123,7 @@ export class AddAdminsComponent implements OnInit {
   }
 
 
-  mySubmit() {  
+  mySubmit() {
     this.isSubmitted = true;
     if (!this.uploadForm.valid) {
       this.toaster.error('Error : Form Not Valid');
@@ -133,9 +133,9 @@ export class AddAdminsComponent implements OnInit {
       // Fetch All Form Data On Json Type
       const formObject = this.uploadForm.getRawValue();
       // formObject.suggest = this.uploadForm.value.suggest == 1 ? true : false;
-      formObject.image = this.imageUrl;  
+      formObject.image = this.imageUrl;
       formObject.cover = this.coverImageUrl;
-      console.log(formObject);     
+      console.log(formObject);
       this.adminService.createAdmins(formObject).subscribe(
         (createResponse: any) => console.log(createResponse),
         error => {
@@ -143,6 +143,7 @@ export class AddAdminsComponent implements OnInit {
           console.log('Error : ', error);
         },
         () => {
+          this.isSubmitted = false;
           this.router.navigate(['../'], {relativeTo: this.activatedRoute});
         }
       );

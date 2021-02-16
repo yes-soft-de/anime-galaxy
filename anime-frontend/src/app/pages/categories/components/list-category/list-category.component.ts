@@ -39,7 +39,6 @@ export class ListCategoryComponent implements OnInit, OnDestroy {
     this.allCategoriesObservable = this.categoryService.allCategories().subscribe(
         (data: ListCategoryResponse) => {
           if (data) {
-            console.log('all Categories :', data);
             this.categories = data.Data;
             this.categoriesList = data.Data;
           }
@@ -103,16 +102,27 @@ export class ListCategoryComponent implements OnInit, OnDestroy {
     } else {
       this.categoriesFilterList = [];
       this.categoriesFilterList = this.categoriesList.filter(res => {
-        // Search In Name Column
-        const nameResult = res.name.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
-        // Search In Residence Column
-        // const residenceResult = res.residence.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
-        if (nameResult) {
-          // display the Name Column
-          return nameResult;
-        // } else if (residenceResult) {
-          // display the Residence Column
-          // return residenceResult;
+        // Search In Name Column       
+        if (res.name) {
+          const name = res.name.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
+          if (name) {
+            // display the Name Column
+            return name;
+          }
+        }
+        if (res.createdBy) {
+          const createdBy = res.createdBy.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
+          if (createdBy) {
+            // display the Name Column
+            return createdBy;
+          }
+        }
+        if (res.updatedBy) {
+          const updatedBy = res.updatedBy.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
+          if (updatedBy) {
+            // display the Name Column
+            return updatedBy;
+          }
         }
       });
     }

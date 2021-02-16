@@ -21,7 +21,7 @@ export class ListAnimeComponent implements OnInit {
   suggestProgress = false;
   allAnimesObservable: Subscription;
 
-  constructor(private animeService: AnimeService,    
+  constructor(private animeService: AnimeService,
               private toaster: ToastrService ) { }
 
   ngOnInit() {
@@ -37,12 +37,12 @@ export class ListAnimeComponent implements OnInit {
     this.allAnimesObservable = this.animeService.allAnimes().subscribe(
         (data: AnimesResponse) => {
           if (data) {
-            console.log('all Enimes :', data);
+            // console.log('all Enimes :', data);
             this.animes = data.Data;
             this.animesList = data.Data;
           }
-        }, 
-        error1 => this.handleError(error1), 
+        },
+        error1 => this.handleError(error1),
         () => {
           this.animesFilterList = this.animesList;
         });
@@ -113,18 +113,26 @@ export class ListAnimeComponent implements OnInit {
     } else {
       this.animesFilterList = [];
       this.animesFilterList = this.animesList.filter(res => {
-        // Search In Name Column
-        const nameResult = res.name.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
-        // Search In Residence Column
-        const categoryName = res.categoryName.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
-        if (nameResult) {
-          // display the Name Column
-          return nameResult;
-        // } else if (residenceResult) {
-          // display the Residence Column
-          // return residenceResult;
-        } else if (categoryName) {
-          return categoryName;
+        if (res.name) {
+          const nameResult = res.name.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
+          if (nameResult) {
+            // display the Name Column
+            return nameResult;
+          }
+        }
+        if (res.updatedBy) {
+          const updatedBy = res.updatedBy.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
+          if (updatedBy) {
+            // display the Name Column
+            return updatedBy;
+          }
+        }
+        if (res.createdBy) {
+          const createdBy = res.createdBy.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
+          if (createdBy) {
+            // display the Name Column
+            return createdBy;
+          }
         }
       });
     }

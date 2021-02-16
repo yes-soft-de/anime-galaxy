@@ -92,7 +92,7 @@ export class AddEpisodesComponent implements OnInit {
       duration: ['', Validators.required],
       publishDate: ['', Validators.required]
     });
-    
+
     // Options For Select 2
     this.options = {
       width: '100%',
@@ -140,7 +140,7 @@ export class AddEpisodesComponent implements OnInit {
     console.log('Processing File');
     const file: File = imageInput.files[0];
     const reader = new FileReader();
-    
+
     reader.addEventListener('load', (event: any) => {
       this.selectedFile = new ImageSnippet(event.target.result, file);
       this.animeService.uploadImage(this.selectedFile.file).subscribe(
@@ -148,7 +148,7 @@ export class AddEpisodesComponent implements OnInit {
           this.imageUrl = res;
           this.uploadButtonValue = 'Uploaded';
           this.imagePathReady = true;
-          this.submitButtonValue = 'New Episode';          
+          this.submitButtonValue = 'New Episode';
         },
         (err) => {
           console.log(err);
@@ -164,7 +164,7 @@ export class AddEpisodesComponent implements OnInit {
     console.log('Processing File');
     const file: File = imageInput.files[0];
     const reader = new FileReader();
-    
+
     reader.addEventListener('load', (event: any) => {
       this.selectedFile = new ImageSnippet(event.target.result, file);
       this.animeService.uploadImage(this.selectedFile.file).subscribe(
@@ -173,7 +173,7 @@ export class AddEpisodesComponent implements OnInit {
           this.mainImageUrl = res;
           this.mainUploadButtonValue = 'Uploaded';
           this.mainImagePathReady = true;
-          this.submitButtonValue = 'New Episode';        
+          this.submitButtonValue = 'New Episode';
         },
         (err) => {
           console.log(err);
@@ -187,6 +187,7 @@ export class AddEpisodesComponent implements OnInit {
     this.isSubmitted = true;
     if (!this.uploadForm.valid) {
       this.toaster.error('Error : Form Not Valid');
+      this.isSubmitted = false;
       return false;
     } else {
       // Fetch All Form Data On Json Type
@@ -199,8 +200,8 @@ export class AddEpisodesComponent implements OnInit {
         this.isSubmitted = false;
         return false;
       }
-      formObject.image = this.imageUrl;      
-      formObject.posterImage = this.mainImageUrl;  
+      formObject.image = this.imageUrl;
+      formObject.posterImage = this.mainImageUrl;
       this.episodeService.createEpisode(formObject).subscribe(
         (createResponse: any) => console.log(createResponse),
         error => {
@@ -208,6 +209,7 @@ export class AddEpisodesComponent implements OnInit {
           console.log('Error : ', error);
         },
         () => {
+          this.isSubmitted = false;
           this.router.navigate(['../'], {relativeTo: this.activatedRoute});
         }
       );

@@ -10,9 +10,9 @@
                     (change)="changeAnime($event)"
                     [ngClass]="{'is-invalid': isSubmitted && uploadForm.get('animeID').errors}">
                 <option value="">Select Anime</option>
-                <option *ngFor="let anime of mergeResult.animes.Data" 
+                <option *ngFor="let anime of mergeResult.animes.Data"
                         value="{{anime.id}}"
-                        [selected]="episodesData.animeID == anime.id">{{anime.name}}</option>                        
+                        [selected]="episodesData.animeID == anime.id">{{anime.name}}</option>
             </select>
           </div>
       </div>
@@ -25,8 +25,8 @@
                   (change)="changeCategory($event)"
                   [ngClass]="{'is-invalid': isSubmitted && uploadForm.get('categoyID').errors}">
             <option value="">Select Category</option>
-            <option *ngFor="let cat of mergeResult.categories.Data" 
-                    value="{{cat.id}}" 
+            <option *ngFor="let cat of mergeResult.categories.Data"
+                    value="{{cat.id}}"
                     [selected]="episodesData.categoryID == cat.id">{{cat.name}}</option>
           </select>
           <span class="invalid-feedback" *ngIf="isSubmitted && this.uploadForm.get('categoyID').errors?.required">category Field Is Required</span>
@@ -35,12 +35,12 @@
       <div class="form-group row">
         <label class="col-2 col-form-label">Category</label>
         <div class="col-10">
-          <ng-select2 
+          <ng-select2
               [data]="selectData"
               [options]="options"
               [(ngModel)]="value"
               [ngModelOptions]="{standalone: true}">
-          </ng-select2>          
+          </ng-select2>
           <span class="invalid-feedback" *ngIf="isSubmitted && this.uploadForm.get('categories').errors?.required">Category Field Is Required</span>
         </div>
       </div>
@@ -56,7 +56,7 @@
                  placeholder="Type The Season Number">
           <span class="invalid-feedback" *ngIf="uploadForm.get('seasonNumber').errors?.required">Season Number Field Is Required</span>
           <span class="invalid-feedback"
-                *ngIf="uploadForm.get('seasonNumber').errors?.minlength">Season Number Must Be Greater Than 1</span>        
+                *ngIf="uploadForm.get('seasonNumber').errors?.minlength">Season Number Must Be Greater Than 1</span>
         </div>
       </div>
       <div class="form-group row">
@@ -71,7 +71,7 @@
                  placeholder="Type The Episode Number">
           <span class="invalid-feedback" *ngIf="uploadForm.get('episodeNumber').errors?.required">Episode Number Field Is Required</span>
           <span class="invalid-feedback"
-                *ngIf="uploadForm.get('episodeNumber').errors?.minlength">Episode Number Must Be Greater Than 1</span>        
+                *ngIf="uploadForm.get('episodeNumber').errors?.minlength">Episode Number Must Be Greater Than 1</span>
         </div>
       </div>
       <div class="form-group row">
@@ -97,8 +97,8 @@
                  type="text"
                  name="duration"
                  formControlName="duration"
-                 placeholder="Type The Duration">
-          <span class="invalid-feedback" *ngIf="uploadForm.get('duration').errors?.required">Duration URL Field Is Required</span>       
+                 placeholder="Type The Duration With Format, hh:mm:ss">
+          <span class="invalid-feedback" *ngIf="uploadForm.get('duration').errors?.required">Duration URL Field Is Required</span>
         </div>
       </div>
       <div class="form-group row">
@@ -120,9 +120,9 @@
         <label class="col-2 col-form-label">Upload</label>
         <div class="input-group col-10">
           <div class="custom-file">
-            <input #mainImageInput type="file" accept="image/*" class="custom-file-input" id="file-input"
+            <input #mainImageInput type="file" accept="image/*" class="custom-file-input" id="file-edit-main-input"
                    (change)="updateMainName(mainImageInput)">
-            <label style="font-size: .9rem;" class="custom-file-label" for="file-input">{{mainImageName}}</label>
+            <label style="font-size: .9rem;" class="custom-file-label" for="file-edit-main-input">{{mainImageName}}</label>
           </div>
           <div class="input-group-append">
             <button class="btn btn-success" type="button" (click)="processMainFile(mainImageInput)" [disabled]=!mainFileSelected>
@@ -144,7 +144,7 @@
                 *ngIf="uploadForm.get('publishDate').errors?.required">Publish Date Field Is Required</span>
         </div>
       </div>
-    
+
 
       <div class="form-group offset-md-2 mt-3">
         <input class="btn btn-primary btn-block" type="submit" value="Update Episode" [disabled]="!uploadForm.valid || isSubmitted">

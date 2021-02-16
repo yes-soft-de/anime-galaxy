@@ -31,15 +31,15 @@ export class EditEpisodesComponent implements OnInit {
   episodesData: EditEpisode;
   isSubmitted = false;
   uploadForm: FormGroup;
-  uploadButtonValue = 'Upload';  
+  uploadButtonValue = 'Upload';
   mainUploadButtonValue = 'Upload';
   imageName = 'Leave it if you don\'t want to change image';
   mainImageName = 'Leave it if you don\'t want to change main image';
-  fileSelected = false;  
+  fileSelected = false;
   mainFileSelected = false;
-  imageUrl: string;  
+  imageUrl: string;
   mainImageUrl: string;
-  imagePathReady = true;  
+  imagePathReady = true;
   mainImagePathReady = true;
   submitButtonValue = 'Update Episode';
   selectedFile: ImageSnippet;
@@ -62,11 +62,11 @@ export class EditEpisodesComponent implements OnInit {
 
 
   ngOnInit() {
-  
+
     this.episodeID = parseInt(this.activatedRoute.snapshot.paramMap.get('id'));
     this.episodeService.getEpisode(this.episodeID).subscribe(
      (episodeResponse: EditEpisodeResponse) => {
-       console.log('episodeResponse', episodeResponse);
+      //  console.log('episodeResponse', episodeResponse);
         this.episodesData = episodeResponse.Data;
         this.updateFormValues();
       }
@@ -89,7 +89,7 @@ export class EditEpisodesComponent implements OnInit {
     );
     result.subscribe(
       mergeResponse => {
-        console.log('episode', mergeResponse);
+        // console.log('episode', mergeResponse);
         this.mergeResult = mergeResponse;
         this.mergeResult.categories.Data.map(e => {
           // id : must be as string
@@ -124,8 +124,8 @@ export class EditEpisodesComponent implements OnInit {
       tags: true
     };
   }
-  
-  // Fill Form Input 
+
+  // Fill Form Input
   updateFormValues() {
     this.uploadForm.patchValue({    // Insert Our category Data Into Form Fields
       animeID: this.episodesData.animeID,       // we must use the id not the name to make relate with select html tag
@@ -179,7 +179,7 @@ export class EditEpisodesComponent implements OnInit {
     console.log('Processing File');
     const file: File = imageInput.files[0];
     const reader = new FileReader();
-    
+
     reader.addEventListener('load', (event: any) => {
       this.selectedFile = new ImageSnippet(event.target.result, file);
       this.animeService.uploadImage(this.selectedFile.file).subscribe(
@@ -188,7 +188,7 @@ export class EditEpisodesComponent implements OnInit {
           this.imageUrl = res;
           this.uploadButtonValue = 'Uploaded';
           this.imagePathReady = true;
-          this.submitButtonValue = 'Update Episode';          
+          this.submitButtonValue = 'Update Episode';
         },
         (err) => {
           console.log(err);
@@ -204,7 +204,7 @@ export class EditEpisodesComponent implements OnInit {
     console.log('Processing File');
     const file: File = imageInput.files[0];
     const reader = new FileReader();
-    
+
     reader.addEventListener('load', (event: any) => {
       this.selectedFile = new ImageSnippet(event.target.result, file);
       this.animeService.uploadImage(this.selectedFile.file).subscribe(
@@ -213,7 +213,7 @@ export class EditEpisodesComponent implements OnInit {
           this.mainImageUrl = res;
           this.mainUploadButtonValue = 'Uploaded';
           this.mainImagePathReady = true;
-          this.submitButtonValue = 'Update Episode';     
+          this.submitButtonValue = 'Update Episode';
         },
         (err) => {
           console.log(err);
@@ -258,6 +258,7 @@ export class EditEpisodesComponent implements OnInit {
           console.log('Error : ', error);
         },
         () => {
+          this.isSubmitted = false;
           this.router.navigate(['../../'], {relativeTo: this.activatedRoute});
         }
       );

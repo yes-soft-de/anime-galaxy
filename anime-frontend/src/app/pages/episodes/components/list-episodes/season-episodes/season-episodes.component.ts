@@ -21,7 +21,7 @@ export class SeasonEpisodesComponent implements OnInit {
   animeSeasonEpisodesList: AnimeEpisodes[] = [];
   animeSeasonEpisodesFilterList: AnimeEpisodes[] = [];         // We Create It Second For Filter
   currentSubmitData: {
-    animeID: number, 
+    animeID: number,
     season: number
   };
   isSubmitted = false;
@@ -31,14 +31,14 @@ export class SeasonEpisodesComponent implements OnInit {
   isClicked = false;
   animesSubscription: Subscription;
 
-  constructor(private animeService: AnimeService, 
+  constructor(private animeService: AnimeService,
               private episodesService: EpisodesService,
               private formBuilder: FormBuilder,
               private toaster: ToastrService) { }
 
   ngOnInit() {
     // Get All Animes
-    this.getAllAnimes();  
+    this.getAllAnimes();
 
     this.uploadForm = this.formBuilder.group({
       animeID: [''],
@@ -136,7 +136,7 @@ export class SeasonEpisodesComponent implements OnInit {
         this.toaster.error(error.error.msg);
       }
     }
-  
+
   applyFilter() {
     // if the search input value is empty
     if (!this.name) {
@@ -144,21 +144,29 @@ export class SeasonEpisodesComponent implements OnInit {
     } else {
       this.animeSeasonEpisodesFilterList = [];
       this.animeSeasonEpisodesFilterList = this.animeSeasonEpisodesList.filter(res => {
-        // Search In Name Column
-        const nameResult = res.animeName.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
-        // Search In Episode Number Column
-        const episodeNumber = res.episodeNumber.toString().match(this.name.toLocaleLowerCase());
-        // Search In Season Number Column
-        const seasonNumber = res.seasonNumber.toString().match(this.name.toLocaleLowerCase());
-        if (nameResult) {
-          // display the Name Column
-          return nameResult;
-        } else if (episodeNumber) {
-          // display the episodeNumber Column
-          return episodeNumber;
-        } else if (seasonNumber) {
-          // display the seasonNumber Column
-          return seasonNumber;
+        if (res.animeName) {
+          // Search In Name Column
+          const nameResult = res.animeName.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
+          if (nameResult) {
+            // display the Name Column
+            return nameResult;
+          }
+        }
+        if (res.episodeNumber) {
+          // Search In Episode Number Column
+          const episodeNumber = res.episodeNumber.toString().match(this.name.toLocaleLowerCase());
+          if (episodeNumber) {
+            // display the episodeNumber Column
+            return episodeNumber;
+          }
+        }
+        if (res.seasonNumber) {
+          // Search In Season Number Column
+          const seasonNumber = res.seasonNumber.toString().match(this.name.toLocaleLowerCase());
+          if (seasonNumber) {
+            // display the seasonNumber Column
+            return seasonNumber;
+          }
         }
       });
     }

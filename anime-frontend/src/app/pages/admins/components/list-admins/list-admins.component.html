@@ -36,8 +36,8 @@
                 <tr *ngFor="let admin of adminsFilterList | paginate: config">
                   <td>{{admin?.userID}}</td>
                   <td>{{admin?.userName ? admin?.userName : '-'}}</td>
-                  <td><img src="{{admin?.image}}" (error)="admin.image = '../../../../assets/default-avatar.jpg'" alt="{{admin?.name}} Image" class="img-fluid img-thumbnail img-custom"></td>              
-                  <td><img src="{{admin?.cover}}" (error)="admin.cover = '../../../../assets/default-avatar.jpg'" alt="{{admin?.name}} Image" class="img-fluid img-thumbnail img-custom"></td>              
+                  <td><img src="{{admin?.image}}" (error)="admin.image = './assets/default-avatar.jpg'" alt="{{admin?.name}} Image" class="img-fluid img-thumbnail img-custom"></td>              
+                  <td><img src="{{admin?.cover}}" (error)="admin.cover = './assets/default-avatar.jpg'" alt="{{admin?.name}} Image" class="img-fluid img-thumbnail img-custom"></td>              
                   <td>{{admin?.location ? admin?.location : '-'}}</td>
                   <td>{{admin?.createdAt ? (admin?.createdAt.timestamp * 1000 | date: 'yyyy-MM-dd' : 'UTC') : '-'}}</td>
                   <td>{{admin?.story ? admin?.story : '-'}}</td>

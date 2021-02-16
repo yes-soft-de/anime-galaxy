@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
   }
 
   handleResponse(response) {
-    console.log('token response', response);
+    // console.log('token response', response);
     this.process = false;
     this.tokenService.handle(this.form.username, response.token);
     this.authService.changeAuthStatus(true);

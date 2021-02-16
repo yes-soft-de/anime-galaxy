@@ -17,7 +17,7 @@ export class ListComingSoonEpisodesComponent implements OnInit {
   episodesComingSoonList: EpisodeComingSoon[] = [];
   episodesComingSoonFilterList: EpisodeComingSoon[] = [];         // We Create It Second For Filter
   config: any;                                      // Config Variable For Pagination Configuration
-  name: string; 
+  name: string;
   isClicked = false;
   episodsComingSoonSubscription: Subscription;
 
@@ -27,7 +27,7 @@ export class ListComingSoonEpisodesComponent implements OnInit {
               private activateRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    
+
     // Get All Animes
     this.getAllEpisodesComingSoon();
   }
@@ -39,9 +39,9 @@ export class ListComingSoonEpisodesComponent implements OnInit {
   // Get All Animes
   getAllEpisodesComingSoon() {
     this.episodsComingSoonSubscription = this.episodesService.allEpisodesComingSoon().subscribe(
-      (episodesComingSoon: EpisodeComingSoonResponse) => {      
+      (episodesComingSoon: EpisodeComingSoonResponse) => {
         if (episodesComingSoon) {
-          console.log('all episodesComingSoon :', episodesComingSoon);
+          // console.log('all episodesComingSoon :', episodesComingSoon);
           this.episodesComingSoon = episodesComingSoon.Data;
           this.episodesComingSoonList = episodesComingSoon.Data;
         }
@@ -98,7 +98,7 @@ export class ListComingSoonEpisodesComponent implements OnInit {
     }
   }
 
-  
+
   applyFilter() {
     // if the search input value is empty
     if (!this.name) {
@@ -106,21 +106,21 @@ export class ListComingSoonEpisodesComponent implements OnInit {
     } else {
       this.episodesComingSoonFilterList = [];
       this.episodesComingSoonFilterList = this.episodesComingSoonList.filter(res => {
-        // Search In Name Column
-        const nameResult = res.animeName.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
-        // Search In Category Name Column
-        const categoryName = res.categoryName.toString().match(this.name.toLocaleLowerCase());
-        // Search In Episode Number Column
-        const episodeNumber = res.episodeNumber.toString().match(this.name.toLocaleLowerCase());
-        if (nameResult) {
-          // display the Name Column
-          return nameResult;
-        } else if (categoryName) {
-          // display the categoryName Column
-          return categoryName;
-        } else if (episodeNumber) {
-          // display the episodeNumber Column
-          return episodeNumber;
+        if (res.animeName) {
+          // Search In Name Column
+          const nameResult = res.animeName.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
+          if (nameResult) {
+            // display the Name Column
+            return nameResult;
+          }
+        }
+        if (res.episodeNumber) {
+          // Search In Episode Number Column
+          const episodeNumber = res.episodeNumber.toString().match(this.name.toLocaleLowerCase());
+          if (episodeNumber) {
+            // display the episodeNumber Column
+            return episodeNumber;
+          }
         }
       });
     }

@@ -1,20 +1,20 @@
 export class AdminConfig {
   // An Example | Delete The Content When Started
   // source api
-  public static sourceAPI                   = 'http://34.71.153.58/html/public/index.php/';
+  public static sourceAPI                   = 'http://galaxy.yes-cloud.de/html/public/index.php/';
 
   // All Application Api
   public static loginAPI                    = AdminConfig.sourceAPI + 'login_check';
   public static userAPI                     = AdminConfig.sourceAPI + 'user';
 
-  // Categories     
+  // Categories
   public static categoryAPI                 = AdminConfig.sourceAPI + 'category';
   // public static category                 = AdminConfig.sourceAPI + 'category';
 
-  // Animes     
+  // Animes
   public static animeAPI                    = AdminConfig.sourceAPI + 'anime';
-  
-  // Episode      
+
+  // Episode
   public static episodeAPI                  = AdminConfig.sourceAPI + 'episode';
   public static animeEpisodesAPI            = AdminConfig.sourceAPI + 'animeEpisodes';
   public static animeSeasonEpisodesAPI      = AdminConfig.sourceAPI + 'episode/animeID';
@@ -27,6 +27,6 @@ export class AdminConfig {
   public static createAdminsAPI             = AdminConfig.sourceAPI + 'createadmin';
   public static deleteAdminsAPI             = AdminConfig.sourceAPI + 'deleteadmin';
 
-  // Upload     
-  public static generalUploadAPI            = AdminConfig.sourceAPI + 'uploadfile'; 
+  // Upload
+  public static generalUploadAPI            = AdminConfig.sourceAPI + 'uploadfile';
 }

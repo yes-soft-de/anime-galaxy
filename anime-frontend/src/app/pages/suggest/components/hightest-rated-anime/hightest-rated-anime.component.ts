@@ -20,7 +20,7 @@ export class HightestRatedAnimeComponent implements OnInit {
   name: string;                   // name variable to store the input search value
 
   constructor(private suggestService: SuggestService,
-              private animeService: AnimeService,    
+              private animeService: AnimeService,
               private toaster: ToastrService ) { }
 
   ngOnInit() {
@@ -29,15 +29,15 @@ export class HightestRatedAnimeComponent implements OnInit {
 
 
   getAnimes() {
-    // Fetch All Items 
+    // Fetch All Items
     this.suggestService.allHightestRatedAnime().subscribe(
       (data: AnimeHighestRatingResponse) => {
         if (data) {
           this.animehighestRating = data.Data;
           this.animehighestRatingList = data.Data;
         }
-      }, 
-      error1 => this.handleError(error1), 
+      },
+      error1 => this.handleError(error1),
       () => {
         this.animehighestRatingFilterList = this.animehighestRatingList;
       });
@@ -47,7 +47,7 @@ export class HightestRatedAnimeComponent implements OnInit {
       currentPage: 1,
       totalItems: this.animehighestRatingList.length
     };
-   
+
   }
 
     // Handle Response Error
@@ -109,15 +109,13 @@ export class HightestRatedAnimeComponent implements OnInit {
       this.animehighestRatingFilterList = [];
       this.animehighestRatingFilterList = this.animehighestRatingList.filter(res => {
         // Search In Name Column
-        const nameResult = res.animeName.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
-        // Search In Name Column
-        const categoryName = res.categoryName.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
-        if (nameResult) {
-          // display the Name Column
-          return nameResult;
-        } else if (categoryName) {
-          // display the Name Column
-          return categoryName;
+        if (res.animeName) {
+          const nameResult = res.animeName.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
+          // Search In Name Column
+          if (nameResult) {
+            // display the Name Column
+            return nameResult;
+          }
         }
       });
     }

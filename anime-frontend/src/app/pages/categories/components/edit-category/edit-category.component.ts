@@ -20,10 +20,15 @@ export class EditCategoryComponent implements OnInit {
   uploadForm: FormGroup;
   categoryData: ListCategory;
   uploadButtonValue = 'Upload';
+  coverUploadButtonValue = 'Upload';
   imageName = 'Leave it if you don\'t want to change image';
+  coverImageName = 'Leave it if you don\'t want to change cover image';
   fileSelected = false;
+  coverFileSelected = false;
   imageUrl: string;
+  coverImageUrl: string;
   imagePathReady = true;
+  coverImagePathReady = true;
   submitButtonValue = 'Update Category';
   selectedFile: ImageSnippet;
 
@@ -42,6 +47,7 @@ export class EditCategoryComponent implements OnInit {
 
     this.categoryService.getCategory(this.categoryId).subscribe(
       (categoryResponse: CategoryResponse) => {
+        // console.log('CategoryResponse', categoryResponse);
         this.categoryData = categoryResponse.Data;
         this.updateFormValues();
       }, error => console.log(error)
@@ -49,9 +55,11 @@ export class EditCategoryComponent implements OnInit {
 
     // Fetch Form Data
     this.uploadForm = this.formBuilder.group({
-      name: ['', [Validators.required, Validators.minLength(2)]],
-      description: ['', [Validators.required, Validators.minLength(2)]],
+      name: ['', [Validators.minLength(2)]],
+      description: [''],
+      titleShow: ['', [Validators.required]],
       image: [''],
+      coverImage: ['']
     });
   }
 
@@ -60,7 +68,15 @@ export class EditCategoryComponent implements OnInit {
     this.uploadForm.patchValue({    // Insert Our category Data Into Form Fields
       name: this.categoryData.name,
       description: this.categoryData.description,
-      image: this.categoryData.image
+      titleShow: this.categoryData.titleShow,
+      image: this.categoryData.image,
+      coverImage: this.categoryData.coverImage,
+    });
+  }
+
+  changeTitleStatus(event) {
+    this.uploadForm.get('titleShow').setValue(event.target.value, {
+      onlySelf: true
     });
   }
 
@@ -70,6 +86,13 @@ export class EditCategoryComponent implements OnInit {
     this.uploadButtonValue = 'Upload';
     this.imageName = file.name;
     this.fileSelected = true;
+  }
+
+  updateCoverName(imageInput: any) {
+    const file: File = imageInput.files[0];
+    this.coverUploadButtonValue = 'Upload';
+    this.coverImageName = file.name;
+    this.coverFileSelected = true;
   }
 
 
@@ -99,21 +122,54 @@ export class EditCategoryComponent implements OnInit {
   }
 
 
+  processCoverFile(imageInput: any) {
+    this.coverFileSelected = false;
+    this.coverImagePathReady = false;
+    this.coverUploadButtonValue = 'Uploading...';
+    console.log('Processing File');
+    const file: File = imageInput.files[0];
+    const reader = new FileReader();
+
+    reader.addEventListener('load', (event: any) => {
+      this.selectedFile = new ImageSnippet(event.target.result, file);
+      this.categoryService.uploadImage(this.selectedFile.file).subscribe(
+        (res) => {
+          console.log(res);
+          this.coverImageUrl = res;
+          this.coverUploadButtonValue = 'Uploaded';
+          this.coverImagePathReady = true;
+          this.submitButtonValue = 'Update Category';
+        },
+        (err) => {
+          console.log(err);
+        });
+    });
+    reader.readAsDataURL(file);
+  }
+
   // Submit Form
   mySubmit() {
     this.isSubmitted = true;
     if (!this.uploadForm.valid) {
       this.toaster.error('Error : All Fields Are Required');
+      this.isSubmitted = false;
       return false;
     } else {
       // Fetch All Form Data On Json Type
       const formObj = this.uploadForm.getRawValue();
       formObj.id = this.categoryId;
       formObj.updatedBy = this.tokenService.userName;
+      // TODO make sure about the response of titleShow
+      formObj.titleShow = formObj.titleShow == 0 ? false : true;
       if (this.imageUrl) {
         formObj.image = this.imageUrl;
       } else {
         formObj.image = this.categoryData.imageURL;
+      }
+      if (this.coverImageUrl) {
+        formObj.coverImage = this.coverImageUrl;
+      } else {
+        formObj.coverImage = this.categoryData.coverImageURL;
       }
       this.categoryService.updateCategory(formObj).subscribe(
         data => {
@@ -125,6 +181,7 @@ export class EditCategoryComponent implements OnInit {
           console.log('Error fetching data', error);
         },
         () => {
+          this.isSubmitted = false;
           this.router.navigate(['../../'], {relativeTo: this.activatedRoute});
         }
       );

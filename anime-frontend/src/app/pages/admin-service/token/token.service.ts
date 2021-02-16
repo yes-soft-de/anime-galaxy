@@ -9,7 +9,7 @@ import { SuperAdminService } from '../auth/super-admin.service';
   providedIn: 'root'
 })
 export class TokenService {
-  expireTime = HelperService.timeToMillisecond("02:00:00");
+  // expireTime = HelperService.timeToMillisecond("02:00:00");
   userName: string;
   private iss = {
     //login: AdminConfig.loginAPI,
@@ -18,24 +18,15 @@ export class TokenService {
   private roles: string[];
 
   constructor(private supperAdminService: SuperAdminService) { 
-    console.log('Expire Time To Delete Your Token is : ', HelperService.millisecondToTime(this.expireTime));
+    console.log('Expire Time To Delete Your Token is : ', HelperService.convertSecondsToHMS(7200));
   }
 
   handle(username, token) {
     this.iss.username = username;
     // this.setToken(token);
-    this.setTokenWithExpiry("token", token, this.expireTime);
+    const expire_time_millseconds = 7200 * 1000;
+    this.setTokenWithExpiry("token", token, expire_time_millseconds);
   }
-
-  // Store The Token In The Cookie
-  // setToken(token) {
-  //   localStorage.setItem('token', token);
-  // }
-
-    // GET The Token From The Cookie
-  // getToken() {
-  //   return localStorage.getItem('token');
-  // }
 
     // Delete The Token From The Cookie
   deleteToken() {

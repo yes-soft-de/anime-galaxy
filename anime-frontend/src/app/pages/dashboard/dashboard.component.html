@@ -48,10 +48,14 @@
               <div class="card-body" *ngIf="mergeResult.categories.Data?.length != 0">
                 <ng-container *ngFor="let category of mergeResult.categories.Data; let i = index">
                   <ng-container *ngIf="i < latestCategoriesNumber">
-                    <div class="late_info">
+                    <div class="late_info" *ngIf="category?.name">
                       {{category?.name}}
                       <a routerLink="/categories/edit/{{category?.id}}" class="btn btn-success btn-sm py-0 float-right">Edit</a>
                     </div>
+                    <div class="late_info" *ngIf="!category?.name">
+                      <img src="{{category?.image}}" alt="{{category.name}} Image" class="img-fluid img-thumbnail img-custom">
+                      <a routerLink="/categories/edit/{{category?.id}}" class="btn btn-success btn-sm py-0 float-right">Edit</a>
+                    </div>                  
                   </ng-container>
                 </ng-container>
               </div>
@@ -74,7 +78,7 @@
                 <ng-container *ngFor="let anime of mergeResult.animes.Data; let i = index">
                   <ng-container *ngIf="i < latestAnimesNumber">
                     <div class="late_info">
-                      {{(anime?.name).slice(0, 40)}}
+                      {{anime?.name ? (anime?.name).slice(0, 40) : '-'}}
                       <a routerLink="/animes/edit/{{anime?.id}}"
                          class="btn btn-success btn-sm py-0 float-right">Edit</a>
                     </div>

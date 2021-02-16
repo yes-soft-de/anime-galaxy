@@ -6,8 +6,8 @@ import { SuggestComponent } from './suggest.component';
 
 
 const routes: Routes = [
-  { 
-    path: '', 
+  {
+    path: '',
     component: SuggestComponent,
     children: [
       { path: '', component: HightestRatedAnimeComponent },

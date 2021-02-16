@@ -5,12 +5,12 @@
           <div class="row">
               <div class="col-7 col-md-6 col-xl-4">
                   <div class="form-group mb-4">
-                      <input 
-                        id="exampleFormControlInput2" 
-                        [(ngModel)]="name" 
-                        (keyup)="applyFilter()" 
-                        type="text" 
-                        placeholder="searching for Anime Name and Category Name ?" 
+                      <input
+                        id="exampleFormControlInput2"
+                        [(ngModel)]="name"
+                        (keyup)="applyFilter()"
+                        type="text"
+                        placeholder="searching for Anime Name, Updated By And Created By ?"
                         class="form-control form-control-underlined border-primary search-input">
                   </div>
               </div>
@@ -50,10 +50,10 @@
                   <td>{{anime.updatedBy ? anime.updatedBy : '-'}}</td>
                   <td style="white-space: nowrap;">{{anime.updatedAt.timestamp * 1000 | date: 'MMM d, y, h:mm:ss a'}}</td>
                   <td>
-                    <a (click)="suggest(anime.id, (anime.suggest ? false : true))" 
-                       class="text-primary mr-1 mb-1" 
+                    <a (click)="suggest(anime.id, (anime.suggest ? false : true))"
+                       class="text-primary mr-1 mb-1"
                        title="Change To {{anime.suggest ? 'Not Recommended' : 'Recommended' }}"
-                       
+
                        style="cursor: pointer; {{ suggestProgress ? 'pointer-events: none;' : '' }}">
                       {{ anime.suggest ? 'Recommended' : 'Not Recommended' }}
                     </a>

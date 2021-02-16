@@ -82,7 +82,7 @@ export class EditAnimeComponent implements OnInit {
       })
     )
     result.subscribe(data => {
-      console.log('data', data);
+      // console.log('data', data);
       this.mergeResult = data;
       this.animeData = this.mergeResult.anime.Data;
       this.mergeResult.categories.Data.map(e => {
