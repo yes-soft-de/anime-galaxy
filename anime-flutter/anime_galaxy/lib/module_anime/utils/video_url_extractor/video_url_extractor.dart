@@ -3,7 +3,10 @@ import 'dart:convert';
 import 'package:anime_galaxy/utils/logger/logger.dart';
 import 'package:dio/dio.dart';
 
+/// @author Mohammad Al Kalaleeb
+/// @note This needs heavy refactoring but it works for now
 class VideoUrlExtractor {
+  /// @return <String>[]
   static Future<List<String>> getVideoUrlFromYoutube(String youtubeUrl) async {
     var link = _getVideoId(youtubeUrl);
     if (link == null) {
