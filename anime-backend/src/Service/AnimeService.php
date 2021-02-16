@@ -300,7 +300,7 @@ class AnimeService
 
             $row['categories'] = $this->categoryService->getCategoriesArray($row['cats']);
             
-            $row['interaction']=[
+            $row['interactions']=[
                 'love' => $this->interactionService->lovedAll($row['id']),
                 'like' => $this->interactionService->likeAll($row['id']),
                 'dislike' => $this->interactionService->dislikeAll($row['id']),
