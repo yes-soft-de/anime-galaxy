@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   labels:
     app: apache
-  name: webserver
+  name: galaxy-webbserver
   namespace: galaxy
 spec:
   replicas: 1
@@ -21,7 +21,8 @@ spec:
         app: apache
     spec:
       containers:
-        - image: gcr.io/yescloud/github.com/yes-soft-de/anime-galaxy
+        - image: >-
+            gcr.io/pc-api-6479467557629758909-343/github.com/yes-soft-de/anime-galaxy
           imagePullPolicy: Always
           name: php-apache
           ports:
@@ -33,26 +34,24 @@ spec:
       volumes:
         - name: pvc-sym-m
           persistentVolumeClaim:
-            claimName: pvc-sym-uploud
+            claimName: galaxy-pvc-sym-uploud
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  finalizers:
-    - service.kubernetes.io/load-balancer-cleanup
+  annotations:
+    cloud.google.com/neg: '{"ingress":true}'
   labels:
-    run: web-service
-  name: web-service
+    app: apache
+  name: galaxy-webbserver-service
   namespace: galaxy
 spec:
-  clusterIP: 10.4.0.67
-  externalTrafficPolicy: Cluster
+  clusterIP: 10.4.4.209
   ports:
-    - nodePort: 30102
-      port: 80
+    - port: 80
       protocol: TCP
       targetPort: 80
   selector:
     app: apache
   sessionAffinity: None
-  type: LoadBalancer
+  type: ClusterIP
