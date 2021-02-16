@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:anime_galaxy/main_screen/main_screen_module.dart';
 import 'package:anime_galaxy/main_screen/main_screen_routes.dart';
+import 'package:anime_galaxy/module_anime/utils/video_url_extractor/video_url_extractor.dart';
 import 'package:anime_galaxy/module_auth/service/auth_service/auth_service.dart';
 import 'package:anime_galaxy/module_error/error_module.dart';
 import 'package:anime_galaxy/module_home/home.module.dart';

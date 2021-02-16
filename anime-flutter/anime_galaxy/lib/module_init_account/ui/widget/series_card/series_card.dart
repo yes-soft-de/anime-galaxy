@@ -35,10 +35,8 @@ class SeriesCard extends StatelessWidget {
 //
               ),
               Container(
-
                 height: 20,
                 child: Center(
-
                     child: Text(
                      name??'',
                       textDirection: TextDirection.rtl,

@@ -93,21 +93,19 @@ dependencies:
   #  progress indicator
   percent_indicator: ^2.1.7+4
 
-#  rating bar
+  # rating bar
   flutter_rating_bar: ^3.0.1+1
 
-#  image slider
+  # image slider
   carousel_slider: ^2.3.1
 
-#shimmer effect for loading
+  # shimmer effect for loading
   shimmer: ^1.1.1
 
-#  google fonts
+  # google fonts
   google_fonts: ^1.1.1
 
   image_picker: ^0.6.7+14
-
-  youtube_player_iframe: ^1.1.0
 
 dev_dependencies:
   flutter_test:
