@@ -174,35 +174,34 @@ class AnimeRepository extends ServiceEntityRepository
     public function getHighestRatedAnimeByUser($userID)
     {
         return $this->createQueryBuilder('anime')
-        ->select('anime.id','anime.name as animeName', 'anime.mainImage as animeMainImage',
-            'avg(rate.rateValue) as rating', 'anime.specialLink')
-        ->addSelect('anime.categories as cats')
-       
-        ->leftJoin(
-            Favourite::class,
-            'favourite',
-            Join::WITH,
-           'favourite.userID = :userID'
-        )
-//        ->leftjoin(
-//            Category::class,
-//            'category',
-//            Join::WITH,
-//            'category.id = anime.categoryID'
-//        )
-         ->leftJoin(
-            Rating::class,
-            'rate',
-            Join::WITH,
-            'rate.animeID = anime.id'
-        )
-        ->andWhere('anime.id=favourite.animeID')
-        ->setMaxResults(10)   
-        ->addOrderBy('rating','DESC')
-        ->setParameter('userID', $userID)
-        ->groupBy('anime.id')
-        ->getQuery()
-        ->getResult();
+            ->select('anime.id','anime.name as animeName', 'anime.mainImage as animeMainImage', 'anime.suggest',
+                'avg(rate.rateValue) as rating', 'anime.specialLink', 'favourite.categories as fcats')
+            ->addSelect('anime.categories as cats')
+            ->andWhere('anime.suggest = true')
+        
+            ->leftJoin(
+                Favourite::class,
+                'favourite',
+                Join::WITH,
+                'favourite.userID = :userID'
+            )
+
+            ->leftJoin(
+                Rating::class,
+                'rate',
+                Join::WITH,
+                'rate.animeID = anime.id'
+            )
+
+            ->andWhere('anime.id != favourite.animeID')
+            
+            ->addOrderBy('rating','DESC')
+            ->setMaxResults(10)
+
+            ->setParameter('userID', $userID)
+            ->groupBy('anime.id')
+            ->getQuery()
+            ->getResult();
     }
 
     public function getAllComingSoon($date)
@@ -330,6 +329,38 @@ class AnimeRepository extends ServiceEntityRepository
 
             ->groupBy('anime.id')
             
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function getMaybeYouLike($userID)
+    {
+        return $this->createQueryBuilder('anime')
+            ->select('anime.id','anime.name as animeName', 'anime.mainImage as animeMainImage',
+                'avg(rate.rateValue) as rating', 'anime.specialLink', 'favourite.categories as fcats')
+            ->addSelect('anime.categories as cats')
+        
+            ->leftJoin(
+                Favourite::class,
+                'favourite',
+                Join::WITH,
+                'favourite.userID = :userID'
+            )
+
+            ->leftJoin(
+                Rating::class,
+                'rate',
+                Join::WITH,
+                'rate.animeID = anime.id'
+            )
+
+            ->andWhere('anime.id != favourite.animeID')
+            
+            ->addOrderBy('rating', 'DESC')
+            ->setMaxResults(10)
+
+            ->setParameter('userID', $userID)
+            ->groupBy('anime.id')
             ->getQuery()
             ->getResult();
     }

@@ -124,6 +124,11 @@ class AnimeManager
         return $this->animeRepository->getAllComingSoon($date);
     }
 
+    public function getMaybeYouLike($userID)
+    {
+        return $this->animeRepository->getMaybeYouLike($userID);
+    }
+
     public function getAnimeFavourite($userID)
     {
         return $this->animeRepository->getAnimeFavourite($userID);
