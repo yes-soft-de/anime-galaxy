@@ -30,7 +30,7 @@ class AuthService {
   Future<String> loginUser(
       String uid, String name, String email, AUTH_SOURCE authSource,
       [String image]) async {
-    authServiceStateSubject.add('User is Verified, Creating a user in our DB');
+    authServiceStateSubject.add('جار تسجيل الدخول');
     var userExists = false;
 
     try {
