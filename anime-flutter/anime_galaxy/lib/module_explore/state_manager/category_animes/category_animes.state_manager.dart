@@ -1,6 +1,7 @@
 
 
 import 'package:anime_galaxy/generated/l10n.dart';
+import 'package:anime_galaxy/module_explore/model/category_animes/category_animes.model.dart';
 import 'package:anime_galaxy/module_explore/response/comming_soon_response/comming_soon_response.dart';
 import 'package:anime_galaxy/module_explore/service/category_animes/category_animes.service.dart';
 import 'package:anime_galaxy/module_explore/state/category_animes/category_animes.state.dart';
@@ -34,8 +35,9 @@ class CategoryAnimesStateManager{
 
     _categoryAnimesService.searchAnime(categoryId, animeName).then((value) {
       if(value == null){
-        Fluttertoast.showToast(msg: S.current.errorLoadingData);
-        _stateSubject.add(CategoryAnimesStateFetchingError());
+        Fluttertoast.showToast(msg: 'لايوجد إنمي بهذا الاسم');
+        List<CategoryAnimesModel> l =[];
+        _stateSubject.add(CategoryAnimesStateFetchingSuccess(l));
       }else{
         _stateSubject.add(CategoryAnimesStateFetchingSuccess(value));
       }

@@ -105,6 +105,9 @@ class _CategoryAnimesScreenState extends State<CategoryAnimesScreen> {
                    child: TextFormField(
                      controller: _searchController,
                      onFieldSubmitted: (value) {
+                       setState(() {
+                         loading = true;
+                       });
                        _searchController.text.trim()==''
                            ?widget._stateManager.getCategorySeries(category.id, category.name)
                            :widget._stateManager.search(category.id,_searchController.text.trim());
@@ -118,6 +121,9 @@ class _CategoryAnimesScreenState extends State<CategoryAnimesScreen> {
                              color: ProjectColors.ThemeColor,
                            ),
                            onPressed: () {
+                             setState(() {
+                               loading = true;
+                             });
                              _searchController.text.trim()==''
                                  ?widget._stateManager.getCategorySeries(category.id, category.name)
                                  :widget._stateManager.search(category.id,_searchController.text.trim());
