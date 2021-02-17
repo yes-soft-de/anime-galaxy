@@ -175,7 +175,7 @@ class AnimeRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('anime')
             ->select('anime.id','anime.name as animeName', 'anime.mainImage as animeMainImage', 'anime.suggest',
-                'avg(rate.rateValue) as rating', 'anime.specialLink', 'favourite.categories as fcats')
+                'avg(rate.rateValue) as rating', 'anime.specialLink')
             ->addSelect('anime.categories as cats')
             ->andWhere('anime.suggest = true')
         
@@ -337,7 +337,7 @@ class AnimeRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('anime')
             ->select('anime.id','anime.name as animeName', 'anime.mainImage as animeMainImage',
-                'avg(rate.rateValue) as rating', 'anime.specialLink', 'favourite.categories as fcats')
+                'avg(rate.rateValue) as rating', 'anime.specialLink')
             ->addSelect('anime.categories as cats')
         
             ->leftJoin(
@@ -346,6 +346,8 @@ class AnimeRepository extends ServiceEntityRepository
                 Join::WITH,
                 'favourite.userID = :userID'
             )
+            ->setParameter('userID', $userID)
+            ->andWhere('anime.id != favourite.animeID')
 
             ->leftJoin(
                 Rating::class,
@@ -353,13 +355,10 @@ class AnimeRepository extends ServiceEntityRepository
                 Join::WITH,
                 'rate.animeID = anime.id'
             )
-
-            ->andWhere('anime.id != favourite.animeID')
             
             ->addOrderBy('rating', 'DESC')
-            ->setMaxResults(10)
+            ->setMaxResults(15)
 
-            ->setParameter('userID', $userID)
             ->groupBy('anime.id')
             ->getQuery()
             ->getResult();

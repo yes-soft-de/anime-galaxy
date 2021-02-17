@@ -127,4 +127,16 @@ class FavouriteRepository extends ServiceEntityRepository
              ->getQuery()
              ->getResult();
     }
+
+    public function getAllFavouriteCategoriesOfUser($id)
+    {
+        return  $this->createQueryBuilder('Favourite')
+             ->select('Favourite.categories')
+
+             ->andWhere('Favourite.userID = :id')
+             ->setParameter('id', $id)
+             ->distinct('Favourite.categories')
+             ->getQuery()
+             ->getResult();
+    }
 }

@@ -25,15 +25,18 @@ class AnimeService
     private $interactionService;
     private $params;
     private $categoryService;
+    private $favoutiteService;
 
     public function __construct(AnimeManager $animeManager, AutoMapping $autoMapping, ImageService $imageService, CommentService $commentService,
-        InteractionService $interactionService, ParameterBagInterface $params, CategoryService $categoryService) {
+        InteractionService $interactionService, ParameterBagInterface $params, CategoryService $categoryService, FavouriteService $favouriteService) {
         $this->animeManager = $animeManager;
         $this->autoMapping = $autoMapping;
         $this->imageService = $imageService;
         $this->commentService = $commentService;
         $this->interactionService = $interactionService;
         $this->categoryService = $categoryService;
+        $this->favoutiteService = $favouriteService;
+
         $this->params = $params->get('upload_base_url') . '/';
     }
 
@@ -187,22 +190,35 @@ class AnimeService
     public function getHighestRatedAnimeByUser($userID)
     {
         $response = [];
+        $response2 = [];
+
+        $favouriteCats = $this->getUserFavouriteCategories($userID);
+
         $result = $this->animeManager->getHighestRatedAnimeByUser($userID);
         //dd($result);
         foreach ($result as $row)
         {
-            //dd($row['cats']);
-            if ($this->searchMyArray2($row['cats'], $row['fcats'][0]))
+                if ($this->searchMyArray2($row['cats'], $favouriteCats))
+                {
+                    $row['animeMainImage'] = $this->specialLinkCheck($row['specialLink']).$row['animeMainImage'];
+
+                    $row['categories'] = $this->categoryService->getCategoriesArray($row['cats']);
+
+                    $response[] = $row;
+                }
+        }
+        
+        $result2 = $this->animeManager->getAnimeFavourite($userID);
+
+        foreach($response as $res)
+        {
+            if (!$this->searchMyArray($result2, "id", $res['id']))
             {
-                $row['animeMainImage'] = $this->specialLinkCheck($row['specialLink']).$row['animeMainImage'];
-
-                $row['categories'] = $this->categoryService->getCategoriesArray($row['cats']);
-
-                $response[] = $this->autoMapping->map('array', GetHighestRatedAnimeByUserResponse::class, $row);
+                $response2[] = $this->autoMapping->map('array', GetMaybeYouLikeResponse::class, $res);
             }
         }
-        //dd($response);
-        return $response;
+
+        return $response2;
     }
 
     public function getAllComingSoon()
@@ -248,22 +264,36 @@ class AnimeService
     public function getMaybeYouLike($userID)
     {
         $response = [];
+        $response2 = [];
+
+        $favouriteCats = $this->getUserFavouriteCategories($userID);
+
         $result = $this->animeManager->getMaybeYouLike($userID);
-        //dd($result);
+        
         foreach ($result as $row)
         {
-            //dd($row['cats']);
-            if ($this->searchMyArray2($row['cats'], $row['fcats'][0]))
+            
+            if ($this->searchMyArray2($row['cats'], $favouriteCats))
             {
                 $row['animeMainImage'] = $this->specialLinkCheck($row['specialLink']).$row['animeMainImage'];
 
                 $row['categories'] = $this->categoryService->getCategoriesArray($row['cats']);
 
-                $response[] = $this->autoMapping->map('array', GetHighestRatedAnimeByUserResponse::class, $row);
+                $response[] =  $row;
             }
         }
-        //dd($response);
-        return $response;
+        
+        $result2 = $this->animeManager->getAnimeFavourite($userID);
+
+        foreach($response as $res)
+        {
+            if (!$this->searchMyArray($result2, "id", $res['id']))
+            {
+                $response2[] = $this->autoMapping->map('array', GetMaybeYouLikeResponse::class, $res);
+            }
+        }
+
+        return $response2;
 
     //     /** @var $response */
     //    $response = [];
@@ -386,17 +416,37 @@ class AnimeService
 
         foreach ($arrays as $object) 
         {
-            if (is_object($object)) 
+            foreach($search as $item)
             {
-                $object = get_object_vars($object);
-            }
+                if (is_object($object)) 
+                {
+                    $object = get_object_vars($object);
+                }
 
-            if ($object == $search) 
-            {
-                $count++;
+                if ($object == $item) 
+                {
+                    $count++;
+                }
             }
         }
 
         return $count;
+    }
+
+    public function getUserFavouriteCategories($userID)
+    {
+        $fCategories = [];
+
+        $favouriteCats = $this->animeManager->getAllFavouriteCategoriesOfUser($userID);
+
+        foreach($favouriteCats as $cats)
+        {
+            foreach($cats['categories'] as $cat)
+            {
+                $fCategories[] = $cat;
+            }
+        }
+
+        return array_unique($fCategories);
     }
 }

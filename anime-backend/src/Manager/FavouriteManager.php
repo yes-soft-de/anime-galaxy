@@ -96,4 +96,9 @@ class FavouriteManager
     
         return $this->favouriteRepository->notifacations($userID, $date);
     }
+
+    public function getAllFavouriteCategoriesOfUser($userID)
+    {
+        return $this->favouriteRepository->getAllFavouriteCategoriesOfUser($userID);
+    }
 }

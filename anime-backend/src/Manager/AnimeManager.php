@@ -19,13 +19,15 @@ class AnimeManager
     private $entityManager;
     private $animeRepository;
     private $autoMapping;
+    private $favouriteManager;
 
     public function __construct(EntityManagerInterface $entityManager, AnimeRepository $animeRepository,
- AutoMapping $autoMapping)
+ AutoMapping $autoMapping, FavouriteManager $favouriteManager)
     {
         $this->entityManager = $entityManager;
         $this->animeRepository = $animeRepository;
         $this->autoMapping = $autoMapping;
+        $this->favouriteManager = $favouriteManager;
     }
 
     public function create(CreateAnimeRequest $request)
@@ -147,5 +149,10 @@ class AnimeManager
     public function getByNameAndCategory($categoryID, $name)
     {
         return $this->animeRepository->getByNameAndCategory($categoryID, $name);
+    }
+
+    public function getAllFavouriteCategoriesOfUser($userID)
+    {
+        return $this->favouriteManager->getAllFavouriteCategoriesOfUser($userID);
     }
 }
