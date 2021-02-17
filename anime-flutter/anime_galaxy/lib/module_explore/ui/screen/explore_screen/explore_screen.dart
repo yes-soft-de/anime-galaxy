@@ -79,82 +79,14 @@ class _ExploreScreenState extends State<ExploreScreen> {
     var imageSliders = <Widget>[];
     explore.comingSoonSeries.forEach((item) {
       imageSliders.add(Container(
-        child: Container(
-          margin: EdgeInsets.all(5.0),
-          child: ClipRRect(
-              borderRadius: BorderRadius.all(Radius.circular(0.0)),
-              child: Stack(
-                children: <Widget>[
-                  Stack(
-                    fit: StackFit.expand,
-                    children: [
-                      FadeInImage.assetNetwork(
-                        placeholder: 'assets/images/logo.jpg',
-                        image: item.posterImage,
-                      ),
-//                        BackdropFilter(
-//                          filter: ImageFilter.blur(sigmaX: 1.0, sigmaY: 1.0),
-//                          child: Container(
-//                            decoration: BoxDecoration(
-//                                color: Colors.white.withOpacity(0.0)),
-//                          ),
-//                        )
-                    ],
-                  ),
-//                    Positioned.fill(
-//                      child: Container(
-//                        color: Colors.black12,
-//                      ),
-//                    ),
-//                    Positioned(
-//                      left: 0.0,
-//                      right: 0.0,
-//                      child: Container(
-//                          padding: EdgeInsets.symmetric(
-//                              vertical: 10.0, horizontal: 10.0),
-//                          child:
-//                              Column(
-//                                children: <Widget>[
-//
-//                                      Text(
-//                                      '${item.seriesName}',
-//                                      overflow: TextOverflow.fade,
-//                                      maxLines: 1,
-//                                      softWrap: false,
-//                                      style: TextStyle(
-//                                          color: Colors.white,
-//                                          fontSize: 14,
-//                                          fontFamily: 'Roboto',
-//                                          fontWeight: FontWeight.bold,
-//
-//                                      ),
-//
-//                                  ),
-////                                  Text(
-////                                    item.classification??'',
-////                                    style: TextStyle(
-////                                        color: Colors.white70,
-////                                        fontFamily: 'Roboto',
-////                                        fontSize: 13),
-////                                  ),
-////                                  Text(
-////                                    S.of(context).Episode +
-////                                        '${item.episodeNumber} ' +
-////                                        S.of(context).Season +
-////                                        '${item.season}',
-////                                    style: TextStyle(
-////                                        fontFamily: 'Roboto',
-////                                        color: Colors.white70,
-////                                        fontSize: 13),
-////                                  ),
-//                                ],
-//                              ),
-//
-//                           ),
-//                    ),
-                ],
-              )),
-                    ),
+        child:  Container(
+      decoration: BoxDecoration(
+      image: DecorationImage(
+        image: NetworkImage( item.posterImage,),
+          fit: BoxFit.fill
+      ),
+      ),
+      ),
 //                    child: BackdropFilter(
 //                      filter: ImageFilter.blur(sigmaX: 1.0, sigmaY: 1.0),
 //                      child: Container(
@@ -222,7 +154,8 @@ class _ExploreScreenState extends State<ExploreScreen> {
                   width: 8,
                 ),
                  Container(
-                      margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 5),
+                   margin: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 7),
+                   padding: EdgeInsets.symmetric(horizontal: 10),
                       decoration: BoxDecoration(
                           gradient: LinearGradient(
                             colors: [Colors.grey[400], isDarkMode? Colors.black26 :Colors.white],
@@ -249,16 +182,18 @@ class _ExploreScreenState extends State<ExploreScreen> {
                 Container(
                   child: CarouselSlider(
                     options: CarouselOptions(
-                      autoPlay: true,
-                      aspectRatio: 2.0,
-                      enlargeCenterPage: false,
-                    ),
+                        autoPlay: true,
+                        aspectRatio: 2.0,
+                        autoPlayInterval: Duration(seconds: 4),
+                        enlargeCenterPage: false,
+                        viewportFraction: 1),
                     items: imageSliders,
                   ),
                 ),
 
                  Container(
-                      margin: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 5),
+                   margin: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 15),
+                   padding: EdgeInsets.symmetric(horizontal: 10),
                       decoration: BoxDecoration(
                           gradient: LinearGradient(
                             colors: [Colors.grey[400],isDarkMode? Colors.black26 :Colors.white],
@@ -309,7 +244,8 @@ class _ExploreScreenState extends State<ExploreScreen> {
 
 
                Container(
-                      margin: EdgeInsetsDirectional.fromSTEB(10, 5, 0, 5),
+                 margin: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 15),
+                 padding: EdgeInsets.symmetric(horizontal: 10),
                       decoration: BoxDecoration(
                           gradient: LinearGradient(
                             colors: [Colors.grey[400],isDarkMode? Colors.black26 :Colors.white],
@@ -364,7 +300,8 @@ class _ExploreScreenState extends State<ExploreScreen> {
 
               // categories
                  Container(
-                      margin: EdgeInsetsDirectional.fromSTEB(10, 5, 0, 5),
+                   margin: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 15),
+                   padding: EdgeInsets.symmetric(horizontal: 10),
                       decoration: BoxDecoration(
                           gradient: LinearGradient(
                             colors: [Colors.grey[400],isDarkMode? Colors.black26 :Colors.white],

@@ -341,7 +341,8 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
 
         //about
           Container(
-              margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 5),
+            margin: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 5),
+            padding: EdgeInsets.symmetric(horizontal: 10),
               decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [Colors.grey[400], isDarkMode? Colors.black26 :Colors.white],
@@ -437,7 +438,8 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
         ),
 
          Container(
-              margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 15),
+           margin: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 15),
+           padding: EdgeInsets.symmetric(horizontal: 10),
               decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [Colors.grey[400], isDarkMode? Colors.black26 :Colors.white],
@@ -575,7 +577,8 @@ class _EpisodeDetailsScreenState extends State<EpisodeDetailsScreen>
     return Column(
       children: [
         Container(
-              margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 5),
+          margin: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 5),
+          padding: EdgeInsets.symmetric(horizontal: 10),
               decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [Colors.grey[400], isDarkMode? Colors.black26 :Colors.white],

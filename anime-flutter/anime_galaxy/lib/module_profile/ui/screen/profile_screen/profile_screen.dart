@@ -98,160 +98,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return loading ? LoadingIndicatorWidget() : newPageLayout();
   }
 
-  Widget pageLayout() {
-    return Scaffold(
-        body: SingleChildScrollView(
-          child: SafeArea(
-            child: Container(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
-              child: Column(
-                children: [
-                  //personal info
-                  PersonalInfoWidget(
-                    image: _profileModel.image??'',
-                    name: _profileModel.name,
-                    createDate: _profileModel.createDate,
-                    //TODO : change it
-                    category: '',
-                    commentsNumber: _profileModel.commentsNumber,
-                    followingNumber: _profileModel.followingNumber,
-                    seriesNumber: _profileModel.seriesNumber.toString(),
-                  ),
-
-                  if (userId != null)
-                    FlatButton(
-                      color: _profileModel.isFollowed
-                          ? Colors.grey
-                          : ProjectColors.ThemeColor,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: new BorderRadius.circular(15.0)),
-                      onPressed: () => _profileModel.isFollowed
-                          ? widget._stateManager.unFollow(userId)
-                          : widget._stateManager.follow(userId),
-                      child: Container(
-                        width: MediaQuery.of(context).size.width * 0.8,
-                        child: Center(
-                          child: Text(
-                            _profileModel.isFollowed
-                                ? S.of(context).unFollow
-                                : S.of(context).Follow,
-                            style: TextStyle(
-                                fontSize: 14,
-                                fontFamily:'Roboto',
-                                color: Colors.white
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  //about me
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text(
-                        S.of(context).aboutMe,
-                        style: TextStyle(
-                            fontFamily:'Roboto',
-                            fontWeight: FontWeight.bold
-                        ),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    margin: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
-                    width: MediaQuery.of(context).size.width * 0.8,
-                    child: Text(
-                      '${_profileModel.about}',
-                      style: TextStyle(
-                        fontFamily:'Roboto',
-                      ),
-                    ),
-                  ),
-
-
-                  //activities
-                  //display following activities only for me
-                  if( userId == null)
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text(
-                          S.of(context).activities,
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontFamily:'Roboto',
-                          ),
-                        ),
-                      ],
-                    ),
-
-                  if ( userId == null)
-                    ListView.builder(
-                        physics: NeverScrollableScrollPhysics(),
-                        shrinkWrap: true,
-                        itemCount: _profileModel.followingActivities.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          return Container(
-                            margin: EdgeInsets.only(bottom: 10),
-                            child: ActivityCard(
-                              date:  _profileModel.followingActivities[index].date,
-                              userName:
-                              _profileModel.followingActivities[index].userName,
-                              userImage:  _profileModel.followingActivities[index].userImage??'',
-                              activity:
-                              _profileModel.followingActivities[index].action,
-                              animeName:
-                              _profileModel.followingActivities[index].animeName,
-                            ),
-                          );
-                        }) ,
-
-                  SizedBox(
-                    height: 20,
-                  ),
-                  //watched series
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text(
-                        S.of(context).watchedSeries,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontFamily:'Roboto',
-                        ),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    height: 225,
-                    child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        shrinkWrap: true,
-                        itemCount: _profileModel.watchedSeries.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          return GestureDetector(
-                            onTap: () => Navigator.pushNamed(
-                                context, AnimeRoutes.ROUTE_ANIME_DETAILS_SCREEN,
-                                arguments: _profileModel.watchedSeries[index].id),
-                            child: SeriesCard(
-                              url_image: _profileModel.watchedSeries[index].image??'',
-                              series_category: 'شونين',
-                              series_name: _profileModel.watchedSeries[index].name,
-                            ),
-                          );
-                        }),
-                  ),
-
-                  //previous comments
-                  if ( userId != null)
-                    previousCommentSection(),
-                ],
-              ),
-            ),
-          ),
-        ));
-  }
-
   Widget newPageLayout(){
     return Scaffold(
         body: SafeArea(
@@ -416,7 +262,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                         ],
                       ),
-
+                      SizedBox(height: 10,),
                       if (userId != null)
                         FlatButton(
                           color: _profileModel.isFollowed
@@ -444,31 +290,38 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                         ),
                       //about me
-                       Container(
-                            margin: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 5),
-                            decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                  colors: [Colors.grey[400], isDarkMode? Colors.black26 :Colors.white],
-                                )),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  S.of(context).aboutMe,
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    fontFamily: 'Roboto',
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
+                      Container(
+                        margin: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 5),
+                        padding: EdgeInsets.symmetric(horizontal: 10),
+                        decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [Colors.grey[400], isDarkMode? Colors.black26 :Colors.white],
+                            )),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              S.of(context).aboutMe,
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontFamily: 'Roboto',
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
+                          ],
+                        ),
 
                       ),
 
                       Container(
                         margin: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
-                        width: MediaQuery.of(context).size.width * 0.8,
+
+                        padding: EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(color: Colors.black38),
+                        ),
+                        width: MediaQuery.of(context).size.width * 0.95,
                         child: Text(
                           '${_profileModel.about}',
                           style: TextStyle(
@@ -481,25 +334,27 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       //activities
                       //display following activities only for me
                       if( userId == null)
-                         Container(
-                              margin: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
-                              decoration: BoxDecoration(
-                                  gradient: LinearGradient(
-                                    colors: [Colors.grey[400], isDarkMode? Colors.black26 :Colors.white],
-                                  )),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    S.of(context).activities,
-                                    style: TextStyle(
-                                      fontSize: 14,
-                                      fontFamily: 'Roboto',
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ],
+                        Container(
+                          margin: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 10),
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+
+                          decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [Colors.grey[400], isDarkMode? Colors.black26 :Colors.white],
+                              )),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                S.of(context).activities,
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontFamily: 'Roboto',
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
+                            ],
+                          ),
 
                         ),
 
@@ -513,7 +368,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             itemCount: _profileModel.followingActivities.length,
                             itemBuilder: (BuildContext context, int index) {
                               return Container(
-                                margin: EdgeInsets.only(bottom: 10),
+                                margin: EdgeInsets.symmetric(horizontal: 10,vertical: 5),
                                 child: ActivityCard(
                                   date:  _profileModel.followingActivities[index].date,
                                   userName:
@@ -527,28 +382,29 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             }) ,
 
                       SizedBox(
-                        height: 20,
+                        height:5,
                       ),
                       //watched series
-                        Container(
-                            margin: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
-                            decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                  colors: [Colors.grey[400],isDarkMode? Colors.black26 :Colors.white],
-                                )),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  'إنميات متابعة',
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    fontFamily: 'Roboto',
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
+                      Container(
+                        margin: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
+                        padding: EdgeInsets.symmetric(horizontal: 10),
+                        decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [Colors.grey[400],isDarkMode? Colors.black26 :Colors.white],
+                            )),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'إنميات متابعة',
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontFamily: 'Roboto',
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
+                          ],
+                        ),
 
                       ),
 
@@ -594,13 +450,29 @@ class _ProfileScreenState extends State<ProfileScreen> {
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Text(
-              S.of(context).previousComments,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontFamily:'Roboto',
+            Container(
+              width: MediaQuery.of(context).size.width,
+              margin: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [Colors.grey[400],isDarkMode? Colors.black26 :Colors.white],
+                  )),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    S.of(context).previousComments,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontFamily:'Roboto',
+                    ),
+                  ),
+                ],
               ),
+
             ),
+
           ],
         ),
 
@@ -637,4 +509,161 @@ class _ProfileScreenState extends State<ProfileScreen> {
       ],
     );
   }
+  Widget pageLayout() {
+    return Scaffold(
+        body: SingleChildScrollView(
+          child: SafeArea(
+            child: Container(
+              padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
+              child: Column(
+                children: [
+                  //personal info
+                  PersonalInfoWidget(
+                    image: _profileModel.image??'',
+                    name: _profileModel.name,
+                    createDate: _profileModel.createDate,
+                    //TODO : change it
+                    category: '',
+                    commentsNumber: _profileModel.commentsNumber,
+                    followingNumber: _profileModel.followingNumber,
+                    seriesNumber: _profileModel.seriesNumber.toString(),
+                  ),
+
+                  if (userId != null)
+                    FlatButton(
+                      color: _profileModel.isFollowed
+                          ? Colors.grey
+                          : ProjectColors.ThemeColor,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(15.0)),
+                      onPressed: () => _profileModel.isFollowed
+                          ? widget._stateManager.unFollow(userId)
+                          : widget._stateManager.follow(userId),
+                      child: Container(
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        child: Center(
+                          child: Text(
+                            _profileModel.isFollowed
+                                ? S.of(context).unFollow
+                                : S.of(context).Follow,
+                            style: TextStyle(
+                                fontSize: 14,
+                                fontFamily:'Roboto',
+                                color: Colors.white
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  //about me
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+
+
+                      Text(
+                        S.of(context).aboutMe,
+                        style: TextStyle(
+                            fontFamily:'Roboto',
+                            fontWeight: FontWeight.bold
+                        ),
+                      ),
+                    ],
+                  ),
+                  Container(
+                    margin: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
+                    width: MediaQuery.of(context).size.width * 0.8,
+                    child: Text(
+                      '${_profileModel.about}',
+                      style: TextStyle(
+                        fontFamily:'Roboto',
+                      ),
+                    ),
+                  ),
+
+
+                  //activities
+                  //display following activities only for me
+                  if( userId == null)
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          S.of(context).activities,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontFamily:'Roboto',
+                          ),
+                        ),
+                      ],
+                    ),
+
+                  if ( userId == null)
+                    ListView.builder(
+                        physics: NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        itemCount: _profileModel.followingActivities.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return Container(
+                            margin: EdgeInsets.symmetric(vertical: 5,horizontal: 10),
+                            child: ActivityCard(
+                              date:  _profileModel.followingActivities[index].date,
+                              userName:
+                              _profileModel.followingActivities[index].userName,
+                              userImage:  _profileModel.followingActivities[index].userImage??'',
+                              activity:
+                              _profileModel.followingActivities[index].action,
+                              animeName:
+                              _profileModel.followingActivities[index].animeName,
+                            ),
+                          );
+                        }) ,
+
+                  SizedBox(
+                    height: 20,
+                  ),
+                  //watched series
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        S.of(context).watchedSeries,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontFamily:'Roboto',
+                        ),
+                      ),
+                    ],
+                  ),
+                  Container(
+                    height: 225,
+                    child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        shrinkWrap: true,
+                        itemCount: _profileModel.watchedSeries.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return GestureDetector(
+                            onTap: () => Navigator.pushNamed(
+                                context, AnimeRoutes.ROUTE_ANIME_DETAILS_SCREEN,
+                                arguments: _profileModel.watchedSeries[index].id),
+                            child: SeriesCard(
+                              url_image: _profileModel.watchedSeries[index].image??'',
+                              series_category: 'شونين',
+                              series_name: _profileModel.watchedSeries[index].name,
+                            ),
+                          );
+                        }),
+                  ),
+
+                  //previous comments
+                  if ( userId != null)
+                    previousCommentSection(),
+                ],
+              ),
+            ),
+          ),
+        ));
+  }
+
+
 }

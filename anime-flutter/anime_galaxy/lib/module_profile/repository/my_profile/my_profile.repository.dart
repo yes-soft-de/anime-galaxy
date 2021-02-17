@@ -83,11 +83,15 @@ class MyProfileRepository {
   Future<void> _isFollowed(String userId, String friendId) async {
 
     dynamic following = await _apiClient.get(Urls.API_FOLLOWING_USERS + userId);
-    if (following == null) return false;
+    if (following == null) {
+      isFollowed1 = false;
+      return;
+    };
 
     dynamic res = following['Data'];
     for (int i = 0; i < res.length; i++) {
       FollowingUsersResponse follow = FollowingUsersResponse.fromJson(res[i]);
+      print('freindId :'+friendId+'  followings Id :'+follow.friendID);
       if (friendId == follow.friendID) {
         isFollowed1 =  true;
         return;

@@ -272,7 +272,8 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
 
                 //Statistics
                 Container(
-                  margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 5),
+                  margin: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 5),
+                  padding: EdgeInsets.symmetric(horizontal: 10),
                   decoration: BoxDecoration(
                       gradient: LinearGradient(
                     colors: [
@@ -381,7 +382,8 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
 
                 //about
                 Container(
-                  margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 5),
+                  margin: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 5),
+                  padding: EdgeInsets.symmetric(horizontal: 10),
                   decoration: BoxDecoration(
                       gradient: LinearGradient(
                     colors: [
@@ -477,7 +479,8 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                 ),
 
                 Container(
-                  margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 15),
+                  margin: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 15),
+                  padding: EdgeInsets.symmetric(horizontal: 10),
                   decoration: BoxDecoration(
                       gradient: LinearGradient(
                     colors: [
@@ -535,70 +538,11 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                   width: screenWidth * 0.8,
                   color: Colors.black38,
                 ),
+
                 //Trailer video
                 Container(
-                  margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 15),
-                  decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                    colors: [
-                      Colors.grey[400],
-                      isDarkMode ? Colors.black26 : Colors.white
-                    ],
-                  )),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'التريلر',
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontFamily: 'Roboto',
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                  /*    );
-                  },*/
-                ),
-
-                //classifications
-
-                GridView.builder(
-                  physics: NeverScrollableScrollPhysics(),
-                  itemBuilder: (BuildContext context, int index) {
-                    return Container(
-                        padding: EdgeInsetsDirectional.fromSTEB(5, 3, 5, 3),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(color: Colors.black38)),
-                        child: Center(
-                            child: Text(
-                          '${anime.categories[index].name}',
-                          style: TextStyle(fontSize: 12, fontFamily: 'Roboto'),
-                        )));
-                  },
+                  margin: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 15),
                   padding: EdgeInsets.symmetric(horizontal: 10),
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3,
-                      mainAxisSpacing: 10,
-                      crossAxisSpacing: 10,
-                      childAspectRatio: (3 / 1)),
-                  itemCount:
-                      anime.categories != null ? anime.categories.length : 0,
-                  shrinkWrap: true,
-                ),
-                //divider
-                Container(
-                  margin: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
-                  height: 1,
-                  width: screenWidth * 0.8,
-                  color: Colors.black38,
-                ),
-
-                //Trailer video
-                Container(
-                  margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 15),
                   decoration: BoxDecoration(
                       gradient: LinearGradient(
                     colors: [
@@ -640,7 +584,8 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
 
                 // last episodes
                 Container(
-                  margin: EdgeInsetsDirectional.fromSTEB(10, 15, 0, 15),
+                  margin: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 15),
+                  padding: EdgeInsets.symmetric(horizontal: 10),
                   decoration: BoxDecoration(
                       gradient: LinearGradient(
                     colors: [
@@ -762,7 +707,8 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
     return Column(
       children: [
         Container(
-          margin: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 5),
+          margin: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 5),
+          padding: EdgeInsets.symmetric(horizontal: 10),
           decoration: BoxDecoration(
               gradient: LinearGradient(
             colors: [

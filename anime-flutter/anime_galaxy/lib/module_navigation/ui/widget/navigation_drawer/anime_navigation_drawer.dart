@@ -213,111 +213,111 @@ class AnimeNavigationDrawer extends StatelessWidget {
                 Flex(
                   direction: Axis.vertical,
                   children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.of(context)
-                            .pushNamed(HomeRoutes.ROUTE_HOME, arguments: 0);
-                      },
-                      child: Container(
-                        color: Color(0xffff9600),
-                        padding: const EdgeInsets.fromLTRB(32, 8.0, 0, 8),
-                        child: Flex(
-                          direction: Axis.horizontal,
-                          children: [
-                            Icon(
-                              Icons.dashboard,
-                              color: Colors.white,
-                            ),
-                            Container(
-                              width: 16,
-                            ),
-                            Text(
-                              S.of(context).feed,
-                              style: TextStyle(
-                                  fontFamily: 'Roboto', color: Colors.white),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.of(context)
-                            .pushNamed(ExploreRoutes.EXPLORE_SCREEN);
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(32, 8.0, 0, 8),
-                        child: Flex(
-                          direction: Axis.horizontal,
-                          children: [
-                            Icon(
-                              Icons.explore,
-                              color: Colors.white,
-                            ),
-                            Container(
-                              width: 16,
-                            ),
-                            Text(
-                              S.of(context).explore,
-                              style: TextStyle(
-                                  fontFamily: 'Roboto', color: Colors.white),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.of(context).pushNamed(
-                          NotificationRoutes.ROUTE_NOTIFICATION_SCREEN,
-                          arguments: 1,
-                        );
-                      },
-                      child: Container(
-                        color: Color(0xffff9600),
-                        padding: const EdgeInsets.fromLTRB(32, 8.0, 0, 8),
-                        child: Flex(
-                          direction: Axis.horizontal,
-                          children: [
-                            Icon(
-                              Icons.notifications,
-                              color: Colors.white,
-                            ),
-                            Container(
-                              width: 16,
-                            ),
-                            Text(S.of(context).notifications,
-                                style: TextStyle(
-                                    fontFamily: 'Roboto', color: Colors.white)),
-                          ],
-                        ),
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.of(context).pushNamed(
-                            SettingRoutes.SETTING_SCREEN_ROUTE,
-                            arguments: 1);
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(32, 8.0, 0, 8),
-                        child: Flex(
-                          direction: Axis.horizontal,
-                          children: [
-                            Icon(
-                              Icons.settings,
-                              color: Colors.white,
-                            ),
-                            Container(
-                              width: 16,
-                            ),
-                            Text(S.of(context).settings,
-                                style: TextStyle(
-                                    fontFamily: 'Roboto', color: Colors.white)),
-                          ],
-                        ),
-                      ),
-                    ),
+//                    GestureDetector(
+//                      onTap: () {
+//                        Navigator.of(context)
+//                            .pushNamed(HomeRoutes.ROUTE_HOME, arguments: 0);
+//                      },
+//                      child: Container(
+//                        color: Color(0xffff9600),
+//                        padding: const EdgeInsets.fromLTRB(32, 8.0, 0, 8),
+//                        child: Flex(
+//                          direction: Axis.horizontal,
+//                          children: [
+//                            Icon(
+//                              Icons.dashboard,
+//                              color: Colors.white,
+//                            ),
+//                            Container(
+//                              width: 16,
+//                            ),
+//                            Text(
+//                              S.of(context).feed,
+//                              style: TextStyle(
+//                                  fontFamily: 'Roboto', color: Colors.white),
+//                            ),
+//                          ],
+//                        ),
+//                      ),
+//                    ),
+//                    GestureDetector(
+//                      onTap: () {
+//                        Navigator.of(context)
+//                            .pushNamed(ExploreRoutes.EXPLORE_SCREEN);
+//                      },
+//                      child: Padding(
+//                        padding: const EdgeInsets.fromLTRB(32, 8.0, 0, 8),
+//                        child: Flex(
+//                          direction: Axis.horizontal,
+//                          children: [
+//                            Icon(
+//                              Icons.explore,
+//                              color: Colors.white,
+//                            ),
+//                            Container(
+//                              width: 16,
+//                            ),
+//                            Text(
+//                              S.of(context).explore,
+//                              style: TextStyle(
+//                                  fontFamily: 'Roboto', color: Colors.white),
+//                            ),
+//                          ],
+//                        ),
+//                      ),
+//                    ),
+//                    GestureDetector(
+//                      onTap: () {
+//                        Navigator.of(context).pushNamed(
+//                          NotificationRoutes.ROUTE_NOTIFICATION_SCREEN,
+//                          arguments: 1,
+//                        );
+//                      },
+//                      child: Container(
+//                        color: Color(0xffff9600),
+//                        padding: const EdgeInsets.fromLTRB(32, 8.0, 0, 8),
+//                        child: Flex(
+//                          direction: Axis.horizontal,
+//                          children: [
+//                            Icon(
+//                              Icons.notifications,
+//                              color: Colors.white,
+//                            ),
+//                            Container(
+//                              width: 16,
+//                            ),
+//                            Text(S.of(context).notifications,
+//                                style: TextStyle(
+//                                    fontFamily: 'Roboto', color: Colors.white)),
+//                          ],
+//                        ),
+//                      ),
+//                    ),
+//                    GestureDetector(
+//                      onTap: () {
+//                        Navigator.of(context).pushNamed(
+//                            SettingRoutes.SETTING_SCREEN_ROUTE,
+//                            arguments: 1);
+//                      },
+//                      child: Padding(
+//                        padding: const EdgeInsets.fromLTRB(32, 8.0, 0, 8),
+//                        child: Flex(
+//                          direction: Axis.horizontal,
+//                          children: [
+//                            Icon(
+//                              Icons.settings,
+//                              color: Colors.white,
+//                            ),
+//                            Container(
+//                              width: 16,
+//                            ),
+//                            Text(S.of(context).settings,
+//                                style: TextStyle(
+//                                    fontFamily: 'Roboto', color: Colors.white)),
+//                          ],
+//                        ),
+//                      ),
+//                    ),
                     GestureDetector(
                       onTap: () {
                         canLaunch('https://www.google.com').then((value) {

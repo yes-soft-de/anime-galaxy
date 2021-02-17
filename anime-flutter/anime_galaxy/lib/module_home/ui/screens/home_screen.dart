@@ -127,7 +127,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 points: anime.points,
               ),
                Container(
-                    margin: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 5),
+                 margin: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
+                 padding: EdgeInsets.symmetric(horizontal: 10),
                     decoration: BoxDecoration(
                         gradient: LinearGradient(
                           colors: [Colors.grey[400], isDarkMode? Colors.black26 :Colors.white],
@@ -167,7 +168,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       ),
                     ),
              Container(
-                    margin: EdgeInsetsDirectional.fromSTEB(10, 5, 0, 5),
+               margin: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 5),
+               padding: EdgeInsets.symmetric(horizontal: 10),
                     decoration: BoxDecoration(
                         gradient: LinearGradient(
                           colors: [Colors.grey[400], isDarkMode? Colors.black26 :Colors.white],
@@ -281,7 +283,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 //                      onPressed: () => setState(() => isExpanded = true)),
 //
            Container(
-                    margin: EdgeInsetsDirectional.fromSTEB(10, 5, 0, 5),
+             margin: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 5),
+             padding: EdgeInsets.symmetric(horizontal: 10),
                     decoration: BoxDecoration(
                         gradient: LinearGradient(
                           colors: [Colors.grey[400], isDarkMode? Colors.black26 :Colors.white],
