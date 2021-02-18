@@ -87,55 +87,68 @@ methods: POST
 ### Anime APIs
 ##### Create new anime
 ```
-Method: POST. Path: /anime
+/anime
+Method: POST
 ```
 ##### Update existing anime by ID. 
 ```
-Method: PUT. Path: /anime
+/anime
+Method: PUT
 ```
 ##### Update Highest Rated Anime by ID and suggest value. 
 ```
-Method: PUT. Path: /anime/{suggest}
+/anime/{suggest}
+Method: PUT
 ```
 ##### Get specific anime by ID. 
 ```
-Method: GET. Path: /anime/ID
+/anime/ID
+Method: GET
 ```
 ##### Get all anime. 
 ```
-Method: GET. Path: /anime
+/anime
+Method: GET
 ```
 ##### Get all anime of specific category. 
 ```
-Method: GET. Path: /animeByCategory/{categoryID}
+/animeByCategory/{categoryID}
+Method: GET
 ```
 ##### Delete existing anime by ID. 
 ```
-Method: DELET. Path: /anime
+/anime
+Method: DELET
 ```
 ##### Get Highest Rated Anime
 ```
-Method: GET. Path: /getHighestRatedAnime
+/getHighestRatedAnime
+Method: GET
 ```
 ##### Get Highest Rated Anime By User
 ```
-Method: GET. Path: /getHighestRatedAnime/{userID}
+/getHighestRatedAnime/{userID}
+Method: GET
 ```
 ##### Get All Anime ComingSoon
 ```
-Method: GET. Path: /animeCommingSoon
+/animeCommingSoon
+Method: GET
 ```
 ##### Get Anime Maybe You Like
 ```
-Method: GET. Path: /getMaybeYouLike/{userID}
+/getMaybeYouLike/{userID}
+Method: GET
 ```
 ##### Get Anime By name
 ```
-Method: GET. Path: /getanimebyname/{name}
+/getanimebyname/{name}
+Method: GET
 ```
 ##### Get Anime By name and Category ID
 ```
-Method: GET. Path: /getanime/{categoryID}/{name}
+/getanime/{categoryID}/{name}
+Method: GET
 ```
 
 ### Episode APIs
