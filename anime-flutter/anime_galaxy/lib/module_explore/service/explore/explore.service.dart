@@ -78,6 +78,7 @@ class ExploreService{
     List<ComingSoonSeries> series = [];
     comingSoonResponse.forEach((element) {
       series.add(new ComingSoonSeries(
+        id: element.id,
         name: element.name,
         image: element.mainImage,
         category: element.categoryName,

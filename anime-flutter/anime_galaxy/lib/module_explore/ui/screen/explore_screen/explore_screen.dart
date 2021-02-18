@@ -78,15 +78,21 @@ class _ExploreScreenState extends State<ExploreScreen> {
 //    image slider
     var imageSliders = <Widget>[];
     explore.comingSoonSeries.forEach((item) {
-      imageSliders.add(Container(
-        child:  Container(
-      decoration: BoxDecoration(
-      image: DecorationImage(
-        image: NetworkImage( item.posterImage,),
-          fit: BoxFit.fill
-      ),
-      ),
-      ),
+      imageSliders.add(GestureDetector(
+        onTap: ()=> Navigator.pushNamed(
+            context,
+            AnimeRoutes.ROUTE_ANIME_DETAILS_SCREEN,
+           arguments: item.id,
+        ),
+        child: Container(
+          child:  Container(
+        decoration: BoxDecoration(
+        image: DecorationImage(
+          image: NetworkImage( item.posterImage,),
+            fit: BoxFit.fill
+        ),
+        ),
+        ),
 //                    child: BackdropFilter(
 //                      filter: ImageFilter.blur(sigmaX: 1.0, sigmaY: 1.0),
 //                      child: Container(
@@ -136,7 +142,8 @@ class _ExploreScreenState extends State<ExploreScreen> {
 //                        )),
 //                  ),
 
-               ),
+                 ),
+      ),
 
        );
     });
@@ -254,7 +261,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'الإنميات الموصى بها حسب تفضيلاتك',
+                            'الإنميات الموصى بها عربيا حسب تفضيلاتك',
                             style: TextStyle(
                               fontSize: 14,
                               fontFamily: 'Roboto',

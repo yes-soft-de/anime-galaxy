@@ -1,4 +1,5 @@
 class CommingSoonResponse {
+  int id;
   String name;
   String mainImage;
   String categoryName;
@@ -7,7 +8,9 @@ class CommingSoonResponse {
   String posterImage;
 
   CommingSoonResponse(
-      {this.name,
+      {
+        this.id,
+        this.name,
         this.mainImage,
         this.categoryName,
         this.categoryID,
@@ -17,6 +20,7 @@ class CommingSoonResponse {
 
   CommingSoonResponse.fromJson(Map<String, dynamic> json) {
     name = json['name'];
+    id = json['id'];
     mainImage = json['mainImage'];
     categoryName = json['categoryName'];
     categoryID = json['categoryID'];
@@ -29,6 +33,7 @@ class CommingSoonResponse {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['name'] = this.name;
+    data['id'] = this.id;
     data['mainImage'] = this.mainImage;
     data['categoryName'] = this.categoryName;
     data['categoryID'] = this.categoryID;
