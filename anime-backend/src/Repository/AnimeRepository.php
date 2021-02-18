@@ -209,12 +209,7 @@ class AnimeRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('anime')
             ->select('anime.id', 'anime.name', 'anime.mainImage', 'anime.categories as cats',
                 'anime.specialLink', 'anime.publishDate', 'anime.posterImage', 'anime.posterSpecialLink')
-//            ->leftJoin(
-//                Category::class,
-//                'category',
-//                Join::WITH,
-//                'category.id = anime.categoryID'
-//            )
+
             ->andWhere( 'anime.publishDate > :date')
             ->setParameter('date',$date)
             ->groupBy('anime.id')
