@@ -85,7 +85,7 @@ methods: POST
 ```
 
 ### Anime APIs
-##### Create new anime
+##### Create new anime.
 ```
 /anime
 Method: POST
@@ -180,11 +180,11 @@ Method: GET
 `Method: DELETE. Path: / category`
 
 ### File Upload APIs
-##### Upload a new image
+##### Upload a new image.
 `Method: POST. Path: /uploadfile`
 
 ### Image APIs
-##### Insert new image. 
+##### Insert new image.
 `Method: POST. Path: /image`
 ##### Update specific image. 
 `Method: PUT. Path: /image`
@@ -194,7 +194,7 @@ Method: GET
 `Method: DELETE. Path: / image`
 
 ### Follow APIs
-##### Add new following. 
+##### Add new following.
 `Method: POST. Path: /following`
 ##### Get a following by userID and friendID. 
 `Method: GET. Path: /following/userID/friendID`
@@ -259,7 +259,7 @@ Method: GET
 ##### Update an existing grade by userID. 
 `Method: PUT. Path: /grade`
 ##### Get top 50 users 
-###### _Used for display the grade of each user in his/her profile_
+###### _Used for display the grade of each user in his/her profile_.
 `Method: GET. Path: /top50`
 ##### Get a grade of specific user. 
 `Method: GET. Path: /grade/{userID}`
@@ -267,7 +267,7 @@ Method: GET
 `Method: DELETE. Path: /grade/{userID}`
 
 ### Comment Episode APIs
-##### Create new comment Episode. 
+##### Create new comment Episode.
 `Method: POST. Path: /commentEpisode`
 ##### update Comment Episode. 
 `Method: PUT. Path: /commentEpisode`
@@ -279,7 +279,7 @@ Method: GET
 `Method: GET. Path: /commentsEpisode/{episodeID}`
 
 ### Interaction Comment APIs
-##### Create new interaction for comment. 
+##### Create new interaction for comment.
 `Method: POST. Path: /interactionComment`
 ##### Update existing interaction for comment. 
 `Method: PUT. Path: /interactionComment`
