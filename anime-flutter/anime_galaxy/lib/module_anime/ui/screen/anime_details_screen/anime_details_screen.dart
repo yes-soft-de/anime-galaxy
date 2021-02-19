@@ -79,6 +79,9 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
 
   @override
   void dispose() {
+    if (flickManager != null) {
+      flickManager.dispose();
+    }
     super.dispose();
   }
 
