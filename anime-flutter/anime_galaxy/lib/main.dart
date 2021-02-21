@@ -36,6 +36,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
+  await FirebaseCrashlytics.instance.sendUnsentReports();
   FlutterError.onError = (FlutterErrorDetails details) {
     FirebaseCrashlytics.instance.recordFlutterError(details);
   };

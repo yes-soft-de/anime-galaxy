@@ -19,27 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ad3dfe9-4955-4e6d-920e-30252e82a151" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anime_setting/ui/widget/circular_setting/circular_image.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anime_setting/ui/widget/circular_setting/circular_image.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/ui/widget/anime_details_widget/ainme_details_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/ui/widget/anime_details_widget/ainme_details_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/ui/widget/episode_card/episode_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/ui/widget/episode_card/episode_card.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_episode/ui/widget/episode_details_widget/episode_details_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/ui/widget/episode_details_widget/episode_details_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/ui/widget/circular_image/circular_image.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/ui/widget/circular_image/circular_image.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/ui/widget/favourite_series_card/favourite_series_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/ui/widget/favourite_series_card/favourite_series_card.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/ui/widget/series_card/card_series.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/ui/widget/series_card/card_series.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/ui/screens/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/ui/screens/home_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/ui/widget/series_card/series_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/ui/widget/series_card/series_card.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_network/http_client/http_client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_network/http_client/http_client.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/ui/widget/series_card/card_series.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/ui/widget/series_card/card_series.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_settings/widget/circular_setting/circular_image.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_settings/widget/circular_setting/circular_image.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-    </list>
+    <list default="true" id="1ad3dfe9-4955-4e6d-920e-30252e82a151" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -124,7 +104,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613935318945</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Cleaning Error log and fixing video, again">
+      <created>1613941717258</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1613941717258</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -145,33 +132,34 @@
     <MESSAGE value="release 1.1.22" />
     <MESSAGE value="Auto play and auto pause when stopping page" />
     <MESSAGE value="added crashlytics tracer" />
-    <option name="LAST_COMMIT_MESSAGE" value="added crashlytics tracer" />
+    <MESSAGE value="Cleaning Error log and fixing video, again" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaning Error log and fixing video, again" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1491" height="392" key="GridCell.Tab.0.bottom" timestamp="1613941297763">
+    <state width="1491" height="391" key="GridCell.Tab.0.bottom" timestamp="1613941862776">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="392" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1613941297763" />
-    <state width="1491" height="392" key="GridCell.Tab.0.center" timestamp="1613941297763">
+    <state width="1491" height="391" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1613941862776" />
+    <state width="1491" height="391" key="GridCell.Tab.0.center" timestamp="1613941862776">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="392" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1613941297763" />
-    <state width="1491" height="392" key="GridCell.Tab.0.left" timestamp="1613941297763">
+    <state width="1491" height="391" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1613941862776" />
+    <state width="1491" height="391" key="GridCell.Tab.0.left" timestamp="1613941862776">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="392" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1613941297763" />
-    <state width="1491" height="392" key="GridCell.Tab.0.right" timestamp="1613941297763">
+    <state width="1491" height="391" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1613941862776" />
+    <state width="1491" height="391" key="GridCell.Tab.0.right" timestamp="1613941862776">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="392" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1613941297763" />
+    <state width="1491" height="391" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1613941862776" />
     <state x="277" y="77" key="SettingsEditor" timestamp="1613757467270">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="277" y="77" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1613757467270" />
-    <state x="361" y="165" key="Vcs.Push.Dialog.v2" timestamp="1613935346625">
+    <state x="361" y="165" key="Vcs.Push.Dialog.v2" timestamp="1613941720573">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="361" y="165" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1613935346625" />
+    <state x="361" y="165" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1613941720573" />
     <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1613941587921">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
