@@ -183,7 +183,17 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
         setState(() {});
       }
     }
-    return loading ? LoadingIndicatorWidget() : getPageLayout();
+    return Scaffold(
+      body: WillPopScope(
+        onWillPop: () async {
+          if (flickManager != null) {
+            flickManager.dispose();
+          }
+          return true;
+        },
+        child: loading ? LoadingIndicatorWidget() : getPageLayout(),
+      ),
+    );
   }
 
   Widget setErrorUI() {
@@ -575,6 +585,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                       AsyncSnapshot<List<String>> snapshot) {
                     if (snapshot.hasData) {
                       flickManager = FlickManager(
+                        autoPlay: false,
                         videoPlayerController:
                             VideoPlayerController.network(snapshot.data[0]),
                       );

@@ -13,7 +13,7 @@ class AnimeModule extends YesModule {
   @override
   Map<String, WidgetBuilder> getRoutes() {
     return {
-      AnimeRoutes.ROUTE_ANIME_DETAILS_SCREEN: (context) => _animeDetailsScreen,
+      AnimeRoutes.ROUTE_ANIME_DETAILS_SCREEN: (context) => _animeDetailsScreen
     };
   }
 }
