@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ad3dfe9-4955-4e6d-920e-30252e82a151" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/generated/l10n.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated/l10n.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/anime_module.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/anime_module.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/ui/screen/anime_details_screen/anime_details_screen.dart" afterDir="false" />
-    </list>
+    <list default="true" id="1ad3dfe9-4955-4e6d-920e-30252e82a151" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -83,35 +90,58 @@
       <option name="project" value="LOCAL" />
       <updated>1613596248481</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Auto play and auto pause when stopping page">
+      <created>1613927858243</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1613927858244</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="release 1.1.20" />
     <MESSAGE value="release 1.1.21" />
     <MESSAGE value="release 1.1.22" />
-    <option name="LAST_COMMIT_MESSAGE" value="release 1.1.22" />
+    <MESSAGE value="Auto play and auto pause when stopping page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Auto play and auto pause when stopping page" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1491" height="311" key="GridCell.Tab.0.bottom" timestamp="1613926137871">
+    <state width="1491" height="271" key="GridCell.Tab.0.bottom" timestamp="1613927886470">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="311" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1613926137871" />
-    <state width="1491" height="311" key="GridCell.Tab.0.center" timestamp="1613926137869">
+    <state width="1491" height="271" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1613927886470" />
+    <state width="1491" height="271" key="GridCell.Tab.0.center" timestamp="1613927886470">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="311" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1613926137869" />
-    <state width="1491" height="311" key="GridCell.Tab.0.left" timestamp="1613926137867">
+    <state width="1491" height="271" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1613927886470" />
+    <state width="1491" height="271" key="GridCell.Tab.0.left" timestamp="1613927886470">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="311" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1613926137867" />
-    <state width="1491" height="311" key="GridCell.Tab.0.right" timestamp="1613926137870">
+    <state width="1491" height="271" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1613927886470" />
+    <state width="1491" height="271" key="GridCell.Tab.0.right" timestamp="1613927886470">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="311" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1613926137870" />
+    <state width="1491" height="271" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1613927886470" />
     <state x="277" y="77" key="SettingsEditor" timestamp="1613757467270">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="277" y="77" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1613757467270" />
+    <state x="361" y="165" key="Vcs.Push.Dialog.v2" timestamp="1613927861059">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="361" y="165" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1613927861059" />
   </component>
 </project>
