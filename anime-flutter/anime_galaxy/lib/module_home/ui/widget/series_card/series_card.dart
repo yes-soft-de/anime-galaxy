@@ -24,6 +24,8 @@ class SeriesCard extends StatelessWidget {
                   image: image ?? '',
                   placeholder: 'assets/images/logo.jpg',
                   width: 100,
+                  imageErrorBuilder: (o, err, s) =>
+                      Image.asset('assets/images/logo.jpg'),
                 ),
                 elevation: 0,
                 shape: OutlineInputBorder(
@@ -32,23 +34,19 @@ class SeriesCard extends StatelessWidget {
                 ),
               ),
             ),
-
-
             Container(
               height: 5,
             ),
             Center(
                 child: Text(
-                  '$name',
-                  textDirection: TextDirection.rtl,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                      fontSize: 12,
-                      fontFamily:'Roboto',
-                      fontWeight: FontWeight.bold
-                  ),
-                )),
-
+              '$name',
+              textDirection: TextDirection.rtl,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                  fontSize: 12,
+                  fontFamily: 'Roboto',
+                  fontWeight: FontWeight.bold),
+            )),
           ],
         ));
   }

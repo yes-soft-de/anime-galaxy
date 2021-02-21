@@ -142,7 +142,7 @@ class _MyAppState extends State<MyApp> {
       future: getConfiguratedApp(fullRoutesList),
       builder: (BuildContext context, AsyncSnapshot<Widget> snapshot) {
         if (snapshot.hasData) return snapshot.data;
-        return Scaffold();
+        return Container();
       },
     );
   }
@@ -150,8 +150,6 @@ class _MyAppState extends State<MyApp> {
   Future<Widget> getConfiguratedApp(
       Map<String, WidgetBuilder> fullRoutesList) async {
     await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
-    
-    
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,

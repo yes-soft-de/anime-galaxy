@@ -23,6 +23,7 @@ class EpisodeCard extends StatelessWidget {
                   fit: BoxFit.cover,
                   image: image ?? '',
                   placeholder: 'assets/images/logo.jpg',
+                  imageErrorBuilder: (o,e,s) => Image.asset('assets/images/logo.jpg'),
                   width: 100,
                 ),
                 elevation: 0,

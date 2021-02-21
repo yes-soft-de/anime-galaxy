@@ -23,6 +23,8 @@ class CircularImage extends StatelessWidget {
           fit: BoxFit.cover,
           image: linkImg,
           placeholder: 'assets/images/logo.jpg',
+          imageErrorBuilder: (o, err, s) =>
+                    Image.asset('assets/images/logo.jpg'),
         )));
   }
 }

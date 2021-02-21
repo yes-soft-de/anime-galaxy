@@ -15,17 +15,17 @@ class EpisodeDetailsWidget extends StatelessWidget {
   final bool isLoved;
   final String duration;
 
-  EpisodeDetailsWidget(
-      {this.name,
-        this.likes,
-        this.rate,
-        this.showYear,
-        this.comments,
-        this.image,
-        this.onLove,
-        this.isLoved,
-        this.duration,
-      });
+  EpisodeDetailsWidget({
+    this.name,
+    this.likes,
+    this.rate,
+    this.showYear,
+    this.comments,
+    this.image,
+    this.onLove,
+    this.isLoved,
+    this.duration,
+  });
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -40,6 +40,8 @@ class EpisodeDetailsWidget extends StatelessWidget {
                 image: image ?? '',
                 placeholder: 'assets/images/logo.jpg',
                 width: 80,
+                imageErrorBuilder: (o, err, s) =>
+                    Image.asset('assets/images/logo.jpg'),
               ),
               elevation: 0,
               shape: OutlineInputBorder(
@@ -55,23 +57,22 @@ class EpisodeDetailsWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    name??'',
+                    name ?? '',
                     style: TextStyle(
-                      fontFamily:'Roboto',
+                      fontFamily: 'Roboto',
                     ),
                   ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      showYear??'',
-                      style: TextStyle(
-                        fontFamily:'Roboto',
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        showYear ?? '',
+                        style: TextStyle(
+                          fontFamily: 'Roboto',
+                        ),
                       ),
-                    ),
-
-                  ],
-                ),
+                    ],
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -80,10 +81,10 @@ class EpisodeDetailsWidget extends StatelessWidget {
                           Text(
                             rate != null
                                 ? ((double.parse(rate) * 10).floor() / 10)
-                                .toString()
+                                    .toString()
                                 : 0.toString(),
                             style: TextStyle(
-                              fontFamily:'Roboto',
+                              fontFamily: 'Roboto',
                             ),
                           ),
                           Icon(Icons.star_border,
@@ -97,14 +98,13 @@ class EpisodeDetailsWidget extends StatelessWidget {
                               Text(
                                 '$comments',
                                 style: TextStyle(
-                                  fontFamily:'Roboto',
+                                  fontFamily: 'Roboto',
                                 ),
                               ),
                               Icon(Icons.comment,
                                   color: ProjectColors.ThemeColor)
                             ],
                           ),
-
                           SizedBox(
                             width: 10,
                           ),
@@ -113,7 +113,7 @@ class EpisodeDetailsWidget extends StatelessWidget {
                               Text(
                                 '$likes',
                                 style: TextStyle(
-                                  fontFamily:'Roboto',
+                                  fontFamily: 'Roboto',
                                 ),
                               ),
                               ImageIcon(
@@ -130,36 +130,32 @@ class EpisodeDetailsWidget extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        duration??'',
+                        duration ?? '',
                         textDirection: TextDirection.ltr,
                         style: TextStyle(
                           fontSize: 12,
-                          fontFamily:'Roboto',
+                          fontFamily: 'Roboto',
                         ),
                       ),
                       Row(
-
                         children: [
-
                           IconButton(
-                            icon: isLoved?  ImageIcon(
-
-                              AssetImage('assets/images/full_flame.png'),
-                              color: ProjectColors.ThemeColor,
-                            ):
-                            ImageIcon(
-
-                              AssetImage('assets/images/flame.png'),
-                              color: ProjectColors.ThemeColor,
-                            )
-                            ,
-                            onPressed:  isLoved?(){}: onLove,
+                            icon: isLoved
+                                ? ImageIcon(
+                                    AssetImage('assets/images/full_flame.png'),
+                                    color: ProjectColors.ThemeColor,
+                                  )
+                                : ImageIcon(
+                                    AssetImage('assets/images/flame.png'),
+                                    color: ProjectColors.ThemeColor,
+                                  ),
+                            onPressed: isLoved ? () {} : onLove,
                           ),
                           Text(
                             S.of(context).Like,
                             style: TextStyle(
                               fontSize: 10,
-                              fontFamily:'Roboto',
+                              fontFamily: 'Roboto',
                             ),
                           ),
                         ],

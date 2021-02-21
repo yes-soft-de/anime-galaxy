@@ -24,6 +24,8 @@ class FavouriteSeriesCard extends StatelessWidget {
                 image: url_image ?? '',
                 placeholder: 'assets/images/logo.jpg',
                 width: 100,
+                imageErrorBuilder: (o, err, s) =>
+                    Image.asset('assets/images/logo.jpg'),
               ),
               elevation: 0,
               shape: OutlineInputBorder(

@@ -42,12 +42,16 @@ class ApiClient {
         _logger.warn(tag, 'Get ' + url + '\t' + response.statusCode.toString());
         return null;
       } else {
-        _logger.error(
-            tag, 'Get ' + url + ' \t ' + response.statusCode.toString());
+        if (response.statusCode != 404) {
+          _logger.error(
+              tag, 'Get ' + url + ' \t ' + response.statusCode.toString());
+        }
         return null;
       }
     } catch (e) {
-      _logger.error(tag, 'Get ' + url + ' \t ' + e.toString());
+      if (!e.toString().contains('404')) {
+        _logger.error(tag, 'Get ' + url + ' \t ' + e.toString());
+      }
       return null;
     }
   }

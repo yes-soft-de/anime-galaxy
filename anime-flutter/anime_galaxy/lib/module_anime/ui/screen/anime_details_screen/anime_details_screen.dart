@@ -23,6 +23,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:inject/inject.dart';
 import 'package:intl/intl.dart';
 import 'package:video_player/video_player.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 
 import '../../../state/anime_details/anime_details.state.dart';
 
@@ -433,55 +434,6 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                     style: TextStyle(fontSize: 12, fontFamily: 'Roboto'),
                   ),
                 ),
-//                  AnimatedSize(
-//                      vsync: this,
-//                      duration: const Duration(milliseconds: 500),
-//                      child: new ConstrainedBox(
-//                          constraints: isExpanded
-//                              ? new BoxConstraints()
-//                              : new BoxConstraints(maxHeight: 75.0),
-//                          child: Container(
-//                            width: screenWidth * 0.9,
-//                            padding: EdgeInsets.all(10),
-//                            decoration: BoxDecoration(
-//                              borderRadius: BorderRadius.circular(10),
-//                              border: Border.all(color: Colors.black38),
-//                            ),
-//                            child: Text(
-//                              '${anime.about}',
-//                              style: TextStyle(
-//                                  fontSize: 12,
-//                                  fontFamily:'Roboto'
-//                              ),
-//                            ),
-//                          ))),
-//                  isExpanded
-//                      ? FlatButton(
-//                      child: Container(
-//                          width: 30,
-//                          height: 30,
-//                          decoration: BoxDecoration(
-//                            borderRadius: BorderRadius.circular(50),
-//                            color: ProjectColors.ThemeColor,
-//                          ),
-//                          child: const Icon(
-//                            Icons.keyboard_arrow_up,
-//                            color: Colors.white,
-//                          )),
-//                      onPressed: () => setState(() => isExpanded = false))
-//                      : FlatButton(
-//                      child: Container(
-//                          width: 30,
-//                          height: 30,
-//                          decoration: BoxDecoration(
-//                            borderRadius: BorderRadius.circular(50),
-//                            color: ProjectColors.ThemeColor,
-//                          ),
-//                          child: const Icon(
-//                            Icons.keyboard_arrow_down,
-//                            color: Colors.white,
-//                          )),
-//                      onPressed: () => setState(() => isExpanded = true)),
 
                 //divider
                 Container(
@@ -589,7 +541,17 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                         videoPlayerController:
                             VideoPlayerController.network(snapshot.data[0]),
                       );
-                      return FlickVideoPlayer(flickManager: flickManager);
+                      return VisibilityDetector(
+                        onVisibilityChanged: (visibility) {
+                          if (visibility.visibleFraction == 0 && this.mounted) {
+                            flickManager.flickControlManager.autoPause();
+                          } else if (visibility.visibleFraction == 1) {
+                            flickManager.flickControlManager.autoResume();
+                          }
+                        },
+                          key: ObjectKey(flickManager),
+                        child: FlickVideoPlayer(flickManager: flickManager),
+                      );
                     } else {
                       return Container();
                     }
@@ -636,6 +598,9 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                                     const EdgeInsets.symmetric(horizontal: 2),
                                 child: GestureDetector(
                                   onTap: () {
+                                    if (flickManager != null) {
+                                      flickManager.flickControlManager.pause();
+                                    }
                                     Navigator.pushNamed(
                                         context,
                                         EpisodeRoutes

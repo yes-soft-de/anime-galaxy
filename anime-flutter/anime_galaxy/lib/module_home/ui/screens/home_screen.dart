@@ -13,6 +13,7 @@ import 'package:anime_galaxy/utils/loading_indicator/loading_indicator.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:inject/inject.dart';
 
 @provide
@@ -102,11 +103,12 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               context, EpisodeRoutes.ROUTE_EPISODE_DETAILS_SCREEN,
               arguments: item.id),
           child: Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: NetworkImage( item.posterImage,),
-                fit: BoxFit.fill
-              ),
+            child: FadeInImage.assetNetwork(
+              placeholder: 'assets/images/logo.jpg',
+              image: item.posterImage,
+              fit: BoxFit.cover,
+              imageErrorBuilder: (o, err, s) =>
+                  Image.asset('assets/images/logo.jpg'),
             ),
           ),
         ),
@@ -126,26 +128,29 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               PointsWidget(
                 points: anime.points,
               ),
-               Container(
-                 margin: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
-                 padding: EdgeInsets.symmetric(horizontal: 10),
-                    decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: [Colors.grey[400], isDarkMode? Colors.black26 :Colors.white],
-                        )),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'حلقات التي سوف تصدر قريبا',
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontFamily: 'Roboto',
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
+              Container(
+                margin: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                  colors: [
+                    Colors.grey[400],
+                    isDarkMode ? Colors.black26 : Colors.white
+                  ],
+                )),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'حلقات التي سوف تصدر قريبا',
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
+                  ],
+                ),
                 /*  );
                 },*/
               ),
@@ -167,60 +172,62 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                         ),
                       ),
                     ),
-             Container(
-               margin: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 5),
-               padding: EdgeInsets.symmetric(horizontal: 10),
-                    decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: [Colors.grey[400], isDarkMode? Colors.black26 :Colors.white],
-                        )),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'المتابعة',
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontFamily: 'Roboto',
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
+              Container(
+                margin: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 5),
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                  colors: [
+                    Colors.grey[400],
+                    isDarkMode ? Colors.black26 : Colors.white
+                  ],
+                )),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'المتابعة',
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
+                  ],
+                ),
                 /*  );
                 },*/
               ),
 
-
-             anime.watchedSeries.isNotEmpty
-                 ? Container(
-                height: 180,
+              anime.watchedSeries.isNotEmpty
+                  ? Container(
+                      height: 180,
 //                color:  isDarkMode? Colors.white30 :Colors.grey[400],
-                child: ListView.builder(
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 2),
-                      child: GestureDetector(
-                        onTap: () => Navigator.pushNamed(
-                            context, AnimeRoutes.ROUTE_ANIME_DETAILS_SCREEN,
-                            arguments: anime.watchedSeries[index].id),
-                        child: SeriesCard(
-                          image: anime.watchedSeries[index].image,
-                          name: anime.watchedSeries[index].name,
-                        ),
+                      child: ListView.builder(
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 2),
+                            child: GestureDetector(
+                              onTap: () => Navigator.pushNamed(context,
+                                  AnimeRoutes.ROUTE_ANIME_DETAILS_SCREEN,
+                                  arguments: anime.watchedSeries[index].id),
+                              child: SeriesCard(
+                                image: anime.watchedSeries[index].image,
+                                name: anime.watchedSeries[index].name,
+                              ),
+                            ),
+                          );
+                        },
+                        itemCount: anime.watchedSeries.length,
+                        scrollDirection: Axis.horizontal,
                       ),
-                    );
-                  },
-                  itemCount: anime.watchedSeries.length,
-                  scrollDirection: Axis.horizontal,
-                ),
-              ):
-             Text(
-               'لم تتابع أي مسلسل بعد',
-               style: TextStyle(
-                 fontFamily: 'Roboto',
-               ),
-             ),
+                    )
+                  : Text(
+                      'لم تتابع أي مسلسل بعد',
+                      style: TextStyle(
+                        fontFamily: 'Roboto',
+                      ),
+                    ),
 
 //              AnimatedSize(
 //                  vsync: this,
@@ -282,30 +289,32 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 //                          )),
 //                      onPressed: () => setState(() => isExpanded = true)),
 //
-           Container(
-             margin: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 5),
-             padding: EdgeInsets.symmetric(horizontal: 10),
-                    decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: [Colors.grey[400], isDarkMode? Colors.black26 :Colors.white],
-                        )),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'إنميات قد تعجبك',
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontFamily: 'Roboto',
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
+              Container(
+                margin: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 5),
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                  colors: [
+                    Colors.grey[400],
+                    isDarkMode ? Colors.black26 : Colors.white
+                  ],
+                )),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'إنميات قد تعجبك',
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
+                  ],
+                ),
                 /*  );
                 },*/
               ),
-
 
               anime.mayLikeSeries.isNotEmpty
                   ? Container(
