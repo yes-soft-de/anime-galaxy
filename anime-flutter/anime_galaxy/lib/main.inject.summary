@@ -70,13 +70,6 @@
             },
             {
               "lookupKey": {
-                "root": "asset:anime_galaxy/lib/module_auth/service/auth_service/auth_service.dart#AuthService",
-                "qualifier": null
-              },
-              "isProvider": false
-            },
-            {
-              "lookupKey": {
                 "root": "asset:anime_galaxy/lib/module_home/home.module.dart#HomeModule",
                 "qualifier": null
               },

@@ -63,7 +63,7 @@ jobs:
       - name: Get Flutter Packages tools
         run: |
           cd ./anime-flutter/anime_galaxy
-          flutter pub get
+          flutter clean && flutter pub get && flutter packages pub run build_runner watch --delete-conflicting-outputs
 
       - name: Install bundle
         run: |

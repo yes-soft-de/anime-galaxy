@@ -18,15 +18,7 @@
           },
           "singleton": false,
           "asynchronous": false,
-          "dependencies": [
-            {
-              "lookupKey": {
-                "root": "asset:anime_galaxy/lib/module_home/ui/screens/home_screen.dart#HomeScreen",
-                "qualifier": null
-              },
-              "isProvider": false
-            }
-          ]
+          "dependencies": []
         }
       }
     ]

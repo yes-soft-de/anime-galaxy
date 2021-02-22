@@ -20,9 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1ad3dfe9-4955-4e6d-920e-30252e82a151" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/ui/widget/video_player/anime_video_player.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/ui/widget/video_player/anime_video_player.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/gradle.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +159,21 @@
       <option name="project" value="LOCAL" />
       <updated>1614006175469</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="new trick">
+      <created>1614007934294</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1614007934295</updated>
+    </task>
+    <task id="LOCAL-00014" summary="cleaning project">
+      <created>1614007991239</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1614007991239</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -189,36 +201,37 @@
     <MESSAGE value="Changed the Video Player, Alltogeather" />
     <MESSAGE value="Cleaning Repo, syntacticly" />
     <MESSAGE value="new trick" />
-    <option name="LAST_COMMIT_MESSAGE" value="new trick" />
+    <MESSAGE value="cleaning project" />
+    <option name="LAST_COMMIT_MESSAGE" value="cleaning project" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1491" height="356" key="GridCell.Tab.0.bottom" timestamp="1614006743091">
+    <state width="1491" height="277" key="GridCell.Tab.0.bottom" timestamp="1614008015799">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="356" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1614006743091" />
-    <state width="1491" height="356" key="GridCell.Tab.0.center" timestamp="1614006743091">
+    <state width="1491" height="277" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1614008015799" />
+    <state width="1491" height="277" key="GridCell.Tab.0.center" timestamp="1614008015798">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="356" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1614006743091" />
-    <state width="1491" height="356" key="GridCell.Tab.0.left" timestamp="1614006743090">
+    <state width="1491" height="277" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1614008015798" />
+    <state width="1491" height="277" key="GridCell.Tab.0.left" timestamp="1614008015796">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="356" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1614006743090" />
-    <state width="1491" height="356" key="GridCell.Tab.0.right" timestamp="1614006743091">
+    <state width="1491" height="277" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1614008015796" />
+    <state width="1491" height="277" key="GridCell.Tab.0.right" timestamp="1614008015798">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="356" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1614006743091" />
+    <state width="1491" height="277" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1614008015798" />
     <state x="277" y="77" key="SettingsEditor" timestamp="1613757467270">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="277" y="77" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1613757467270" />
-    <state x="361" y="165" key="Vcs.Push.Dialog.v2" timestamp="1614006693684">
+    <state x="361" y="165" key="Vcs.Push.Dialog.v2" timestamp="1614007995171">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="361" y="165" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1614006693684" />
-    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1614007260780">
+    <state x="361" y="165" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1614007995171" />
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1614007829328">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1614007260780" />
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1614007829328" />
   </component>
 </project>
