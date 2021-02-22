@@ -1,7 +1,6 @@
 
 import 'package:anime_galaxy/module_explore/manager/explore/explore.manager.dart';
 import 'package:anime_galaxy/module_explore/model/explore/explore_model.dart';
-import 'package:anime_galaxy/module_explore/response/active_users_response/active_users_response.dart';
 import 'package:anime_galaxy/module_explore/response/anime_response/anime_response.dart';
 import 'package:anime_galaxy/module_explore/response/category_respponse/category_response.dart';
 import 'package:anime_galaxy/module_explore/response/comming_soon_response/comming_soon_response.dart';
@@ -33,17 +32,6 @@ class ExploreService{
 
   }
 
-  List<ActiveUser> _getUsers(List<ActiveUsersResponse> usersResponse){
-    List<ActiveUser> activeUsers = [];
-    usersResponse.forEach((element) {
-      activeUsers.add(new ActiveUser(
-        id: element.userID,
-        name: element.username,
-        image: element.image
-      ));
-    });
-    return activeUsers;
-  }
   List<Category> _getCategories(List<CategoryResponse> categoriesResponse){
     List<Category> categories = [];
     categoriesResponse.forEach((element) {

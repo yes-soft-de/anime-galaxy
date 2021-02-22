@@ -1,4 +1,3 @@
-import 'package:anime_galaxy/generated/l10n.dart';
 import 'package:anime_galaxy/module_anime/anime_routes.dart';
 import 'package:anime_galaxy/module_explore/model/category_animes/category_animes.model.dart';
 import 'package:anime_galaxy/module_explore/model/explore/explore_model.dart';

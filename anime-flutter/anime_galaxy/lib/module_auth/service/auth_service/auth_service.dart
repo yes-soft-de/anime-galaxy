@@ -4,7 +4,6 @@ import 'package:anime_galaxy/module_auth/presistance/auth_prefs_helper.dart';
 import 'package:anime_galaxy/module_profile/manager/my_profile_manager/my_profile_manager.dart';
 import 'package:anime_galaxy/module_profile/presistance/profile_shared_preferences.dart';
 import 'package:anime_galaxy/module_profile/response/profile_response/profile_response.dart';
-import 'package:anime_galaxy/module_profile/service/my_profile/my_profile.dart';
 import 'package:anime_galaxy/utils/logger/logger.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:inject/inject.dart';

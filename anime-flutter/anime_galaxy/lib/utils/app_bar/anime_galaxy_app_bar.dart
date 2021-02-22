@@ -1,9 +1,6 @@
 import 'package:anime_galaxy/anime_setting/ui/widget/circular_setting/circular_image.dart';
-import 'package:anime_galaxy/generated/l10n.dart';
 import 'package:anime_galaxy/module_search/search_routes.dart';
-import 'package:anime_galaxy/module_theme/service/theme_service/theme_service.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 class AnimeGalaxyAppBar {
   static AppBar getAnimeGalaxyAppBar(
@@ -12,7 +9,6 @@ class AnimeGalaxyAppBar {
       String userName,
       String userImage,
       ) {
-    final df = new DateFormat('a');
     return AppBar(
       backgroundColor:      Theme.of(context).brightness == Brightness.dark
           ? Colors.white30
@@ -116,7 +112,6 @@ class AnimeGalaxyAppBar {
       String userName,
       String userImage,
       ) {
-    final df = new DateFormat('a');
     return AppBar(
       backgroundColor:      Theme.of(context).brightness == Brightness.dark
           ? Colors.white30

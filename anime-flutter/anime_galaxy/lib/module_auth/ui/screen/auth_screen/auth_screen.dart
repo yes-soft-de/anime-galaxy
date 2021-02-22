@@ -12,9 +12,6 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:inject/inject.dart';
 
-import 'package:anime_galaxy/module_init_account/init_account_routes.dart';
-
-
 @provide
 class AuthScreen extends StatefulWidget {
   final AuthStateManager manager;
@@ -26,7 +23,6 @@ class AuthScreen extends StatefulWidget {
 }
 
 class _AuthScreenState extends State<AuthScreen> {
-  String _errorMsg;
   AuthState _currentState;
   
 
@@ -38,7 +34,6 @@ class _AuthScreenState extends State<AuthScreen> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  bool _autoValidate = false;
 
   bool loading = false;
   String redirectTo;
@@ -86,7 +81,6 @@ class _AuthScreenState extends State<AuthScreen> {
       _scaffoldKey.currentState.showSnackBar(SnackBar(
         content: Text(errorState.errorMsg),
       ));
-      _errorMsg = null;
     }
     }
 
@@ -104,7 +98,7 @@ class _AuthScreenState extends State<AuthScreen> {
     return Scaffold(
       body: Form(
         key: _signUpFormKey,
-        autovalidate: _autoValidate,
+        autovalidateMode: AutovalidateMode.always,
         child: Flex(
           direction: Axis.vertical,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -302,7 +296,7 @@ class _AuthScreenState extends State<AuthScreen> {
     return Scaffold(
       body: Form(
         key: _signInFormKey,
-        autovalidate: _autoValidate,
+        autovalidateMode: AutovalidateMode.onUserInteraction,
         child: Flex(
           direction: Axis.vertical,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

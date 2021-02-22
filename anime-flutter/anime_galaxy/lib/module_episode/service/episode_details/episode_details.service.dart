@@ -6,7 +6,6 @@ import 'package:anime_galaxy/module_episode/manager/episode_details/episode_deta
 import 'package:anime_galaxy/module_episode/model/episode_model/episode_model.dart';
 import 'package:anime_galaxy/module_episode/request/comment_request/comment_request.dart';
 import 'package:anime_galaxy/module_episode/request/rating_request/rating_request.dart';
-import 'package:anime_galaxy/module_episode/response/comment_response/comment_response.dart';
 import 'package:anime_galaxy/module_episode/response/episode_response/episode_response.dart';
 import 'package:anime_galaxy/utils/time/time_formatter.dart';
 import 'package:inject/inject.dart';
@@ -66,7 +65,6 @@ class EpisodeDetailsService{
 
   Future< List<Comment>> getComments(List<Comments> commentResponse)async{
     List<Comment> comments =[];
-    List months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
     var df = new DateFormat('dd/MM');
 
     commentResponse.forEach((element) {

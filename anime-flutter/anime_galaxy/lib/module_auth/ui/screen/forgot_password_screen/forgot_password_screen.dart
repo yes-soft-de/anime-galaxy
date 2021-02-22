@@ -1,6 +1,5 @@
 import 'package:anime_galaxy/generated/l10n.dart';
 import 'package:anime_galaxy/module_auth/state_manager/forgot_password_state_manager/auth_state_manager.dart';
-import 'package:anime_galaxy/module_profile/model/profile_model/profile_model.dart';
 import 'package:anime_galaxy/utils/project_color/project_color.dart';
 import 'package:flutter/material.dart';
 import 'package:inject/inject.dart';

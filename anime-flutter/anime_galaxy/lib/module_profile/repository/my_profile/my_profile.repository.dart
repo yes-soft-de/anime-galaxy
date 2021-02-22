@@ -73,13 +73,6 @@ class MyProfileRepository {
     return result;
   }
 
-  Future<void> _getFollowingNumber(String userId) async {
-    dynamic response = await _apiClient.get(Urls.API_FOLLOWING_USERS + userId);
-    if (response == null) return 0;
-
-    followingNumber1 = response['Data'].length;
-
-  }
   Future<void> _isFollowed(String userId, String friendId) async {
 
     dynamic following = await _apiClient.get(Urls.API_FOLLOWING_USERS + userId);

@@ -1,5 +1,4 @@
 import 'package:anime_galaxy/consts/urls.dart';
-import 'package:anime_galaxy/module_upload/response/imgbb/imgbb_response.dart';
 import 'package:anime_galaxy/utils/logger/logger.dart';
 import 'package:dio/dio.dart';
 import 'package:inject/inject.dart';

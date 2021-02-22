@@ -2,7 +2,6 @@ import 'package:anime_galaxy/generated/l10n.dart';
 import 'package:anime_galaxy/main_screen/main_screen_routes.dart';
 import 'package:anime_galaxy/module_auth/auth_routes.dart';
 import 'package:anime_galaxy/module_auth/service/auth_service/auth_service.dart';
-import 'package:anime_galaxy/module_localization/service/localization_service/localization_service.dart';
 import 'package:anime_galaxy/module_profile/presistance/profile_shared_preferences.dart';
 import 'package:anime_galaxy/module_profile/profile_routes.dart';
 import 'package:anime_galaxy/module_theme/service/theme_service/theme_service.dart';
@@ -16,13 +15,11 @@ import 'package:url_launcher/url_launcher.dart';
 @provide
 class SettingsPage extends StatefulWidget {
   final AuthService _authService;
-  final LocalizationService _localizationService;
   final SwapThemeDataService _themeDataService;
   final ProfileSharedPreferencesHelper _profileSharedPreferencesHelper;
 
   SettingsPage(
     this._authService,
-    this._localizationService,
     this._themeDataService,
     this._profileSharedPreferencesHelper,
   );

@@ -5,7 +5,6 @@ import 'package:anime_galaxy/module_auth/presistance/auth_prefs_helper.dart';
 import 'package:anime_galaxy/module_auth/service/auth_service/auth_service.dart';
 import 'package:anime_galaxy/module_episode/request/comment_request/comment_request.dart';
 import 'package:anime_galaxy/module_episode/request/rating_request/rating_request.dart';
-import 'package:anime_galaxy/module_episode/response/comment_response/comment_response.dart';
 import 'package:anime_galaxy/module_episode/response/episode_response/episode_response.dart';
 import 'package:anime_galaxy/module_network/http_client/http_client.dart';
 import 'package:inject/inject.dart';

@@ -33,7 +33,7 @@ class SeriesResponse {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = this.id;
     data['name'] = this.name;
     data['mainImage'] = this.mainImage;
@@ -60,7 +60,7 @@ class Interaction {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['love'] = this.love;
     data['like'] = this.like;
     data['dislike'] = this.dislike;

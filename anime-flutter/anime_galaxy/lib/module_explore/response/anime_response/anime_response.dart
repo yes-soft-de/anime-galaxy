@@ -31,7 +31,7 @@ class AnimeResponse {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = this.id;
     data['animeName'] = this.animeName;
     data['mainImage'] = this.mainImage;
@@ -59,7 +59,7 @@ class Interactions {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['love'] = this.love;
     data['like'] = this.like;
     data['dislike'] = this.dislike;

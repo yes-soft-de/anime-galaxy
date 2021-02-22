@@ -1,5 +1,3 @@
-
-import 'package:anime_galaxy/generated/l10n.dart';
 import 'package:anime_galaxy/module_search/model/search_model/search_model.dart';
 import 'package:anime_galaxy/module_search/service/search_service/search.service.dart';
 import 'package:anime_galaxy/module_search/state/search/search.state.dart';
@@ -10,7 +8,7 @@ import 'package:rxdart/rxdart.dart';
 @provide
 class SearchStateManager {
   final SearchService _searchService;
-  PublishSubject<SearchState> _stateSubject = PublishSubject();
+  final PublishSubject<SearchState> _stateSubject = PublishSubject();
   Stream<SearchState> get stateStream => _stateSubject.stream;
 
   SearchStateManager(this._searchService);

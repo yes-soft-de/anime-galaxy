@@ -1,9 +1,5 @@
 import 'package:anime_galaxy/generated/l10n.dart';
-import 'package:anime_galaxy/module_explore/explore_routes.dart';
-import 'package:anime_galaxy/module_home/home.routes.dart';
-import 'package:anime_galaxy/module_notification/notification_routes.dart';
 import 'package:anime_galaxy/module_profile/presistance/profile_shared_preferences.dart';
-import 'package:anime_galaxy/module_settings/setting_routes.dart';
 import 'package:anime_galaxy/utils/project_color/project_color.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

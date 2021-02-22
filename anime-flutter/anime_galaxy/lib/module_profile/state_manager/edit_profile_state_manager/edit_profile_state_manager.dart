@@ -1,8 +1,5 @@
-import 'dart:io';
 
-import 'package:anime_galaxy/consts/urls.dart';
 import 'package:anime_galaxy/module_profile/service/my_profile/my_profile.dart';
-import 'package:anime_galaxy/module_upload/service/image_upload/image_upload_service.dart';
 import 'package:inject/inject.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -10,9 +7,8 @@ import 'package:rxdart/rxdart.dart';
 class EditProfileStateManager {
   final PublishSubject<String> stateStream = PublishSubject();
   final MyProfileService _myProfileService;
-  final ImageUploadService _imageUploadService;
 
-  EditProfileStateManager(this._myProfileService ,this._imageUploadService);
+  EditProfileStateManager(this._myProfileService);
 
   void saveProfileImage(String path) {
     _myProfileService.saveImage(path);

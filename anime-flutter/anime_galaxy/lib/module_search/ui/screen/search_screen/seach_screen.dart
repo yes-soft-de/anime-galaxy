@@ -1,7 +1,5 @@
 import 'package:anime_galaxy/generated/l10n.dart';
 import 'package:anime_galaxy/module_anime/anime_routes.dart';
-import 'package:anime_galaxy/module_profile/presistance/profile_shared_preferences.dart';
-import 'package:anime_galaxy/module_profile/service/general_profile/general_profile.dart';
 import 'package:anime_galaxy/module_search/model/search_model/search_model.dart';
 import 'package:anime_galaxy/module_search/state/search/search.state.dart';
 import 'package:anime_galaxy/module_search/state_manager/search/search.state_manager.dart';

@@ -3,12 +3,9 @@ import 'package:anime_galaxy/module_home/home.routes.dart';
 import 'package:flutter/material.dart';
 import 'package:inject/inject.dart';
 
-import 'ui/screens/home_screen.dart';
-
 @provide
 class HomeModule extends YesModule {
-  final HomeScreen _homeScreen;
-  HomeModule(this._homeScreen);
+  HomeModule();
 
   @override
   Map<String, WidgetBuilder> getRoutes() {

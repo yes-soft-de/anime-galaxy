@@ -1,8 +1,5 @@
-
-
 import 'package:anime_galaxy/generated/l10n.dart';
 import 'package:anime_galaxy/module_explore/model/category_animes/category_animes.model.dart';
-import 'package:anime_galaxy/module_explore/response/comming_soon_response/comming_soon_response.dart';
 import 'package:anime_galaxy/module_explore/service/category_animes/category_animes.service.dart';
 import 'package:anime_galaxy/module_explore/state/category_animes/category_animes.state.dart';
 import 'package:fluttertoast/fluttertoast.dart';

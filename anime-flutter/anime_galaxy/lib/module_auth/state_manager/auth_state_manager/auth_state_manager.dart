@@ -5,7 +5,6 @@ import 'dart:math';
 import 'package:anime_galaxy/module_auth/enums/auth_source.dart';
 import 'package:anime_galaxy/module_auth/service/auth_service/auth_service.dart';
 import 'package:anime_galaxy/module_auth/states/auth_states/auth_states.dart';
-import 'package:anime_galaxy/module_profile/service/my_profile/my_profile.dart';
 import 'package:anime_galaxy/utils/logger/logger.dart';
 import 'package:crypto/crypto.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -20,12 +19,10 @@ import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 class AuthStateManager {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final AuthService _authService;
-  final MyProfileService _profileService;
 
   AuthStateManager(
     this._authService,
-    this._profileService,
-  ) {
+    ) {
     var user = _auth.currentUser;
     if (user != null) {
       _continueInterruptedLogin(user);

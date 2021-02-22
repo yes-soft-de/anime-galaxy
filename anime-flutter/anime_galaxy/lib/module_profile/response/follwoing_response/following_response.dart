@@ -10,7 +10,7 @@ class FollowingUsersResponse {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['userID'] = this.userID;
     data['friendID'] = this.friendID;
     return data;

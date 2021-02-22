@@ -24,14 +24,13 @@ class StyleAuth{
 
  static InputDecoration getInputDecorationDay({String hint,String label,Widget icon}){
 
-    if(icon==null)
-      icon=Icon(Icons.person,color: ProjectColors.bgIconDay,);
+    icon ??= Icon(Icons.person,color: ProjectColors.bgIconDay,);
     return InputDecoration(
 
       prefixIcon: IconButton(onPressed: (){},icon:icon,),
       alignLabelWithHint: true,
-      hintText: hint==null?"":hint,
-      labelText: label==null?"":label,
+      hintText: hint ?? '',
+      labelText: label ?? '',
       border: OutlineInputBorder(
         borderRadius:BorderRadius.circular(30),),
       focusedBorder: getOutLineBorder(width: 1,color:ProjectColors.bgIconDay,radius:30),
@@ -46,14 +45,13 @@ class StyleAuth{
 
  static InputDecoration getInputDecorationUnderLineDay({String hint,String label,Widget icon}){
 
-    if(icon==null)
-      icon=Icon(Icons.person,color: ProjectColors.bgIconDay,);
+    icon ??= Icon(Icons.person,color: ProjectColors.bgIconDay,);
     return InputDecoration(
 
       suffixIcon: IconButton(onPressed: (){},icon:icon,),
       alignLabelWithHint: true,
-      hintText: hint==null?"":hint,
-      labelText: label==null?"":label,
+      hintText: hint ?? '',
+      labelText: label ?? '',
       hintStyle: getTextSyle(size: 14,color: ProjectColors.bgIconDay),
       labelStyle: getTextSyle(size: 14,color: ProjectColors.bgIconDay),
       focusedBorder: UnderlineInputBorder(
@@ -75,14 +73,13 @@ class StyleAuth{
 
  static  InputDecoration getInputDecorationUnderLineDark({String hint,String label,Widget icon}){
 
-    if(icon==null)
-      icon=Icon(Icons.person,color: ProjectColors.bgIconDark,);
+    icon ??= Icon(Icons.person,color: ProjectColors.bgIconDark,);
     return InputDecoration(
 
       suffixIcon: IconButton(onPressed: (){},icon:icon,),
       alignLabelWithHint: true,
-      hintText: hint==null?"":hint,
-      labelText: label==null?"":label,
+      hintText: hint ?? '',
+      labelText: label ?? '',
       hintStyle: getTextSyle(size: 14,color:ProjectColors.bgIconDark ,day: false),
       labelStyle:getTextSyle(size: 14,color:ProjectColors.bgIconDark ,day: false),
 
@@ -105,17 +102,19 @@ class StyleAuth{
 
 
  static TextStyle getTextSyle({double size,Color color,FontWeight fontWeight,bool underLine,bool day=true}){
-    if(underLine==null)
-      underLine=false;
+    underLine ??= false;
 
 
-    if(day) color=ProjectColors.bgIconDay;
-    else color=ProjectColors.bgIconDark;
+    if(day) {
+      color=ProjectColors.bgIconDay;
+    } else {
+      color=ProjectColors.bgIconDark;
+    }
 
     return TextStyle(
         fontSize: size,
 
-        fontWeight: fontWeight==null?FontWeight.normal:fontWeight,
+        fontWeight: fontWeight ?? FontWeight.normal,
         color: color,
         decoration: underLine?TextDecoration.underline:TextDecoration.none
     );

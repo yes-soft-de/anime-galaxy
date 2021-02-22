@@ -3,7 +3,6 @@ import 'package:anime_galaxy/consts/urls.dart';
 import 'package:anime_galaxy/module_auth/service/auth_service/auth_service.dart';
 import 'package:anime_galaxy/module_network/http_client/http_client.dart';
 import 'package:anime_galaxy/module_notification/response/notification_response/notification_response.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:inject/inject.dart';
 
 

@@ -1,9 +1,6 @@
-import 'dart:io';
 
 import 'package:anime_galaxy/main_screen/main_screen_module.dart';
 import 'package:anime_galaxy/main_screen/main_screen_routes.dart';
-import 'package:anime_galaxy/module_anime/utils/video_url_extractor/video_url_extractor.dart';
-import 'package:anime_galaxy/module_auth/service/auth_service/auth_service.dart';
 import 'package:anime_galaxy/module_error/error_module.dart';
 import 'package:anime_galaxy/module_home/home.module.dart';
 import 'package:anime_galaxy/module_init_account/account_module.dart';
@@ -53,7 +50,6 @@ class MyApp extends StatefulWidget {
   final ChatModule _chatModule;
   final CameraModule _cameraModule;
   final AuthModule _authModule;
-  final AuthService _authService;
   final ProfileModule _profileModule;
   final LocalizationService _localizationService;
   final SwapThemeDataService _swapThemeService;
@@ -76,7 +72,6 @@ class MyApp extends StatefulWidget {
     this._profileModule,
     this._localizationService,
     this._swapThemeService,
-    this._authService,
     this._homeModule,
     this._animeModule,
     this._notificationModule,

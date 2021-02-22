@@ -8,7 +8,6 @@ import 'package:anime_galaxy/module_anime/response/anime_response/anime_response
 import 'package:anime_galaxy/module_anime/response/episode_response/episode_response.dart';
 import 'package:anime_galaxy/module_auth/service/auth_service/auth_service.dart';
 import 'package:anime_galaxy/utils/logger/logger.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:inject/inject.dart';
 import 'package:intl/intl.dart';
 
@@ -87,20 +86,6 @@ class AnimeDetailsService {
 
   List<Comment> getComments(List<Comments> commentResponse) {
     List<Comment> comments = [];
-    List months = [
-      'Jan',
-      'Feb',
-      'Mar',
-      'Apr',
-      'May',
-      'Jun',
-      'Jul',
-      'Aug',
-      'Sep',
-      'Oct',
-      'Nov',
-      'Dec'
-    ];
     var df = new DateFormat('dd/MM');
 
     commentResponse.forEach((element) {

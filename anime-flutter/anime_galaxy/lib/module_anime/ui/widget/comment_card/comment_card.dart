@@ -1,4 +1,3 @@
-import 'package:anime_galaxy/generated/l10n.dart';
 import 'package:anime_galaxy/module_profile/profile_routes.dart';
 import 'package:anime_galaxy/utils/project_color/project_color.dart';
 import 'package:flutter/material.dart';

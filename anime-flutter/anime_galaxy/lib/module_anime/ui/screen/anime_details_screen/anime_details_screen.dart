@@ -10,7 +10,6 @@ import 'package:anime_galaxy/module_anime/ui/widget/video_player/anime_video_pla
 import 'package:anime_galaxy/module_anime/utils/video_url_extractor/video_url_extractor.dart';
 import 'package:anime_galaxy/module_auth/service/auth_service/auth_service.dart';
 import 'package:anime_galaxy/module_episode/episode_routes.dart';
-import 'package:anime_galaxy/module_navigation/ui/widget/navigation_drawer/anime_navigation_drawer.dart';
 import 'package:anime_galaxy/module_profile/presistance/profile_shared_preferences.dart';
 import 'package:anime_galaxy/module_rating/ui/widget/rating_bar.dart';
 import 'package:anime_galaxy/module_theme/service/theme_service/theme_service.dart';
@@ -22,8 +21,6 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:inject/inject.dart';
 import 'package:intl/intl.dart';
-import 'package:video_player/video_player.dart';
-import 'package:visibility_detector/visibility_detector.dart';
 
 import '../../../state/anime_details/anime_details.state.dart';
 
@@ -31,14 +28,12 @@ import '../../../state/anime_details/anime_details.state.dart';
 class AnimeDetailsScreen extends StatefulWidget {
   final AnimeDetailsStateManager _stateManager;
   final AuthService _authService;
-  final AnimeNavigationDrawer _animeNavigationDrawer;
   final ProfileSharedPreferencesHelper _profileSharedPreferencesHelper;
   final SwapThemeDataService _themeDataService;
 
   AnimeDetailsScreen(
     this._stateManager,
     this._authService,
-    this._animeNavigationDrawer,
     this._profileSharedPreferencesHelper,
     this._themeDataService,
   );

@@ -1,4 +1,3 @@
-import 'package:anime_galaxy/generated/l10n.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:inject/inject.dart';
 import 'package:rxdart/rxdart.dart';

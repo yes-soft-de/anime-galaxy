@@ -12,7 +12,7 @@ class CommentCard extends StatelessWidget {
   final String likesNumber;
   final LoveCommentCallBack onLove;
   final bool isLoved;
-  String userId;
+  final String userId;
 
   CommentCard({
     this.comment,

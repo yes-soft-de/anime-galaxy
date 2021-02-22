@@ -16,8 +16,7 @@ class StyleExploreList {
 
   static InputDecoration getInputDecorationDay(
       {String hint, String label, Widget icon}) {
-    if (icon == null)
-      icon = Icon(
+    icon ??= Icon(
         Icons.person,
         color: ProjectColors.bgIconDay,
       );
@@ -27,8 +26,8 @@ class StyleExploreList {
         icon: icon,
       ),
       alignLabelWithHint: true,
-      hintText: hint == null ? "" : hint,
-      labelText: label == null ? "" : label,
+      hintText: hint ?? '',
+      labelText: label ?? '',
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(30),
       ),
@@ -45,8 +44,7 @@ class StyleExploreList {
 
   static InputDecoration getInputDecorationUnderLineDay(
       {String hint, String label, Widget icon}) {
-    if (icon == null)
-      icon = Icon(
+    icon ??= Icon(
         Icons.person,
         color: ProjectColors.bgIconDay,
       );
@@ -56,8 +54,8 @@ class StyleExploreList {
         icon: icon,
       ),
       alignLabelWithHint: true,
-      hintText: hint == null ? "" : hint,
-      labelText: label == null ? "" : label,
+      hintText: hint ?? '',
+      labelText: label ?? '',
       hintStyle: getTextSyle(size: 14, color: ProjectColors.bgIconDay),
       labelStyle: getTextSyle(size: 14, color: ProjectColors.bgIconDay),
       focusedBorder: UnderlineInputBorder(
@@ -77,8 +75,7 @@ class StyleExploreList {
 
   static InputDecoration getInputDecorationUnderLineDark(
       {String hint, String label, Widget icon}) {
-    if (icon == null)
-      icon = Icon(
+    icon ??= Icon(
         Icons.person,
         color: ProjectColors.bgIconDark,
       );
@@ -88,8 +85,8 @@ class StyleExploreList {
         icon: icon,
       ),
       alignLabelWithHint: true,
-      hintText: hint == null ? "" : hint,
-      labelText: label == null ? "" : label,
+      hintText: hint ?? '',
+      labelText: label ?? '',
       hintStyle:
           getTextSyle(size: 14, color: ProjectColors.bgIconDark, day: false),
       labelStyle:

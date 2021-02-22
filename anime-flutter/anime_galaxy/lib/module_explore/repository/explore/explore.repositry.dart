@@ -71,22 +71,6 @@ class ExploreRepository{
     recommendedSeriesByYourFavourites1 = recommendedSeriesByYourFavourites;
   }
 
-
-
-  Future<void> _getActiveUsers()async{
-   dynamic response = await _httpClient.get(Urls.API_ACTIVE_USERS);
-
-   if(response == null) return [];
-
-   List<ActiveUsersResponse> activeUsers = [];
-   dynamic res = response['Data'];
-   for(int i=0 ; i<res.length ; i++){
-     activeUsers.add(ActiveUsersResponse.fromJson(res[i]));
-   }
-   activeUsers1 = activeUsers;
-  }
-
-
   Future<void> _getCommingSoonSeries()async {
 
     dynamic response = await _httpClient.get(Urls.API_COMING_SOON_ANIMES);

@@ -11,7 +11,6 @@ import 'package:anime_galaxy/module_profile/response/profile_response/profile_re
 import 'package:anime_galaxy/module_profile/service/general_profile/general_profile.dart';
 import 'package:anime_galaxy/module_upload/service/image_upload/image_upload_service.dart';
 import 'package:anime_galaxy/utils/logger/logger.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:inject/inject.dart';
 import 'package:intl/intl.dart';
 
@@ -22,7 +21,6 @@ class MyProfileService {
   final ProfileSharedPreferencesHelper _preferencesHelper;
   final AuthService _authService;
   final GeneralProfileService _generalProfileService;
-  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
   final ImageUploadService _imageUploadService;
 
   MyProfileService(

@@ -1,11 +1,7 @@
-import 'dart:io';
-
 import 'package:anime_galaxy/generated/l10n.dart';
-import 'package:anime_galaxy/main_screen/main_screen_routes.dart';
 import 'package:anime_galaxy/module_init_account/init_account_routes.dart';
 import 'package:anime_galaxy/module_profile/presistance/profile_shared_preferences.dart';
 import 'package:anime_galaxy/module_profile/state_manager/edit_profile_state_manager/edit_profile_state_manager.dart';
-import 'package:anime_galaxy/module_settings/widget/circular_setting/circular_image.dart';
 import 'package:anime_galaxy/utils/project_color/project_color.dart';
 import 'package:anime_galaxy/module_upload/service/image_upload/image_upload_service.dart';
 import 'package:flutter/cupertino.dart';
@@ -31,8 +27,8 @@ class MyProfileScreen extends StatefulWidget {
 }
 
 class _MyProfileScreenState extends State<MyProfileScreen> {
-      TextEditingController _storyController = TextEditingController() ;
-      TextEditingController _nameController = TextEditingController() ;
+      final TextEditingController _storyController = TextEditingController() ;
+      final TextEditingController _nameController = TextEditingController() ;
 
   String _errorMsg;
   bool loading = false;
