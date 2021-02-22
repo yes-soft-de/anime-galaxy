@@ -6,6 +6,7 @@ import 'package:anime_galaxy/module_anime/ui/widget/anime_details_widget/ainme_d
 import 'package:anime_galaxy/module_anime/ui/widget/comment_card/comment_card.dart';
 import 'package:anime_galaxy/module_anime/ui/widget/episode_card/episode_card.dart';
 import 'package:anime_galaxy/module_anime/ui/widget/spoiler_comment_card/spoiler_comment_card.dart';
+import 'package:anime_galaxy/module_anime/ui/widget/video_player/anime_video_player.dart';
 import 'package:anime_galaxy/module_anime/utils/video_url_extractor/video_url_extractor.dart';
 import 'package:anime_galaxy/module_auth/service/auth_service/auth_service.dart';
 import 'package:anime_galaxy/module_episode/episode_routes.dart';
@@ -16,7 +17,6 @@ import 'package:anime_galaxy/module_theme/service/theme_service/theme_service.da
 import 'package:anime_galaxy/utils/app_bar/anime_galaxy_app_bar.dart';
 import 'package:anime_galaxy/utils/loading_indicator/loading_indicator.dart';
 import 'package:anime_galaxy/utils/project_colors/project_color.dart';
-import 'package:flick_video_player/flick_video_player.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -65,8 +65,6 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
   bool isDarkMode = false;
   bool canReact = false;
 
-  FlickManager flickManager;
-
   @override
   void initState() {
     super.initState();
@@ -76,14 +74,6 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
       currentState = event;
       processEvent();
     });
-  }
-
-  @override
-  void dispose() {
-    if (flickManager != null) {
-      flickManager.dispose();
-    }
-    super.dispose();
   }
 
   void _getUserId() async {
@@ -185,17 +175,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
       }
     }
     return Scaffold(
-      body: WillPopScope(
-        onWillPop: () async {
-          if (flickManager != null) {
-            await flickManager.flickControlManager.exitFullscreen();
-            await flickManager.flickControlManager.pause();
-            await flickManager.flickControlManager.seekTo(Duration(seconds: 0));
-          }
-          return true;
-        },
-        child: loading ? LoadingIndicatorWidget() : getPageLayout(),
-      ),
+      body: loading ? LoadingIndicatorWidget() : getPageLayout(),
     );
   }
 
@@ -538,25 +518,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                   builder: (BuildContext context,
                       AsyncSnapshot<List<String>> snapshot) {
                     if (snapshot.hasData) {
-                      flickManager = FlickManager(
-                        autoPlay: false,
-                        videoPlayerController:
-                            VideoPlayerController.network(snapshot.data[0]),
-                      );
-                      flickManager.flickControlManager.autoPause();
-                      return VisibilityDetector(
-                        onVisibilityChanged: (visibility) {
-                          if (visibility.visibleFraction == 0 && this.mounted) {
-                            flickManager.flickControlManager.autoPause();
-                          } else if (visibility.visibleFraction == 1) {
-                            flickManager.flickControlManager.autoResume();
-                          }
-                        },
-                          key: ObjectKey(flickManager),
-                        child: FlickVideoPlayer(
-                            flickManager: flickManager,
-                        ),
-                      );
+                      return AnimeVideoPlayer(snapshot.data[0]);
                     } else {
                       return Container();
                     }
@@ -603,9 +565,6 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                                     const EdgeInsets.symmetric(horizontal: 2),
                                 child: GestureDetector(
                                   onTap: () {
-                                    if (flickManager != null) {
-                                      flickManager.flickControlManager.pause();
-                                    }
                                     Navigator.pushNamed(
                                         context,
                                         EpisodeRoutes
