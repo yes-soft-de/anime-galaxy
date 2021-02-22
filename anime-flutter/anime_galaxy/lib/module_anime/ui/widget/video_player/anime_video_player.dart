@@ -41,11 +41,11 @@ class _AnimeVideoPlayerState extends State<AnimeVideoPlayer> {
 
     _chewieController = ChewieController(
       videoPlayerController: _videoPlayerController1,
-      autoPlay: true,
-      looping: true,
+      autoPlay: false,
+      looping: false,
       // Try playing around with some of these other options:
 
-      showControls: false,
+      showControls: true,
       materialProgressColors: ChewieProgressColors(
         playedColor: Colors.red,
         handleColor: Colors.blue,
@@ -62,26 +62,18 @@ class _AnimeVideoPlayerState extends State<AnimeVideoPlayer> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Expanded(
-          child: Center(
-            child: _chewieController != null &&
-                    _chewieController.videoPlayerController.value.initialized
-                ? Chewie(
-                    controller: _chewieController,
-                  )
-                : Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      CircularProgressIndicator(),
-                      SizedBox(height: 20),
-                      Text('Loading'),
-                    ],
-                  ),
-          ),
-        ),
-      ],
-    );
+    return _chewieController != null &&
+            _chewieController.videoPlayerController.value.initialized
+        ? Chewie(
+            controller: _chewieController,
+          )
+        : Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              CircularProgressIndicator(),
+              SizedBox(height: 20),
+              Text('Loading'),
+            ],
+          );
   }
 }

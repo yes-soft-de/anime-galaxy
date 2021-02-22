@@ -20,52 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1ad3dfe9-4955-4e6d-920e-30252e82a151" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main_screen/ui/screen/main_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main_screen/ui/screen/main_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/response/anime_response/anime_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/response/anime_response/anime_response.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/response/comment_response/comment_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/response/comment_response/comment_response.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/response/episode_response/episode_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/response/episode_response/episode_response.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/response/favourite_response/favourite_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/response/favourite_response/favourite_response.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_anime/service/anime_details/anime_details.service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/service/anime_details/anime_details.service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_auth/style/style_auth.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/style/style_auth.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_auth/ui/screen/auth_screen/auth_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_auth/ui/screen/auth_screen/auth_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_episode/repository/episode_details/episode_details.repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/repository/episode_details/episode_details.repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_episode/response/comment_response/comment_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/response/comment_response/comment_response.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_episode/response/episode_response/episode_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/response/episode_response/episode_response.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_episode/service/episode_details/episode_details.service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/service/episode_details/episode_details.service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_episode/ui/screen/episode_details_screen/episode_details_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/ui/screen/episode_details_screen/episode_details_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_episode/ui/widget/comment_card/comment_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_episode/ui/widget/comment_card/comment_card.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/response/active_users_response/active_users_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/response/active_users_response/active_users_response.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/response/anime_response/anime_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/response/anime_response/anime_response.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/response/category_respponse/category_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/response/category_respponse/category_response.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/response/comming_soon_response/comming_soon_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/response/comming_soon_response/comming_soon_response.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/response/series_response/series_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/response/series_response/series_response.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/style/style_explore_list.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/style/style_explore_list.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_explore/ui/screen/category_animes_screen/category_animes_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_explore/ui/screen/category_animes_screen/category_animes_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/response/coming_soon_episodes/coming_soon_episodes.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/response/coming_soon_episodes/coming_soon_episodes.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_home/response/watched_series_response/watched_series_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_home/response/watched_series_response/watched_series_response.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_init_account/response/category_respponse/category_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_init_account/response/category_respponse/category_response.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_init_account/response/series_response/series_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_init_account/response/series_response/series_response.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_network/http_client/http_client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_network/http_client/http_client.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_notification/response/notification_response/notification_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_notification/response/notification_response/notification_response.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/response/favourite_response/anime_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/response/favourite_response/anime_response.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/response/following_activities_response/following_activities_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/response/following_activities_response/following_activities_response.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/response/follwoing_response/following_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/response/follwoing_response/following_response.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/response/previous_comments_response/previous_comments_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/response/previous_comments_response/previous_comments_response.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/response/profile_response/profile_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/response/profile_response/profile_response.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/service/my_profile/my_profile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/service/my_profile/my_profile.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/state_manager/edit_profile_state_manager/edit_profile_state_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/state_manager/edit_profile_state_manager/edit_profile_state_manager.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/state_manager/my_profile/my_profile_state_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/state_manager/my_profile/my_profile_state_manager.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/ui/screen/my_profile/my_profile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/ui/screen/my_profile/my_profile.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/ui/screen/profile_screen/profile_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/ui/screen/profile_screen/profile_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_profile/ui/widget/comment_card/comment_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_profile/ui/widget/comment_card/comment_card.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_search/response/search_response/search_reaponse.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_search/response/search_response/search_reaponse.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_search/state_manager/search/search.state_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_search/state_manager/search/search.state_manager.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_search/ui/screen/search_screen/seach_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_search/ui/screen/search_screen/seach_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_settings/ui/ui/settings_page/settings_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_settings/ui/ui/settings_page/settings_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/module_upload/repository/upload_repository/upload_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_upload/repository/upload_repository/upload_repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/app_bar/anime_galaxy_app_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/app_bar/anime_galaxy_app_bar.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/module_anime/ui/widget/video_player/anime_video_player.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/ui/widget/video_player/anime_video_player.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,6 +48,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/android/app" />
     <property name="settings.editor.selected.configurable" value="flutter.settings" />
@@ -189,7 +148,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614001498562</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Cleaning Repo, syntacticly">
+      <created>1614005208544</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1614005208544</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -215,25 +181,26 @@
     <MESSAGE value="Making sure the log works" />
     <MESSAGE value="Trying to fix player exception" />
     <MESSAGE value="Changed the Video Player, Alltogeather" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed the Video Player, Alltogeather" />
+    <MESSAGE value="Cleaning Repo, syntacticly" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaning Repo, syntacticly" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1491" height="391" key="GridCell.Tab.0.bottom" timestamp="1613941862776">
+    <state width="1491" height="391" key="GridCell.Tab.0.bottom" timestamp="1614005764736">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="391" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1613941862776" />
-    <state width="1491" height="391" key="GridCell.Tab.0.center" timestamp="1613941862776">
+    <state width="1491" height="391" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1614005764736" />
+    <state width="1491" height="391" key="GridCell.Tab.0.center" timestamp="1614005764735">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="391" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1613941862776" />
-    <state width="1491" height="391" key="GridCell.Tab.0.left" timestamp="1613941862776">
+    <state width="1491" height="391" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1614005764735" />
+    <state width="1491" height="391" key="GridCell.Tab.0.left" timestamp="1614005764734">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="391" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1613941862776" />
-    <state width="1491" height="391" key="GridCell.Tab.0.right" timestamp="1613941862776">
+    <state width="1491" height="391" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1614005764734" />
+    <state width="1491" height="391" key="GridCell.Tab.0.right" timestamp="1614005764736">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="391" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1613941862776" />
+    <state width="1491" height="391" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1614005764736" />
     <state x="277" y="77" key="SettingsEditor" timestamp="1613757467270">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -242,9 +209,9 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="361" y="165" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1614001500771" />
-    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1614000900601">
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1614005441684">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1614000900601" />
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1614005441684" />
   </component>
 </project>
