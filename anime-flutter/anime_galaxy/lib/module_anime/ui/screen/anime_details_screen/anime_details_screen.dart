@@ -188,6 +188,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
       body: WillPopScope(
         onWillPop: () async {
           if (flickManager != null) {
+            await flickManager.flickControlManager.exitFullscreen();
             await flickManager.flickControlManager.pause();
             await flickManager.flickControlManager.seekTo(Duration(seconds: 0));
           }
@@ -542,6 +543,7 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                         videoPlayerController:
                             VideoPlayerController.network(snapshot.data[0]),
                       );
+                      flickManager.flickControlManager.autoPause();
                       return VisibilityDetector(
                         onVisibilityChanged: (visibility) {
                           if (visibility.visibleFraction == 0 && this.mounted) {
@@ -551,7 +553,9 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
                           }
                         },
                           key: ObjectKey(flickManager),
-                        child: FlickVideoPlayer(flickManager: flickManager),
+                        child: FlickVideoPlayer(
+                            flickManager: flickManager,
+                        ),
                       );
                     } else {
                       return Container();
