@@ -23,7 +23,6 @@
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/module_anime/ui/widget/video_player/anime_video_player.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/module_anime/ui/widget/video_player/anime_video_player.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614005208544</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="new trick">
+      <created>1614006175469</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1614006175469</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -182,36 +188,37 @@
     <MESSAGE value="Trying to fix player exception" />
     <MESSAGE value="Changed the Video Player, Alltogeather" />
     <MESSAGE value="Cleaning Repo, syntacticly" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleaning Repo, syntacticly" />
+    <MESSAGE value="new trick" />
+    <option name="LAST_COMMIT_MESSAGE" value="new trick" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1491" height="391" key="GridCell.Tab.0.bottom" timestamp="1614005764736">
+    <state width="1491" height="356" key="GridCell.Tab.0.bottom" timestamp="1614006743091">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="391" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1614005764736" />
-    <state width="1491" height="391" key="GridCell.Tab.0.center" timestamp="1614005764735">
+    <state width="1491" height="356" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1614006743091" />
+    <state width="1491" height="356" key="GridCell.Tab.0.center" timestamp="1614006743091">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="391" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1614005764735" />
-    <state width="1491" height="391" key="GridCell.Tab.0.left" timestamp="1614005764734">
+    <state width="1491" height="356" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1614006743091" />
+    <state width="1491" height="356" key="GridCell.Tab.0.left" timestamp="1614006743090">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="391" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1614005764734" />
-    <state width="1491" height="391" key="GridCell.Tab.0.right" timestamp="1614005764736">
+    <state width="1491" height="356" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1614006743090" />
+    <state width="1491" height="356" key="GridCell.Tab.0.right" timestamp="1614006743091">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1491" height="391" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1614005764736" />
+    <state width="1491" height="356" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1614006743091" />
     <state x="277" y="77" key="SettingsEditor" timestamp="1613757467270">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="277" y="77" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1613757467270" />
-    <state x="361" y="165" key="Vcs.Push.Dialog.v2" timestamp="1614001500771">
+    <state x="361" y="165" key="Vcs.Push.Dialog.v2" timestamp="1614006693684">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="361" y="165" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1614001500771" />
-    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1614005441684">
+    <state x="361" y="165" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1614006693684" />
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1614007260780">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1614005441684" />
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1614007260780" />
   </component>
 </project>

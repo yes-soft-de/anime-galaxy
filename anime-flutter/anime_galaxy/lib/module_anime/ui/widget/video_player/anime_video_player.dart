@@ -2,11 +2,10 @@ import 'package:chewie/chewie.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 
 class AnimeVideoPlayer extends StatefulWidget {
-  // ignore: use_key_in_widget_constructors
   const AnimeVideoPlayer(this.link);
-
   final String link;
 
   @override
@@ -26,6 +25,14 @@ class _AnimeVideoPlayerState extends State<AnimeVideoPlayer> {
   void initState() {
     super.initState();
     initializePlayer();
+  }
+
+  void pause() {
+    if (_chewieController != null) {
+      if (_chewieController.isPlaying) {
+        _chewieController.pause();
+      }
+    }
   }
 
   @override
@@ -62,11 +69,23 @@ class _AnimeVideoPlayerState extends State<AnimeVideoPlayer> {
 
   @override
   Widget build(BuildContext context) {
+
     return _chewieController != null &&
             _chewieController.videoPlayerController.value.initialized
-        ? Chewie(
-            controller: _chewieController,
-          )
+        ? VisibilityDetector(
+          key: ObjectKey(this),
+          onVisibilityChanged: (VisibilityInfo info) {
+            if (info.visibleFraction < 50) {
+              pause();
+            }
+          },
+          child: AspectRatio(
+            aspectRatio: 16/9,
+            child: Chewie(
+                controller: _chewieController,
+              ),
+          ),
+        )
         : Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: const [
