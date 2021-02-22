@@ -19,7 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ad3dfe9-4955-4e6d-920e-30252e82a151" name="Default Changelist" comment="" />
+    <list default="true" id="1ad3dfe9-4955-4e6d-920e-30252e82a151" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -111,7 +113,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613941717258</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Making sure the log works">
+      <created>1613942016231</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1613942016231</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -133,7 +142,8 @@
     <MESSAGE value="Auto play and auto pause when stopping page" />
     <MESSAGE value="added crashlytics tracer" />
     <MESSAGE value="Cleaning Error log and fixing video, again" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleaning Error log and fixing video, again" />
+    <MESSAGE value="Making sure the log works" />
+    <option name="LAST_COMMIT_MESSAGE" value="Making sure the log works" />
   </component>
   <component name="WindowStateProjectService">
     <state width="1491" height="391" key="GridCell.Tab.0.bottom" timestamp="1613941862776">
@@ -156,13 +166,13 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="277" y="77" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1613757467270" />
-    <state x="361" y="165" key="Vcs.Push.Dialog.v2" timestamp="1613941720573">
+    <state x="361" y="165" key="Vcs.Push.Dialog.v2" timestamp="1613942022572">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="361" y="165" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1613941720573" />
-    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1613941587921">
+    <state x="361" y="165" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1613942022572" />
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1613941961029">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1613941587921" />
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1613941961029" />
   </component>
 </project>

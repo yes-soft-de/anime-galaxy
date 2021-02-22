@@ -188,7 +188,8 @@ class _AnimeDetailsScreenState extends State<AnimeDetailsScreen>
       body: WillPopScope(
         onWillPop: () async {
           if (flickManager != null) {
-            flickManager.dispose();
+            await flickManager.flickControlManager.pause();
+            await flickManager.flickControlManager.seekTo(Duration(seconds: 0));
           }
           return true;
         },
